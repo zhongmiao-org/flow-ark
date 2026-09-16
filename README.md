@@ -20,6 +20,7 @@ FlowArk 是本地优先的自动化工作台，连接用户选择的本机已安
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | 开始开发前必读：统一约束、目标仓库操作、验证与交付规则 |
 | [总体架构](docs/architecture.md) | 系统职责、进程模型、执行语义、数据归属、设备与平台边界 |
+| [P1 招聘交互验收](docs/p1-recruiting.md) | BOSS/智联业务目标、AI 回复、分动作授权、联系方式提醒和实测标准 |
 | [ROADMAP](ROADMAP.md) | 阶段任务、依赖、排除项和验收关口 |
 | [契约管理](contracts/README.md) | 公共协议的归属、版本、发布和消费者接入方式 |
 
@@ -35,7 +36,8 @@ flow-ark/                          # 当前治理仓库
 ├── AGENTS.md
 ├── ROADMAP.md
 ├── docs/
-│   └── architecture.md
+│   ├── architecture.md
+│   └── p1-recruiting.md           # 首个业务场景的配置与验收
 ├── contracts/
 │   └── README.md                 # 目前只有管理约定，没有已发布 Schema
 ├── flow-ark-client/               # 规划：P1.1 创建，具有自己的 .git/
@@ -46,7 +48,7 @@ flow-ark/                          # 当前治理仓库
 | 仓库 | 负责内容 | 技术方向 | 建立阶段 |
 | --- | --- | --- | --- |
 | `flow-ark` | 总体文档、公共契约、跨仓库决策 | Markdown、JSON Schema、OpenAPI | P0 |
-| `flow-ark-client` | 编辑器、本地执行、调度、SQLite、系统能力 | Electron、React、TypeScript、playwright-core、ExcelJS | P1.1 |
+| `flow-ark-client` | 编辑器、本地执行、招聘适配、AI 回复、SQLite、系统能力 | Electron、React、TypeScript、Playwright/Selenium 适配器、ExcelJS | P1.1 |
 | `flow-ark-server` | 平台 API、用户权限、设备、任务、MySQL 迁移 | Spring Boot、MySQL、Maven | P2 |
 | `flow-ark-admin` | 平台管理界面 | React、TypeScript | P2 |
 
@@ -64,12 +66,16 @@ flow-ark/                          # 当前治理仓库
 
 ## P1 成功标准
 
-Windows、macOS 安装后的客户端，在不部署 FlowArk 服务端、不登录平台的情况下，独立完成：
+当前先完善 macOS，本机 Chrome 首先完成两站真实业务闭环；Firefox/Safari 随后分别验收，Windows 三款 360 后续验证。客户端不部署 FlowArk 服务端、不登录管理平台即可按配置执行：
 
-**拉取数据 → JS/TS 处理 → 生成 Excel → 浏览器上传 → 核对业务结果。**
+**BOSS 直聘／智联招聘网页版：职位筛选 → 选定简历投递或发送 → AI 回复 → 微信/手机号交换 → 对方微信号提醒与结果核对。**
 
-浏览器由用户从本机已安装程序中选择，支持自动发现和手动指定路径。P1 优先支持 Chrome/Edge，已有 Chromium 需通过兼容性检查；客户端不附带、下载或安装自动化浏览器。Electron 内核只用于客户端界面。浏览器缺失或不可用时提示重新选择，纯数据流程仍可运行。
+投递、回复、请求/接受微信、请求/接受手机号分别配置禁止、需确认或自动执行；AI 按简历事实和当前对话生成回复，超范围进入人工待办。两站网页版的功能可达性须实测，未取得对方微信号不能仅凭“交换请求已发送”报成功。
 
-不依赖平台不等于所有业务流程离线可用：访问业务 API 或业务网站仍需相应网络。可视化编排覆盖顺序、条件、串行循环，任务支持手动触发和应用驻留期间的本机定时。
+浏览器由用户从本机已安装程序中选择，支持发现和手动指定。Chrome 可用 `playwright-core` 控制，不需内置浏览器；系统 Firefox/Safari 使用 Selenium 路线，Windows 360 按实际版本验证。统一 BrowserDriver 隔离差异，客户端不附带、下载或安装自动化浏览器，Electron 内核只用于界面。详细矩阵见架构文档。
+
+原来的数据处理、Excel 生成与上传流程保留为技术回归样例，不替代上述业务验收。当前仍只有设计文档，没有浏览器兼容或招聘动作已通过的声明。
+
+不依赖平台不等于全部离线：访问招聘网站仍需网络；AI 使用用户配置的本地或云端兼容接口，不默认附带模型。可视化编排覆盖顺序、条件、串行循环，任务支持手动触发和应用驻留期间的本机定时。
 
 后续平台按“先集中监控，再远程治理”推进；接入平台不取消本地独立模式，也不自动上传本地流程、凭据或浏览器登录态。

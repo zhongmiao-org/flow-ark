@@ -4,6 +4,8 @@
 
 本文是完整架构的唯一来源。[ROADMAP](../ROADMAP.md) 记录阶段与验收，[AGENTS.md](../AGENTS.md) 规定开发约束，[契约说明](../contracts/README.md) 规定协议版本与消费者管理。
 
+P1 的招聘业务配置、AI 回复、动作授权和验收详见 [招聘交互验收](p1-recruiting.md)。当前先完善 macOS；Windows 360 浏览器后续单独验证。
+
 ## 1. 产品目标与阶段边界
 
 FlowArk 是本地优先、可扩展的自动化工作台。用户通过可视化节点和可信自定义脚本，将数据处理、文件生成、浏览器操作和业务结果检查组合为流程。
@@ -11,12 +13,14 @@ FlowArk 是本地优先、可扩展的自动化工作台。用户通过可视化
 | 阶段 | 交付目标 | 不据此承诺的能力 |
 | --- | --- | --- |
 | P0 | 多仓库治理、架构、开发约束、路线图 | 可运行客户端、可用协议、安装包 |
-| P1 | Windows/macOS 单机客户端，手动和本机定时执行 | 服务端、管理台、远程派发、桌面自动化 |
+| P1 | macOS 优先的单机招聘交互，通用编排、AI 回复、手动和本机定时执行；Windows 兼容后续验证 | 服务端、管理台、远程派发、桌面自动化 |
 | P2 | 单组织私有部署平台，集中监控设备与运行 | 远程执行或终止、平台调度 |
 | P3 | 发布流程版本、设备授权、远程派发和治理 | 任意远程 Shell、任意本地文件访问 |
 | P4 | 按需增加 Python、OCR、桌面操作、录制、插件、独立代理 | 一次实现全部扩展或自动跨平台兼容 |
 
-P1 验收链路：**拉取数据 → JS/TS 处理 → 生成 Excel → 浏览器上传 → 核对业务结果**。不部署 FlowArk 平台也必须可以运行；访问业务网站和接口仍取决于业务网络。
+P1 正式验收：在本机按配置操作 BOSS 直聘和智联招聘求职者网页版，完成 **职位筛选 → 选定简历投递/发送 → AI 回复 → 微信/手机号交换 → 对方微信号提醒与结果核对**。macOS Chrome 先打通，Firefox/Safari 随后分别验收；Windows 360 不阻塞首个 macOS 版本。不部署 FlowArk 平台也必须可以运行；业务网站以及用户选择的云端 AI 仍依赖相应网络。
+
+原“HTTP → JS/TS → Excel → 上传 → 核对”保留为通用引擎回归样例，不能替代招聘平台验收。招聘规则放在业务模块和站点适配器中，不耦合进通用执行核心。
 
 ## 2. 仓库组织与技术方向
 
@@ -42,8 +46,9 @@ flowchart TB
 | 层次 | 选型 | 归属 |
 | --- | --- | --- |
 | 客户端界面 | Electron、React、TypeScript、React Flow、Monaco | 客户端仓库 |
-| 自动化和文件 | playwright-core 控制选定的本机浏览器、JS/TS 执行、ExcelJS | 客户端仓库的适配器 |
-| 自动化浏览器 | 用户本机已安装的 Chrome/Edge，或通过兼容性验证的 Chromium | 操作系统已有软件；客户端不附带、下载或安装 |
+| 自动化和文件 | 统一 BrowserDriver：playwright-core＋selenium-webdriver；JS/TS、ExcelJS | 客户端仓库的适配器，业务层不依赖库对象 |
+| 自动化浏览器 | macOS Chrome/Firefox/Safari；Windows 三款 360 后续逐款验证 | 操作系统已有软件；客户端不附带、下载或安装 |
+| 招聘业务与 AI | BOSS/智联网页适配、动作策略、用户自配模型接口、联系方式提醒 | 客户端业务模块；无需 FlowArk 服务端 |
 | 本地数据 | SQLite、独立文件目录、系统保护的凭据存储 | 客户端仓库 |
 | 平台服务 | Spring Boot、MySQL、模块化单体 | 服务端仓库 |
 | 管理台 | React、TypeScript | 管理台仓库 |
@@ -53,7 +58,7 @@ flowchart TB
 
 SQLite 迁移由客户端发布，MySQL 迁移由服务端发布，不建立数据库专用空仓库。P2 不引入微服务、SaaS 多租户、计费、Redis 或消息队列作为基础前提。
 
-具体依赖版本与目标系统最低版本在各应用首次建工程时验证并锁定，不使用 P0 文档虚构“最新兼容版本”。P1 必须有 Windows、macOS 两端验证记录；旧 Windows、IE 和 Linux 不在本轮承诺中。
+具体依赖版本与目标系统最低版本在各应用首次建工程时验证并锁定，不使用 P0 文档虚构“最新兼容版本”。P1 当前优先 macOS，Windows 及三款 360 保留后续独立验证项；未验证平台不得宣称可用。旧 Windows、IE/360 兼容模式和 Linux 不在本轮承诺中。
 
 ## 3. 客户端进程与模块边界
 
@@ -65,14 +70,17 @@ flowchart TB
         HOST["本地运行宿主<br/>队列 / 定时 / 状态 / 事件 / 存储"]
         SELECT["浏览器发现与绑定适配器<br/>发现安装 / 手动选取 / 版本与能力校验"]
         DB[(SQLite)]
-        WORKER["执行 Worker<br/>执行核心 / playwright-core / 可信 JS/TS"]
+        WORKER["执行 Worker<br/>通用执行核心 / 招聘站点适配器 / 可信 JS/TS"]
+        POLICY["招聘动作策略与 AI 回复<br/>简历事实 / 授权 / 草稿 / 本地待办"]
+        DRIVER["独立浏览器会话进程 / BrowserDriver<br/>Playwright 适配器 / Selenium 适配器"]
         FILES["本地文件与运行产物"]
     end
     subgraph SYSTEM["操作系统已有软件与服务"]
-        INSTALLED["本机已安装的 Chrome / Edge / 已验证 Chromium"]
-        WEB["选定本机浏览器启动的外部实例<br/>专用 Profile"]
+        INSTALLED["macOS Chrome / Firefox / Safari<br/>Windows 360 后续验证"]
+        WEB["选定本机浏览器的外部会话<br/>专用 Profile 或驱动隔离会话"]
         SECRET["系统保护的凭据存储"]
     end
+    MODEL["用户配置的 AI 接口<br/>本地模型或云端服务"]
     UI --> BR
     BR --> HOST
     HOST --> DB
@@ -81,7 +89,11 @@ flowchart TB
     SELECT -->|"已校验的本地绑定"| HOST
     HOST -->|"启动 / 取消"| WORKER
     WORKER -->|"事件 / 进度 / 结果"| HOST
-    WORKER -->|"按绑定路径启动并自动化"| WEB
+    HOST -->|"监督会话生命周期"| DRIVER
+    WORKER -->|"草稿生成与动作校验"| POLICY
+    POLICY --> MODEL
+    WORKER -->|"统一操作接口与会话租约"| DRIVER
+    DRIVER -->|"本机已选浏览器，不下载替换"| WEB
     INSTALLED -. "使用已有可执行程序" .-> WEB
     WORKER --> FILES
     HOST -->|"产物索引"| FILES
@@ -90,6 +102,8 @@ flowchart TB
 ```
 
 Main 启动和监督本地运行宿主，宿主启动每次运行的 Worker。P1 单设备最多运行一个 Worker；Electron 专属进程启动与通信放入宿主适配层，不污染执行核心。首次实现可以用 Electron utility process 承载本地宿主，但其业务模块保持可由其他 Node 宿主加载。
+
+浏览器会话由本地宿主管理的独立会话进程持有，Worker 通过统一接口申请/释放会话租约，不直接持有库对象。一个正常结束的消息检查批次可释放运行槽并保留仍有效的受控登录会话，供后续批次使用；取消未完成浏览器操作、用户退出或会话失效时回收对应自动化资源。会话不能被两个 Run 同时操作，也不承诺 Safari 在会话中断后可恢复。
 
 图中的浏览器是用户选择的系统已有程序，不随 FlowArk 分发。Electron 自带的 Chromium 内核仅渲染客户端界面，不作为网页自动化浏览器，也不能在本机浏览器不可用时充当备用执行环境。
 
@@ -100,12 +114,15 @@ Main 启动和监督本地运行宿主，宿主启动每次运行的 Worker。P1
 | Main | 系统窗口、文件选择、安全存储桥接、宿主生命周期 | 执行流程、业务节点、分支循环或定时业务逻辑 |
 | 本地运行宿主 | 运行准入、队列、调度、事件和状态持久化、统一存储写入 | 在界面中直接暴露数据库，执行耗时用户脚本 |
 | 浏览器发现与绑定适配器 | 枚举本机安装、校验手动选择、保存本地绑定和检测能力 | 下载、安装、替换浏览器，修改系统默认浏览器或静默改用其他安装 |
+| BrowserDriver/会话管理 | 统一页面操作、驱动能力探测、会话租约、驱动及浏览器资源回收 | 向业务暴露 Page/WebDriver、在业务提交后切驱动重放 |
+| 招聘策略与站点适配 | 按配置筛选、准备/核对动作、平台页面差异、待办提醒 | 把站点选择器写入通用核心，绕过动作授权 |
+| AI 回复服务 | 基于已授权的简历事实和对话生成草稿 | 直接操作浏览器或发送消息、编造经历、扩大授权 |
 | 执行核心 | 状态与控制流、输入输出、节点调度、取消传播 | React、Electron UI、平台 HTTP 客户端、具体 SQL 驱动 |
 | 能力适配器 | 实现 Browser/HTTP/File/Excel/Script 等能力 | 绕过宿主修改运行记录或自行宣布平台任务完成 |
 
-Renderer 配置 `contextIsolation: true`、`sandbox: true`、`nodeIntegration: false`。主进程校验 IPC 来源、方法和参数；文件操作用明确的业务接口，不暴露“执行任意命令”桥。业务网站运行在用户选定的本机浏览器实例中，由 playwright-core 控制，不作为拥有本地权限的客户端 UI 加载。[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)
+Renderer 配置 `contextIsolation: true`、`sandbox: true`、`nodeIntegration: false`。主进程校验 IPC 来源、方法和参数；文件操作用明确的业务接口，不暴露“执行任意命令”桥。业务网站运行在用户选定的本机浏览器实例中，经 BrowserDriver 控制，不作为拥有本地权限的客户端 UI 加载。[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)
 
-Worker 及其所属浏览器/脚本进程必须可取消和回收。用户脚本不能与 Renderer 或主进程同进程执行；独立进程只提供故障与生命周期隔离，不是对恶意代码的安全保证。Node `vm` 不作为安全沙箱。[Node.js VM 文档](https://nodejs.org/api/vm.html)
+Worker、脚本和会话进程分别登记资源归属并可取消回收；异常取消须停止该 Run 的浏览器操作并释放或销毁其受控会话，不能只杀 Worker 留下失控驱动。用户脚本不能与 Renderer 或主进程同进程执行；独立进程只提供故障与生命周期隔离，不是对恶意代码的安全保证。Node `vm` 不作为安全沙箱。[Node.js VM 文档](https://nodejs.org/api/vm.html)
 
 ## 4. 流程、节点和脚本模型
 
@@ -142,23 +159,52 @@ Worker 及其所属浏览器/脚本进程必须可取消和回收。用户脚本
 
 **网页自动化完全依赖本机已有浏览器。FlowArk 不内置、下载、安装、升级或分发自动化浏览器，也不使用 Playwright 浏览器缓存或 Electron 渲染内核作为后备。** 浏览器安装和版本维护由用户或其 IT 环境负责，业务文件下载不受此限制。
 
-P1 优先验证本机 Chrome/Edge；用户自行安装的 Chromium 只有通过相同兼容性检查后才可选择。选择系统浏览器不等于支持所有浏览器，Safari、Firefox 和其他套壳浏览器不因此自动进入 P1 支持范围。[Playwright 浏览器说明](https://playwright.dev/docs/browsers)
+浏览器目标和驱动路线如下，均为需要验证的设计，不是已经通过的支持清单：
+
+| 系统/浏览器 | 优先路线 | 验证与推进边界 |
+| --- | --- | --- |
+| macOS Chrome | PlaywrightAdapter（playwright-core） | 当前首个完整业务验收目标 |
+| macOS Firefox | SeleniumAdapter＋geckodriver，指定本机 Firefox | P1 后续兼容验收；不使用 Playwright 修改版 Firefox 替代 |
+| macOS Safari | SeleniumAdapter＋系统 safaridriver | P1 后续兼容验收；先验证启用条件、隔离登录、扫码/验证码和人工接管 |
+| Windows 360 安全浏览器 | 极速内核先验证 Playwright；必要时 Selenium＋匹配 ChromeDriver | 后续单独验证，记录产品/内核版本，兼容/IE 模式不沿用此路线 |
+| Windows 360 极速浏览器 | 同上，独立验证 | 不能用安全浏览器或极速 X 的结果代替 |
+| Windows 360 极速 X | 同上，独立验证 | 当前不阻塞 macOS 首个版本 |
+
+Chrome/Edge 或其他 Chromium 可作为兼容诊断基线，但不能偷偷替代用户指定的浏览器。360 有极速/兼容模式差异，不能仅凭浏览器品牌推断当前页面可被哪种驱动操作。[360 官方帮助](https://browser.360.cn/se/help/browser.html)
+
+Playwright 可以指定外部可执行程序，但官方不保证任意外部版本；Chromium 的 CDP 连接亦有能力限制。因此 360 是待测候选，不是天然不支持，也不是已保证支持。Selenium 可配置浏览器 binary，但仍需验证内核/驱动匹配与页面功能，不能把“换 Selenium”视为兼容证明。[Playwright BrowserType](https://playwright.dev/docs/api/class-browsertype)、[ChromeDriver 配置](https://developer.chrome.com/docs/chromedriver/capabilities)
+
+Playwright 的 Firefox/WebKit 使用其所需的定制构建，不能把 WebKit 测试当作本机 Safari 验收。使用系统 Firefox/Safari 的要求使 Selenium 成为 P1 的必要适配器，而不只是 360 的备用方案。[Playwright 浏览器说明](https://playwright.dev/docs/browsers)、[Selenium Firefox](https://www.selenium.dev/documentation/webdriver/browsers/firefox/)、[Selenium Safari](https://www.selenium.dev/documentation/webdriver/browsers/safari/)
 
 选择与启动流程：
 
 1. 浏览器适配器从 Windows 安装信息、macOS 应用目录等本机来源发现候选项，显示名称、版本、安装位置和可用状态；不只读取系统默认浏览器。
 2. 用户从候选列表选择，也可通过系统文件选择器手动指定已有可执行文件或 macOS 应用；适配器解析真实可执行路径并验证浏览器身份、版本和所需能力，不把任意程序当成浏览器运行。
 3. 选择结果保存为本地浏览器绑定。流程只引用绑定或浏览器能力要求；绝对安装路径不写入可移植流程，也不上传平台。导入流程或在另一设备运行时重新绑定。
-4. Worker 使用 `playwright-core` 和明确的 `executablePath` 启动用户选中的安装；不会省略路径回退到 Playwright 自带版本，也不会静默换为另一浏览器。外部浏览器与驱动兼容性需验证，不能承诺任意版本都可用。[Playwright executablePath 说明](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-executable-path)
-5. 运行前重新校验路径、版本、能力和专用 Profile。卸载、移动、系统更新导致不兼容或无法启动时，阻止需要浏览器的流程并提示重新选择；纯数据和文件流程不因浏览器缺失被阻止。验证不能只依赖首次安装时的结果。
+4. BrowserDriver 在副作用发生前，根据能力验证结果选择并固定驱动：Playwright 明确传 `executablePath`；Selenium 显式配置本机 browser binary 和 driver service；Safari 使用系统 Safari/safaridriver。不得回退到下载版、缓存浏览器或另一品牌，也不得在投递/回复失败后换驱动重放。
+5. 运行前重新校验路径、浏览器和驱动版本、模式、能力及会话。卸载、移动、系统更新导致不兼容或无法启动时，阻止需要浏览器的流程并提示处理；纯数据和文件流程不因浏览器缺失被阻止。验证不能只依赖首次安装时的结果。
 
-客户端仅管理自己启动的浏览器实例及专用 Profile。每个 Profile 只能被一个任务占用，结束时释放会话与锁；不复用或复制日常默认 Profile，不关闭用户已有的其他浏览器窗口。取消与崩溃回收只针对当前任务拥有的进程。
+客户端仅管理自己的浏览器自动化会话；支持持久化 Profile 的驱动使用专用目录，Safari 按系统 WebDriver 的隔离模型处理，不强行套用 Chrome Profile 或复制日常登录态。任务结束释放租约，登录会话可按配置保持；用户退出、异常取消或失效时关闭对应会话，不关闭用户已有的其他浏览器窗口。
+
+Safari 需启用系统支持的自动化能力，其自动化窗口与普通窗口隔离，人工打断可能使会话永久失效。P1.1 先验证真实网站的扫码、验证码、登录和接管路径，不承诺“手动操作后一定能继续原会话”；不可恢复时保留待办并重新建立会话，绝不重放结果未知的发送动作。[Apple WebDriver 说明](https://developer.apple.com/documentation/webkit/about-webdriver-for-safari)、[WebKit 隔离说明](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)
 
 构建、打包、安装、首次启动和升级流程均不得引入自动化浏览器下载，也不添加 `@playwright/browser-*` 下载型依赖或执行 `playwright install`。测试环境同样使用预先安装、显式选择的浏览器；无浏览器的环境验证缺失提示，不靠临时下载掩盖依赖。Electron 为客户端 UI 提供的渲染运行时不属于自动化浏览器分发。
 
+Selenium 的驱动程序与浏览器本体分开管理。使用 JavaScript 绑定，不因此引入 Python/JVM；ChromeDriver/geckodriver 由依赖准备步骤提供匹配并校验的本地路径，运行中不临时下载。使用 Selenium Manager 时必须禁用浏览器下载（如 `SE_AVOID_BROWSER_DOWNLOAD=true`）；Safari 使用系统驱动。驱动不存在或不兼容时提示处理，不让 Manager 默默安装另一个浏览器。[Selenium Manager](https://www.selenium.dev/documentation/selenium_manager/)
+
 P1 不承诺接管任意已打开浏览器窗口。未来 CDP 连接适配器需独立定义限制；CDP 仅适用于 Chromium 系浏览器，能力与完整 Playwright 协议不同。[Playwright CDP 说明](https://playwright.dev/docs/api/class-browsertype#browser-type-connect-over-cdp)
 
-等待人工保留当前运行及浏览器会话，用户继续后执行下一步。P1 不自动识别验证码，不将 RPA 操作或未来桌面微信适配描述为不会封号。
+等待人工后继续前必须复核当前账号、页面和会话能力；驱动无法恢复时进入明确的待处理状态。P1 不自动识别或绕过验证码，不将 RPA 或更换驱动描述为不会封号。
+
+### 4.4 统一浏览器接口与招聘业务
+
+BrowserDriver 覆盖会话与能力探测、导航/页面与框架定位、读取、点击、输入、文件上传、等待、截图、取消和关闭；业务脚本通过统一 SDK 使用这些能力。驱动差异以 capability 表达，不向流程或招聘业务暴露 Page/WebDriver 原生对象。某项能力缺失在执行前报告，不能用不等价的操作伪装成功。
+
+招聘业务通过独立的 BOSS/智联 SiteAdapter 适配页面，使用 ActionPolicy 校验每类动作的禁止/确认/自动配置，AIReplyService 只产出基于用户简历事实和当前对话的草稿。站点消息不具有修改规则的权限；结果未知不自动重发。
+
+两站的职位、账号、简历、对话、动作记录、交换结果和本地待办分别管理。投递、回复、请求或接受微信/手机号均独立授权。取得实际对方微信号后生成持久化提醒，包含平台、公司/职位、联系人、号码与来源；请求已发送或对方未同意不能当作已取得号码。具体配置、AI 数据范围、提醒去重与验收见 [招聘交互验收](p1-recruiting.md)。
+
+持续沟通采用有限批次的本机计划，不让等待对方的请求长期占据单任务运行槽。业务待确认/等待对方与执行器的同步 `WAITING_INPUT` 区分：前者保存为待办并结束本轮，后者仅用于需要保持现场的短时人工介入。
 
 ## 5. 本地执行、状态与可靠性
 
@@ -171,7 +217,8 @@ sequenceDiagram
     participant H as 本地运行宿主
     participant D as SQLite
     participant W as 执行 Worker
-    participant B as 选定的本机浏览器或业务 API
+    participant BD as BrowserDriver 会话进程
+    participant B as 选定的本机浏览器
     U->>UI: 手动运行（定时由宿主直接触发）
     UI->>H: RunRequest
     H->>H: 校验版本、依赖、输入与资源；按需校验本机浏览器绑定
@@ -181,15 +228,25 @@ sequenceDiagram
     W->>H: 运行与节点事件
     H->>D: 持久化事件并更新状态
     H-->>UI: 展示已记录的进度
-    W->>B: 执行业务操作
-    B-->>W: 回执或业务结果
+    W->>BD: 申请会话租约
+    BD-->>W: 会话引用与可用能力
+    W->>H: 已校验授权的外发动作与去重依据
+    H->>D: 持久化待执行动作，检查重复
+    H-->>W: 允许继续或拒绝
+    opt 允许执行
+        W->>BD: 通过统一接口执行页面操作
+        BD->>B: 调用已固定的本机浏览器驱动
+        B-->>BD: 页面回执与可见结果
+        BD-->>W: 标准化操作结果
+    end
     W->>W: 执行结果检查
     W->>H: 节点结果与终态
     H->>D: 保存终态、结果和产物引用
+    H->>BD: 释放 Run 租约，按配置保留有效会话或回收
     H-->>UI: 展示结果及核对证据
 ```
 
-调度与 UI 走同一运行准入入口。宿主是 SQLite 的统一写入方，Worker 只发送事件。快照、初始记录和入队事件成功持久化后才能启动；终态持久化后才能对外报告已记录的完成。
+图中以浏览器外发动作为例；纯 HTTP、文件等节点调用各自能力适配器，不申请浏览器会话。调度与 UI 走同一运行准入入口。宿主是 SQLite 的统一写入方，Worker 通过消息请求持久化和发送事件。快照、初始记录和入队事件成功持久化后才能启动；终态持久化后才能对外报告已记录的完成。
 
 状态和事件保持一致，不让 Worker 直接改数据库。宿主无法持久化时停止接收新运行，并报告本地故障；不得继续显示任务已可靠保存。已执行外部操作但尚未落盘的结果按未知处理。
 
@@ -248,14 +305,16 @@ stateDiagram-v2
 | 数据 | 保存方式与归属 |
 | --- | --- |
 | 本地安装标识、设置 | SQLite；安装标识不等于未来平台设备 ID |
-| 本机浏览器绑定、安装路径和检测结果 | SQLite；本地配置，执行前重新校验，不进入可移植流程或平台上报 |
+| 本机浏览器/驱动绑定、路径、模式和检测结果 | SQLite；本地配置，执行前重新校验，不进入可移植流程或平台上报 |
 | 流程草稿、不可变版本、编辑元数据 | SQLite；语义和展示分开 |
 | 本机计划、触发记录、跳过记录 | SQLite；保存版本引用、时区和触发依据 |
 | Run、节点实例、迭代位置、RunEvent | SQLite；事件与状态由宿主统一写入 |
 | 日志与产物元数据 | SQLite 保存索引；较大文件位于每次运行的产物目录 |
 | Excel、下载文件、截图 | 本地文件目录；由 ArtifactRef 标记归属和内容信息 |
-| 浏览器 Profile、登录态 | 专用本地目录；不放流程 JSON、不提交或默认上传 |
+| 浏览器 Profile、登录态 | 支持持久化 Profile 的驱动使用专用本地目录；Safari 遵循驱动隔离会话，不承诺持久化复用；不放流程 JSON、不提交或默认上传 |
 | 业务凭据与未来设备令牌 | 系统安全存储，或经系统能力保护的加密存储；SQLite 仅保存引用 |
+| 招聘配置、简历事实、对话与动作记录、交换结果、提醒 | 本地业务存储；敏感内容受保护，通用日志脱敏，默认不上报；动作与提醒可持久化去重 |
+| AI 接口和模型配置 | 本地配置；API 密钥仅用 CredentialRef，调用范围由用户配置，不依赖 FlowArk 服务端 |
 
 数据目录位于用户数据区，不放源码仓库。运行产物按 Run 隔离，支持历史保留和清理；不能在仍需核对结果时无提示删除证据。
 
@@ -350,6 +409,9 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 | ArtifactRef / CredentialRef | 有明确归属的文件和凭据引用 | P1.1 |
 | DeviceCapabilities | 系统、执行器版本、节点及已验证的本机浏览器类型/版本/能力；不包含绝对安装路径 | P1.1 本地检查；P2 上报 |
 | PlatformConnector | 注册、心跳、事件补报、命令接收的边界 | P0/P1 只记录边界；P2/P3 实现 |
+| BrowserDriver / BrowserSession | 跨 Playwright/Selenium 的操作、能力与会话租约；库对象不能进入通用协议 | P1.1 |
+| RecruitingPolicy / RecruitingAction / AIReplyDraft | 业务范围、分动作授权、执行记录、与事实/对话绑定的 AI 草稿 | P1.2 |
+| ContactExchangeResult / UserAttentionItem | 实际交换结果、联系人与来源、本地持久化提醒 | P1.2 |
 
 准确字段、错误码和消息限制随功能阶段补齐，遵循 [契约管理](../contracts/README.md)。本地 IPC、数据存储实体、平台 HTTP API 不强制合并为同一种接口。
 
@@ -372,6 +434,8 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 | A-007 | 已授权版本才可远程自动执行 | 平台治理与本机执行权分离 | 内容变化重新授权，参数不能绕过绑定 |
 | A-008 | 未确认副作用不自动重放 | 失败、中断、失联无法证明业务未提交 | 新运行需核对原结果，保留审计关联 |
 | A-009 | 2026-09-16：仅使用用户选择的本机已安装浏览器 | 按用户要求取消自动化浏览器获取与分发的预留方案，新增发现、绑定和运行前校验 | 禁止内置/下载/备用浏览器；P1.1/P1.2 与安装验收同步变更。应用尚未实现，无数据迁移 |
+| A-010 | 2026-09-16：BrowserDriver 同时支持 Playwright/Selenium 路线 | 本机 Firefox/Safari 需要原生驱动方案，360 必须逐版本验证，替代仅允许 playwright-core 的限制 | 保留 A-009 的本机浏览器边界；驱动准备与浏览器安装分离，无应用数据迁移 |
+| A-011 | 2026-09-16：P1 改为招聘网页＋AI 交互，macOS 优先 | 用户明确两站投递、回复、联系方式交换与微信号提醒；Windows 360 后续验证 | 通用 Excel 样例降为回归；站点能力先核实；未验证浏览器不宣称支持 |
 
 以上为 2026-09-16 首次基线，没有既有应用数据需要迁移。后续决策追加日期、替代关系、迁移方式和对各仓库的影响，不悄悄覆盖历史含义。
 
@@ -385,4 +449,5 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 - [Node.js VM 安全边界](https://nodejs.org/api/vm.html)。
 - [Playwright 浏览器支持](https://playwright.dev/docs/browsers)、[指定本机可执行程序](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-executable-path)、[CDP 连接限制](https://playwright.dev/docs/api/class-browsertype#browser-type-connect-over-cdp)、[登录态保护](https://playwright.dev/docs/auth)。
 - [React Flow 文档](https://reactflow.dev/learn)。
+- [Selenium 浏览器驱动](https://www.selenium.dev/documentation/webdriver/browsers/)、[Selenium Manager](https://www.selenium.dev/documentation/selenium_manager/)、[Apple Safari WebDriver](https://developer.apple.com/documentation/webkit/about-webdriver-for-safari)。
 - [JSON Schema 2020-12](https://json-schema.org/draft/2020-12)、[OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)。
