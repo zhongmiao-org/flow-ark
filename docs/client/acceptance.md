@@ -14,6 +14,10 @@
 - 对照：0.1.4 `b62c843` 的 Worker 在新 Profile 中连续两次顶层下载重开通过；0.1.5 的独立框架下载 → 只读重开 → 再下载通过。固定下载目录、将关闭等待从 2.5 秒增至 15 秒均未解决完整场景，实验全部撤回；没有更换浏览器、升级用户 Chrome、清空日常 Profile、弱化测试断言或自动重放。
 - 进一步缩减：仅上传下载后关闭并重开同一测试 Profile 已复现，取消不是必要条件；绕开 FlowArk 引擎、宿主、Sessions 和适配器的纯 Playwright `frameLocator` / `contentFrame` 两组试验都出现关闭挂起与后续下载失败。内存文件上传、逐页关闭也未解决，均撤回。独立命令 `pnpm test:browser-recovery` 已实际执行且失败：第一轮 1.243 秒已保存并核对下载，随后关闭至 30 秒超时；第二轮只读与第三轮上传下载本次正常。两次服务器接收内容均正确，不能因后两轮成功忽略第一轮失败。证据 `test-results/browser-recovery.json`，日志 `/private/tmp/flowark015-browser-recovery.log`；复现范围见 [恢复缺口](browser-recovery.md)。
 - 新回归脚本已本地提交 `44c5ab6`，类型检查、语法及格式检查通过；还原上传实验后的 `pnpm build` 通过，当前构建不包含被撤回的实验。治理 Markdown 的 83 个本地链接与代码块检查通过，客户端自有 Markdown 仍仅 README/CONTRIBUTING。此处没有重新宣称完整场景通过，也没有新增产品规避参数。
+- 后续 Chrome 两轮正常关闭后，第三轮下载仍发生原生崩溃，排除强制回收为必要条件；系统报告 `Google Chrome-2026-09-16-192518.ips`，摘要 `test-results/chrome-clean-close-crash.json`。另取得挂起进程线程采样，尚未定位内部根因；没有新增浏览器规避参数。
+- 凭据故障注入发现并修复解密后端 `ENOENT` 被误判为文件缺失、导致生成新数据密钥的问题。现在仅捕获读取文件本身的缺失错误，原密文和已有数据密钥均保留。`pnpm test:vault` 六项真实加密及注入检查通过，`pnpm check` 的类型检查、53 项单元和构建通过；开发目录 `pnpm test:desktop` 再次通过，覆盖主进程启动、加密存储、IPC、Worker 与编辑器。日志 `/private/tmp/flowark015-vault-before-retry.log`、`/private/tmp/flowark015-vault-after.log`、`/private/tmp/flowark015-vault-check.log` 和 `/private/tmp/flowark015-vault-desktop.log`。具体范围见 [凭据存储](credential-storage.md)。这是模拟后端故障，没有锁定或改动用户 Keychain。
+- Safari 27.0 / 系统 safaridriver 22625.1.29.11.27 已尝试创建 localhost 测试会话，真实返回必须启用 Safari Developer 设置中的 `Allow remote automation`。零网页步骤执行，没有更改系统设置；证据 `test-results/safari-probe.json`。Firefox 应用仍不存在。
+- 凭据修复本地提交 `4055064`，未推送客户端公开远程。治理 Markdown 的 86 个本地链接、代码块、差异空白检查通过；客户端自有 Markdown 仍仅 README/CONTRIBUTING。
 - 独立克隆 `/private/tmp/flowark-clone-015-19uy2yto/client` 无治理父目录，使用 `pnpm install --frozen-lockfile --offline --ignore-scripts --store-dir /Users/mac/Library/pnpm/store` 后 `pnpm check` 通过（53 项测试）。首次使用默认临时缓存因缺包失败，指定已有缓存后成功；未安装或宣称在该克隆启动 Electron。契约 0.1.0～0.6.0 在临时目录重生成逐字节一致，客户端三份 Schema/示例摘要核对通过。
 - 当前安装仍是 0.1.4，未打包、安装或宣称验收通过 0.1.5。没有访问招聘网站、调用真实 AI 或执行真实外发；C-04/C-06/C-09 的浏览器恢复范围仍有缺口。
 
@@ -96,7 +100,7 @@ macOS 27.0（26A428），arm64；Node 24.3.0，pnpm 10.14.0；Electron 44.4.1、
 | C-07 | 部分 | 0.1.1 实际宿主 SIGKILL 后脚本退出，活动与排队记录重开变 INTERRUPTED 且不重放；整机断电矩阵未测 |
 | C-08 | 部分 | 退出/休眠间隙跳过、固定版本、占用、重复触发和停用时异步准入撤销已验证；长期实机调度未测 |
 | C-09 | 部分 | 手动 FIFO、专用 Profile、会话租约；用户日常浏览器窗口未被测试工具操作，完整多会话实机矩阵未测 |
-| C-10 | 部分 | 系统保护存储实际初始化；API Key 不返回 Renderer；事件/输出凭据脱敏、导出排除绑定。系统 Keychain 不可用的故障注入未测 |
+| C-10 | 部分 | 系统加密实测；不可用、加密拒绝、解密后端 ENOENT、损坏密文注入通过且不换钥；API Key 不返回 Renderer，事件/输出脱敏、导出排除绑定。未实际锁定系统 Keychain |
 | C-11 | 本地通过 | 不支持格式/能力、模板摘要篡改、作用域/依赖/浏览器路径及缺失绑定在执行前拒绝 |
 | C-12 | 本地通过 | 主动 progress、真实节点/循环事件；无虚构总完成百分比 |
 | C-13 | 部分 | 实际 SQLite query_only 写失败停止新任务并保留原数据；新版库拒绝打开。历史版本升级与磁盘满实机未测 |
@@ -127,9 +131,9 @@ macOS 27.0（26A428），arm64；Node 24.3.0，pnpm 10.14.0；Electron 44.4.1、
 
 | 系统 / 浏览器 | 当前证据 |
 | --- | --- |
-| macOS Chrome 153.0.8010.48 / playwright-core 1.63.0 | 本机 localhost 自动化与完整通用流程通过；招聘网站未验收 |
+| macOS Chrome 153.0.8010.48 / playwright-core 1.63.0 | 原有 localhost 通用流程及单项框架操作通过；0.1.5 上传下载后关闭/重开恢复失败，尚未解决；招聘网站未验收 |
 | macOS Firefox / geckodriver | `/Applications/Firefox.app` 不存在；适配路径存在，未启动验证 |
-| macOS Safari 27.0 / 系统 safaridriver | 驱动版本可读取；显式原生服务路径已实现，未启用/启动会话，扫码、登录、验证码人工接管、上传均未验收 |
+| macOS Safari 27.0 / 系统 safaridriver | 已实际尝试建立本地会话，因未启用 Allow remote automation 被拒绝，零网页操作；未更改系统设置。扫码、登录、验证码人工接管、上传均未验收 |
 | Windows 360 安全 / 极速 / 极速 X | 均未验证，属于 P1.W |
 
 后续仍需完成：两站生产页面适配与准确账号/目标/简历核对；城市/薪资筛选的真实页面取证；真实 AI 调用；账号登录与验证码人工参与；真实业务分别授权后的验收；Firefox/Safari 兼容矩阵；未来数据库迁移升级与签名、公证。账号、API Key、人工验证和签名证书缺失不会被本地 mock 替代为通过。

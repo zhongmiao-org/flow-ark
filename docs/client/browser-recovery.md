@@ -14,6 +14,8 @@
 
 两种框架定位方式的独立实验都出现关闭挂起，随后重开下载失败。使用 `frameLocator` 时第一轮下载内容已保存但关闭超时；使用显式 `contentFrame` 时也观察到只读重开关闭超时。该结果排除了“必须经过 FlowArk 执行引擎才能触发”，不能据此定位 Chrome 内部缺陷或宣称所有上传场景均不兼容。
 
+后续采样试验还观察到前两轮均正常关闭、第三轮下载仍崩溃：系统报告 `Google Chrome-2026-09-16-192518.ips`，PID 90908，EXC_BAD_ACCESS/SIGSEGV；摘要 `test-results/chrome-clean-close-crash.json`。因此强制回收也不是必要条件。另一轮对挂起 Chrome PID 90974 的线程采样显示主线程在 AppKit/CoreFoundation 事件循环等待；Playwright 日志停在 graceful close start。采样未定位 Chrome 内部根因，不据此推断死锁或采用关闭参数规避。
+
 未上传、只重复下载的对照曾通过；合并超时和取消的另一轮也曾通过，因此不能用偶尔一次成功认定解决。固定下载目录、延长关闭等待、用内存文件替代路径上传以及逐页关闭均未解决，均不保留为产品改动。没有切换浏览器、改动用户 Chrome、清空日常 Profile 或放宽失败断言。
 
 ## 可重复命令
