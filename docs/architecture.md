@@ -16,11 +16,13 @@ FlowArk 是本地优先、可扩展的自动化工作台。用户通过可视化
 | P1 | macOS 优先的单机招聘交互，通用编排、AI 回复、手动和本机定时执行；Windows 兼容后续验证 | 服务端、管理台、远程派发、桌面自动化 |
 | P2 | 单组织私有部署平台，集中监控设备与运行 | 远程执行或终止、平台调度 |
 | P3 | 发布流程版本、设备授权、远程派发和治理 | 任意远程 Shell、任意本地文件访问 |
-| P4 | 按需增加 Python、OCR、桌面操作、录制、插件、独立代理 | 一次实现全部扩展或自动跨平台兼容 |
+| P4 | 模板商店；按需增加 Python、OCR、桌面操作、录制、插件、独立代理 | 一次实现全部扩展或自动跨平台兼容 |
 
 P1 正式验收：在本机按配置操作 BOSS 直聘和智联招聘求职者网页版，完成 **职位筛选 → 选定简历投递/发送 → AI 回复 → 微信/手机号交换 → 对方微信号提醒与结果核对**。macOS Chrome 先打通，Firefox/Safari 随后分别验收；Windows 360 不阻塞首个 macOS 版本。不部署 FlowArk 平台也必须可以运行；业务网站以及用户选择的云端 AI 仍依赖相应网络。
 
 原“HTTP → JS/TS → Excel → 上传 → 核对”保留为通用引擎回归样例，不能替代招聘平台验收。招聘规则放在业务模块和站点适配器中，不耦合进通用执行核心。
+
+P1 首批本地模板为“BOSS 直聘投递简历”和“智联招聘投递简历”，AI 聊天首版支持 Codex 和 DeepSeek，均使用用户自己的 API Key。P4 再建设在线模板商店，P1 使用模板不依赖商店或平台。
 
 ## 2. 仓库组织与技术方向
 
@@ -33,22 +35,31 @@ flowchart TB
     S["flow-ark-server<br/>Spring Boot / 平台 API / MySQL 迁移"]
     A["flow-ark-admin<br/>React 管理台"]
     B["本机已安装的浏览器<br/>用户选择 / 外部程序"]
+    T["P4 模板商店模块<br/>目录 / 不可变版本 / 发布与下载"]
+    AI["P1 AI Provider<br/>Codex / DeepSeek API"]
     G -. "规则与版本化契约" .-> C
     G -. "规则与版本化契约" .-> S
     G -. "规则与版本化契约" .-> A
     C -->|"P2/P3 主动接入"| S
     A -->|"平台 API"| S
     C -->|"本机自动化"| B
+    S -. "P4 承载模块" .-> T
+    A -. "P4 经服务端 API 管理模板" .-> T
+    C -. "P4 浏览 / 获取指定版本" .-> T
+    C -->|"用户 API Key / 受控上下文"| AI
 ```
 
 图中治理连线表示设计和发布依赖，不是运行时调用。应用运行、构建、测试不能要求相邻仓库存在。
+
+模板商店属于服务端模块，管理台提供发布管理界面、客户端提供浏览与安装入口，不另建商店仓库。AI API 由客户端直接调用，与 FlowArk 平台连接分开。
 
 | 层次 | 选型 | 归属 |
 | --- | --- | --- |
 | 客户端界面 | Electron、React、TypeScript、React Flow、Monaco | 客户端仓库 |
 | 自动化和文件 | 统一 BrowserDriver：playwright-core＋selenium-webdriver；JS/TS、ExcelJS | 客户端仓库的适配器，业务层不依赖库对象 |
 | 自动化浏览器 | macOS Chrome/Firefox/Safari；Windows 三款 360 后续逐款验证 | 操作系统已有软件；客户端不附带、下载或安装 |
-| 招聘业务与 AI | BOSS/智联网页适配、动作策略、用户自配模型接口、联系方式提醒 | 客户端业务模块；无需 FlowArk 服务端 |
+| 招聘业务与 AI | BOSS/智联网页适配、动作策略、AIProvider（Codex/DeepSeek）、联系方式提醒 | 客户端业务模块；用户自配 API Key，无需 FlowArk 服务端 |
+| 模板 | P1 本地模板；P4 商店目录、版本、审核与发布 | 客户端管理本地实例；服务端/管理台管理商店 |
 | 本地数据 | SQLite、独立文件目录、系统保护的凭据存储 | 客户端仓库 |
 | 平台服务 | Spring Boot、MySQL、模块化单体 | 服务端仓库 |
 | 管理台 | React、TypeScript | 管理台仓库 |
@@ -65,13 +76,15 @@ SQLite 迁移由客户端发布，MySQL 迁移由服务端发布，不建立数�
 ```mermaid
 flowchart TB
     subgraph CLIENT["flow-ark-client"]
-        UI["Renderer<br/>流程编辑 / 本机浏览器选择 / 状态展示"]
+        UI["Renderer<br/>流程与模板 / 浏览器与 AI 配置 / 状态展示"]
         BR["Preload + Main<br/>窄 IPC / 文件选择 / 系统集成 / 生命周期"]
         HOST["本地运行宿主<br/>队列 / 定时 / 状态 / 事件 / 存储"]
         SELECT["浏览器发现与绑定适配器<br/>发现安装 / 手动选取 / 版本与能力校验"]
         DB[(SQLite)]
         WORKER["执行 Worker<br/>通用执行核心 / 招聘站点适配器 / 可信 JS/TS"]
         POLICY["招聘动作策略与 AI 回复<br/>简历事实 / 授权 / 草稿 / 本地待办"]
+        AIP["AIProvider 适配层<br/>OpenAICodexAdapter / DeepSeekAdapter"]
+        TEMPLATE["本地模板管理<br/>版本校验 / 参数绑定 / 创建本地流程"]
         DRIVER["独立浏览器会话进程 / BrowserDriver<br/>Playwright 适配器 / Selenium 适配器"]
         FILES["本地文件与运行产物"]
     end
@@ -80,10 +93,15 @@ flowchart TB
         WEB["选定本机浏览器的外部会话<br/>专用 Profile 或驱动隔离会话"]
         SECRET["系统保护的凭据存储"]
     end
-    MODEL["用户配置的 AI 接口<br/>本地模型或云端服务"]
+    CODEX["OpenAI Codex 模型<br/>Responses API / OpenAI API Key"]
+    DEEPSEEK["DeepSeek 模型<br/>Chat Completions API / DeepSeek API Key"]
+    STORE["P4 模板商店 API<br/>目录 / 版本化模板包"]
     UI --> BR
     BR --> HOST
     HOST --> DB
+    HOST --> TEMPLATE
+    TEMPLATE -. "P4 主动浏览与下载" .-> STORE
+    TEMPLATE -->|"创建草稿，不自动运行"| HOST
     HOST --> SELECT
     SELECT -. "发现与校验，不安装" .-> INSTALLED
     SELECT -->|"已校验的本地绑定"| HOST
@@ -91,7 +109,9 @@ flowchart TB
     WORKER -->|"事件 / 进度 / 结果"| HOST
     HOST -->|"监督会话生命周期"| DRIVER
     WORKER -->|"草稿生成与动作校验"| POLICY
-    POLICY --> MODEL
+    POLICY -->|"仅请求回复草稿"| AIP
+    AIP -->|"选定 provider 后调用"| CODEX
+    AIP -->|"选定 provider 后调用"| DEEPSEEK
     WORKER -->|"统一操作接口与会话租约"| DRIVER
     DRIVER -->|"本机已选浏览器，不下载替换"| WEB
     INSTALLED -. "使用已有可执行程序" .-> WEB
@@ -117,6 +137,8 @@ Main 启动和监督本地运行宿主，宿主启动每次运行的 Worker。P1
 | BrowserDriver/会话管理 | 统一页面操作、驱动能力探测、会话租约、驱动及浏览器资源回收 | 向业务暴露 Page/WebDriver、在业务提交后切驱动重放 |
 | 招聘策略与站点适配 | 按配置筛选、准备/核对动作、平台页面差异、待办提醒 | 把站点选择器写入通用核心，绕过动作授权 |
 | AI 回复服务 | 基于已授权的简历事实和对话生成草稿 | 直接操作浏览器或发送消息、编造经历、扩大授权 |
+| AIProvider 适配层 | Codex/DeepSeek 的请求、响应、能力、超时与取消归一化 | 密钥返回 Renderer、把 Codex 登录当 API Key、静默切换供应商 |
+| 本地模板管理 | 校验模板版本、展示能力要求、绑定参数、创建本地流程；P4 获取商店模板 | 下载即执行、夹带账号与授权、覆盖已有流程或运行快照 |
 | 执行核心 | 状态与控制流、输入输出、节点调度、取消传播 | React、Electron UI、平台 HTTP 客户端、具体 SQL 驱动 |
 | 能力适配器 | 实现 Browser/HTTP/File/Excel/Script 等能力 | 绕过宿主修改运行记录或自行宣布平台任务完成 |
 
@@ -205,6 +227,53 @@ BrowserDriver 覆盖会话与能力探测、导航/页面与框架定位、读�
 两站的职位、账号、简历、对话、动作记录、交换结果和本地待办分别管理。投递、回复、请求或接受微信/手机号均独立授权。取得实际对方微信号后生成持久化提醒，包含平台、公司/职位、联系人、号码与来源；请求已发送或对方未同意不能当作已取得号码。具体配置、AI 数据范围、提醒去重与验收见 [招聘交互验收](p1-recruiting.md)。
 
 持续沟通采用有限批次的本机计划，不让等待对方的请求长期占据单任务运行槽。业务待确认/等待对方与执行器的同步 `WAITING_INPUT` 区分：前者保存为待办并结束本轮，后者仅用于需要保持现场的短时人工介入。
+
+### 4.5 AI 聊天首版：Codex 与 DeepSeek
+
+首版使用统一 `AIProvider`，由本地 AI 回复服务调用；招聘模板和执行核心不直接依赖供应商 SDK。这里的 Codex 按用户明确选择，指 **OpenAI API Key 调用 Codex 模型**，不依赖 Codex CLI、桌面应用或其登录态。
+
+| Provider / 适配器 | 首版接入方式 | 本地配置与验证 |
+| --- | --- | --- |
+| `openai-codex` / OpenAICodexAdapter | OpenAI Responses API，`POST https://api.openai.com/v1/responses` | OpenAI API Key 引用、可用 Codex 模型 ID、经验证的模型参数 |
+| `deepseek` / DeepSeekAdapter | DeepSeek Chat Completions API，`POST https://api.deepseek.com/chat/completions` | DeepSeek API Key 引用、可用模型 ID、经验证的模型参数 |
+
+按官方协议分别构造和解析请求，不强制把 Codex 接入改写为 Chat Completions。具体模型 ID 和依赖版本在 P1.2 验证并记录，不能假设所有账户都可访问某个模型，也不以品牌名替代真实模型 ID。[OpenAI Codex 模型说明](https://developers.openai.com/api/docs/models/gpt-5.3-codex)、[DeepSeek API 说明](https://api-docs.deepseek.com/)
+
+`AIProvider` 接收限定的简历事实、岗位和当前对话，返回统一的草稿、实际 provider/model、请求标识及可用的用量信息；未返回的用量保持未知。模型参数、结构化输出和流式能力按所选模型探测；不把流式片段、推理内容或未完成结果直接发给招聘联系人。返回内容必须完整且通过草稿 Schema、事实与动作策略校验。
+
+API Key 经系统保护的存储保存，设置界面仅提供写入/替换和掩码状态；实际调用在客户端非 Renderer 的能力层执行。两家密钥独立绑定，不写进模板、日志、导出或平台。P1 不提供平台代付、平台代理或自动跨供应商降级；切换 provider/model 由用户配置，变更后废弃未发送的旧草稿并重新校验。
+
+AI 云端调用仍需网络；“单机版”仅表示不依赖 FlowArk 平台。首版仅验收上述两种接入，本地模型和其他兼容服务保留后续适配边界。AI 只生成内容，不启用模型的浏览器、Shell、文件或外发工具。
+
+### 4.6 本地模板与后续模板商店
+
+模板是可复用的流程起点，组合已有节点、站点适配器、参数表单和提示词；它不是正在运行的任务，也不自带执行权限。首批模板分别为 `boss-resume-apply`（BOSS 直聘投递简历）和 `zhaopin-resume-apply`（智联招聘投递简历），可按配置启用 AI 回复及联系方式交互，仍遵守逐动作授权。
+
+P1.2 在客户端仓库维护首批模板，P1.3 支持模板包导入导出并校验；治理仓库只维护格式与虚构示例。P4 模板商店首期复用单组织平台：服务端管理目录、分类、模板版本与包分发，管理台负责审核、发布、下架及审计，客户端负责浏览、下载、校验和创建本地流程。模板商店与 P3 远程任务派发是两个入口，下载不产生 Run 或远程执行授权；首期不引入付费结算或公共多租户市场。
+
+```mermaid
+flowchart LR
+    ADMIN["P4 管理台<br/>审核 / 发布 / 下架"] -->|"服务端 API"| STORE["服务端模板商店模块"]
+    STORE --> META[("MySQL<br/>目录 / 版本 / 发布记录")]
+    STORE --> PACK["服务端管理的文件或对象存储<br/>不可变模板包"]
+    BUILTIN["P1 客户端内置模板或本地导入<br/>BOSS 投递 / 智联投递"] --> LOCAL["本地模板管理"]
+    LOCAL -. "P4 主动获取指定版本" .-> STORE
+    LOCAL --> VERIFY["来源 / 内容摘要 / 格式 / 能力校验"]
+    VERIFY --> CONFIG["绑定本机浏览器 / 简历 / AI Provider<br/>逐动作配置权限"]
+    CONFIG --> FLOW["创建本地流程与不可变执行版本"]
+    FLOW --> RUN["统一运行准入 / 本地执行"]
+```
+
+边界约束：
+
+- `TemplateManifest` 最少声明模板 ID、不可变版本、来源、内容摘要、流程格式、参数 Schema、所需节点/站点适配器版本、浏览器/AI 能力以及脚本和依赖清单。模板只能声明需求和非敏感默认值，不能绑定用户真实账号、简历、联系方式、API Key、绝对路径或默认授予自动发送权限。
+- AI Provider、模型及其接口地址由用户本地配置绑定，模板和提示词不能改写接口地址或静默换供应商。
+- 模板包只含流程、提示词、参数定义、声明的脚本与静态资源，不夹带浏览器、模型、驱动、可执行安装器或任意依赖包。新增节点或驱动仍由客户端/未来插件的独立发布流程交付，不能借模板绕过升级与信任边界。
+- 获取模板先校验可信来源、包摘要、格式和能力；摘要校验不等于代码可信。含脚本的模板明确展示代码与依赖，不自动运行安装钩子或脚本。能力缺失时阻止创建可运行版本并提示处理。
+- 创建的本地流程记录来源模板 ID、版本和摘要；模板只提供起点，本地流程和配置由用户管理。后续商店更新显示差异，由用户采用新版本，不能覆盖本地修改、已有计划、活动 Run 或继承新内容未获准的自动动作权限。
+- 平台发布的 `FlowVersion` 仍按 P3 不可变版本和设备授权治理；模板实例化不自动变成平台发布或设备授权。商店下架阻止新获取，不远程删除本地流程或终止任务；已获取版本可在不连接商店时使用，网站与 AI 调用仍需网络。
+
+本地首批模板、模板包格式与在线商店分别验收；P1 不实现商店登录、目录服务、审核或在线分发。
 
 ## 5. 本地执行、状态与可靠性
 
@@ -315,6 +384,7 @@ stateDiagram-v2
 | 业务凭据与未来设备令牌 | 系统安全存储，或经系统能力保护的加密存储；SQLite 仅保存引用 |
 | 招聘配置、简历事实、对话与动作记录、交换结果、提醒 | 本地业务存储；敏感内容受保护，通用日志脱敏，默认不上报；动作与提醒可持久化去重 |
 | AI 接口和模型配置 | 本地配置；API 密钥仅用 CredentialRef，调用范围由用户配置，不依赖 FlowArk 服务端 |
+| 本地模板包、来源版本与实例化记录 | 模板包放本地文件目录，SQLite 记录摘要、版本与本地流程关系；业务绑定不回写共享模板 |
 
 数据目录位于用户数据区，不放源码仓库。运行产物按 Run 隔离，支持历史保留和清理；不能在仍需核对结果时无提示删除证据。
 
@@ -331,6 +401,7 @@ stateDiagram-v2
 | 对象 | 权威来源 | 平台与设备的关系 |
 | --- | --- | --- |
 | 本地草稿、流程、本机计划 | 客户端 | 默认留在本地；上传或纳入监控须有明确设置 |
+| P4 商店目录、模板发布版本和包 | 服务端 | 管理台经 API 管理；客户端取得指定版本后创建自己管理的本地流程，不自动上传个人配置 |
 | 平台发布的流程版本 | 服务端 | 设备只缓存不可变执行副本；本地修改另存为本地流程 |
 | 平台任务与平台计划 | 服务端 | 设备接受后产生实际 Run；平台任务不能替代执行证据 |
 | Run 实际事件和业务结果 | 执行设备 | 服务端通过事件投影形成监控记录，接收时间与发生时间分开保存 |
@@ -412,6 +483,9 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 | BrowserDriver / BrowserSession | 跨 Playwright/Selenium 的操作、能力与会话租约；库对象不能进入通用协议 | P1.1 |
 | RecruitingPolicy / RecruitingAction / AIReplyDraft | 业务范围、分动作授权、执行记录、与事实/对话绑定的 AI 草稿 | P1.2 |
 | ContactExchangeResult / UserAttentionItem | 实际交换结果、联系人与来源、本地持久化提醒 | P1.2 |
+| AIProvider / AIReplyRequest / AIReplyResult | Provider 能力与调用接口；跨进程请求/结果、模型和用量，不暴露供应商对象 | P1.2 |
+| TemplateManifest / TemplatePackage | 模板身份与版本、参数、流程和依赖、能力与完整性要求 | P1.2 本地定义；P1.3 导入导出 |
+| TemplateCatalogEntry / TemplateRelease | 商店目录、发布状态、不可变版本、下载引用和兼容信息 | P4 模板商店 |
 
 准确字段、错误码和消息限制随功能阶段补齐，遵循 [契约管理](../contracts/README.md)。本地 IPC、数据存储实体、平台 HTTP API 不强制合并为同一种接口。
 
@@ -436,6 +510,8 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 | A-009 | 2026-09-16：仅使用用户选择的本机已安装浏览器 | 按用户要求取消自动化浏览器获取与分发的预留方案，新增发现、绑定和运行前校验 | 禁止内置/下载/备用浏览器；P1.1/P1.2 与安装验收同步变更。应用尚未实现，无数据迁移 |
 | A-010 | 2026-09-16：BrowserDriver 同时支持 Playwright/Selenium 路线 | 本机 Firefox/Safari 需要原生驱动方案，360 必须逐版本验证，替代仅允许 playwright-core 的限制 | 保留 A-009 的本机浏览器边界；驱动准备与浏览器安装分离，无应用数据迁移 |
 | A-011 | 2026-09-16：P1 改为招聘网页＋AI 交互，macOS 优先 | 用户明确两站投递、回复、联系方式交换与微信号提醒；Windows 360 后续验证 | 通用 Excel 样例降为回归；站点能力先核实；未验证浏览器不宣称支持 |
+| A-012 | 2026-09-16：P1 AI Provider 为 Codex 与 DeepSeek，均用用户 API Key | 用户明确 Codex 走 OpenAI API；替代首版只约定通用 Chat Completions 的方案 | Codex 使用 Responses，DeepSeek 使用 Chat Completions；统一草稿接口，独立密钥，无应用数据迁移 |
+| A-013 | 2026-09-16：P1 建立本地模板，P4 增加模板商店 | BOSS/智联投递模板可复用，后续统一分发与治理 | 商店沿用服务端/管理台仓库；下载不等于执行授权，模板更新不改写本地流程和活动 Run |
 
 以上为 2026-09-16 首次基线，没有既有应用数据需要迁移。后续决策追加日期、替代关系、迁移方式和对各仓库的影响，不悄悄覆盖历史含义。
 

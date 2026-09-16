@@ -12,8 +12,11 @@
 | P1.1 | NodeExecutor、平台连接边界的职责 | 接口说明；函数与 AbortSignal 等运行对象不伪装成 JSON 数据 |
 | P1.1 | BrowserDriver、BrowserSession 与能力描述 | Playwright/Selenium 统一接口说明；库对象不能进入通用流程和跨端协议 |
 | P1.2 | RecruitingPolicy、RecruitingAction、AIReplyDraft、ContactExchangeResult、UserAttentionItem | 招聘配置、分动作授权、事实绑定草稿、外发去重和联系方式提醒的 JSON Schema/示例 |
+| P1.2 | AIProvider、AIReplyRequest、AIReplyResult | Provider 调用/能力接口说明，语言无关的请求/结果；分别适配 Codex Responses 和 DeepSeek Chat Completions |
+| P1.2/P1.3 | TemplateManifest、TemplatePackage | P1.2 本地模板格式、参数、来源版本与能力要求；P1.3 包导入导出验证 |
 | P2 | 设备能力、注册、心跳、事件补报、管理查询 | OpenAPI、消息 Schema 和兼容示例 |
 | P3 | 版本发布、授权、命令、回执、平台调度 | OpenAPI、消息 Schema 和去重/授权用例 |
+| P4 | TemplateCatalogEntry、TemplateRelease | 模板商店目录、发布状态、版本与获取 API；复用 P1 模板包格式 |
 
 本地 IPC 是客户端内部接口，由客户端维护和测试；需要跨进程传输的数据复用本目录的对应定义。不要为了“统一契约”把 Electron 专属接口暴露成平台 API。
 
@@ -37,6 +40,9 @@
 - 已发布流程版本不可变。协议迁移产生明确的新版本或迁移记录，不能静默改写已授权版本。
 - 浏览器兼容状态关联系统、浏览器产品/版本/内核/模式、驱动版本和实际能力；360 三款产品分开记录。没有测试证据不能把候选配置写成支持声明。
 - 招聘业务动作与通用 Run 状态分开；“已请求交换”“等待对方”“实际联系方式已读取”“已提醒用户”不能只用一个成功标志表达。模型草稿不代表执行授权。
+- AI Provider 标识、实际模型 ID、能力与结果结构独立定义；首版 `openai-codex` 与 `deepseek` 不能假设相同请求协议。API Key 仅使用 CredentialRef，不复用 Codex 登录 Token，也不把未知用量填成零。
+- 模板版本与流程版本分开。TemplateManifest 声明格式、参数、节点/站点适配器/浏览器/AI 能力、脚本与依赖以及内容摘要；本地流程记录来源模板版本，更新生成新内容，不能改写已执行快照或继承新增动作权限。
+- 模板包是流程、提示词和声明资源的分发格式，不是任意程序或依赖安装通道；商店契约只负责查询与获取，不兼任 P3 远程命令。具体归属与生命周期以架构文档为准。
 
 ## 跨仓库变更顺序
 
