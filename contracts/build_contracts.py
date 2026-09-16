@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--version', choices=['0.1.0', '0.2.0', '0.3.0'], default='0.3.0')
+parser.add_argument('--version', choices=['0.1.0', '0.2.0', '0.3.0', '0.4.0'], default='0.4.0')
 VERSION = parser.parse_args().version
 ROOT = Path(__file__).parent / ('v' + VERSION)
 ROOT.mkdir(exist_ok=True)
@@ -34,7 +34,7 @@ node('http', {'url': V, 'method': enum('GET', 'POST', 'PUT', 'DELETE'), 'headers
 node('script', {'language': enum('js', 'ts'), 'code': S, 'input': V, 'dependencies': arr(obj({'name': S, 'version': S}))})
 node('file', {'operation': enum('read', 'write', 'copy'), 'binding': S, 'name': V, 'content': V})
 node('excel', {'operation': enum('read', 'write'), 'binding': S, 'name': V, 'rows': V})
-if VERSION == '0.3.0':
+if VERSION in ['0.3.0', '0.4.0']:
     node('excel', {'operation': {'const': 'fill'}, 'binding': S, 'name': V, 'templateName': V, 'sheet': S, 'cells': V}, version=2)
     node('file', {'operation': {'const': 'archive'}, 'binding': S, 'name': V, 'files': V}, version=2)
 node('browser', {'operation': enum('navigate', 'read', 'click', 'fill', 'wait', 'upload', 'screenshot', 'download'), 'selector': S, 'value': V})
@@ -47,6 +47,9 @@ defs['FlowDefinition'] = obj({'formatVersion': {'const': '1.0'}, 'id': ID, 'name
 defs['RunState'] = enum('QUEUED', 'RUNNING', 'PAUSED', 'WAITING_INPUT', 'CANCELLING', 'CANCELLED', 'INTERRUPTED', 'SUCCEEDED', 'FAILED')
 defs['RunRequest'] = obj({'flowId': ID, 'versionId': ID, 'parameters': J, 'source': enum('manual', 'schedule'), 'triggerId': S})
 defs['RunSnapshot'] = obj({'runId': ID, 'versionId': ID, 'flow': ref('FlowDefinition'), 'parameters': J, 'createdAt': S})
+if VERSION == '0.4.0':
+    defs['ScriptBundle'] = obj({'nodeId': ID, 'sha256': {'type': 'string', 'pattern': '^[a-f0-9]{64}$'}, 'dependencies': arr(obj({'name': S, 'version': S}))})
+    defs['RunSnapshot']['properties']['scriptBundles'] = arr(ref('ScriptBundle'))
 defs['RunEvent'] = obj({'runId': ID, 'sequence': I, 'time': S, 'type': enum('state', 'node-start', 'node-end', 'log', 'progress', 'artifact', 'error'), 'nodeInstance': S, 'data': J})
 actions = ['apply', 'resume', 'reply', 'requestWechat', 'acceptWechat', 'requestPhone', 'acceptPhone']
 defs['RecruitingPolicy'] = obj({'platform': enum('boss', 'zhaopin'), 'account': S, 'keywords': arr(S), 'excludedCompanies': arr(S), 'allowedTargets': arr(S), 'resumeVersion': S, 'resumeBinding': S, 'facts': arr(obj({'id': ID, 'text': S})), 'actions': obj({a: enum('deny', 'confirm', 'auto') for a in actions}), 'dailyLimit': {'type': 'integer', 'minimum': 1, 'maximum': 500}, 'batchLimit': {'type': 'integer', 'minimum': 1, 'maximum': 30}, 'startHour': {'type': 'integer', 'minimum': 0, 'maximum': 23}, 'endHour': {'type': 'integer', 'minimum': 1, 'maximum': 24}, 'timezone': S, 'ownWechat': S, 'ownPhone': S, 'provider': enum('openai-codex', 'deepseek'), 'model': S, 'contextRevision': ID})
@@ -57,7 +60,7 @@ defs['RecruitingAction'] = obj({'id': ID, 'platform': enum('boss', 'zhaopin'), '
 defs['ContactExchangeResult'] = obj({'platform': enum('boss', 'zhaopin'), 'account': S, 'target': S, 'company': S, 'job': S, 'contact': S, 'kind': enum('wechat', 'phone'), 'state': enum('requested', 'accepted', 'rejected', 'visible', 'needs-human'), 'value': S, 'source': S, 'owner': enum('peer', 'self', 'unknown'), 'time': S})
 defs['UserAttentionItem'] = obj({'id': ID, 'kind': enum('contact', 'confirmation', 'unknown-result', 'limitation', 'login'), 'title': S, 'detail': J, 'dedupeKey': S, 'read': B, 'time': S})
 defs['TemplateManifest'] = obj({'id': ID, 'version': S, 'source': S, 'digest': S, 'formatVersion': {'const': '1.0'}, 'parametersSchema': J, 'requiredCapabilities': arr(S), 'scripts': arr(S), 'dependencies': arr(obj({'name': S, 'version': S}))})
-if VERSION in ['0.2.0', '0.3.0']:
+if VERSION in ['0.2.0', '0.3.0', '0.4.0']:
     defs['TemplateConfiguration'] = obj({'adapter': ID, 'schema': J})
     defs['TemplateManifest']['properties']['configuration'] = ref('TemplateConfiguration')
 defs['TemplatePackage'] = obj({'manifest': ref('TemplateManifest'), 'flow': ref('FlowDefinition')})
