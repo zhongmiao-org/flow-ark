@@ -28,11 +28,13 @@ flowchart TB
     C["flow-ark-client<br/>Electron / React / 本地执行 / SQLite"]
     S["flow-ark-server<br/>Spring Boot / 平台 API / MySQL 迁移"]
     A["flow-ark-admin<br/>React 管理台"]
+    B["本机已安装的浏览器<br/>用户选择 / 外部程序"]
     G -. "规则与版本化契约" .-> C
     G -. "规则与版本化契约" .-> S
     G -. "规则与版本化契约" .-> A
     C -->|"P2/P3 主动接入"| S
     A -->|"平台 API"| S
+    C -->|"本机自动化"| B
 ```
 
 图中治理连线表示设计和发布依赖，不是运行时调用。应用运行、构建、测试不能要求相邻仓库存在。
@@ -40,7 +42,8 @@ flowchart TB
 | 层次 | 选型 | 归属 |
 | --- | --- | --- |
 | 客户端界面 | Electron、React、TypeScript、React Flow、Monaco | 客户端仓库 |
-| 自动化和文件 | Playwright、JS/TS 执行、ExcelJS | 客户端仓库的适配器 |
+| 自动化和文件 | playwright-core 控制选定的本机浏览器、JS/TS 执行、ExcelJS | 客户端仓库的适配器 |
+| 自动化浏览器 | 用户本机已安装的 Chrome/Edge，或通过兼容性验证的 Chromium | 操作系统已有软件；客户端不附带、下载或安装 |
 | 本地数据 | SQLite、独立文件目录、系统保护的凭据存储 | 客户端仓库 |
 | 平台服务 | Spring Boot、MySQL、模块化单体 | 服务端仓库 |
 | 管理台 | React、TypeScript | 管理台仓库 |
@@ -56,20 +59,30 @@ SQLite 迁移由客户端发布，MySQL 迁移由服务端发布，不建立数�
 
 ```mermaid
 flowchart TB
-    UI["Renderer<br/>流程编辑 / 参数 / 状态展示"]
-    BR["Preload + Main<br/>窄 IPC / 窗口 / 系统集成 / 生命周期"]
-    HOST["本地运行宿主<br/>队列 / 定时 / 状态 / 事件 / 存储"]
-    DB[(SQLite)]
-    WORKER["执行 Worker<br/>执行核心 / 节点适配器 / 可信 JS/TS"]
-    WEB["受管浏览器进程<br/>专用 Profile"]
-    FILES["本地文件与运行产物"]
-    SECRET["系统保护的凭据存储"]
+    subgraph CLIENT["flow-ark-client"]
+        UI["Renderer<br/>流程编辑 / 本机浏览器选择 / 状态展示"]
+        BR["Preload + Main<br/>窄 IPC / 文件选择 / 系统集成 / 生命周期"]
+        HOST["本地运行宿主<br/>队列 / 定时 / 状态 / 事件 / 存储"]
+        SELECT["浏览器发现与绑定适配器<br/>发现安装 / 手动选取 / 版本与能力校验"]
+        DB[(SQLite)]
+        WORKER["执行 Worker<br/>执行核心 / playwright-core / 可信 JS/TS"]
+        FILES["本地文件与运行产物"]
+    end
+    subgraph SYSTEM["操作系统已有软件与服务"]
+        INSTALLED["本机已安装的 Chrome / Edge / 已验证 Chromium"]
+        WEB["选定本机浏览器启动的外部实例<br/>专用 Profile"]
+        SECRET["系统保护的凭据存储"]
+    end
     UI --> BR
     BR --> HOST
     HOST --> DB
+    HOST --> SELECT
+    SELECT -. "发现与校验，不安装" .-> INSTALLED
+    SELECT -->|"已校验的本地绑定"| HOST
     HOST -->|"启动 / 取消"| WORKER
     WORKER -->|"事件 / 进度 / 结果"| HOST
-    WORKER --> WEB
+    WORKER -->|"按绑定路径启动并自动化"| WEB
+    INSTALLED -. "使用已有可执行程序" .-> WEB
     WORKER --> FILES
     HOST -->|"产物索引"| FILES
     BR --> SECRET
@@ -78,16 +91,19 @@ flowchart TB
 
 Main 启动和监督本地运行宿主，宿主启动每次运行的 Worker。P1 单设备最多运行一个 Worker；Electron 专属进程启动与通信放入宿主适配层，不污染执行核心。首次实现可以用 Electron utility process 承载本地宿主，但其业务模块保持可由其他 Node 宿主加载。
 
+图中的浏览器是用户选择的系统已有程序，不随 FlowArk 分发。Electron 自带的 Chromium 内核仅渲染客户端界面，不作为网页自动化浏览器，也不能在本机浏览器不可用时充当备用执行环境。
+
 | 模块 | 允许职责 | 禁止依赖或行为 |
 | --- | --- | --- |
 | Renderer | 编辑、表单、日志与进度展示 | 直接读写 SQLite/文件、读取凭据、启动进程或执行脚本 |
 | Preload | 暴露明确方法及事件订阅 | 将完整 ipcRenderer、任意 channel 或原生对象交给界面 |
 | Main | 系统窗口、文件选择、安全存储桥接、宿主生命周期 | 执行流程、业务节点、分支循环或定时业务逻辑 |
 | 本地运行宿主 | 运行准入、队列、调度、事件和状态持久化、统一存储写入 | 在界面中直接暴露数据库，执行耗时用户脚本 |
+| 浏览器发现与绑定适配器 | 枚举本机安装、校验手动选择、保存本地绑定和检测能力 | 下载、安装、替换浏览器，修改系统默认浏览器或静默改用其他安装 |
 | 执行核心 | 状态与控制流、输入输出、节点调度、取消传播 | React、Electron UI、平台 HTTP 客户端、具体 SQL 驱动 |
 | 能力适配器 | 实现 Browser/HTTP/File/Excel/Script 等能力 | 绕过宿主修改运行记录或自行宣布平台任务完成 |
 
-Renderer 配置 `contextIsolation: true`、`sandbox: true`、`nodeIntegration: false`。主进程校验 IPC 来源、方法和参数；文件操作用明确的业务接口，不暴露“执行任意命令”桥。受管业务网站运行在 Playwright 管理的浏览器中，不作为拥有本地权限的客户端 UI 加载。[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)
+Renderer 配置 `contextIsolation: true`、`sandbox: true`、`nodeIntegration: false`。主进程校验 IPC 来源、方法和参数；文件操作用明确的业务接口，不暴露“执行任意命令”桥。业务网站运行在用户选定的本机浏览器实例中，由 playwright-core 控制，不作为拥有本地权限的客户端 UI 加载。[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)
 
 Worker 及其所属浏览器/脚本进程必须可取消和回收。用户脚本不能与 Renderer 或主进程同进程执行；独立进程只提供故障与生命周期隔离，不是对恶意代码的安全保证。Node `vm` 不作为安全沙箱。[Node.js VM 文档](https://nodejs.org/api/vm.html)
 
@@ -111,7 +127,7 @@ Worker 及其所属浏览器/脚本进程必须可取消和回收。用户脚本
 | JS/TS | 执行可信脚本，输入输出、日志、主动进度、取消；TS 在执行前编译 |
 | Excel | 读取/写入普通工作簿与模板，记录文件产物；宏及高级公式计算不作为 P1 保证 |
 | 文件 | 在用户选择或任务配置的范围内读写、归档，记录产物引用 |
-| 浏览器 | 启动会话、定位、点击、输入、等待、读取、上传、下载和截图 |
+| 浏览器 | 使用已绑定的本机浏览器启动会话、定位、点击、输入、等待、读取、上传、下载业务文件和截图 |
 | 结果断言 | 校验回执、状态或数量，业务不符合预期时失败 |
 | 等待人工 | 等待用户处理登录/验证码或作出流程需要的输入，再继续 |
 | 条件/循环 | 基于明确输入执行分支或串行迭代，记录节点实例与迭代位置 |
@@ -122,11 +138,23 @@ Worker 及其所属浏览器/脚本进程必须可取消和回收。用户脚本
 
 脚本应主动报告业务进度，例如已处理数和总数。没有报告时展示当前节点、耗时和日志，不推算虚假的百分比。分支和循环流程的节点数量不能直接当成业务完成率。
 
-### 4.3 浏览器与人工接管
+### 4.3 本机浏览器选择与人工接管
 
-P1 支持由客户端启动的 Chromium、已安装的 Chrome/Edge，并维护专用 Profile。每个 Profile 只能被一个任务占用，运行结束释放会话和锁；不复用用户日常默认 Profile。
+**网页自动化完全依赖本机已有浏览器。FlowArk 不内置、下载、安装、升级或分发自动化浏览器，也不使用 Playwright 浏览器缓存或 Electron 渲染内核作为后备。** 浏览器安装和版本维护由用户或其 IT 环境负责，业务文件下载不受此限制。
 
-浏览器是否安装、版本与运行能力在启动前检查。浏览器运行时的获取和分发方案在 P1.1 工程锁版时记录，不让每次流程执行临时安装浏览器。不同浏览器和系统的能力必须分别验证。[Playwright 浏览器说明](https://playwright.dev/docs/browsers)
+P1 优先验证本机 Chrome/Edge；用户自行安装的 Chromium 只有通过相同兼容性检查后才可选择。选择系统浏览器不等于支持所有浏览器，Safari、Firefox 和其他套壳浏览器不因此自动进入 P1 支持范围。[Playwright 浏览器说明](https://playwright.dev/docs/browsers)
+
+选择与启动流程：
+
+1. 浏览器适配器从 Windows 安装信息、macOS 应用目录等本机来源发现候选项，显示名称、版本、安装位置和可用状态；不只读取系统默认浏览器。
+2. 用户从候选列表选择，也可通过系统文件选择器手动指定已有可执行文件或 macOS 应用；适配器解析真实可执行路径并验证浏览器身份、版本和所需能力，不把任意程序当成浏览器运行。
+3. 选择结果保存为本地浏览器绑定。流程只引用绑定或浏览器能力要求；绝对安装路径不写入可移植流程，也不上传平台。导入流程或在另一设备运行时重新绑定。
+4. Worker 使用 `playwright-core` 和明确的 `executablePath` 启动用户选中的安装；不会省略路径回退到 Playwright 自带版本，也不会静默换为另一浏览器。外部浏览器与驱动兼容性需验证，不能承诺任意版本都可用。[Playwright executablePath 说明](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-executable-path)
+5. 运行前重新校验路径、版本、能力和专用 Profile。卸载、移动、系统更新导致不兼容或无法启动时，阻止需要浏览器的流程并提示重新选择；纯数据和文件流程不因浏览器缺失被阻止。验证不能只依赖首次安装时的结果。
+
+客户端仅管理自己启动的浏览器实例及专用 Profile。每个 Profile 只能被一个任务占用，结束时释放会话与锁；不复用或复制日常默认 Profile，不关闭用户已有的其他浏览器窗口。取消与崩溃回收只针对当前任务拥有的进程。
+
+构建、打包、安装、首次启动和升级流程均不得引入自动化浏览器下载，也不添加 `@playwright/browser-*` 下载型依赖或执行 `playwright install`。测试环境同样使用预先安装、显式选择的浏览器；无浏览器的环境验证缺失提示，不靠临时下载掩盖依赖。Electron 为客户端 UI 提供的渲染运行时不属于自动化浏览器分发。
 
 P1 不承诺接管任意已打开浏览器窗口。未来 CDP 连接适配器需独立定义限制；CDP 仅适用于 Chromium 系浏览器，能力与完整 Playwright 协议不同。[Playwright CDP 说明](https://playwright.dev/docs/api/class-browsertype#browser-type-connect-over-cdp)
 
@@ -143,10 +171,10 @@ sequenceDiagram
     participant H as 本地运行宿主
     participant D as SQLite
     participant W as 执行 Worker
-    participant B as 浏览器或业务 API
+    participant B as 选定的本机浏览器或业务 API
     U->>UI: 手动运行（定时由宿主直接触发）
     UI->>H: RunRequest
-    H->>H: 校验版本、依赖、输入与资源
+    H->>H: 校验版本、依赖、输入与资源；按需校验本机浏览器绑定
     H->>D: 事务保存快照、Run 与排队事件
     H-->>UI: 已入队，不是执行成功
     H->>W: 获得运行槽后启动
@@ -220,6 +248,7 @@ stateDiagram-v2
 | 数据 | 保存方式与归属 |
 | --- | --- |
 | 本地安装标识、设置 | SQLite；安装标识不等于未来平台设备 ID |
+| 本机浏览器绑定、安装路径和检测结果 | SQLite；本地配置，执行前重新校验，不进入可移植流程或平台上报 |
 | 流程草稿、不可变版本、编辑元数据 | SQLite；语义和展示分开 |
 | 本机计划、触发记录、跳过记录 | SQLite；保存版本引用、时区和触发依据 |
 | Run、节点实例、迭代位置、RunEvent | SQLite；事件与状态由宿主统一写入 |
@@ -319,7 +348,7 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 | RunRequest / RunSnapshot | 来源、版本、参数、触发依据、状态和业务核对结果 | P1.1 |
 | RunEvent | Run、事件序号、节点实例/迭代位置、发生时间、进度、错误 | P1.1 |
 | ArtifactRef / CredentialRef | 有明确归属的文件和凭据引用 | P1.1 |
-| DeviceCapabilities | 系统、执行器版本、节点/浏览器等实际支持能力 | P1.1 本地检查；P2 上报 |
+| DeviceCapabilities | 系统、执行器版本、节点及已验证的本机浏览器类型/版本/能力；不包含绝对安装路径 | P1.1 本地检查；P2 上报 |
 | PlatformConnector | 注册、心跳、事件补报、命令接收的边界 | P0/P1 只记录边界；P2/P3 实现 |
 
 准确字段、错误码和消息限制随功能阶段补齐，遵循 [契约管理](../contracts/README.md)。本地 IPC、数据存储实体、平台 HTTP API 不强制合并为同一种接口。
@@ -342,6 +371,7 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 | A-006 | P2 先监控，P3 再命令 | 先证明可观察性，再引入远程副作用 | 不以心跳接入当成远程执行授权 |
 | A-007 | 已授权版本才可远程自动执行 | 平台治理与本机执行权分离 | 内容变化重新授权，参数不能绕过绑定 |
 | A-008 | 未确认副作用不自动重放 | 失败、中断、失联无法证明业务未提交 | 新运行需核对原结果，保留审计关联 |
+| A-009 | 2026-09-16：仅使用用户选择的本机已安装浏览器 | 按用户要求取消自动化浏览器获取与分发的预留方案，新增发现、绑定和运行前校验 | 禁止内置/下载/备用浏览器；P1.1/P1.2 与安装验收同步变更。应用尚未实现，无数据迁移 |
 
 以上为 2026-09-16 首次基线，没有既有应用数据需要迁移。后续决策追加日期、替代关系、迁移方式和对各仓库的影响，不悄悄覆盖历史含义。
 
@@ -353,6 +383,6 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 
 - [Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)、[进程模型](https://www.electronjs.org/docs/latest/tutorial/process-model)。
 - [Node.js VM 安全边界](https://nodejs.org/api/vm.html)。
-- [Playwright 浏览器支持](https://playwright.dev/docs/browsers)、[CDP 连接限制](https://playwright.dev/docs/api/class-browsertype#browser-type-connect-over-cdp)、[登录态保护](https://playwright.dev/docs/auth)。
+- [Playwright 浏览器支持](https://playwright.dev/docs/browsers)、[指定本机可执行程序](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-option-executable-path)、[CDP 连接限制](https://playwright.dev/docs/api/class-browsertype#browser-type-connect-over-cdp)、[登录态保护](https://playwright.dev/docs/auth)。
 - [React Flow 文档](https://reactflow.dev/learn)。
 - [JSON Schema 2020-12](https://json-schema.org/draft/2020-12)、[OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)。

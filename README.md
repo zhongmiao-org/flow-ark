@@ -1,6 +1,6 @@
 # FlowArk · 序舟
 
-FlowArk 是本地优先的自动化工作台，连接浏览器、自定义脚本和业务文件；后续通过可选的平台服务提供设备监控与远程治理。
+FlowArk 是本地优先的自动化工作台，连接用户选择的本机已安装浏览器、自定义脚本和业务文件；后续通过可选的平台服务提供设备监控与远程治理。
 
 此目录是 **FlowArk 项目主目录，也是独立的治理仓库**。客户端、服务端、后台管理台以独立 Git 仓库放在子目录中，各自构建和发布。
 
@@ -46,7 +46,7 @@ flow-ark/                          # 当前治理仓库
 | 仓库 | 负责内容 | 技术方向 | 建立阶段 |
 | --- | --- | --- | --- |
 | `flow-ark` | 总体文档、公共契约、跨仓库决策 | Markdown、JSON Schema、OpenAPI | P0 |
-| `flow-ark-client` | 编辑器、本地执行、调度、SQLite、系统能力 | Electron、React、TypeScript、Playwright、ExcelJS | P1.1 |
+| `flow-ark-client` | 编辑器、本地执行、调度、SQLite、系统能力 | Electron、React、TypeScript、playwright-core、ExcelJS | P1.1 |
 | `flow-ark-server` | 平台 API、用户权限、设备、任务、MySQL 迁移 | Spring Boot、MySQL、Maven | P2 |
 | `flow-ark-admin` | 平台管理界面 | React、TypeScript | P2 |
 
@@ -67,6 +67,8 @@ flow-ark/                          # 当前治理仓库
 Windows、macOS 安装后的客户端，在不部署 FlowArk 服务端、不登录平台的情况下，独立完成：
 
 **拉取数据 → JS/TS 处理 → 生成 Excel → 浏览器上传 → 核对业务结果。**
+
+浏览器由用户从本机已安装程序中选择，支持自动发现和手动指定路径。P1 优先支持 Chrome/Edge，已有 Chromium 需通过兼容性检查；客户端不附带、下载或安装自动化浏览器。Electron 内核只用于客户端界面。浏览器缺失或不可用时提示重新选择，纯数据流程仍可运行。
 
 不依赖平台不等于所有业务流程离线可用：访问业务 API 或业务网站仍需相应网络。可视化编排覆盖顺序、条件、串行循环，任务支持手动触发和应用驻留期间的本机定时。
 
