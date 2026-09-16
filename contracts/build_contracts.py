@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--version', choices=['0.1.0', '0.2.0', '0.3.0', '0.4.0', '0.5.0'], default='0.5.0')
+parser.add_argument('--version', choices=['0.1.0', '0.2.0', '0.3.0', '0.4.0', '0.5.0', '0.6.0'], default='0.6.0')
 VERSION = parser.parse_args().version
 ROOT = Path(__file__).parent / ('v' + VERSION)
 ROOT.mkdir(exist_ok=True)
@@ -34,10 +34,14 @@ node('http', {'url': V, 'method': enum('GET', 'POST', 'PUT', 'DELETE'), 'headers
 node('script', {'language': enum('js', 'ts'), 'code': S, 'input': V, 'dependencies': arr(obj({'name': S, 'version': S}))})
 node('file', {'operation': enum('read', 'write', 'copy'), 'binding': S, 'name': V, 'content': V})
 node('excel', {'operation': enum('read', 'write'), 'binding': S, 'name': V, 'rows': V})
-if VERSION in ['0.3.0', '0.4.0', '0.5.0']:
+if VERSION in ['0.3.0', '0.4.0', '0.5.0', '0.6.0']:
     node('excel', {'operation': {'const': 'fill'}, 'binding': S, 'name': V, 'templateName': V, 'sheet': S, 'cells': V}, version=2)
     node('file', {'operation': {'const': 'archive'}, 'binding': S, 'name': V, 'files': V}, version=2)
 node('browser', {'operation': enum('navigate', 'read', 'click', 'fill', 'wait', 'upload', 'screenshot', 'download'), 'selector': S, 'value': V})
+if VERSION == '0.6.0':
+    defs['FramePath'] = {'type': 'array', 'items': {'type': 'string', 'minLength': 1, 'maxLength': 2000, 'pattern': r'\S'}, 'maxItems': 8}
+    node('browser', {'operation': enum('navigate', 'read', 'click', 'fill', 'wait', 'upload', 'screenshot', 'download'), 'selector': S, 'value': V, 'framePath': ref('FramePath')}, version=2)
+    nodes[-1]['allOf'] = [{'if': {'properties': {'operation': enum('navigate', 'screenshot')}}, 'then': {'properties': {'framePath': {'maxItems': 0}}}}]
 node('human', {'message': S})
 node('condition', {'actual': V, 'operator': enum('equals', 'notEquals', 'contains', 'gt', 'exists'), 'expected': V, 'then': arr(ref('Node')), 'else': arr(ref('Node'))})
 node('loop', {'items': V, 'body': arr(ref('Node'))})
@@ -47,7 +51,7 @@ defs['FlowDefinition'] = obj({'formatVersion': {'const': '1.0'}, 'id': ID, 'name
 defs['RunState'] = enum('QUEUED', 'RUNNING', 'PAUSED', 'WAITING_INPUT', 'CANCELLING', 'CANCELLED', 'INTERRUPTED', 'SUCCEEDED', 'FAILED')
 defs['RunRequest'] = obj({'flowId': ID, 'versionId': ID, 'parameters': J, 'source': enum('manual', 'schedule'), 'triggerId': S})
 defs['RunSnapshot'] = obj({'runId': ID, 'versionId': ID, 'flow': ref('FlowDefinition'), 'parameters': J, 'createdAt': S})
-if VERSION in ['0.4.0', '0.5.0']:
+if VERSION in ['0.4.0', '0.5.0', '0.6.0']:
     defs['ScriptBundle'] = obj({'nodeId': ID, 'sha256': {'type': 'string', 'pattern': '^[a-f0-9]{64}$'}, 'dependencies': arr(obj({'name': S, 'version': S}))})
     defs['RunSnapshot']['properties']['scriptBundles'] = arr(ref('ScriptBundle'))
 defs['RunEvent'] = obj({'runId': ID, 'sequence': I, 'time': S, 'type': enum('state', 'node-start', 'node-end', 'log', 'progress', 'artifact', 'error'), 'nodeInstance': S, 'data': J})
@@ -59,7 +63,7 @@ defs['AIReplyResult'] = obj({'provider': S, 'model': S, 'contextHash': S, 'resum
 defs['RecruitingAction'] = obj({'id': ID, 'platform': enum('boss', 'zhaopin'), 'account': S, 'target': S, 'kind': enum(*actions), 'contextHash': S, 'contentHash': S, 'dedupeKey': S, 'state': enum('PENDING_CONFIRMATION', 'READY', 'SUBMITTING', 'CONFIRMED', 'WAITING_PEER', 'FAILED', 'UNKNOWN', 'BLOCKED'), 'evidence': S})
 defs['ContactExchangeResult'] = obj({'platform': enum('boss', 'zhaopin'), 'account': S, 'target': S, 'company': S, 'job': S, 'contact': S, 'kind': enum('wechat', 'phone'), 'state': enum('requested', 'accepted', 'rejected', 'visible', 'needs-human'), 'value': S, 'source': S, 'owner': enum('peer', 'self', 'unknown'), 'time': S})
 defs['UserAttentionItem'] = obj({'id': ID, 'kind': enum('contact', 'confirmation', 'unknown-result', 'limitation', 'login'), 'title': S, 'detail': J, 'dedupeKey': S, 'read': B, 'time': S})
-if VERSION == '0.5.0':
+if VERSION in ['0.5.0', '0.6.0']:
     filter_text = {'type': 'string', 'minLength': 1, 'maxLength': 200}
     modes = enum('onsite', 'hybrid', 'remote')
     amount = {'type': 'integer', 'minimum': 0, 'maximum': 100000000}
@@ -69,7 +73,7 @@ if VERSION == '0.5.0':
     defs['RecruitingPolicy']['properties']['jobFilter'] = ref('RecruitingJobFilter')
     defs['RecruitingAction']['properties']['jobSnapshot'] = ref('RecruitingJobSnapshot')
 defs['TemplateManifest'] = obj({'id': ID, 'version': S, 'source': S, 'digest': S, 'formatVersion': {'const': '1.0'}, 'parametersSchema': J, 'requiredCapabilities': arr(S), 'scripts': arr(S), 'dependencies': arr(obj({'name': S, 'version': S}))})
-if VERSION in ['0.2.0', '0.3.0', '0.4.0', '0.5.0']:
+if VERSION in ['0.2.0', '0.3.0', '0.4.0', '0.5.0', '0.6.0']:
     defs['TemplateConfiguration'] = obj({'adapter': ID, 'schema': J})
     defs['TemplateManifest']['properties']['configuration'] = ref('TemplateConfiguration')
 defs['TemplatePackage'] = obj({'manifest': ref('TemplateManifest'), 'flow': ref('FlowDefinition')})
@@ -78,5 +82,12 @@ schema = {'$schema': 'https://json-schema.org/draft/2020-12/schema', '$id': 'htt
 example = {'formatVersion': '1.0', 'id': 'hello', 'name': '第一个流程', 'description': '虚构数据回归', 'parameters': {}, 'requiredCapabilities': [], 'steps': [{'id': 'greeting', 'type': 'value', 'version': 1, 'value': {'message': '你好，序舟'}}, {'id': 'verify', 'type': 'assert', 'version': 1, 'actual': {'$ref': 'steps.greeting.message'}, 'operator': 'equals', 'expected': '你好，序舟'}]}
 (ROOT / 'example.flow.json').write_text(json.dumps(example, ensure_ascii=False, indent=2) + '\n')
 files = ['p1.schema.json', 'example.flow.json']
+if VERSION == '0.6.0':
+    framed = {**example, 'id': 'frame-example', 'name': '嵌套框架读取', 'requiredCapabilities': ['browser-frames-v1'], 'steps': [
+        {'id': 'open', 'type': 'browser', 'version': 1, 'operation': 'navigate', 'selector': '', 'value': 'https://example.com'},
+        {'id': 'read_frame', 'type': 'browser', 'version': 2, 'operation': 'read', 'selector': '#receipt', 'value': None, 'framePath': ['iframe#outer', 'iframe[name="content"]']}
+    ]}
+    (ROOT / 'example.frames.flow.json').write_text(json.dumps(framed, ensure_ascii=False, indent=2) + '\n')
+    files.append('example.frames.flow.json')
 (ROOT / 'SHA256SUMS').write_text(''.join(hashlib.sha256((ROOT / f).read_bytes()).hexdigest() + '  ' + f + '\n' for f in files))
 print('Generated contracts/v' + VERSION)
