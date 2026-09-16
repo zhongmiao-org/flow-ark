@@ -12,6 +12,8 @@
 - **`pnpm test:scenario` 完整回归未通过，不交付 0.1.5 安装包。** 真实宿主 → Worker → 会话进程的首轮跨源框架上传、Excel B3=90、回执、顶层隔离和下载产物核对通过；缺失框架失败且零点击、框架等待取消且不执行后续点击均通过。但再次运行到下载时 Chrome 发生原生崩溃，Run 正确记录 FAILED，没有重放。分阶段证据 `test-results/scenario-frames.json`；最终日志 `/private/tmp/flowark-015-scenario-final.log`。
 - 原生退出日志显示 Chrome SIGSEGV 在宿主发出关闭请求之前；macOS 报告 `Google Chrome-2026-09-16-190104.ips`，发生于 2026-09-16 19:01:02（UTC+8），EXC_BAD_ACCESS/KERN_INVALID_ADDRESS。脱敏摘要 `test-results/chrome-native-crash.json`。仅证明原生崩溃，尚未定位 Chrome 内部原因或证明所有触发条件。
 - 对照：0.1.4 `b62c843` 的 Worker 在新 Profile 中连续两次顶层下载重开通过；0.1.5 的独立框架下载 → 只读重开 → 再下载通过。固定下载目录、将关闭等待从 2.5 秒增至 15 秒均未解决完整场景，实验全部撤回；没有更换浏览器、升级用户 Chrome、清空日常 Profile、弱化测试断言或自动重放。
+- 进一步缩减：仅上传下载后关闭并重开同一测试 Profile 已复现，取消不是必要条件；绕开 FlowArk 引擎、宿主、Sessions 和适配器的纯 Playwright `frameLocator` / `contentFrame` 两组试验都出现关闭挂起与后续下载失败。内存文件上传、逐页关闭也未解决，均撤回。独立命令 `pnpm test:browser-recovery` 已实际执行且失败：第一轮 1.243 秒已保存并核对下载，随后关闭至 30 秒超时；第二轮只读与第三轮上传下载本次正常。两次服务器接收内容均正确，不能因后两轮成功忽略第一轮失败。证据 `test-results/browser-recovery.json`，日志 `/private/tmp/flowark015-browser-recovery.log`；复现范围见 [恢复缺口](browser-recovery.md)。
+- 新回归脚本已本地提交 `44c5ab6`，类型检查、语法及格式检查通过；还原上传实验后的 `pnpm build` 通过，当前构建不包含被撤回的实验。治理 Markdown 的 83 个本地链接与代码块检查通过，客户端自有 Markdown 仍仅 README/CONTRIBUTING。此处没有重新宣称完整场景通过，也没有新增产品规避参数。
 - 独立克隆 `/private/tmp/flowark-clone-015-19uy2yto/client` 无治理父目录，使用 `pnpm install --frozen-lockfile --offline --ignore-scripts --store-dir /Users/mac/Library/pnpm/store` 后 `pnpm check` 通过（53 项测试）。首次使用默认临时缓存因缺包失败，指定已有缓存后成功；未安装或宣称在该克隆启动 Electron。契约 0.1.0～0.6.0 在临时目录重生成逐字节一致，客户端三份 Schema/示例摘要核对通过。
 - 当前安装仍是 0.1.4，未打包、安装或宣称验收通过 0.1.5。没有访问招聘网站、调用真实 AI 或执行真实外发；C-04/C-06/C-09 的浏览器恢复范围仍有缺口。
 

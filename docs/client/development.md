@@ -8,7 +8,7 @@
 
 Git 每次写操作前确认本仓库根；Conventional Commits，中文描述；不添加 CI、Husky、commitlint 或自动发布。依赖与构建不读父目录，不跨仓库源码导入。私密业务数据、Profile、凭据、产物不得提交。
 
-命令（定义见 package.json；执行结果另记）：`pnpm install --frozen-lockfile`、`pnpm typecheck`、`pnpm test`、`pnpm build`、`pnpm dev`、`pnpm test:browser`、`pnpm test:desktop`、`pnpm package:mac`。浏览器测试只使用已有 Chrome，不执行 playwright install。修改状态、副作用、取消、调度须有行为测试。代码、检查、打包、安装运行、真实业务与 Git 推送分开报告。
+命令（定义见 package.json；执行结果另记）：`pnpm install --frozen-lockfile`、`pnpm typecheck`、`pnpm test`、`pnpm build`、`pnpm dev`、`pnpm test:browser`、`pnpm test:browser-recovery`、`pnpm test:desktop`、`pnpm package:mac`。浏览器测试只使用已有 Chrome，不执行 playwright install。独立恢复回归的失败状态及边界见 [恢复缺口](browser-recovery.md)。修改状态、副作用、取消、调度须有行为测试。代码、检查、打包、安装运行、真实业务与 Git 推送分开报告。
 
 目录：src/main 系统集成，src/host 持久化/调度，src/core 执行语义，src/workers 进程入口，src/adapters 能力，src/recruiting 业务，src/renderer 界面，src/shared IPC/类型，contracts 固定规范与生成类型，tests 虚构数据回归。完整总体架构不复制到本仓库。
 
