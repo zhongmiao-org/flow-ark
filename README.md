@@ -64,6 +64,8 @@ flow-ark/                          # 当前治理仓库
 
 治理仓库的 SSH 地址为 `git@github.com:zhongmiao-org/flow-ark.git`。应用子仓库地址和软件发布渠道尚未指定，待各阶段建立后补充对应安装与启动命令。
 
+所有仓库统一使用 Conventional Commits：`feat`、`fix`、`chore`、`docs` 等类型，格式为 `type(scope): description`，范围可省略。现阶段各仓库暂不配置 GitHub Actions 或其他 CI；所需验证在本地执行并记录结果。完整提交与验证规则见 [AGENTS.md](AGENTS.md)。
+
 ## P1 成功标准
 
 当前先完善 macOS，本机 Chrome 首先完成两站真实业务闭环；Firefox/Safari 随后分别验收，Windows 三款 360 后续验证。客户端不部署 FlowArk 服务端、不登录管理平台即可按配置执行：
