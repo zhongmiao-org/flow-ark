@@ -1,9 +1,13 @@
 """Reproducible P1 JSON Schema sources. Python stdlib only; no application code."""
 import json
 import hashlib
+import argparse
 from pathlib import Path
 
-ROOT = Path(__file__).parent / 'v0.1.0'
+parser = argparse.ArgumentParser()
+parser.add_argument('--version', choices=['0.1.0', '0.2.0'], default='0.2.0')
+VERSION = parser.parse_args().version
+ROOT = Path(__file__).parent / ('v' + VERSION)
 ROOT.mkdir(exist_ok=True)
 def obj(props, required=None):
     return {'type': 'object', 'properties': props, 'required': list(props) if required is None else required, 'additionalProperties': False}
@@ -50,11 +54,14 @@ defs['RecruitingAction'] = obj({'id': ID, 'platform': enum('boss', 'zhaopin'), '
 defs['ContactExchangeResult'] = obj({'platform': enum('boss', 'zhaopin'), 'account': S, 'target': S, 'company': S, 'job': S, 'contact': S, 'kind': enum('wechat', 'phone'), 'state': enum('requested', 'accepted', 'rejected', 'visible', 'needs-human'), 'value': S, 'source': S, 'owner': enum('peer', 'self', 'unknown'), 'time': S})
 defs['UserAttentionItem'] = obj({'id': ID, 'kind': enum('contact', 'confirmation', 'unknown-result', 'limitation', 'login'), 'title': S, 'detail': J, 'dedupeKey': S, 'read': B, 'time': S})
 defs['TemplateManifest'] = obj({'id': ID, 'version': S, 'source': S, 'digest': S, 'formatVersion': {'const': '1.0'}, 'parametersSchema': J, 'requiredCapabilities': arr(S), 'scripts': arr(S), 'dependencies': arr(obj({'name': S, 'version': S}))})
+if VERSION == '0.2.0':
+    defs['TemplateConfiguration'] = obj({'adapter': ID, 'schema': J})
+    defs['TemplateManifest']['properties']['configuration'] = ref('TemplateConfiguration')
 defs['TemplatePackage'] = obj({'manifest': ref('TemplateManifest'), 'flow': ref('FlowDefinition')})
-schema = {'$schema': 'https://json-schema.org/draft/2020-12/schema', '$id': 'https://flowark.local/contracts/0.1.0/p1.schema.json', 'title': 'FlowArkP1', '$defs': defs}
+schema = {'$schema': 'https://json-schema.org/draft/2020-12/schema', '$id': 'https://flowark.local/contracts/' + VERSION + '/p1.schema.json', 'title': 'FlowArkP1', '$defs': defs}
 (ROOT / 'p1.schema.json').write_text(json.dumps(schema, ensure_ascii=False, indent=2) + '\n')
 example = {'formatVersion': '1.0', 'id': 'hello', 'name': '第一个流程', 'description': '虚构数据回归', 'parameters': {}, 'requiredCapabilities': [], 'steps': [{'id': 'greeting', 'type': 'value', 'version': 1, 'value': {'message': '你好，序舟'}}, {'id': 'verify', 'type': 'assert', 'version': 1, 'actual': {'$ref': 'steps.greeting.message'}, 'operator': 'equals', 'expected': '你好，序舟'}]}
 (ROOT / 'example.flow.json').write_text(json.dumps(example, ensure_ascii=False, indent=2) + '\n')
 files = ['p1.schema.json', 'example.flow.json']
 (ROOT / 'SHA256SUMS').write_text(''.join(hashlib.sha256((ROOT / f).read_bytes()).hexdigest() + '  ' + f + '\n' for f in files))
-print('Generated contracts/v0.1.0')
+print('Generated contracts/v' + VERSION)
