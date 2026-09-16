@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--version', choices=['0.1.0', '0.2.0'], default='0.2.0')
+parser.add_argument('--version', choices=['0.1.0', '0.2.0', '0.3.0'], default='0.3.0')
 VERSION = parser.parse_args().version
 ROOT = Path(__file__).parent / ('v' + VERSION)
 ROOT.mkdir(exist_ok=True)
@@ -26,14 +26,17 @@ V = ref('Value')
 defs['CredentialRef'] = obj({'credentialId': ID})
 defs['ArtifactRef'] = obj({'artifactId': ID, 'runId': ID})
 nodes = []
-def node(kind, props):
-    nodes.append(obj({'id': ID, 'type': {'const': kind}, 'version': {'const': 1}, 'name': S, 'timeoutMs': {'type': 'integer', 'minimum': 100, 'maximum': 3600000}, **props}, ['id', 'type', 'version', *props]))
+def node(kind, props, version=1):
+    nodes.append(obj({'id': ID, 'type': {'const': kind}, 'version': {'const': version}, 'name': S, 'timeoutMs': {'type': 'integer', 'minimum': 100, 'maximum': 3600000}, **props}, ['id', 'type', 'version', *props]))
 node('value', {'value': V})
 node('assert', {'actual': V, 'operator': enum('equals', 'notEquals', 'contains', 'gt', 'exists'), 'expected': V})
 node('http', {'url': V, 'method': enum('GET', 'POST', 'PUT', 'DELETE'), 'headers': V, 'body': V})
 node('script', {'language': enum('js', 'ts'), 'code': S, 'input': V, 'dependencies': arr(obj({'name': S, 'version': S}))})
 node('file', {'operation': enum('read', 'write', 'copy'), 'binding': S, 'name': V, 'content': V})
 node('excel', {'operation': enum('read', 'write'), 'binding': S, 'name': V, 'rows': V})
+if VERSION == '0.3.0':
+    node('excel', {'operation': {'const': 'fill'}, 'binding': S, 'name': V, 'templateName': V, 'sheet': S, 'cells': V}, version=2)
+    node('file', {'operation': {'const': 'archive'}, 'binding': S, 'name': V, 'files': V}, version=2)
 node('browser', {'operation': enum('navigate', 'read', 'click', 'fill', 'wait', 'upload', 'screenshot', 'download'), 'selector': S, 'value': V})
 node('human', {'message': S})
 node('condition', {'actual': V, 'operator': enum('equals', 'notEquals', 'contains', 'gt', 'exists'), 'expected': V, 'then': arr(ref('Node')), 'else': arr(ref('Node'))})
@@ -54,7 +57,7 @@ defs['RecruitingAction'] = obj({'id': ID, 'platform': enum('boss', 'zhaopin'), '
 defs['ContactExchangeResult'] = obj({'platform': enum('boss', 'zhaopin'), 'account': S, 'target': S, 'company': S, 'job': S, 'contact': S, 'kind': enum('wechat', 'phone'), 'state': enum('requested', 'accepted', 'rejected', 'visible', 'needs-human'), 'value': S, 'source': S, 'owner': enum('peer', 'self', 'unknown'), 'time': S})
 defs['UserAttentionItem'] = obj({'id': ID, 'kind': enum('contact', 'confirmation', 'unknown-result', 'limitation', 'login'), 'title': S, 'detail': J, 'dedupeKey': S, 'read': B, 'time': S})
 defs['TemplateManifest'] = obj({'id': ID, 'version': S, 'source': S, 'digest': S, 'formatVersion': {'const': '1.0'}, 'parametersSchema': J, 'requiredCapabilities': arr(S), 'scripts': arr(S), 'dependencies': arr(obj({'name': S, 'version': S}))})
-if VERSION == '0.2.0':
+if VERSION in ['0.2.0', '0.3.0']:
     defs['TemplateConfiguration'] = obj({'adapter': ID, 'schema': J})
     defs['TemplateManifest']['properties']['configuration'] = ref('TemplateConfiguration')
 defs['TemplatePackage'] = obj({'manifest': ref('TemplateManifest'), 'flow': ref('FlowDefinition')})
