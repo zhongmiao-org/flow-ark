@@ -83,7 +83,7 @@ AI 根据选定简历、已确认事实、当前岗位、会话和回复规则�
 - `RecruitingAction`：平台、账号、职位/会话、动作类型、内容摘要、授权依据、去重依据和提交结果。
 - `ContactExchangeResult`／`UserAttentionItem`：交换状态、可见联系方式、来源、关联对象、持久化提醒和已读状态。
 
-这些是待实现的业务契约，不是已有 SDK。精确字段在相应 P1 开发步骤中通过 Schema 定义，和通用 Run 状态分开。
+业务 wire 对象已发布在 [契约 0.1.0](../contracts/v0.1.0/README.md)，和通用 Run 状态分开。客户端的内部协调与策略已有模拟回归；两站生产页面入口仍未校准，不能据此宣称已有可执行的站点 SDK 或真实业务验收通过。
 
 ```mermaid
 flowchart LR

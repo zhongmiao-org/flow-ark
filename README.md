@@ -9,9 +9,9 @@ FlowArk 是本地优先的自动化工作台，连接用户选择的本机已安
 ## 当前状态
 
 - 文档基线：P0，2026-09-16。
-- 当前交付：P0 已完成，统一架构、开发约束、路线图和子仓库隔离规则已校验。
-- 下一阶段：P1.1，建立 `flow-ark-client` 单机客户端工程。
-- 尚未创建应用子仓库、可运行工程、机器可读协议或安装包；尚未发布契约版本。
+- 当前交付：P0 已完成；P1 开发预览客户端已建立，具有可运行桌面、通用流程执行和本地检查。
+- 契约 `contracts-v0.2.0` 已发布；客户端固定使用副本，独立构建，模板包声明自己的实例配置。
+- 已生成 macOS arm64 未签名预览包；Chrome 的 localhost 通用流程已验证。两站生产页面适配、真实 AI 调用及招聘业务闭环尚未完成，P1 不标记完成。
 - 本仓库当前没有应用安装、构建或测试命令。
 
 ## 文档入口
@@ -24,7 +24,7 @@ FlowArk 是本地优先的自动化工作台，连接用户选择的本机已安
 | [ROADMAP](ROADMAP.md) | 阶段任务、依赖、排除项和验收关口 |
 | [契约管理](contracts/README.md) | 公共协议的归属、版本、发布和消费者接入方式 |
 
-架构文档是完整架构的唯一来源，ROADMAP 记录范围和进展，AGENTS.md 将二者转为开发规则。子仓库仅补充自身实现细节。
+架构文档是完整架构的唯一来源，ROADMAP 记录范围和进展，AGENTS.md 将二者转为开发规则。应用实现记录也集中在本仓库，子仓库仅保留必要的使用与贡献说明。
 
 ## 仓库地图
 
@@ -40,7 +40,7 @@ flow-ark/                          # 当前治理仓库
 │   └── p1-recruiting.md           # 首个业务场景的配置与验收
 ├── contracts/
 │   └── README.md                 # 目前只有管理约定，没有已发布 Schema
-├── flow-ark-client/               # 规划：P1.1 创建，具有自己的 .git/
+├── flow-ark-client/               # 已建立的独立客户端仓库，根仓库忽略
 ├── flow-ark-server/               # 规划：P2 创建，具有自己的 .git/
 └── flow-ark-admin/                # 规划：P2 创建，具有自己的 .git/
 ```
@@ -58,11 +58,11 @@ flow-ark/                          # 当前治理仓库
 
 1. 阅读 [AGENTS.md](AGENTS.md)、[架构文档](docs/architecture.md) 和 [当前 roadmap](ROADMAP.md)。
 2. 确认任务归属和阶段：P1 仅开发单机客户端，服务端与管理台留到 P2。
-3. P1.1 在 `flow-ark-client` 中初始化独立仓库，建立自己的 `AGENTS.md`、README、构建与检查命令；其他子仓库在对应阶段创建。
+3. 客户端开发进入 `flow-ark-client`；使用说明见其 README，开发/契约采用/验收文档统一位于本仓库 [docs/client](docs/client/development.md)。应用仓库不放 AGENTS.md；其他子仓库在对应阶段创建。
 4. 在目标仓库执行 Git 操作，先确认 `git rev-parse --show-toplevel` 指向该仓库。尚未初始化的子目录会向上找到治理仓库，不能据此误提交。
 5. 应用必须可单独克隆、构建、测试和运行；发布产物不依赖 `flow-ark` 主目录存在。
 
-治理仓库的 SSH 地址为 `git@github.com:zhongmiao-org/flow-ark.git`。应用子仓库地址和软件发布渠道尚未指定，待各阶段建立后补充对应安装与启动命令。
+治理仓库的 SSH 地址为 `git@github.com:zhongmiao-org/flow-ark.git`。客户端为 `git@github.com:zhongmiao-org/flow-ark-client.git`，安装和开发命令见其 [README](https://github.com/zhongmiao-org/flow-ark-client/blob/main/README.md)。正式软件发布渠道未建立。
 
 所有仓库统一使用 Conventional Commits：`feat`、`fix`、`chore`、`docs` 等类型，格式为 `type(scope): description`，范围可省略。现阶段各仓库暂不配置 GitHub Actions 或其他 CI；所需验证在本地执行并记录结果。完整提交与验证规则见 [AGENTS.md](AGENTS.md)。
 
@@ -76,7 +76,7 @@ flow-ark/                          # 当前治理仓库
 
 浏览器由用户从本机已安装程序中选择，支持发现和手动指定。Chrome 可用 `playwright-core` 控制，不需内置浏览器；系统 Firefox/Safari 使用 Selenium 路线，Windows 360 按实际版本验证。统一 BrowserDriver 隔离差异，客户端不附带、下载或安装自动化浏览器，Electron 内核只用于界面。详细矩阵见架构文档。
 
-原来的数据处理、Excel 生成与上传流程保留为技术回归样例，不替代上述业务验收。当前仍只有设计文档，没有浏览器兼容或招聘动作已通过的声明。
+数据处理、Excel 生成与上传流程已通过本机 Chrome 技术回归，不替代上述业务验收。当前没有真实招聘动作或 Firefox/Safari 兼容通过的声明。
 
 不依赖平台不等于全部离线：访问招聘网站仍需网络；AI 首版通过用户自己的 API Key 接入 **OpenAI Codex 模型（Responses API）和 DeepSeek（Chat Completions API）**，不依赖 Codex CLI 或桌面登录态。模型 ID 可配置并需验证，密钥仅在本地受保护存储中保存。可视化编排覆盖顺序、条件、串行循环，任务支持手动触发和应用驻留期间的本机定时。
 

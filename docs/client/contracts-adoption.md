@@ -1,0 +1,12 @@
+# 固定契约来源
+
+- 治理基线：`a950b6ab517c2a7aee6f4faaf9db7306c3f0bdd1`。
+- P1 规范源：`zhongmiao-org/flow-ark` 的 `contracts-v0.2.0` tag（2026-09-16 已推送），规范目录 `contracts/v0.2.0/`。
+- 采用版本：契约 0.2.0，流程格式 1.0，节点版本 1。摘要见 `contracts/SHA256SUMS`。
+- 客户端内的 `contracts/p1.schema.json` 和示例是固定发布复制件；程序不读取父目录。
+- 生成器：json-schema-to-typescript 16.0.0；执行 `pnpm contracts:generate`，生成 `src/shared/contracts.generated.ts`。
+- 运行时使用 Ajv 8.20.0（2020-12 模式），另校验引用作用域、能力与资源绑定。
+- 升级顺序：治理仓库新规范及兼容/迁移说明 → 发布不可变 tag → 更新客户端复制件和摘要 → 再生成类型 → 正反例与行为回归 → 客户端版本发布。
+- SQLite 迁移由 `src/host/store.ts` 管理。首版 user_version=1；更高版本拒绝打开，迁移失败不删库。所有业务 JSON 使用 AES-256-GCM 加密，数据密钥由 macOS Keychain 保护的 Electron safeStorage 保管。
+
+- 0.2.0 契约发布提交：`342eabd`；实例配置表单随模板包分发，客户端 Markdown 不保存采用说明。
