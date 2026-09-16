@@ -1,6 +1,6 @@
 # FlowArk · 序舟
 
-本地自动化工作台，当前交付 **0.1.0 开发预览版，macOS Apple Silicon**。已有可运行 Electron 客户端、流程编辑器、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。
+本地自动化工作台，当前开发版本 **0.1.1，macOS Apple Silicon**。已有可运行 Electron 客户端、流程编辑器、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。各版本安装结果见验收记录。
 
 **招聘业务尚未验收完成。** 两个模板可以创建和配置；授权、AI 草稿、外发记录和联系方式提醒的内部流程已有回归测试。BOSS/智联的真实账号与页面入口尚未校准，生产适配器明确阻止外发。不能用本地测试代表真实投递、聊天或交换成功。按用户本次调整，先开发程序，招聘网站实测后置。
 
@@ -10,7 +10,7 @@
 
 ## 安装和启动
 
-本地构建输出位于 `release/`：`FlowArk-0.1.0-arm64.dmg`、`FlowArk-0.1.0-arm64-mac.zip` 和 `mac-arm64/FlowArk.app`。打开 DMG 后将应用复制到 Applications，或用户自己的 `~/Applications`。安装包不包含额外自动化浏览器。
+本地构建输出位于 `release/`：`FlowArk-0.1.1-arm64.dmg`、`FlowArk-0.1.1-arm64-mac.zip` 和 `mac-arm64/FlowArk.app`。打开 DMG 后将应用复制到 Applications，或用户自己的 `~/Applications`。安装包不包含额外自动化浏览器。
 
 当前包 **未签名、未公证**，没有公开发行渠道和自动更新服务。系统对来源的提示与组织分发政策分别处理，不通过脚本关闭 Gatekeeper 或删除隔离属性。仅记录本机实际启动结果，不承诺其他机器直接运行。
 
@@ -19,6 +19,8 @@
 「设置」选择已经安装的 Chrome。程序使用专用 Profile，不读取日常默认 Profile；路径或版本变化会要求重新绑定。Firefox 需要显式选择本机 geckodriver，Safari 使用 `/usr/bin/safaridriver`；这两条路线尚未完成兼容验收，不宣称支持。Windows 三款 360 后续单独验证。
 
 「参数与绑定」绑定本地目录和允许此流程使用的凭据。文件节点的名称相对于绑定目录，禁止越界或符号链接逃逸。浏览器上传值格式为 `{"binding":"work","name":"resume.pdf"}`；浏览器截图和下载进入运行产物目录。
+
+Excel 节点可切换「填充工作簿模板」：templateName 指定已有 xlsx，name 指定另存文件，sheet 为空则使用第一张表，cells 形如 `{"A2":"名称","B2":42}`，也可引用流程参数。原模板不会被覆盖，保留未修改单元格、样式和其他工作表。文件节点的「归档为 ZIP」接受明确的 files 相对路径数组。输出完整写入后才替换文件并登记产物；运行详情可在文件夹中显示产物，文件已移动、删除或不可访问时显示提示，历史运行结果保持不变。
 
 「模板库」内有 BOSS、智联两个模板。创建后从工具栏「实例配置」打开模板声明的表单，设置平台账号、明确目标 ID、简历版本、授权事实、所选浏览器及逐动作模式。投递、发送简历、回复、微信/手机请求和接受分别设置禁止、确认或自动。待确认动作保存在「待办」，确认只绑定页面显示的具体内容；下轮必须再次核对账号、目标和上下文。当前生产站点适配未完成，运行模板只生成限制待办。
 
@@ -71,6 +73,8 @@ pnpm test:desktop   # 启动 Electron，测试 React Flow、Monaco、保存和�
 pnpm package:mac    # 本机 arm64 zip + 原生 hdiutil DMG，未签名
 FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:desktop
 FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:install
+# 使用隔离数据验证旧版写入后新版重开；不访问日常用户数据
+FLOWARK_PREVIOUS_EXECUTABLE='/absolute/path/previous/FlowArk.app/Contents/MacOS/FlowArk' FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:install
 ```
 
 浏览器回归可设置 `FLOWARK_CHROME_PATH` 指向用户已安装的 Chrome。任何命令都不执行 `playwright install`。`test-results/`、`release/` 和运行数据均不提交；测试只使用虚构数据。没有 GitHub Actions、其他 CI、commitlint 或 Husky；本地检查不等于 CI。
@@ -82,8 +86,8 @@ FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm
 - 两站生产 DOM 适配与真实业务闭环尚未完成；求职筛选目前只有关键词、公司排除及明确目标范围，城市/薪资等完整筛选仍待扩展。
 - Codex、DeepSeek 只有协议模拟与错误处理测试，真实 API 与账号模型可用性待安全配置密钥后验证。
 - Firefox 未安装；Safari 原生驱动路线已编写，登录、验证码接管及上传未验收；Windows 未验收。
-- Excel 支持首个工作表基础读取、生成和上传，不承诺宏、公式计算或复杂模板保持。浏览器暂不支持跨 iframe 操作。
-- 本机定时为固定分钟间隔，不支持退出后系统服务或 cron 表达式。版本 1 数据库支持初始化和拒绝未知新版，尚无跨版本升级包验证。
+- Excel 支持首个工作表基础读取、生成、按单元格填充模板和上传；保留常规样式与工作表，不承诺宏、公式重算或所有高级工作簿特性。浏览器暂不支持跨 iframe 操作。
+- 本机定时为固定分钟间隔，不支持退出后系统服务或 cron 表达式。版本 1 数据库支持初始化和拒绝未知新版；0.1.0 → 0.1.1 保留历史/密钥已验证，但两版数据库结构相同，不能代替未来表结构迁移验收。
 - 目前使用 node:sqlite，Node 会提示实验性 API；Monaco 懒加载资源较大，构建有 chunk size 提示，均不代表已消除后续兼容或性能风险。
 
 官方协议参考：[OpenAI Responses 结构化输出](https://developers.openai.com/api/docs/guides/structured-outputs)、[Codex 模型](https://developers.openai.com/api/docs/models/gpt-5.3-codex)、[DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/)。这些资料不能代替本人的 API 实调与业务验收。
