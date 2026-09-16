@@ -1,0 +1,33 @@
+# 各应用是独立 Git 仓库，不是治理仓库的目录或 submodule。
+/flow-ark-client/
+/flow-ark-server/
+/flow-ark-admin/
+
+# 本机文件、凭据和运行产物不得进入治理仓库。
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.env
+.env.*
+!.env.example
+*.log
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3-shm
+*.sqlite3-wal
+/runtime-data/
+/artifacts/
+/browser-profiles/
+/credentials/
+
+# 治理仓库不承载应用依赖或构建产物。
+node_modules/
+dist/
+build/
+target/
