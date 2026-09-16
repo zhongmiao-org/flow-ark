@@ -1,8 +1,8 @@
 # 固定契约来源
 
 - 治理基线：`a950b6ab517c2a7aee6f4faaf9db7306c3f0bdd1`。
-- P1 规范源：`zhongmiao-org/flow-ark` 的 `contracts-v0.3.0` tag（2026-09-16 已推送），规范目录 `contracts/v0.3.0/`。
-- 采用版本：契约 0.3.0，流程格式 1.0；既有节点版本 1，工作簿模板填充和文件归档使用版本 2。摘要见 `contracts/SHA256SUMS`；客户端 package.json 的 flowark 字段记录基线及采用版本。
+- P1 规范源：`zhongmiao-org/flow-ark` 的 `contracts-v0.4.0` tag（2026-09-16 已推送），规范目录 `contracts/v0.4.0/`。
+- 采用版本：契约 0.4.0，流程格式 1.0；既有节点版本 1，工作簿模板填充和文件归档使用版本 2。摘要见 `contracts/SHA256SUMS`；客户端 package.json 的 flowark 字段记录基线及采用版本。
 - 客户端内的 `contracts/p1.schema.json` 和示例是固定发布复制件；程序不读取父目录。
 - 生成器：json-schema-to-typescript 16.0.0；执行 `pnpm contracts:generate`，生成 `src/shared/contracts.generated.ts`。
 - 运行时使用 Ajv 8.20.0（2020-12 模式），另校验引用作用域、能力与资源绑定。
@@ -11,3 +11,5 @@
 
 - 0.2.0 契约发布提交：`342eabd`；实例配置表单随模板包分发，客户端 Markdown 不保存采用说明。
 - 0.3.0 契约发布提交：`a81f5fc`；工作簿模板填充与文件归档均为新增节点版本，不改写旧流程与快照。本地产物界面接口见 [本地 IPC](local-ipc.md)。
+
+- 0.4.0 契约发布提交：`16e1351`；可选脚本编译摘要与依赖清单。新版本/Run 固定编译产物，旧的无依赖计划可补编译固定文本；不改变 SQLite 表结构。细节见 [本地脚本依赖](script-dependencies.md)。

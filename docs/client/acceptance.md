@@ -2,6 +2,17 @@
 
 日期：2026-09-16。当前证据来自客户端仓库本地检查、真实进程、桌面窗口和 localhost 虚构数据；无真实投递、消息或联系方式交换。按用户要求先开发程序，招聘网站实测后置。P1 尚未完成，不将预览包描述为招聘业务可用版本。
 
+## 0.1.3 本地脚本依赖与固定编译产物
+
+- 新增脚本本地包目录绑定，读取 package.json 的名称和精确版本；静态打包 JS/TS、ESM/CommonJS、JSON 和已安装的传递依赖。脚本包不自动安装、下载或执行安装钩子，模板导入只产生未绑定草稿。编译边界见 [本地脚本依赖](script-dependencies.md)。
+- 运行和保存计划前固定编译文件及摘要，修复旧预检重复写入相同节点文件的问题。当前 Run、排队 Run 和重启后的计划都复用原产物，重新保存计划才采纳依赖变化；每次脚本执行前核对摘要，丢失或损坏时阻止执行。
+- `pnpm typecheck`、`pnpm test` 38 项与 `pnpm build` 通过；`pnpm test:runtime` 16 项通过。新增用例覆盖精确声明/模板清单、scope 子路径、Node 内置 CommonJS 引用、JSON、pnpm 风格符号链接、缺包/错误版本/未声明/动态/原生依赖拒绝、不回退客户端依赖，以及真实 Worker 的队列快照、修改同版本包内容、重开计划、产物删除/篡改零脚本副作用、旧计划兼容。
+- 开发版与最终安装版 `pnpm test:desktop` 均通过：界面绑定虚构包、显示版本、实际脚本执行结果和运行清单通过；既有图形、Monaco、通用右侧及模板实例配置一起回归。已查看 `test-results/script-packages-editor.png`。
+- `pnpm package:mac` 通过，最终 DMG 安装到 `/Users/mac/Applications/FlowArk.app`。安装前核实旧版未运行，0.1.2 备份在 `/private/tmp/flowark-dependencies-upgrade-mpe911bo/FlowArk-0.1.2.app`。安装版 `pnpm test:install` 在隔离数据目录验证 0.1.2 → 0.1.3：历史 Run、受系统保护的虚构密钥状态、托盘、正常退出与重开均保留；证据 `test-results/install.json`。未改写日常用户数据。
+- DMG `release/FlowArk-0.1.3-arm64.dmg`，SHA-256 `4867c4e65f4bd74a9be582700b6f182f0cd7d08ad75c49ad6b631af29b5c703b`；zip `release/FlowArk-0.1.3-arm64-mac.zip`，SHA-256 `9df43bc9a8768839be828861740d0fac3703d8b54a5f93f986e3bd1837bfcba0`。未签名、未公证、默认 Electron 图标及已有 Helper/大 chunk/SQLite 提示仍保留；安装运行通过不等于正式发行。
+- 契约 0.4.0 提交 `16e1351` 与 `contracts-v0.4.0` 已推送私有治理仓库；客户端 `be0abf3` 仅本地提交，公开远程仍待用户答复。客户端自有 Markdown 仍只有 README 与 CONTRIBUTING。没有真实招聘网站、AI API 或外发验证，不改变 P1 业务验收状态。
+- 独立克隆 `/private/tmp/flowark-clone-013-v690r_35/client` 无治理父目录，`pnpm install --frozen-lockfile --offline --ignore-scripts` 与 `pnpm check` 通过（类型检查、38 项测试、构建）。没有在克隆中安装 Electron，不能将这项证据记为离线桌面启动。
+
 ## 0.1.2 流程图语义与安装验证
 
 - 用户提出条件应使用菱形等常用流程图约定。保留 React Flow，自定义 SVG 节点与连接桩，映射和选型见 [流程图语义](flowchart.md)。修复原投影中条件节点直接连接后续步骤、分支体缺少汇合的问题；循环增加逐项、下一项和完成路径。辅助开始/结束/汇合点不进入保存和执行，流程契约仍为 0.3.0，数据库无变化。
@@ -51,7 +62,7 @@ macOS 27.0（26A428），arm64；Node 24.3.0，pnpm 10.14.0；Electron 44.4.1、
 | --- | --- | --- |
 | C-01 | 部分 | 无平台的 HTTP/TS/Excel 上传场景通过；两站真实闭环未验证 |
 | C-02 | 本地通过 | 顺序引用、真/假分支、空/多项循环、前向与越界引用拒绝 |
-| C-03 | 本地通过 | 运行中改草稿不影响快照；计划保留原版本 |
+| C-03 | 本地通过 | 运行中改草稿不影响快照；0.1.3 队列/计划固定脚本依赖，重开和目录删除不漂移；编译摘要异常阻止执行 |
 | C-04 | 部分 | 脚本抛错/忙循环、执行 Worker 被杀、取消、浏览器关闭中断等待已测；真实网站浏览器崩溃后业务结果待测 |
 | C-05 | 模拟通过 | 招聘协调丢回执落 UNKNOWN，不重复提交；真实站点回执未测 |
 | C-06 | 部分 | 排队、运行、暂停、人工等待取消及资源槽重用通过；Safari 接管未测 |
