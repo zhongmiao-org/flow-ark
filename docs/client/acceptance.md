@@ -2,6 +2,19 @@
 
 日期：2026-09-16。当前证据来自客户端仓库本地检查、真实进程、桌面窗口和 localhost 虚构数据；无真实投递、消息或联系方式交换。按用户要求先开发程序，招聘网站实测后置。P1 尚未完成，不将预览包描述为招聘业务可用版本。
 
+## 0.1.5 开发中：框架路径与会话清理
+
+- 契约 0.6.0 `3629b4b` 及 `contracts-v0.6.0` 已推送私有治理仓库；客户端 `f555a15` 仅本地提交，公开推送授权状态不变。browser v2 提供最多 8 层的显式 CSS 框架路径，旧 v1、计划和快照不自动升级。细节见 [浏览器框架](browser-frames.md)。
+- 通用编辑器可选择浏览器操作、目标元素和逐层 iframe 路径，保存重开保留 v2 与完整路径；页面导航和截图禁用并清空框架路径。开发目录 `pnpm test:desktop` 通过，已查看 `test-results/browser-frame-editor.png`；通用右侧无招聘字段。
+- `pnpm check` 通过：类型检查、53 项单元测试、构建；`pnpm test:runtime` 16 项通过。新增协议/模板兼容、无效路径与顶层操作拒绝、Selenium 框架切换/复位/并发/超时模型及会话生命周期验证。Firefox/Safari 只验证了适配器模型，未宣称实机通过。
+- 本机 Chrome 153.0.8010.48、playwright-core 1.63.0 的 `pnpm test:browser` 通过（headless、显式本机路径、空浏览器缓存、独立 Profile）：嵌套跨源读取/输入/点击/上传/下载，顶层同名元素隔离，缺失/重复/非框架/非法选择器拒绝，延迟框架、命令间替换重定位、命令内移除失败且不重放，以及关闭取消等待。证据 `test-results/browser.json`。
+- 会话旧请求的延迟异常可能按绑定 ID 关闭新实例，针对性用例在修复前稳定失败，修复后通过。现按实例清理；关闭中的会话仍占用清理等待，新启动等待旧 Profile 释放，并重新检查取消信号。临时 trace 已撤回，不把另一个 Chrome 崩溃误记为该修复解决。
+- **`pnpm test:scenario` 完整回归未通过，不交付 0.1.5 安装包。** 真实宿主 → Worker → 会话进程的首轮跨源框架上传、Excel B3=90、回执、顶层隔离和下载产物核对通过；缺失框架失败且零点击、框架等待取消且不执行后续点击均通过。但再次运行到下载时 Chrome 发生原生崩溃，Run 正确记录 FAILED，没有重放。分阶段证据 `test-results/scenario-frames.json`；最终日志 `/private/tmp/flowark-015-scenario-final.log`。
+- 原生退出日志显示 Chrome SIGSEGV 在宿主发出关闭请求之前；macOS 报告 `Google Chrome-2026-09-16-190104.ips`，发生于 2026-09-16 19:01:02（UTC+8），EXC_BAD_ACCESS/KERN_INVALID_ADDRESS。脱敏摘要 `test-results/chrome-native-crash.json`。仅证明原生崩溃，尚未定位 Chrome 内部原因或证明所有触发条件。
+- 对照：0.1.4 `b62c843` 的 Worker 在新 Profile 中连续两次顶层下载重开通过；0.1.5 的独立框架下载 → 只读重开 → 再下载通过。固定下载目录、将关闭等待从 2.5 秒增至 15 秒均未解决完整场景，实验全部撤回；没有更换浏览器、升级用户 Chrome、清空日常 Profile、弱化测试断言或自动重放。
+- 独立克隆 `/private/tmp/flowark-clone-015-19uy2yto/client` 无治理父目录，使用 `pnpm install --frozen-lockfile --offline --ignore-scripts --store-dir /Users/mac/Library/pnpm/store` 后 `pnpm check` 通过（53 项测试）。首次使用默认临时缓存因缺包失败，指定已有缓存后成功；未安装或宣称在该克隆启动 Electron。契约 0.1.0～0.6.0 在临时目录重生成逐字节一致，客户端三份 Schema/示例摘要核对通过。
+- 当前安装仍是 0.1.4，未打包、安装或宣称验收通过 0.1.5。没有访问招聘网站、调用真实 AI 或执行真实外发；C-04/C-06/C-09 的浏览器恢复范围仍有缺口。
+
 ## 0.1.4 招聘岗位筛选与证据核对
 
 - 两个内置模板升级到 1.2.0，城市、包含公司、排除职位词、现场/混合/远程工作方式及人民币月薪范围均由模板 Schema 提供。通用右侧仍无招聘配置；已有实例不被升级或覆盖。旧策略没有 jobFilter 时维持原范围，模板导入不继承个人规则、账号或自动权限。
