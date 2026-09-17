@@ -64,7 +64,7 @@ flow-ark/                          # 当前治理仓库
 
 治理仓库的 SSH 地址为 `git@github.com:zhongmiao-org/flow-ark.git`。客户端为 `git@github.com:zhongmiao-org/flow-ark-client.git`，安装和开发命令见其 [README](https://github.com/zhongmiao-org/flow-ark-client/blob/main/README.md)。正式软件发布渠道未建立。
 
-所有仓库统一使用 Conventional Commits：`feat`、`fix`、`chore`、`docs` 等类型，格式为 `type(scope): description`，范围可省略。现阶段各仓库暂不配置 GitHub Actions 或其他 CI；所需验证在本地执行并记录结果。完整提交与验证规则见 [AGENTS.md](AGENTS.md)。
+所有仓库统一使用 Conventional Commits：`feat`、`fix`、`chore`、`docs` 等类型，格式为 `type(scope): description`，范围可省略；工作分支同样以类型开头，例如 `feat/client-initial`、`fix/browser-recovery`、`docs/contributing`，不使用 `codex/` 前缀。按 2026-09-17 的调整，每次提交均通过功能分支 PR 交付，添加固定的 `automerge` PR 标签，等待各自 CI 检查通过并自动合并；不直接推送默认分支。此要求覆盖治理仓库、所有现有及后续应用子仓库；本地检查与真实业务验收仍须分别留证。完整提交与验证规则见 [AGENTS.md](AGENTS.md)。
 
 ## P1 成功标准
 

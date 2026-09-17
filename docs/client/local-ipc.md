@@ -9,3 +9,7 @@
 无 SQLite 迁移，available 不入库；旧版本仍能读取相同历史数据。新增客户端保持已有来源帧校验及 2 MiB IPC 输入上限。验证需覆盖未知 ID、任意路径注入、正常文件、删除文件、符号链接替换和历史成功状态不变。
 
 脚本依赖增量（0.1.3）：白名单 `script.package.inspect` 只读取用户所选包目录的元数据；`flow.save` 的本地 bindings 接受 scriptPackages；`run.detail` 增加 scriptBundles（无本地依赖路径）。请求/响应和快照兼容规则见 [本地脚本依赖](script-dependencies.md)。
+
+2026-09-17 调试增量（0.1.5）：`flow.run` 增加可选 `debug: boolean`，仅手动运行可启用。创建不可变快照后，在第一个节点前进入 PAUSED；`run.control` 增加 `step`，仅 PAUSED 接受，一次放行一个节点入口（条件/循环会逐步进入实际子路径）。`resume` 改为连续执行，`pause` 仍在下一节点边界停下；WAITING_INPUT 只通过 resume 明确确认。宿主拒绝重复未消费的 step/resume，不能把双击积累成多步执行。取消或重启不重放步骤。
+
+Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，旧历史可读，无 SQLite 结构迁移。状态事件在暂停时附带 nodeInstance、nodeName，供界面显示下一个节点。调试节点完成时记录经统一脱敏、最多 4000 字符的输出预览；失败前已完成的预览仍可查看，预览不是完整输出或副作用回执。现有流程 wire 格式与节点版本不变，调试为客户端内部运行控制。

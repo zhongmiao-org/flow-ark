@@ -1,10 +1,10 @@
 # FlowArk · 序舟
 
-本地自动化工作台，当前源码为 **0.1.5 开发中，macOS Apple Silicon**；本机已安装版本仍为 **0.1.4**。已有可运行 Electron 客户端、流程编辑器、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。各版本安装结果见验收记录。
+本地自动化工作台，当前源码和本机安装均为 **0.1.5 调试预览版，macOS Apple Silicon**。已有可运行 Electron 客户端、流程编辑器、逐步调试、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。各版本安装结果见验收记录。
 
 2026-09-17 当前先使用 [简单网站练习](simple-sites.md) 完善通用浏览器流程；Codex 配置及招聘投递后置，不要求现在准备这些账号。客户端 `examples/simple-web-form.template.json` 可导入，绑定 Chrome 和独立输出目录后手动运行。
 
-复杂控件可用 [本地表单实验室](form-lab.md)：客户端目录运行 `pnpm forms:serve`，打开 `http://127.0.0.1:4178`。页面可手动练习，也可下载配套流程和虚构文件；自动流程使用 0.1.5 开发版新增的表单操作，已安装 0.1.4 不支持。
+复杂控件可用 [本地表单实验室](form-lab.md)：客户端目录运行 `pnpm forms:serve`，打开 `http://127.0.0.1:4178`。页面可手动练习，也可下载配套流程和虚构文件；已安装 0.1.5 支持新增表单操作和 [逐步调试](debugging.md)。
 
 **招聘业务尚未验收完成。** 两个模板可以创建和配置；授权、AI 草稿、外发记录和联系方式提醒的内部流程已有回归测试。基础交付后已只读查看两站公开入口，真实账号及业务页面仍未校准，生产适配器明确阻止外发。不能用本地测试或公开页面可达代表真实投递、聊天或交换成功。
 
@@ -14,9 +14,9 @@
 
 ## 安装和启动
 
-已验收的 0.1.4 本地构建输出位于 `release/`：`FlowArk-0.1.4-arm64.dmg`、`FlowArk-0.1.4-arm64-mac.zip` 和 `mac-arm64/FlowArk.app`。打开 DMG 后将应用复制到 Applications，或用户自己的 `~/Applications`。安装包不包含额外自动化浏览器。
+0.1.5 调试预览构建输出位于 `release/`：`FlowArk-0.1.5-arm64.dmg`、`FlowArk-0.1.5-arm64-mac.zip` 和 `mac-arm64/FlowArk.app`。打开 DMG 后将应用复制到 Applications，或用户自己的 `~/Applications`。安装包不包含额外自动化浏览器。
 
-0.1.5 尚未生成或安装交付包：本机 Chrome 153 在上传下载后关闭、重开并再次下载时发生原生 SIGSEGV。纯 Playwright 也已复现，取消不是必要条件。失败断言保留，未把单项通过称为完整恢复通过；详细证据见 [恢复缺口](browser-recovery.md) 和验收记录。
+本机 Chrome 153.0.8010.48 的自动下载恢复仍存在原生 SIGSEGV，因此该版本的 download 操作会在准入及驱动层明确拒绝；表单、上传及取消重开分别通过。0.1.5 按此限制安装，不宣称完整上传下载恢复已通过，详见 [恢复缺口](browser-recovery.md) 与 [调试交付](debugging.md)。
 
 当前包 **未签名、未公证**，没有公开发行渠道和自动更新服务。系统对来源的提示与组织分发政策分别处理，不通过脚本关闭 Gatekeeper 或删除隔离属性。仅记录本机实际启动结果，不承诺其他机器直接运行。
 
@@ -36,7 +36,7 @@ Excel 节点可切换「填充工作簿模板」：templateName 指定已有 xls
 
 两个招聘模板 1.2.0 的「岗位筛选」支持完整城市名称、包含公司、排除职位词、现场/混合/远程办公及人民币月薪区间。各组同时满足；空列表不新增限制。月薪填写岗位下限至少、上限至多，0 表示对应方向不限，启用时至少填写一个边界。缺失、面议、非月薪或非人民币信息不会自动换算；不匹配时在 AI 调用前进入待办，提交前再核对。待办展示岗位证据和来源，岗位条件变化会使旧确认失效。旧实例保留原表单，使用新增字段需从新版模板创建独立实例。规则见 [岗位筛选](recruiting-filters.md)。
 
-「设置」可写入 Codex/OpenAI 或 DeepSeek API Key；Renderer 不获得已存密钥。点击接口验证会向**所选供应商**发送虚构的开发经验样例，可能产生该供应商费用。此功能不使用 Codex CLI、ChatGPT 或桌面登录态。模型 ID 可配置，账号可用性以实际返回为准。默认候选 `gpt-5.3-codex` / `deepseek-flash`。0.1.5 开发版的 DeepSeek 虚构样例实调已通过；Codex 未实调。已安装 0.1.4 不含本次提示词修复，详见 [AI 实接](ai-validation.md)。
+「设置」可写入 Codex/OpenAI 或 DeepSeek API Key；Renderer 不获得已存密钥。点击接口验证会向**所选供应商**发送虚构的开发经验样例，可能产生该供应商费用。此功能不使用 Codex CLI、ChatGPT 或桌面登录态。模型 ID 可配置，账号可用性以实际返回为准。默认候选 `gpt-5.3-codex` / `deepseek-flash`。0.1.5 开发版的 DeepSeek 虚构样例实调已通过，安装包包含相同修复；本轮安装验证未再次调用真实 API。Codex 未实调，详见 [AI 实接](ai-validation.md)。
 
 关闭窗口会进入托盘；菜单「退出 FlowArk」停止驻留调度、处理当前任务并取消队列。定时只在应用运行时生效，退出、休眠或长时间停顿后的错过任务不会补跑。暂停在步骤边界生效，取消先通知执行进程，必要时回收本任务的进程。
 
@@ -91,7 +91,7 @@ FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm
 FLOWARK_PREVIOUS_EXECUTABLE='/absolute/path/previous/FlowArk.app/Contents/MacOS/FlowArk' FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:install
 ```
 
-浏览器回归可设置 `FLOWARK_CHROME_PATH` 指向用户已安装的 Chrome。任何命令都不执行 `playwright install`。`test-results/`、`release/` 和运行数据均不提交；测试只使用虚构数据。没有 GitHub Actions、其他 CI、commitlint 或 Husky；本地检查不等于 CI。
+浏览器回归可设置 `FLOWARK_CHROME_PATH` 指向用户已安装的 Chrome。任何命令都不执行 `playwright install`。`test-results/`、`release/` 和运行数据均不提交；测试只使用虚构数据。提交按 [统一规则](../../AGENTS.md) 走 PR、添加 `automerge` 标签并由 CI 自动合并；本地检查、CI 结果与真实浏览器验收分别记录。不额外添加 commitlint 或 Husky。
 
 目录职责：`src/renderer` 界面；`src/main` 窗口、系统存储和白名单 IPC；`src/host` SQLite、队列、调度、会话；`src/core` 无 UI/数据库依赖的执行语义；`src/workers` 独立进程入口；`src/adapters` HTTP/文件/脚本/浏览器能力；`src/recruiting` 业务协调、策略和 AI；`contracts` 固定发布复制件。
 
