@@ -1,8 +1,8 @@
 # 固定契约来源
 
 - 治理基线：`a950b6ab517c2a7aee6f4faaf9db7306c3f0bdd1`。
-- P1 规范源：`zhongmiao-org/flow-ark` 的 `contracts-v0.6.0` tag（2026-09-16 已推送），规范目录 `contracts/v0.6.0/`。
-- 采用版本：契约 0.6.0，流程格式 1.0；既有节点版本 1，工作簿模板填充、文件归档和显式框架路径浏览器节点使用版本 2。摘要见 `contracts/SHA256SUMS`；客户端 package.json 的 flowark 字段记录基线及采用版本。
+- P1 规范源：`zhongmiao-org/flow-ark` 的 `contracts-v0.7.0` tag（2026-09-17 已推送），规范目录 `contracts/v0.7.0/`。
+- 采用版本：契约 0.7.0，流程格式 1.0；既有节点版本 1，工作簿模板填充、文件归档和显式框架路径浏览器节点使用版本 2，浏览器表单控件使用版本 3。摘要见 `contracts/SHA256SUMS`；客户端 package.json 的 flowark 字段记录基线及采用版本。
 - 客户端内的 `contracts/p1.schema.json` 和示例是固定发布复制件；程序不读取父目录。
 - 生成器：json-schema-to-typescript 16.0.0；执行 `pnpm contracts:generate`，生成 `src/shared/contracts.generated.ts`。
 - 运行时使用 Ajv 8.20.0（2020-12 模式），另校验引用作用域、能力与资源绑定。
@@ -17,3 +17,5 @@
 - 0.5.0 契约发布提交：`7f4a7c4`；可选 jobFilter 与 jobSnapshot，原策略保持原范围；新版模板 1.2.0 声明 recruiting-job-filter-v1 能力。没有 SQLite 表结构迁移或旧实例自动改写，见 [岗位筛选](recruiting-filters.md)。
 
 - 0.6.0 契约发布提交：`3629b4b`；browser v2 与 FramePath，旧 v1 仅顶层。无数据库迁移或旧流程/计划自动升级，见 [浏览器框架](browser-frames.md)。
+
+- 0.7.0 契约发布提交：`60ab503`；browser v3 增加 select/check/inputValue/press，能力 browser-forms-v1。旧 v1/v2、计划及快照保持原样，无数据库迁移；旧端拒绝新节点版本。见 [复杂表单验证](form-lab.md)。

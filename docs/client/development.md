@@ -12,4 +12,6 @@ Git 每次写操作前确认本仓库根；Conventional Commits，中文描述�
 
 目录：src/main 系统集成，src/host 持久化/调度，src/core 执行语义，src/workers 进程入口，src/adapters 能力，src/recruiting 业务，src/renderer 界面，src/shared IPC/类型，contracts 固定规范与生成类型，tests 虚构数据回归。完整总体架构不复制到本仓库。
 
+表单实验室：`pnpm forms:serve` 启动本地开发页面；`pnpm test:forms` 经真实宿主验证控件、提交与预期失败。页面在 fixtures/form-lab，测试服务和流程在 scripts/fixtures；不随安装包发行，也不属于产品服务端。验证记录见 [表单实验室](form-lab.md)。
+
 本文件只在治理仓库维护。客户端仅保留 README 和 CONTRIBUTING，不新增 AGENTS 或复制本文。模板实例配置由包声明，通用右侧面板不得出现招聘专属标签。
