@@ -13,3 +13,7 @@
 2026-09-17 调试增量（0.1.5）：`flow.run` 增加可选 `debug: boolean`，仅手动运行可启用。创建不可变快照后，在第一个节点前进入 PAUSED；`run.control` 增加 `step`，仅 PAUSED 接受，一次放行一个节点入口（条件/循环会逐步进入实际子路径）。`resume` 改为连续执行，`pause` 仍在下一节点边界停下；WAITING_INPUT 只通过 resume 明确确认。宿主拒绝重复未消费的 step/resume，不能把双击积累成多步执行。取消或重启不重放步骤。
 
 Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，旧历史可读，无 SQLite 结构迁移。状态事件在暂停时附带 nodeInstance、nodeName，供界面显示下一个节点。调试节点完成时记录经统一脱敏、最多 4000 字符的输出预览；失败前已完成的预览仍可查看，预览不是完整输出或副作用回执。现有流程 wire 格式与节点版本不变，调试为客户端内部运行控制。
+
+2026-09-18 内置网页面板（0.1.7）：`browser.embedded.enable` 与 `status` 无参；`visibility` 接收 visible 布尔值；`viewport` 仅接受 x/y/width/height 整数（0～20000），Main 再限制在主窗口内容区域；`navigate` 仅接受最长 8192 字符的 HTTP(S) URL，宿主在活动 Run 为 RUNNING/CANCELLING 时拒绝手动导航。状态返回 started/visible/url/title，不返回登录态。创建、perform、close、binding 与 system.browserLost 是内部方法，不进入 Renderer 白名单。详见 [内置浏览器](embedded-browser.md)。
+
+0.1.8 编辑器目录修复：按嵌套分支、循环中的 file/excel 以及 browser upload 字面量引用显示本地目录名，保留既有绑定。选择 work 目录不再错误写入固定 workspace；不改变流程、IPC、契约或数据库格式。

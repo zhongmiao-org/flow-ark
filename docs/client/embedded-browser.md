@@ -1,6 +1,6 @@
 # 可选内置浏览器
 
-2026-09-18：0.1.6 的独立网页窗口已通过复杂表单与安装验证，但实际显示入口仍有会话退出问题。用户进一步明确：所有测试使用内置浏览器，先不测试 BOSS；网页必须通过右上角按钮显示在主窗口右侧面板。以下设计替代 0.1.6 的独立窗口方案，新的面板实现待验收。
+2026-09-18：0.1.6 的独立网页窗口已通过复杂表单与安装验证，但实际显示入口仍有会话退出问题。用户进一步明确：所有测试使用内置浏览器，先不测试 BOSS；网页必须通过右上角按钮显示在主窗口右侧面板。0.1.7 已实现以下面板方案，验收证据见 [开发预览验收](acceptance.md)。
 
 ## 模式与隔离
 
@@ -16,9 +16,11 @@
 
 取消、超时、会话丢失、显式退出销毁对应网页 WebContents 并拒绝未完成命令；外部浏览器仍回收受控进程树。网页失效必须通知宿主并建立待办，不能保留看似可继续的人工等待。应用正常驻留可继续执行，显式退出后不能运行。系统休眠会中断执行条件，不能承诺合盖或休眠仍工作；收到 suspend 事件应停止当前 Run，恢复后核对结果并由用户发起新 Run，不自动重放。不自动启用阻止休眠或开机启动。
 
+macOS 在窗口已最小化时创建新 WebContentsView，可能没有可截图的绘制表面。0.1.7 在后台截图期间将同一网页短暂移入始终隐藏、无 preload 的绘制宿主，完成后移回右侧面板并销毁绘制宿主；不打开另一网站、不改变 URL、租约或执行内容，不显示窗口或抢焦点。原生截图记录当前网页视口，不承诺整页长截图。取消仍销毁网页，不为截图复用已失效的会话。
+
 ## 本地 IPC 与兼容
 
-公共流程仍用契约 0.7.0 和 browser v1/v2/v3，无节点语义变化。只新增本地 IPC `browser.embedded.enable`（无参）、`browser.embedded.visibility`（visible 布尔）、`browser.embedded.status`（无参）；系统窗口事件使用宿主内部接口。启用只创建本地绑定；打开面板可创建空白网页，不自动运行流程。新增 `browser.embedded.viewport` 仅接收主窗口内的整数矩形与 visible，Main 限定边界；`browser.embedded.navigate` 仅接收 HTTP(S) URL，活动执行期间禁止工具栏导航（暂停/等待人工可手动接管）。内部创建、执行、关闭和会话丢失方法不进入 Renderer 白名单。状态只返回已启动、显示状态、当前页面 URL；不返回 Profile 路径、Cookie、凭据。绑定使用现有浏览器存储，无表结构迁移；0.1.6 专用 Profile 与新面板 Session 分开保留，不在未经验证时拷贝 Cookie 或声明登录继承；旧客户端不认识 embedded 时拒绝执行，不转换成本机浏览器。
+公共流程仍用契约 0.7.0 和 browser v1/v2/v3，无节点语义变化。只新增本地 IPC `browser.embedded.enable`（无参）、`browser.embedded.visibility`（visible 布尔）、`browser.embedded.status`（无参）；系统窗口事件使用宿主内部接口。启用只创建本地绑定；打开面板可创建空白网页，不自动运行流程。新增 `browser.embedded.viewport` 仅接收主窗口内的整数矩形，Main 限定边界；`browser.embedded.navigate` 仅接收 HTTP(S) URL，活动执行期间禁止工具栏导航（暂停/等待人工可手动接管）。内部创建、执行、关闭和会话丢失方法不进入 Renderer 白名单。状态只返回已启动、显示状态、当前页面 URL 与标题；不返回 Profile 路径、Cookie、凭据。绑定使用现有浏览器存储，无表结构迁移；0.1.6 专用 Profile 与新面板 Session 分开保留，不在未经验证时拷贝 Cookie 或声明登录继承；旧客户端不认识 embedded 时拒绝执行，不转换成本机浏览器。
 
 ## 验证关口
 
@@ -29,6 +31,6 @@
 - suspend 通知与退出停止任务，不继续后续提交；实际电脑睡眠另列，不将模拟系统事件称为硬件验收。
 - 打包、从 DMG 安装、安装版同一回归；BOSS 登录和实际招聘行为另验。
 
-参考：[Playwright Electron](https://playwright.dev/docs/api/class-electron)、[Electron WebPreferences](https://www.electronjs.org/docs/latest/api/structures/web-preferences)、[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)。
+参考：[Electron WebContentsView](https://www.electronjs.org/docs/latest/api/web-contents-view)、[Electron WebPreferences](https://www.electronjs.org/docs/latest/api/structures/web-preferences)、[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)。
 
 2026-09-18 验证范围修订：默认浏览器、复杂表单、调试、恢复及安装测试统一走内置面板；原本机兼容脚本仅允许显式手动选择。BOSS/智联校准暂停，不能在测试期间自动打开。

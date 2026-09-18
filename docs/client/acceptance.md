@@ -1,5 +1,29 @@
 # 开发预览验收记录
 
+
+## 2026-09-18 目录绑定补丁：0.1.8
+
+安装版人工导入复杂表单后发现，参数面板原来只显示固定 workspace，无法为模板中的 work 上传和回执目录完成配置。0.1.8 根据流程嵌套节点和上传引用列出目录名，选择 work 保留独立 workspace 值。契约和持久化格式不变。
+
+`pnpm check` 的类型、61 项单元与构建通过；开发版 `pnpm test:embedded` 增加真实 UI 选择 work 目录、保存、核对 workspace 不变，再执行上一节完整内置表单回归，结果通过。DMG SHA-256 为 `d24327db671a9c8c1ccdbaf4773d130523fbfa6fcc06f9d729b8d6004e78c7f2`，路径 `flow-ark-client/release/FlowArk-0.1.8-arm64.dmg`；0.1.7 应用保留 `/private/tmp/flowark-018-delivery-7kp_ksrg/FlowArk-0.1.7.app`。从 DMG 安装到 `/Users/mac/Applications/FlowArk.app` 后，安装路径的完整 `pnpm test:embedded` 通过，包含实际 UI 目录绑定、单步、最小化、取消重开、文件传输与会话丢失；退出码 0。此前 0.1.6 → 0.1.7 已验证完整数据升级，0.1.8 不变更数据格式，实际日常数据中的 4 个流程保留。客户端 [PR #5](https://github.com/zhongmiao-org/flow-ark-client/pull/5) 的最终 [CI 35329645349](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35329645349) Validate / Auto Merge 成功，合并提交 `55d64087e7300d751d468b467ab46cd4b5a53f96`。首次因 GitHub 将创建/打标签时旧取消的同名检查视为必需检查而拒绝合并；更新安装证据后触发完整新检查，未手工合并或绕过分支保护。
+
+
+安装版人工交接：复杂表单模板已通过系统文件选择器导入，绑定内置浏览器、`work=/private/tmp/flowark-form-lab`，使用虚构 `fictional.txt`；本机测试服务运行在 `http://127.0.0.1:4178`。逐步调试 Run `b5478817` 已执行 open，并在 fill_name 前暂停，实际画面确认左侧调试记录与右侧表单并列。服务和样本为本地临时测试资源，未配置开机常驻。未访问或执行招聘站点。
+
+## 2026-09-18 右侧网页面板实现：0.1.7 主窗口右侧网页面板
+
+客户端 [PR #4](https://github.com/zhongmiao-org/flow-ark-client/pull/4) 经 [CI 35328102149](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35328102149) 的 Validate、Auto Merge 成功后合并为 `a8e20c82d8f06d4c34c83e032761b1ff15d20dab`。采用治理基线 `ec7b432112ce3d3927a83b9db02301d3733e8077`（治理 PR #2），契约仍为 0.7.0。
+
+- 右上角按钮在没有运行流程时也可展开网页面板，支持 HTTP(S) 地址、重新加载、收起。真实桌面人工核对同一窗口中的左侧工作台和右侧复杂表单，未再打开招聘网站；此前只读校准 Run 已取消。
+- `pnpm check`：类型检查、60 项单元、构建通过；`pnpm test:runtime`：19 项真实 Worker 通过。`pnpm test:forms` 的 9 场景通过（浏览器校验、6 类禁止/无效操作、完整字段及字节核对、服务端拒绝无重复提交）。
+- `pnpm test:browser`：原生内置适配器的跨源嵌套框架、清空输入、上传下载、严格定位与取消通过。`pnpm test:embedded-isolation`：网站无 Node/IPC/preload、后台计时、同面板新页面、非法本地 URL、非命令下载拒绝、Cookie 保留、重开下载通过。`pnpm test:scenario`：HTTP、脚本、Excel、框架上传/回执与取消通过。均为本机虚构数据；本机 Chrome/Firefox/Safari 本次未实测。
+- `pnpm test:embedded`：UI 启用/展开、首步暂停、单步、最小化完整表单、取消后在最小化状态重建、上传和下载、恢复/隐藏、网页崩溃后结束人工等待并生成待办通过；没有新增可见窗口，应用正常退出。`pnpm test:desktop` 完整工作台回归通过。
+- macOS arm64 DMG：`flow-ark-client/release/FlowArk-0.1.7-arm64.dmg`，SHA-256 `9861fa971ece33d9675997ee30538ccc3d7860a99be95bcb206c5d80298e5d62`。从 DMG 解出的应用通过 0.1.6 → 0.1.7 隔离数据升级，保留历史、受保护虚构凭据及原模板实例配置，托盘驻留与退出/重开通过。
+
+0.1.7 已安装 `/Users/mac/Applications/FlowArk.app`，安装路径的 `pnpm test:embedded` 完整回归通过；旧应用备份 `/private/tmp/flowark-017-delivery-nn5mpgkb/FlowArk-0.1.6.app`。随后人工导入复杂表单时发现界面固定 workspace 目录的问题，0.1.8 跟进修复，下方检查证据保持对应版本。本地证据：客户端忽略目录 `test-results/{embedded-desktop,embedded-isolation,browser,form-lab,install}.json`；日志 `/private/tmp/flowark-panel-*.log`。Electron 44.4.1 / Chromium 152.0.7977.78。包仍未签名/公证，使用默认图标。
+
+P1 业务尚未完成：BOSS/智联账号、真实投递、AI 回复与联系方式交换本次没有校准或执行；Codex 实接后置。模拟 suspend 测试不等同于硬件睡眠验收。0.1.6 Profile 保留，但不承诺自动迁移其登录 Cookie。详细边界见 [内置浏览器](embedded-browser.md)。
+
 ## 2026-09-17 源码首次公开提交与 CI 自动合并
 
 用户明确确认客户端保持公开、治理仓库保持私有。客户端远程首次初始化仅写入空基线 `d1eed72`，全部源码随后经 `feat/client-initial` 的 [PR #2](https://github.com/zhongmiao-org/flow-ark-client/pull/2) 进入 main；`automerge` 标签保留，GitHub Actions 于 2026-09-17 15:15（Asia/Shanghai）完成 squash 合并，提交 `f4157d4ad3ea7ebb1f99737f7142518031ba7a30`。此前各节“仅本地提交、公开推送待确认”均为历史状态。
