@@ -76,8 +76,8 @@ docs(governance): 统一 PR 与自动合并规范
 - JS/TS 脚本在独立进程环境执行，面向可信代码；不得把 Node `vm`、子进程或能力声明称为安全沙箱。
 - 管理台只调用服务端 API，不连接设备 IPC 或数据库；服务端通过约定的设备协议调度，不直接操作本机桌面或执行任意 Shell。
 - P1 的 `PlatformConnector` 只保留契约边界，不建立注册、心跳、远程命令或登录依赖。
-- 网页自动化经统一 BrowserDriver 使用本机已选浏览器；Chrome 首先采用 playwright-core，Firefox/Safari 采用 Selenium 原生驱动路线，360 后续实测选型。通用核心、业务和脚本 SDK 不依赖 Page/WebDriver 原生对象。
-- 构建、打包、安装、升级和运行不内置或下载自动化浏览器，不执行 `playwright install` 或添加下载型浏览器依赖，也不回退到 Playwright 缓存或 Electron UI 内核。Selenium 必须明确浏览器和驱动来源，禁用 Manager 的浏览器自动下载；驱动依赖的准备不等于允许安装浏览器。
+- 2026-09-18 按用户调整，网页自动化经统一 BrowserDriver 显式选择内置模式或本机已选浏览器；内置模式复用随应用发布的 Electron 内核，以独立网页会话执行，具体见 [内置浏览器](docs/client/embedded-browser.md)。Chrome 首先采用 playwright-core，Firefox/Safari 采用 Selenium 原生驱动路线，360 后续实测选型。通用核心、业务和脚本 SDK 不依赖 Page/WebDriver 原生对象。
+- 构建、打包、安装、升级和运行不额外下载或安装自动化浏览器（显式内置模式复用 Electron 内核），不执行 `playwright install` 或添加下载型浏览器依赖，也不回退到 Playwright 缓存或静默切换执行模式。Selenium 必须明确浏览器和驱动来源，禁用 Manager 的浏览器自动下载；驱动依赖的准备不等于允许安装浏览器。
 - 浏览器安装路径是本地绑定，不写入可移植流程或上报平台。路径失效、浏览器缺失或版本不兼容时阻止浏览器任务并提示重新选择；只回收本任务启动的实例，不影响用户原有窗口和默认 Profile。
 - 会话由本地宿主监督，有限批次 Run 使用租约，不能长期占住运行槽等待对方回复。Safari 遵循其隔离与人工接管限制，不能拿 Playwright WebKit 或另一个浏览器冒充通过。
 - AI 仅生成基于已授权事实和对话的草稿，动作策略分别校验投递、发送简历、回复、请求/接受微信和手机号的权限；配置允许时自动执行，超范围或未知进入人工待办。不得由模型直接调用浏览器或扩大授权。

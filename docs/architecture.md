@@ -6,6 +6,8 @@
 
 P1 的招聘业务配置、AI 回复、动作授权和验收详见 [招聘交互验收](p1-recruiting.md)。当前先完善 macOS；Windows 360 浏览器后续单独验证。
 
+2026-09-18 调整：按用户要求增加可选内置浏览器，以 FlowArk 专用网页窗口执行，收起或最小化工作台后继续运行。原本机浏览器模式保留，已有绑定不迁移、不静默切换。详细边界见 [内置浏览器](client/embedded-browser.md)。
+
 2026-09-17 推进顺序调整：先通过无需账号的简单测试网站打通通用浏览器操作、条件判断、文件产物和重复运行，再完善恢复与交付。Codex 配置及真实调用由用户后续安排；招聘投递保留为最终效果，生产站点适配与真实业务验收后置。此调整不删除既有能力或放宽最终验收，也不让招聘账号、Codex Key 阻塞当前通用阶段。
 
 2026-09-16 补充决定：通用编辑器右侧仅保留节点、参数和本机资源绑定；业务配置由模板包的 Schema 声明，通过独立实例表单呈现，不把 BOSS/智联字段写死在通用编辑器中。契约 0.2.0 将表单与流程共同纳入摘要；导入初始化安全配置，实际值只在本地实例保留，未来商店沿用此边界。所有设计、契约采用、开发约束与验收 Markdown 归治理仓库，应用只保留 README、贡献指南等必要说明。
@@ -63,7 +65,7 @@ flowchart TB
 | --- | --- | --- |
 | 客户端界面 | Electron、React、TypeScript、React Flow、Monaco | 客户端仓库 |
 | 自动化和文件 | 统一 BrowserDriver：playwright-core＋selenium-webdriver；JS/TS、ExcelJS | 客户端仓库的适配器，业务层不依赖库对象 |
-| 自动化浏览器 | macOS Chrome/Firefox/Safari；Windows 三款 360 后续逐款验证 | 操作系统已有软件；客户端不附带、下载或安装 |
+| 自动化浏览器 | macOS Chrome/Firefox/Safari；Windows 三款 360 后续逐款验证 | 用户选择系统已有软件或应用自带 Electron 内核；不额外下载浏览器 |
 | 招聘业务与 AI | BOSS/智联网页适配、动作策略、AIProvider（Codex/DeepSeek）、联系方式提醒 | 客户端业务模块；用户自配 API Key，无需 FlowArk 服务端 |
 | 模板 | P1 本地模板；P4 商店目录、版本、审核与发布 | 客户端管理本地实例；服务端/管理台管理商店 |
 | 本地数据 | SQLite、独立文件目录、系统保护的凭据存储 | 客户端仓库 |
@@ -131,7 +133,7 @@ Main 启动和监督本地运行宿主，宿主启动每次运行的 Worker。P1
 
 浏览器会话由本地宿主管理的独立会话进程持有，Worker 通过统一接口申请/释放会话租约，不直接持有库对象。一个正常结束的消息检查批次可释放运行槽并保留仍有效的受控登录会话，供后续批次使用；取消未完成浏览器操作、用户退出或会话失效时回收对应自动化资源。会话不能被两个 Run 同时操作，也不承诺 Safari 在会话中断后可恢复。
 
-图中的浏览器是用户选择的系统已有程序，不随 FlowArk 分发。Electron 自带的 Chromium 内核仅渲染客户端界面，不作为网页自动化浏览器，也不能在本机浏览器不可用时充当备用执行环境。
+图中的外部浏览器仍是用户选择的系统已有程序。2026-09-18 新增的内置模式由独立 Electron 会话进程持有网页窗口，复用应用随附内核；该进程不加载工作台、凭据桥或数据库。仍经宿主租约和统一 BrowserDriver 使用，不作为外部浏览器失败后的备用执行环境。
 
 | 模块 | 允许职责 | 禁止依赖或行为 |
 | --- | --- | --- |
@@ -148,7 +150,7 @@ Main 启动和监督本地运行宿主，宿主启动每次运行的 Worker。P1
 | 执行核心 | 状态与控制流、输入输出、节点调度、取消传播 | React、Electron UI、平台 HTTP 客户端、具体 SQL 驱动 |
 | 能力适配器 | 实现 Browser/HTTP/File/Excel/Script 等能力 | 绕过宿主修改运行记录或自行宣布平台任务完成 |
 
-Renderer 配置 `contextIsolation: true`、`sandbox: true`、`nodeIntegration: false`。主进程校验 IPC 来源、方法和参数；文件操作用明确的业务接口，不暴露“执行任意命令”桥。业务网站运行在用户选定的本机浏览器实例中，经 BrowserDriver 控制，不作为拥有本地权限的客户端 UI 加载。[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)
+Renderer 配置 `contextIsolation: true`、`sandbox: true`、`nodeIntegration: false`。主进程校验 IPC 来源、方法和参数；文件操作用明确的业务接口，不暴露“执行任意命令”桥。业务网站运行在用户选定的本机浏览器实例或独立内置会话中，经 BrowserDriver 控制。内置远程页面不加载 preload，不暴露工作台 IPC，不作为拥有本地权限的客户端 UI 加载。[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)
 
 Worker、脚本和会话进程分别登记资源归属并可取消回收；异常取消须停止该 Run 的浏览器操作并释放或销毁其受控会话，不能只杀 Worker 留下失控驱动。用户脚本不能与 Renderer 或主进程同进程执行；独立进程只提供故障与生命周期隔离，不是对恶意代码的安全保证。Node `vm` 不作为安全沙箱。[Node.js VM 文档](https://nodejs.org/api/vm.html)
 
@@ -187,12 +189,13 @@ Worker、脚本和会话进程分别登记资源归属并可取消回收；异�
 
 ### 4.3 本机浏览器选择与人工接管
 
-**网页自动化完全依赖本机已有浏览器。FlowArk 不内置、下载、安装、升级或分发自动化浏览器，也不使用 Playwright 浏览器缓存或 Electron 渲染内核作为后备。** 浏览器安装和版本维护由用户或其 IT 环境负责，业务文件下载不受此限制。
+**网页自动化显式选择“本机浏览器”或“内置浏览器”。** 本机模式的安装和版本维护由用户或其 IT 环境负责；内置模式使用随 FlowArk 发布的 Electron 内核，不额外安装 Chromium，也不使用 Playwright 浏览器缓存。两种模式不能在失败后静默互换。内置模式细节、后台与休眠边界见 [内置浏览器](client/embedded-browser.md)。
 
 浏览器目标和驱动路线如下，均为需要验证的设计，不是已经通过的支持清单：
 
 | 系统/浏览器 | 优先路线 | 验证与推进边界 |
 | --- | --- | --- |
+| macOS 内置浏览器 | 独立 Electron 会话＋Playwright Electron 适配器 | 新增验证目标；不等同于系统 Chrome 验收 |
 | macOS Chrome | PlaywrightAdapter（playwright-core） | 当前首个完整业务验收目标 |
 | macOS Firefox | SeleniumAdapter＋geckodriver，指定本机 Firefox | P1 后续兼容验收；不使用 Playwright 修改版 Firefox 替代 |
 | macOS Safari | SeleniumAdapter＋系统 safaridriver | P1 后续兼容验收；先验证启用条件、隔离登录、扫码/验证码和人工接管 |
@@ -208,7 +211,7 @@ Playwright 的 Firefox/WebKit 使用其所需的定制构建，不能把 WebKit 
 
 选择与启动流程：
 
-1. 浏览器适配器从 Windows 安装信息、macOS 应用目录等本机来源发现候选项，显示名称、版本、安装位置和可用状态；不只读取系统默认浏览器。
+1. 用户可启用应用内置模式，绑定固定 ID 与应用内核版本；旧绑定保持不变。本机浏览器适配器从 Windows 安装信息、macOS 应用目录等本机来源发现候选项，显示名称、版本、安装位置和可用状态；不只读取系统默认浏览器。
 2. 用户从候选列表选择，也可通过系统文件选择器手动指定已有可执行文件或 macOS 应用；适配器解析真实可执行路径并验证浏览器身份、版本和所需能力，不把任意程序当成浏览器运行。
 3. 选择结果保存为本地浏览器绑定。流程只引用绑定或浏览器能力要求；绝对安装路径不写入可移植流程，也不上传平台。导入流程或在另一设备运行时重新绑定。
 4. BrowserDriver 在副作用发生前，根据能力验证结果选择并固定驱动：Playwright 明确传 `executablePath`；Selenium 显式配置本机 browser binary 和 driver service；Safari 使用系统 Safari/safaridriver。不得回退到下载版、缓存浏览器或另一品牌，也不得在投递/回复失败后换驱动重放。
@@ -218,7 +221,7 @@ Playwright 的 Firefox/WebKit 使用其所需的定制构建，不能把 WebKit 
 
 Safari 需启用系统支持的自动化能力，其自动化窗口与普通窗口隔离，人工打断可能使会话永久失效。P1.1 先验证真实网站的扫码、验证码、登录和接管路径，不承诺“手动操作后一定能继续原会话”；不可恢复时保留待办并重新建立会话，绝不重放结果未知的发送动作。[Apple WebDriver 说明](https://developer.apple.com/documentation/webkit/about-webdriver-for-safari)、[WebKit 隔离说明](https://webkit.org/blog/6900/webdriver-support-in-safari-10/)
 
-构建、打包、安装、首次启动和升级流程均不得引入自动化浏览器下载，也不添加 `@playwright/browser-*` 下载型依赖或执行 `playwright install`。测试环境同样使用预先安装、显式选择的浏览器；无浏览器的环境验证缺失提示，不靠临时下载掩盖依赖。Electron 为客户端 UI 提供的渲染运行时不属于自动化浏览器分发。
+构建、打包、安装、首次启动和升级流程均不得引入自动化浏览器下载，也不添加 `@playwright/browser-*` 下载型依赖或执行 `playwright install`。测试环境同样使用预先安装、显式选择的浏览器；无浏览器的环境验证缺失提示，不靠临时下载掩盖依赖。Electron 运行时随应用分发，2026-09-18 起可由用户显式选为内置模式；不另带或下载第二套浏览器。
 
 Selenium 的驱动程序与浏览器本体分开管理。使用 JavaScript 绑定，不因此引入 Python/JVM；ChromeDriver/geckodriver 由依赖准备步骤提供匹配并校验的本地路径，运行中不临时下载。使用 Selenium Manager 时必须禁用浏览器下载（如 `SE_AVOID_BROWSER_DOWNLOAD=true`）；Safari 使用系统驱动。驱动不存在或不兼容时提示处理，不让 Manager 默默安装另一个浏览器。[Selenium Manager](https://www.selenium.dev/documentation/selenium_manager/)
 
@@ -526,6 +529,8 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 | A-011 | 2026-09-16：P1 改为招聘网页＋AI 交互，macOS 优先 | 用户明确两站投递、回复、联系方式交换与微信号提醒；Windows 360 后续验证 | 通用 Excel 样例降为回归；站点能力先核实；未验证浏览器不宣称支持 |
 | A-012 | 2026-09-16：P1 AI Provider 为 Codex 与 DeepSeek，均用用户 API Key | 用户明确 Codex 走 OpenAI API；替代首版只约定通用 Chat Completions 的方案 | Codex 使用 Responses，DeepSeek 使用 Chat Completions；统一草稿接口，独立密钥，无应用数据迁移 |
 | A-013 | 2026-09-16：P1 建立本地模板，P4 增加模板商店 | BOSS/智联投递模板可复用，后续统一分发与治理 | 商店沿用服务端/管理台仓库；下载不等于执行授权，模板更新不改写本地流程和活动 Run |
+
+| A-014 | 2026-09-18：增加可选内置浏览器 | 用户需要收起工作台后继续执行；允许复用随应用发布的 Electron 内核，替代 A-009/A-010 中禁止内置模式的部分 | 独立会话进程、无远程页特权桥、不静默切换；仅增加本地绑定，无公共流程或数据库结构迁移，旧版本不得执行新绑定 |
 
 以上为 2026-09-16 首次基线，没有既有应用数据需要迁移。后续决策追加日期、替代关系、迁移方式和对各仓库的影响，不悄悄覆盖历史含义。
 
