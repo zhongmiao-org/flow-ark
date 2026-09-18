@@ -17,3 +17,5 @@ Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，�
 2026-09-18 内置网页面板（0.1.7）：`browser.embedded.enable` 与 `status` 无参；`visibility` 接收 visible 布尔值；`viewport` 仅接受 x/y/width/height 整数（0～20000），Main 再限制在主窗口内容区域；`navigate` 仅接受最长 8192 字符的 HTTP(S) URL，宿主在活动 Run 为 RUNNING/CANCELLING 时拒绝手动导航。状态返回 started/visible/url/title，不返回登录态。创建、perform、close、binding 与 system.browserLost 是内部方法，不进入 Renderer 白名单。详见 [内置浏览器](embedded-browser.md)。
 
 0.1.8 编辑器目录修复：按嵌套分支、循环中的 file/excel 以及 browser upload 字面量引用显示本地目录名，保留既有绑定。选择 work 目录不再错误写入固定 workspace；不改变流程、IPC、契约或数据库格式。
+
+2026-09-18 元素拾取增量（待实现）：新增受控 start/status/cancel/validate 方法，生命周期、字段限制与兼容约定见 [元素拾取](element-picker.md)。不开放任意 CDP 或脚本执行 IPC，不改变公共契约 0.7.0。
