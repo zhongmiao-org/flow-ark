@@ -548,3 +548,5 @@ P1 先建立本地运行事件；P2 增加按绑定隔离的待上报队列与�
 - [React Flow 文档](https://reactflow.dev/learn)。
 - [Selenium 浏览器驱动](https://www.selenium.dev/documentation/webdriver/browsers/)、[Selenium Manager](https://www.selenium.dev/documentation/selenium_manager/)、[Apple Safari WebDriver](https://developer.apple.com/documentation/webkit/about-webdriver-for-safari)。
 - [JSON Schema 2020-12](https://json-schema.org/draft/2020-12)、[OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)。
+
+2026-09-18 内置面板实现补充：主窗口拥有网站 WebContentsView，后台截图在 macOS 新建最小化页面缺少绘制表面时，将同一个视图短暂移入始终隐藏且无 preload 的绘制宿主。完成或取消后销毁绘制宿主，不新开网站、刷新页面、抢焦点或改变宿主租约。正常交互始终位于主窗口右侧。截图为当前网页视口；进程丢失使正在等待人工的 Run 停止并建立待办。
