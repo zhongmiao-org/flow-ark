@@ -31,3 +31,5 @@ Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，�
 2026-09-20 计划更新（0.1.24）：新增带 revision 的 schedule.update，默认保留固定版本与启停状态，仅显式选择后采用已保存流程；schedule.save 专用于创建。字段、异步冲突与旧记录兼容见[本机计划显式更新](schedule-editing.md)，源码、包及安装证据见[验收记录](acceptance.md)。
 
 2026-09-20 重跑增量：运行详情预览并核对后创建关联的新手动 Run，默认原执行快照，可选当前已保存流程；本地接口、幂等、授权复验和兼容规则见 [人工核对后重新运行](run-rerun.md)。实际交付状态见验收记录。
+
+2026-09-20 运行观察增量：bootstrap/run.detail 新增可选 execution 只读观察，run.detail 同时返回可选存储 fault；采样时序、状态解释、历史兼容与验证见[运行详情与实时观察](run-observation.md)。请求、公共契约 0.7.0 和 SQLite v2 不变。
