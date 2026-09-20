@@ -1,8 +1,12 @@
 # FlowArk Roadmap
 
-当前推进口径（2026-09-20）：仅使用显式内置浏览器与本地复杂表单验证通用 P1，网页基线为 1920 CSS 像素；招聘、真实 AI 与外部浏览器测试后置。当前源码与已验收候选为 0.1.35，客户端 [PR #33](https://github.com/zhongmiao-org/flow-ark-client/pull/33) 已由 CI 自动合并；日常安装仍为 0.1.28，Mac 仍锁定，等待此前解锁确认。SQLite 自 0.1.31 起为 v2，0.1.31–0.1.34 → 0.1.35 无新增迁移；日常旧版数据尚未升级。模板参数来源已在 0.1.34 修复，凭据对象键及公共错误出口脱敏已在 0.1.35 修复，P1 未完成。下方按版本记录的安装状态、当时缺口和推进安排保留历史含义，最新证据见[客户端验收](docs/client/acceptance.md)。
+当前推进口径（2026-09-20）：仅使用显式内置浏览器与本地复杂表单验证通用 P1，网页基线为 1920 CSS 像素；招聘、真实 AI 与外部浏览器测试后置。当前源码、已验收候选与日常安装均为 0.1.35，客户端 [PR #33](https://github.com/zhongmiao-org/flow-ark-client/pull/33) 已由 CI 自动合并。SQLite 自 0.1.31 起为 v2，0.1.31–0.1.34 → 0.1.35 无新增迁移；本轮日常 0.1.28 升级已完成 v1 → v2，旧应用和升级前完整数据已持久备份。模板参数来源已在 0.1.34 修复，凭据对象键及公共错误出口脱敏已在 0.1.35 修复，P1 未完成。下方按版本记录的安装状态、当时缺口和推进安排保留历史含义，最新证据见[客户端验收](docs/client/acceptance.md)。
 
-2026-09-20：0.1.35 已补齐对象键和公共错误出口脱敏，成功的授权凭据读取保留原值，展示、日志和已保存输出脱敏，不宣称自动清除未知历史秘密。187 项单元、74 项宿主测试，源码 redaction（7 组）、run-observation（5 组）、embedded、flow-export（5 组）通过；DMG 候选 redaction（7 组）、run-observation（5 组）、embedded、install 四组通过，含 0.1.28 → 0.1.35 隔离升级。Main 加密失败为定向错误注入，不代表实际 Keychain 故障；所有浏览器验证仅使用 1920 CSS 像素内置复杂表单。客户端 [PR #33](https://github.com/zhongmiao-org/flow-ark-client/pull/33) 已由 CI 自动合并；日常安装仍等待此前 Mac 解锁确认。详见[脱敏边界](docs/client/redaction-boundaries.md)与[客户端验收](docs/client/acceptance.md)。
+2026-09-20 日常升级：Mac 恢复可操作后，正常退出 0.1.28，将旧应用和完整数据备份到 `/Users/mac/Library/Application Support/FlowArk Backups/0.1.28-before-0.1.35-20260920T150140Z`，再安装已验收的 0.1.35。升级保留原 25 条文档、53 条事件及两份加密凭据，6 个流程、5 条历史不变，SQLite v1 → v2 且完整性检查通过。经日常界面运行已有「网页拾取练习」，仅访问本地表单并填写虚构姓名，实际网页填写成功、零提交；正常退出重开后保留 28 条文档、60 条事件、6 个流程和 6 条历史，未重放。不能用旧版直接打开已升级数据，回退须使用升级前备份；见[使用说明](docs/client/usage.md)与[客户端验收](docs/client/acceptance.md)。
+
+2026-09-20 精简环境补验：0.1.35 候选在仓库外、仅系统 PATH、移除外部 Node/esbuild 环境且自动化浏览器缓存为空时，完成实际 TS、文件、Excel 与 1920 CSS 像素内置表单流程；进程映射确认运行时和编译器来自包内，正常退出重开不重放。测试驱动仍使用开发工具，未实施完整断网或卸载用户浏览器；C-16 保持部分验收，见[客户端验收](docs/client/acceptance.md)。
+
+2026-09-20 候选验收：0.1.35 已补齐对象键和公共错误出口脱敏，成功的授权凭据读取保留原值，展示、日志和已保存输出脱敏，不宣称自动清除未知历史秘密。187 项单元、74 项宿主测试，源码 redaction（7 组）、run-observation（5 组）、embedded、flow-export（5 组）通过；DMG 候选 redaction（7 组）、run-observation（5 组）、embedded、install 四组通过，含 0.1.28 → 0.1.35 隔离升级。Main 加密失败为定向错误注入，不代表实际 Keychain 故障；所有浏览器验证仅使用 1920 CSS 像素内置复杂表单。客户端 [PR #33](https://github.com/zhongmiao-org/flow-ark-client/pull/33) 已由 CI 自动合并；当时日常安装仍等待此前 Mac 解锁确认，后续升级见上方记录。详见[脱敏边界](docs/client/redaction-boundaries.md)与[客户端验收](docs/client/acceptance.md)。
 
 2026-09-20：0.1.34 源码已统一模板实例参数的编辑来源，右侧只读摘要进入独立实例配置；保存失败保留输入，成功同步参数与绑定并支持成组撤销，弹窗期间原生网页暂时隐藏并恢复同一会话。175 项单元、模板参数 7 组、视口 15 个场景、值编辑及完整内置表单源码回归通过。DMG 候选的模板参数、视口、复杂表单与隔离升级四组通过，客户端 [PR #32](https://github.com/zhongmiao-org/flow-ark-client/pull/32) 已由 CI 自动合并；日常安装仍等待此前 Mac 解锁确认。详见[模板实例参数](docs/client/template-parameters.md)与[客户端验收](docs/client/acceptance.md)。
 
