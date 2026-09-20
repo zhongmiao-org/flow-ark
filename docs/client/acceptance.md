@@ -1,5 +1,19 @@
 # 开发预览验收记录
 
+## 2026-09-20 具体动作库与添加位置：0.1.14
+
+对应[产品参考](product-reference.md)第二项。动作库直接添加 12 种网页操作，支持分类、中文或英文关键词搜索、键盘添加。搜索跨分类且显示“全部”；清空后恢复原分类。另保留数据、HTTP、脚本、文件、Excel、断言、条件、循环、人工节点。添加位置明确选择主流程末尾、条件分支或嵌套循环体；连续添加保持目标，目标删除后禁用添加并要求重新选择，避免静默落到主流程。上传文件绑定、目录内文件名和下载产物名可用表单配置。仅使用既有节点协议，公共契约 0.7.0、数据库和语义图形不变。
+
+- `pnpm check` 通过类型、64 项单元和构建。`pnpm test:action-library` 验证分类、跨分类关键词、无结果状态、键盘添加、嵌套分支持久化、删除添加目标、重开恢复与无意外 Run。
+- `pnpm test:picker-ui` 从空白草稿经新入口创建 13 步流程（12 种网页操作，单选/复选各一次），通过真实网页拾取 input/radio/checkbox/select，再用配置界面完成等待、读取文字、读取输入值、按键、点击、上传、下载和截图。保存重开后逐步执行，核对字段、增行结果、读取输出、上传文件文本、下载字节及 PNG；本场景没有提交表单。
+- `pnpm test:editor-layout` 的 17 个尺寸、面板切换和长流程场景通过；`pnpm test:desktop` 的脚本/文件/Excel 编辑、持久化、语义图形与 Worker 回归通过。桌面旧脚本原先将导航/截图的框架输入框当作“显示但禁用”，且未展开高级定位；此次按现有界面改为检查入口不存在、编辑框架时主动展开，保留框架路径与重开断言后通过，未放宽实际结果检查。
+- `pnpm package:mac` 成功。DMG 解出的候选应用、最终 `/Users/mac/Applications/FlowArk.app` 路径分别通过 `test:action-library`、`test:picker-ui`、`test:editor-layout`、`test:embedded` 四组验证。最后一组继续验证复杂表单提交回执、后台/最小化、上传下载、取消重开及故障处理。全部使用内置浏览器、独立临时数据和本地虚构表单。日志 `/private/tmp/flowark-0114-{check,actions,picker,layout,desktop,package,candidate,installed}.log`。
+- 客户端 [PR #11](https://github.com/zhongmiao-org/flow-ark-client/pull/11) 经 [CI 35486217430](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35486217430) 的 Validate / Auto Merge 成功，实际合并提交 `bf9fdf9b033a078adfa275348f3b17ad784456d6`。CI 包含 `pnpm check` 和 `pnpm test:runtime`，不替代 macOS 图形验收；采用治理基线 `effac3a6f2c11c6191fa1c6a8749f9a6402ef72c`。
+- 安装包 `flow-ark-client/release/FlowArk-0.1.14-arm64.dmg`，SHA-256 `8d51b72514673aaa151575a2c379bb080ecfb2984abef36e7e74948414c934dd`。旧应用备份 `/private/tmp/flowark-0114-delivery-97w44zkw/FlowArk-0.1.13.app`；候选与安装 app.asar 摘要一致：`dd8ea3ce5ec8c0da77d1e702b90173be508d8f826d4f0e3b0e759b8f205cc69b`。交付摘要 `/private/tmp/flowark-0114-delivery.json`；仍未签名/公证，默认图标。
+- 日常桌面显示 0.1.14、原有 5 个流程和 0 个活动任务。打开“网页拾取练习”，搜索 `radio` 只显示勾选动作，清空后恢复动作列表；选中旧填写节点，配置仍为“虚构拾取用户”。右侧打开 `http://127.0.0.1:4178/`，整窗截图确认动作库、完整节点、参数和网页同屏正常显示。日常实例未添加或保存节点、未运行新任务或提交表单，保留该练习与网页供检查。
+
+前后插入、复制、撤销及统一变量选择仍待实现。BOSS/智联真实业务、真实 AI、外部浏览器与 P1 总体验收状态不变。
+
 ## 2026-09-20 网页面板与编排布局：0.1.13
 
 对应[产品参考](product-reference.md)的第一项。0.1.12 在隔离安装版展开右侧网页后，画布宽度从约 656 缩至 334 像素但沿用旧视口，同一回归明确失败；1040×700 窗口还存在横向溢出。固定尺寸投影使用的测量就绪状态在此次复现中始终为 false，原自动定位被跳过。0.1.13 改为视口就绪后按实际尺寸定位，尺寸变化优先保留选中步骤；单纯选择和参数修改不触发定位。窄窗口打开网页时将节点库改为顶部横向栏，最小窗口画布约 279 像素宽、主区域无横向溢出。节点语义、公共契约 0.7.0 和数据库不变。
