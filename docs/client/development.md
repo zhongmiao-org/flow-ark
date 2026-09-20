@@ -35,3 +35,5 @@ Git 每次写操作前确认本仓库根；Conventional Commits，中文描述�
 逐步调试：`pnpm test:debug` 经真实 Electron IPC 和本机 Chrome 验证单步、输出、表单上传、取消及重开。设置 `FLOWARK_TEST_EXECUTABLE` 可针对安装版执行；数据和 Profile 均使用独立临时目录。见 [调试交付](debugging.md)。
 
 本文件只在治理仓库维护。客户端仅保留 README 和 CONTRIBUTING，不新增 AGENTS 或复制本文。模板实例配置由包声明，通用右侧面板不得出现招聘专属标签。
+
+真实定时：`pnpm test:schedule-residency` 约需四分钟，从界面创建每分钟计划，使用生产计时器验证最小化、托盘驻留、同计划占用跳过、固定快照及正常退出重开不补跑。只使用独立数据目录与内置本地表单，退出测试进程后核对加密跳过记录；不直接调用 tick 或改动时钟。支持 `FLOWARK_TEST_EXECUTABLE` 指向安装路径；默认开发模式需先完成 `pnpm build`。此验证不能替代长期驻留或真实硬件休眠验收。
