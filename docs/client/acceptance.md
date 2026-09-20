@@ -1,5 +1,21 @@
 # 开发预览验收记录
 
+## 2026-09-20 HTTP 请求体引用校验：0.1.19
+
+落实[引用校验修正](value-editor.md)。0.1.18 代码审计与实际执行校验器确认：`body` 被无条件排除，HTTP 请求体中的缺失来源不被检查，来源步骤删除也被接纳；`params.toString` 因原型链成员判断被误接纳。现在仅排除真正的条件/循环子步骤，保存与运行预检、编辑器结构调整和参数删除均检查 HTTP 请求体。参数名必须为自身属性，空路径段及循环 index 子字段不被接纳。旧数据不自动改写，未知输出子字段仍在执行时核对。
+
+- `pnpm check` 通过类型、80 项单元和构建。新增三项覆盖嵌套请求体、来源删除/移动、容器子输出移动、参数名/路径、分支循环作用域及复制子树引用；合法嵌套值经执行核心核对类型与实际值。
+- `pnpm test:runtime` 的 21 项真实 Worker 验证通过。新增测试用本地 HTTP 服务接收两次分支/循环请求，核对参数、前序输出、item/index 的真实请求体；模拟旧客户端保存的无效草稿与固定版本，保存、手动运行、版本运行和计划创建均拒绝。确认没有生成 Run/快照/计划、没有向服务发请求、前置文件副作用未发生、旧草稿与成功历史均未改写。
+- `test:resource-editor` 界面确认 HTTP 请求体引用的参数删除、来源步骤删除和前移被阻止，原参数及两步定义保留；随后 13 步资源流程保存重开并执行成功，真实 HTTP、文件、ZIP、Excel 和内置上传结果通过。旧 `test:flow-editing` 与 `test:value-editor` 回归通过，未知子字段仍按原行为在运行时失败。
+- 新增界面检查起初遗漏参数页签切换，随后计数误含开始/结束图形；补齐实际导航并限定业务节点后重跑。两项为验收脚本问题，不当作产品缺陷，也未放宽引用和执行结果断言。
+- `pnpm package:mac` 已生成 `flow-ark-client/release/FlowArk-0.1.19-arm64.dmg`，SHA-256 `1d4cf5ccea9dd0088e79b7874de61ff8f79dc221bac7a56bcce0ea3dd88f31a3`；只读解包候选 `/private/tmp/flowark-0119-delivery-wrw5jugi/FlowArk.app`，摘要 `/private/tmp/flowark-0119-delivery.json`。包未签名/公证，默认图标。
+- 只读 DMG 候选通过 `test:resource-editor`、`test:value-editor`、`test:flow-editing`、`test:embedded` 四组验收；最后一组继续核对完整复杂表单回执、最小化、上传下载、取消与重开。全部为本地服务、隔离虚构数据和内置浏览器。日志 `/private/tmp/flowark-0119-{check,runtime,resources,editing,values,typecheck,package,candidate}.log`。
+- 再次只读确认日常 `/Users/mac/Applications/FlowArk.app` 为 0.1.16；未替换应用、未创建摘要中规划的备份、未修改日常数据。最终安装路径与日常整窗验收待解锁后完成。
+- 客户端 [PR #16](https://github.com/zhongmiao-org/flow-ark-client/pull/16) 经 [CI 35491371140](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35491371140) Validate / Auto Merge 成功，实际合并提交 `f2626edc6ef444845566bf3632173cbeac5c2fa4`。
+- 采用治理 [PR #21](https://github.com/zhongmiao-org/flow-ark/pull/21) 的合并基线 `9feedd6aa73fff327febc6bc89f27d7a84cda045`；契约 0.7.0、IPC、数据库及快照格式不变。
+
+日常升级仍待先前 Mac 解锁请求的回复，当前不替换正在使用的应用。此项不代表上传预检、历史产物等其他可靠性问题已完成；真实招聘、真实 AI、外部浏览器和 P1 总体验收仍未完成。
+
 ## 2026-09-20 HTTP、文件与 Excel 可读配置：0.1.18
 
 落实[资源节点配置](resource-node-forms.md)。HTTP 方法、地址、请求头和请求体，文件目录绑定、读写、复制与 ZIP 列表，以及 Excel 行列数据和模板单元格映射均提供表单。值保留类型和变量引用；表格分页不丢失隐藏数据，重复映射与非法单元格地址不覆盖已有配置。切换操作提示使用默认值并支持撤销，高级节点 JSON 保留。公共契约 0.7.0、IPC、数据库和执行器未变更。
