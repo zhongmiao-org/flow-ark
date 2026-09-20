@@ -1,5 +1,23 @@
 # 开发预览验收记录
 
+## 2026-09-20 长流程全图与步骤聚焦：0.1.29
+
+落实[流程图视口约定](flowchart.md)。完整投影含开始/结束、空分支、汇合及循环路由，按实际图形与画布尺寸计算缩放下限。显式 Fit View 显示全图，新增“聚焦所选步骤”恢复编辑比例；只调整视口，不改变节点结构、执行语义或网页缩放。
+
+- 旧安装 0.1.28 的 `test:editor-layout` 加入 81 步全图断言后失败，记录 `long-full-minimum` 辅助节点纵向裁切。源码固定 minZoom=0.15 与真实画布/投影高度相符，日志 `/private/tmp/flowark-0129-layout-before.log`。新的几何验证按 80/800/8000 步长度检查首尾与全部节点，另核对嵌套条件/循环路由和标签、参数/选择不改变几何标识、聚焦可读和零尺寸等待。
+- `pnpm check`（类型、125 项单元、构建）通过；后续脚本类型检查通过。流程编辑回归还发现旧输入保护 fieldset 使长节点 ID 不再匹配换行选择器，在旧 0.1.28 包复现检查器 clientWidth=224、scrollWidth=232；补齐 fieldset 内样式后，原断言未放宽。诊断日志 `/private/tmp/flowark-0129-inspector-before.log`，临时诊断代码未纳入产品或测试。
+- 源码 `test:flow-editing` 通过：结构复制/移动、引用保护、撤销/重做、保存重开、窄窗口与不可变调试快照；Run `c170457e-bf34-4bf5-909a-8173eeb0e0b5`。`test:resource-editor` 通过：18 步资源配置、矩阵首中尾空行/H12 保留、HTTP/文件/ZIP/Excel 模板及内置网页上传、HTTP 503 零自动重试与越界路径拒绝；Run `bc956ab9-1bed-4ab4-a8b2-8a6b2602da6a`。
+- 源码最终 `test:editor-layout` 的 96 个布局场景通过；81 步顺序、142 步嵌套条件/循环及 3 步短流程覆盖完整节点、连线与标签、三种窗口大小及面板开合、全图与聚焦、复制大分支/撤销、参数编辑时真实拖动与缩放保留。内置页面同一 WebContents、timeOrigin、原生填写值与 1920 CSS 像素始终保留，零 Run、零表单提交；数据 `/private/tmp/flowark-editor-layout-lcEJDO`。新增脚本曾因序列化环境辅助函数和真实点击后未等待焦点而失败，分别改为内联计算、等待焦点后输入并立即读回；未注入字段值或放宽布局断言。最终脚本类型、Prettier 和 diff 检查通过。
+- 治理设计 [PR #44](https://github.com/zhongmiao-org/flow-ark/pull/44) 经 [CI 35504886796](https://github.com/zhongmiao-org/flow-ark/actions/runs/35504886796) 自动合并；客户端采用基线 `f45495ab4d27b03d2db4470746fa9b5aea4024c8`，公共契约 0.7.0、IPC、SQLite v1 及旧快照不变。全图余量覆盖现有固定路由和边标签；未来改变路由或引入任意标签应同步边界计算。
+
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.29-arm64.dmg`，SHA-256 `748b578cf776e8dcc8e7bcff3ec7544242e74df3abaf7ba721257a1cad667980`；未签名/公证，默认图标。只读提取候选 `/private/tmp/flowark-0129-delivery-4dymls19/FlowArk.app`，与源码检查和后续安装验收分别记录。
+- DMG 候选 `test:editor-layout` 的 96 个场景、`test:browser-viewport` 的 15 个场景和 `test:embedded` 全部通过。布局数据 `/private/tmp/flowark-editor-layout-94Njot`，视口数据 `/private/tmp/flowark-viewport-o7fQpn`。关闭面板首次导航、三种窗口尺寸、原生输入/单选、最小化恢复及再次导航保持 1920 CSS 像素；复杂表单核对真实回执、逐步调试、取消和重开后上传。证据限于本地表单，不代表所有 PC 网站兼容。
+- 客户端 [PR #27](https://github.com/zhongmiao-org/flow-ark-client/pull/27) 经 [CI 35505717774](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35505717774) Validate 与 Auto Merge 成功，实际合并提交 `2dd1d55c7de615a230e11f5707f6d51100e67e18`；此前首轮 CI 35505657173 完成后才添加标签。main 已同步且干净，合并代码树与已打包功能提交 `c89e66c91cfa842dde806cf1e8eec806af12f313` 一致。本轮本地未重复运行未变的 Worker 集成，CI 按现有配置执行。
+- DMG 候选 `test:flow-editing` 回归通过，进一步核对复制后的长 ID 在窄检查器换行、保存重开、撤销/重做及不可变调试快照。数据 `/private/tmp/flowark-editing-GzYW3a`，Run `80d0434b-22c1-4f06-8be2-af0c9edf5daf`，日志 `/private/tmp/flowark-0129-candidate-flow-editing.log`。
+- `test:install` 使用独立虚构数据，从日常路径的旧 0.1.28 可执行程序升级到 DMG 候选 0.1.29，通过历史、受保护凭据、模板实例配置、托盘及正常退出。数据 `/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-installed-data-ysRIQO`，摘要 `/private/tmp/flowark-0129-candidate-upgrade.json`；没有替换日常数据。
+- 准备正常退出日常应用时，桌面工具明确报告 Mac 已锁定且自动解锁失败，已请求用户手动解锁。当前安装 Info.plist 仍为 0.1.28，尚未执行 0.1.29 日常替换、安装路径回归或整窗验收，不能以候选升级测试冒充完成。候选、安装/保留检查脚本及 `/private/tmp/flowark-0129-delivery.json` 已准备，可解锁后衔接。
+- 本轮日志 `/private/tmp/flowark-0129-{check,typecheck-final,build-final,layout-ui-final,flow-editing-final,resource-editor,package,candidate-layout,candidate-viewport,candidate-embedded,candidate-upgrade}.log`；机器证据在客户端忽略的 test-results。真实招聘、Codex、外部浏览器继续后置，完整 P1 未验收。
+
 ## 2026-09-20 人工核对后关联重新运行：0.1.28
 
 落实[人工核对后重新运行](run-rerun.md)。终态且资源回收后的记录可选择原快照或当前已保存流程，预览、核对后从首个节点创建新 Run，可逐步调试并查看来源/派生记录。当前授权重新校验；原事件、快照、产物和结果未知/外发去重记录保留，丢失确认回复可重试同一请求。
@@ -510,7 +528,7 @@ macOS 27.0（26A428），arm64；Node 24.3.0，pnpm 10.14.0；Electron 44.4.1、
 | C-11 | 本地通过 | 不支持格式/能力、模板摘要篡改、作用域/依赖/浏览器路径及缺失绑定在执行前拒绝 |
 | C-12 | 本地通过 | 主动 progress、真实节点/循环事件；无虚构总完成百分比 |
 | C-13 | 部分 | 实际 SQLite query_only 写失败停止新任务并保留原数据；新版库拒绝打开。0.1.21 真实同名产物副本、复制取消、登记事件失败回滚与内容变更拒绝定位通过；跨 SQLite 表结构版本的迁移与磁盘满实机未测 |
-| C-14 | 部分 | macOS arm64 从 DMG 实际安装、正常退出；0.1.0 → 0.1.1、0.1.16 → 0.1.23、0.1.23 → 0.1.24、0.1.24 → 0.1.25、0.1.25 → 0.1.26、0.1.26 → 0.1.27、0.1.27 → 0.1.28 同数据目录保留历史/密钥及模板配置通过；0.1.28 日常保留 6 个流程与 5 条历史（SQLite 仍 v1）。真实两站与浏览器登录恢复、未来表结构迁移未测 |
+| C-14 | 部分 | macOS arm64 从 DMG 实际安装、正常退出；0.1.0 → 0.1.1、0.1.16 → 0.1.23、0.1.23 → 0.1.24、0.1.24 → 0.1.25、0.1.25 → 0.1.26、0.1.26 → 0.1.27、0.1.27 → 0.1.28 同数据目录保留历史/密钥及模板配置通过；0.1.28 日常保留 6 个流程与 5 条历史（SQLite 仍 v1）；0.1.28 → 0.1.29 隔离候选升级通过，日常替换等待 Mac 解锁。真实两站与浏览器登录恢复、未来表结构迁移未测 |
 | C-15 | 部分 | Chrome 身份/路径/版本检查、本地绑定、运行前重验；无自动回退。Firefox/Safari 未达支持承诺 |
 | C-16 | 部分 | 包无额外自动化浏览器，依赖使用 playwright-core，空缓存下本机 Chrome 成功；完整断网安装环境和无浏览器目标机器未测 |
 
