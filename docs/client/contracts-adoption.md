@@ -1,5 +1,7 @@
 # 固定契约来源
 
+- 0.1.28 治理基线：`0e2df726f07518b4f69fce585e6bdc7543ba68b8`。新增本地 `run.rerun.preview/confirm`、`run.detail.rerun`、可选 Run.rerun 与加密确认去重记录，见[人工核对后重新运行](run-rerun.md)。沿用公共契约 0.7.0 和 SQLite v1，不导出关联、不改写旧快照；旧依赖缺少固定清单时拒绝原快照重跑。
+
 - 0.1.27 治理基线：`2a41434fa40265f72a6bc2a8f4e439a80924bfb0`。修正普通 Excel 读写压缩空行及稀疏数组导致的列偏移，保留明确提供的尾部空行，见 [Excel 行列位置保留](excel-row-preservation.md)。既有节点、公共契约 0.7.0、IPC 和 SQLite 格式不变，不修改历史快照。
 
 - 0.1.26 治理基线：`1a565af920f1852b86182c685b5dc8c7b3075ae9`。落实全部节点已有 timeoutMs 与高级 JSON 未完成输入保护，见 [节点执行与输入](node-execution-input.md)；公共契约 0.7.0、IPC 和 SQLite 格式不变，实际交付结果见验收记录。
