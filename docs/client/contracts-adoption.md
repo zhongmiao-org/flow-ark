@@ -1,5 +1,6 @@
 # 固定契约来源
 
+- 0.1.25 治理基线：`f15193f3998c597b6a7088fdd470cab19bb0fea2`。当前草稿只读导出、内容标识本地版本及完整运行退出确认，见 [导出快照与退出确认](export-and-exit.md)。仅本地 flow.export 载荷调整，公共契约 0.7.0、SQLite 和旧包导入不变；交付状态见验收记录。
 - 0.1.24 治理基线：`5a49614c01cabd894b3449f4c7d212d25aa2fac0`。本地 schedule.update 带 revision，默认保留原版本、明确采用草稿并保留启停状态；schedule.save 专用于创建，不再接受此前界面未使用的 id。公共契约 0.7.0、Run/计划存储及 SQLite 表结构不变，旧缺 revision 记录首次更新后获得 revision，无迁移。
 
 - 0.1.23 治理基线：`44ec75bf473de8bda2d8f8ef5f3340bad97ebb3b`。新增本地 run.list 有界分页、字面量搜索与状态/来源筛选；bootstrap 增加完整记录的 runOverview，保留既有最近 200 条 runs。公共契约 0.7.0、Run 状态、加密数据格式及 SQLite 表结构不变。
