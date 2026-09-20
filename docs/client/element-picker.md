@@ -42,4 +42,4 @@
 
 参考：[CDP Overlay](https://chromedevtools.github.io/devtools-protocol/tot/Overlay/)、[CDP DOM](https://chromedevtools.github.io/devtools-protocol/tot/DOM/)。原生检查模式的实际支持以本机 Electron 验证为准。
 
-静止点击依据：[Chromium 检查工具实现](https://chromium.googlesource.com/chromium/src/+/HEAD/third_party/blink/renderer/core/inspector/inspect_tools.cc)、[Electron 原生输入事件](https://www.electronjs.org/docs/latest/api/web-contents#event-before-mouse-event)。验收覆盖无先行移动、旧悬停目标、带偏移的网页视图、125% 缩放、嵌套跨源框架和解析失败；读取测试元素坐标前须等待缩放在网页渲染中生效，不能只读取主进程的缩放设置值。
+静止点击依据：[Chromium 检查工具实现](https://chromium.googlesource.com/chromium/src/+/HEAD/third_party/blink/renderer/core/inspector/inspect_tools.cc)、[Electron 原生输入事件](https://www.electronjs.org/docs/latest/api/web-contents#event-before-mouse-event)。验收覆盖无先行移动、旧悬停目标、带偏移的网页视图、125% 缩放、嵌套跨源框架和解析失败；读取测试元素坐标前须等待所有框架的缩放和绘制生效，不能只读取主进程的缩放设置值或顶层网页的像素比。2026-09-20 回归记录过主框架已更新、跨进程框架仍按旧坐标路由输入的过渡状态，测试等待子框架绘制后再点击，不因此放宽定位或原生输入拦截。
