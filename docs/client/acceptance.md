@@ -1,5 +1,21 @@
 # 开发预览验收记录
 
+## 2026-09-20 上传资源预检与执行边界：0.1.20
+
+落实[上传资源检查](upload-resources.md)。在 0.1.19 宿主实际复现：只有 browser upload 使用的未绑定目录仍通过预检。现在字面量和流程参数可确定的上传目录必须绑定且为有效目录，嵌套分支/循环同样检查，已知文件名先验证目录范围；文件存在性留到上传边界，允许前序步骤生成文件。参数引用目录也显示在“参数与绑定”。动态来源执行时重新检查描述、目录范围、普通文件和可读性，失败不调用驱动或重试。
+
+- `pnpm check` 的类型、83 项单元与构建通过。新增三项验证参数整体/字段引用、参数对象不递归执行内嵌引用、动态来源延后、未完成草稿的目录发现，以及缺失/目录/不可读文件、内外符号链接与未来文件的路径检查。最初测试有联合类型与回调类型收窄错误，修正测试声明后通过，没有产品行为改动或放宽断言。
+- `pnpm test:runtime` 的 23 项真实 Worker 验证通过。新增两个场景覆盖八种准入错误（目录未绑定、参数引用目录、非目录/失效路径、越界名称、非法描述），确认没有 Run/快照/计划或前置文件副作用；先写文件再上传允许通过，并在驱动边界核对生成字节。
+- 动态上传的缺失绑定、缺失文件、目录、越界符号链接、错误类型分别失败；暂停后删除文件也失败。排队期间删除目录时，启动预检失败且没有 node-start。使用受控驱动调用计数确认这些错误都未到达上传驱动，没有自动重试；该部分不作为真实浏览器兼容证明。
+- `test:resource-editor` 经真实 Electron 界面配置参数 `{binding:uploads,name:source.txt}` 并引用；未绑定上传目录时点击运行明确报错，Run 数为零，HTTP 服务未收到请求，前置 source.txt 未生成。随后通过界面发现并绑定 uploads 目录，保存重开后完成 13 步 HTTP/文件/ZIP/Excel/内置上传流程，核对网页读取文件内容及原资源断言。执行前文件尚不存在，证明未阻止正常的前序生成场景。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.20-arm64.dmg`，SHA-256 `957668c806d1ea563656e42aeec8352ce45f7767d268002f2e89c0497db17743`；只读候选 `/private/tmp/flowark-0120-delivery-p1j9gzaz/FlowArk.app`，摘要 `/private/tmp/flowark-0120-delivery.json`。包未签名/公证，默认图标。
+- 只读 DMG 候选通过 `test:resource-editor`、`test:picker-ui`、`test:embedded` 三组验收，包括 12 种网页动作、复杂表单回执、上传下载、最小化、取消与重开。全部使用隔离虚构数据、本地服务与内置浏览器。日志 `/private/tmp/flowark-0120-{check,runtime,resources,typecheck,package,candidate}.log`。
+- 再次只读确认 `/Users/mac/Applications/FlowArk.app` 为 0.1.16；本轮未替换日常应用、未创建规划备份或修改日常数据。最终安装与日常整窗验收仍待用户解锁。
+- 客户端 [PR #17](https://github.com/zhongmiao-org/flow-ark-client/pull/17) 经 [CI 35492130269](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35492130269) Validate / Auto Merge 成功，实际合并提交 `7a50ac46712aa2b24077f5c47e6d8c6b32b6cdc3`。
+- 采用治理 [PR #23](https://github.com/zhongmiao-org/flow-ark/pull/23) 的实际合并基线 `0760d36300c6afdbba82d3a6ab5f60195b87181b`。契约 0.7.0、IPC、数据库和快照格式不变，旧数据不改写。
+
+日常升级仍待先前 Mac 解锁请求的回复。真实招聘、AI、外部浏览器与 P1 总体验收仍未完成；本次不声明文件路径检查能消除操作系统竞争或隔离恶意可信脚本。
+
 ## 2026-09-20 HTTP 请求体引用校验：0.1.19
 
 落实[引用校验修正](value-editor.md)。0.1.18 代码审计与实际执行校验器确认：`body` 被无条件排除，HTTP 请求体中的缺失来源不被检查，来源步骤删除也被接纳；`params.toString` 因原型链成员判断被误接纳。现在仅排除真正的条件/循环子步骤，保存与运行预检、编辑器结构调整和参数删除均检查 HTTP 请求体。参数名必须为自身属性，空路径段及循环 index 子字段不被接纳。旧数据不自动改写，未知输出子字段仍在执行时核对。
