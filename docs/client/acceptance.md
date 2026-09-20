@@ -1,5 +1,17 @@
 # 开发预览验收记录
 
+## 2026-09-20 静止光标点选修复：0.1.11
+
+0.1.10 日常窗口中的“只聚焦、不返回目标”已在完整隔离应用通过同一桌面控制动作复现：检查模式已启用，但点击前没有鼠标移动，网页收到 mousedown/mouseup/click。Chromium 检查工具在没有悬停节点时会放行按下；原自动回归先移动再点击，因此未覆盖该触发条件。0.1.11 先拦截原生按下和对应抬起，清除旧悬停，再仅通过移动解析点击位置；不重放网页点击。跨进程框架由 Main 注入坐标转换，保留唯一定位和取消隔离，详见 [元素拾取](element-picker.md)。契约和数据库格式不变。
+
+- `pnpm check`：类型检查、64 项单元及构建通过；`pnpm test:runtime`：20 项真实进程通过。`pnpm test:picker` 新增静止点击、旧悬停、视图偏移、125% 缩放、嵌套跨站框架及解析失败，记录 14 项目标证据；`pnpm test:picker-lifecycle` 17 项检查通过。`pnpm test:picker-ui`、`pnpm test:embedded`、`pnpm test:forms`、变更文件格式和差异空白检查通过。全部浏览器测试均为内置模式、本地虚构数据。
+- 隔离完整应用的真实桌面点击在修复前失败、修复后返回“测试姓名 *”；修复后的网页 DOM 鼠标事件记录为空。证据为 `/private/tmp/flowark-picker-no-move-{before,after}.json`。测试中曾只等待主进程缩放设置而读取到旧布局坐标，改为等待网页实际像素比变化后通过，不将此测试时序问题记为产品修复。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.11-arm64.dmg`，SHA-256 `128b6f5adb933d1031be89e6abb5567aaf84daa1b2752874236acdd9c48e5f34`。从 DMG 解出的候选应用与安装路径分别通过 `pnpm test:picker-ui`、`pnpm test:embedded`，使用独立临时数据和 Profile，退出码均为 0。已安装 `/Users/mac/Applications/FlowArk.app`，旧 0.1.10 备份 `/private/tmp/flowark-0111-delivery-3w6ii2s2/FlowArk-0.1.10.app`；候选与安装 app.asar 摘要一致，为 `c36df39e43c66c88a6e2d8bbf63439f19068e3dcbdc12cb104ecece4f628268b`。仍未签名/公证，使用默认图标。
+- 日常安装版界面确认 0.1.11、原有 5 个流程、0 个活动任务。打开“网页拾取练习”，在右侧本地表单点击同一姓名输入框，返回“已选取 · 测试姓名 *”，拾取本身保持字段为空、交互次数 0；原填写内容保留。保存并运行两步流程，Run `40380f8d` 的两个节点完成且状态为 `SUCCEEDED`，网页实际姓名为“虚构拾取用户”、交互次数 1，未提交表单。当前保留运行结果与右侧表单供检查。
+- 客户端 [PR #8](https://github.com/zhongmiao-org/flow-ark-client/pull/8) 经 [CI 35482521407](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35482521407) 的 Validate / Auto Merge 成功，合并提交 `3180d53379a1c1299955aa7bcd85368c731b65b2`；采用治理基线 `440082a21aec5665e043289a7e91e9e6a553d60c`，契约仍为 0.7.0。本地日志 `/private/tmp/flowark-0111-{check,runtime,picker,lifecycle,picker-ui,embedded,forms,package,candidate,installed}.log`，安装摘要 `/private/tmp/flowark-0111-delivery.json`。
+
+本节替代下方历史记录中的静止点击待定位状态。曾出现的日常会话网页空白仍未定位根因，不能将本次点选修复扩展为长期绘制问题已解决。BOSS/智联、真实 AI 和招聘业务本次未测试；P1 业务验收状态不变。
+
 ## 2026-09-20 拾取期间关闭网页的清理修复：0.1.10
 
 真实 Electron 夹具在 `DOM.resolveNode` 解析期间关闭网页后，0.1.9 稳定产生未处理的“网页会话已关闭”。原因是底层命令在检查已关闭状态时同步抛错，绕过清理调用的 Promise catch。0.1.10 将命令错误统一转为 Promise rejection，不改变选择器、流程、IPC 或持久化格式，也不增加操作重试。

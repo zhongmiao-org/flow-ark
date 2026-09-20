@@ -23,6 +23,8 @@
 
 启动与验证只允许没有活动运行或已暂停/等待人工、且没有待消费继续指令时进行。运行开始、单步/继续后的浏览器操作必须先退出拾取；关闭面板、切换节点、导航、页面丢失、最小化/隐藏窗口、超时和退出清理高亮与会话。不能因取消拾取关闭正常网页或重新执行业务步骤。异步旧结果必须丢弃。
 
+2026-09-20 静止光标修复：Chromium 原生检查模式在没有悬停目标时会放行鼠标按下，因此不能单独依赖其拦截。适配器现在先阻止原生按下及对应抬起，清除旧悬停目标后只发送一次用于命中解析的移动，通过高亮节点事件生成定位，不向网页重放点击。Main 注入屏幕位置到网页视口的坐标转换，处理跨进程 iframe 的局部坐标；适配器仍只控制本网页。仅注册临时文档根节点以取得节点 ID，不保存 DOM。解析失败、取消和过时请求清理监听与检查模式；在视图之外丢失的抬起不能影响之后正常的点击。
+
 公共流程沿用契约 0.7.0 的 browser v2/v3：仅将 selector/framePath/name 写入现有草稿；target 元数据不进入流程协议或数据库，不改变不可变 Run。无 SQLite 迁移，无模板格式变化；旧客户端仍可执行保存后的标准节点。治理约定先提交并通过 PR/CI，客户端记录实际采用的治理 SHA 后交付。
 
 ## 验收
@@ -39,3 +41,5 @@
 - 输入白名单、无网页权限提升、现有浏览器回归、本地检查、打包和安装版验证分别留证。仅本地虚构表单，不测试 BOSS/智联，不依赖 AI Key。
 
 参考：[CDP Overlay](https://chromedevtools.github.io/devtools-protocol/tot/Overlay/)、[CDP DOM](https://chromedevtools.github.io/devtools-protocol/tot/DOM/)。原生检查模式的实际支持以本机 Electron 验证为准。
+
+静止点击依据：[Chromium 检查工具实现](https://chromium.googlesource.com/chromium/src/+/HEAD/third_party/blink/renderer/core/inspector/inspect_tools.cc)、[Electron 原生输入事件](https://www.electronjs.org/docs/latest/api/web-contents#event-before-mouse-event)。验收覆盖无先行移动、旧悬停目标、带偏移的网页视图、125% 缩放、嵌套跨源框架和解析失败；读取测试元素坐标前须等待缩放在网页渲染中生效，不能只读取主进程的缩放设置值。
