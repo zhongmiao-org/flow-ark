@@ -2,7 +2,7 @@
 
 客户端仓库负责 P1 macOS 单机客户端，Electron / React / TypeScript / pnpm / SQLite。当前为开发阶段，真实业务与兼容状态只以 acceptance.md 的证据为准。
 
-统一规则入口：主目录存在时先读 [AGENTS.md](../../AGENTS.md)、[架构](../architecture.md)、[ROADMAP](../../ROADMAP.md)。远程 [flow-ark](https://github.com/zhongmiao-org/flow-ark)，0.1.23 采用治理基线 `44ec75bf473de8bda2d8f8ef5f3340bad97ebb3b`。契约为应用 `contracts/` 中固定的发布副本，版本及发布状态见 [契约采用记录](contracts-adoption.md)；不得伪造已发布 tag。
+统一规则入口：主目录存在时先读 [AGENTS.md](../../AGENTS.md)、[架构](../architecture.md)、[ROADMAP](../../ROADMAP.md)。远程 [flow-ark](https://github.com/zhongmiao-org/flow-ark)，0.1.24 采用治理基线 `5a49614c01cabd894b3449f4c7d212d25aa2fac0`。契约为应用 `contracts/` 中固定的发布副本，版本及发布状态见 [契约采用记录](contracts-adoption.md)；不得伪造已发布 tag。
 
 独立克隆仍适用：Renderer 只用白名单 IPC；Main 仅系统集成；host 统一 SQLite、队列和调度；core 不依赖 Electron/React/SQL；Worker 与独立浏览器会话通过消息访问宿主。可信脚本单独进程，不称安全沙箱。凭据由系统保护，不明文降级。副作用先落盘，未知不重放。Chrome 仅 playwright-core 显式本机路径，Firefox/Safari 仅明确本机原生驱动，不下载浏览器、接管默认 Profile 或静默切换模式。2026-09-18 新增显式内置模式，使用主窗口右侧 WebContentsView、隔离网站 Renderer 和专用 Session，见 [内置浏览器](embedded-browser.md)。AI 仅草稿，动作逐项授权。真实外发需要账号、目标、内容与范围的明确配置。P1 无服务端、管理台、平台注册、商店或常驻服务。
 
@@ -37,3 +37,5 @@ Git 每次写操作前确认本仓库根；Conventional Commits，中文描述�
 本文件只在治理仓库维护。客户端仅保留 README 和 CONTRIBUTING，不新增 AGENTS 或复制本文。模板实例配置由包声明，通用右侧面板不得出现招聘专属标签。
 
 真实定时：`pnpm test:schedule-residency` 约需四分钟，从界面创建每分钟计划，使用生产计时器验证最小化、托盘驻留、同计划占用跳过、固定快照及正常退出重开不补跑。只使用独立数据目录与内置本地表单，退出测试进程后核对加密跳过记录；不直接调用 tick 或改动时钟。支持 `FLOWARK_TEST_EXECUTABLE` 指向安装路径；默认开发模式需先完成 `pnpm build`。此验证不能替代长期驻留或真实硬件休眠验收。
+
+计划编辑：`pnpm test:schedule-editing` 经界面创建、取消/保存编辑、无效时区拒绝、暂停状态保留与冲突复核；分别等待原固定版本和明确更新后的真实分钟到期，在内置表单核对不同虚构输入、1920 CSS 像素及保存重开后的两个成功 Run。窄窗口同时打开右侧网页检查编辑布局。支持 `FLOWARK_TEST_EXECUTABLE`，不访问招聘网站；规则见[计划显式更新](schedule-editing.md)。
