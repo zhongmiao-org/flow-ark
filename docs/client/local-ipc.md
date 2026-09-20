@@ -23,3 +23,5 @@ Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，�
 2026-09-20 上传资源校验：沿用已有 upload 的 `{binding,name}` 与文件目录绑定，补齐静态/参数目录的运行预检和上传执行边界复验；不增加 IPC 或响应字段。见 [上传资源检查](upload-resources.md)。
 
 2026-09-20 产物清理增量：新增 run.artifacts.preview/clear，run.detail 增加 artifactCleanup，产物增加 clearedAt 与 cleared 完整性状态。只接受运行 ID、预览摘要和显式核对确认；范围、失败恢复与兼容规则见[产物清理](artifact-cleanup.md)。
+
+2026-09-20 历史分页增量：新增 run.list 的有界分页与筛选，bootstrap 增加完整记录的 runOverview；请求、游标边界及兼容说明见[运行历史](run-history.md)。实现及验收状态以验收记录为准。
