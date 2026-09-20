@@ -29,6 +29,8 @@
 
 `pnpm test:picker` 验证真实内置网页目标与生命周期；`pnpm test:picker-ui` 从空白流程完成点选、填写、保存重开和五步重放。跨站 OOPIF 的输入使用正式驱动同一路径的 CDP Input 触发；顶层配置 UI 使用原生 WebContents 输入。自动化通过不等同于所有复杂网站人工验收。
 
+`pnpm test:picker-lifecycle` 在隔离的真实 Electron 中暂停目标解析，关闭网页后释放旧请求，核对没有未处理异常且新会话可以拾取；另验证高亮清理前关闭，以及三轮面板收起、窗口隐藏、最小化、导航、关闭重建后的点选、填写和实际绘制。此脚本使用当前源码构建适配器夹具；安装包另用 `test:picker-ui` 与 `test:embedded` 验证，不能把源码夹具称为安装版测试。
+
 - 在真实内置 WebContentsView 点选 input、radio、checkbox、select 与按钮，拾取不改变输入、勾选或提交状态。
 - 嵌套跨源 iframe、特殊字符属性、重复标签、开放 Shadow DOM；保存后的定位由正式适配器重放核对。
 - 从界面选取、编辑值、保存、关闭重开草稿，再逐步执行复杂表单；核对实际值与服务端提交回执。

@@ -1,5 +1,17 @@
 # 开发预览验收记录
 
+## 2026-09-20 拾取期间关闭网页的清理修复：0.1.10
+
+真实 Electron 夹具在 `DOM.resolveNode` 解析期间关闭网页后，0.1.9 稳定产生未处理的“网页会话已关闭”。原因是底层命令在检查已关闭状态时同步抛错，绕过清理调用的 Promise catch。0.1.10 将命令错误统一转为 Promise rejection，不改变选择器、流程、IPC 或持久化格式，也不增加操作重试。
+
+- `pnpm test:picker-lifecycle`：修复前首个关闭用例失败，修复后 17 项检查通过。包括解析期间关闭后重建、高亮延迟清理前关闭，以及三轮面板收起、窗口隐藏、最小化、导航、关闭重建；每次恢复均重新点选、填写、读取，并核对真实网页截图非空白，未提交表单。测试使用源码构建的隔离夹具，不代表安装包或无限期运行验收。
+- `pnpm check` 的类型检查、63 项单元与构建通过，`pnpm test:runtime` 20 项真实进程通过。`pnpm test:picker`、`pnpm test:picker-ui`、`pnpm test:embedded`、`pnpm test:forms` 及变更文件格式检查通过；全部浏览器测试使用内置模式与本地虚构数据。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.10-arm64.dmg`，SHA-256 `9fb7b0b7fa87fd19d63a18e5ed4a8012fa29e323e3d47ccd52da16a3dbd6e2fa`。从 DMG 解出的候选应用与安装路径分别通过 `pnpm test:picker-ui`、`pnpm test:embedded`，全部退出码 0；数据和 Profile 为独立临时目录。已安装 `/Users/mac/Applications/FlowArk.app`，旧 0.1.9 备份 `/private/tmp/flowark-0110-delivery-loqaqec5/FlowArk-0.1.9.app`；候选与安装应用 app.asar 摘要一致，为 `f873a8a1675d580a589adb07007f4d84426849a90e04b77304401f26adbc4e76`。仍未签名/公证，使用默认图标。
+- 客户端 [PR #7](https://github.com/zhongmiao-org/flow-ark-client/pull/7) 经 [CI 35480794656](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35480794656) 的 Validate / Auto Merge 成功，合并提交 `5b478b1ffc8bca0a3bff84a8793ccc42a7b2ce41`；采用治理基线 `f4a5769c2c45877b92493dbda5976572d07e33fc`，契约仍为 0.7.0。
+- 本地日志：`/private/tmp/flowark-picker-lifecycle-before.log`、`/private/tmp/flowark-picker-lifecycle-cycles.log`，以及 `/private/tmp/flowark-0110-{check,runtime,picker,picker-ui,embedded,forms,package,candidate,installed}.log`；忽略目录证据为 `test-results/picker-lifecycle.json`。早期隐藏/恢复测试未等待 macOS 隐藏事件，修正测试等待后通过，不将该测试时序问题记录为产品修复。
+
+升级后实际日常窗口显示 0.1.10、原有 5 个流程和 0 个活动任务，复杂表单在右侧正常绘制，原填写配置保留，“验证定位”返回唯一匹配。通过桌面控制点击网页时再次出现只聚焦输入框、不返回拾取结果，重新启用选取和移动指针后仍如此，已取消该请求。该现象发生在重开后，不能仅归因于长会话；自动回归的 WebContents 原生输入与桌面控制点击结果不同，原因仍未定位。不将自动测试通过或关闭异常修复描述为全部人工点选可用。当前停留在“网页拾取练习”编辑器和本地表单，无待运行任务、无表单提交。招聘与真实 AI 验收状态不变。
+
 ## 2026-09-20 元素拾取与可读动作配置：0.1.9
 
 参考用户提供的影刀 6.0 演示，本次实现从右侧内置网页点选目标、可读目标名称、填写内容及原生下拉选项表单；CSS 与 iframe 路径放在高级编辑中，并可校验唯一匹配。公共契约保持 0.7.0，仅使用已有 selector/framePath/name，不保存网页输入值或整页 DOM。录制、AI 生成与在线模板商店不属于本次交付。
