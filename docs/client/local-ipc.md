@@ -1,6 +1,6 @@
 # 本地运行产物接口
 
-2026-09-16 增量接口说明。仅用于客户端 Renderer → Main → 本地宿主，不属于平台设备协议。请求在 Main 按白名单校验；产物定位不接受 Renderer 指定任意文件路径。
+2026-09-16 增量接口说明。2026-09-20 新登记产物增加独立副本、摘要与 integrity 状态，见[产物副本约定](artifact-snapshots.md)；下述 available 仅检查可访问性的语义继续适用于没有摘要的旧记录。仅用于客户端 Renderer → Main → 本地宿主，不属于平台设备协议。请求在 Main 按白名单校验；产物定位不接受 Renderer 指定任意文件路径。
 
 - `run.detail` 请求为 `{"id":"运行 ID"}`。保留 run/events/output/snapshot/artifacts；每条 artifact 返回既有 artifactId/runId/name/path/size/time，增加布尔值 `available`。每次读取按登记的真实路径检查普通文件是否仍存在；路径被换成其他符号链接也视为不可用。此字段是当前可访问性，不是内容完整性证明。新增响应字段兼容既有客户端，不改写历史记录或 Run 状态。
 - `artifact.reveal` 请求仅接受 `{"id":"产物 ID"}`，成功返回 `true`。Main 通过宿主私有 `artifact.resolve` 查找已登记产物并重验可用性，再调用系统文件管理器定位文件。未知 ID 或丢失/替换的路径返回错误；不执行文件。
