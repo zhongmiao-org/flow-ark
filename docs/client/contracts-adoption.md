@@ -1,5 +1,7 @@
 # 固定契约来源
 
+- 0.1.30 治理基线：`82da2da0c1c12c676dae63c3f2746a52a87a55b2`。采用[内置网页关闭确认](embedded-cleanup.md)，Main/Host 内部启动/关闭回执包含 token/resourceId，Bootstrap 新增可选 runtimeBlock，私有故障通知覆盖无租约预览。组件随完整应用更新；公共契约 0.7.0、SQLite v1 和旧流程/快照不迁移，内部回执不兼容混用旧组件。实际验证见验收记录。
+
 - 0.1.29 治理基线：`f45495ab4d27b03d2db4470746fa9b5aea4024c8`。长流程全图按实际尺寸计算缩放下限，增加所选步骤聚焦；仅 Renderer 投影视口变更，见[流程图语义](flowchart.md)。公共契约 0.7.0、IPC、SQLite v1 和旧流程快照不变。
 
 - 0.1.28 治理基线：`0e2df726f07518b4f69fce585e6bdc7543ba68b8`。新增本地 `run.rerun.preview/confirm`、`run.detail.rerun`、可选 Run.rerun 与加密确认去重记录，见[人工核对后重新运行](run-rerun.md)。沿用公共契约 0.7.0 和 SQLite v1，不导出关联、不改写旧快照；旧依赖缺少固定清单时拒绝原快照重跑。
