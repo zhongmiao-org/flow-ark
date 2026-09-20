@@ -25,3 +25,5 @@ Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，�
 2026-09-20 产物清理增量：新增 run.artifacts.preview/clear，run.detail 增加 artifactCleanup，产物增加 clearedAt 与 cleared 完整性状态。只接受运行 ID、预览摘要和显式核对确认；范围、失败恢复与兼容规则见[产物清理](artifact-cleanup.md)。
 
 2026-09-20 历史分页增量：新增 run.list 的有界分页与筛选，bootstrap 增加完整记录的 runOverview；请求、游标边界及兼容说明见[运行历史](run-history.md)。实现及验收状态以验收记录为准。
+
+2026-09-20 计划更新约定：新增带 revision 的 schedule.update，默认保留固定版本与启停状态，仅显式选择后采用已保存流程；schedule.save 专用于创建。字段、异步冲突与旧记录兼容见[本机计划显式更新](schedule-editing.md)，此处不代表实现已完成。
