@@ -18,6 +18,8 @@
 
 macOS 在窗口已最小化时创建新 WebContentsView，可能没有可截图的绘制表面。0.1.7 在后台截图期间将同一网页短暂移入始终隐藏、无 preload 的绘制宿主，完成后移回右侧面板并销毁绘制宿主；不打开另一网站、不改变 URL、租约或执行内容，不显示窗口或抢焦点。原生截图记录当前网页视口，不承诺整页长截图。取消仍销毁网页，不为截图复用已失效的会话。
 
+2026-09-20：截图绘制宿主必须绑定到具体网页视图。取消可以先结束 Run、销毁网页，底层截图 Promise 随后才返回；这段清理时间不能阻止新网页布局或显示。旧截图完成只释放自己的宿主，不移动新截图中的网页；关闭当前网页须从它实际所属的主窗口或截图宿主移除。此项只调整 Main 内部资源归属，不改变截图动作、页面租约或流程协议。
+
 ## 本地 IPC 与兼容
 
 公共流程仍用契约 0.7.0 和 browser v1/v2/v3，无节点语义变化。只新增本地 IPC `browser.embedded.enable`（无参）、`browser.embedded.visibility`（visible 布尔）、`browser.embedded.status`（无参）；系统窗口事件使用宿主内部接口。启用只创建本地绑定；打开面板可创建空白网页，不自动运行流程。新增 `browser.embedded.viewport` 仅接收主窗口内的整数矩形，Main 限定边界；`browser.embedded.navigate` 仅接收 HTTP(S) URL，活动执行期间禁止工具栏导航（暂停/等待人工可手动接管）。内部创建、执行、关闭和会话丢失方法不进入 Renderer 白名单。状态只返回已启动、显示状态、当前页面 URL 与标题；不返回 Profile 路径、Cookie、凭据。绑定使用现有浏览器存储，无表结构迁移；0.1.6 专用 Profile 与新面板 Session 分开保留，不在未经验证时拷贝 Cookie 或声明登录继承；旧客户端不认识 embedded 时拒绝执行，不转换成本机浏览器。
@@ -30,6 +32,8 @@ macOS 在窗口已最小化时创建新 WebContentsView，可能没有可截图�
 - 远程页无 Node/FlowArk 桥；新窗口、非 HTTP(S) 导航和无命令下载的隔离。
 - suspend 通知与退出停止任务，不继续后续提交；实际电脑睡眠另列，不将模拟系统事件称为硬件验收。
 - 打包、从 DMG 安装、安装版同一回归；BOSS 登录和实际招聘行为另验。
+
+`pnpm test:embedded-capture` 在完整隔离客户端中延迟真实原生截图的异步返回，依次验证取消后新网页显示、旧截图待清理时关闭新网页、两代截图清理隔离、移回面板与截图像素；取消 Run 不出现迟到产物或后续节点，不提交表单、不弹出额外窗口。设置 `FLOWARK_TEST_EXECUTABLE` 可针对 DMG 候选或安装应用验证，测试始终使用独立临时数据；具体版本结果见 [客户端验收](acceptance.md)。
 
 参考：[Electron WebContentsView](https://www.electronjs.org/docs/latest/api/web-contents-view)、[Electron WebPreferences](https://www.electronjs.org/docs/latest/api/structures/web-preferences)、[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)。
 

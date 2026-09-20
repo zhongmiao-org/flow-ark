@@ -1,5 +1,16 @@
 # 开发预览验收记录
 
+## 2026-09-20 后台截图清理与新网页显示：0.1.12
+
+已在 0.1.11 安装应用的隔离数据中复现一种空白场景：后台截图的原生调用尚未返回时取消 Run，随后启动新流程、展开面板，新网页能读取到填写值，但原生视图 `getVisible()` 为 false、边界仍为初始化尺寸，而产品状态返回可见。原因是旧截图宿主对全部网页阻止布局，结束清理时又没有恢复新网页的布局。0.1.12 将截图宿主绑定具体视图，当前网页按实际父视图关闭，旧截图只清理自己的资源；公共契约 0.7.0 和数据库格式不变。此复现证明该竞态确实存在，不证明每次历史空白均出自同一原因。
+
+- 新增 `pnpm test:embedded-capture`，通过完整应用、真实 Run 和内置本地表单延迟原生截图的异步返回。0.1.11 安装路径失败，修复后源码通过：旧截图待清理时新网页立即显示、可关闭，新截图不受旧清理影响，完成后移回面板，字段值保留且 PNG 非空白；取消的 Run 没有迟到产物或后续节点，页面提交次数 0，无额外可见窗口和未处理异常。
+- `pnpm check`（类型、64 项单元、构建）、`pnpm test:runtime`（20 项进程）、`pnpm test:picker-lifecycle`（17 项）、`pnpm test:embedded` 通过。`pnpm test:picker` 首次在 125% 缩放跨站框架用例超时；诊断记录到原生输入被尚未更新的子框架路由到不同屏幕位置。测试增加等待所有框架像素比和绘制完成，不修改产品拾取逻辑、不放宽目标或点击拦截断言；有界 20 轮诊断和最终正式拾取套件通过。最终类型、变更文件 Prettier 与差异空白检查通过。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.12-arm64.dmg`，SHA-256 `92b66f1c80b1c63b92e713628566877ed1b465bd8c9cd99f0356e90ec23e590f`。从 DMG 解出的候选应用通过 `pnpm test:embedded-capture` 和 `pnpm test:embedded`，均使用隔离临时数据。客户端 [PR #9](https://github.com/zhongmiao-org/flow-ark-client/pull/9) 经 [CI 35483524785](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35483524785) 的 Validate / Auto Merge 成功，合并提交 `7b3989e07ab8691807b0d8275bc3272b7407e806`；采用治理基线 `310203b8a57787715f6608067aaf12ef860b9504`。
+- 已安装 `/Users/mac/Applications/FlowArk.app`，旧 0.1.11 备份 `/private/tmp/flowark-0112-delivery-rgqu5c_a/FlowArk-0.1.11.app`。候选与安装 app.asar 摘要一致，为 `f8cebaffb0ceadc168e42d22cfcad51d3d58a9bfbe1638d42d69a4271c1901c7`。安装路径的 `pnpm test:embedded-capture`、`pnpm test:embedded`、`pnpm test:picker-ui` 全部退出码 0，使用隔离数据；日志为 `/private/tmp/flowark-0112-{candidate,installed}.log`，摘要为 `/private/tmp/flowark-0112-delivery.json`。仍未签名/公证，使用默认图标。
+- 日常窗口显示 0.1.12、原有 5 个流程和 0 个活动任务。重新打开右侧 `http://127.0.0.1:4178/`，点击最小化并通过“窗口 → 显示工作台”恢复后，截图确认表单正常绘制；再次实际桌面点选姓名框返回“已选取 · 测试姓名 *”，保留原“虚构拾取用户”配置并保存。日常实例没有运行新流程或提交表单，停留在练习编辑器与右侧本地表单。
+- 复现和检查日志：`/private/tmp/flowark-capture-installed-before.log`、`/private/tmp/flowark-paint-race-before.json`、`/private/tmp/flowark-0112-{check,runtime,embedded-capture,picker-lifecycle,embedded,picker}.log`；缩放诊断为 `/private/tmp/flowark-zoom-{repeated,rendered}.log`，正式复验为 `/private/tmp/flowark-0112-test-picker-final.log`。以上均只使用内置浏览器与虚构本地数据，招聘和真实 AI 本次未测试。
+
 ## 2026-09-20 静止光标点选修复：0.1.11
 
 0.1.10 日常窗口中的“只聚焦、不返回目标”已在完整隔离应用通过同一桌面控制动作复现：检查模式已启用，但点击前没有鼠标移动，网页收到 mousedown/mouseup/click。Chromium 检查工具在没有悬停节点时会放行按下；原自动回归先移动再点击，因此未覆盖该触发条件。0.1.11 先拦截原生按下和对应抬起，清除旧悬停，再仅通过移动解析点击位置；不重放网页点击。跨进程框架由 Main 注入坐标转换，保留唯一定位和取消隔离，详见 [元素拾取](element-picker.md)。契约和数据库格式不变。
