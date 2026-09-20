@@ -1,5 +1,18 @@
 # 开发预览验收记录
 
+## 2026-09-20 网页面板与编排布局：0.1.13
+
+对应[产品参考](product-reference.md)的第一项。0.1.12 在隔离安装版展开右侧网页后，画布宽度从约 656 缩至 334 像素但沿用旧视口，同一回归明确失败；1040×700 窗口还存在横向溢出。固定尺寸投影使用的测量就绪状态在此次复现中始终为 false，原自动定位被跳过。0.1.13 改为视口就绪后按实际尺寸定位，尺寸变化优先保留选中步骤；单纯选择和参数修改不触发定位。窄窗口打开网页时将节点库改为顶部横向栏，最小窗口画布约 279 像素宽、主区域无横向溢出。节点语义、公共契约 0.7.0 和数据库不变。
+
+- `pnpm check` 通过类型检查、64 项单元和构建；最终测试脚本的 `pnpm typecheck` 通过。初版测试存在 TS 回调序列化错误和空值类型检查错误，已修正后重跑；不将这些失败算作旧版产品缺陷。旧版正式失败为 `open-without-selection: null clipped horizontally`，日志 `/private/tmp/flowark-0113-layout-before.log`。
+- 新增 `pnpm test:editor-layout`：17 个真实窗口布局场景通过，覆盖 1040×700、1200×800、1380×900、展开/收起、未保存内容和手动缩放保持、81 步长流程末尾选中节点、窄屏节点与分支添加。核对原生网页边界、会话 ID、页面起始时间、已填写内容、无意外 Run/提交及网页截图非空白。工作台截图与 WebContentsView 页面截图分别保存，日常整窗显示通过桌面工具另验。
+- `pnpm test:picker-ui` 通过空白草稿的拾取、填写、保存重开及五步实际执行。`pnpm package:mac` 生成 DMG；从 DMG 提取的候选应用与最终安装路径分别通过 `test:editor-layout`、`test:picker-ui`、`test:embedded`。完整内置表单验证保留控件、上传下载、回执、最小化与故障处理检查，全部使用独立临时目录和本地虚构数据。日志 `/private/tmp/flowark-0113-{check,layout-final,picker-ui,package,candidate,installed}.log`。
+- 客户端 [PR #10](https://github.com/zhongmiao-org/flow-ark-client/pull/10) 经 [CI 35485044425](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35485044425) 的 Validate / Auto Merge 成功，实际合并为 `7f48a15c188382856f4f9f4d8675f21ccf318555`。CI 包含 `pnpm check` 和 `pnpm test:runtime`，不替代 macOS 图形验收。采用治理基线 `61dab8ab51eb3fba44287165325a902f14a3f5c3`。
+- 安装包 `flow-ark-client/release/FlowArk-0.1.13-arm64.dmg`，SHA-256 `c6ff5d4adc2df3d6fd7f2080bebdf3f6302129d83e54b2476886259f6ec14ece`。已升级 `/Users/mac/Applications/FlowArk.app`，旧应用备份 `/private/tmp/flowark-0113-delivery-s2dldu2g/FlowArk-0.1.12.app`。候选与安装 app.asar 一致：`442b3f7031595b5b7101c99fe8428b30cd25e37f08ff7837e1c34848694dee5b`。交付摘要 `/private/tmp/flowark-0113-delivery.json`；仍未签名/公证，默认图标。
+- 日常应用显示 0.1.13、原有 5 个流程、0 个活动任务。打开原“网页拾取练习”，选择姓名填写节点，展开、收起再展开右侧 `http://127.0.0.1:4178/`；桌面整窗截图确认节点完整可见、配置仍为“虚构拾取用户”、真实表单正常绘制。日常实例未运行新流程、未改保存数据、未提交表单，保留编辑器和右侧网页供检查。
+
+仅完成布局改进，动作搜索、直接动作入口、前后插入等仍待实现。BOSS/智联、真实 AI、外部浏览器与 P1 总体验收状态不变。
+
 ## 2026-09-20 后台截图清理与新网页显示：0.1.12
 
 已在 0.1.11 安装应用的隔离数据中复现一种空白场景：后台截图的原生调用尚未返回时取消 Run，随后启动新流程、展开面板，新网页能读取到填写值，但原生视图 `getVisible()` 为 false、边界仍为初始化尺寸，而产品状态返回可见。原因是旧截图宿主对全部网页阻止布局，结束清理时又没有恢复新网页的布局。0.1.12 将截图宿主绑定具体视图，当前网页按实际父视图关闭，旧截图只清理自己的资源；公共契约 0.7.0 和数据库格式不变。此复现证明该竞态确实存在，不证明每次历史空白均出自同一原因。
