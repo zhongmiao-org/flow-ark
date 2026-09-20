@@ -1,5 +1,21 @@
 # 开发预览验收记录
 
+## 2026-09-20 可读参数与通用变量选择：0.1.17
+
+落实[通用值与变量选择](value-editor.md)。浏览器值字段、数据、条件/断言、循环集合和脚本输入提供统一变量选择，按名称/路径搜索后明确确认；显示当前来源与精确路径，不将引用伪装为空文本或默认勾选。候选遵循实际词法前序作用域，循环体可选最近一层 item/index；未知结果可以指定高级子路径，运行时缺失仍报错。运行参数保留文本、数字、布尔、空、数组/对象类型，删除被引用的参数名会被阻止。草稿历史、旧流程和快照语义不变。
+
+- `pnpm check` 通过类型检查、74 项单元与构建，新增四项验证作用域、嵌套循环、可表达的静态字段、未知结果与非法路径，并用真实引擎核对候选引用、对象/布尔/数字类型及缺失路径失败。`pnpm test:runtime` 20 项通过。
+- `pnpm test:value-editor` 从界面创建参数和 15 步流程，完成参数引用填写姓名、布尔勾选、部门下拉、读取值用于条件/断言、循环当前项填写和序号记录/数字判断、脚本输入引用。保存重开与单步/继续后核对实际网页与宿主完整输出；故意引用缺失子字段时明确失败，无固定值回退。搜索/取消、切回固定值/撤销、参数删除保护、未完成输入保存阻止、最小 1040×700 下的引用选择器也通过。两次显式调试均使用虚构数据，没有表单提交或额外 Run，网页宽度为 1920。
+- `test:flow-editing`、`test:picker-ui`（13 步/12 种网页动作）、`test:editor-layout`（17 场景）、`test:action-library`、`test:desktop` 通过。浏览器绑定和节点高级 JSON 的旧测试选择器改为准确的标签/容器；不再把新增的参数控件当作唯一 select/textarea。已有可读表单的节点默认收起高级 JSON，展开状态按节点独立保持。
+- 验收过程保留失败：新增脚本起初误匹配 Monaco 的隐藏 alert，随后误读已被宿主转换为 outputPreview 的事件 result 字段；分别收紧提示定位并使用真实 run.detail.output 后通过。旧结构编辑用例发现高级 JSON 展开状态被新选中的同类节点继承，增加节点 key 后对应回归通过。未放宽实际字段、类型或作用域断言。
+- `pnpm package:mac` 成功；只读 DMG 提取的候选应用已通过 `test:value-editor`、`test:flow-editing`、`test:picker-ui`、`test:editor-layout`、`test:embedded` 五组验收，完整表单仍覆盖回执、上传下载、最小化、取消重开与故障处理。全部回归使用隔离数据、内置浏览器和本地虚构页面。日志 `/private/tmp/flowark-0117-{check,runtime,values,editing,picker,layout,actions,desktop,package,candidate}.log`。
+- 安装包 `flow-ark-client/release/FlowArk-0.1.17-arm64.dmg`，SHA-256 `ac5d90d98276768e4b77ac239126f4ec1b51464d2ef4802e203a22fa78687f52`；候选 `/private/tmp/flowark-0117-delivery-pv1g6zkv/FlowArk.app`，摘要 `/private/tmp/flowark-0117-delivery.json`。包仍未签名/公证，默认图标。
+- 日常安装尚未执行：桌面工具报告 Mac 锁屏且无法自动解锁，已请用户解锁，以便检查活动任务并正常退出旧版。只读 Info.plist 确认 `/Users/mac/Applications/FlowArk.app` 仍为 0.1.16；未替换应用、未创建旧版备份或修改日常数据。0.1.17 最终安装路径与日常桌面验收待完成，不能用候选通过代替。
+- 客户端 [PR #14](https://github.com/zhongmiao-org/flow-ark-client/pull/14) 经 [CI 35489630516](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35489630516) Validate / Auto Merge 成功，实际合并 `0108b8814034ac405b1e1f66728fbc22255b88fe`。
+- 采用治理 [PR #17](https://github.com/zhongmiao-org/flow-ark/pull/17) 的合并基线 `8f74dd740c6d693b496ddd573aca2450f9600a5e`。契约 0.7.0、IPC 和数据库未变更。
+
+HTTP、文件和 Excel 的完整可读配置仍待推进；高级 JSON 可用，不将首批值字段接入写成所有节点配置已经完成。真实招聘、真实 AI、外部浏览器和 P1 总体验收仍未完成。
+
 ## 2026-09-20 流程结构编辑与草稿历史：0.1.16
 
 落实[流程结构编辑](flow-editing.md)：动作库可在选中节点前后连续插入；复制普通节点或完整条件/循环子树，生成独立 ID 并重映射内部输出引用（含条件/循环输出中的子节点结构键），普通文本、脚本、路径和外部引用不替换。支持当前分支上下移动及明确目标移动；删除和移动若新增前向引用、引用缺失、循环变量越界或失效子输出路径，显示具体引用并拒绝变更。已有未完成的普通字段不阻止独立结构编辑。
