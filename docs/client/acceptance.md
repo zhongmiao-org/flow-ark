@@ -1,5 +1,21 @@
 # 开发预览验收记录
 
+## 2026-09-20 内置网页桌面宽度：0.1.15
+
+按用户要求，内置网页以 1920 CSS 像素宽度排版，通过 Chromium 原生页面缩放适配右侧面板；高度随可视区域换算。面板显示“桌面宽度 1920”，最小窗口的网页内容区保留 480 像素并收紧参数栏。导航后恢复缩放，收起/恢复和窗口调整不刷新网页或清空输入。公共契约 0.7.0、数据库和旧流程不变，采用治理 `3919077ba34ea83e63c78da677c57e5d9719c987`。
+
+- `pnpm check` 通过类型检查、64 项单元和构建，`pnpm test:runtime` 20 项通过。
+- 新增 `pnpm test:browser-viewport`：15 个场景检查首次面板未展开时导航、展开、原生输入框/单选点击、1040×700 / 1200×800 / 1380×900、收起/展开、最小化/恢复、第二次导航。实际 `innerWidth` 均为 1920，桌面媒体查询为真，原生边界与面板一致；除明确导航外会话 ID、页面起始时间及输入值保留，无意外 Run 或表单提交。
+- `test:picker` 跨站嵌套 iframe、原生无悬停点击、偏移与页面缩放、失败时无点击、Shadow DOM 定位通过；`test:picker-lifecycle` 17 项关闭/恢复/导航/重建通过；`test:picker-ui` 的 13 步/12 种网页动作与 input/radio/checkbox/select 拾取通过；`test:editor-layout` 17 个布局与长流程场景通过。
+- `test:embedded` 完整复杂表单回执、最小化执行、上传下载、取消与重开通过；`test:embedded-capture` 保留旧截图挂起与新视图重建竞争检查，取消后不登记迟到产物、隐藏绘制宿主不显示。原型设备模拟曾出现创建时原生崩溃、导航重置及 OOPIF 输入坐标差异，最终移除该路线并使用原生页面缩放；原生缩放下限通过最小面板内容区约束处理。
+- `pnpm package:mac` 成功。只读 DMG 解出的候选应用通过 `test:browser-viewport`、`test:picker-ui`、`test:editor-layout`、`test:embedded`。最终 `/Users/mac/Applications/FlowArk.app` 路径以独立数据再次通过同样四组验证。全部测试使用隔离数据、内置浏览器和本地虚构表单。日志 `/private/tmp/flowark-0115-{check,runtime,viewport,picker,picker-lifecycle,picker-ui,layout,embedded,capture,package,candidate,installed}.log`。
+- 客户端 [PR #12](https://github.com/zhongmiao-org/flow-ark-client/pull/12) 经 [CI 35487407123](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35487407123) Validate / Auto Merge 成功，实际合并提交 `16e550de41822d5688d2c4bea1587b88844de833`。治理设计 [PR #12](https://github.com/zhongmiao-org/flow-ark/pull/12) 与实现约束 [PR #13](https://github.com/zhongmiao-org/flow-ark/pull/13) 均先由 CI 自动合并。
+- 安装包 `flow-ark-client/release/FlowArk-0.1.15-arm64.dmg`，SHA-256 `686ab99fa0f33e2dc9c7010a3d5e2b92977d6930e8074a1a5057fcbc7df535b2`。安装 `/Users/mac/Applications/FlowArk.app`，旧版备份 `/private/tmp/flowark-0115-delivery-af08d7nf/FlowArk-0.1.14.app`。候选与安装 app.asar 摘要一致：`33b17b56b82f8b5a11f0b35ca8b2832dfae1ebdb18cb50c73b20da2f831e5e28`，摘要 `/private/tmp/flowark-0115-delivery.json`。仍未签名/公证，默认图标。
+
+- 日常客户端已重新打开，显示 0.1.15，原有 5 个流程与 0 个活动任务保留。重新进入“网页拾取练习”，原填写节点内容仍为“虚构拾取用户”；右侧打开 `http://127.0.0.1:4178/`，桌面工具整窗截图确认 PC 三栏表单、画布、动作库和参数栏同时可见，面板标明“桌面宽度 1920”。日常实例没有保存或运行新流程，也没有填写或提交表单。
+
+固定桌面布局不等于所有 PC 网站均已兼容。BOSS/智联、真实 AI、外部浏览器和真实招聘业务未测试，P1 总体尚未完成。
+
 ## 2026-09-20 具体动作库与添加位置：0.1.14
 
 对应[产品参考](product-reference.md)第二项。动作库直接添加 12 种网页操作，支持分类、中文或英文关键词搜索、键盘添加。搜索跨分类且显示“全部”；清空后恢复原分类。另保留数据、HTTP、脚本、文件、Excel、断言、条件、循环、人工节点。添加位置明确选择主流程末尾、条件分支或嵌套循环体；连续添加保持目标，目标删除后禁用添加并要求重新选择，避免静默落到主流程。上传文件绑定、目录内文件名和下载产物名可用表单配置。仅使用既有节点协议，公共契约 0.7.0、数据库和语义图形不变。
