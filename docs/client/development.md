@@ -2,7 +2,7 @@
 
 客户端仓库负责 P1 macOS 单机客户端，Electron / React / TypeScript / pnpm / SQLite。当前为开发阶段，真实业务与兼容状态只以 acceptance.md 的证据为准。
 
-统一规则入口：主目录存在时先读 [AGENTS.md](../../AGENTS.md)、[架构](../architecture.md)、[ROADMAP](../../ROADMAP.md)。远程 [flow-ark](https://github.com/zhongmiao-org/flow-ark)，0.1.32 采用治理基线 `5f468263aa6b0dd0507ab43162a2b35482371ac8`。契约为应用 `contracts/` 中固定的发布副本，版本及发布状态见 [契约采用记录](contracts-adoption.md)；不得伪造已发布 tag。
+统一规则入口：主目录存在时先读 [AGENTS.md](../../AGENTS.md)、[架构](../architecture.md)、[ROADMAP](../../ROADMAP.md)。远程 [flow-ark](https://github.com/zhongmiao-org/flow-ark)，0.1.33 采用治理基线 `333273659ed5352832718d6b1604fea9f2f65ab4`。契约为应用 `contracts/` 中固定的发布副本，版本及发布状态见 [契约采用记录](contracts-adoption.md)；不得伪造已发布 tag。
 
 独立克隆仍适用：Renderer 只用白名单 IPC；Main 仅系统集成；host 统一 SQLite、队列和调度；core 不依赖 Electron/React/SQL；Worker 与独立浏览器会话通过消息访问宿主。可信脚本单独进程，不称安全沙箱。凭据由系统保护，不明文降级。副作用先落盘，未知不重放。Chrome 仅 playwright-core 显式本机路径，Firefox/Safari 仅明确本机原生驱动，不下载浏览器、接管默认 Profile 或静默切换模式。2026-09-18 新增显式内置模式，使用主窗口右侧 WebContentsView、隔离网站 Renderer 和专用 Session，见 [内置浏览器](embedded-browser.md)。AI 仅草稿，动作逐项授权。真实外发需要账号、目标、内容与范围的明确配置。P1 无服务端、管理台、平台注册、商店或常驻服务。
 
@@ -55,3 +55,5 @@ Git 每次写操作前确认本仓库根；Conventional Commits，中文描述�
 2026-09-20 脚本监护验证：`pnpm test:runtime` 纳入 script-supervision.integration.ts，先完成构建再运行。该文件支持 `FLOWARK_TEST_EXECUTABLE` 指向候选应用；私有 Host 夹具使用候选自己的编译器，明确区分源码 Runtime 与实际打包 Host。`pnpm test:store-upgrade` 通过新旧 `FLOWARK_TEST_EXECUTABLE` / `FLOWARK_PREVIOUS_EXECUTABLE` 检查真实打包 Host 的 v1→v2 保留及旧 reader 拒绝；只使用隔离目录。过程和结果归[验收记录](acceptance.md)。
 
 运行详情：`pnpm test:run-observation` 经真实界面验证无报告脚本、进度、固定名称、普通输出、调试/等待/取消、正常重开和有明确边界的存储故障展示，支持 `FLOWARK_TEST_EXECUTABLE`。`pnpm test:runtime` 纳入 storage-full.integration.ts 的真实 SQLite 容量失败与异步采样一致性，先构建再运行。仅用独立数据与内置本地表单，见[运行详情与实时观察](run-observation.md)。
+
+系统挂起：`pnpm test:system-suspend` 在完整隔离客户端注入 powerMonitor 事件，验证真实 Host 回执、旧 WebContents 销毁、旧准入撤销、恢复后新流程与本地复杂表单回执，支持 `FLOWARK_TEST_EXECUTABLE`。`pnpm test:runtime` 同时执行 system-suspend.integration.ts，涵盖多计划、重跑与真实 SQLite 写失败下 Worker/忙脚本回收。不能将事件夹具称为硬件睡眠；规则见[系统挂起生命周期](system-suspend.md)。

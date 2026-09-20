@@ -1,6 +1,6 @@
 # FlowArk · 序舟
 
-本地自动化工作台，当前为 **macOS Apple Silicon 开发预览版**。已有可运行 Electron 客户端、流程编辑器、逐步调试、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。2026-09-20 源码与候选包为 0.1.32，日常安装仍为 0.1.28，等待此前 Mac 解锁确认；源码、候选包与日常安装的具体能力分别以[验收记录](acceptance.md)为准。
+本地自动化工作台，当前为 **macOS Apple Silicon 开发预览版**。已有可运行 Electron 客户端、流程编辑器、逐步调试、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。2026-09-20 源码与候选包为 0.1.33，客户端 PR #31 已由 CI 自动合并；日常安装仍为 0.1.28，Mac 仍锁定，等待此前解锁确认。源码、候选包与日常安装的具体能力分别以[验收记录](acceptance.md)为准，P1 尚未完成。
 
 当前仅使用 **FlowArk 内置浏览器和本地复杂表单** 完善通用功能；招聘站点、真实 AI 与外部浏览器测试后置，不要求现在准备账号。此前的 [Selenium 简单网站练习](simple-sites.md) 保留为历史示例，不作为当前测试入口。
 
@@ -14,7 +14,7 @@
 
 ## 安装和启动
 
-0.1.32 预览构建输出位于客户端 `release/`：`FlowArk-0.1.32-arm64.dmg`、`FlowArk-0.1.32-arm64-mac.zip` 和 `mac-arm64/FlowArk.app`。安装或替换前正常退出旧应用，再从 DMG 将应用复制到 Applications 或自己的 `~/Applications`；先按下方说明备份数据。当前只完成候选验证，尚未替换日常 0.1.28。安装包不包含额外自动化浏览器，显式内置模式复用随附 Electron 内核。
+0.1.33 预览构建输出位于客户端 `release/`：`FlowArk-0.1.33-arm64.dmg`、`FlowArk-0.1.33-arm64-mac.zip` 和 `mac-arm64/FlowArk.app`。安装或替换前正常退出旧应用，再从 DMG 将应用复制到 Applications 或自己的 `~/Applications`；先按下方说明备份数据。当前只完成候选验证和隔离数据升级，尚未替换日常 0.1.28。安装包不包含额外自动化浏览器，显式内置模式复用随附 Electron 内核。
 
 本机 Chrome 153.0.8010.48 的自动下载恢复仍存在原生 SIGSEGV，因此该版本的 download 操作继续在准入及驱动层明确拒绝。此前表单、上传及取消重开的单项通过不能替代完整恢复验收，详见 [恢复缺口](browser-recovery.md)。内置模式的本地表单上传、下载与取消另有独立证据；当前不重测外部 Chrome。
 
@@ -40,9 +40,9 @@ Excel 节点可切换「填充工作簿模板」：templateName 指定已有 xls
 
 「设置」保留 Codex/OpenAI 或 DeepSeek API Key 的受保护配置入口；Renderer 不获得已存密钥。接口验证会向**所选供应商**发送虚构的开发经验样例，可能产生该供应商费用，不使用 Codex CLI、ChatGPT 或桌面登录态。模型 ID 可配置，账号可用性以实际返回为准。当前真实 AI 测试后置；0.1.5 开发版 DeepSeek 虚构样例曾通过实调，不能视为本轮或招聘上下文已验收。Codex 未实调，详见 [AI 实接](ai-validation.md)。
 
-关闭窗口会进入托盘；菜单「退出 FlowArk」停止驻留调度，有任务时先显示退出确认，再处理当前任务和队列。定时只在应用驻留时生效，错过的周期不追赶执行；最小化/托盘验证不等于硬件休眠验收。暂停在步骤边界生效，取消先通知执行进程，必要时回收本任务拥有的进程。休眠/恢复的具体缺口和修复状态以[验收记录](acceptance.md)为准。
+关闭窗口会进入托盘；菜单「退出 FlowArk」停止驻留调度，有任务时先显示退出确认，再处理当前任务和队列。定时只在应用驻留时生效，错过的周期不追赶执行。0.1.33 在收到系统挂起事件后撤销尚未准入的旧请求并停止当前任务，持久化失败也不会跳过实际停止；恢复后须重新发起被撤销的人工作业。候选通过 `powerMonitor.emit` 系统事件夹具，最小化/托盘和事件夹具均不等于硬件休眠验收，日常 0.1.28 尚不含该修复。暂停在步骤边界生效，取消先通知执行进程，必要时回收本任务拥有的进程。详见[系统挂起](system-suspend.md)及[验收记录](acceptance.md)。
 
-运行记录支持搜索、筛选和翻页；进入详情再返回保留位置。0.1.32 源码及候选包新增可读当前步骤、运行总耗时、实例范围内的主动进度和普通运行已保存输出，长输出可只读展开；日常 0.1.28 尚不含此增量。存储故障时只能把已保存状态当历史，未保存的最终结果需核对，不能以旧 RUNNING 宣称仍在执行。详见[运行详情与实时观察](run-observation.md)。
+运行记录支持搜索、筛选和翻页；进入详情再返回保留位置。0.1.32 起新增可读当前步骤、运行总耗时、实例范围内的主动进度和普通运行已保存输出，长输出可只读展开；日常 0.1.28 尚不含此增量。存储故障时只能把已保存状态当历史，未保存的最终结果需核对，不能以旧 RUNNING 宣称仍在执行。详见[运行详情与实时观察](run-observation.md)。
 
 ## 数据和可信代码
 
@@ -50,7 +50,7 @@ Excel 节点可切换「填充工作簿模板」：templateName 指定已有 xls
 
 SQLite 结构化业务载荷使用 AES-256-GCM 加密，数据密钥和 API Key 使用 Electron safeStorage 的 macOS 系统保护存储；不可用时阻止初始化，不降级为明文。运行产物和浏览器 Profile 是本机文件，并非整盘加密，受用户目录权限及系统磁盘保护。不要将整个数据目录上传或提交到 Git。
 
-SQLite 从 0.1.31 起使用 v2，保护脚本持久租约；从 0.1.30 及更早版本升级时保留原记录，旧版会拒绝打开升级后的目录。0.1.31 → 0.1.32 无新增迁移；日常 0.1.28 的数据尚为 v1。回退到旧版需使用升级前的独立备份。真实 v1→v2 保留和旧 reader 拒绝已有隔离验证，不代表未来表结构变更或物理磁盘满已验收。
+SQLite 从 0.1.31 起使用 v2，保护脚本持久租约；从 0.1.30 及更早版本升级时保留原记录，旧版会拒绝打开升级后的目录。0.1.31 → 0.1.33 无新增迁移；日常 0.1.28 的数据尚为 v1。回退到旧版需使用升级前的独立备份。真实 v1→v2 保留和旧 reader 拒绝已有隔离验证，不代表未来表结构变更或物理磁盘满已验收。
 
 JS/TS 面向用户审阅过的**可信代码**，可使用 Node 内置能力；独立进程不是安全沙箱。脚本面板的「绑定本地包」选择已安装包中 package.json 所在目录，记录名称与精确版本，可使用普通包、scope 包和已安装的 npm/pnpm 依赖。新建运行或保存计划前检查声明并静态打包；运行中不下载、不安装。排队任务和已保存计划使用固定代码，包被修改后需重新保存计划才采纳新内容。运行详情可展开查看固定的依赖版本与摘要。
 
@@ -91,6 +91,7 @@ pnpm forms:serve          # 手动练习入口：127.0.0.1:4178 的本地复杂�
 pnpm test:forms           # 独立宿主和内置网页：字段、文件及本地提交回执
 pnpm test:embedded        # 完整客户端：右侧网页、调试、最小化、上传下载与重开
 pnpm test:run-observation # 运行详情、输出与明确标注的故障回复夹具
+pnpm test:system-suspend  # powerMonitor 系统事件夹具，不是硬件睡眠验收
 pnpm test:browser         # 内置网页：localhost 框架、严格定位、上传下载与取消
 pnpm test:scenario        # HTTP → TS → Excel → 内置网页上传 → 本地回执断言
 pnpm test:desktop         # 启动 Electron，测试 React Flow、Monaco、保存和运行
@@ -98,6 +99,7 @@ pnpm package:mac          # 本机 arm64 zip + 原生 hdiutil DMG，未签名
 FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:desktop
 FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:embedded
 FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:run-observation
+FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:system-suspend
 FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:install
 # 使用隔离数据验证旧版写入后新版重开；不访问日常用户数据
 FLOWARK_PREVIOUS_EXECUTABLE='/absolute/path/previous/FlowArk.app/Contents/MacOS/FlowArk' FLOWARK_TEST_EXECUTABLE='/absolute/path/FlowArk.app/Contents/MacOS/FlowArk' pnpm test:install
@@ -113,7 +115,8 @@ FLOWARK_PREVIOUS_EXECUTABLE='/absolute/path/previous/FlowArk.app/Contents/MacOS/
 - DeepSeek 在 0.1.5 开发版完成虚构样例的真实请求和草稿校验；Codex 尚无凭据配置，真实接口与两站真实招聘上下文仍待验证。
 - Firefox 未安装；Safari 原生驱动路线已编写，登录、验证码接管及上传未验收；Windows 未验收。
 - Excel 支持首个工作表基础读取、生成、按单元格填充模板和上传；保留常规样式与工作表，不承诺宏、公式重算或所有高级工作簿特性。Chrome 的嵌套框架操作验证见验收记录；Firefox/Safari 仍需分别验证。
-- 本机定时为固定分钟间隔，不支持退出后系统服务或 cron 表达式。硬件休眠尚未验收，休眠/恢复的取消与准入缺口仍需独立修复验证。SQLite 当前为 v2，现有版本升级保留记录不代表未来表结构迁移均已验证。
+- 本机定时为固定分钟间隔，不支持退出后系统服务或 cron 表达式。0.1.33 的挂起取消与旧请求撤销已通过本地宿主及候选系统事件夹具，硬件休眠仍未验收。SQLite 当前为 v2，现有版本升级保留记录不代表未来表结构迁移均已验证。
+- 模板参数来源存在双来源编辑缺口，凭据对象键及预检拒绝消息的脱敏也仍待修复；这三项通用能力缺口的范围见[验收记录](acceptance.md)。
 - 目前使用 node:sqlite，Node 会提示实验性 API；Monaco 懒加载资源较大，构建有 chunk size 提示，均不代表已消除后续兼容或性能风险。
 
 官方协议参考：[OpenAI Responses 结构化输出](https://developers.openai.com/api/docs/guides/structured-outputs)、[Codex 模型](https://developers.openai.com/api/docs/models/gpt-5.3-codex)、[DeepSeek Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/)。这些资料不能代替本人的 API 实调与业务验收。
