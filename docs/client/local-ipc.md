@@ -18,4 +18,4 @@ Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，�
 
 0.1.8 编辑器目录修复：按嵌套分支、循环中的 file/excel 以及 browser upload 字面量引用显示本地目录名，保留既有绑定。选择 work 目录不再错误写入固定 workspace；不改变流程、IPC、契约或数据库格式。
 
-2026-09-18 元素拾取增量（待实现）：新增受控 start/status/cancel/validate 方法，生命周期、字段限制与兼容约定见 [元素拾取](element-picker.md)。不开放任意 CDP 或脚本执行 IPC，不改变公共契约 0.7.0。
+2026-09-18 元素拾取增量（0.1.9）：新增受控 start/status/cancel/validate 方法，生命周期、字段限制与兼容约定见 [元素拾取](element-picker.md)。不开放任意 CDP 或脚本执行 IPC，不改变公共契约 0.7.0。

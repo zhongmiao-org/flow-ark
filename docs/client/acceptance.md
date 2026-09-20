@@ -1,5 +1,22 @@
 # 开发预览验收记录
 
+## 2026-09-20 元素拾取与可读动作配置：0.1.9
+
+参考用户提供的影刀 6.0 演示，本次实现从右侧内置网页点选目标、可读目标名称、填写内容及原生下拉选项表单；CSS 与 iframe 路径放在高级编辑中，并可校验唯一匹配。公共契约保持 0.7.0，仅使用已有 selector/framePath/name，不保存网页输入值或整页 DOM。录制、AI 生成与在线模板商店不属于本次交付。
+
+- 客户端 [PR #6](https://github.com/zhongmiao-org/flow-ark-client/pull/6) 已于 2026-09-18 经 [CI 35333793061](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35333793061) 的 Validate / Auto Merge 成功合并，提交 `821577acae1cc7f61605daae23104361ae8c52d4`；采用治理设计 [PR #4](https://github.com/zhongmiao-org/flow-ark/pull/4)，基线 `39c6b6dcbe69d27907b74a99fb986092cf02ab33`。
+- `pnpm check`：类型检查、63 项单元测试、构建通过。`pnpm test:runtime`：20 项真实 Worker 测试通过，新增继续/单步前等待拾取消除，控制指令待消费时拒绝新拾取。
+- `pnpm test:picker`：真实嵌套跨站 iframe、开放 Shadow DOM、特殊字符定位、结构定位提示、重复目标拒绝、密码和当前值不回传、下拉选项、Escape、旧请求、隐藏、执行前清理通过。跨站 OOPIF 用正式驱动同一路径的 CDP Input；顶层 UI 用 WebContents 原生输入。拾取不触发网页按钮，退出检查模式后正常操作只触发一次。
+- `pnpm test:picker-ui` 从空白界面建立打开网页、填姓名、radio、checkbox、select 五个步骤；点选、保存、重开、逐步执行后实际值核对通过。`pnpm test:forms` 的复杂表单字段、上传字节、服务端回执、无效操作和拒绝不重发通过；`pnpm test:embedded` 的目录绑定、单步、最小化完整表单、取消重开、文件传输和网页崩溃处理通过；`pnpm test:embedded-isolation` 的网页隔离与会话回归通过。
+- `pnpm package:mac` 已生成 `flow-ark-client/release/FlowArk-0.1.9-arm64.dmg`，SHA-256 `0a4868138e12b8d9d59d5d953eeee847610a569fe98c0f2d954c5952371ddd0e`。从 DMG 解出的候选应用与安装路径均分别通过 `pnpm test:picker-ui` 和 `pnpm test:embedded`，退出码均为 0，使用独立虚构数据。已安装 `/Users/mac/Applications/FlowArk.app`；旧 0.1.8 备份在 `/private/tmp/flowark-019-delivery-8nz_2_lj/FlowArk-0.1.8.app`。2026-09-20 再次核对安装包与候选包 app.asar 摘要一致，安装 Main 与当前构建逐字节一致。仍未签名/公证，使用默认图标。
+
+人工核对过程保留异常：2026-09-18 日常窗口曾出现右侧空白，但同一版本隔离实例可以显示；2026-09-20 未改代码即观察到日常窗口正常显示。该长时间运行的日常会话还出现点击仅聚焦输入框、未返回拾取结果；正常退出并确认旧进程结束后，重开安装版再点选已返回“测试姓名 *”，保留“虚构拾取用户”配置。原生鼠标诊断实例也取得 `#full-name`，且页面 mousedown/mouseup/click 监听记录为空，证明确实拦截点击。未定位旧会话异常的根因，不宣称永久修复或完整长期稳定性通过。
+
+2026-09-20 安装版人工交接：保留原有 4 个流程，另存两步“网页拾取练习”（本地网址 + 填写姓名），通过界面绑定内置浏览器。重开后在实际右侧网页点选姓名输入框，生成“填写 测试姓名 *”；保存后单步 Run `263a3e05`，两个节点输出与最终 `SUCCEEDED` 可见，右侧实际值为“虚构拾取用户”。本次练习没有提交表单。完整 107 步复杂表单仍保留，先前暂停 Run `b5478817` 在升级退出时明确取消，未自动续跑或重放。测试服务仍为 `http://127.0.0.1:4178/`，不是开机常驻服务。
+
+本地证据：`/private/tmp/flowark-picker-{check-final,runtime-final,forms,embedded,adapter-final,ui-final,isolation,package,candidate,installed}.log`、`/private/tmp/flowark-native-probe.log`，客户端忽略目录 `test-results/picker-ui.json`。Markdown 继续只在治理仓库管理，客户端自有说明为 README / CONTRIBUTING。本次未测试招聘网站或调用真实 AI，P1 业务完成状态不变。
+
+
 
 ## 2026-09-18 目录绑定补丁：0.1.8
 
