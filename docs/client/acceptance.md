@@ -1,5 +1,21 @@
 # 开发预览验收记录
 
+## 2026-09-20 运行产物副本与完整性：0.1.21
+
+落实[产物副本约定](artifact-snapshots.md)。在 0.1.20 真实 Worker 中复现两次运行覆盖 result.txt 后，旧 Run 仍成功但历史产物读到新内容。现在每次登记按 Run/产物 ID 保存独立副本和 SHA-256；业务源文件保持原位，同 Run 重复名称也互不覆盖。复制完成和取消复查后，索引与事件在单一 SQLite 事务中提交；失败清理未发布副本，保留业务输出，不重放文件动作。
+
+- `pnpm check` 的类型、86 项单元和构建通过。三项新增单元覆盖同名独立文件、来源删除、同长度改动使缓存失效、定位强制复验、缺失/符号链接、旧格式、预先取消、复制中取消、复制期间来源变化和失败清理。最后列表排版调整后类型检查与打包构建再次通过。
+- `pnpm test:runtime` 的 26 项真实 Worker 验证通过。新增跨 Run/同 Run 同名副本、删除源文件与宿主重开、旧格式当前文件兼容、同长度篡改；登记事件故障回滚索引，真实复制完成后受控延迟返回，再取消 Run，确认不登记迟到产物、无后续节点，源文件仍保留。更新原 Excel/ZIP 场景，明确删除源文件不会让历史副本失效，删除或符号链接替换副本则拒绝定位。
+- `test:artifact-history` 在真实 Electron 中核对“已保存副本”“副本内容已改动”“旧记录，未保存副本”以及缺失状态；新旧定位按钮经真实 IPC 与宿主返回相应路径，损坏与缺失被拒绝、按钮禁用、Run 成功历史保持。旧记录在停止的隔离测试库按旧格式准备，不访问日常数据；系统 `showItemInFolder` 被测试拦截，只核对参数，不视为 Finder 人工验收。
+- 新界面验收脚本首次在旧记录准备时遇到测试上下文不支持动态 import，改由测试进程读取自身临时密文并使用 Electron 系统解密，修复后通过；没有放宽产品断言。截图发现长路径挤窄按钮，随后把名称、状态、路径分行，按钮保持单行，候选截图已核对。
+- 源码与只读 DMG 候选均通过 `test:artifact-history`、`test:resource-editor`、`test:embedded`。资源流程继续核对真实 HTTP、文件字节、ZIP、Excel 与内置上传；复杂表单继续核对回执、最小化执行、上传下载、截图、取消与重开。全部使用隔离虚构数据、本地服务和内置网页。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.21-arm64.dmg`，SHA-256 `db226898a8f9cd57065567e76112bd8c068665a7714145353d034cb06bb3ef04`。只读候选 `/private/tmp/flowark-0121-delivery-fkt2tu1_/FlowArk.app`，摘要 `/private/tmp/flowark-0121-delivery.json`；未签名/公证，默认图标。日志 `/private/tmp/flowark-0121-{check,runtime,history,resources,embedded,typecheck,package,candidate}.log`；候选历史界面证据在客户端忽略的 `test-results/artifact-history.png` 与 JSON。
+- 再次只读核对 `/Users/mac/Applications/FlowArk.app` 仍为 0.1.16；本次未替换日常安装，也未创建摘要内规划的备份。先前 Mac 解锁确认未收到，最终安装路径和日常整窗验收待完成。
+- 客户端 [PR #18](https://github.com/zhongmiao-org/flow-ark-client/pull/18) 经 [CI 35493218243](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35493218243) Validate / Auto Merge 成功，实际合并提交 `d3fc014c9815b3136f76bc9e62e0dd186b9cff4c`。
+- 采用治理 [PR #25](https://github.com/zhongmiao-org/flow-ark/pull/25) 的实际合并基线 `9f094a6682e91195dda338ccc20aa5dddf74df2b`。公共契约 0.7.0 与 ArtifactRef 不变；元数据增加 storage/sha256，run.detail 增加 integrity，无数据库表结构迁移。旧数据不补造历史副本。
+
+副本当前不自动清理，按 Run 的历史清理交互仍未交付。真实招聘、真实 AI、外部浏览器与 P1 总体验收仍未完成；摘要校验不宣称能抵御恶意本机程序或文件系统竞争。
+
 ## 2026-09-20 上传资源预检与执行边界：0.1.20
 
 落实[上传资源检查](upload-resources.md)。在 0.1.19 宿主实际复现：只有 browser upload 使用的未绑定目录仍通过预检。现在字面量和流程参数可确定的上传目录必须绑定且为有效目录，嵌套分支/循环同样检查，已知文件名先验证目录范围；文件存在性留到上传边界，允许前序步骤生成文件。参数引用目录也显示在“参数与绑定”。动态来源执行时重新检查描述、目录范围、普通文件和可读性，失败不调用驱动或重试。
@@ -340,7 +356,7 @@ macOS 27.0（26A428），arm64；Node 24.3.0，pnpm 10.14.0；Electron 44.4.1、
 | C-10 | 部分 | 系统加密实测；不可用、加密拒绝、解密后端 ENOENT、损坏密文注入通过且不换钥；API Key 不返回 Renderer，事件/输出脱敏、导出排除绑定。未实际锁定系统 Keychain |
 | C-11 | 本地通过 | 不支持格式/能力、模板摘要篡改、作用域/依赖/浏览器路径及缺失绑定在执行前拒绝 |
 | C-12 | 本地通过 | 主动 progress、真实节点/循环事件；无虚构总完成百分比 |
-| C-13 | 部分 | 实际 SQLite query_only 写失败停止新任务并保留原数据；新版库拒绝打开。历史版本升级与磁盘满实机未测 |
+| C-13 | 部分 | 实际 SQLite query_only 写失败停止新任务并保留原数据；新版库拒绝打开。0.1.21 真实同名产物副本、复制取消、登记事件失败回滚与内容变更拒绝定位通过；历史版本升级与磁盘满实机未测 |
 | C-14 | 部分 | macOS arm64 从 DMG 实际安装、正常退出；0.1.0 → 0.1.1 同数据目录保留历史/密钥通过（SQLite 结构仍 v1）。真实两站与浏览器登录恢复、未来表结构迁移未测 |
 | C-15 | 部分 | Chrome 身份/路径/版本检查、本地绑定、运行前重验；无自动回退。Firefox/Safari 未达支持承诺 |
 | C-16 | 部分 | 包无额外自动化浏览器，依赖使用 playwright-core，空缓存下本机 Chrome 成功；完整断网安装环境和无浏览器目标机器未测 |
