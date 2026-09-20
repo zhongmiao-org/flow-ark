@@ -1,5 +1,7 @@
 # 本地运行产物接口
 
+2026-09-20 系统挂起：Main → Host 的既有 system.suspend/system.resume 保持私有，挂起撤销旧执行请求并独立于写库结果停止资源；不增加 Renderer 方法，见[系统挂起生命周期](system-suspend.md)。
+
 2026-09-20 导出修复：`flow.export` 改为提交当前流程及可选配置定义，不再按 ID 导出旧记录；严格载荷、固定快照、取消语义与兼容规则见 [导出快照与退出确认](export-and-exit.md)。
 
 2026-09-16 增量接口说明。2026-09-20 新登记产物增加独立副本、摘要与 integrity 状态，见[产物副本约定](artifact-snapshots.md)；下述 available 仅检查可访问性的语义继续适用于没有摘要的旧记录。仅用于客户端 Renderer → Main → 本地宿主，不属于平台设备协议。请求在 Main 按白名单校验；产物定位不接受 Renderer 指定任意文件路径。
