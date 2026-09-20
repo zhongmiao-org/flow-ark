@@ -11,7 +11,8 @@ FlowArk 是本地优先的自动化工作台，连接显式选择的内置浏览
 - 文档基线：P0，2026-09-16。
 - 当前交付：P0 已完成；P1 开发预览客户端已建立，具有可运行桌面、通用流程执行和本地检查。
 - 已有固定版本的机器可读契约，当前版本见 [契约管理](contracts/README.md)；客户端固定使用副本，独立构建，模板包声明自己的实例配置；模板填充与文件归档使用显式 v2 节点。
-- 当前仅使用内置浏览器与本地复杂表单验证通用能力，网页按 1920 CSS 像素桌面宽度排版。0.1.35 macOS arm64 未签名候选包已验证；日常安装仍为 0.1.28，Mac 仍锁定，等待此前解锁确认，不能用候选通过代替日常升级。具体范围见[客户端验收](docs/client/acceptance.md)。
+- 当前仅使用内置浏览器与本地复杂表单验证通用能力，网页按 1920 CSS 像素桌面宽度排版。0.1.35 macOS arm64 未签名包已完成候选验证并安装到日常路径；具体范围见[客户端验收](docs/client/acceptance.md)。
+- 2026-09-20 日常 0.1.28 → 0.1.35 升级完成，正常退出后先持久备份旧应用及完整数据。原有 6 个流程、5 条历史及两份加密凭据保留，SQLite v1 → v2；内置网页练习实际填写虚构姓名，零提交，正常重开保留 6 个流程、6 条历史且不重放。备份路径与不可直接降级的说明见[安装和数据](docs/client/usage.md)。
 - 当前 0.1.35 已修复凭据对象键及公共错误出口的脱敏遗漏，授权 `credential(id)` 成功读取仍返回原值，展示、日志和已保存输出脱敏；不宣称自动清除未知历史秘密。187 项单元、74 项宿主测试，源码 redaction（7 组）、run-observation（5 组）、embedded、flow-export（5 组）及候选 redaction（7 组）、run-observation（5 组）、embedded、install（0.1.28 → 0.1.35 隔离升级）均通过。客户端 [PR #33](https://github.com/zhongmiao-org/flow-ark-client/pull/33) 已由 CI 自动合并；详见[脱敏边界](docs/client/redaction-boundaries.md)与[客户端验收](docs/client/acceptance.md)。
 - 0.1.34 已修复模板参数双来源编辑，使用独立实例配置统一保存，右侧仅显示只读摘要。175 项单元、模板参数 7 组、视口 15 个场景及值编辑、完整内置表单源码回归通过；DMG 候选四组验证通过，客户端 [PR #32](https://github.com/zhongmiao-org/flow-ark-client/pull/32) 已由 CI 自动合并，详见[模板实例参数](docs/client/template-parameters.md)。
 - 0.1.33 已修复挂起后旧请求继续准入及写入失败跳过实际停止的问题；候选使用 `powerMonitor.emit` 系统事件夹具，不等于硬件睡眠验收。
