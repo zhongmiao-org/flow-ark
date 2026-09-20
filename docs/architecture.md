@@ -162,7 +162,7 @@ Renderer 配置 `contextIsolation: true`、`sandbox: true`、`nodeIntegration: f
 
 Worker、脚本和会话进程分别登记资源归属并可取消回收；异常取消须停止该 Run 的浏览器操作并释放或销毁其受控会话，不能只杀 Worker 留下失控驱动。用户脚本不能与 Renderer 或主进程同进程执行；独立进程只提供故障与生命周期隔离，不是对恶意代码的安全保证。Node `vm` 不作为安全沙箱。[Node.js VM 文档](https://nodejs.org/api/vm.html)
 
-2026-09-20 脚本生命周期修正：针对 Worker 强杀后同步忙脚本遗留的实测缺口，由宿主直接持有任务期 supervisor 和持久执行租约，确认整组消失后才释放结果/运行槽；应用重开只读核对遗留资源，未知继续阻断。SQLite 升为 v2 以拒绝忽略租约的旧 reader，公共契约不变；启动许可、兼容与验证见[脚本进程监护](client/script-process-supervision.md)。当前文档定义待实现消费者，完成状态以验收记录为准。
+2026-09-20 脚本生命周期修正：针对 Worker 强杀后同步忙脚本遗留的实测缺口，由宿主直接持有任务期 supervisor 和持久执行租约，确认整组消失后才释放结果/运行槽；应用重开只读核对遗留资源，未知继续阻断。SQLite 升为 v2 以拒绝忽略租约的旧 reader，公共契约不变；启动许可、兼容与验证见[脚本进程监护](client/script-process-supervision.md)。消费者实现与安装状态分别以验收记录为准。
 
 ## 4. 流程、节点和脚本模型
 

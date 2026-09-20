@@ -1,5 +1,23 @@
 # 开发预览验收记录
 
+## 2026-09-20 脚本进程监护与持久恢复：0.1.31
+
+落实[脚本进程监护](script-process-supervision.md)。Host 为每次可信脚本直接持有受控 supervisor；脚本和普通非 detached 后代在其同一进程组，先持久登记再允许执行，脚本结果须等实际退出和组消失才返回。Worker/Host 丢失不再依赖忙脚本自身的事件循环回收；无法确认时保留加密租约，重开仍阻止新运行、重跑、计划和相关产物清理。此节替代 0.1.30 下方“孤儿回收尚未修复”的当前状态，不扩大到主动脱离组的代码。
+
+- 原 0.1.30 真实基线两类忙循环均复现：外部 SIGKILL Worker 后脚本仍活着，两条后续 HTTP 已到达本地接收端。测试 finally 按确切身份清理，无误伤独立哨兵。证据 `/private/tmp/flowark-orphan-baseline-60wi3V/summary.json`。
+- `pnpm check` 的类型、单元和构建通过；补充纯测试后 `pnpm typecheck`、`pnpm test` 最终 163/163。12 项监护纯测试涵盖取消先到、迟到 ready/凭据、重复执行/关闭、进程退出但组仍存活、未知探测、启动身份、存储失败与记录释放。模拟新 OS boot 的单测不等于实机重启验收。
+- 最终源码 `pnpm test:runtime` 64/64。新增 8 组真实进程验证 default/顶层忙循环下 Worker 和 Host SIGKILL、同组忙子孙及 SDK、supervisor 被强杀后持久阻断、SQLite trigger 拒绝许可写入和 query_only 取消失败。核对实际组消失后 FIFO 才产生 HTTP 回执；未知组仍活着时重开仍拒绝准入，夹具单独清理之后第三次启动才按 ESRCH 解除。所有夹具独立哨兵保留，清理无错误。完整日志 `/private/tmp/flowark-0131-runtime.log`。
+- 源码 `test:browser-viewport` 的 15 场景、`test:embedded`、`test:node-timeout`、`test:embedded-cleanup` 通过。数据分别 `/private/tmp/flowark-viewport-jXVfHm`、`/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-embedded-desktop-CsBF8R`、`/private/tmp/flowark-node-timeout-ui-GgL8UT`、`/private/tmp/flowark-cleanup-ui-HpGAV7`。只使用内置浏览器和本地虚构表单，网页实际 innerWidth=1920；窗口缩放、隐藏/恢复不丢输入，表单核对真实服务端回执、取消及重开上传。原生网页截图单独检查，工作台截图中的网页留白不作为绘制失败或通过证据。
+- SQLite v1→v2 保留物理表、加密文档和事件字节，只提升最低可读版本以保护持久租约。真实 SQLite 单测覆盖全部旧文档/事件保留、query_only 迁移失败回滚、未来版本拒绝。公共契约保持 0.7.0，采用治理 `1b2e4fee62ca191c601088c4543b0a148466e380`；治理设计 [PR #48](https://github.com/zhongmiao-org/flow-ark/pull/48) 经 [CI 35508892187](https://github.com/zhongmiao-org/flow-ark/actions/runs/35508892187) 自动合并。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.31-arm64.dmg`，SHA-256 `93aea02d3ac452c3245b196f2c8739bd0c5001e1172e1661a7c010f3c2b5568f`，未签名/公证、默认图标。只读提取候选 `/private/tmp/flowark-0131-delivery-qv23w0gk/FlowArk.app`。打包产品来自 `50eb1666c578757f3e19adcc637660fc23dccb8c`，后续 `885d36a0cfc91c808e0c510fad25a5216aaab952` 仅改候选验证测试，不改变产品或 DMG 内容。
+- 候选 `test:store-upgrade` 用实际打包 Host 完成 0.1.30 v1→0.1.31 v2，原始密文行和历史保持；再次用实际 0.1.30 Host 打开明确拒绝且数据库不变，数据 `/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-store-upgrade-dP6ULW`。候选 `test:install` 完成 0.1.28→0.1.31 同一隔离目录的历史、受保护凭据、模板配置、托盘和正常退出，数据 `/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-installed-data-jPGd3s`。
+- 候选 `test:browser-viewport` 15 场景、`test:embedded`、`test:embedded-cleanup`、`test:value-editor` 全部通过。视口 `/private/tmp/flowark-viewport-DqLRR2`、完整表单 `/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-embedded-desktop-8sBXmf`、关闭恢复 `/private/tmp/flowark-cleanup-ui-fc2Woy`、真实界面编译/变量/脚本 `/private/tmp/flowark-values-7x3E5w`。Main/Host 实际界面运行 15 步引用流程，正常结果与缺字段失败均核对，不注入结果。
+- `FLOWARK_TEST_EXECUTABLE` 指向候选后，8 项进程测试最终全部通过。6 项以源码 Runtime 控制候选 Worker/脚本，2 项实际 fork 候选 Host；证据明确区分，不冒充全套界面验收。首次两项打包 Host 测试报 spawn ENOTDIR，原因是夹具未设置真实 Main 使用的 ESBUILD_BINARY_PATH；补为候选内部 app.asar.unpacked 编译器路径后通过，没有回退源码二进制或更改产品。失败与最终日志分别 `/private/tmp/flowark-0131-candidate-script-runtime.log`、`/private/tmp/flowark-0131-candidate-script-runtime-final.log`。
+- 客户端 [PR #29](https://github.com/zhongmiao-org/flow-ark-client/pull/29) 经 [CI 35510300631](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35510300631) Validate 与 Auto Merge 成功，实际合并提交 `0c151ef29f548a61a8d51014ad0f353103eb862d`。最新提交首轮 CI 35509949555、说明更新后的 CI 35510227679 均通过后才加 automerge；客户端 main 已同步且干净，与打包功能提交的差异仅为候选测试夹具。
+- 日常 Info.plist 只读复核仍为 0.1.28。此前的 Mac 解锁请求未获回复，未替换日常安装、未宣称安装路径通过；没有强杀日常应用。候选汇总 `/private/tmp/flowark-0131-candidate-evidence.json`、交付元数据 `/private/tmp/flowark-0131-delivery.json`，源码汇总 `/private/tmp/flowark-0131-source-evidence.json`。
+
+Windows 脚本明确拒绝，Linux 只按 CI 验证 POSIX 行为。主动 detached/setsid 后代、旧版已产生而未登记的孤儿和真实硬件重启不作回收保证。内置网页采用 1920 CSS 像素不等于所有 PC 网站兼容；招聘、Codex 与外部浏览器继续后置，C-04/C-07/C-14 与完整 P1 保持部分验收。
+
 ## 2026-09-20 内置网页关闭确认与执行阻断：0.1.30
 
 落实[内置网页关闭确认](embedded-cleanup.md)。Main 按资源代际管理网页，关闭须取得真实 WebContents 销毁证据；宿主验证所属租约的回执。关闭超时、失败或身份不符进入 INTERRUPTED 和独立执行阻断，后续队列保留未启动且可取消。正常成功仍复用健康网页，旧初始化、拾取或截图不能恢复、关闭或移动新页面。
@@ -541,17 +559,17 @@ macOS 27.0（26A428），arm64；Node 24.3.0，pnpm 10.14.0；Electron 44.4.1、
 | C-01 | 部分 | localhost 的 HTTP/TS/Excel 上传场景及 Selenium 公开测试网站的填写/回执/条件/Excel/截图通过；两站真实闭环后续验证 |
 | C-02 | 本地通过 | 顺序引用、真/假分支、空/多项循环、前向与越界引用拒绝 |
 | C-03 | 本地通过 | 0.1.28 关联重跑从原快照/已保存内容创建新运行，原记录不变且当前授权复验；运行中改草稿不影响快照；0.1.3 队列/计划固定脚本依赖，重开和目录删除不漂移；0.1.24 界面明确更新计划版本且保留启停状态，原活动/排队快照不变，预检并发变更拒绝覆盖；编译摘要异常阻止执行 |
-| C-04 | 部分 | 脚本抛错/忙循环、执行 Worker 被杀、取消、浏览器关闭中断等待已测；0.1.26 全节点显式期限、父子最早到期归属、人工/条件/循环超时及脚本/内置浏览器回收恢复通过；0.1.30 内置原生回收未知阻断通过；外部强杀 Worker＋同步忙脚本的孤儿回收尚待修复；真实网站崩溃后业务结果待测 |
+| C-04 | 部分 | 脚本抛错/忙循环、执行 Worker 被杀、取消、浏览器关闭中断等待已测；0.1.26 全节点显式期限、父子最早到期归属、人工/条件/循环超时及脚本/内置浏览器回收恢复通过；0.1.30 内置原生回收未知阻断通过；0.1.31 Worker/Host 强杀下同步忙脚本及普通同组后代回收、未知租约重开阻断通过；真实网站崩溃后业务结果待测 |
 | C-05 | 模拟通过 | 招聘协调丢回执落 UNKNOWN，不重复提交；真实站点回执未测 |
 | C-06 | 部分 | 排队、运行、暂停、人工等待取消及资源槽重用通过；0.1.25 在 205 条队列后完整退出确认、继续运行与正常退出重开通过；Safari 接管未测 |
-| C-07 | 部分 | 0.1.1 实际宿主 SIGKILL 后可响应 disconnect 的异步脚本退出，活动与排队记录重开变 INTERRUPTED 且不重放；该证据不覆盖 Worker 强杀＋同步忙脚本的孤儿缺口，整机断电矩阵未测 |
+| C-07 | 部分 | 0.1.1 宿主 SIGKILL 后异步脚本退出，活动与排队记录重开变 INTERRUPTED 且不重放；0.1.31 补验 Worker/Host 强杀下同步忙脚本和普通同组后代回收，supervisor 丢失时未知租约跨重开阻断、实际组消失后才允许新 Run。真实整机断电及主动脱离组的脚本不在已验收范围 |
 | C-08 | 部分 | 固定版本、占用、重复触发和停用时异步准入撤销已验证；0.1.23 安装路径通过四个真实分钟周期的最小化/托盘触发、占用跳过及退出重开不补跑。长期调度与真实硬件休眠未测 |
 | C-09 | 部分 | 手动 FIFO、专用 Profile、会话租约；用户日常浏览器窗口未被测试工具操作，完整多会话实机矩阵未测 |
 | C-10 | 部分 | 系统加密实测；不可用、加密拒绝、解密后端 ENOENT、损坏密文注入通过且不换钥；API Key 不返回 Renderer，事件/输出脱敏；0.1.25 当前审阅草稿导出、取消不落盘、排除绑定/配置值及固定内容通过。未实际锁定系统 Keychain |
 | C-11 | 本地通过 | 不支持格式/能力、模板摘要篡改、作用域/依赖/浏览器路径及缺失绑定在执行前拒绝 |
 | C-12 | 本地通过 | 主动 progress、真实节点/循环事件；无虚构总完成百分比 |
 | C-13 | 部分 | 实际 SQLite query_only 写失败停止新任务并保留原数据；新版库拒绝打开。0.1.21 真实同名产物副本、复制取消、登记事件失败回滚与内容变更拒绝定位通过；跨 SQLite 表结构版本的迁移与磁盘满实机未测 |
-| C-14 | 部分 | macOS arm64 从 DMG 实际安装、正常退出；0.1.0 → 0.1.1、0.1.16 → 0.1.23、0.1.23 → 0.1.24、0.1.24 → 0.1.25、0.1.25 → 0.1.26、0.1.26 → 0.1.27、0.1.27 → 0.1.28 同数据目录保留历史/密钥及模板配置通过；0.1.28 日常保留 6 个流程与 5 条历史（SQLite 仍 v1）；0.1.28 → 0.1.29 和 0.1.28 → 0.1.30 隔离候选升级通过，日常替换等待 Mac 解锁确认。真实两站与浏览器登录恢复、未来表结构迁移未测 |
+| C-14 | 部分 | macOS arm64 从 DMG 实际安装、正常退出；0.1.0 → 0.1.1、0.1.16 → 0.1.23、0.1.23 → 0.1.24、0.1.24 → 0.1.25、0.1.25 → 0.1.26、0.1.26 → 0.1.27、0.1.27 → 0.1.28 同数据目录保留历史/密钥及模板配置通过；0.1.28 日常保留 6 个流程与 5 条历史（SQLite 仍 v1）；0.1.28 → 0.1.29/0.1.30/0.1.31 隔离候选升级通过；0.1.31 SQLite v2 升级与实际旧版降级拒绝通过，日常替换等待 Mac 解锁确认。真实两站与浏览器登录恢复、未来表结构迁移未测 |
 | C-15 | 部分 | Chrome 身份/路径/版本检查、本地绑定、运行前重验；无自动回退。Firefox/Safari 未达支持承诺 |
 | C-16 | 部分 | 包无额外自动化浏览器，依赖使用 playwright-core，空缓存下本机 Chrome 成功；完整断网安装环境和无浏览器目标机器未测 |
 

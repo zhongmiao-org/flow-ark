@@ -1,5 +1,7 @@
 # 固定契约来源
 
+- 0.1.31 治理基线：`1b2e4fee62ca191c601088c4543b0a148466e380`。采用[脚本进程监护](script-process-supervision.md)，新增私有脚本调用/取消及加密 script-lease；SQLite 提升为 v2，以拒绝忽略持久租约的旧 reader，v1 文档/事件字节保留。公共契约仍为 0.7.0，流程、快照、模板与脚本 SDK 不迁移。实际升级/降级与回收证据见验收记录。
+
 - 0.1.30 治理基线：`82da2da0c1c12c676dae63c3f2746a52a87a55b2`。采用[内置网页关闭确认](embedded-cleanup.md)，Main/Host 内部启动/关闭回执包含 token/resourceId，Bootstrap 新增可选 runtimeBlock，私有故障通知覆盖无租约预览。组件随完整应用更新；公共契约 0.7.0、SQLite v1 和旧流程/快照不迁移，内部回执不兼容混用旧组件。实际验证见验收记录。
 
 - 0.1.29 治理基线：`f45495ab4d27b03d2db4470746fa9b5aea4024c8`。长流程全图按实际尺寸计算缩放下限，增加所选步骤聚焦；仅 Renderer 投影视口变更，见[流程图语义](flowchart.md)。公共契约 0.7.0、IPC、SQLite v1 和旧流程快照不变。
@@ -31,7 +33,7 @@
 - 生成器：json-schema-to-typescript 16.0.0；执行 `pnpm contracts:generate`，生成 `src/shared/contracts.generated.ts`。
 - 运行时使用 Ajv 8.20.0（2020-12 模式），另校验引用作用域、能力与资源绑定。
 - 升级顺序：治理仓库新规范及兼容/迁移说明 → 发布不可变 tag → 更新客户端复制件和摘要 → 再生成类型 → 正反例与行为回归 → 客户端版本发布。
-- SQLite 迁移由 `src/host/store.ts` 管理。首版 user_version=1；更高版本拒绝打开，迁移失败不删库。所有业务 JSON 使用 AES-256-GCM 加密，数据密钥由 macOS Keychain 保护的 Electron safeStorage 保管。
+- SQLite 迁移由 `src/host/store.ts` 管理。首版 user_version=1，0.1.31 提升为 2；新版拒绝 >2，旧版拒绝 >1，迁移失败不删库。所有业务 JSON 使用 AES-256-GCM 加密，数据密钥由 macOS Keychain 保护的 Electron safeStorage 保管。
 
 - 0.2.0 契约发布提交：`342eabd`；实例配置表单随模板包分发，客户端 Markdown 不保存采用说明。
 - 0.3.0 契约发布提交：`a81f5fc`；工作簿模板填充与文件归档均为新增节点版本，不改写旧流程与快照。本地产物界面接口见 [本地 IPC](local-ipc.md)。
