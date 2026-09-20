@@ -2,7 +2,7 @@
 
 客户端仓库负责 P1 macOS 单机客户端，Electron / React / TypeScript / pnpm / SQLite。当前为开发阶段，真实业务与兼容状态只以 acceptance.md 的证据为准。
 
-统一规则入口：主目录存在时先读 [AGENTS.md](../../AGENTS.md)、[架构](../architecture.md)、[ROADMAP](../../ROADMAP.md)。远程 [flow-ark](https://github.com/zhongmiao-org/flow-ark)，0.1.22 采用治理基线 `335327ee362900941ed9ced14a416c41e27089e6`。契约为应用 `contracts/` 中固定的发布副本，版本及发布状态见 [契约采用记录](contracts-adoption.md)；不得伪造已发布 tag。
+统一规则入口：主目录存在时先读 [AGENTS.md](../../AGENTS.md)、[架构](../architecture.md)、[ROADMAP](../../ROADMAP.md)。远程 [flow-ark](https://github.com/zhongmiao-org/flow-ark)，0.1.23 采用治理基线 `44ec75bf473de8bda2d8f8ef5f3340bad97ebb3b`。契约为应用 `contracts/` 中固定的发布副本，版本及发布状态见 [契约采用记录](contracts-adoption.md)；不得伪造已发布 tag。
 
 独立克隆仍适用：Renderer 只用白名单 IPC；Main 仅系统集成；host 统一 SQLite、队列和调度；core 不依赖 Electron/React/SQL；Worker 与独立浏览器会话通过消息访问宿主。可信脚本单独进程，不称安全沙箱。凭据由系统保护，不明文降级。副作用先落盘，未知不重放。Chrome 仅 playwright-core 显式本机路径，Firefox/Safari 仅明确本机原生驱动，不下载浏览器、接管默认 Profile 或静默切换模式。2026-09-18 新增显式内置模式，使用主窗口右侧 WebContentsView、隔离网站 Renderer 和专用 Session，见 [内置浏览器](embedded-browser.md)。AI 仅草稿，动作逐项授权。真实外发需要账号、目标、内容与范围的明确配置。P1 无服务端、管理台、平台注册、商店或常驻服务。
 
@@ -23,6 +23,8 @@ Git 每次写操作前确认本仓库根；Conventional Commits，中文描述�
 资源配置：`pnpm test:resource-editor` 从界面创建 HTTP、文件和 Excel 流程，验证 HTTP 请求体引用的来源删除/移动和参数删除保护、请求头/请求体、目录绑定、复制和 ZIP 列表、矩阵分页、类型与引用、模板单元格映射、撤销和保存重开。实际执行后核对请求、文件字节、ZIP 条目、Excel 类型和模板保留格式，以及内置网页上传；故意 HTTP 失败只请求一次，越界路径阻止写入。支持 `FLOWARK_TEST_EXECUTABLE`，使用隔离目录与本机虚构数据，语义见[资源节点配置](resource-node-forms.md)。0.1.20 增加参数引用上传目录的发现、未绑定准入阻止和先生成再上传，边界见[上传资源检查](upload-resources.md)。
 
 产物清理：`pnpm test:artifact-cleanup` 用内置复杂表单实际生成文件、上传、下载和截图，验证活动运行阻止、预览取消、内容变化后确认失效、保留另一运行与原业务文件、清理后重开和历史标记。支持 `FLOWARK_TEST_EXECUTABLE`；语义见[产物清理](artifact-cleanup.md)。构建会重建 dist，先完成构建，再运行依赖 dist 的运行或桌面测试，不与打包构建并发。
+
+运行历史：`pnpm test:run-history` 在隔离 Electron 中准备 257 条同时间旧格式样例，并用真实 Worker 生成前后两个文件 Run；验证超过 200 条的翻页、查询、状态/来源交集、详情返回、旧产物清理、重开及三类迟到响应。小窗口同时使用 1920 CSS 像素内置复杂表单。支持 `FLOWARK_TEST_EXECUTABLE`，语义见[运行历史](run-history.md)。
 
 产物历史：`pnpm test:artifact-history` 验证同名产物独立副本、源文件删除、宿主重开、新旧记录显示及真实定位 IPC；篡改和丢失后按钮禁用、宿主拒绝定位。旧记录由隔离测试库按旧格式准备，不读取或修改日常数据。支持 `FLOWARK_TEST_EXECUTABLE`，语义见[产物副本](artifact-snapshots.md)。
 

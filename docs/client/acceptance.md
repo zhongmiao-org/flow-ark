@@ -1,5 +1,22 @@
 # 开发预览验收记录
 
+## 2026-09-20 运行历史分页与完整状态：0.1.23
+
+落实[运行历史](run-history.md)。新增按写入顺序的分页、名称/ID 字面量搜索、状态/来源筛选，每页 25/50/100 条；旧记录可进入详情并继续使用显式产物清理。首次查询固定记录边界，较早页面不会被新增 Run 挤动；状态按请求时的当前值筛选。bootstrap 保留原最近 200 条 runs，并新增从完整记录生成的活动、队列和各流程最近结果，界面不再用截断列表判断运行槽。
+
+- `pnpm check` 的类型、95 项单元与构建通过。新增四项真实 SQLite 验证覆盖 503 条相同时间戳、跨页插入九条记录、状态更新、关闭重开、事务回滚、字面量匹配、组合筛选、无效/不匹配游标和分块扫描让出事件循环。首次类型检查发现新增测试把 value 节点误写为 data，改为现有协议后通过，未改变节点契约。
+- 固定构建后 `pnpm test:runtime` 的 28 项真实 Worker 通过。新增实际等待人工并再排队 205 次：原 bootstrap.runs 窗口看不到活动 Run，但 runOverview 仍返回该 Run、205 条队列、207 条总数及更早另一流程的成功结果；精确 ID 搜索和详情读取可访问旧输出。没有以数据库样例冒充这些真实执行。
+- `test:run-history` 在隔离 Electron 中先真实生成文件产物，停止应用后写入 257 条同时间样例用于列表压力，再重开并真实运行第二次。通过三页记录、期间新增不挤动旧页、详情返回保留页码、组合筛选/无结果、较早产物清理及重开后的已清理状态；原业务文件和另一 Run 的副本保留。257 条样例仅用于展示验证，没有执行其标注的业务。
+- 使用测试 IPC 回复延迟验证三种竞态：离开详情后的旧轮询不重新打开详情；旧搜索不覆盖新筛选；读取旧 Run 期间修改搜索不打开过期详情。实际宿主请求及持久化仍使用产品处理器，延迟只注入隔离测试实例的返回阶段。
+- 加强界面断言为完整 ID 后，发现测试在页码更新但旧行尚未清空时过早读取；翻页/筛选现在立即清空旧结果并禁用翻页，测试等到目标完整 ID 再断言。修正后源码与候选均通过。1040×700 下筛选区和历史容器不溢出，宽表格自身横向滚动；内置表单实际 URL、input 控件与 1920 CSS 像素宽度均核对，不用工作台截图中的原生网页留白判断网页绘制。
+- 源码 `test:artifact-cleanup` 通过；只读 DMG 候选依次通过 `test:run-history`、`test:artifact-cleanup`、`test:browser-viewport`、`test:embedded`。15 个视口场景保持 1920 CSS 像素，覆盖首次后台导航、三种尺寸、原生输入/单选、收起恢复、最小化和导航；完整复杂表单继续核对回执、上传下载、截图、取消与重开。全程只有内置网页与本地虚构数据。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.23-arm64.dmg`，SHA-256 `70998d69d02f98b3864790b5c3d7f2ef48efe0ff6e6305c336d73782ea8ea701`。只读候选 `/private/tmp/flowark-0123-delivery-y8zwx3kj/FlowArk.app`，摘要 `/private/tmp/flowark-0123-delivery.json`；未签名/公证，默认图标。候选历史数据 `/private/tmp/flowark-run-history-ui-odvfPU`，工作台截图与 JSON 在客户端忽略的 test-results；日志 `/private/tmp/flowark-0123-{check,runtime,history-ui,cleanup-ui,package,candidate}.log`。
+- 只读核对日常 `/Users/mac/Applications/FlowArk.app` 仍为 0.1.16；未替换应用、修改日常数据或创建摘要中规划的备份。最终安装与日常整窗验收仍等待先前 Mac 解锁确认。
+- 客户端 [PR #20](https://github.com/zhongmiao-org/flow-ark-client/pull/20) 经 [CI 35496028554](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35496028554) Validate 与 Auto Merge 成功，实际合并提交 `a6c7d04a3d11d867039f50cd2bb7fce4b018b285`；客户端 main 已同步且干净。
+- 采用治理 [PR #29](https://github.com/zhongmiao-org/flow-ark/pull/29) 的实际合并基线 `44ec75bf473de8bda2d8f8ef5f3340bad97ebb3b`，其 [CI 35495228118](https://github.com/zhongmiao-org/flow-ark/actions/runs/35495228118) 检查和自动合并成功。公共契约 0.7.0、Run 状态、SQLite 表结构与加密格式不变；既有记录无迁移。
+
+200 条历史访问及概览截断缺口已补齐。本轮没有建立全文索引，稀疏筛选最坏仍扫描完整历史，bootstrap 仍完整解密计算概览；不宣称海量历史性能已验收。真实招聘、真实 AI、外部浏览器、最终安装与 P1 总体验收继续保留原状态。
+
 ## 2026-09-20 运行产物清理预览：0.1.22
 
 落实[产物清理](artifact-cleanup.md)。运行详情新增只读预览和勾选确认，清理范围为本次应用产物目录，包括副本和中间文件；目录外的原业务文件、其他 Run、运行终态、快照、产物索引、事件、待办与外发去重记录保留。活动、收尾、并发、异常目录、跨 Run 旧引用和过期预览被拒绝。默认保留全部，不自动按时间删除。

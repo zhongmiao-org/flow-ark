@@ -1,6 +1,6 @@
 # FlowArk · 序舟
 
-本地自动化工作台，当前源码和本机安装均为 **0.1.5 调试预览版，macOS Apple Silicon**。已有可运行 Electron 客户端、流程编辑器、逐步调试、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。各版本安装结果见验收记录。
+本地自动化工作台，当前为 **macOS Apple Silicon 开发预览版**。已有可运行 Electron 客户端、流程编辑器、逐步调试、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。源码、候选包与日常安装版本分别以[验收记录](acceptance.md)为准。
 
 2026-09-17 当前先使用 [简单网站练习](simple-sites.md) 完善通用浏览器流程；Codex 配置及招聘投递后置，不要求现在准备这些账号。客户端 `examples/simple-web-form.template.json` 可导入，绑定 Chrome 和独立输出目录后手动运行。
 
