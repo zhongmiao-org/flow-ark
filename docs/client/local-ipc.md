@@ -21,3 +21,5 @@ Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，�
 2026-09-18 元素拾取增量（0.1.9）：新增受控 start/status/cancel/validate 方法，生命周期、字段限制与兼容约定见 [元素拾取](element-picker.md)。不开放任意 CDP 或脚本执行 IPC，不改变公共契约 0.7.0。
 
 2026-09-20 上传资源校验：沿用已有 upload 的 `{binding,name}` 与文件目录绑定，补齐静态/参数目录的运行预检和上传执行边界复验；不增加 IPC 或响应字段。见 [上传资源检查](upload-resources.md)。
+
+2026-09-20 产物清理增量：新增 run.artifacts.preview/clear，run.detail 增加 artifactCleanup，产物增加 clearedAt 与 cleared 完整性状态。只接受运行 ID、预览摘要和显式核对确认；范围、失败恢复与兼容规则见[产物清理](artifact-cleanup.md)。
