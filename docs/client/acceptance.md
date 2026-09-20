@@ -1,5 +1,23 @@
 # 开发预览验收记录
 
+## 2026-09-20 全节点期限与高级 JSON 输入保护：0.1.26
+
+落实[节点超时与高级输入一致性](node-execution-input.md)。已有 timeoutMs 统一由执行核心管理，条件/循环涵盖子树与内部等待，以最早绝对期限归属错误；未配置的人工作业仍可等待。高级 JSON 错误保留原文并阻止提交及会丢弃输入的切换，修正或显式恢复后解锁。
+
+- `pnpm test` 的 113 项单元、`pnpm typecheck`、`pnpm build` 及 `pnpm test:runtime` 的 34 项真实 Worker 回归通过。新增 13 项核心验证包括父子最早期限、迟到结果、同步工作返回后的期限、步骤边界、事件确认边界、取消优先和定时器/监听释放；3 项真实 Worker 验证人工/分支/整轮循环失败、不执行后续文件副作用、运行槽恢复和实际脚本进程退出。
+- 核心行为复现确认：原逻辑节点忽略显式期限；初版统一期限又把自身完成事件回复纳入预算，会在已记录 node-end 后误报超时。修正为工作检查完成后释放自身期限，父预算仍覆盖子事件等待。另补 RunControl 在 RUNNING 状态发布尚未返回时的中止与监听回收，避免迟到确认。
+- 源码 `test:node-timeout` 通过：实际内置表单填写 input/radio/select，人工与条件各 1500 毫秒、循环整体 3000 毫秒超时，记录 FAILED 及准确节点/预算，无后续填入、第三次循环或表单提交；会话回收后新 Run 可再次填写并断言。各轮 innerWidth=1920，未配置的等待可继续，主动取消保持 CANCELLED。`test:embedded` 的复杂表单服务端回执、调试、取消和重新打开后的上传通过。
+- 源码 `test:invalid-node-json` 通过：解析错误及改动 ID 均阻止保存/运行/调试/导出、节点/页签/结构/撤销重做/导航，关闭高级区后提交会重新展开并聚焦原文；恢复和修正后真实 Worker 使用新值完成。分别延迟真实 run.detail、flow.save 的回复，验证等待期间新输入的错误文本与新增节点仍保留，已授权的配置保存仍落库、Run 仍成功且不重放。`test:flow-export` 回归通过。最终源码 `pnpm check`、新增竞态脚本后的类型和 Prettier 检查通过。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.26-arm64.dmg`，SHA-256 `956f99ace1581426c6f00172331d935dc7f9899026e9fcdff8c71b8bfe46a3ab`；未签名/公证，默认图标。只读提取候选 `/private/tmp/flowark-0126-delivery-42j44014/FlowArk.app`，`test:node-timeout`、`test:invalid-node-json`、`test:browser-viewport`、`test:embedded` 全部通过。15 个视口场景仍为 1920 CSS 像素，包含面板收起/重开、三种窗口大小、最小化/恢复和原生输入；不能由本地表单推导所有 PC 网站兼容。
+- 提交 `bf896c755a78f87b67e6ef40ffec849c88ef4d5d` 独立克隆到 `/private/tmp/flowark-0126-clone-p00xqy2a/client`，没有治理父目录；缓存依赖的 `pnpm install --frozen-lockfile --offline --ignore-scripts`（downloaded 0）和 `pnpm check`（113 项单元、类型、构建）通过。未在克隆安装 Electron 或宣称离线桌面启动。
+- 治理设计 [PR #37](https://github.com/zhongmiao-org/flow-ark/pull/37) 经 [CI 35500429352](https://github.com/zhongmiao-org/flow-ark/actions/runs/35500429352) 自动合并，采用基线 `1a565af920f1852b86182c685b5dc8c7b3075ae9`。公共契约 0.7.0、节点版本、IPC 与 SQLite v1 不迁移。
+- 客户端 [PR #24](https://github.com/zhongmiao-org/flow-ark-client/pull/24) 经 [CI 35501403561](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35501403561) Validate 与 Auto Merge 成功，实际合并提交 `8b9ef09cb5fd9424a6ac265b1fb0cdd880e103cd`；客户端 main 已同步且干净。打开与加标签同时触发的较早 CI 被 concurrency 取消，以同一最新提交的最终通过任务为准。
+- 已安装 `/Users/mac/Applications/FlowArk.app`，与候选 app.asar 摘要相同。升级前正常退出空闲旧版，备份 `/private/tmp/flowark-0126-delivery-42j44014/FlowArk-0.1.25.app` 与同目录 daily-data-before-upgrade；安装路径 `test:node-timeout`、`test:invalid-node-json`、实际 0.1.25 → 0.1.26 `test:install` 通过。升级测试使用独立虚构数据，确认原历史、受保护凭据、模板实例配置、托盘与正常退出。
+- 日常窗口实际显示 0.1.26，保留 6 个流程、5 条历史、空闲运行槽且无计划。右上角打开网页面板，实际加载 `http://127.0.0.1:4178/` 并显示桌面宽度 1920；整窗截图确认历史与复杂表单同时可见。本次未增加日常 Run 或提交表单。只读比较确认 25 条文档键、53 条事件、非浏览器绑定密文和数据密钥全部保留，SQLite 仍 v1；唯一密文重写为打开面板时重新保存的 embedded 绑定，没有解密或输出业务内容。
+- 日志 `/private/tmp/flowark-0126-{unit,typecheck-final,check-final,runtime,node-timeout-ui,embedded-ui,invalid-json-ui-complete,export-ui,package,candidate,installed,clone-check,client-ci}.log`；安装摘要与保留校验 `/private/tmp/flowark-0126-{delivery,daily-retention}.json`。界面/本地表单机器记录位于客户端忽略的 test-results。Renderer 截图不包含原生网页，日常整窗视觉证据另以桌面截图核对。
+
+P1 后续尚有人工核对后重跑与原 Run 的关联入口、Excel 空白行读写保留需要补齐；本次未实现这些内容。招聘、Codex 和外部浏览器继续按当前范围后置，完整 P1 尚未验收。
+
 ## 2026-09-20 当前草稿导出与完整退出确认：0.1.25
 
 落实[导出快照与退出确认](export-and-exit.md)。直接导出采用点击时的当前草稿，未完成值输入被拒绝；取消不保存草稿或生成文件。宿主在原生确认前校验并固定内容，排除本地绑定和配置值、清空参数值；本地模板版本随可导出内容摘要变化，旧包仍可独立导入。退出确认改用完整运行概览，重复退出请求不叠加对话框。
@@ -444,7 +462,7 @@ macOS 27.0（26A428），arm64；Node 24.3.0，pnpm 10.14.0；Electron 44.4.1、
 | C-01 | 部分 | localhost 的 HTTP/TS/Excel 上传场景及 Selenium 公开测试网站的填写/回执/条件/Excel/截图通过；两站真实闭环后续验证 |
 | C-02 | 本地通过 | 顺序引用、真/假分支、空/多项循环、前向与越界引用拒绝 |
 | C-03 | 本地通过 | 运行中改草稿不影响快照；0.1.3 队列/计划固定脚本依赖，重开和目录删除不漂移；0.1.24 界面明确更新计划版本且保留启停状态，原活动/排队快照不变，预检并发变更拒绝覆盖；编译摘要异常阻止执行 |
-| C-04 | 部分 | 脚本抛错/忙循环、执行 Worker 被杀、取消、浏览器关闭中断等待已测；真实网站浏览器崩溃后业务结果待测 |
+| C-04 | 部分 | 脚本抛错/忙循环、执行 Worker 被杀、取消、浏览器关闭中断等待已测；0.1.26 全节点显式期限、父子最早到期归属、人工/条件/循环超时及脚本/内置浏览器回收恢复通过；真实网站浏览器崩溃后业务结果待测 |
 | C-05 | 模拟通过 | 招聘协调丢回执落 UNKNOWN，不重复提交；真实站点回执未测 |
 | C-06 | 部分 | 排队、运行、暂停、人工等待取消及资源槽重用通过；0.1.25 在 205 条队列后完整退出确认、继续运行与正常退出重开通过；Safari 接管未测 |
 | C-07 | 部分 | 0.1.1 实际宿主 SIGKILL 后脚本退出，活动与排队记录重开变 INTERRUPTED 且不重放；整机断电矩阵未测 |
@@ -454,7 +472,7 @@ macOS 27.0（26A428），arm64；Node 24.3.0，pnpm 10.14.0；Electron 44.4.1、
 | C-11 | 本地通过 | 不支持格式/能力、模板摘要篡改、作用域/依赖/浏览器路径及缺失绑定在执行前拒绝 |
 | C-12 | 本地通过 | 主动 progress、真实节点/循环事件；无虚构总完成百分比 |
 | C-13 | 部分 | 实际 SQLite query_only 写失败停止新任务并保留原数据；新版库拒绝打开。0.1.21 真实同名产物副本、复制取消、登记事件失败回滚与内容变更拒绝定位通过；历史版本升级与磁盘满实机未测 |
-| C-14 | 部分 | macOS arm64 从 DMG 实际安装、正常退出；0.1.0 → 0.1.1、0.1.16 → 0.1.23、0.1.23 → 0.1.24、0.1.24 → 0.1.25 同数据目录保留历史/密钥及模板配置通过；0.1.25 日常保留 6 个流程与 5 条历史（SQLite 仍 v1）。真实两站与浏览器登录恢复、未来表结构迁移未测 |
+| C-14 | 部分 | macOS arm64 从 DMG 实际安装、正常退出；0.1.0 → 0.1.1、0.1.16 → 0.1.23、0.1.23 → 0.1.24、0.1.24 → 0.1.25、0.1.25 → 0.1.26 同数据目录保留历史/密钥及模板配置通过；0.1.26 日常保留 6 个流程与 5 条历史（SQLite 仍 v1）。真实两站与浏览器登录恢复、未来表结构迁移未测 |
 | C-15 | 部分 | Chrome 身份/路径/版本检查、本地绑定、运行前重验；无自动回退。Firefox/Safari 未达支持承诺 |
 | C-16 | 部分 | 包无额外自动化浏览器，依赖使用 playwright-core，空缓存下本机 Chrome 成功；完整断网安装环境和无浏览器目标机器未测 |
 
