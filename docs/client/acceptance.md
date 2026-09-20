@@ -1,5 +1,24 @@
 # 开发预览验收记录
 
+## 2026-09-20 Excel 行列位置保留：0.1.27
+
+落实 [Excel 行列位置保留](excel-row-preservation.md)。普通读取保留工作表实际空行，行内缺项输出为 null；写入保留稀疏位置及明确提供的尾空行，避免 ExcelJS 将无索引 0 的数组当作一基数组而左移数据。既有日期、公式等值类型保留，普通读写仍只承诺数据位置。
+
+- `pnpm check`（类型、116 项单元、构建）和 `pnpm test:runtime`（35 项真实 Worker）通过；最终测试脚本的类型、Prettier 与 diff 检查通过。新增 3 项文件回归覆盖无工作表/空表、首中尾空行、稀疏内外数组、不等长行、0/false/空串和日期/公式/富文本/链接/错误值。新增 Worker 用实际 XLSX 执行读取 → 引用写入 → 再读，核对 C3/H12、14 行、空 A3 引用、归档副本字节与原文件未变。
+- 源码 `test:resource-editor` 通过：从实际界面配置 18 步流程，14×8 矩阵清空首行、末页写 H12，保存重开后逐步运行；核对 Excel 往返、明确尾空行、HTTP/文本/ZIP/模板填充产物以及内置复杂表单上传。故意 HTTP 503 只请求一次，越界路径阻止，网页 innerWidth=1920，表单提交次数 0。数据 `/private/tmp/flowark-resources-A7bkHp`，成功 Run `f9afe21e-8ae3-48aa-928d-88748404f443`。
+- 扩展测试初次尝试访问 Excel 不提供的“步骤名称”输入框，已删除错误测试操作。长流程在 1040×700 同开网页时受到既有 0.15 最小缩放限制，fit 全图仍可裁切两端；测试改用真实拖动画布再普通点击，通过后续失败场景。没有强制点击、修改 transform 或改变产品缩放策略；长流程全景缩放仍可后续改善。
+- 治理设计 [PR #39](https://github.com/zhongmiao-org/flow-ark/pull/39) 经 [CI 35502099109](https://github.com/zhongmiao-org/flow-ark/actions/runs/35502099109) 自动合并，采用基线 `2a41434fa40265f72a6bc2a8f4e439a80924bfb0`。公共契约 0.7.0、节点、IPC 与 SQLite v1 不迁移，不改写旧流程或快照。
+
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.27-arm64.dmg`，SHA-256 `66e2b82067713f3692814cb7098d6f009a57c8bc9bbefd4c9bb1cfeefe2d22c4`，未签名/公证、默认图标。只读提取候选 `/private/tmp/flowark-0127-delivery-23b37bt9/FlowArk.app`；候选 `test:resource-editor`、`test:browser-viewport`、`test:embedded` 全部通过。15 个视口场景维持 1920 CSS 像素，包含首次后台导航、3 种窗口尺寸、面板收起/重开、原生输入、最小化/恢复和第二次导航；复杂表单核对真实服务端回执、调试、取消及重开后的上传。此证据限于本地表单，不代表所有 PC 网站兼容。
+- 客户端 [PR #25](https://github.com/zhongmiao-org/flow-ark-client/pull/25) 经 [CI 35502745087](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35502745087) Validate 与 Auto Merge 成功，实际合并提交 `e835972f1a833ceae35042b4bb709848df5db1f1`。main 已同步且干净，合并代码树与已打包的功能提交 `dfcc562c8dfda117dea596a35ec282c48401a9c5` 相同。较早 CI 由 concurrency 取消，以同一最新提交最终成功任务为准。
+
+- 已安装 `/Users/mac/Applications/FlowArk.app`，app.asar 与候选摘要相同。安装前正常退出空闲旧版，保留备份 `/private/tmp/flowark-0127-delivery-23b37bt9/FlowArk-0.1.26.app` 与同目录 daily-data-before-upgrade。安装路径 `test:resource-editor` 与实际 0.1.26 → 0.1.27 `test:install` 通过；后者使用独立虚构数据，确认原历史、受保护凭据、模板实例、托盘及正常退出。
+- 日常桌面确认 0.1.27、6 个流程、5 条历史及空闲状态保留，升级前无计划。右上角展开网页面板后实际访问 `http://127.0.0.1:4178/`，整窗可见运行记录与复杂表单，面板标明桌面宽度 1920。本轮未创建日常 Run 或提交表单。
+- 日常只读保留检查确认 25 条文档键、53 条事件、非浏览器绑定密文与数据密钥一致，SQLite 仍 v1；唯一重写为打开面板时保存的 embedded 绑定。没有解密或输出业务内容。安装摘要和检查结果 `/private/tmp/flowark-0127-{delivery,daily-retention}.json`。
+- 日志 `/private/tmp/flowark-0127-{check,runtime,resource-ui,typecheck-final,package,candidate-resource,candidate-viewport,candidate-embedded,installed-resource,installed-upgrade}.log`；机器测试记录在客户端忽略的 test-results。没有重跑无关的实际 AI、招聘或外部浏览器检查，也未将上一版本独立克隆结果记成本版新验证。
+
+人工核对后重跑与原 Run 的关联入口仍待实现。招聘、Codex、外部浏览器及完整 P1 仍未验收。
+
 ## 2026-09-20 全节点期限与高级 JSON 输入保护：0.1.26
 
 落实[节点超时与高级输入一致性](node-execution-input.md)。已有 timeoutMs 统一由执行核心管理，条件/循环涵盖子树与内部等待，以最早绝对期限归属错误；未配置的人工作业仍可等待。高级 JSON 错误保留原文并阻止提交及会丢弃输入的切换，修正或显式恢复后解锁。

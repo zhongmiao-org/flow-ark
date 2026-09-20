@@ -1,5 +1,7 @@
 # 固定契约来源
 
+- 0.1.27 治理基线：`2a41434fa40265f72a6bc2a8f4e439a80924bfb0`。修正普通 Excel 读写压缩空行及稀疏数组导致的列偏移，保留明确提供的尾部空行，见 [Excel 行列位置保留](excel-row-preservation.md)。既有节点、公共契约 0.7.0、IPC 和 SQLite 格式不变，不修改历史快照。
+
 - 0.1.26 治理基线：`1a565af920f1852b86182c685b5dc8c7b3075ae9`。落实全部节点已有 timeoutMs 与高级 JSON 未完成输入保护，见 [节点执行与输入](node-execution-input.md)；公共契约 0.7.0、IPC 和 SQLite 格式不变，实际交付结果见验收记录。
 - 0.1.25 治理基线：`f15193f3998c597b6a7088fdd470cab19bb0fea2`。当前草稿只读导出、内容标识本地版本及完整运行退出确认，见 [导出快照与退出确认](export-and-exit.md)。仅本地 flow.export 载荷调整，公共契约 0.7.0、SQLite 和旧包导入不变；交付状态见验收记录。
 - 0.1.24 治理基线：`5a49614c01cabd894b3449f4c7d212d25aa2fac0`。本地 schedule.update 带 revision，默认保留原版本、明确采用草稿并保留启停状态；schedule.save 专用于创建，不再接受此前界面未使用的 id。公共契约 0.7.0、Run/计划存储及 SQLite 表结构不变，旧缺 revision 记录首次更新后获得 revision，无迁移。
