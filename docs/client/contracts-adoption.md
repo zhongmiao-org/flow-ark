@@ -1,6 +1,6 @@
 # 固定契约来源
 
-- 治理基线：`ec7b432112ce3d3927a83b9db02301d3733e8077`。
+- 治理基线：`39c6b6dcbe69d27907b74a99fb986092cf02ab33`。
 - P1 规范源：`zhongmiao-org/flow-ark` 的 `contracts-v0.7.0` tag（2026-09-17 已推送），规范目录 `contracts/v0.7.0/`。
 - 采用版本：契约 0.7.0，流程格式 1.0；既有节点版本 1，工作簿模板填充、文件归档和显式框架路径浏览器节点使用版本 2，浏览器表单控件使用版本 3。摘要见 `contracts/SHA256SUMS`；客户端 package.json 的 flowark 字段记录基线及采用版本。
 - 客户端内的 `contracts/p1.schema.json` 和示例是固定发布复制件；程序不读取父目录。
