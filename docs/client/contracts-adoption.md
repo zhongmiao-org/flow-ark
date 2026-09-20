@@ -1,5 +1,7 @@
 # 固定契约来源
 
+- 0.1.32 治理基线：`5f468263aa6b0dd0507ab43162a2b35482371ac8`。采用[运行详情与实时观察](run-observation.md)，bootstrap/run.detail 新增可选 execution，run.detail 增加可选存储 fault；仅本地只读响应，公共契约 0.7.0、SQLite v2、流程/事件和输出数据不迁移。
+
 - 0.1.31 治理基线：`1b2e4fee62ca191c601088c4543b0a148466e380`。采用[脚本进程监护](script-process-supervision.md)，新增私有脚本调用/取消及加密 script-lease；SQLite 提升为 v2，以拒绝忽略持久租约的旧 reader，v1 文档/事件字节保留。公共契约仍为 0.7.0，流程、快照、模板与脚本 SDK 不迁移。实际升级/降级与回收证据见验收记录。
 
 - 0.1.30 治理基线：`82da2da0c1c12c676dae63c3f2746a52a87a55b2`。采用[内置网页关闭确认](embedded-cleanup.md)，Main/Host 内部启动/关闭回执包含 token/resourceId，Bootstrap 新增可选 runtimeBlock，私有故障通知覆盖无租约预览。组件随完整应用更新；公共契约 0.7.0、SQLite v1 和旧流程/快照不迁移，内部回执不兼容混用旧组件。实际验证见验收记录。
