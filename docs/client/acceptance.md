@@ -1,5 +1,22 @@
 # 开发预览验收记录
 
+## 2026-09-20 HTTP、文件与 Excel 可读配置：0.1.18
+
+落实[资源节点配置](resource-node-forms.md)。HTTP 方法、地址、请求头和请求体，文件目录绑定、读写、复制与 ZIP 列表，以及 Excel 行列数据和模板单元格映射均提供表单。值保留类型和变量引用；表格分页不丢失隐藏数据，重复映射与非法单元格地址不覆盖已有配置。切换操作提示使用默认值并支持撤销，高级节点 JSON 保留。公共契约 0.7.0、IPC、数据库和执行器未变更。
+
+- `pnpm check` 通过类型检查、77 项单元与构建；新增三项覆盖映射名称、Excel 边界、矩阵不可变编辑及操作预设。`pnpm test:runtime` 的 20 项真实 Worker 验证通过。
+- `pnpm test:resource-editor` 从界面搭建 13 步流程，以本地 HTTP 返回值驱动文本写入/读取/复制、ZIP、Excel 写入/读取/模板填充和内置表单上传。核对 GET/POST 方法、请求头和请求体、文本字节、ZIP 条目、数字/布尔/引用、12 行 8 列末页数据、公式对象、模板合并单元格/字体/数字格式/第二工作表与原模板字节。界面配置后保存重开、单步后继续，所有操作使用隔离虚构数据，没有提交表单或意外 Run。
+- 另两次明确启动的失败 Run 验证 HTTP 503 只请求一次、不执行后续步骤，以及 `../` 越界文件写入被阻止、目录外文件不存在。映射更名/重复拒绝、归档列表换行、行列删除/撤销、操作切换/撤销和最小 1040×700 布局通过；表格允许内部横向滚动，工作台与参数栏无横向溢出。
+- 首次新增界面验收发现：未先获得焦点的下拉选择会与前一个值编辑合并成一条历史，撤销操作切换时连带撤回公式。草稿分组现按实际变更控件补充分组边界，按钮命令独立成组；修复后新增用例及旧 `test:flow-editing` 均通过。未放宽数据恢复断言。
+- `test:value-editor`、`test:flow-editing`、`test:desktop`、`test:editor-layout`（17 场景）、`test:picker-ui`（13 步/12 种网页动作）、`test:action-library` 均通过。全部网页回归使用内置浏览器与本机复杂表单。
+- `pnpm package:mac` 已生成 `flow-ark-client/release/FlowArk-0.1.18-arm64.dmg`，SHA-256 `f94c434529c65ac53643b3d013ec794251f2e32a964d6703a6d3a7db46e61261`。只读解包候选 `/private/tmp/flowark-0118-delivery-a55me2na/FlowArk.app`；摘要 `/private/tmp/flowark-0118-delivery.json`。包未签名/公证，使用默认图标。
+- 只读 DMG 候选通过 `test:resource-editor`、`test:value-editor`、`test:flow-editing`、`test:picker-ui`、`test:editor-layout`、`test:embedded` 六组验收；完整表单继续覆盖回执、最小化、上传下载、取消重开与故障处理。日志 `/private/tmp/flowark-0118-{check,runtime,resources,editing,values,desktop,layout,picker,actions,package,candidate}.log`。工作台截图用于核对资源表格布局，原生子网页另由执行及浏览器测试验证；未将工作台截图中的子网页空白当作整窗绘制结论。
+- 日常安装尚未执行：此前桌面工具报告 Mac 锁屏，已请求用户解锁；当前尚未收到回复。只读 Info.plist 再次确认 `/Users/mac/Applications/FlowArk.app` 为 0.1.16。本轮未替换应用、未创建记录中规划的旧版备份、未修改日常数据；候选验证不能替代最终安装路径与日常整窗验收。
+- 客户端 [PR #15](https://github.com/zhongmiao-org/flow-ark-client/pull/15) 经 [CI 35490668188](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35490668188) Validate / Auto Merge 成功，实际合并提交 `5e4f051ae201a5ffc054eec03e31e357826e9e51`。
+- 采用治理设计 [PR #19](https://github.com/zhongmiao-org/flow-ark/pull/19) 的合并基线 `873ea5e7dfe56e808c4d01df4c940878201aa40a`。
+
+真实招聘、真实 AI、外部浏览器与 P1 总体验收仍未完成。1920 CSS 像素网页宽度沿用已交付实现，不能由此推断所有 PC 网站均兼容。
+
 ## 2026-09-20 可读参数与通用变量选择：0.1.17
 
 落实[通用值与变量选择](value-editor.md)。浏览器值字段、数据、条件/断言、循环集合和脚本输入提供统一变量选择，按名称/路径搜索后明确确认；显示当前来源与精确路径，不将引用伪装为空文本或默认勾选。候选遵循实际词法前序作用域，循环体可选最近一层 item/index；未知结果可以指定高级子路径，运行时缺失仍报错。运行参数保留文本、数字、布尔、空、数组/对象类型，删除被引用的参数名会被阻止。草稿历史、旧流程和快照语义不变。
