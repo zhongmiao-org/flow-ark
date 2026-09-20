@@ -1,5 +1,6 @@
 # 固定契约来源
 
+- 0.1.22 治理基线：`335327ee362900941ed9ced14a416c41e27089e6`。新增 run.artifacts.preview/clear，run.detail 返回 artifactCleanup；产物增加 clearedAt 和 cleared 状态。沿用契约 0.7.0、ArtifactRef、流程和计划，无 SQLite 表结构迁移；清理状态使用既有文档存储，旧索引和外发去重记录保留。
 - 0.1.21 治理基线：`9f094a6682e91195dda338ccc20aa5dddf74df2b`。每次产物登记保存独立副本，元数据增加 storage/sha256，run.detail 增加 integrity；沿用契约 0.7.0 和 ArtifactRef，无 SQLite 表结构迁移。旧记录不补造历史副本，只核对当前可访问性。
 - 0.1.20 治理基线：`0760d36300c6afdbba82d3a6ab5f60195b87181b`。补齐上传目录准入、参数目录发现和执行时普通文件/可读性校验，保留前序生成文件；沿用现有上传值、契约 0.7.0、IPC、数据库与快照格式，不改写旧数据。
 - 0.1.19 治理基线：`9feedd6aa73fff327febc6bc89f27d7a84cda045`。修复 HTTP body 引用漏检与参数原型链判断，沿用既有前序作用域和自身属性规则；公共契约 0.7.0、IPC、数据库及快照格式不变，不改写旧数据。

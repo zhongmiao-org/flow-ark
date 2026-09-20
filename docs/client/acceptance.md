@@ -1,5 +1,23 @@
 # 开发预览验收记录
 
+## 2026-09-20 运行产物清理预览：0.1.22
+
+落实[产物清理](artifact-cleanup.md)。运行详情新增只读预览和勾选确认，清理范围为本次应用产物目录，包括副本和中间文件；目录外的原业务文件、其他 Run、运行终态、快照、产物索引、事件、待办与外发去重记录保留。活动、收尾、并发、异常目录、跨 Run 旧引用和过期预览被拒绝。默认保留全部，不自动按时间删除。
+
+- `pnpm check` 的类型、91 项单元与构建通过。新增五项宿主/文件专项使用真实 SQLite 与文件系统，覆盖预览无副作用、旧外部记录、内外链接、同名副本、100 条名称上限与完整计数、状态变化、并发、清理后重开及已清理索引不能被同路径新文件复活。新增测试最初有两处可选返回值的类型声明错误，修正后通过，未放宽行为断言。
+- 最终固定构建下 `pnpm test:runtime` 的 27 项真实 Worker 通过。新增等待人工时拒绝清理、完成后清理、后续 Run 和业务输出保留、重开后的历史/快照/产物状态核对；取消后真实副本已完成但能力调用迟到时，Run 虽终止仍拒绝清理，收尾结束才允许预览。宿主为每个 Run 跟踪仍在执行的能力请求。
+- 清理前真实 SQLite query_only 写入失败时没有删除文件；受控注入部分删除与完成事务失败，分别核对未完成状态、索引回滚、意图保留与显式重试。pending 记录重开转为 interrupted，不自动继续删除；完成事务不能保存时界面不假报成功。注入故障不作为真实磁盘满或整机断电验收。
+- `test:artifact-cleanup` 在真实 Electron 和内置复杂表单中运行文件写入、上传、下载、截图与等待人工。运行中按钮禁用、宿主拒绝；预览取消后文件不变，预览后新增文件使确认失效并清空核对勾选。重新确认后删除 6 个应用内文件，另一条 WAITING_INPUT 的运行及其副本保持有效，原业务输出内容保留，Run 历史只追加清理事件；后续继续第二条运行成功。
+- 同一界面测试验证 1040×700 右侧面板、1920 CSS 像素网页宽度、清理列表无横向溢出、重开后已清理状态与禁用定位、零剩余文件提示。工作台截图仅核对清理区域；原生网页另通过其实际 innerWidth、上传文件和产物字节核对，不把工作台截图中的网页留白当成原生页面绘制证据。没有提交表单或访问招聘站点。
+- 一次与 `package:mac` 并行的运行回归出现 FIFO 等待超时（26/27）；构建脚本会删除并重建 dist，存在共享执行文件竞争。已改为固定构建后顺序运行，27/27 通过，并在 FIFO 测试中增加失败终态诊断。原失败日志 `/private/tmp/flowark-0122-runtime.log` 保留，最终结果见 `/private/tmp/flowark-0122-runtime-stable-build.log`；并发构建为已确认的测试执行风险，单次失败没有保存足以独立断定根因的 Worker 诊断。
+- 源码清理与产物历史界面通过；最终只读 DMG 候选通过 `test:artifact-cleanup`、`test:artifact-history`、`test:embedded` 三组，包含旧记录、完整复杂表单回执、最小化、上传下载、截图、取消与重开。候选清理数据 `/private/tmp/flowark-artifact-cleanup-ui-UL6JVO`，日志 `/private/tmp/flowark-0122-{check,typecheck,cleanup-ui,history,package,candidate}.log`。
+- `pnpm package:mac` 生成 `flow-ark-client/release/FlowArk-0.1.22-arm64.dmg`，SHA-256 `79b9e4d6401618c159066a4259aa93497138fdad4f1255bed5df7f62b86c5f85`。候选 `/private/tmp/flowark-0122-delivery-jbya8xzx/FlowArk.app`，摘要 `/private/tmp/flowark-0122-delivery.json`；未签名/公证，默认图标。工作台证据在客户端忽略的 `test-results/artifact-cleanup-preview.png` 与 JSON。
+- 只读核对日常 `/Users/mac/Applications/FlowArk.app` 仍为 0.1.16，本次未替换应用、未创建摘要中规划的备份或修改日常数据。最终安装和日常整窗验收仍等待先前 Mac 解锁确认。
+- 客户端 [PR #19](https://github.com/zhongmiao-org/flow-ark-client/pull/19) 经 [CI 35494586511](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35494586511) 检查并自动合并，实际合并提交 `470f353568131abd83b12e219ef20a97b6b916d3`。
+- 采用治理 [PR #27](https://github.com/zhongmiao-org/flow-ark/pull/27) 的实际合并基线 `335327ee362900941ed9ced14a416c41e27089e6`。公共契约 0.7.0 与 ArtifactRef 不变；清理记录使用既有文档存储，无表结构迁移，旧产物索引保留。
+
+历史列表当前仍只有最近 200 条的入口，需要后续补齐更早记录访问，不能将本次当成完整历史管理验收。真实招聘、AI、外部浏览器、最终安装与 P1 总体验收仍未完成。
+
 ## 2026-09-20 运行产物副本与完整性：0.1.21
 
 落实[产物副本约定](artifact-snapshots.md)。在 0.1.20 真实 Worker 中复现两次运行覆盖 result.txt 后，旧 Run 仍成功但历史产物读到新内容。现在每次登记按 Run/产物 ID 保存独立副本和 SHA-256；业务源文件保持原位，同 Run 重复名称也互不覆盖。复制完成和取消复查后，索引与事件在单一 SQLite 事务中提交；失败清理未发布副本，保留业务输出，不重放文件动作。
