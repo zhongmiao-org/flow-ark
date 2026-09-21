@@ -355,3 +355,27 @@ Figma `23:4575`、`23:4724` 的修复差异和执行起点已接入真实失败�
 客户端继续在[草稿 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)，完整 186 画板 / U01–U12 目标未完成。此轮未新建 IPC、SQLite 迁移、安装包或安装，模板仓库未改变。首次教学完成/跳过/继续/重新学习、完整来源及真实模型/用户验收仍待实现验证；Figma 新上下文请求仍受 Starter 配额限制，使用既有真实导出与规格，不声称取得新的 MCP 数据。
 
 当前完整客户端 SHA 的 [CI 35635290108](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35635290108) 已 success，Validate 106451109143 通过，Auto Merge 106451615265 因草稿跳过；同提交先前 run 35635290014 被新 PR 事件取消，不算通过。PR 状态已核对 OPEN/draft，未用旧提交的检查替代。
+
+
+## 2026-09-22 首次教学与持久学习进度（23:2106）
+
+客户端提交 `3258fec7712c6ed9f5b51f92c60b5c17f8b3fdc7` 接入首页“跟着示例做一次”、原稿教学页、继续教学卡片和侧栏“重新学习 · 2 分钟”。介绍只展示练习说明，第一次开始才创建普通 AI 任务；跳过保留进度和原任务，继续复用，明确重新学习创建新任务并保留旧流程、Run、文件及副本。无 Key 从原任务进入设置，返回保留草稿。示例地址只预填，仍须明确打开和确认真实网页；跨重开学习记录不能恢复旧网页授权。
+
+先通过[治理 PR #101](https://github.com/zhongmiao-org/flow-ark/pull/101) 定义[首次教学规范](first-task-learning.md)：源提交 `ed111614d182b559c263f85459f50ef2573571a2`，CI 35636208731 Validate 106454122727 / Auto Merge 106454187927 均成功，自动合并为 `fe3b3389d582e55f9801b9254647759daf298b70`。客户端固定采用该基线。公开契约保持 contracts-v0.12.0、原 tag 不动；新增本机 learning.status/start/skip 与独立加密 learning 记录，不新增 SQLite 表或迁移。
+
+四项学习只由宿主实际证据推进：网页确认、方案采纳、带任务引用的显式 Run 确认，以及 SUCCEEDED Run 的完整性已核对非空文本预览。生成/运行成功本身不标记完整教学完成；学习进度与执行状态分开。CAS 并发避免多建任务，学习写入分别与选择、采纳和 Run 同事务；旧回执不能推进新一轮。正在生成、未终结运行及运行收尾时拒绝重置，跳过不取消执行。普通 flow.run 不冒充用户已完成任务运行检查。
+
+本轮验证：
+
+- `pnpm check`：266/266 单元、类型和构建通过，最终日志 `/private/tmp/flowark-learning-check-delivery.log`。新增七组覆盖严格 IPC、初始只读、重复 CAS、开始事务回滚、原任务缺失、活动重置阻止、证据顺序/归属、跳过和迟到结果；格式及 diff 检查通过。
+- `pnpm test:runtime`：89/89，日志 `/private/tmp/flowark-learning-runtime-final.log`。真实 Store/规划/Worker 验证采纳前不推进、普通运行与显式确认分开、篡改副本拒绝、实际文本预览后完成、重开不发送模型或运行、旧网页拒绝继续及旧预览不计新一轮。后续补充并发首次开始及选择/采纳/Run 三处学习写入失败回滚断言，`node --import tsx --test tests/learning.integration.ts` 再次通过，最终日志 `/private/tmp/flowark-learning-runtime-delivery.log`。
+- `pnpm test:learning`：三个完整场景组通过，最终数据 `/private/tmp/flowark-learning-ui-ns4zdH`，日志 `/private/tmp/flowark-learning-ui-complete.log`；`flow-ark-client/test-results/figma/learning-summary.json` 为 passed/closed true。覆盖介绍返回不改进度、初次跳过不建任务、Key 保存后原任务返回、实际网页选择、跳过后串行重开复用同一任务但重新选网页、真实采纳/确认/Worker 读标题及写入、预览后完成、再重开保留完成和一个 Run、重新学习保留旧记录及结果。
+- 已查看原始 Figma 导出及界面截图。`learning-1440.png` 两栏 x=256/680、y=230，宽 400/728、高 690、间距 24 对齐原稿；1280 无横向溢出，1040 纵向排列且无横向溢出。新增学习入口替代原外部使用指南，返回和面包屑指向开始任务。全局侧栏及其余页面仍需最终统一视觉验收。
+- `pnpm test:figma-task`：15 组回归通过，日志 `/private/tmp/flowark-learning-ai-regression.log`，数据 `/private/tmp/flowark-figma-task-o5kYzN`，passed/closed true；包括补问、取消/迟到结果、采纳撤销、手动修改冲突、旧 Run 不变和串行重开。该脚本也加入每次启动前的真实主进程检查。
+- GUI 严格串行：最终教学 PID 44365 → 44399 → 44422，各前一进程退出后才重开，最终均已退出；AI 回归后再次核对无 FlowArk/Electron 主进程，没有关闭用户实例。
+
+初轮运行测试因复用 Store.close 已清零的密钥 Buffer 而重开失败，修正为测试密钥独立副本后完整重跑；未更改产品密钥清理。初轮 GUI 假定确认后停留在回执页，而既有界面会自动进入结果页；修正等待目标。截图复核修正教学返回文案后，测试又误写成完整“返回开始任务”，按原稿实际“← 返回”调整并补充真实返回操作，最终完整通过；失败均未计入通过，所启动进程均已退出。
+
+模型请求使用本机 HTTP 夹具；网页、Main/Host/Worker、凭据存储、文件与副本验证为真实链路。输出目录经现有 flow.save 测试接口准备，本次未将模型补问/目录绑定全套前台或非技术用户 U12 记为通过。尚未重新打包、安装或真实供应商验收；模板仓库未改动。客户端 PR #37 保持草稿，完整 186 画板 / U01–U12 目标继续。
+
+当前完整客户端 SHA 的 [CI 35638280183](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35638280183) 已 success，Validate 106461041236 通过，Auto Merge 106461542790 因草稿跳过。同提交 run 35638280269 被并发工作流取消，不计为通过；PR 已核对 OPEN/draft。
