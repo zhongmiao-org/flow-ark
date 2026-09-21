@@ -516,3 +516,26 @@ GUI 全部通过统一桌面测试锁严格串行；最终 AI 配置进程 74448
 完整 186 画板 / U01–U12 目标继续，客户端 [PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37) 保持 OPEN/draft。模板来源返回、其他设置分类、MCP 实际任务绑定/调用、有限桌面、原生观察及真实用户全路径仍未完成。
 
 最新完整提交 `c8e43c0de1dbd15f398d1d0f05a80ba02c23da0a` 的 [CI 35661510473](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35661510473) 已 success：Validate 106537594623 的 `pnpm check` 与 `pnpm test:runtime` 均通过，Auto Merge 106538035363 因草稿跳过。已重新核对 PR 的完整 head、OPEN/draft 与 `automerge` 标签，未将先前主体提交的 CI 代替间距修正后提交的检查。
+
+## 2026-09-22 模板入口的 AI 配置往返
+
+客户端主体提交 `27e9a192e0ff30e090223b4bb526a777b165c3eb` 与安装预览修正 `b9d0dff351425b3ef740b845743fc37cd066430f` 落实 [导航来源约定](design-navigation.md) 和 [AI 配置来源](ai-settings.md)，消费 Figma 8:18463/18569 的模板入口及 8:18826/18938 的模板来源设置。治理基线仍为 `873ccbc9950937fdc98e62679b5dd7f1ac6ba0d4`，没有新增 IPC、公开契约、SDK、依赖或数据库格式；模板仓库未改动。
+
+模板库选择一个实例及操作入口后进入独立双栏页面，字段来自包的 Schema。普通输入、未保存共享配置与资源选择保存在同一实例页面，进入 AI 设置时固定来源实例/包/入口；设置侧栏归属本地设置，来源说明与返回按钮展示实际名称。返回重新读取原实例身份、已保存内容及公开 AI 状态，保留本次输入和窄窗滚动位置，不保存模板、不生成、不创建 Run。Key 仍只显示安全掩码，明确使用已配置模型并保存实例才写入绑定。
+
+仅核对当前入口声明的 AI 资源；另一个入口声明 AI 不会阻止无需 AI 的入口。运行要求本次输入与实例配置已经保存，实际 Host 继续执行授权和资源准入。来源读取失败、包/入口身份变化或已保存内容变化时保留输入，阻止当前入口页保存和运行，提供重试、明确放弃后重读、返回模板库与回到设置。不会自动替换为其他实例。首次配置、替换与三种离开选择复用既有设置守卫，模板来源保存不会给 AI 任务草稿注入模型变更事件。
+
+本轮证据：
+
+- `pnpm check`：类型、316/316 单元、构建通过，日志 `/private/tmp/flowark-template-ai-check.log`。最终测试脚本/字段样式后类型与构建再次通过，日志 `/private/tmp/flowark-template-ai-types-final.log`、`/private/tmp/flowark-template-ai-build-final.log`。既有大分块提示保留。
+- `pnpm test:template-ai`：6 组通过，最终日志 `/private/tmp/flowark-template-ai-ui-delivery-final.log`，汇总 `flow-ark-client/test-results/figma/template-ai-summary.json`，数据 `/private/tmp/flowark-template-ai-ui-UScwMt`。真实 Renderer/Main/Host、系统保护与 Worker 链路验证原实例/入口/输入保留、加密保存失败留页、继续编辑/保存/放弃、显式绑定与保存、另一实例隔离、来源读取失败及身份变化后重试、窄窗滚动位置、无需 AI 的入口实际完成、重开离线与历史不重放。空流程首页传入的安装预览正确显示，取消不创建实例。全程供应商 HTTP 为 0，唯一 Run 为明确点击的只读入口。
+- `pnpm test:ai-settings`：6 组回归通过，日志 `/private/tmp/flowark-template-ai-settings-regression.log`，数据 `/private/tmp/flowark-ai-settings-ui-7zeJQk`，两个进程均 `closed:true`。覆盖既有两种 HTTP 形状、错误、保护存储、取消、资源占用、删除与 AI 任务资料/新模型返回；其模型响应仍为本机夹具。
+- `pnpm test:flow-export`：标准 ZIP 导出/导入、自定义流程往返、默认拒绝授权和真实脚本/文件输出通过，日志 `/private/tmp/flowark-template-ai-zip-regression.log`。测试按独立入口页面进入参数，不移除原有 ZIP 完整性、私有输入不导出和实际文件内容断言；重载后的流程编辑入口同步现行首页导航。
+
+三类页面各有 1440/1920/1040 截图，共九张无横向溢出。1440 模板入口两栏 x=256/1008、y=294、宽 728/400、高 664、gap 24；模板来源设置同位置，高 688。1040 两栏纵排为 904 宽。最终截图等待页面样式过渡结束，断言侧栏只有一个当前位置；已目视核对最终入口、模板来源及窄窗。全局导航、完整模板管理/共享配置页、模板库切换实例的统一离开保护和所有动态内容的最终 1:1 验收仍独立保留；当前入口页的来源复核不代表所有模板管理页面已有并发保护。
+
+初次测试包引用缺少参数，随后旧导出参数被脱敏为 null，与新输入 Schema 默认值不一致；修正虚构测试包的明确输入后通过。保存失败时页内与对话框同时有错误提示，测试改为定位对话框内提示。补验安装预览时，测试曾错误假设非空流程页也有导入按钮；改为实际空流程首页路径，原断言完整通过。以上失败不计通过。系统加密失败和来源读取/身份变化为具名注入，文件选择为 Main 返回夹具；不据此声称原生选择器人工操作或用户数据损坏恢复已验收。
+
+最终模板主进程 78255 → 78273 严格串行并明确退出，使用统一桌面测试锁，没有启动第二个并行实例，结束后的实际主进程列表为空。真实 AI、原生选择器、完整模板管理及 U01–U12、安装/发布和用户验收仍未完成。Figma 8:18463 新请求仍被 Starter 额度拒绝，本轮依据已有原始 ZIP 导出和 `navigation.js` 设计规格；不宣称取得新的设计上下文。完整 186 画板目标继续，客户端 PR #37 保持草稿。
+
+最终完整提交 `b9d0dff351425b3ef740b845743fc37cd066430f` 的 [CI 35664192219](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35664192219) 已 success：Validate 106546530598 的 `pnpm check` 与 `pnpm test:runtime` 均通过，Auto Merge 106546965109 因草稿跳过。主体提交 `27e9a19` 的 CI 35663736406 也曾通过，但不用于代替最终修正提交的检查。
