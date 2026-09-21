@@ -17,7 +17,8 @@ for manifest in sorted((root / 'contracts').glob('v*/SHA256SUMS')):
         checksum, filename = line.split('  ', 1)
         file = manifest.parent / filename
         assert hashlib.sha256(file.read_bytes()).hexdigest() == checksum, file
-        json.loads(file.read_text())
+        if file.suffix == '.json':
+            json.loads(file.read_text())
 for name in tracked:
     if not name.endswith('.md'):
         continue
