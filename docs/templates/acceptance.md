@@ -8,14 +8,14 @@
 | --- | --- | --- |
 | 治理 | [#59](https://github.com/zhongmiao-org/flow-ark/pull/59)、[#60](https://github.com/zhongmiao-org/flow-ark/pull/60) | `dc659234284b81b47fb254e451515cc4cdf838a8`、`aff8f5e3ce56d410e52173f736f4327bed156ffa` |
 | 模板 | [#1](https://github.com/zhongmiao-org/flow-ark-templates/pull/1) | `1fd7ce7f1da2652e31c56fe6a9efadbaebc39c8d` |
-| 客户端 | [#34](https://github.com/zhongmiao-org/flow-ark-client/pull/34) | `0d5009f` |
+| 客户端 | [#34](https://github.com/zhongmiao-org/flow-ark-client/pull/34) | `0d5009f`（主体）；收尾 [#35](https://github.com/zhongmiao-org/flow-ark-client/pull/35) → `a5d5d2a4643095ce9771d1dcf228ee1e1152ca31` |
 
 三仓均由最新 PR 提交的 Validate 检查后自动合并。模板 main 仅空提交初始化，实际文件经 PR 交付。契约 tag 是开发快照，不是产品发版。
 
 ## 已完成验证
 
 - 模板仓库 `pnpm check`：20 项测试、7 个标准包；连续构建字节相同。招聘协调、策略、事实核验、提示词、站点脚本及其测试已迁出客户端，完整模拟网站位于模板 fixtures；两项招聘站点探测模板明确标记未经真实验收。
-- 客户端 `pnpm check`、`pnpm test:runtime`：类型、通用节点、包校验及真实宿主／Worker 测试通过。覆盖篡改、危险路径、符号链接、加密 ZIP、重复／大小写条目、文件数和字节超限、缺失资源、远程 Schema、同版本冲突、重复导入、取消、源包替换与 SQLite 安装回滚。
+- 客户端 `pnpm check`（162 项）、`pnpm test:runtime`（75 项）：类型、通用节点、包校验及真实宿主／Worker 测试通过。覆盖篡改、危险路径、符号链接、加密 ZIP、重复／大小写条目、文件数和字节超限、缺失资源、远程 Schema、同版本冲突、重复导入、取消、源包替换与 SQLite 安装回滚。
 - 实例行为覆盖默认拒绝、每入口独立预检、串行运行、跨实例隔离、配置／状态共享、人工输入、授权动作去重及未知结果不重放、新版实例授权重置、计划固定入口／版本、历史引用卸载保护。
 - `pnpm test:desktop` 验证通用编辑器、IPC 安全边界与实际 Worker。安装版 `pnpm test:install` 验证独立数据目录执行、加密凭据和重开回读；`pnpm test:template-parameters` 验证模板预览取消、Schema 表单保存、标准包导出和本地新身份导出不带实例值。
 - 模板仓库 `pnpm test:client` 使用仓库外的安装版可执行文件。执行期间 templates 源码目录被隐藏；通过公共 IPC 导入已复制的 ZIP，完成文件模板、多入口离线检查、内置浏览器填写与回读，重开后配置仍在且可再次运行。包内静态脚本不依赖源码或安装依赖；没有额外自动化浏览器下载。
@@ -31,6 +31,10 @@
 
 ## 验收边界
 
-0.2.0 macOS arm64 开发候选输出 ZIP/DMG，未签名、未公证。最终安装路径及清理兼容代码后的检查另补记录。完整历史表单桌面脚本没有全部重跑，本轮通过项以上述命令为准。
+0.2.0 macOS arm64 开发候选已生成 ZIP/DMG，未签名、未公证，已安装到 `/Users/mac/Applications/FlowArk.app`。旧应用只做可逆文件备份，位置 `/Users/mac/Library/Application Support/FlowArk Backups/development-before-template-split-20260921T114016`；不提供旧客户端升降级兼容。
+
+最终候选再次通过 `test:install`、`test:template-parameters` 和模板 `test:client`。日常数据连续打开两次：流程、历史、计划、待办、模板和实例均为零，保留 2 项浏览器配置和 DeepSeek 凭据，无存储故障；两份加密凭据文件摘要未改变。见 `/private/tmp/fa-final-install.log`、`/private/tmp/fa-final-ui.log`、`/private/tmp/fa-daily-verified.json`。
+
+完整模拟表单模板 1.0.1 补齐入口网站地址表单，通过安装版完成原生控件、附件、提交及回执写文件；服务端恰好接受一次 `FORM-0001`，附件内容及文件回执一致，3 个模板实例重开验证通过。见 `/private/tmp/fa-full-form-installed.log`，模板 [PR #2](https://github.com/zhongmiao-org/flow-ark-templates/pull/2) 已由最新提交 CI 自动合并，提交 `66a2682744498e8948023d8c60d04659a7fea546`。完整历史表单桌面脚本没有全部重跑，本轮通过项以上述命令为准。
 
 真实招聘登录、URL 跳转后身份核对、线上简历差异判断、更新与回读尚未实施；下一阶段在模板仓库完成前程无忧模板。没有把模拟表单、DeepSeek 虚构输入或通用 Run 成功描述为实际简历已更新。
