@@ -226,3 +226,24 @@ Figma `23:4575`、`23:4724` 的修复差异和执行起点已接入真实失败�
 本次只消费已有 `flow.save`、`run.list`、`run.detail` 和本地包检查接口，未新增 IPC、修改契约或数据库；采用基线仍为 `0261e2ce610b3b1e3314fd439f3bd766935f0d7f`、contracts-v0.9.0。本批没有重新生成安装候选或安装，不能把前一批临时应用目录当作包含此提交。长流程定位、Excel 映射、原生 100% 裁剪观察及全局导航剩余状态继续保留在完整 186 画板 / U01–U12 目标中；客户端 PR #37 继续为草稿。
 
 最新提交的 [CI 35613803340](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35613803340) 已通过，包含 `pnpm check` 与 `pnpm test:runtime`；此前同一提交的运行 35613741258 被后续 PR 说明更新取消，不记为通过。客户端 [PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37) 保持草稿，自动合并跳过。
+
+### 长流程大纲、搜索和实际执行定位
+
+对应 U11 和 Figma [四十步任务 23:6333](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6333)。设计上下文请求仍被 Starter MCP 配额拒绝；本轮依据此前导出的原始 PNG 和 `task-design.js` 核对，没有新的 MCP 上下文，也不是账号登录失败。
+
+客户端提交 `31baceae1eac69367a4c42966cda073d1a2fba19` 从真实步骤生成大纲，按名称、定义编号和动作类型搜索，自动展开目标所在的分组及条件／循环分支。连续根步骤按最多八项展示，条件和循环保持完整子树；这只是界面分组，不伪造业务阶段或新增执行节点。定义编号不代表完成进度，条件未选分支及循环各次执行由实际事件分别展示。
+
+草稿与只读运行快照分别维护选择和折叠；编辑草稿不会改写旧运行名称、步骤配置或版本。聚焦当前执行只使用宿主近期观测及真实节点身份，超过五秒、错误、收尾或终态不显示当前标记；迟到回复沿用宿主原观测时间，不因收到回复而变新。清单和流程图切换后定位可读步骤，配置返回保留手动图视口，运行详情返回保留大纲搜索、选择和清单滚动。页面不创建或重放 Run；保存仍经已有草稿接口。
+
+验证与证据：
+
+- `pnpm check`：类型、224 项单元及构建通过。新增三项单元覆盖 40 步定义身份、嵌套分支祖先展开，以及重排／改名草稿与独立快照的隔离。日志 `/private/tmp/flowark-outline-check.log`；修改文件格式及 `git diff --check` 通过。
+- `pnpm test:flow-outline`：五组通过，数据 `/private/tmp/flowark-outline-d6HGMP`，证据 `flow-ark-client/test-results/figma/outline-summary.json` 为 passed/closed true。真实 40 步 Run 进入条件及两次循环等待，核对第 32 步、未选分支、循环实例、只读来源、草稿改名、详情返回、图视口、过期与延迟观测、取消后移除当前标记；全程只有一条 Run，原快照保持不变。首次延迟测试按前一条观测计算到期，断言失败；已改为等待实际被延迟回复的宿主时间到期，产品新鲜度规则没有放宽。
+- `pnpm test:figma-editor` 再次通过：34 步、9 个布局、真实内置网页填写／读取／断言和来源返回。数据 `/private/tmp/flowark-figma-editor-s2SzRW`；日志 `/private/tmp/flowark-outline-editor-regression.log`。
+- `pnpm test:script-editor` 再次通过四组，数据 `/private/tmp/flowark-script-editor-6yN88x`，证据 `test-results/figma/script-summary.json` 为 passed/closed true；真实 Worker 输出、草稿保护、静态检查及自己的人工等待 Run 取消后退出均通过。日志 `/private/tmp/flowark-outline-script-regression.log`。
+- 已查看 1920×1080 与 1040×700 截图，三尺寸均无横向溢出。1920 下三栏宽 260/880/444、间距 24、高度 700，与稿件结构对应；实际卡片起点 y=330，稿件 y=336，运行来源和真实嵌套状态比示例多。1040 下检查器移至下一行，需要纵向滚动，不声明最终逐像素验收完成。
+- GUI 严格串行，每项先取消自身隔离数据内未完成 Run，再关闭自己的 Electron。后续进程检查未发现 FlowArk/Electron 主进程；不关闭用户会话。
+
+本批仅使用已有 `run.list`、`run.detail`、`flow.save` 等接口，未新增 IPC、契约或数据库结构。治理采用版本仍为 `0261e2ce610b3b1e3314fd439f3bd766935f0d7f`、contracts-v0.9.0。没有重新打包或安装，此前临时应用目录不包含此提交；完整 186 画板 / U01–U12 仍未完成，Excel 映射、AI 仅修改所选步骤、系统级原生观察、全局导航剩余状态及真实供应商/用户验收继续保留。客户端 PR #37 保持草稿。
+
+本提交最新 [CI 35617283785](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35617283785) Validate 已通过，包含 `pnpm check` 与 `pnpm test:runtime`，Auto Merge 因草稿跳过。PR 说明更新触发的旧提交流水线不作为本次提交证据。
