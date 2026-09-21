@@ -1,6 +1,8 @@
 # 固定契约来源
 
-当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.10.0](../../contracts/v0.10.0/README.md)、SDK 1.0 和标准包 2.0，治理基线为 `937a865f71a092d49f34da499778e68ef37caa05`。[治理 PR #91](https://github.com/zhongmiao-org/flow-ark/pull/91) 经 CI 自动合并，远程 `contracts-v0.10.0` 已核对指向该提交。Excel 字段映射为新增 excel v3 map 能力，旧运行快照不改写，无数据库迁移；此前 v1 整表读写和 v2 模板填充继续是现行规范中的独立操作。客户端纳入规范副本、SHA256 清单和生成类型，具体实现与真实验收见 [Figma 实施记录](design-implementation.md)。模板仓库本轮未采用新节点，也没有因此声明支持映射模板。
+当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.10.0](../../contracts/v0.10.0/README.md)、SDK 1.0 和标准包 2.0，治理基线为 `c12f335c2ee1ece2c1bcabae51bcd58356d1ab1d`（[PR #93](https://github.com/zhongmiao-org/flow-ark/pull/93)，CI 自动合并）。公开契约 tag `contracts-v0.10.0` 保持指向 [PR #91](https://github.com/zhongmiao-org/flow-ark/pull/91) 的合并提交 `937a865f71a092d49f34da499778e68ef37caa05`，未移动已发布 tag。
+
+2026-09-22 [AI 单步修改](ai-step-edit.md) 在本机 task.save 增加可选 scope、task.detail 返回当前流程/绑定摘要；沿用加密任务文档与公开规划格式 1.0，无数据库迁移。Excel 字段映射采用 excel v3 map；v1 整表读写和 v2 模板填充继续是现行规范中的独立操作，旧运行快照不改写。客户端纳入规范副本、SHA256 清单和生成类型，具体实现与真实验收见 [Figma 实施记录](design-implementation.md)。模板仓库本轮未采用新节点，也没有因此声明支持映射模板。
 
 以下保留各历史版本的采用证据，不代表当前分支仍采用其中的旧基线。
 
