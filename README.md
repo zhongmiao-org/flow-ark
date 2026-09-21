@@ -8,7 +8,7 @@ FlowArk 是本地优先的自动化工作台，连接显式选择的内置浏览
 
 ## 当前状态
 
-2026-09-21：业务模板、demo/example 和完整模拟网站已迁入独立 [flow-ark-templates](https://github.com/zhongmiao-org/flow-ark-templates)。通用客户端 0.2.0 开发候选已安装至日常路径，支持标准 ZIP 安装、多入口实例、资源／授权配置、通用脚本 SDK 和定义包导出。尚未正式发版，不维护旧客户端兼容路径。
+2026-09-21：业务模板、demo/example 和完整模拟网站已迁入独立 [flow-ark-templates](https://github.com/zhongmiao-org/flow-ark-templates)。通用客户端 0.2.1 开发候选已安装至日常路径，支持标准 ZIP 安装、多入口实例、资源／授权配置、通用脚本 SDK，以及模板和自定义流程统一 ZIP 导出。尚未正式发版，不维护旧客户端兼容路径。
 
 模板使用：模板库 → 导入标准包 → 审阅能力 → 安装 → 创建实例 → 配置资源与授权 → 选择入口运行。导入、打开表单和保存配置均不执行隐藏脚本。独立构建、安装版无源码运行和 DeepSeek 虚构资料实接证据见[模板验收](docs/templates/acceptance.md)。
 
