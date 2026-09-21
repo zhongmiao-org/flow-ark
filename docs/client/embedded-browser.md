@@ -50,3 +50,9 @@ macOS 在窗口已最小化时创建新 WebContentsView，可能没有可截图�
 参考：[Electron WebContentsView](https://www.electronjs.org/docs/latest/api/web-contents-view)、[Electron WebPreferences](https://www.electronjs.org/docs/latest/api/structures/web-preferences)、[Electron 安全指南](https://www.electronjs.org/docs/latest/tutorial/security)。
 
 2026-09-18 验证范围修订：默认浏览器、复杂表单、调试、恢复及安装测试统一走内置面板；原本机兼容脚本仅允许显式手动选择。BOSS/智联校准暂停，不能在测试期间自动打开。
+
+## 2026-09-21 设计增量：紧凑窗口的清晰观察
+
+[AI 任务主线](design-ai-task.md) 增加总览、全宽观察和 100% 目标聚焦。总览仅用于找位置；不能以 1920px 页面缩至几百像素后的微小文字作为精确操作验收。全宽/聚焦只改变观察范围、裁剪或平移，不重排执行网页；保持同一会话、1920 CSS px 布局及原始元素坐标。页面滚动、浏览器后退和任务返回分别提供入口，返回任务保留草稿、选择和会话。
+
+这是新增设计要求，当前 `WebContentsView` 缩放实现不因此视为已支持。实现前须验证原生视图裁剪/平移和输入坐标转换；不能直接设为 100% 而悄悄改变页面布局。验收 1040×700 和 1920×1080：真实 14–16px 文字、表格、输入、滚动条、不同位置元素，缩放前后同一目标唯一匹配及真实点击/输入一致。若原生视图无法满足，应先记录技术验证结果并修订方案，不能用静态截图或大标题示例代替验收。

@@ -1,10 +1,12 @@
 # FlowArk 产品设计基线 v2（P1 功能修订）
 
-2026-09-21。用户要求先建立统一 Figma 设计稿，再按稿开发；功能审计后继续修正并复核。本文约束后续客户端视觉与交互实施，不改变执行核心、模板归属或 P1 的阶段边界。
+2026-09-21 最新主线：[AI 任务体验与验收](design-ai-task.md) 补齐首次教学、目标与能力、生成修改、可读结果、应用与工具和紧凑网页观察。原手动编排及辅助状态保留；后续按最新主线实施，设计完成与客户端验收分开。
+
+2026-09-21。用户要求先建立统一 Figma 设计稿，再按稿开发；功能审计后继续修正并复核。本文约束后续客户端视觉与交互实施；最新 AI 主线的 P1 范围调整见本文顶部及总体架构，模板归属保持不变。
 
 ## 唯一设计入口
 
-[FlowArk · P1 Product Design](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-6948) 位于用户桌面 Figma 当前 Ark 65 账号。文件组织为三页：`00 · Design System`、`01 · Components`、`02 · Product Screens`。设计系统页保留方向、基础规范与实施说明；旧 v1 总览已隐藏归档。产品页增加可点击的 P1 操作路径总览，按从零搭建、模板使用和运行处理进入相应画板。
+[FlowArk · P1 Product Design · AI 开始任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) 位于用户桌面 Figma 当前 Ark 65 账号。文件组织为三页：`00 · Design System`、`01 · Components`、`02 · Product Screens`。设计系统页保留方向、基础规范与实施说明；旧 v1 总览已隐藏归档。产品页增加可点击的 P1 操作路径总览，按从零搭建、模板使用和运行处理进入相应画板。
 
 此前连接器在另一个已连接账号中建立的 `XKRE1neGlkADSym3PCNugV` 文件只完成部分基础规范，受免费套餐接口额度限制中断，**不作为开发依据**。不要混用两个文件。
 
