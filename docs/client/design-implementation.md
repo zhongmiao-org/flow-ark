@@ -487,3 +487,32 @@ GUI 全部使用统一测试锁，最终连接主进程 66197 → 66218 → 6622
 完整 186 画板 / U01–U12 目标继续，客户端 [PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37) 保持 OPEN/draft，未打包、安装或发布。本轮旧凭据更换后的回收失败仍为尽力清理，可能留下无引用的系统加密条目；任务工具调用接入前需补齐清理与异常关闭恢复，不能据此宣称完整连接生命周期已验收。
 
 完整提交 `d9d0c52c316fd4f48efbde54b861d344d763f755` 的最新 [CI 35655972698](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35655972698) 已 success：Validate 106519649353 通过类型、308 项单元、构建与 94 项宿主集成，Auto Merge 106520175267 因草稿跳过。PR 描述更新替代了同 SHA 的 run 35655972465，后者 cancelled，不计为通过。PR 状态与完整 head 已重新核对。
+
+## 2026-09-22 AI 服务配置、验证与原任务返回
+
+客户端主体提交 `b0792c5f8f51f9de69dcfcc0be4f6a0666a352b0` 与间距修正 `c8e43c0de1dbd15f398d1d0f05a80ba02c23da0a` 采用治理 [PR #112](https://github.com/zhongmiao-org/flow-ark/pull/112) 基线 `873ccbc9950937fdc98e62679b5dd7f1ac6ba0d4`，落实 [AI 服务配置与验证 v1](ai-settings.md)。0.3.0 仍为开发候选，公开契约 0.12.0、SDK 1.0、标准包 2.0、不可变 tag 与 SQLite 表结构不变，模板仓库未改动。
+
+AI 服务页按 2:3118、4:10378–11077 接入首次填写、已保存掩码、替换、移除及连接验证状态；23:5656/5795 接入缺少模型提示和来源任务返回。本地设置分别显示 DeepSeek/OpenAI 的真实配置与测试结果。保存后清理输入，已保存 Key 不回显；从任务返回保留描述、资料、修改范围和模型选择，清除旧发送确认，不自动生成或运行。顶部、面包屑、侧栏及键盘返回共用保存并离开/不保存/继续编辑守卫；测试期间离开须取消并结束本次操作。重进设置在新配置读取完成前不展示旧入口的按钮状态。
+
+Main 将模型与 Key 放在同一系统加密记录，使用密文字节摘要作为 revision 并按供应商串行 CAS 写入。旧受保护 Key 可内部使用，没有尾号元数据时只显示固定掩码；空替换保留旧 Key。读写/加解密失败保留原文件，删除仅限所选供应商并保留其他凭据、MCP、数据密钥和任务历史。本机 `credentials.set/ai.test` 替换为严格 `ai.configuration.get/save/remove/test/cancel`，Renderer 不可调用私有配置读写或读取已存 Key。
+
+Host 阻止修改活动/排队运行和生成方案使用的供应商，异步准入在写入 Run 前复核配置是否变化。测试固定虚构 JSON，不发送任务内容，不切换供应商或模型；测试记录绑定 requestId/revision 并记录实际返回模型。认证、额度/限流、模型/请求、网络、超时与格式错误独立显示。系统密钥读取属于总体时限，取消后不再等待只读后台结果，迟到完成不得发出 HTTP 或覆盖新配置；HTTP 取消等待适配器收尾。重开在途状态变为中断，不自动重试；退出不会延误真实 Worker 停止。
+
+本地验证证据：
+
+- `pnpm check`：类型、316/316 单元和构建通过，日志 `/private/tmp/flowark-ai-check-verified.log`。新增 8 项配置行为测试覆盖严格 IPC、原子失败/投影/CAS、消费与修改互斥、固定测试、错误分类、取消/迟到结果、凭据等待总时限和中断恢复。最后 UI 间距与脚本修正后的类型、构建再次通过，日志 `/private/tmp/flowark-ai-padding-typecheck.log`、`/private/tmp/flowark-ai-padding-build.log`。既有大分块提示保留。
+- `pnpm test:runtime`：98/98 Host/Worker 集成通过，日志 `/private/tmp/flowark-ai-runtime-verified.log`。新增 4 项检查真实活动/排队快照保护、独立供应商可编辑、异步预检变化零 Run/版本/快照、规划密钥等待时在用保护及退出取消真实 Worker。
+- `pnpm test:ai-settings`：6 组通过，最终日志 `/private/tmp/flowark-ai-settings-gui-final.log`，汇总 `flow-ark-client/test-results/ai-settings.json`，目录 `/private/tmp/flowark-ai-settings-ui-I52k8M`。验证首次保存零网络、尾号/输入清理、主动测试与取消、实际返回模型、两种 HTTP 请求形状、四类响应失败、空替换、保护存储失败、三种离开选择、资源占用禁用/释放、删除故障/供应商隔离、重开离线和原任务资料/模型返回。测试产生的唯一 Run 是明确创建的资源占用夹具；配置保存/返回没有增加 Run 或规划请求。
+- `pnpm test:vault`：10 组系统加密与故障注入通过，日志 `/private/tmp/flowark-ai-vault.log`。新增模型/Key 加密记录、跨对象重读、旧条目保护、CAS/空替换、文件/加密/解密错误保持原密文，以及删除只影响所选供应商。实际 Keychain 保护与注入失败分别记录。
+- `pnpm test:figma-task`：15 组回归通过，日志 `/private/tmp/flowark-ai-task-regression-third.log`，目录 `/private/tmp/flowark-figma-task-XUtNwY`，七次本机 HTTP 模型请求；`pnpm test:learning`：5 组通过，目录 `/private/tmp/flowark-learning-ui-at3Qif`；`pnpm test:ai-step-edit`：4 组通过，目录 `/private/tmp/flowark-ai-step-isrAvU`。分别保留补问/冲突/撤销/重开、真实文件教学、所选步骤范围/来源返回的原有断言。
+- `pnpm test:redaction`：7 组通过，日志 `/private/tmp/flowark-ai-redaction-regression-third.log`，目录 `/private/tmp/flowark-redaction-ui-QwGdbd`，汇总 `flow-ark-client/test-results/redaction.json`。真实 SDK 得到原 Key 的摘要，嵌套键、日志、步骤预览、持久输出与错误均脱敏；保护存储失败不泄露待保存值、保留旧密文与输入。1920 内置网页真实填写/读取且零提交；两个退出均 code 0，重开保留历史而不重放。
+
+1440 设置双栏实测 x=256/1008、y=294、宽 728/400、gap 24、高 688；任务来源去掉分类栏后 y=230。缺少模型卡 x=256、y=230、1152×520，32 px 内边距和 24 px 内部间隔单独断言，未将 CSS 被覆盖前的结果计为最终通过。1920 扩展栏宽，1040 设置纵排为 904 宽；三类页面共九张尺寸截图无横向溢出。已目视核对任务来源、窄窗与最终缺少模型卡截图；全局侧栏、动态文字高度及完整页面最终视觉验收仍待完成。
+
+早期 GUI 失败分别发现浏览器回调序列化、无流程时的标题定位、重进设置短暂沿用旧状态、任务返回模型更新时机，以及通用卡片样式覆盖；已修正并完成专项重跑。旧回归脚本还保留迁移前的表单选择器、筛选/输出入口和非配置页返回按钮定位，均按当前页面修正，未削弱凭据/执行断言。首次完整单元命令因沙箱禁止本机 HTTP 监听出现 EPERM；随后获准本机夹具监听后原命令完整通过。失败与被替代结果不算通过。
+
+GUI 全部通过统一桌面测试锁严格串行；最终 AI 配置进程 74448 → 74473 均 `closed:true`，之后实际主进程列表为空，未关闭用户应用。供应商 HTTP 和 Key 为本机虚构夹具，系统保护、Renderer/Main/Host/Worker 和文件为真实链路。没有真实模型账号调用、模板来源返回、原生选择器人工操作、安装包或发布验收。本任务的 Figma Starter 额度限制仍未解除，使用已取得的原始导出和生成规格，不宣称取得新 MCP 设计上下文。
+
+完整 186 画板 / U01–U12 目标继续，客户端 [PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37) 保持 OPEN/draft。模板来源返回、其他设置分类、MCP 实际任务绑定/调用、有限桌面、原生观察及真实用户全路径仍未完成。
+
+最新完整提交 `c8e43c0de1dbd15f398d1d0f05a80ba02c23da0a` 的 [CI 35661510473](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35661510473) 已 success：Validate 106537594623 的 `pnpm check` 与 `pnpm test:runtime` 均通过，Auto Merge 106538035363 因草稿跳过。已重新核对 PR 的完整 head、OPEN/draft 与 `automerge` 标签，未将先前主体提交的 CI 代替间距修正后提交的检查。
