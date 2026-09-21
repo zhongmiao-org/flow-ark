@@ -20,7 +20,7 @@ source 扩展为 manual、schedule、debug、rerun：关联重跑优先归 rerun
 
 响应增加 `matchedCount`（当前游标记录上界以内、按当前状态匹配的总数），原 totalCount 仍表示全部历史，newerCount 仍表示上界之后新增数。界面据 matchedCount 显示实际筛选结果范围，不将全部历史数写成筛选命中数。为统计匹配总数，宿主分块扫描到上界内记录末尾，块间让出事件循环；仅保留当前页和下一条，不缓存全部解密记录。
 
-响应增加 `elapsed`，键为本页 Run ID，值为 `{kind: "live"|"final"|"recorded"|"unknown", milliseconds: number|null}`。沿用[运行观察](run-observation.md)的事件、宿主归属、收尾与故障判定，不用 createdAt/updatedAt 差值冒充执行耗时。只读取本页运行事件；实时数随已有轮询更新，未知时长显示待核对。
+响应增加 `elapsed`，键为本页 Run ID，值为 `{kind: "live"|"final"|"recorded"|"unknown", milliseconds: number|null, startedAt: string|null}`。沿用[运行观察](run-observation.md)的事件、宿主归属、收尾与故障判定，不用 createdAt/updatedAt 差值冒充执行耗时。startedAt 取最早已保存且时间有效的 RUNNING 状态事件；没有事件时显示“尚未开始”或“待核对”，不能把创建/入队时间显示成执行开始时间。只读取本页运行事件；实时数随已有轮询更新，未知时长显示待核对。分块扫描结束后同步采样当前归属和页面记录，避免旧活动身份被当成当前执行。
 
 此增量仅改变本机 Renderer/Host 请求与响应，不改变公共契约 0.8.0、SQLite、执行快照或计划。先合并此说明，客户端采用实际治理提交。验证时间边界、非法/倒序范围、筛选类别交集、匹配总数、翻页期间新增以及每种筛选改变后的旧游标拒绝。界面须验证筛选页应用/取消/清空与详情/输出返回时的分页、焦点和滚动恢复。
 
