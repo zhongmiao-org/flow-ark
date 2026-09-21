@@ -8,18 +8,11 @@ FlowArk 是本地优先的自动化工作台，连接显式选择的内置浏览
 
 ## 当前状态
 
-2026-09-21：通用客户端与独立模板仓库解耦正在实施。标准 ZIP 包、多入口和 SDK 边界见[模板开发](docs/templates/development.md)，完成状态见[模板验收](docs/templates/acceptance.md)。以下版本记录为历史证据。
+2026-09-21：业务模板、demo/example 和完整模拟网站已迁入独立 [flow-ark-templates](https://github.com/zhongmiao-org/flow-ark-templates)。通用客户端 0.2.0 开发候选已支持标准 ZIP 安装、多入口实例、资源／授权配置、通用脚本 SDK 和定义包导出。尚未正式发版，不维护旧客户端兼容路径。
 
-- 文档基线：P0，2026-09-16。
-- 当前交付：P0 已完成；P1 开发预览客户端已建立，具有可运行桌面、通用流程执行和本地检查。
-- 已有固定版本的机器可读契约，当前版本见 [契约管理](contracts/README.md)；客户端固定使用副本，独立构建，模板包声明自己的实例配置；模板填充与文件归档使用显式 v2 节点。
-- 当前仅使用内置浏览器与本地复杂表单验证通用能力，网页按 1920 CSS 像素桌面宽度排版。0.1.35 macOS arm64 未签名包已完成候选验证并安装到日常路径；具体范围见[客户端验收](docs/client/acceptance.md)。
-- 2026-09-20 日常 0.1.28 → 0.1.35 升级完成，正常退出后先持久备份旧应用及完整数据。原有 6 个流程、5 条历史及两份加密凭据保留，SQLite v1 → v2；内置网页练习实际填写虚构姓名，零提交，正常重开保留 6 个流程、6 条历史且不重放。备份路径与不可直接降级的说明见[安装和数据](docs/client/usage.md)。
-- 当前 0.1.35 已修复凭据对象键及公共错误出口的脱敏遗漏，授权 `credential(id)` 成功读取仍返回原值，展示、日志和已保存输出脱敏；不宣称自动清除未知历史秘密。187 项单元、74 项宿主测试，源码 redaction（7 组）、run-observation（5 组）、embedded、flow-export（5 组）及候选 redaction（7 组）、run-observation（5 组）、embedded、install（0.1.28 → 0.1.35 隔离升级）均通过。客户端 [PR #33](https://github.com/zhongmiao-org/flow-ark-client/pull/33) 已由 CI 自动合并；详见[脱敏边界](docs/client/redaction-boundaries.md)与[客户端验收](docs/client/acceptance.md)。
-- 0.1.34 已修复模板参数双来源编辑，使用独立实例配置统一保存，右侧仅显示只读摘要。175 项单元、模板参数 7 组、视口 15 个场景及值编辑、完整内置表单源码回归通过；DMG 候选四组验证通过，客户端 [PR #32](https://github.com/zhongmiao-org/flow-ark-client/pull/32) 已由 CI 自动合并，详见[模板实例参数](docs/client/template-parameters.md)。
-- 0.1.33 已修复挂起后旧请求继续准入及写入失败跳过实际停止的问题；候选使用 `powerMonitor.emit` 系统事件夹具，不等于硬件睡眠验收。
-- 客户端从 0.1.31 起使用 SQLite v2；0.1.31–0.1.34 → 0.1.35 无新增迁移。招聘、真实 AI 与外部浏览器验收继续后置，P1 不标记完成。
-- 本仓库当前没有应用安装、构建或测试命令。
+模板使用：模板库 → 导入标准包 → 审阅能力 → 安装 → 创建实例 → 配置资源与授权 → 选择入口运行。导入、打开表单和保存配置均不执行隐藏脚本。独立构建、安装版无源码运行和 DeepSeek 虚构资料实接证据见[模板验收](docs/templates/acceptance.md)。
+
+下一阶段是前程无忧简历更新模板；真实招聘网站、账号登录和更新回读尚未验收，P1 不标记整体完成。历史版本证据保留在[客户端验收](docs/client/acceptance.md)，不再代表当前内置业务或旧客户端支持范围。服务端、管理台、远程执行和在线商店尚未实现。
 
 ## 文档入口
 

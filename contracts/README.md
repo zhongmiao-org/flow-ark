@@ -2,7 +2,7 @@
 
 此目录属于治理仓库，用于管理客户端、服务端和管理台共同理解的语言无关协议。
 
-2026-09-21：下一版 [v0.8.0](v0.8.0/README.md) 已定义通用模板包与 AI 接口，移除招聘专属协议，发布状态见版本说明。消费者采用后才能报告支持。
+2026-09-21：当前开发快照 [v0.8.0](v0.8.0/README.md) 已定义通用模板包与 AI 接口，移除招聘专属协议，发布状态见版本说明。消费者采用后才能报告支持。
 
 此前机器可读契约位于 [v0.7.0](v0.7.0/README.md)，在 [v0.6.0](v0.6.0/README.md) 上增加 browser v3 的表单选择、勾选、输入值读取和按键操作。发布标识 `contracts-v0.7.0`，实际发布以远程 tag 为准。P2/P3 的平台协议尚未实现。
 
@@ -13,9 +13,9 @@
 | P1.1 | 流程定义与版本、节点描述、运行请求/快照/事件、文件/凭据引用 | JSON Schema 和脱敏示例 |
 | P1.1 | NodeExecutor、平台连接边界的职责 | 接口说明；函数与 AbortSignal 等运行对象不伪装成 JSON 数据 |
 | P1.1 | BrowserDriver、BrowserSession 与能力描述 | Playwright/Selenium 统一接口说明；库对象不能进入通用流程和跨端协议 |
-| P1.2 | RecruitingPolicy、RecruitingAction、AIReplyDraft、ContactExchangeResult、UserAttentionItem | 招聘配置、分动作授权、事实绑定草稿、外发去重和联系方式提醒的 JSON Schema/示例 |
-| P1.2 | AIProvider、AIReplyRequest、AIReplyResult | Provider 调用/能力接口说明，语言无关的请求/结果；分别适配 Codex Responses 和 DeepSeek Chat Completions |
-| P1.2/P1.3 | TemplateManifest、TemplatePackage | P1.2 本地模板格式、参数、来源版本与能力要求；P1.3 包导入导出验证 |
+| 模板业务 | 招聘事实、策略、站点和联系方式 Schema | 只由模板仓库维护，不属于客户端公共能力枚举 |
+| P1 | AIRequest、AIResult、SDK 1.0 | 结构化输出、显式 Provider/模型绑定；业务事实校验归模板 |
+| P1 | TemplateArchiveManifest、TemplateInstanceRef | 标准包 2.0、每入口资源和授权、不可变定义、多入口实例 |
 | P2 | 设备能力、注册、心跳、事件补报、管理查询 | OpenAPI、消息 Schema 和兼容示例 |
 | P3 | 版本发布、授权、命令、回执、平台调度 | OpenAPI、消息 Schema 和去重/授权用例 |
 | P4 | TemplateCatalogEntry、TemplateRelease | 模板商店目录、发布状态、版本与获取 API；复用 P1 模板包格式 |
@@ -30,6 +30,8 @@
 - 初期消费者将某个已发布版本的规范及生成产物纳入自身仓库，记录来源版本、内容摘要、生成器版本和再生成命令；复制件只由发布版本更新，不手工分叉维护。
 - 暂不搭建私有包注册中心。未来如改为包分发，仍固定契约版本，不使用相邻目录依赖或运行时读取主目录。
 - 规范源仓库为 [zhongmiao-org/flow-ark](https://github.com/zhongmiao-org/flow-ark)。tag 名称与第一个契约版本在实际发布时记录；治理文档上传不等于契约已经发布。
+
+当前没有产品正式发布。已有 tag 保留为不可变开发快照；当前只实现现行契约，拒绝不支持的包格式，不开发旧客户端兼容或数据迁移。
 
 ## 版本与兼容
 
@@ -49,7 +51,7 @@
 ## 跨仓库变更顺序
 
 1. 在治理仓库更新定义、示例、兼容说明及必要的迁移说明。
-2. 验证正反例与旧版本行为；有 Java/TypeScript 消费者后，分别做解析和序列化往返验证。
+2. 验证当前契约正反例和支持范围；开发阶段不增加旧客户端兼容层，有多语言消费者后分别验证往返。
 3. 发布契约版本，再在受影响应用仓库中分别更新固定版本和生成产物。
 4. 按兼容说明部署或发布消费者。需协调升级时记录支持范围与先后顺序。
 5. 在各自仓库报告验证结果，不以治理仓库发布成功代替应用已兼容。

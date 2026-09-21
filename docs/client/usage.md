@@ -1,5 +1,8 @@
 # FlowArk · 序舟
 
+2026-09-21 当前边界：业务模板、demo/example 和完整模拟网站已迁入独立模板仓库。0.2.0 仅接收标准 ZIP，通过模板库创建多入口实例；旧 JSON、旧内置业务和旧客户端兼容路径已移除。当前使用与实测以[模板验收](../templates/acceptance.md)和[模板开发](../templates/development.md)为准，下文旧版本记录保留历史含义。
+
+
 本地自动化工作台，当前为 **macOS Apple Silicon 开发预览版**。已有可运行 Electron 客户端、流程编辑器、逐步调试、独立执行进程、SQLite、文件/Excel/HTTP/浏览器节点和本机调度。2026-09-20 当前源码、已验收候选与日常安装均为 0.1.35，客户端 [PR #33](https://github.com/zhongmiao-org/flow-ark-client/pull/33) 已由 CI 自动合并。日常 0.1.28 → 0.1.35 升级、旧数据保留及实际内置网页练习后正常重开已验证。源码、候选包与日常安装的具体能力分别以[验收记录](acceptance.md)为准，P1 尚未完成。
 
 0.1.35 的 187 项单元、74 项宿主测试，以及源码 redaction（7 组）、run-observation（5 组）、embedded、flow-export（5 组）均通过；DMG 候选 redaction（7 组）、run-observation（5 组）、embedded、install 四组通过，install 使用 0.1.28 → 0.1.35 隔离数据升级。对象键和公共错误出口脱敏已修复；Main 加密失败验收使用定向错误注入，不代表实际 Keychain 故障。详见[脱敏边界](redaction-boundaries.md)与[验收记录](acceptance.md)。

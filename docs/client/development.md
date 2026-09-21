@@ -1,5 +1,8 @@
 # FlowArk 客户端
 
+2026-09-21 当前边界：业务模板、demo/example 和完整模拟网站已迁入独立模板仓库。0.2.0 仅接收标准 ZIP，通过模板库创建多入口实例；旧 JSON、旧内置业务和旧客户端兼容路径已移除。当前使用与实测以[模板验收](../templates/acceptance.md)和[模板开发](../templates/development.md)为准，下文旧版本记录保留历史含义。
+
+
 客户端仓库负责 P1 macOS 单机客户端，Electron / React / TypeScript / pnpm / SQLite。当前为开发阶段，真实业务与兼容状态只以 acceptance.md 的证据为准。
 
 统一规则入口：主目录存在时先读 [AGENTS.md](../../AGENTS.md)、[架构](../architecture.md)、[ROADMAP](../../ROADMAP.md)。远程 [flow-ark](https://github.com/zhongmiao-org/flow-ark)，0.1.35 采用治理基线 `f708195eabb5088d13500f02d23fa837f6886f3b`。契约为应用 `contracts/` 中固定的发布副本，版本及发布状态见 [契约采用记录](contracts-adoption.md)；不得伪造已发布 tag。
