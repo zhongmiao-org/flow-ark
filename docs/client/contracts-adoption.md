@@ -1,8 +1,10 @@
 # 固定契约来源
 
-当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `c9e2e03dfd4dc5c661bae4d17066e12b506530c3`（[PR #104](https://github.com/zhongmiao-org/flow-ark/pull/104)，CI 自动合并），纳入[理解页输出选择](task-output-selection.md)与此前[首次教学](first-task-learning.md)规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
+当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `5bf8a6453aaa62e483e4f110981078c400f94cc7`（[PR #107](https://github.com/zhongmiao-org/flow-ark/pull/107)，CI 自动合并），纳入[任务附件 v1](task-attachments.md)、[理解页输出选择](task-output-selection.md)与此前[首次教学](first-task-learning.md)规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
 
-2026-09-22 理解与补问页已接入输出选择，三尺寸、目录取消/重选/移除、文件名/策略保存和发送核对通过隔离 GUI 验证。首次教学从界面选择到真实文件及预览已移除 flow.save 绑定捷径；明确覆盖保留旧产物，重开不重发。共享流程的其他任务不能夺取已有输出选择或仍绑定的归属。276 项单元与 91 项执行集成通过；系统目录返回和模型 HTTP 仍为夹具，Mac 锁屏阻止原生选择器人工验证，未完成真实供应商或 U12 验收。治理基线与公开契约不变，详见 [Figma 实施记录](design-implementation.md)。
+2026-09-22 描述与附件页接入明确选择的 UTF-8 文本和 PNG/JPEG，加密副本、完整预览、移除、重开与模型图片块通过验证。新增 task.attachment.choose/remove/preview 为本机严格白名单；内部媒体参数不进入公开 AIRequest、SDK 或流程格式。286 项单元、91 项执行集成、附件三组、AI 任务十五组和教学五组回归通过。GUI 文件/目录返回及模型 HTTP 为夹具，Main 图片解码和真实文件参与验证；原生选择器操作仍被 Mac 锁屏阻止，真实模型与完整 U02/U12 未验收。无 SQLite 迁移，详见 [Figma 实施记录](design-implementation.md)。
+
+2026-09-22 理解与补问页已接入输出选择，三尺寸、目录取消/重选/移除、文件名/策略保存和发送核对通过隔离 GUI 验证。首次教学从界面选择到真实文件及预览已移除 flow.save 绑定捷径；明确覆盖保留旧产物，重开不重发。共享流程的其他任务不能夺取已有输出选择或仍绑定的归属。当批 276 项单元与 91 项执行集成通过；系统目录返回和模型 HTTP 仍为夹具，Mac 锁屏阻止原生选择器人工验证，未完成真实供应商或 U12 验收。当批采用 PR #104 基线，公开契约不变，详见 [Figma 实施记录](design-implementation.md)。
 
 此前输出选择后端已验证 task.output.choose/configure/clear、路径不外发、固定输出和执行版本复核，真实 Worker 覆盖序号/明确覆盖及目录失效。该轮系统目录与模型采用夹具，完整理解页尚未接入，后续界面证据见上条。
 

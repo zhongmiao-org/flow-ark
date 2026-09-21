@@ -24,7 +24,7 @@
 | 存储异常、版本保护、ZIP 导出、退出/托盘 | 2:4732—2:5045 | 待实现/验收 |
 | 导航、来源恢复、未保存更改与离开保护 | 8:18364 及导航规范 | 运行列表往返恢复筛选、页码、滚动与焦点；编排执行来源可返回。其他来源、统一离开守卫和全局键盘返回待实现 |
 | AI 开始任务、理解补问、完整方案、修改/采纳/撤销、检查与执行结果 | 23:1941—23:4724、23:10659—23:11076、27:13212 | 文本任务、规划宿主、检查、执行/结果/详情/失败与手动关联重跑进入草稿 PR；修复差异、起点与完整检查联动已接入；218 项单元、83 项宿主集成和修复/检查/结果 GUI 通过。完整主路径、目标聚焦与真实模型待实现/验收 |
-| 教学、附件/目标、应用与工具、桌面、紧凑观察和复杂编辑增量 | design-ai-task.md 的其余新增节点；U01–U12 | 待独立协议、实现及真实验收；文本上下文不冒充读取文件、图像或窗口 |
+| 教学、附件/目标、应用与工具、桌面、紧凑观察和复杂编辑增量 | design-ai-task.md 的其余新增节点；U01–U12 | 教学、网页来源、输出选择、文本/PNG/JPEG 附件及复杂编辑已有分批协议和隔离验证，详见下方增量记录；真实选择器、模型、账号/应用/MCP、有限桌面与完整用户验收仍未完成 |
 
 状态目录作为对应功能状态的规格；不把目录六宫格或路径总览做成产品主页面。每行须取得实际代码、行为验证、截图和安装运行证据后才完成。最终整体仍须检查 1440×960、1920×1080 和 1040×700，并通过真实内置浏览器的拾取/填写/回执。
 
@@ -421,3 +421,29 @@ GUI 严格串行：教学主进程 50781 → 50820 → 50846，网页回归 5216
 验证边界：目录返回由隔离 Main 的 showOpenDialog 结果夹具提供，模型为本机 HTTP 夹具；Renderer/Main/Host/Worker 与实际文件参与验证。原生桌面工具报告 Mac 锁屏且无法自动解锁，已请求用户解锁，原生目录选择器人工操作尚未完成。没有新的真实供应商、用户 U12、打包或安装证据。Figma MCP 仍受 Starter 配额限制，未声称取得新的设计上下文；完整 186 画板 / U01–U12 目标继续，客户端 PR #37 保持草稿。
 
 当前完整客户端 SHA 的 [CI 35644311949](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35644311949) 已 success，Validate 106480933560 通过，Auto Merge 106481468833 因草稿跳过；同 SHA 的 run 35644310347 被并发工作流取消，不计为通过。已核对 PR 为 OPEN/draft。
+
+## 2026-09-22 描述与附件及真实图像输入（23:2280）
+
+客户端提交 `24827822a0de430115612a48721e879ad1c60e02` 采用治理 [PR #107](https://github.com/zhongmiao-org/flow-ark/pull/107) 合并基线 `5bf8a6453aaa62e483e4f110981078c400f94cc7`，落实[任务附件 v1](task-attachments.md)。公开契约 0.12.0、SDK 1.0、包 2.0 与不可变 tag 不变，无 SQLite 迁移或新增依赖；模板仓库未改动。
+
+描述页以 470/658 双栏接入附加文件、网页链接和目标截图。文件与图片经 Main 单项选择，Host 有界读取普通文件、验证 UTF-8/格式/尺寸/摘要，再由 Main 真实解码图片。任务保存加密不可变副本，不保留原路径；完整预览不请求网络，移除不删除原文件或旧运行/产物。支持 txt、md、csv、tsv、json、log、yaml、yml、xml 与 PNG/JPEG，其他文档/工作簿格式明确拒绝。截图入口选择图片文件，不自动截取桌面。
+
+新增严格 `task.attachment.choose/remove/preview`；私有文件路径与图像校验方法不进入 Renderer 白名单。副本和任务修订同事务，取消/迟到选择、并发 CAS、失效与事务失败不能写回。增删取消旧生成并保留界面草稿；移除损坏附件不要求先保存含损坏附件的旧输入。重开再次检查归属、元数据和 SHA256，不自动发送或读取原文件。
+
+普通规划和单步修改向模型发送明确选择的正文/图片，发送核对展示名称、类型、大小和完整副本入口；图片通过供应商实际图像块发送，附带与上下文相同的附件 ID，不将 base64 塞入文本 JSON。DeepSeek Chat Completions 与 OpenAI Responses 使用各自格式，保留显式模型、取消和结构化结果检查；没有 Files API、远程图像获取或静默换模型。专用网页目标修复继续使用已有受限上下文，不自动加入任务附件和补问答案。
+
+本轮验证：
+
+- `pnpm check`：286/286 单元、类型检查与构建通过，日志 `/private/tmp/flowark-attachments-check-final.log`。新增十项附件行为用例：IPC 伪造、加密副本/原文件变化/重开、非法文件/图像、CAS 与迟到选择、事务失败、跨任务与篡改、数量/文本/图片预算、取消在途生成、凭据等待与超时、两种实际图片请求形状。既有大分块提示保留，不是构建失败。
+- `pnpm test:runtime`：91/91 Host/Worker 集成通过，日志 `/private/tmp/flowark-attachments-runtime.log`；该本地运行早于最后的图片说明文案和 Preload 白名单修正，最终提交由 CI 再跑同命令。
+- `pnpm test:task-attachments`：三组通过，日志 `/private/tmp/flowark-attachments-ui-final.log`，汇总 `flow-ark-client/test-results/figma/attachments-summary.json`，数据 `/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-attachment-ui-DDr8oO`。覆盖取消、文本原件变化而副本不变、真实 Main 图片解码及损坏拒绝、完整预览无网络、理解页返回、移除/重选、实际 HTTP 文本与图片块、无本机路径、无隐式 Run；原图片删除后重开仍可验证副本，移除不删原文本。
+- `pnpm test:figma-task`：十五组回归通过，七次本机 HTTP 模型请求，日志 `/private/tmp/flowark-attachments-ai-regression.log`，数据 `/private/tmp/flowark-figma-task-u1shTp`。补问、取消/迟到结果、真实 Worker、任务/流程冲突、旧运行保留与串行重开通过，passed/closed 均为 true。
+- `pnpm test:learning`：五组回归通过，日志 `/private/tmp/flowark-attachments-learning-regression.log`，数据 `/private/tmp/flowark-learning-ui-Nlb3ap`。教学与理解页三尺寸、目录取消/选择/移除、文件名与策略、发送披露、实际采纳和 Worker 文件、明确覆盖及旧产物保留、跨重开继续/重新学习均通过，passed/closed 均为 true。
+
+新 Figma `get_design_context` 对 23:2280 仍返回 Starter 额度限制。实际查看已有原始导出 `taskbrief-AI · 描述与附件.png` 和生成规格，未声称取得新的 MCP 上下文。最终附件截图 `test-results/figma/attachments-{1440,1280,1040}.png`：1440 两栏 x=256/750、y=230、宽 470/658，实际附件与未配置 AI 服务使高度扩展为 916；1280 为 470/650，1040 为 904 宽纵向排列，均无横向溢出。已目视核对 1440 与最终 1040；这不代表动态内容高度、侧栏和完整页面的最终 1:1 验收。
+
+GUI 严格串行，附件主进程 56296 → 56325、教学主进程 56442 → 56478 → 56500 均明确退出；启动前检查不存在 FlowArk/Electron 主实例，缓存自身 ChildProcess，清理自身任务后确认退出才重开。最终进程复核无残留。初次附件 GUI 暴露 Preload 未登记新方法，已补齐；后续失败是最近任务按钮的可访问名称包含状态/日期，修正定位后完整链路通过。失败尝试不计为通过。
+
+验证边界：GUI 文件/目录返回是隔离 Main showOpenDialog 结果夹具，图片解码、Renderer/Main/Host/Worker 和文件是实际链路，模型为本机 HTTP 夹具。再次检查原生桌面仍报告 Mac 锁屏且无法自动解锁，用户解锁问题保持待答，未操作真实系统选择器。未验证真实 DeepSeek/OpenAI、完整 U02/U12、其他附件格式或用户全路径，未重新打包、安装或发布。完整 186 画板 / U01–U12 目标继续，客户端 PR #37 保持草稿。
+
+该完整提交的最新 [CI 35648126260](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35648126260) 已 success，Validate 106493804217 的 `pnpm check` 和 `pnpm test:runtime` 均通过；Auto Merge 106494309597 因草稿跳过。PR 更新事件替代了同 SHA 的 run 35648045366，后者 cancelled，不计为通过。PR 已核对 OPEN/draft，未沿用旧提交结果。
