@@ -8,9 +8,9 @@ from urllib.parse import unquote
 
 root = Path(__file__).resolve().parents[1]
 tracked = subprocess.check_output(['git', 'ls-files'], cwd=root, text=True).splitlines()
-assert not any(p.startswith(('flow-ark-client/', 'flow-ark-server/', 'flow-ark-admin/')) for p in tracked)
+assert not any(p.startswith(('flow-ark-client/', 'flow-ark-server/', 'flow-ark-admin/', 'flow-ark-templates/')) for p in tracked)
 assert not (root / '.gitmodules').exists()
-for name in ['flow-ark-client', 'flow-ark-server', 'flow-ark-admin']:
+for name in ['flow-ark-client', 'flow-ark-server', 'flow-ark-admin', 'flow-ark-templates']:
     subprocess.run(['git', 'check-ignore', '--no-index', name + '/probe'], cwd=root, check=True, stdout=subprocess.DEVNULL)
 for manifest in sorted((root / 'contracts').glob('v*/SHA256SUMS')):
     for line in manifest.read_text().splitlines():

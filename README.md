@@ -2,11 +2,13 @@
 
 FlowArk 是本地优先的自动化工作台，连接显式选择的内置浏览器或本机已安装浏览器、自定义脚本和业务文件；首版 AI 适配 Codex、DeepSeek，后续通过可选的平台服务提供设备监控、远程治理和模板商店。
 
-此目录是 **FlowArk 项目主目录，也是独立的治理仓库**。客户端、服务端、后台管理台以独立 Git 仓库放在子目录中，各自构建和发布。
+此目录是 **FlowArk 项目主目录，也是独立的治理仓库**。客户端、模板、服务端、后台管理台以独立 Git 仓库放在子目录中，各自构建和发布。
 
 治理仓库：[zhongmiao-org/flow-ark](https://github.com/zhongmiao-org/flow-ark)，默认分支为 `main`。
 
 ## 当前状态
+
+2026-09-21：通用客户端与独立模板仓库解耦正在实施。标准 ZIP 包、多入口和 SDK 边界见[模板开发](docs/templates/development.md)，完成状态见[模板验收](docs/templates/acceptance.md)。以下版本记录为历史证据。
 
 - 文档基线：P0，2026-09-16。
 - 当前交付：P0 已完成；P1 开发预览客户端已建立，具有可运行桌面、通用流程执行和本地检查。
@@ -47,6 +49,7 @@ flow-ark/                          # 当前治理仓库
 ├── contracts/
 │   └── README.md                 # 契约管理与已发布版本入口
 ├── flow-ark-client/               # 已建立的独立客户端仓库，根仓库忽略
+├── flow-ark-templates/            # 独立模板开发仓库，根仓库忽略
 ├── flow-ark-server/               # 规划：P2 创建，具有自己的 .git/
 └── flow-ark-admin/                # 规划：P2 创建，具有自己的 .git/
 ```
@@ -54,7 +57,8 @@ flow-ark/                          # 当前治理仓库
 | 仓库 | 负责内容 | 技术方向 | 建立阶段 |
 | --- | --- | --- | --- |
 | `flow-ark` | 总体文档、公共契约、跨仓库决策 | Markdown、JSON Schema、OpenAPI | P0 |
-| `flow-ark-client` | 编辑器、本地执行、招聘适配、AI 回复、SQLite、系统能力 | Electron、React、TypeScript、Playwright/Selenium 适配器、ExcelJS | P1.1 |
+| `flow-ark-client` | 编辑器、本地执行、通用 AI、SQLite、系统能力 | Electron、React、TypeScript、Playwright/Selenium 适配器、ExcelJS | P1.1 |
+| `flow-ark-templates` | 业务模板、demo/example、脚本、提示词、业务测试 | TypeScript、JSON Schema、标准 ZIP 包 | P1 解耦 |
 | `flow-ark-server` | 平台 API、用户权限、设备、任务、MySQL 迁移 | Spring Boot、MySQL、Maven | P2 |
 | `flow-ark-admin` | 平台管理界面 | React、TypeScript | P2 |
 

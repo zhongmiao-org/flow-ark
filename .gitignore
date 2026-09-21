@@ -2,6 +2,7 @@
 /flow-ark-client/
 /flow-ark-server/
 /flow-ark-admin/
+/flow-ark-templates/
 
 # 本机文件、凭据和运行产物不得进入治理仓库。
 .DS_Store
