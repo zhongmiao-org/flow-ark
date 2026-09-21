@@ -295,3 +295,24 @@ Figma `23:4575`、`23:4724` 的修复差异和执行起点已接入真实失败�
 最终提交 CI 暂未取得：SSH `ls-remote` 与 GitHub Git refs API 均已确认分支为 `9d766e9`，但 PR #37 的 GraphQL/REST 仍返回 `a106cac`。更新最终 PR 描述后启动的 35626220855 仍关联旧提交，不能计为最终提交通过；没有重复推送、改写历史或绕过检查。后续继续核对 PR 同步及最终 SHA 的检查，客户端保持草稿。
 
 本批未重新生成安装候选、DMG/ZIP 或安装。客户端 PR #37 继续为草稿，完整 186 画板 / U01–U12、首次教学、附件/完整目标身份、真实供应商、MCP、有限桌面、原生观察、全局导航和用户验收均保留原要求。
+
+
+## 首次教学基础：不覆盖的文本输出
+
+2026-09-22。Figma `23:2106` 的第一次实操要求“保存为文本文件 · 新建文件，不覆盖”。本轮 get_design_context 仍因 Starter MCP 配额失败，未取得新的线上上下文；已复核原始 `taskguide-AI · 第一次实操.png` 和生成规格。本轮完成其通用文件执行基础，不将它记录为教学界面、跳过/恢复或真实 AI 主路径完成。
+
+[治理 PR #95](https://github.com/zhongmiao-org/flow-ark/pull/95) 定义 [file v3 create](file-create.md)，源提交 `0b55087f64e748992f65ee8e8a0880166e4118ea`，CI 35627346576 通过后合并为 `410d75b7d5375dcb42f73cebfb88ba06281b335c`；远程不可变 tag `contracts-v0.11.0` 已核对同一提交，原契约 tag 未移动。客户端固定纳入规范、示例、摘要和生成类型，无跨仓库运行依赖。
+
+客户端提交 `b91c3613ebdcff4b721365d7c06b050f0afe86cc` 接入 UTF-8 文本新建、10 MiB 字节限制、静态/运行时引用校验及原子不覆盖。表单将“新建文本文件（不覆盖）”与覆盖写入区分，自动声明所需能力，沿用保存/撤销和目录绑定。运行检查仅要求此输出目录的写权限，AI 规划说明与资源摘要明确同名停止。已有文件、目录或符号链接不替换，不自动改名或重试；产物登记失败保留已创建文件并报告失败。
+
+本轮证据：
+
+- `pnpm check`：243/243 单元、类型和构建通过，日志 `/private/tmp/flowark-file-create-check.log`。新增七组覆盖 UTF-8 边界、空文本、非法内容/路径、引用和能力、普通/目录/有效及悬空链接、12 方并发同名竞争、产物失败及操作转换。实际输出与旧文件字节均回读核对。
+- `pnpm test:runtime`：84/84 通过，日志 `/private/tmp/flowark-file-create-runtime-unrestricted.log`。真实 Worker 在人工等待期间固定旧参数与流程快照，随后保存原始文本；第二次显式运行失败且无新产物，下游步骤不执行，旧文件和副本保留。最初受限环境出现 Node 子进程断言/超时，日志单独保留于 `/private/tmp/flowark-file-create-runtime.log`，不将该次计为通过。
+- `pnpm test:file-create`：四组通过，独立数据 `/private/tmp/flowark-file-create-ui-UdLA7A`，证据 `flow-ark-client/test-results/figma/file-create-summary.json` 为 passed/closed true。覆盖操作切换/撤销/重做、非法文本保存拒绝、变量引用保存、能力自动声明、只写目录运行检查，以及真实内置网页读取本机无账号页面标题后通过 Worker 新建文本和验证产物副本。第二次显式运行同名停止，历史不变，无自动重试。
+- 串行重开确认前一个真实子进程退出后才启动下一个，两个 PID 31447/31474 均已退出；重开保留配置、成功历史和 verified 副本，Run 总数仍为两次。首轮 UI 检查因错误信息带 Electron 前缀而匹配超时，文件保护已生效且 PID 31332 已退出；修正夹具匹配后完整四组通过。未关闭用户实例。
+- 已查看 `file-create-1440.png`：表单可读展示变量来源、相对输出和新建限制。此处复用现有文件属性表单，不据此声称整个编排页的 Figma 视觉差异已全部完成。契约摘要、格式和 diff 检查通过。
+
+本轮未打包或安装；客户端仍在草稿 PR #37，完整 186 画板 / U01–U12 目标保持。下一步继续接入首次教学与真实任务/运行结果的进度关联，缺失的跳过、恢复、重新学习不得用静态勾选冒充。
+
+前轮 PR 元数据滞后已恢复：此次推送后 Git refs 与 PR #37 均识别最新 `b91c361`，[CI 35628566309](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35628566309) 已在该完整 SHA 上通过，Validate 106428872795 success，Auto Merge 因草稿跳过。PR 仍为 OPEN/draft；不沿用 `a106cac` 的旧检查结果。
