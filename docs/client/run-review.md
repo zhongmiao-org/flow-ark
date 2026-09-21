@@ -19,13 +19,15 @@
 | 方法 | 输入与结果 |
 | --- | --- |
 | `flow.run.preview` | `{id, debug?, task?}`；id 为已保存流程 ID（1–100 字符），debug 默认 false。可选 task 为 `{id, revision}`，revision 为正安全整数。返回可确认状态、内容 token、流程概览、实际资源、逐步影响、检查项及限制说明 |
-| `flow.run.confirm` | `{id, debug?, task?, token, requestId, reviewed:true}`；token 为 64 位小写十六进制，requestId 为 UUID。只确认已检查内容，不接收覆盖流程、绑定、参数、权限或执行起点的字段；返回唯一的新 Run |
+| `flow.run.confirm` | `{id, debug?, task?, token, requestId, reviewed:true}`；token 为 64 位小写十六进制，requestId 为 UUID。只确认已检查内容，不接收覆盖流程、绑定、参数、权限或执行起点的字段；成功返回唯一 Run；确认未创建运行时返回 `{rejected:true,message}`，通信失败仍按结果未知处理 |
 
 task 存在时核对任务关联 flowId 与 revision，拒绝仍在生成或有未采纳提案的任务；不通过确认自动采纳 AI 输出。预览可生成内部脚本编译缓存，但不生成版本记录、Run、事件、计划、授权或外部操作。不可确认预览不提供可用 token。
 
 token 固定本次宿主会话/挂起代次、流程和绑定、选中 task、浏览器绑定/文档身份、所需目录/文件身份及固定脚本摘要。异步准备前后重新读取，任何变化都要求重新检查。重开或休眠恢复后不能继续使用未确认的旧 token。
 
 确认沿用手动/计划准入 FIFO。预检前后及事务前重新校验；版本、快照、Run、初始事件和 `flow-run-request` 去重记录在同一事务中保存，失败不留半个 Run。相同 requestId 与载荷串行、并发、丢失回复或重开后确认都返回同一 Run；不同载荷复用 requestId 拒绝。已登记请求可在退出/挂起时查询其原 Run，不据此再执行。未确认 token 不持久化。
+
+2026-09-21 页面接入补充：宿主返回明确拒绝前，必须重新查询该 requestId 的持久记录；如果 Run 已存在则返回该 Run。记录不完整、存储故障或无法核对时仍返回错误，不能声称没有执行。`{rejected:true,message}` 仅表示本次载荷没有创建新运行，界面可让用户重新检查；Promise 拒绝/超时不能当作这类明确拒绝，必须保留原 requestId 查询。同一已登记请求的再次查询仍先于退出/挂起限制。
 
 快照新增仅本地的 `runReviewAuthorization`，保存本次已核对资源的身份；Run 可选 `review:{reviewedAt}` 标识已检查后启动。进入执行槽前后重验当前授权与固定资源身份，排队期间权限撤销、目录被替换、浏览器重新绑定或原页面切换均停止此 Run。流程正文在确认后修改不影响已固定快照；真正执行中仍沿用各能力的资源范围、逐动作授权和副作用去重。确认与开始执行之间的操作系统资源变化仍由实际文件/浏览器动作继续校验，不承诺无竞态的外部事务。
 
