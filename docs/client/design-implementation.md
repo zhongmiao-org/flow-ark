@@ -182,3 +182,27 @@ Figma `23:4575`、`23:4724` 的修复差异和执行起点已接入真实失败�
 新 Figma MCP 请求仍被 Starter 配额限制，依据已有原始导出与设计生成源核对，未声称成功获取新上下文。完整 186 张画板与 U01–U12 继续保留；教学、文件/截图与目标身份、MCP、有限桌面、紧凑观察、其余节点/模板/计划/设置、统一离开守卫、真实模型与用户验收仍待完成。客户端 PR #37 继续为草稿，0.3.0 未打包或安装。
 
 客户端本批提交 `d2f97a3f0fb6fb27f70da342a29c454f10b2cb1e` 已推送至[草稿 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)。最新 [CI Validate](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35604712780/job/106348887736) 通过类型、218 项单元、构建与 83 项宿主集成；Auto Merge 因草稿跳过。更新 PR 描述触发的较早同提交流水线被取消，未算作通过。最终进程检查未发现 FlowArk/Electron 调试主进程残留。
+
+## 紧凑观察预研与跨框架输入修复
+
+对应 U11 和 Figma `23:5921`、`23:6084`、`23:6221`。继续使用已取得的原始导出与生成规格；此前新上下文请求被 Starter 配额拒绝，不是账号登录失败，本轮没有声称取得新 MCP 上下文。
+
+单窗口原型使用父 `View` 和负偏移的同一 `WebContentsView`：1040×700、1920×1080 下切换缩放与 100% 时，网页保持 1920×1080 CSS px、桌面媒体查询、WebContents ID、文档时间来源和已填内容；普通及跨源框架目标能唯一拾取。锁屏时桌面缩略图为 0×0，不能宣布系统级绘制裁剪或物理鼠标命中通过。原型 `/private/tmp/flowark-native-observation-probe.mts`、对照结果 `/private/tmp/flowark-observation-probe-h0d8KK/summary.json` 保留 `passed:false`、`physicalInputVerified:false`、`closed:true`。生产客户端尚未接入父 View 裁剪。
+
+对照发现两个现象：`sendInputEvent` 在裁剪和未裁剪时都只向根 iframe 发出事件，不能凭这个接口判断原生裁剪失败（[Electron 历史问题](https://github.com/electron/electron/issues/20333) 仅作线索）；实际自动化使用的 CDP 点击在滚动后也会命中旧框架位置。动画帧等待候选虽在可见原型通过，在部分隐藏状态超时，未采用。最终实现采用可信悬停回执、位置复核、祖先遮挡检查和单次按下/释放，规则见 [内置浏览器](embedded-browser.md)。
+
+客户端提交 `1d0da4910d5525ddb6165af668a3cbcf97388aa9` 已推送至[草稿 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)。没有新增 IPC、存储字段或流程节点；公共契约仍为 0.9.0，采用治理基线仍为 `0261e2ce610b3b1e3314fd439f3bd766935f0d7f`。
+
+| 验证 | 实际结果与证据 |
+| --- | --- |
+| `pnpm check` | 类型、218 项单元及构建通过；最后脚本调整后类型和格式再次通过。日志 `/private/tmp/flowark-pointer-check.log` |
+| `pnpm test:runtime` | 允许本机端口/子进程的环境中 83/83 通过。首次沙箱内 EPERM 及连带超时未计为通过；最终日志 `/private/tmp/flowark-pointer-runtime.log` |
+| `pnpm test:embedded-pointer` | 10 组通过，数据 `/private/tmp/flowark-pointer-9e4BVJ`；`test-results/embedded-pointer.json` 为 passed/closed true。覆盖可见缩放、隐藏、最小化和 100% 下的两层跨进程框架，每次只有一组可信按下/释放/点击和一个服务端动作回执；输入回读、悬停移动、点击导航、按下移除目标、父框架遮挡、伪造悬停超时及关闭期间不点击分别通过 |
+| `pnpm test:browser` | 框架读写、上传/下载字节、无效定位拒绝和取消通过 |
+| `pnpm test:picker` | 14 组通过，数据 `/private/tmp/flowark-picker-dt86LB`。初次断言混用新 zoomFactor 与旧 devicePixelRatio；改用窗口所在显示器缩放，并给绘制等待加上界后通过 |
+| `pnpm test:embedded` | 逐步调试、真实字段/服务端回执、最小化、取消重开、后台下载及会话失联通过。数据 `/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-embedded-desktop-r5DPw1`，退出 code 0。旧脚本仍引用模板拆分前的名称/步骤，已按现行平台夹具修正；服务端读取实际提交值，不用固定成功值；收尾先取消自己的未完成运行 |
+| `pnpm test:task-repair-native` | 七组再次通过，数据 `/private/tmp/flowark-repair-native-IwvikQ`，passed/closed true；三个模型请求为本机 HTTP 夹具。检查/结果页其余证据保留原批次范围 |
+
+生成了临时未签名应用目录 `/private/tmp/flowark-pointer-candidate/mac-arm64/FlowArk.app`，没有生成新版 DMG/ZIP、安装到日常路径或发布。独立模板仓库以该可执行文件设置 `FLOWARK_TEST_EXECUTABLE` 后运行 `pnpm test:client`，显式移除真实 AI 测试环境变量：三个正式 ZIP 经公共界面/IPC 导入，完整表单字段、附件字节、回执文件 `FORM-0001` 和关闭后重开通过。证据 `flow-ark-templates/test-results/installed-client.json`，数据 `/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-installed-template-QgE0g9`。首阶段四个成功运行，关闭后第二阶段再执行文件入口；源码目录已恢复，模板仓库无改动，realAI/realRecruiting 均为 false。脚本名称中的 installed 不代表本次验收已安装版，完整业务表单未放回客户端。
+
+本提交最新 [CI Validate](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35610000346/job/106366446094) 通过，Auto Merge 因草稿跳过；PR 描述更新取消的较早同提交流水线未计为成功。GUI 均串行，最终没有遗留 FlowArk/Electron 测试主进程。完整目标仍为 186 张画板、U01–U12、真实供应商、MCP/有限桌面及最终用户验收；本批不代表清晰观察界面或系统级裁剪已完成，客户端 PR 继续保持草稿。
