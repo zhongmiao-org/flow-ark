@@ -539,3 +539,27 @@ GUI 全部通过统一桌面测试锁严格串行；最终 AI 配置进程 74448
 最终模板主进程 78255 → 78273 严格串行并明确退出，使用统一桌面测试锁，没有启动第二个并行实例，结束后的实际主进程列表为空。真实 AI、原生选择器、完整模板管理及 U01–U12、安装/发布和用户验收仍未完成。Figma 8:18463 新请求仍被 Starter 额度拒绝，本轮依据已有原始 ZIP 导出和 `navigation.js` 设计规格；不宣称取得新的设计上下文。完整 186 画板目标继续，客户端 PR #37 保持草稿。
 
 最终完整提交 `b9d0dff351425b3ef740b845743fc37cd066430f` 的 [CI 35664192219](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35664192219) 已 success：Validate 106546530598 的 `pnpm check` 与 `pnpm test:runtime` 均通过，Auto Merge 106546965109 因草稿跳过。主体提交 `27e9a19` 的 CI 35663736406 也曾通过，但不用于代替最终修正提交的检查。
+
+
+## 2026-09-22 模板实例修订与原子保存基础
+
+客户端本地提交 `cdb056a39311fe69355c717e88194be6f7936243` 采用治理 [PR #115](https://github.com/zhongmiao-org/flow-ark/pull/115) 的已合并基线 `31aa91b1cda13dbfce3764578bbf076e2e148f35`，落实 [模板实例编辑规范](template-instance-editing.md) 的宿主保存部分。规范 PR 的 [CI 35665229034](https://github.com/zhongmiao-org/flow-ark/actions/runs/35665229034) 已 success；这不是客户端新增提交的 CI 结果。公开流程契约 0.12.0、SDK 1.0、标准包 2.0 与 SQLite 表结构不变，模板仓库未改动。
+
+`template.detail` 现在返回实际实例和全部入口流程内容的修订；缺失入口、图、输入或绑定变化会改变摘要，独立运行事件及历史快照不会改变摘要。严格 `template.save` 替换无修订的 `template.configure/template.input`；完整实例字段和指定入口输入在同一同步 Store 事务内保存，异步读取包后再次复核修订。旧页面、未知声明、Schema 错误、来源缺失及中途数据库失败均不能部分写入或隐式重建入口。名称同步入口显示名，长名称遵守实例 100/流程 200 字符限制；未指定入口的输入与已有步骤图保持，其他实例不变，不创建 Run。缺少能力的独立入口不阻止其他可用入口配置。
+
+现有共享配置与入口页已改用同一保存请求构造和回复处理，单独保存入口不会顺带提交共享配置草稿，单独保存配置不会丢弃入口草稿；保存期间继续编辑的普通字段保留。真实外部保存后，从旧入口或共享配置页保存均被 Host 拒绝，明确放弃并重新读取后采用新修订。本轮没有把四个标签页、实例名称编辑、切换实例/侧栏/快捷键的统一离开提示标为完成；原子“全部保存”的请求能力已准备，统一导航守卫仍待接入。
+
+本地验证：
+
+- `pnpm check`：类型、327/327 单元与构建通过，日志 `/private/tmp/flowark-template-editing-check.log`；既有大分块提示保留。新增 11 项行为验证覆盖严格 IPC/旧入口拒绝、多入口原子保存、非法声明/Schema、旧修订竞争、读取包期间改动、丢失回执重放拒绝、缺失入口、图/绑定摘要、SQLite 第二个流程写入故障下完整回滚、局部草稿及迟到编辑、长名称和独立不可用入口。
+- `pnpm test:runtime`：99/99 通过，日志 `/private/tmp/flowark-template-editing-runtime-full.log`。新增真实 Host/Worker 验证暂停和排队运行、固定计划/版本与快照保持原输入，两个运行实际输出仍为原值；重开读取新实例而不增加 Run。模板专项 3/3 日志 `/private/tmp/flowark-template-editing-runtime.log`。
+- `pnpm test:template-ai`：7 组通过，日志 `/private/tmp/flowark-template-editing-ai-ui.log`，汇总 `flow-ark-client/test-results/figma/template-ai-summary.json`，数据 `/private/tmp/flowark-template-ai-ui-ECF3em`。新增真实竞争保存、两处旧页面拒绝写入、草稿保留与明确重读，保留 AI 往返、系统加密失败、三种设置离开选择、来源读取失败/身份变化、独立入口、重开离线与标准包预览断言。供应商 HTTP 请求数为 0，唯一 Run 是明确启动的只读 Worker。
+- `pnpm test:flow-export`：标准 ZIP 往返、自定义流程导入导出、默认拒绝授权及实际脚本/文件输出通过，日志 `/private/tmp/flowark-template-editing-zip.log`；原调用迁移为带当前修订的 `template.save`，未减少原有输出核对。
+
+模板入口与模板来源设置三类页面各验证 1440/1920/1040 尺寸，无横向溢出；1440 入口仍为 728/400 双栏、gap 24、y=294、高 664，设置高 688。已目视核对最终 1440 入口。GUI 主进程 81556 → 81577 严格串行并 `closed:true`，之后才启动 ZIP 测试；全部结束后原生主进程列表为空。使用统一桌面锁，没有并行启动第二个窗口或关闭用户应用。
+
+首轮完整检查因沙箱拒绝本机 HTTP 监听发生 EPERM，取得所需本机监听权限后最终原命令通过。新增运行用例曾错误要求普通运行产生仅调试模式才有的步骤预览，已改为核对两种运行的真实持久化输出并通过；未修改产品行为来满足夹具。早期检查结果不代替最终结果。文件选择、系统保护写入失败和来源读取失败为明确夹具；真实系统保护、Renderer/Main/Host/Worker、Store 回滚和文件输出分别记录，不替代真实 AI、原生选择器人工操作或用户验收。
+
+交付限制：客户端推送被自动审批拒绝，理由为目标 `zhongmiao-org/flow-ark-client` 是 PUBLIC 且缺少明确公开这批源码的授权；随后已只读确认当前公开属性。已请求用户明确授权，未绕过拒绝、未改仓库可见性。上述客户端提交目前只在本地，远程 [PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37) 仍为 `b9d0dff351425b3ef740b845743fc37cd066430f`、OPEN/draft，不能将旧 head CI 当作本次通过。
+
+Figma 2:973 本阶段请求仍受 Starter 额度限制，规范依据既有原始 PNG 与 `revision.js` 设计源；无新 MCP 设计上下文。本轮没有打包、安装或发布。完整 186 画板 / U01–U12 目标继续；模板四页布局、统一离开保护、其他设置/工具实际调用、原生观察、有限桌面、真实模型及全路径验收仍待完成。
