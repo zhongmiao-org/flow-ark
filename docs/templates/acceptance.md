@@ -2,6 +2,18 @@
 
 2026-09-21。范围：独立模板仓库、标准包、多入口实例、通用 SDK、客户端业务迁出和本机开发数据清理。当前为未正式发布的开发候选，不承担旧客户端兼容。前程无忧真实简历更新属于下一模板阶段。
 
+## 0.2.1 统一 ZIP 往返增量
+
+自定义流程、修改后的模板流程与模板库统一「导出 ZIP」，默认文件名与清单 ID／版本一致。自定义流程包含可编辑参数结构、原生节点能力、文件／浏览器逻辑资源及默认禁止的写入声明；参数值、本机路径、凭据和授权不导出。重新导入标准包后可重新填写参数、绑定目录、明确授权并运行。
+
+治理 [PR #63](https://github.com/zhongmiao-org/flow-ark/pull/63) → `8c1f90a1120b12fb7421bf0fca8a0e52afbe8c07`；客户端 [PR #36](https://github.com/zhongmiao-org/flow-ark-client/pull/36) → `4905e375f3e71366464b0dcaedb05ad341733681`，均已由最新提交 CI 自动合并。
+
+验证：`pnpm check` 164 项通过。自定义流程经实际编辑器按钮导出、正式 ZIP 入口导入、实例参数表单填写、默认拒绝检查和目录授权后，打包 TS 脚本与文件节点成功输出 `ROUNDTRIP WORKS`。源码和仓库外 0.2.1 安装版的 `pnpm test:flow-export` 均通过，模板库导出保持原包摘要。
+
+本机默认并发宿主回归曾分别出现一次强杀夹具超时和一次 `kill EPERM`；同一 76 项集合串行复核全部通过，Linux CI 的默认 `pnpm test:runtime` 76 项通过。保留失败记录，不将本次串行成功当作并发夹具问题已修复。日志：`/private/tmp/fa-zip-runtime.log`、`/private/tmp/fa-zip-runtime-recheck.log`、`/private/tmp/fa-zip-runtime-serial.log`、`/private/tmp/fa-zip-ui-final.log`、`/private/tmp/fa-zip-installed.log`。
+
+0.2.1 macOS arm64 ZIP／DMG 开发候选已生成并安装到 `/Users/mac/Applications/FlowArk.app`，仍未签名、公证或正式发布。日常连续重开两次成功，工作台保持空、2 项浏览器配置和 DeepSeek 凭据保留，加密凭据摘要不变；见 `/private/tmp/fa-zip-daily-verified.json`。旧应用备份到 `/Users/mac/Library/Application Support/FlowArk Backups/development-before-zip-export-20260921T115801`；本次未执行数据清理。
+
 ## 仓库交付
 
 | 仓库 | 已自动合并 PR | 合并提交 |
