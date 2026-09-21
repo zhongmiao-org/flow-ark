@@ -35,3 +35,5 @@ Run 本地记录增加可选 debug，缺省 false；不写入模板或计划，�
 2026-09-20 重跑增量：运行详情预览并核对后创建关联的新手动 Run，默认原执行快照，可选当前已保存流程；本地接口、幂等、授权复验和兼容规则见 [人工核对后重新运行](run-rerun.md)。实际交付状态见验收记录。
 
 2026-09-20 运行观察增量：bootstrap/run.detail 新增可选 execution 只读观察，run.detail 同时返回可选存储 fault；采样时序、状态解释、历史兼容与验证见[运行详情与实时观察](run-observation.md)。请求、公共契约 0.7.0 和 SQLite v2 不变。
+
+2026-09-22 首次教学新增 learning.status/start/skip，本机加密进度与普通任务关联，CAS 和真实行为证据驱动；不增加公开流程字段、模板或数据库迁移。具体规则见[首次教学](first-task-learning.md)。
