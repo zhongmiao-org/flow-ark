@@ -379,3 +379,23 @@ Figma `23:4575`、`23:4724` 的修复差异和执行起点已接入真实失败�
 模型请求使用本机 HTTP 夹具；网页、Main/Host/Worker、凭据存储、文件与副本验证为真实链路。输出目录经现有 flow.save 测试接口准备，本次未将模型补问/目录绑定全套前台或非技术用户 U12 记为通过。尚未重新打包、安装或真实供应商验收；模板仓库未改动。客户端 PR #37 保持草稿，完整 186 画板 / U01–U12 目标继续。
 
 当前完整客户端 SHA 的 [CI 35638280183](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35638280183) 已 success，Validate 106461041236 通过，Auto Merge 106461542790 因草稿跳过。同提交 run 35638280269 被并发工作流取消，不计为通过；PR 已核对 OPEN/draft。
+
+
+## 2026-09-22 理解页输出选择的宿主与执行链路（23:2766 前置）
+
+客户端提交 `4905e52d79691af6a59d61d94eda4e104afabf85` 新增 task.output.choose/configure/clear。本机目录经 Main 系统选择器返回宿主，Renderer 不提交路径；输出选择与逻辑绑定、固定文件名、同名序号或明确覆盖贯穿规划、采纳、执行版本及每个 Worker 步骤。选择取消无写入，CAS 和取消代际拒绝迟到回复；等待凭据/模型返回期间修改使原请求失效。模型只收到逻辑输出说明，不收到本机路径或来源证明；系统资料计入总量限制。
+
+采纳事务保留其他资源，仅合并已选输出；同名手动绑定冲突不隐式覆盖。普通保存保留宿主输出标记，旧运行/计划保持原快照，选择更换或目录被替换后拒绝执行旧版本；撤销输出后采纳新方案移除旧宿主目录绑定。number 使用 file v4 create，overwrite 使用现行 file v1 write；覆盖仅限独立确认的静态文件名，目录/符号链接拒绝，网页仍只读。脚本与上传不能借固定输出选择读取或改写其他文件。真实输出内容仍须为文本。
+
+治理规范先由 [PR #103](https://github.com/zhongmiao-org/flow-ark/pull/103)（合并 `8b566c479aedd2665565d80235251ff89c17b7c6`）交付，再由 [PR #104](https://github.com/zhongmiao-org/flow-ark/pull/104) 对照真实 Schema 校正 file 写入版本与撤销边界，合并 `c9e2e03dfd4dc5c661bae4d17066e12b506530c3`。两者均经 CI 自动合并，CI 分别为 35639769011 / 35640459882，Validate 与 Auto Merge 成功。客户端固定采用后者；契约 0.12.0 / SDK 1.0 / 包 2.0 和既有 tag 不变，无 SQLite 迁移。
+
+验证证据：
+
+- `pnpm check`：274/274 单元、类型与构建通过，最终日志 `/private/tmp/flowark-output-check-final.log`。新增八组覆盖严格 IPC 与路径伪造、取消、并发选择、迟到回复、路径不外发、上下文合计限制、静态文件名/策略/非文本拒绝、采纳冲突及存储回滚、撤销和目录身份替换。
+- `pnpm test:runtime`：91/91，通过日志 `/private/tmp/flowark-output-runtime-full.log`。两组新增真实 Store/规划/Worker 测试直接从系统目录选择结果采纳并绑定，不使用 flow.save 准备目录。经过运行检查与唯一确认后保留原文件并写出 (1)，随后明确选择覆盖只替换原名，旧产物和快照保持不变，重开不重发模型/运行。
+- 同一真实 Worker 的人工等待/排队期间不允许改变输出选择；等待时目录被替换后，当前和排队运行均失败，两个目录都无新输出。普通运行、计划、历史重跑和手动文件名变化的绕过路径被拒绝。最终构建 `node --import tsx --test tests/task-output.integration.ts` 2/2 再次通过，日志 `/private/tmp/flowark-output-runtime-final.log`。
+- 初次测试将 macOS /var 与 /private/var 两种目录拼写当作相同字面值，以及系统夹具缺少恢复时的拾取取消回调，造成测试失败；修正夹具后完整重跑通过，失败不计为通过。执行边界验证使用重建后的 Worker。
+
+这一轮没有启动 GUI，系统目录返回和模型 HTTP 是夹具；Main 的原生选择器、完整 420/708 理解页、发送核对、教学去除 flow.save 测试绑定、按钮取消/重选及三尺寸视觉需要下一增量验证。没有安装包或安装、真实供应商或 U12 用户验收结论。Figma MCP get_design_context 对 23:2766 仍返回 Starter 额度限制，已查看既有真实导出与生成规格；不声称获得新的 MCP 设计内容。完整 186 画板 / U01–U12 目标与客户端草稿 PR #37 保持。
+
+当前完整客户端 SHA 的 [CI 35641488071](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35641488071) 已 success，Validate 106471611010 通过，Auto Merge 106472210750 因草稿跳过；同 SHA 的 run 35641487122 被后续 PR 事件取消，不计为通过。PR 状态核对 OPEN/draft，未沿用此前提交结果。

@@ -1,6 +1,8 @@
 # 固定契约来源
 
-当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `fe3b3389d582e55f9801b9254647759daf298b70`（[PR #101](https://github.com/zhongmiao-org/flow-ark/pull/101)，CI 自动合并），纳入[首次教学](first-task-learning.md)的本机进度与原子证据规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
+当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `c9e2e03dfd4dc5c661bae4d17066e12b506530c3`（[PR #104](https://github.com/zhongmiao-org/flow-ark/pull/104)，CI 自动合并），纳入[理解页输出选择](task-output-selection.md)与此前[首次教学](first-task-learning.md)规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
+
+2026-09-22 输出选择后端已验证 task.output.choose/configure/clear、路径不外发、固定输出和执行版本复核，真实 Worker 覆盖序号/明确覆盖及目录失效。该轮系统目录与模型采用夹具，完整理解页和原生选择器 GUI 尚未验收，详见 [Figma 实施记录](design-implementation.md)。
 
 2026-09-22 learning.status/start/skip 已通过严格 IPC、并发 CAS、开始/选择/采纳/运行事务回滚、真实文本预览完成与迟到回执隔离。首次教学完成、跳过、跨重开继续、重新学习通过本机 HTTP 模型夹具和真实内置网页/Worker 链路验证；进度保存于独立加密记录，不改写旧任务/运行。目录绑定使用现有 flow.save 测试接口准备，真实模型和非技术用户验收未完成，详见 [Figma 实施记录](design-implementation.md)。
 
