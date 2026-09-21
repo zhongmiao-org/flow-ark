@@ -206,3 +206,23 @@ Figma `23:4575`、`23:4724` 的修复差异和执行起点已接入真实失败�
 生成了临时未签名应用目录 `/private/tmp/flowark-pointer-candidate/mac-arm64/FlowArk.app`，没有生成新版 DMG/ZIP、安装到日常路径或发布。独立模板仓库以该可执行文件设置 `FLOWARK_TEST_EXECUTABLE` 后运行 `pnpm test:client`，显式移除真实 AI 测试环境变量：三个正式 ZIP 经公共界面/IPC 导入，完整表单字段、附件字节、回执文件 `FORM-0001` 和关闭后重开通过。证据 `flow-ark-templates/test-results/installed-client.json`，数据 `/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-installed-template-QgE0g9`。首阶段四个成功运行，关闭后第二阶段再执行文件入口；源码目录已恢复，模板仓库无改动，realAI/realRecruiting 均为 false。脚本名称中的 installed 不代表本次验收已安装版，完整业务表单未放回客户端。
 
 本提交最新 [CI Validate](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35610000346/job/106366446094) 通过，Auto Merge 因草稿跳过；PR 描述更新取消的较早同提交流水线未计为成功。GUI 均串行，最终没有遗留 FlowArk/Electron 测试主进程。完整目标仍为 186 张画板、U01–U12、真实供应商、MCP/有限桌面及最终用户验收；本批不代表清晰观察界面或系统级裁剪已完成，客户端 PR 继续保持草稿。
+
+### 脚本完整编辑与历史输出预览
+
+对应 U11 和 Figma [脚本配置 23:6726](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6726)。本轮再次请求设计上下文仍被 Starter MCP 配额拒绝，继续核对此前取得的 `task-design.js` 生成规格和原始 PNG，不将此情况归因于账号登录，也不声称取得了新的 MCP 上下文。
+
+客户端提交 `e3c6d05d839e8e0ac10f4eb201eafc15f3bd855a` 在完整脚本页统一编辑代码、语言、输入引用、超时及本地依赖。使用实际 SDK 的 `default export` 函数入口；保存一起更新当前流程草稿，放弃仅撤销此次脚本编辑。返回、面包屑和侧栏离开提供保存、放弃、继续编辑，保存后到原点击的目的地；保存期间冻结编辑，来源草稿发生变化时拒绝覆盖。共享依赖保留其他步骤的引用，不同精确版本冲突拒绝绑定。隐藏的画布停用全局快捷键，避免拦截脚本空格；紧凑窗口返回保持选中步骤及配置入口。
+
+语法检查只在本地 Monaco 语言 Worker 解析，既不执行脚本，也不解析本地包或创建 Run；修改代码/语言会使旧诊断失效。通过仅代表该解析器未发现语法错误，不代表依赖、入口或业务结果有效。输入预览只解析当前参数和字面量，运行时引用显示配置及原因。历史输出从所选运行固定快照与实际保存的输出读取，标明版本、运行及与草稿的差异；循环实例分开，未执行分支/缺失输出不补造。预览最多显示 65536 字符并标记截断，迟到回复不恢复已离开的内容。可信脚本保留 Node 能力，不将文件/凭据绑定数量当成安全沙箱。
+
+验证与边界：
+
+- `pnpm check`：类型、221 项单元和构建通过；最后测试收尾修改后类型再次通过。新增三项行为检查覆盖共享依赖移除/冲突、仅解析参数的输入预览、嵌套条件/循环实际输出及 null/false。日志 `/private/tmp/flowark-script-check.log`。
+- `pnpm test:script-editor`：四组通过，数据 `/private/tmp/flowark-script-editor-KBrA23`，客户端 `test-results/figma/script-summary.json` 为 passed/closed true。真实 Monaco 键盘输入包含空格，JS/TS 诊断及修改失效；离开继续/放弃/保存到目标页面；不完整输入与非法超时拒绝；真实 Worker 输出 `{ doubled: 12 }` 与固定版本历史一致，修改草稿后不冒充新结果。预览与语法检查均为零 Run；另建自己的人工等待 Run 验证收尾确实取消，再退出实例。
+- `pnpm test:figma-editor` 再次通过：34 步、9 个布局、内置网页真实填写/读取/断言、来源返回且不重放。数据 `/private/tmp/flowark-figma-editor-ol3Rzm`，证据 `test-results/figma/editor-summary.json`；日志 `/private/tmp/flowark-script-editor-regression.log`。
+- 脚本页 1440×960、1920×1080、1040×700 均无横向溢出，已查看 1440 截图；1440 下两栏宽 720/408、间距 24、起点 y=230。实际配置比示例长，卡片高 743，不能将结构对齐写成最终逐像素验收。紧凑窗口纵向排列，不缩小代码字体。
+- 首轮测试的 Monaco 焦点及多诊断定位已修正；逐键输入还发现并修复隐藏画布截获空格的问题。新测试收尾缓存自己的进程句柄，避免 Playwright 关闭连接后再调用 `app.process()`；最终退出检查包含真实等待任务取消，所有 GUI 严格串行，最终进程核对无 FlowArk/Electron 主进程遗留。
+
+本次只消费已有 `flow.save`、`run.list`、`run.detail` 和本地包检查接口，未新增 IPC、修改契约或数据库；采用基线仍为 `0261e2ce610b3b1e3314fd439f3bd766935f0d7f`、contracts-v0.9.0。本批没有重新生成安装候选或安装，不能把前一批临时应用目录当作包含此提交。长流程定位、Excel 映射、原生 100% 裁剪观察及全局导航剩余状态继续保留在完整 186 画板 / U01–U12 目标中；客户端 PR #37 继续为草稿。
+
+最新提交的 [CI 35613803340](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35613803340) 已通过，包含 `pnpm check` 与 `pnpm test:runtime`；此前同一提交的运行 35613741258 被后续 PR 说明更新取消，不记为通过。客户端 [PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37) 保持草稿，自动合并跳过。
