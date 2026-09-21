@@ -1,6 +1,8 @@
 # 固定契约来源
 
-当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.11.0](../../contracts/v0.11.0/README.md)，治理基线为 `c69dabe73684c2c89d9ddcc11b47c6c57a9a5a3a`（[PR #97](https://github.com/zhongmiao-org/flow-ark/pull/97)，CI 自动合并），纳入[网页目标选择](task-web-target.md)的本机 IPC 与 FlowRecord 来源约束。不可变开发快照 `contracts-v0.11.0` 仍指向 `410d75b7d5375dcb42f73cebfb88ba06281b335c`（[PR #95](https://github.com/zhongmiao-org/flow-ark/pull/95)，远程 tag 已核对）。SDK 1.0 和标准包 2.0 不变。
+当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)，CI 自动合并）。不可变开发快照 `contracts-v0.12.0` 指向同一提交，远程 tag 已核对。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
+
+2026-09-22 同名序号输出已通过原子不覆盖、并发/取消、真实 Worker 固定快照、内置网页输出和串行重开验证。运行检查与方案说明使用真实策略，产物登记实际文件名；旧 Run/计划及已提交文件不因草稿修改或后续失败而改写。无 SQLite 迁移，模板仓库本轮未采用新节点；首次教学 UI/进度仍未完成。具体证据见 [Figma 实施记录](design-implementation.md)。
 
 2026-09-22 网页目标选择已接入受控内置页、规划上下文、采纳事务和执行来源复核。`task.web.preview/select/clear` 及本机 `webTarget` 不进入公开规划/流程契约；不新增 SQLite 表或迁移。旧运行/计划保留原选择，手动保存不能去掉宿主来源约束。应用窗口、MCP、真实账号与完整 U03 仍未完成，具体证据见 [Figma 实施记录](design-implementation.md)。
 
