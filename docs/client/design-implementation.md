@@ -399,3 +399,25 @@ Figma `23:4575`、`23:4724` 的修复差异和执行起点已接入真实失败�
 这一轮没有启动 GUI，系统目录返回和模型 HTTP 是夹具；Main 的原生选择器、完整 420/708 理解页、发送核对、教学去除 flow.save 测试绑定、按钮取消/重选及三尺寸视觉需要下一增量验证。没有安装包或安装、真实供应商或 U12 用户验收结论。Figma MCP get_design_context 对 23:2766 仍返回 Starter 额度限制，已查看既有真实导出与生成规格；不声称获得新的 MCP 设计内容。完整 186 画板 / U01–U12 目标与客户端草稿 PR #37 保持。
 
 当前完整客户端 SHA 的 [CI 35641488071](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35641488071) 已 success，Validate 106471611010 通过，Auto Merge 106472210750 因草稿跳过；同 SHA 的 run 35641487122 被后续 PR 事件取消，不计为通过。PR 状态核对 OPEN/draft，未沿用此前提交结果。
+
+## 2026-09-22 理解与补问界面及教学输出闭环（23:2766）
+
+客户端提交 `63b454d86897f48c64b30702b4c8af43518b1cda` 接入理解与补问页，承接所选网页、模型补问、输出选择和方案生成。显示真实需求与资料；仅未改动的教学需求使用固定练习说明，其他需求不伪造模型回复。四张理解卡分别展示输入来源、操作对象、修改内容和输出结果，账号状态保持未核对。文件名和本机路径放在输出详情中，模型发送核对仅含逻辑输出及规则。
+
+目录取消不改变选择；文件名/策略编辑经保存后返回描述或目标页，移除目录保留未保存的补问内容。教学在理解页缺少目录时不能生成，通用非文件需求可以继续。更改后清除发送核对，继续使用原有生成/取消/采纳/运行入口。宿主补充两个共享流程输出归属保护：另一任务已有选择时拒绝取得输出；原任务撤销后，仍须采纳移除流程绑定的方案才能让另一任务选择。
+
+本轮验证：
+
+- `pnpm check`：类型检查、276/276 单元及构建通过，日志 `/private/tmp/flowark-understanding-check-final.log`。构建仍有既有大分块提示，没有构建失败。
+- `pnpm test:runtime`：91/91 真实 Host/Worker 集成通过，日志 `/private/tmp/flowark-understanding-runtime-final.log`。目录绑定、明确覆盖与序号、排队/等待失效、事务和旧产物保护继续通过。
+- `pnpm test:learning`：五组通过，日志 `/private/tmp/flowark-understanding-learning-ui.log`，数据 `/private/tmp/flowark-learning-ui-ezODj8`。目录取消/选择/移除、文件名和两种策略保存、发送核对不包含本机路径或 selectionId、配置返回、跳过/同任务继续/网页重选、真实文件和验证预览、第二次明确覆盖及旧产物保留、重开不重发模型或运行。已删除测试中以 flow.save 准备目录的步骤，采纳结果直接核对宿主绑定。
+- `pnpm test:figma-task`：15 组通过，日志 `/private/tmp/flowark-understanding-ai-regression.log`。补问、取消/迟到结果、流程与任务修订冲突、真实 Worker、旧 Run 保留和重开不重试通过，最终 passed/closed true。
+- `pnpm test:task-web-target`：四组通过，日志 `/private/tmp/flowark-understanding-web-regression.log`，理解页查看/更换目标再返回描述的路由继续可用；真实 Main 网页读取、来源失效、Worker 文件与串行重开回归通过，最终 passed/closed true。
+
+视觉对照真实导出 `taskclarify-AI · 理解与补问.png` 与既有生成规格。理解页 1440 宽度的两栏 x=256/700、y=230、宽 420/708、高 710、间距 24；1280 为 417.016/702.984，1040 纵向排列，三个尺寸无横向溢出。截图保存在客户端忽略目录 `test-results/figma/understanding-{1440,1280,1040}.png`，尺寸记录见 `learning-summary.json`。已目视核对 1440 和 1040；四张卡片沿用原稿位置，真实模型服务、发送披露和复核控件在左栏展开，最终全局侧栏及完整页面视觉仍待统一验收。
+
+GUI 严格串行：教学主进程 50781 → 50820 → 50846，网页回归 52167 → 52212，每次启动前检查不存在 FlowArk/Electron 主实例，退出自身测试任务后确认进程结束。此前失败来自目录按钮可访问名称定位、布局高度以及结果详情/已有试运行回执的测试导航，修正后完整重跑；失败不计为通过。截图中的退出确认会保留旧实例，测试不将调用 close 当作进程已退出，也不关闭用户现有实例。
+
+验证边界：目录返回由隔离 Main 的 showOpenDialog 结果夹具提供，模型为本机 HTTP 夹具；Renderer/Main/Host/Worker 与实际文件参与验证。原生桌面工具报告 Mac 锁屏且无法自动解锁，已请求用户解锁，原生目录选择器人工操作尚未完成。没有新的真实供应商、用户 U12、打包或安装证据。Figma MCP 仍受 Starter 配额限制，未声称取得新的设计上下文；完整 186 画板 / U01–U12 目标继续，客户端 PR #37 保持草稿。
+
+当前完整客户端 SHA 的 [CI 35644311949](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35644311949) 已 success，Validate 106480933560 通过，Auto Merge 106481468833 因草稿跳过；同 SHA 的 run 35644310347 被并发工作流取消，不计为通过。已核对 PR 为 OPEN/draft。
