@@ -2,7 +2,7 @@
 
 当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `873ccbc9950937fdc98e62679b5dd7f1ac6ba0d4`（[PR #112](https://github.com/zhongmiao-org/flow-ark/pull/112)，CI 自动合并），纳入 [AI 服务配置与验证 v1](ai-settings.md)、[MCP 连接发现 v1](mcp-connections.md)、[任务附件 v1](task-attachments.md)、[理解页输出选择](task-output-selection.md)与此前[首次教学](first-task-learning.md)规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
 
-2026-09-22 AI 配置采用严格 `ai.configuration.get/save/remove/test/cancel`，替代旧本机 `credentials.set/ai.test`。供应商模型与 Key 在 Main 原子加密保存，公开投影只有配置修订、模型、安全尾号及对应测试状态；活动/排队运行和方案生成保护资源，异步准入再次核对配置。配置/测试/返回均不自动生成或运行，取消与超时不会由迟到凭据读取启动 HTTP。系统保护、两种供应商请求形状、原任务返回和三尺寸通过隔离验证，真实 API、模板来源返回及完整 U08 仍待验收，详见 [Figma 实施记录](design-implementation.md)。公开契约与 SQLite 表结构不变。
+2026-09-22 AI 配置采用严格 `ai.configuration.get/save/remove/test/cancel`，替代旧本机 `credentials.set/ai.test`。供应商模型与 Key 在 Main 原子加密保存，公开投影只有配置修订、模型、安全尾号及对应测试状态；活动/排队运行和方案生成保护资源，异步准入再次核对配置。配置/测试/返回均不自动生成或运行，取消与超时不会由迟到凭据读取启动 HTTP。系统保护、两种供应商请求形状、原任务返回和三尺寸通过隔离验证，模板来源往返、未保存输入与滚动位置、显式资源绑定、来源变化保护和无需 AI 的入口另已通过真实链路；真实 API 与完整 U08 仍待验收，详见 [Figma 实施记录](design-implementation.md)。公开契约与 SQLite 表结构不变。
 
 2026-09-22 应用与工具已接入严格 `tool.connection.list/discover/cancel/save/disconnect/remove`、加密连接快照与专属系统凭据，发现和核对后保存相互独立，重开不自动连接。新增固定 `@modelcontextprotocol/client` 2.0.0；HTTP 与 stdio 本机真实传输、15 项连接行为检查、94 项 Host/Worker 集成、四组连接 GUI、七项系统存储与十五组 AI 任务回归通过。删除失败保留可重试记录，退出先取消 Worker 再等待连接关闭。没有新增公开流程节点、SDK、SQLite 迁移或模板能力；任务 MCP 绑定/调用、预设、OAuth、真实第三方账号和完整 U07 仍待完成，详见 [Figma 实施记录](design-implementation.md)。
 
