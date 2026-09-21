@@ -247,3 +247,26 @@ Figma `23:4575`、`23:4724` 的修复差异和执行起点已接入真实失败�
 本批仅使用已有 `run.list`、`run.detail`、`flow.save` 等接口，未新增 IPC、契约或数据库结构。治理采用版本仍为 `0261e2ce610b3b1e3314fd439f3bd766935f0d7f`、contracts-v0.9.0。没有重新打包或安装，此前临时应用目录不包含此提交；完整 186 画板 / U01–U12 仍未完成，Excel 映射、AI 仅修改所选步骤、系统级原生观察、全局导航剩余状态及真实供应商/用户验收继续保留。客户端 PR #37 保持草稿。
 
 本提交最新 [CI 35617283785](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35617283785) Validate 已通过，包含 `pnpm check` 与 `pnpm test:runtime`，Auto Merge 因草稿跳过。PR 说明更新触发的旧提交流水线不作为本次提交证据。
+
+### Excel 字段映射、纯预览与不覆盖写入
+
+对应 U11 和 Figma [Excel 映射 23:6516](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516)。本轮请求设计上下文仍被 Starter MCP 配额拒绝；继续使用此前导出的原始 PNG 和 `task-design.js`，没有新的 MCP 上下文，也不是登录失败。
+
+现有整表写入与模板填充不具备记录字段映射及新建不覆盖语义，因此先通过[治理 PR #91](https://github.com/zhongmiao-org/flow-ark/pull/91) 定义 [Excel 字段映射](excel-mapping.md)，最新 CI 35618796761 的 Validate/Auto Merge 均通过，自动合并为 `937a865f71a092d49f34da499778e68ef37caa05`。已发布并回读远程 tag `contracts-v0.10.0` 指向该提交；契约正例、六组字段反例及旧消费者拒绝新节点已用 Ajv 核对。客户端采用该治理基线、规范副本与生成类型；不依赖相邻仓库运行或构建，不做旧客户端兼容迁移。
+
+客户端提交 `6f2419a008b4c5c36e44ed072d8033a00a7d8507` 接入 excel v3 map 操作及完整映射页。来源按自有字段名或数组索引读取，目标列、表头及文本／数字／布尔类型明确配置；重复列、缺失来源、类型或路径冲突定位并阻止保存。参数／字面量预览检查全部记录后显示前三行，运行期引用标记待核对，不执行前序步骤；修改后旧预览失效。保存／取消保持独立草稿，侧栏／面包屑／返回提供保存、放弃、继续，保存期间冻结编辑并核对父级来源草稿。实际 Run 使用固定快照；草稿编辑不改变运行中的映射。
+
+执行与预览共享映射规则，null 保留空白、0/false 保留值，稀疏目标列不挤压，拒绝公式对象及隐式类型转换。全部记录校验后生成临时工作簿，以原子硬链接提交目标名；已有文件、目录、符号链接或并发同名创建不能被替换。成功才进入既有产物副本登记，失败不自动重试；运行检查页将该操作说明为新建且不覆盖。未新增 IPC 或数据库结构，既有普通矩阵和模板填充仍使用各自明确的节点版本。
+
+实际验证：
+
+- `pnpm check`：类型、229 项单元和构建通过；新五项覆盖稀疏列/null/0/false/含点字段名，超过预览范围的类型冲突，运行期来源与能力声明，实际 XLSX 回读、同名文件/符号链接字节保护及并发创建唯一成功。最终样式调整后重新构建，新增桌面脚本类型检查及文件格式、摘要、`git diff --check` 通过。日志 `/private/tmp/flowark-excel-check.log`、`/private/tmp/flowark-excel-build-final.log`。
+- `pnpm test:runtime`：本轮 83/83 通过，日志 `/private/tmp/flowark-excel-runtime.log`；这是宿主/Worker 回归，不是额外 GUI 实例。
+- `pnpm test:excel-mapping`：六组通过。最终数据 `/private/tmp/flowark-excel-ui-6fSSUn`，证据 `flow-ark-client/test-results/figma/excel-summary.json` 为 passed/closed true。四条实际来源预览三条、冲突聚焦和失效、增删映射、保存／放弃／离开、运行期引用零执行预览、实际 Worker 及产物、固定快照、同名输出字节不变、普通节点切换映射能力，以及未绑定目录在创建 Run 前阻止均通过。两个 Run 都是测试明确发起，没有预览自动执行或失败重试。
+- `pnpm test:script-editor`：共享节点配置导航改动后再次四组通过，数据 `/private/tmp/flowark-script-editor-nC7ICb`，`test-results/figma/script-summary.json` passed/closed true；包括真实 Monaco 空格输入、静态检查、保存／放弃、运行历史和等待任务清理。日志 `/private/tmp/flowark-excel-script-regression.log`。
+- 已查看实际 1440×1080、1040×700 截图。最终 1440 的两栏宽 600/528、间距 24、高 588、起点 y=344 与稿件一致；1920、1440、1040 无横向溢出。更窄时配置和预览纵向排列。实际来源说明、可折叠类型／表头及空白列解释用于真实配置，不能仅因卡片几何一致就声明完整逐像素验收完成。
+- GUI 全部串行，自己的等待 Run 清理后关闭实例；最终进程核对无 FlowArk/Electron 测试主进程。测试首轮类型检查暴露了生成类型的非空映射元组约束，已修正草稿类型并复核，未放宽运行校验。第一轮截图发现表格沿用旧绿字样式，已改用设计变量并重新运行全部映射界面检查。
+
+本批未重新打包或安装，旧临时应用目录不包含本提交。完整目标仍为 186 画板 / U01–U12，首次教学、附件／目标身份、真实 AI、应用与工具、有限桌面、原生观察、AI 仅修改所选步骤及最终用户验收保持未完成；客户端 PR #37 继续为草稿。
+
+本提交最新 [CI 35621006246](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35621006246) Validate 已通过，包含 `pnpm check` 与 `pnpm test:runtime`，Auto Merge 因草稿跳过。该流水线对应 `6f2419a008b4c5c36e44ed072d8033a00a7d8507`；旧提交因 PR 说明更新触发后被取消的流水线不计为本批证据。
