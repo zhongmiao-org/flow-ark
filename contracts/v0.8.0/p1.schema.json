@@ -257,7 +257,7 @@
             },
             "code": {
               "type": "string",
-              "maxLength": 100000
+              "maxLength": 10485760
             },
             "input": {
               "$ref": "#/$defs/Value"

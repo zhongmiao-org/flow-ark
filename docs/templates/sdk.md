@@ -21,3 +21,14 @@
 宿主在每次 RPC 前后核对脚本 owner 和取消状态；只读入口不会因其他入口需要 AI 而被要求提供 Key。准备副作用必须引用入口声明的 action，执行结果核验由模板负责。SDK 不实现网站选择器、招聘状态或事实推理。
 
 AI 供应商接入使用通用 AIRequest/AIResult，不包含求职提示词。完整 JSON 返回后进行 Schema 校验，截断/错误不使用、不静默重试或切换模型。实例配置和授权修改不改变活动快照。
+
+## 请求与结果字段
+
+- `file(id, {operation:'read'})` 读取文件；目录还需 `name`。写入请求为 `{operation:'write', name?, content}`，UTF-8 单次最多 10 MiB。绑定目录中的符号链接不能越界，输出同时登记为运行产物。
+- `human({title, description?, schema})` 等待最长十分钟；取消、超时、宿主退出后原请求失效。`template.answer({id,value})` 仅响应当前仍在等待的请求。
+- `attention({key,title,detail?})` 使用实例内去重键。
+- `effect.prepare({action,key,description?})` 返回 `{id,execute,state}`；仅 `execute:true` 可以执行动作。同键已有记录（包括 failed/unknown）均不重新授权。`effect.resolve({id,state,evidence?})` 仅允许本 Run 的 submitting 记录终结；Run 结束和崩溃恢复将未核验记录置为 unknown。
+- `ai(id,{instructions,input,schema})` 返回 `{provider,model,requestId,output,usage}`。模板脚本不能通过旧 credential SDK 读取 Key。
+- `browser(id,{operation,selector?,value?,timeoutMs?})` 当前公开 url/navigate/read/count/attribute/inputValue/wait/click/fill/select/check/press。监听导航使用有期限的 url 轮询并检查 signal；不得无限占用 Run。通用节点的上传/下载等能力仍由通用 BrowserDriver 契约约束。
+
+配置及入口输入使用 configuration-schema.ts 中的可渲染 Schema 子集；状态/结果可使用 JSON Schema 2020-12 的本地引用。能力不足使相关入口不可运行；不能通过配置默认值获得动作授权。每次脚本 RPC 身份来自 Host 签发的 owner，不能由模板参数替换。客户端当前全局 FIFO 串行队列同时保证同实例入口不会并行修改状态。
