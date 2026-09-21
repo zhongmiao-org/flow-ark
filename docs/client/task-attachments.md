@@ -28,6 +28,8 @@ Host/Main 私有 task.attachment.file 与 task.attachment.image.validate 不进�
 
 图片字节通过宿主内部 `PlanningImageV1 {id,name,mimeType,data,width,height}` 按附件 ID 对应传给供应商适配器；不塞入文本 JSON，不扩展脚本 SDK AIRequest，不写入模板/流程/执行快照。DeepSeek Chat Completions 使用 user content 的 text + image_url(data URL)；OpenAI Responses 使用 input_text + input_image(data URL)，保留显式模型、store:false、结构化结果校验与取消。发送前再次校验预算，只发已选副本，不抓取远程 URL、不调用 Files API。模型不支持图像时保留草稿报错，不丢弃图片、换模型或重试。
 
+专用网页目标修复沿用[目标修复](task-target-repair.md)的独立发送范围，不自动加入本任务文件、图片或补问答案。普通规划与单步修改可使用已选附件；修复核对页的受限上下文不能因通用附件功能而扩大。
+
 已读取 [DeepSeek Vision](https://api-docs.deepseek.com/guides/vision/) 与 [OpenAI Images and vision](https://developers.openai.com/api/docs/guides/images-vision) 核对接口形状，不能据此宣称真实模型验收。公开规划格式 1.0、契约 0.12.0、SDK 1.0、包 2.0 和既有 tag 不变；新增本机附件 v1 和宿主内部媒体输入。
 
 ## 验证边界
