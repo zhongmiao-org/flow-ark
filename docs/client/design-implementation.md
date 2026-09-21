@@ -447,3 +447,15 @@ GUI 严格串行，附件主进程 56296 → 56325、教学主进程 56442 → 5
 验证边界：GUI 文件/目录返回是隔离 Main showOpenDialog 结果夹具，图片解码、Renderer/Main/Host/Worker 和文件是实际链路，模型为本机 HTTP 夹具。再次检查原生桌面仍报告 Mac 锁屏且无法自动解锁，用户解锁问题保持待答，未操作真实系统选择器。未验证真实 DeepSeek/OpenAI、完整 U02/U12、其他附件格式或用户全路径，未重新打包、安装或发布。完整 186 画板 / U01–U12 目标继续，客户端 PR #37 保持草稿。
 
 该完整提交的最新 [CI 35648126260](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35648126260) 已 success，Validate 106493804217 的 `pnpm check` 和 `pnpm test:runtime` 均通过；Auto Merge 106494309597 因草稿跳过。PR 更新事件替代了同 SHA 的 run 35648045366，后者 cancelled，不计为通过。PR 已核对 OPEN/draft，未沿用旧提交结果。
+
+## 2026-09-22 桌面调试统一单实例保护
+
+用户反馈的重复实例由日常安装版与临时目录测试版并存、失败测试退出被任务确认框阻挡共同造成。客户端提交 `fabfa0fe600dd58978e5dd079ec535937c7d5650` 将 42 个桌面测试入口统一接入 `scripts/desktop-session.mjs`：取得同一 macOS 用户的测试锁后读取实际主进程，存在 FlowArk/Electron、进程检查不可用、上一次启动或退出尚未结束时拒绝新启动。锁所有权跨测试进程与工作目录生效；遗留锁不自动抢占，须核对记录的进程和桌面实例后处理。
+
+启动成功立即缓存本次 ChildProcess。关闭有 15 秒上限，随后确认实际退出；超时只回收本次拥有的进程树并使测试失败，不算正常关闭、不继续重开、不按应用名回收用户实例。正常测试仍先取消自己的任务和等待收尾，不删除产品退出确认，也不改变用户任务的副作用语义。本保护限定 macOS 桌面测试，Windows 没有据此获得验收结论。
+
+本机验证：新增 `tests/desktop-session.test.ts` 的 7 项检查与类型检查通过，覆盖主进程识别、互斥锁、已有实例/进程表读取失败、在途启动、实际退出等待、启动失败与超时回收；超时用真实 Node 子进程验证，没有为测试制造第二个 Electron 实例。`pnpm test:vault` 的 6 项系统加密及故障注入通过，日志 `/private/tmp/flowark-vault-desktop-guard.log`；`pnpm test:desktop` 完整工作台、安全 IPC、真实 Worker、本地脚本包与语义图回归通过，日志 `/private/tmp/flowark-desktop-guard-native-r2.log`。首次桌面回归仍从旧默认首页找流程按钮而失败，修正为先进入“我的流程”后完整重跑，失败记录不计通过。每次启动严格串行，最终进程检查无 FlowArk/Electron 主进程残留。
+
+此次提交只交付调试启动保护及测试导航修正，进行中的 MCP 连接发现代码仍为工作区改动，未包含在该提交。完整 186 画板 / U01–U12 目标继续，客户端 PR #37 保持草稿，未打包、安装或发布。
+
+该提交最新 [CI 35652264697](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/35652264697) 已 success：Validate 106507527043 的类型检查、293/293 单元、构建与 91/91 宿主集成通过；Auto Merge 106508039691 因草稿跳过。CI 的提交为完整 `fabfa0fe600dd58978e5dd079ec535937c7d5650`，没有把未提交 MCP 用例或旧提交的检查算作本次交付。
