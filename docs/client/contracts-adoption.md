@@ -1,6 +1,8 @@
 # 固定契约来源
 
-当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `5bf8a6453aaa62e483e4f110981078c400f94cc7`（[PR #107](https://github.com/zhongmiao-org/flow-ark/pull/107)，CI 自动合并），纳入[任务附件 v1](task-attachments.md)、[理解页输出选择](task-output-selection.md)与此前[首次教学](first-task-learning.md)规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
+当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `149da8fe2ee3d0f1434528c5709f510876ce6f5a`（[PR #109](https://github.com/zhongmiao-org/flow-ark/pull/109)，CI 自动合并），纳入 [MCP 连接发现 v1](mcp-connections.md)、[任务附件 v1](task-attachments.md)、[理解页输出选择](task-output-selection.md)与此前[首次教学](first-task-learning.md)规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
+
+2026-09-22 应用与工具已接入严格 `tool.connection.list/discover/cancel/save/disconnect/remove`、加密连接快照与专属系统凭据，发现和核对后保存相互独立，重开不自动连接。新增固定 `@modelcontextprotocol/client` 2.0.0；HTTP 与 stdio 本机真实传输、15 项连接行为检查、94 项 Host/Worker 集成、四组连接 GUI、七项系统存储与十五组 AI 任务回归通过。删除失败保留可重试记录，退出先取消 Worker 再等待连接关闭。没有新增公开流程节点、SDK、SQLite 迁移或模板能力；任务 MCP 绑定/调用、预设、OAuth、真实第三方账号和完整 U07 仍待完成，详见 [Figma 实施记录](design-implementation.md)。
 
 2026-09-22 描述与附件页接入明确选择的 UTF-8 文本和 PNG/JPEG，加密副本、完整预览、移除、重开与模型图片块通过验证。新增 task.attachment.choose/remove/preview 为本机严格白名单；内部媒体参数不进入公开 AIRequest、SDK 或流程格式。286 项单元、91 项执行集成、附件三组、AI 任务十五组和教学五组回归通过。GUI 文件/目录返回及模型 HTTP 为夹具，Main 图片解码和真实文件参与验证；原生选择器操作仍被 Mac 锁屏阻止，真实模型与完整 U02/U12 未验收。无 SQLite 迁移，详见 [Figma 实施记录](design-implementation.md)。
 
