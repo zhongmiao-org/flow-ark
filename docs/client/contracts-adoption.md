@@ -1,12 +1,14 @@
 # 固定契约来源
 
-当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)，CI 自动合并）。不可变开发快照 `contracts-v0.12.0` 指向同一提交，远程 tag 已核对。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
+当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `fe3b3389d582e55f9801b9254647759daf298b70`（[PR #101](https://github.com/zhongmiao-org/flow-ark/pull/101)，CI 自动合并），纳入[首次教学](first-task-learning.md)的本机进度与原子证据规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
 
-2026-09-22 同名序号输出已通过原子不覆盖、并发/取消、真实 Worker 固定快照、内置网页输出和串行重开验证。运行检查与方案说明使用真实策略，产物登记实际文件名；旧 Run/计划及已提交文件不因草稿修改或后续失败而改写。无 SQLite 迁移，模板仓库本轮未采用新节点；首次教学 UI/进度仍未完成。具体证据见 [Figma 实施记录](design-implementation.md)。
+2026-09-22 learning.status/start/skip 已通过严格 IPC、并发 CAS、开始/选择/采纳/运行事务回滚、真实文本预览完成与迟到回执隔离。首次教学完成、跳过、跨重开继续、重新学习通过本机 HTTP 模型夹具和真实内置网页/Worker 链路验证；进度保存于独立加密记录，不改写旧任务/运行。目录绑定使用现有 flow.save 测试接口准备，真实模型和非技术用户验收未完成，详见 [Figma 实施记录](design-implementation.md)。
+
+2026-09-22 同名序号输出已通过原子不覆盖、并发/取消、真实 Worker 固定快照、内置网页输出和串行重开验证。运行检查与方案说明使用真实策略，产物登记实际文件名；旧 Run/计划及已提交文件不因草稿修改或后续失败而改写。无 SQLite 迁移，模板仓库本轮未采用新节点；当时尚未包含首次教学 UI/进度，后续实现见上条。具体证据见 [Figma 实施记录](design-implementation.md)。
 
 2026-09-22 网页目标选择已接入受控内置页、规划上下文、采纳事务和执行来源复核。`task.web.preview/select/clear` 及本机 `webTarget` 不进入公开规划/流程契约；不新增 SQLite 表或迁移。旧运行/计划保留原选择，手动保存不能去掉宿主来源约束。应用窗口、MCP、真实账号与完整 U03 仍未完成，具体证据见 [Figma 实施记录](design-implementation.md)。
 
-2026-09-22 [新建文本文件](file-create.md) 新增 file v3 create 和 file-create-v1，已通过原子不覆盖、真实 Worker/内置网页输出及串行重开验证。已有 write、copy、archive 语义保留，旧 Run/计划不改写，无 SQLite 迁移。模板仓库本轮未采用新节点；教学界面与学习进度尚未完成。具体证据见 [Figma 实施记录](design-implementation.md)。
+2026-09-22 [新建文本文件](file-create.md) 新增 file v3 create 和 file-create-v1，已通过原子不覆盖、真实 Worker/内置网页输出及串行重开验证。已有 write、copy、archive 语义保留，旧 Run/计划不改写，无 SQLite 迁移。模板仓库本轮未采用新节点；该增量尚未包含教学界面与学习进度，后续实现见上条。具体证据见 [Figma 实施记录](design-implementation.md)。
 
 此前 AI 单步候选采用记录：当时客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.10.0](../../contracts/v0.10.0/README.md)、SDK 1.0 和标准包 2.0，治理基线为 `c12f335c2ee1ece2c1bcabae51bcd58356d1ab1d`（[PR #93](https://github.com/zhongmiao-org/flow-ark/pull/93)，CI 自动合并）。公开契约 tag `contracts-v0.10.0` 保持指向 [PR #91](https://github.com/zhongmiao-org/flow-ark/pull/91) 的合并提交 `937a865f71a092d49f34da499778e68ef37caa05`，未移动已发布 tag。
 
