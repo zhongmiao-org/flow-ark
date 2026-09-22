@@ -681,3 +681,21 @@ Figma 1:3673 本轮请求仍受 Starter 额度限制，身份为 liuwufangzhou@g
 参考 [Electron View](https://www.electronjs.org/docs/latest/api/view)、[Electron View 实现](https://github.com/electron/electron/blob/main/shell/browser/api/electron_api_view.cc) 及本地锁定依赖的 CDP `setDeviceMetricsOverride` 定义。viewport 的绘制范围不等于原生输入坐标；不据接口名称推断已支持。修改 [内置浏览器规范](embedded-browser.md) 记录被否定的假设与后续验收条件，没有降低保持 1920 CSS px、同一网页会话、100% 阅读和精确输入的要求。
 
 本次未运行产品测试、未提交客户端代码、未新打包/安装或发布；没有把之前 334 单元、103 宿主通过当作本原型的验证。下一步先完善有界原型诊断并解决输入转换与正常退出，再进入生产协议、界面与两尺寸验收。U11 仍未完成，其他 186 画板 / U01–U12 范围保持。
+
+## 2026-09-22 原生视觉缩放与拾取坐标诊断（未接入产品）
+
+继续 U11 同一 Figma 设计目标，未取得新的 MCP 设计上下文、未修改客户端产品源码。原型 v4–v8 均在 `/private/tmp/flowark-observation-native-vN.mts`，使用现有 EmbeddedPage、Electron 44.4.1、独立临时 Profile、本机虚构表单及跨源 localhost 框架。所有主进程严格串行，未关闭用户应用。新原型为原生调用设 10 秒超时，有限事件记录与会话最长 5 分钟；这些是诊断约束，不是生产实现。
+
+| 原型与证据目录 | 结果和限制 |
+| --- | --- |
+| v4，`/private/tmp/flowark-observation-native-v4-6n6wyX`，PID 11036 | `loop-diagnostic` 记录 before-mouse-event → CDP → before-mouse-event 回流，x=670 → 1710 → 2750，每轮增加 1040；第 41 次停止。带 forwarding 标志的候选可填写根字段，但真实 mouseUp 在标志期间被跳过，按钮没有服务端回执；跨源字段也未输入成功，不能作为修复 |
+| v5，`/private/tmp/flowark-observation-native-v5-39RO2x`，PID 11673 | 仅设置设备 scale 与 pageScaleFactor 后，实际 visualViewport.scale 仍为 1，文字仍是总览；没有执行输入或平移验收 |
+| v6，`/private/tmp/flowark-observation-native-v6-pYclc9`，PID 13316 | 后续单独开启视觉缩放范围并设置比例后，实际 scale=2.1818182468、根 innerWidth=1920、innerHeight=1080，视图仍是 880×460。原始 14–16px 表格/正文和裁剪边界由系统截图核对。画面坐标 (290,280) 输入 `native-zoom-coordinate`，(204,329) 点击根按钮；平移后 (450,410) 输入 `native-frame-coordinate`，(294,459) 点击跨源按钮。HTTP 分别只收到 button-0 与 frame-button 一次请求；对应 down/up/click 均 trusted 且命中正确 ID |
+| v7，`/private/tmp/flowark-observation-native-v7-yXDpJH`，PID 13756 | 根字段原生 down 为 (210,120)，拾取的 CDP move 回流为 (458.18,261.82)，恰为约 2.18 倍；拾取报“未取得点击位置的元素”。记录了具体换算差异，不将视觉清晰或手动输入成功视为拾取成功 |
+| v8，`/private/tmp/flowark-observation-native-v8-Xgl9sE`，PID 13909 | 只在原型拾取坐标回调中除以视觉缩放因子；根字段返回 selected、selector=#field-0、framePath=[]，没有网页点击副作用。相同换算在跨源框架仍报错；原生 down 的 global=(1210,716)，合成 move 为 (2250,1037)，框架局部坐标均为 (221,37)。不能将局部坐标相同推断为覆盖层已正确命中。回到总览实际 scale=1、偏移归零，页面未重载 |
+
+每个目录的 `summary.json` 保留完整命令、页面读数、事件和截图路径，均为 `passed:false`，`closed:true`、`exit.code=0`、`exit.signal=null`。本轮三次新会话 13316 → 13756 → 13909 均正常退出后才继续，最终只读 `readDesktopMains()` 返回 `[]`。v4/v5 为前段诊断证据，本段补充完整记录；不把不同原型实例误称为同一会话。
+
+v6 八次读数的根 timeOrigin 恒为 1790041218576.6，框架为 1790041218673.1，WebContents ID=2；原型没有重载或替换 DOM。根 scrollX/scrollY 保持 0，实际纵向滚轮令 visualViewport.offsetTop=321，CDP 触摸横向平移令 offsetLeft≈1039.96；横向 CUA 滚轮未观察到有效平移，不能宣称产品横向操作已实现。v8 从清晰到总览的根 timeOrigin 恒为 1790041511229.4，但未在该实例填写内容，因此尚不是填写后切换保留验收。
+
+依据 [Electron 视觉缩放文档](https://www.electronjs.org/docs/latest/api/web-contents#contentssetvisualzoomlevellimitsminimumlevel-maximumlevel) 调整下一方案：优先由浏览器处理原生人工输入，单独验证拾取和自动化 CDP 坐标；不要继续全局重放鼠标。v6 同时增加缩放启用及延迟调用，尚未分离这两个因素。跨源拾取、自动化、1920×1080 窗口、导航重设、边界外不命中和完整切换仍未通过，生产协议与 Figma 页面暂未接入。未打包、安装或发布，完整 186 画板 / U01–U12 目标保持。
