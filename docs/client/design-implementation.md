@@ -734,3 +734,12 @@ v11 拾取后通过实际画面坐标 (510,408) 输入 `same-frame-retained`。�
 - 12 次检查的根/外框/内框 timeOrigin 恒为 1790042750787.1 / 1790042750874.9 / 1790042750971.5，WebContents ID=2。HTTP hits 始终为空，两次拾取均没有按钮副作用。未在本轮填写后切换；上一轮单层填写保留证据不能升级为本轮嵌套输入验收。
 
 v12 与 v13 均保留 `passed:false`、`closed:true`、`exit.code=0`、`exit.signal=null`，旧实例正常退出后才启动下一次。最终只读 `readDesktopMains()` 为 `[]`，没有关闭用户应用。v13 原型仍只处理无变换的框架；同进程框架、祖先 CSS 变换、查询竞态、取消/导航、边界外命中、自动化点击和产品观察控件尚未验证。当前继续技术接入关口，未将这两个原型替换正式拾取器，未新增客户端提交、客户端 CI、打包或安装。完整 Figma 186 画板 / U01–U12 目标保持。
+
+## 2026-09-22 框架四边形与变换拾取原型
+
+治理前序 [PR #127](https://github.com/zhongmiao-org/flow-ark/pull/127) 已以 `893c27eca0456fba37407e6f59da1b1822266e53` 合并；CI `35678569534` 成功，较早 `35678568801` 取消。后续原型 v14/v15 继续使用原生页面缩放叠加视觉缩放，固定单实例桌面锁和隔离虚构资料。
+
+- `/private/tmp/flowark-observation-native-v14-pSM78l`，PID 17442，7 次检查：在原本已通过的两层框架中增加真实 `DOM.getBoxModel` 取证。根框架 content quad 是所属 session 的视觉视口坐标，需加该 session 的 pageLeft/pageTop；子 session 的 quad 使用子 session 坐标，不能统一加根偏移。边框的小数像素与 clientLeft 的整数值有差异，外接矩形相减不能作为精确通用方案。
+- `/private/tmp/flowark-observation-native-v15-yrLURY`，PID 17698，9 次检查：使用 `/private/tmp/flowark-quad-hit.ts` 的可逆四边形投影。外框 rotate(8deg) scale(.9)，跨源内框 rotate(-6deg) scale(.85)，另加与外框同源的内框；两内框均滚动至目标。真实画面点 (350,425) 返回 #remote → #deep → #deep-input；校验滚动后重新取截图，(510,508) 返回 #remote → #same → #deep-input。两者都为 input/text、structural=false，HTTP hits 始终为空。原型轨迹分别经过两次和一次跨 session 换算，同进程内框由浏览器直接命中。
+
+源码为 `/private/tmp/flowark-observation-native-v14.mts`、v15。两份摘要均 `passed:false`、`closed:true`、`exit.code=0`、`exit.signal=null`，17442 正常退出后才启动 17698。这里只证明当前旋转/缩放夹具，不覆盖透视、退化四边形、遮挡或变化竞态。原型仍使用旧目标描述校验，会主动滚动页面，故补充正式实现约定要求拾取校验不滚动，并复核 backendNodeId 身份。生产接入及原有行为回归另行记录；完整 186 画板 / U01–U12 未完成。
