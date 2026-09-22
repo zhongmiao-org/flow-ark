@@ -717,3 +717,20 @@ v11 拾取后通过实际画面坐标 (510,408) 输入 `same-frame-retained`。�
 修正依据为 [Chromium InspectorDOMAgent::getNodeForLocation](https://github.com/chromium/chromium/blob/main/third_party/blink/renderer/core/inspector/inspector_dom_agent.cc)：输入经布局缩放构成 document_point，再转换到 frame 进行只读命中；只加可视偏移的假设被源码和失败原型共同否定。此源码说明与本机 Electron 44.4.1 实验分别作为依据，不以主分支源码替代锁定运行版本验证。
 
 下一步以直接节点命中作为候选，补齐嵌套/同进程框架、框架内滚动、变换与遮挡、查询竞态及取消/导航；原型只检查当前框架 transform，不覆盖祖先变换，不能进入生产。自动化点击仍是单独未完成关口，不因拾取成功而视为通过。两窗口尺寸、边界外不命中与产品观察控件仍未完成。Figma 186 画板 / U01–U12 的完整范围保持，本轮没有新的 Figma MCP 上下文。
+
+## 2026-09-22 原生缩放叠加与两尺寸嵌套拾取原型
+
+承接治理 [PR #126](https://github.com/zhongmiao-org/flow-ark/pull/126)，基线 `7b814bac72d9a0ef260c76ad1b9a3aec61d331e2`。CI `35677892767` 成功并实际自动合并；较早的 `35677892134` 取消，不计为通过。客户端仍为 `48798f62509c9364a04d385d44e70ee75f6e1be4`，生产源码未变。
+
+本轮比较现有原生页面缩放叠加视觉缩放，避免将设备模拟作为必需依赖。原型 `/private/tmp/flowark-observation-native-v12.mts` 在实际 880×460 WebContentsView 中设置原生 zoomFactor=880/1920，清晰视觉因子=1920/880；取消设备模拟后仍保留 1920 CSS 像素宽度。页面高度为 1003，开启视觉缩放前后不变。真实系统图显示原尺寸文字，但旧高亮拾取仍报“未取得点击位置的元素”，不能仅因撤去设备模拟而宣布输入协议问题已解决。证据 `/private/tmp/flowark-observation-native-v12-zk8CXe/summary.json`，PID 16238，6 次检查。
+
+原型 v13 采用相同原生显示方式和上一轮直接文档命中候选：坐标回调提供原始面板点，由现有拾取入口除页面 zoomFactor，命中方法再除 visualViewport.scale 并加 pageLeft/pageTop。虚构根页 127.0.0.1 → 外框 localhost → 内框 127.0.0.1，三者均在同一网页会话中；内框有 900px 内容并真实滚动约 270 CSS px，目标位于文档 y=300，不能省略子文档滚动距离。
+
+证据目录 `/private/tmp/flowark-observation-native-v13-E6oBgU`，原型 `/private/tmp/flowark-observation-native-v13.mts`，PID 16451：
+
+- 1040×700、网页面板 880×460：实际画面点 (400,443) 拾取返回 selector=#deep-input、framePath=[#remote,#deep]、inputType=text、structural=false。`deep-result` 保存从根文档点约 (1361.82,701.91)，经过两次框架内容起点换算，再到内文档点约 (136.82,317.46) 的完整查询轨迹。
+- 同一实例调整为 1920×1080、面板 1760×840，原生页面 zoomFactor=1760/1920、视觉因子=1920/1760。系统截图由 CUA 缩放为 1366×768；使用其画面坐标 (1029,617) 点击，`wide-result` 返回相同 #remote → #deep → #deep-input。坐标由 CUA 对应截图映射到窗口，未把缩略图尺寸当作原生窗口尺寸。
+- 两种窗口下 innerWidth 均为 1920；紧凑窗口 native/zoom 阶段 innerHeight 均为 1003，宽窗口 native/zoom 阶段均为 916。调整窗口的中间 layout 阶段高度为 1080；因此证据证明的是每个窗口内视觉缩放不改变布局及跨尺寸目标一致，不能宣称整个调整过程布局高度恒定或任意响应式页面无重排。
+- 12 次检查的根/外框/内框 timeOrigin 恒为 1790042750787.1 / 1790042750874.9 / 1790042750971.5，WebContents ID=2。HTTP hits 始终为空，两次拾取均没有按钮副作用。未在本轮填写后切换；上一轮单层填写保留证据不能升级为本轮嵌套输入验收。
+
+v12 与 v13 均保留 `passed:false`、`closed:true`、`exit.code=0`、`exit.signal=null`，旧实例正常退出后才启动下一次。最终只读 `readDesktopMains()` 为 `[]`，没有关闭用户应用。v13 原型仍只处理无变换的框架；同进程框架、祖先 CSS 变换、查询竞态、取消/导航、边界外命中、自动化点击和产品观察控件尚未验证。当前继续技术接入关口，未将这两个原型替换正式拾取器，未新增客户端提交、客户端 CI、打包或安装。完整 Figma 186 画板 / U01–U12 目标保持。
