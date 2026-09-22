@@ -641,3 +641,23 @@ Figma 2:973 本阶段请求仍受 Starter 额度限制，规范依据既有原�
 GUI 全程使用统一桌面测试锁严格串行。工作台进程 95815 → 95853、模板回归进程 96926 → 96953 均 `closed:true`；真实计时各会话也结束后才进入下一测试。最终原生 `readDesktopMains()` 返回空列表，没有关闭用户应用。客户端现在本地领先远程四个提交，未推送、无新 head CI；公开推送仍等待明确授权，此前自动审批因缺少公开源码授权而拒绝，未重试或绕过。
 
 Figma 1:3673 本轮请求仍受 Starter 额度限制，身份为 liuwufangzhou@gmail.com / Ark 65；使用已保存原始 `08-本机计划.png`、`34-创建计划.png`、`44-计划状态与冲突.png` 与 `revision.js`，未取得新 MCP 设计上下文。尚未打包、安装或发布。完整 186 画板 / U01–U12 目标继续；未还原页面、实际工具调用、有限桌面与真实全路径验收，以及上述进程监督并发波动仍有剩余工作。
+
+## 2026-09-22 进程组退出探测与并发验收修复
+
+承接本机计划工作台验收中默认并发宿主测试的失败，修复执行基础中的单次探测异常提前阻断。治理规范 [PR 122](https://github.com/zhongmiao-org/flow-ark/pull/122) 已由 CI 自动合并，提交 `56f45d99d947ebf5f8378a66ef0258435331fcc7`；CI `35674370569` 的 Validate、Auto Merge 均成功，旧运行 `35674370471` 被替代取消，不计通过。客户端本地提交 `48798f62509c9364a04d385d44e70ee75f6e1be4` 已采用该规范。客户端 0.3.0、公开契约 0.12.0、模板 SDK 1、ZIP 2、SQLite 格式均未改变。
+
+本机原生隔离实验 `/private/tmp/flowark-group-probe-native.json` 创建 PID 97927，确认其独立进程组在 Z 状态返回 EPERM，确切父进程 wait 回收后返回 ESRCH。该实验只使用本次创建的子进程，没有向历史组发送终止信号。结合 [Apple XNU 的 killpg1 实现](https://github.com/apple-oss-distributions/xnu/blob/main/bsd/kern/kern_sig.c)可解释此退出窗口：EPERM 不必然是持续权限问题，但始终不能作为退出确认。
+
+宿主的活跃调用收尾与同 boot 遗留租约复核，现在在原有 5 秒总期限内继续只读探测。异常期间保留结果、租约和后续任务门禁，只有后续明确 ESRCH 才解除；持续异常或组仍存在到期限时仍保持 unknown / runtimeBlock。多个遗留租约分别记录最近的未解决错误。没有增加终止信号、重放、期限重置或后台自动解锁。集成测试的独立组检查遇 EPERM 返回“未确认”，仍须等到真实 ESRCH；超时新增 Run 状态、活动任务、待结束能力及租约诊断，保留原来所有结果与副作用次序断言。
+
+验证证据：
+
+- 新增两个瞬时异常用例先在旧实现运行，2/2 失败，日志 `/private/tmp/flowark-script-probe-before.log`，明确证明旧路径在首次异常后提前结束结果和启动核对；不计为通过。
+- 修复后 `node --import tsx --test tests/script-processes.test.ts` 15/15 通过，日志 `/private/tmp/flowark-script-probe-unit.log`。覆盖异常→仍存在→消失、多租约独立核对、持续异常、结果不提前返回和租约不提前清除；持续失败仍使用实际约 5 秒期限。
+- `pnpm check` 类型、334/334 单元与构建通过，日志 `/private/tmp/flowark-script-probe-check.log`；既有大分块提示保留。Prettier 与 `git diff --check` 通过。
+- 默认并发 `pnpm test:runtime` 103/103 通过，日志 `/private/tmp/flowark-script-probe-runtime.log`，耗时 24.8 秒，没有添加串行参数。新增真实 Worker 强杀用例先注入三次组探测 EPERM，确认后续任务仍为 QUEUED、租约仍存在且 HTTP 接收端无请求；恢复真实探测后原 Run 为 INTERRUPTED，后续 Run 才 SUCCEEDED，接收时组已消失。证据 `/private/var/folders/gl/0r344fpj0yd2230mp04g8yr40000gn/T/flowark-script-supervision-6iLnoq/evidence.json`。该用例是探测故障注入；Worker、supervisor、忙脚本、SQLite 和 HTTP 为真实链路。
+- 五个退出时序用例（上述故障注入、default/top-level Worker SIGKILL、default/top-level Host SIGKILL）再串行运行五轮，每轮 5/5，共 25/25 通过。实际子命令 `node --import tsx --test --test-name-pattern='Worker SIGKILL|Host SIGKILL|transient group probe' tests/script-supervision.integration.ts`，汇总 `/private/tmp/flowark-script-probe-stress.json`，日志 `/private/tmp/flowark-script-probe-stress-{1..5}.log`。全部 25 份进程证据清理错误为空；本轮正常压力用例未再次碰到原生 EPERM，不能将未碰到描述为逐次原生复现。
+
+上一轮 `kill EPERM` 的失败机制已有本机复现和修复前后回归证据。另一次 `Run did not settle` 的旧证据没有记录当时 runtimeBlock，无法仅据旧文件直接证明同源；本轮已补足诊断并通过完整默认并发和限定压力回归，保留这一证据限制。脚本监督测试仍覆盖 supervisor 丢失后持久阻断、重开拒绝重放、SQLite 写失败与实际清理，没有弱化这些行为。
+
+本轮未启动 Electron GUI；最终只读 `readDesktopMains()` 返回 `[]`。没有重跑未受界面修改影响的页面截图，也没有新打包、安装或发布。客户端新增提交仍仅在本地（相对远端领先 5 个提交）；公开仓库推送此前被自动审批拒绝，尚未获得公开发布源码的明确授权，未重试。本次不代表客户端新提交有 CI 或 PR 合并结果。完整 186 画板 / U01–U12 的 Figma 实现目标继续，页面还原、实际工具调用、有限桌面与真实全路径验收仍需推进。
