@@ -31,6 +31,14 @@ ready 预算 3 秒，单次回收预算 5 秒，重开遗留核对预算 5 秒�
 
 回收确认同时要求确切 ChildProcess 的 exit，以及只读组探测返回 ESRCH。组仍存在、EPERM、其他探测失败或 supervisor 自身异常死亡均不能当作已回收。仅在组确已消失后清除持久租约，再返回节点结果。绝不向历史 PID/PGID 补发 kill；组 ID 被复用最多造成保守阻断，不得误杀其他进程。
 
+### 2026-09-22 退出期间的只读探测复核
+
+本机隔离实验确认：仅含已退出、尚未 wait 回收的子进程组，`kill(-pgid, 0)` 返回 EPERM；确切父进程完成回收后返回 ESRCH。证据 `/private/tmp/flowark-group-probe-native.json`（自建 PID 97927，探测时为 Z，之后 wait 成功）。Apple [XNU 的 killpg1 实现](https://github.com/apple-oss-distributions/xnu/blob/main/bsd/kern/kern_sig.c) 对组成员迭代排除 SZOMB，未找到可发信号成员时可返回 EPERM；因此单次 EPERM 不足以判断是永久权限问题，也绝不是组已消失的证据。
+
+活跃调用收尾与同 boot 遗留租约复核，均在各自既有 5 秒总期限内重复只读探测，间隔最多 25 毫秒。EPERM 或其他探测异常只表示本次尚未确认；保持租约、结果与后续执行门禁，直到后续明确返回 ESRCH 才允许清理。不得延长或为每个错误重置总期限；期限内一直存在或一直无法探测时，仍记录 unknown / runtimeBlock，保留最近一次未解决的探测错误。不增加终止信号、业务重试、历史进程认领或后台自动解锁。
+
+覆盖瞬时异常→仍存在→ESRCH、持续异常直到期限、同 boot 多租约分别核对，以及真 Worker/Host 强杀后 FIFO 副作用次序。集成测试的独立组探测在 EPERM 时同样继续等待，最终仍必须获得 ESRCH；保留探测异常及运行阻断诊断，不能把断言失败转换为通过。本增量不改变公开流程/模板契约、IPC、SQLite 格式或脚本执行许可协议；消费者采用已合并治理提交，具体实现与验收另记。
+
 Worker 丢失、节点取消和退出立即撤销启动资格，并发收尾本 Run 所有 supervisor、Worker 和浏览器。启动中调用也纳入同一个关闭 Promise；单项写库或清理失败不跳过其他回收。既有 Worker 协作宽限 2 秒、网页关闭确认 8 秒、Main 等宿主 15 秒保持；脚本回收与它们并发。
 
 回收未知或进程意外丢失为 INTERRUPTED；主动取消且资源确认消失才为 CANCELLED；节点异常/超时且资源已回收为 FAILED；完整执行并确认回收才可为 SUCCEEDED。未知先设置独立内存阻断，初始租约已持久存在，即使后续诊断写入失败也不会丢失恢复门禁。
