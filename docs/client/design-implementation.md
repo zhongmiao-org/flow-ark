@@ -589,3 +589,30 @@ Figma 2:973 本阶段请求仍受 Starter 额度限制，规范依据既有原�
 客户端当前本地领先远程两个提交，未推送、未取得这两个提交的 CI。公开推送的自动审批拒绝与待用户授权状态保持，未重试或绕过；只读复核远程 PR #37 仍为 `b9d0dff351425b3ef740b845743fc37cd066430f`、OPEN/draft。本条验收文档独立通过私有治理仓库 PR 交付，不代表客户端已交付。
 
 本轮连接器身份核对为 liuwufangzhou@gmail.com / Ark 65，2:973 请求仍受 Starter 额度限制，设计来自既有原始 PNG 与生成源，未声称取得新 MCP 上下文。尚未打包、安装或发布。完整 186 画板 / U01–U12 目标继续；模板入口直接调试/计划/最近结果衔接、其余页面与真实全路径仍待完成，不能把本条局部完成视为全目标完成。
+
+## 2026-09-22 模板入口运行、调试结果与来源计划（本地完成）
+
+客户端本地提交 `d83a5a4f7f8aafcca6ad44f93e53d3b99fdb97d3` 采用治理 [PR #118](https://github.com/zhongmiao-org/flow-ark/pull/118) 的已合并基线 `d3fa51b638af35791f28a46f3db11a24829e839c`，落实 [入口运行与计划来源规范](template-instance-editing.md)。规范 PR 的 [CI 35669629082](https://github.com/zhongmiao-org/flow-ark/actions/runs/35669629082) 为 success，Validate 106562959134、Auto Merge 106562994620 均通过，已核对实际合并；这不是客户端新增提交的 CI。应用仍为 0.3.0 开发候选，公开流程契约 0.12.0、SDK 1.0、ZIP 包 2.0 与 SQLite 表结构不变，模板仓库未改动。
+
+操作入口现在支持真实运行、逐步调试、最近运行/结果和创建本机计划。运行与调试打开刚创建的实际 Run；调试先暂停于首节点之前，逐步执行与继续沿用既有宿主行为。最近结果按当前入口真实 flowId 查询，不受首页历史数量限制，也不采用其他实例的记录。返回按钮、来源面包屑与应用内返回快捷键保留原实例、入口、输入、滚动和触发控件焦点；前往其他模块时先经过原实例的草稿离开保护。结果读取失败不自动重放运行。
+
+创建计划页固定原实例与入口，显示该入口的真实计划和启停状态，默认 60 分钟与系统时区。必须勾选固定当前已保存内容并明确创建，首次执行在间隔之后；打开、取消和查看页面均不创建 Run。保存失败保留表单，保存期间禁止重复创建和离开；继续编辑、不保存离开、保存后前往原目标共用明确守卫，成功后不能重复提交同一页。此轮只实现入口来源的创建页，全局计划管理页的完整 Figma 还原仍待完成。
+
+`flow.run` 和 `schedule.save` 新增可选严格 `templateSource`，包含实例、入口与修订。Host 在捕获内容前及异步资源预检后重新核对来源；中途真实实例保存、入口丢失或绑定变化会拒绝旧页面请求，不新增 Run、快照、版本或计划。计划版本与计划记录在同一同步 Store 事务中保存。已创建的运行和计划继续使用原不可变内容，不随之后的实例编辑变化。
+
+本地最终验证：
+
+- `pnpm check`：类型、330/330 单元与构建通过，日志 `/private/tmp/flowark-template-launch-check.log`；修改文件格式检查及 `git diff --check` 通过，既有大分块提示保留。新增严格来源结构、准确实例/入口/修订及破损绑定验证。
+- `pnpm test:runtime`：101/101 通过，日志 `/private/tmp/flowark-template-launch-runtime.log`。新增真实 Host/Worker 验证首步调试暂停、单步、继续与输出、计划创建不立即运行、固定快照、旧修订和不支持计划的入口拒绝；分别在运行和计划预检期间执行真实竞争保存，确认拒绝后零新增持久记录。
+- `pnpm test:template-entry`：6 组通过，日志 `/private/tmp/flowark-template-launch-ui.log`、汇总 `flow-ark-client/test-results/figma/template-entry-summary.json`、数据 `/private/tmp/flowark-template-entry-ui-8KmCqV`。覆盖实际调试和普通运行、最近结果与不同实例隔离、返回焦点/快捷键、原实例草稿保护、计划显式确认、失败留页、单次请求、忙碌期间离开拦截、准确离开目标、真实来源冲突、重开读取 2 个 Run 与 2 个固定计划且不重放；计划在退出前明确暂停。
+- `pnpm test:template-ai`：7 组回归通过，日志 `/private/tmp/flowark-template-launch-ai.log`、数据 `/private/tmp/flowark-template-ai-ui-S1B4Mt`。保留系统保护失败、AI 配置往返、显式绑定、来源错误和竞争保存、独立无需 AI 入口真实执行、离线重开；供应商 HTTP 为 0。
+- `pnpm test:template-instance`：6 组回归通过，日志 `/private/tmp/flowark-template-launch-instance.log`、数据 `/private/tmp/flowark-template-instance-ui-nLuZsN`。保留四标签/多入口草稿、原子保存、失败/忙碌/焦点、侧栏/快捷键/版本切换、来源错误覆盖全部页签、实例隔离和零运行重开。
+- `pnpm test:flow-export`：标准 ZIP 导出/导入、自定义流程往返、默认拒绝资源授权和实际脚本/文件执行通过，日志 `/private/tmp/flowark-template-launch-zip.log`。
+
+创建计划页在 1440 下两卡实测 x=256/952、y=230、宽 672/456、高 676、gap 24；1920 自适应伸展，1040 纵排宽 904，无横向溢出。已目视核对最终 1440 及窄窗截图，原 AI 入口和实例标签页另保留三尺寸回归。早期验证发现窄窗缺少共享容器类、确认框被通用标签样式改成纵排及返回焦点早于来源核对结束，均已修正并完成最终重跑。测试夹具的旧 tab/卡片定位和遗漏读取函数也已修正，失败结果不计通过。
+
+全部 GUI 命令严格串行并使用统一桌面测试锁：入口进程 90430 → 90502、AI 进程 90536 → 90557、实例进程 90591 → 90603 均 `closed:true`，随后 ZIP 回归完成。最终通过原生进程表核对 `readDesktopMains()` 返回空列表；没有并行启动第二个实例或关闭用户应用。普通沙箱读取进程表返回 EPERM 后，仅提升只读进程检查权限完成核对。保存延迟/故障和原生文件选择结果为具名夹具；Renderer/Main/Host、SQLite、系统保护与指定 Worker 为真实链路，不代替真实模型、原生选择器人工操作或业务验收。
+
+客户端现在本地领先远程三个提交，工作区干净。公开推送此前被自动审批拒绝，理由仍为缺少公开这批源码的明确授权；未重试、未绕过，没有这三个提交的客户端 CI。[PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37) 保持草稿，最后核对的远程 head 为 `b9d0dff351425b3ef740b845743fc37cd066430f`。本条私有治理验收交付不代表客户端已推送或合并。
+
+本轮 Figma 身份再次核对为 liuwufangzhou@gmail.com / Ark 65，2:1199 新请求仍被 Starter 额度拒绝；设计依据原始导出 `16-入口输入与执行.png`、`34-创建计划.png` 和 `revision.js`，未取得新 MCP 设计上下文。尚未打包、安装或发布。完整 186 画板 / U01–U12 目标继续，全局导航/计划管理、其余未还原页面、实际工具调用和真实全路径仍待完成。
