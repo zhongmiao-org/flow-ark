@@ -661,3 +661,23 @@ Figma 1:3673 本轮请求仍受 Starter 额度限制，身份为 liuwufangzhou@g
 上一轮 `kill EPERM` 的失败机制已有本机复现和修复前后回归证据。另一次 `Run did not settle` 的旧证据没有记录当时 runtimeBlock，无法仅据旧文件直接证明同源；本轮已补足诊断并通过完整默认并发和限定压力回归，保留这一证据限制。脚本监督测试仍覆盖 supervisor 丢失后持久阻断、重开拒绝重放、SQLite 写失败与实际清理，没有弱化这些行为。
 
 本轮未启动 Electron GUI；最终只读 `readDesktopMains()` 返回 `[]`。没有重跑未受界面修改影响的页面截图，也没有新打包、安装或发布。客户端新增提交仍仅在本地（相对远端领先 5 个提交）；公开仓库推送此前被自动审批拒绝，尚未获得公开发布源码的明确授权，未重试。本次不代表客户端新提交有 CI 或 PR 合并结果。完整 186 画板 / U01–U12 的 Figma 实现目标继续，页面还原、实际工具调用、有限桌面与真实全路径验收仍需推进。
+
+## 2026-09-22 清晰观察原生裁剪验证（未接入产品）
+
+继续 U11 与 Figma `23:5921`、`23:6084`、`23:6221`。遵循 figma-design-to-code 技能，请求 `23:6221` 的 `get_design_context` 仍返回 Starter 配额限制；使用已保存 `task-design.js` 的总览、100% 与目标聚焦定义及既有原始导出，不宣称取得新 MCP 上下文。本轮客户端仍为 `48798f62509c9364a04d385d44e70ee75f6e1be4`，工作区无产品修改。
+
+先完成真实显示环境中的技术关口，避免将锁屏时未验证的父 View 方案写入生产。原型 `/private/tmp/flowark-observation-native-v2.mts` 采用当前客户端 EmbeddedPage、Electron 44.4.1、统一 `desktopElectron` 启动器及全局桌面锁，只打开本机临时虚构表单和跨源框架，未读取日常 Profile。实际启动顺序 4184 → 4359 → 4931 → 6345，每个旧主进程实际退出后才启动下一次。
+
+| 独立实验 | 实际证据与结论 |
+| --- | --- |
+| 父 View + 负偏移子网页 | `/private/tmp/flowark-observation-native-v2-vTcLRl/summary.json`；1040×700，父区域 x=80/y=160/880×460，子网页 x=-1040/y=0/1920×1080。系统图 `unclipped-1040.png` 显示网页越过父左边界并延伸至窗口底部，裁剪失败。页面内读数仍为 1920×1080，因此仅几何数据不足以验收 |
+| 父 View 设置 `setBorderRadius(12)` | `/private/tmp/flowark-observation-native-v2-IZp3aH/summary.json`、`radius12-1040.png`；边界外绘制未消失。不能依赖父 View 圆角将原生网页裁剪为面板 |
+| 固定布局 + 可视 viewport | `/private/tmp/flowark-observation-native-v2-AZ6ryk/summary.json`；实际 WebContentsView 为 880×460，CDP 固定布局 1920×1080。系统图 `emulate-css-right.png`、`emulate-frame.png`、`overview-emulation.png` 显示边界正常、100% 与总览、跨源框架和既有输入保留。六次观察的根页面 timeOrigin 恒为 1790039873442.7，框架为 1790039873535.1，根 WebContents 为 2；此为绘制和会话证据，非完整输入通过 |
+| 直接画面坐标与无障碍定位对照 | 同一实验直接点击窗口图中的字段中心 (750,280)，页面 click 的 x/y 为 670/120，目标 id 为空；对应字段正确页面 x 为 1710。粘贴因未进入字段超时，失败保留。之后通过 CUA 无障碍元素索引定位，实际输入 `native-crop-verified`、`frame-crop-verified`，服务端各收到一次普通按钮、框架按钮回执。无障碍点击不是画面坐标成功的证据；拾取状态仍为 picking，未报告选中目标 |
+| 实验性输入转发 | `/private/tmp/flowark-observation-native-v3.mts`、`/private/tmp/flowark-observation-native-v3-VK1OgI/summary.json`；加入 before-mouse-event 到 CDP 的坐标转发后，画面坐标操作遇 CUA `noWindowsAvailable`，主进程 6345 仍活且 CPU 131.1%，inspect 与正常关闭请求不响应。事件回流是待查假设，没有取得完整转发序列，不能报告其根因已修复 |
+
+四份摘要均保留 `passed:false`。前三次正常关闭。最后一次核对 PID 6345、父 PID 6325、确切 Electron 路径后发送 SIGTERM，未退出；再次核对身份后仅对该测试主进程发送 SIGKILL，持有的会话实际返回 signal=SIGKILL / exit 1。摘要追加 `forcedCleanup`，`closed:true` 只表示已回收，不代表正常退出或验收通过。最终 `readDesktopMains()` 返回 `[]`，已知助手 6346/6347/6348/6350/6351 均不在进程表；没有终止用户应用。此轮沒有第二个同时运行的桌面实例。
+
+参考 [Electron View](https://www.electronjs.org/docs/latest/api/view)、[Electron View 实现](https://github.com/electron/electron/blob/main/shell/browser/api/electron_api_view.cc) 及本地锁定依赖的 CDP `setDeviceMetricsOverride` 定义。viewport 的绘制范围不等于原生输入坐标；不据接口名称推断已支持。修改 [内置浏览器规范](embedded-browser.md) 记录被否定的假设与后续验收条件，没有降低保持 1920 CSS px、同一网页会话、100% 阅读和精确输入的要求。
+
+本次未运行产品测试、未提交客户端代码、未新打包/安装或发布；没有把之前 334 单元、103 宿主通过当作本原型的验证。下一步先完善有界原型诊断并解决输入转换与正常退出，再进入生产协议、界面与两尺寸验收。U11 仍未完成，其他 186 画板 / U01–U12 范围保持。
