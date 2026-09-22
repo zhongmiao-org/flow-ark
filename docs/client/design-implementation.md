@@ -743,3 +743,20 @@ v12 与 v13 均保留 `passed:false`、`closed:true`、`exit.code=0`、`exit.sig
 - `/private/tmp/flowark-observation-native-v15-yrLURY`，PID 17698，9 次检查：使用 `/private/tmp/flowark-quad-hit.ts` 的可逆四边形投影。外框 rotate(8deg) scale(.9)，跨源内框 rotate(-6deg) scale(.85)，另加与外框同源的内框；两内框均滚动至目标。真实画面点 (350,425) 返回 #remote → #deep → #deep-input；校验滚动后重新取截图，(510,508) 返回 #remote → #same → #deep-input。两者都为 input/text、structural=false，HTTP hits 始终为空。原型轨迹分别经过两次和一次跨 session 换算，同进程内框由浏览器直接命中。
 
 源码为 `/private/tmp/flowark-observation-native-v14.mts`、v15。两份摘要均 `passed:false`、`closed:true`、`exit.code=0`、`exit.signal=null`，17442 正常退出后才启动 17698。这里只证明当前旋转/缩放夹具，不覆盖透视、退化四边形、遮挡或变化竞态。原型仍使用旧目标描述校验，会主动滚动页面，故补充正式实现约定要求拾取校验不滚动，并复核 backendNodeId 身份。生产接入及原有行为回归另行记录；完整 186 画板 / U01–U12 未完成。
+## 2026-09-22 稳定文档拾取接入客户端（局部验证）
+
+依据 [PR #128](https://github.com/zhongmiao-org/flow-ark/pull/128) 已合并规范，治理基线 `20b7e9478e720295205baaf600b80a94ceac7a88`；CI `35679104391` 的 Validate 与 Auto Merge 成功，较早的 `35679104001` 取消，不计为通过。客户端本地提交 `5943b87` 将直接文档命中接入正式 EmbeddedPicker：根点计入视觉比例和页面滚动，跨进程框架使用内容四边形逆投影，同进程节点直接使用浏览器命中结果。结果提交前复核文档、会话、视口、节点和几何，并要求唯一选择器对应同一 backendNodeId；拾取校验不再滚动页面。命中读取限时 3 秒，取消或新拾取立即废弃旧读取并消费迟到异常，清理对象组使用独立序号。
+
+| 本轮验证 | 结果与证据 |
+| --- | --- |
+| `pnpm check` | 类型检查、343 项单元测试、构建通过，日志 `/private/tmp/flowark-stable-picker-check-native.log`。首次沙箱内尝试因既有测试监听 127.0.0.1 报 EPERM 失败，未计为通过；之后允许本地测试联网重跑。最终提示文案、基线元数据和取消测试加强后，又通过类型检查、12 项相关测试、Prettier 与 diff 检查 |
+| `pnpm test:picker` | 通过，`/private/tmp/flowark-picker-QGf0aV`：静止点击、旧悬停、偏移面板与页面缩放、两层跨源框架、密码字段、特殊选择器、结构选择器、Shadow DOM、选项读取；拾取不产生业务点击。故障注入改为当前实际使用的 DOM.getNodeForLocation |
+| `pnpm test:picker-lifecycle` | 通过，`/private/tmp/flowark-picker-lifecycle-lF55Sk`：解析中关闭及重建、延迟高亮清理、三轮面板收起/隐藏/最小化/导航/重建，恢复后拾取、填写与非空白绘制均通过，无未处理异常。第一次运行 `/private/tmp/flowark-picker-lifecycle-S7i0R7` 因脚本仍引用旧 fixture 字段 #full-name 失败，修正为现有 #fullName 后重跑 |
+| `pnpm test:browser-viewport` | 通过，`/private/tmp/flowark-viewport-F3e0O3`：现有总览布局保持 1920 CSS 宽度，普通输入、三种窗口尺寸、收起重开、最小化恢复及导航正常。这不是清晰观察模式的完整验收 |
+| v16 正式代码原生点击 | `/private/tmp/flowark-observation-native-v16-NnwTcD`，PID 20403，1040×700；无 pointTarget 原型替换。外框旋转 8°/缩放 0.9、跨源内框旋转 -6°/缩放 0.85，两内框 scrollY=270.54544。画面 (350,418) 返回 #remote → #deep → #deep-input，(350,536) 返回 #remote → #same → #deep-input；两次均保持原 timeOrigin、页面与框架滚动、视觉视口，HTTP hits 为空。摘要 11 次检查，closed=true、exit.code=0、signal=null，整体仍保留 passed=false |
+
+原生验证发现未完成边界：在上述视觉放大与双层旋转组合中，拾取后的同位置普通点击落在内层文档背景，未给输入框写入文字；外层输入框按画面 (421,327) 可写入 `native-outer-after-picker`。因此仅证明直接拾取正确及外层普通输入恢复，不能声称所有变换框架的人工输入或自动化坐标已通过。透视变换目前仅数学测试通过；实际浏览器透视、完整两尺寸正式代码、观察模式切换及自动化仍需后续取证。
+
+上一 v16 会话 `/private/tmp/flowark-observation-native-v16-bs5hyw`（PID 19237）在读取选择结果前到达测试时限，正常退出，但不计为拾取通过。随后所有 GUI 会话均经全局桌面锁串行启动、核对实际退出；最终 `readDesktopMains()` 为 `[]`，没有遗留调试主实例。
+
+本轮未改动 IPC、公共流程、SQLite 或模板包格式，没有打包、安装或发布。客户端只保存本地提交；公共客户端源码推送仍受此前自动审批拒绝约束，缺少明确公开授权，未重试。生产观察界面与 U11 未完成，完整 186 画板 / U01–U12 目标保持。
