@@ -616,3 +616,28 @@ Figma 2:973 本阶段请求仍受 Starter 额度限制，规范依据既有原�
 客户端现在本地领先远程三个提交，工作区干净。公开推送此前被自动审批拒绝，理由仍为缺少公开这批源码的明确授权；未重试、未绕过，没有这三个提交的客户端 CI。[PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37) 保持草稿，最后核对的远程 head 为 `b9d0dff351425b3ef740b845743fc37cd066430f`。本条私有治理验收交付不代表客户端已推送或合并。
 
 本轮 Figma 身份再次核对为 liuwufangzhou@gmail.com / Ark 65，2:1199 新请求仍被 Starter 额度拒绝；设计依据原始导出 `16-入口输入与执行.png`、`34-创建计划.png` 和 `revision.js`，未取得新 MCP 设计上下文。尚未打包、安装或发布。完整 186 画板 / U01–U12 目标继续，全局导航/计划管理、其余未还原页面、实际工具调用和真实全路径仍待完成。
+
+## 2026-09-22 本机计划工作台与真实调度记录（本地完成）
+
+客户端本地提交 `1b8ca6f18c08135eec44207386748240c4d46b8d` 采用治理 [PR #120](https://github.com/zhongmiao-org/flow-ark/pull/120) 的已合并基线 `c27d9824b6a2456dfc2297dd7a09d8016f890bc2`，实现 [计划工作台与记录读取 v1](schedule-editing.md)。规范 [CI 35671668816](https://github.com/zhongmiao-org/flow-ark/actions/runs/35671668816) 为 success，Validate 106569303562、Auto Merge 106569367185 均通过；不代表客户端新提交已通过 CI。应用仍为 0.3.0 开发候选，公开流程契约 0.12.0、SDK 1.0、ZIP 2.0 和 SQLite 结构不变，本轮未修改模板仓库。
+
+全局计划管理由旧上下排列改为真实计划列表和创建/编辑双栏。右栏展示当前计划原固定版本的保存时间，明确采用当前已保存版本才替换未来触发的内容；默认不采用未保存草稿。创建默认 60 分钟与系统时区，选择流程后还需确认固定内容，不立即创建 Run。取消、切换计划、当前计划启停、侧栏、重新学习和应用内返回统一保护未保存更改；失败/冲突保留输入，保存期间禁止重复操作，成功后到原目标。查看记录及活动运行保留计划草稿、滚动、焦点和原来源，不重放运行。
+
+新增白名单只读 `schedule.inspect`，返回当前计划、原固定版本摘要、该计划的分页记录和实际非终态 Run 摘要，不返回版本正文、脚本或绑定。按真实记录位置固定分页上限，每页 20 条，后来新增记录仅在刷新后出现；其他计划记录不会混入，缺失来源明确失败。占用、错过及预检失败按已有记录分别呈现，不凭一条恢复记录推算错过次数。`schedule.save` 的可选 `flowUpdatedAt` 在预检前校验，并在预检后比较整个已保存流程摘要；竞争保存拒绝创建版本与计划，不影响既有运行。
+
+本地验证：
+
+- `pnpm check`：类型、331/331 单元与构建通过，最终日志 `/private/tmp/flowark-schedule-workbench-check-final.log`；既有大分块提示保留。后续仅调整回归脚本以匹配现行表单选择器，最终类型、格式及 `git diff --check` 再次通过。新增真实加密 Store 验证跨页隔离、新记录不挤入旧分页、只读无副作用、脱敏、缺失版本和严格来源结构。
+- 宿主完整 102 项用例以 `--test-concurrency=1` 运行全部通过，日志 `/private/tmp/flowark-schedule-workbench-runtime-serial.log`。实际命令按 `package.json` 的 `test:runtime` 原完整文件列表，仅在 Node 参数中增加该并发选项，没有删减用例或断言。新增真实竞争保存期间的创建拒绝，确认零新增版本、计划和 Run。两次默认并发 `pnpm test:runtime` 分别为 101/102：旧进程监督用例出现 `kill EPERM` 和另一个用例 `Run did not settle`，日志 `/private/tmp/flowark-schedule-workbench-runtime.log`、`/private/tmp/flowark-schedule-workbench-runtime-final.log`。两组清理证据确认夹具进程已退出；并发波动根因未定位，不以串行通过声称该问题已经修复。
+- `pnpm test:schedule-workbench`：5 组通过，日志 `/private/tmp/flowark-schedule-workbench-ui.log`，汇总 `flow-ark-client/test-results/figma/schedule-workbench-summary.json`，数据 `/private/tmp/flowark-schedule-workbench-ui-yMHt5m`。覆盖确认创建、原快照与新草稿区分、三选离开/失败/忙碌/单次提交/原目的地、切换计划、真实竞争启停、重读、45 条记录分页隔离、读取失败保留、实际 Worker 和占用 tick 无重复运行、活动运行返回/键盘/焦点、重开不重放。较早记录、保存延迟/故障和 tick 到期时间为明确夹具，不替代真实分钟计时。
+- `pnpm test:schedule-editing`：真实两个分钟周期通过，日志 `/private/tmp/flowark-schedule-workbench-editing.log`，数据 `/private/tmp/flowark-schedule-edit-ui-Xv5EDe`。旧版本 Run `cefbb0e5-b838-47c3-91e7-989a8e115d98` 与显式采用后的 Run `8adbc020-776b-478c-9084-d202c0dd3557` 分别实际填写旧值/新值；更新时的原运行快照保持，两个 Run 成功并在重开后保留。1920 CSS 像素内置网页、时区、窄窗和原生网页面板共存通过，零表单提交。
+- `pnpm test:schedule-residency`：250 秒真实计时通过，日志 `/private/tmp/flowark-schedule-workbench-residency.log`，数据 `/private/tmp/flowark-schedule-residency-3bWCcg`。最小化、占用跳过、托盘、退出期间错过四个真实周期，只有两个成功 Run；文本、单选、下拉的实际值正确，1920 CSS 像素、单窗口、无抢焦点和零提交均核对。新记录接口与界面读到真实 `occupied` / `application-restart`，退出后的加密 Store 原始记录再次核对，两次退出 code 0，重开未补跑。这不是硬件休眠或长期驻留验收。
+- `pnpm test:template-entry`：6 组回归通过，日志 `/private/tmp/flowark-schedule-workbench-template.log`，数据 `/private/tmp/flowark-template-entry-ui-SGNb27`；保留真实调试、来源返回、独立实例结果、创建计划失败与来源竞争、重开无重放及三尺寸布局。
+
+计划编辑页在 1440 下实测 x=256/952、y=230、宽 672/456、高 676、gap 24；1920 扩展两栏，1040 纵排宽 904，无横向溢出。已目视核对最终 1440 与窄窗截图；模板来源创建页也保留三尺寸回归。全局导航及全部动态内容仍需最终整体视觉复核。
+
+早期桌面失败分别来自测试直接写入后选中尚未刷新的旧来源（宿主正确拒绝）、诊断夹具给更新请求读取未提供的 flowId、设置页旧标题定位，以及真实计时脚本仍引用已从平台夹具移除的字段。已等待界面真实来源、修正夹具/定位，并迁移到当前文本、单选、下拉字段及其实际结果断言；没有移除运行、输入值、1920 宽度或零提交核对。失败结果不算通过。新增读取白名单和固定版本的版面精简均包含在最终构建与桌面验证中。
+
+GUI 全程使用统一桌面测试锁严格串行。工作台进程 95815 → 95853、模板回归进程 96926 → 96953 均 `closed:true`；真实计时各会话也结束后才进入下一测试。最终原生 `readDesktopMains()` 返回空列表，没有关闭用户应用。客户端现在本地领先远程四个提交，未推送、无新 head CI；公开推送仍等待明确授权，此前自动审批因缺少公开源码授权而拒绝，未重试或绕过。
+
+Figma 1:3673 本轮请求仍受 Starter 额度限制，身份为 liuwufangzhou@gmail.com / Ark 65；使用已保存原始 `08-本机计划.png`、`34-创建计划.png`、`44-计划状态与冲突.png` 与 `revision.js`，未取得新 MCP 设计上下文。尚未打包、安装或发布。完整 186 画板 / U01–U12 目标继续；未还原页面、实际工具调用、有限桌面与真实全路径验收，以及上述进程监督并发波动仍有剩余工作。
