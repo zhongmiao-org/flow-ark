@@ -699,3 +699,21 @@ Figma 1:3673 本轮请求仍受 Starter 额度限制，身份为 liuwufangzhou@g
 v6 八次读数的根 timeOrigin 恒为 1790041218576.6，框架为 1790041218673.1，WebContents ID=2；原型没有重载或替换 DOM。根 scrollX/scrollY 保持 0，实际纵向滚轮令 visualViewport.offsetTop=321，CDP 触摸横向平移令 offsetLeft≈1039.96；横向 CUA 滚轮未观察到有效平移，不能宣称产品横向操作已实现。v8 从清晰到总览的根 timeOrigin 恒为 1790041511229.4，但未在该实例填写内容，因此尚不是填写后切换保留验收。
 
 依据 [Electron 视觉缩放文档](https://www.electronjs.org/docs/latest/api/web-contents#contentssetvisualzoomlevellimitsminimumlevel-maximumlevel) 调整下一方案：优先由浏览器处理原生人工输入，单独验证拾取和自动化 CDP 坐标；不要继续全局重放鼠标。v6 同时增加缩放启用及延迟调用，尚未分离这两个因素。跨源拾取、自动化、1920×1080 窗口、导航重设、边界外不命中和完整切换仍未通过，生产协议与 Figma 页面暂未接入。未打包、安装或发布，完整 186 画板 / U01–U12 目标保持。
+
+## 2026-09-22 跨源文档坐标拾取原型（未接入产品）
+
+承接 [PR #125](https://github.com/zhongmiao-org/flow-ark/pull/125)，治理基线 `3d326ea95cf57996cbe16857eb5662d47fce5839`。上轮 CI `35677206121` 的 Validate 和 Auto Merge 成功；较早的 `35677205102` 取消，不计为通过。本轮客户端仍为 `48798f62509c9364a04d385d44e70ee75f6e1be4`，没有生产源码修改、新客户端 CI、打包或安装。
+
+原型 `/private/tmp/flowark-observation-native-v9.mts`、v10、v11 继续复用当前 EmbeddedPage 与统一桌面锁，只使用本机虚构表单。三次实例 PID 14654 → 15032 → 15208 严格串行，每次均实际正常退出后才启动下一次；最终 `readDesktopMains()` 返回 `[]`。摘要均保留 `passed:false`、`closed:true`、`exit.code=0`、`exit.signal=null`，没有将局部能力验证升级为 U11 完成。
+
+| 原型与证据目录 | 验证结果 |
+| --- | --- |
+| v9，`/private/tmp/flowark-observation-native-v9-FyzuXE` | 根 `DOM.getNodeForLocation(210,120)` 返回 #field-0。平移后根文档点 (1410,571) 返回 #remote 框架边界；对应子 session 的 (221,37) 返回 #frame-input。屏幕相对点和合成鼠标所需点不能直接用作 DOM 查询坐标 |
+| v10，`/private/tmp/flowark-observation-native-v10-95jFyd` | 原型逐层查询仅加 visualViewport.offset，真实点击跨源字段后误选根 body；记录点为 (1409.96,514.5)。页面已有布局滚动，遗漏该距离导致错误，不计为通过；既有目标校验还会将误选 body 滚动到可见，不能以 selected 状态单独证明选择正确 |
+| v11，`/private/tmp/flowark-observation-native-v11-XtLp4a` | 改用 visualViewport.pageLeft/pageTop，包含布局滚动。父框架内容起点由实际矩形、边框和所属文档滚动求得，再加入子文档滚动；只支持无变换框架。画面坐标 (450,348) 拾取实际输入，根文档点 (1425,571.5) 命中 #remote，内容起点 (1204,534)，子文档点 (221,37.5) 返回 #frame-input；最终 target 为 input/text、structural=false、framePath=[#remote] |
+
+v11 拾取后通过实际画面坐标 (510,408) 输入 `same-frame-retained`。同一实例切回总览，系统截图 `overview.png` 显示输入仍在；再按总览画面坐标 (725,368) 拾取，`overview-result` 返回相同 selector=#frame-input、framePath=[#remote]，框架字段仍保留输入。十次检查的根 timeOrigin=1790042192803.9、框架 timeOrigin=1790042192896.7、WebContents ID=2；两次拾取均没有业务点击回执，HTTP hits 始终为空。原型选择路径只查询节点，不调用 Input.dispatchMouseEvent，现有 before-mouse-event 拦截消费按下/释放。普通输入的真实事件仍保存在摘要中。
+
+修正依据为 [Chromium InspectorDOMAgent::getNodeForLocation](https://github.com/chromium/chromium/blob/main/third_party/blink/renderer/core/inspector/inspector_dom_agent.cc)：输入经布局缩放构成 document_point，再转换到 frame 进行只读命中；只加可视偏移的假设被源码和失败原型共同否定。此源码说明与本机 Electron 44.4.1 实验分别作为依据，不以主分支源码替代锁定运行版本验证。
+
+下一步以直接节点命中作为候选，补齐嵌套/同进程框架、框架内滚动、变换与遮挡、查询竞态及取消/导航；原型只检查当前框架 transform，不覆盖祖先变换，不能进入生产。自动化点击仍是单独未完成关口，不因拾取成功而视为通过。两窗口尺寸、边界外不命中与产品观察控件仍未完成。Figma 186 画板 / U01–U12 的完整范围保持，本轮没有新的 Figma MCP 上下文。
