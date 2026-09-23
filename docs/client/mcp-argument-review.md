@@ -2,6 +2,8 @@
 
 2026-09-23。实现前契约，对应 Figma `23:3799` 的试运行检查及[工具节点 v1](mcp-tool-node.md)。本轮只核对已保存参数与已选工具的输入定义，不开放工具执行，不改变公共节点、流程格式、授权、运行输出或数据库结构。
 
+2026-09-23 后续调用增量采用[工具试运行 v1](mcp-execution.md)。静态检查仍不求值、不联网；执行入口对 Worker 已解析的参数重新完整校验，此时 JSON 数据中的 `$ref` 字段不再当作引用指令。常量与流程参数还须符合固定快照，动态步骤/循环数据仍受保存定义约束。
+
 ## 检查与展示
 
 `flow.run.preview.toolCalls` 的每项增加 `argumentCheck`，包含 `status`、`summary`、`issues`（最多 20 项，字段为 path、message），可选 `referenceCount`。状态分别为 `valid`（固定参数通过本机支持范围内的定义核对）、`invalid`（参数类型/值/大小不符）、`deferred`（含运行时引用，尚未求值）、`unsupported`（输入定义无效、超限或使用不支持规则）、`unavailable`（没有匹配工具定义）。
