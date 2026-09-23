@@ -1,6 +1,6 @@
 # 固定契约来源
 
-当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.12.0](../../contracts/v0.12.0/README.md)，治理基线为 `873ccbc9950937fdc98e62679b5dd7f1ac6ba0d4`（[PR #112](https://github.com/zhongmiao-org/flow-ark/pull/112)，CI 自动合并），纳入 [AI 服务配置与验证 v1](ai-settings.md)、[MCP 连接发现 v1](mcp-connections.md)、[任务附件 v1](task-attachments.md)、[理解页输出选择](task-output-selection.md)与此前[首次教学](first-task-learning.md)规则。不可变开发快照 `contracts-v0.12.0` 保持指向 `1f1fc4771ddcf553b0748d28410b26c9ed4319ad`（[PR #99](https://github.com/zhongmiao-org/flow-ark/pull/99)），未移动 tag。新增 [同名序号文本输出](file-create-numbered.md) file v4 create/onConflict:number 及 file-create-numbered-v1；file v3 仍同名停止。SDK 1.0 和标准包 2.0 不变。
+当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.13.0](../../contracts/v0.13.0/README.md)，治理基线和不可变开发快照 `contracts-v0.13.0` 均为 `7d2eb5dcd6f7c0941b392d54a04eac41fb2a8b13`（[PR #162](https://github.com/zhongmiao-org/flow-ark/pull/162)，CI `35839839726` 成功并自动合并）。客户端本地提交 `1c6c3ac` 消费 [MCP 工具节点 v1](mcp-tool-node.md) 与[任务工具目标](task-mcp-targets.md)，接入所选工具规划、可读参数和固定草稿绑定；真实工具调用、执行结果封装、Run 工具绑定与账号/权限验收仍未完成，含工具节点的运行入口明确拒绝。此前 v0.12.0 的编号文本输出、教学、附件、AI 配置与连接发现规则继续有效，未移动旧 tag。流程格式 1.0、SDK 1.0 和标准包 2.0 不变；无 SQLite 表结构迁移。
 
 2026-09-22 AI 配置采用严格 `ai.configuration.get/save/remove/test/cancel`，替代旧本机 `credentials.set/ai.test`。供应商模型与 Key 在 Main 原子加密保存，公开投影只有配置修订、模型、安全尾号及对应测试状态；活动/排队运行和方案生成保护资源，异步准入再次核对配置。配置/测试/返回均不自动生成或运行，取消与超时不会由迟到凭据读取启动 HTTP。系统保护、两种供应商请求形状、原任务返回和三尺寸通过隔离验证，模板来源往返、未保存输入与滚动位置、显式资源绑定、来源变化保护和无需 AI 的入口另已通过真实链路；真实 API 与完整 U08 仍待验收，详见 [Figma 实施记录](design-implementation.md)。公开契约与 SQLite 表结构不变。
 
