@@ -29,3 +29,19 @@
 本阶段类型/构建与人工回环 HTTP 证据单独记录；真实第三方、系统浏览器登录、凭据保护、取消竞态、全部错误组合及 186 画板仍须后续验收。按用户阶段约定暂不新增或运行单元测试。
 
 参考：[MCP 授权](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization)、[授权服务器发现](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/authorization-server-discovery)、[2025-11-25 授权](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)。
+
+## 授权闭环 v2：已注册公开客户端
+
+2026-09-24 先定义后实现。本节扩展 v1，不把协议批准视为已经实现。首次接入支持用户从所选服务取得的公开客户端 ID（token_endpoint_auth_method=none）；动态注册、客户端元数据文档与机密客户端仍需后续接入，不能自动假造 ID 或索取客户端秘密。用户明确选择一个满足要求的认证站点，填写 client ID 和回调端口，核对固定回调 `http://127.0.0.1:<port>/oauth/callback` 已向该服务登记。端口 1024–65535、默认 48185，占用时报错，不改用第二端口。
+
+检查返回宿主签发、五分钟有效的一次性 inspectionToken。授权请求 `tool.connection.oauth.authorize` 携带 requestId、inspectionToken、完整 OAuth ConnectionConfig（http/auth=oauth，oauth 含 issuer/clientId/callbackPort）、reviewedAuthorization:true，以及修改连接时的 connectionId/revision。宿主绑定检查对应的 URL/协议、所选 issuer、资源、全部展示范围、完整配置和原 revision；不接收 Renderer 提供的端点、授权 URL、state 或令牌。使用一次性 inspectionToken 后重试须重新检查。来源或范围变化须重新核对，不以第一次自动选中的站点代替用户选择。
+
+授权最多十分钟，与发现共用单一在途槽。先独占绑定 IPv4 127.0.0.1 的声明端口，再生成随机 state 和 S256 verifier/challenge，通过仅 Main 可用的内部接口打开系统浏览器。禁止 Renderer 任意打开网址；只打开宿主已绑定的授权地址，携带 client_id、redirect_uri、response_type=code、state、code_challenge、scope 和 resource。重复点击不重复打开，不因打开结果未知自动重试。取消/离开/退出/休眠关闭回调监听，旧回调和迟到令牌不能恢复候选或保存连接。浏览器窗口由用户管理，不关闭已有浏览器。
+
+回调只接受 GET、准确 Host/路径和有界 URL；state 使用常量时间比较，重复的 state/code/iss/error 参数拒绝，错误回调也先校验 issuer。按 RFC 9207 及 MCP 规则：声明支持 iss 时缺失拒绝；任何存在的 iss 都须与已验证 issuer 精确相等。正确回调只消费一次；无效 state 不终止另一会话。页面仅返回固定说明、不反射外部文本，no-store / no-referrer，不记录查询串。
+
+授权码仅发送到已验证的 token endpoint，携带同一 resource、client ID、redirect URI 和 PKCE；不跟随重定向、不重放授权码交换，限制正文和期限，失败仅给出脱敏说明。只接受合法 Bearer token，返回范围不得超出核对范围。随后真实发现与 tools/list，成功生成既有一次性能力候选，不立即保存。候选与连接公开显示 issuer/client ID/资源/授予范围/到期时间，不显示码、verifier、access/refresh token 或系统凭据引用，也不假称账号身份已验证。
+
+系统保护存储保存连接专属 OAuth 凭据包，绑定 issuer/resource/client ID/token endpoint、授予范围与到期时间。范围、目的地和客户端识别信息不得从 Renderer 覆盖。重连或工具调用前若 access token 过期且存在 refresh token，可向原 token endpoint 刷新一次；不扩大范围、不切换 issuer/resource，不追加 offline_access。不因工具调用的 401 或未知结果重放工具操作。刷新失败/结果未知/保护存储失败使连接需重新授权，旧刷新令牌不自动再次使用。刷新轮换在宿主独占下安全保存，保存失败不继续发送新 access token；未知到期时间以服务响应为准，收到 401 提示重连。
+
+断开/删除、原 revision 变化、任务在用、候选取消与五分钟过期继续采用现有连接规则；令牌保护不可用时不得降级明文文件。此协议不改变用户任务操作授权、不可变快照、工具执行去重及结果未知语义。真实系统浏览器、真实提供者注册策略和全部原生回调须独立验收，回环夹具只证明所执行的开发路径。
