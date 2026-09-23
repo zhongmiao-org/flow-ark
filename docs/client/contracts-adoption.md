@@ -1,6 +1,8 @@
 # 固定契约来源
 
-当前客户端设计分支（应用 0.3.0，未正式发版）固定采用 [契约 0.13.0](../../contracts/v0.13.0/README.md)，治理基线和不可变开发快照 `contracts-v0.13.0` 均为 `7d2eb5dcd6f7c0941b392d54a04eac41fb2a8b13`（[PR #162](https://github.com/zhongmiao-org/flow-ark/pull/162)，CI `35839839726` 成功并自动合并）。客户端本地提交 `1c6c3ac` 消费 [MCP 工具节点 v1](mcp-tool-node.md) 与[任务工具目标](task-mcp-targets.md)，接入所选工具规划、可读参数和固定草稿绑定；真实工具调用、执行结果封装、Run 工具绑定与账号/权限验收仍未完成，含工具节点的运行入口明确拒绝。此前 v0.12.0 的编号文本输出、教学、附件、AI 配置与连接发现规则继续有效，未移动旧 tag。流程格式 1.0、SDK 1.0 和标准包 2.0 不变；无 SQLite 表结构迁移。
+当前客户端设计分支固定采用 [契约 0.14.0](../../contracts/v0.14.0/README.md)，治理基线与不可变开发快照 `contracts-v0.14.0` 均为 `336170d3cfce3f541fbe4107587b57f5f881fd2e`（[PR #184](https://github.com/zhongmiao-org/flow-ark/pull/184)，CI `35868427748` 成功并自动合并）。客户端本地提交 `29f164d` 接入[桌面候选采纳](desktop-flow.md)、统一流程清单/图与步骤详情；节点格式与本机来源分别保存，未授予写入能力。共同 preflight 拒绝桌面执行，真实授权、Run 绑定、原生替换与回读仍未实现或验收。已再生成 TypeScript 类型并核对固定摘要，未新增或运行单元测试；流程格式 1.0、SDK 1.0、模板包 2.0 不变，无 SQLite 表结构迁移。
+
+此前客户端设计分支（应用 0.3.0，未正式发版）采用 [契约 0.13.0](../../contracts/v0.13.0/README.md)，治理基线和不可变开发快照 `contracts-v0.13.0` 均为 `7d2eb5dcd6f7c0941b392d54a04eac41fb2a8b13`（[PR #162](https://github.com/zhongmiao-org/flow-ark/pull/162)，CI `35839839726` 成功并自动合并）。客户端本地提交 `1c6c3ac` 消费 [MCP 工具节点 v1](mcp-tool-node.md) 与[任务工具目标](task-mcp-targets.md)，接入所选工具规划、可读参数和固定草稿绑定；真实工具调用、执行结果封装、Run 工具绑定与账号/权限验收仍未完成，含工具节点的运行入口明确拒绝。此前 v0.12.0 的编号文本输出、教学、附件、AI 配置与连接发现规则继续有效，未移动旧 tag。流程格式 1.0、SDK 1.0 和标准包 2.0 不变；无 SQLite 表结构迁移。
 
 2026-09-22 AI 配置采用严格 `ai.configuration.get/save/remove/test/cancel`，替代旧本机 `credentials.set/ai.test`。供应商模型与 Key 在 Main 原子加密保存，公开投影只有配置修订、模型、安全尾号及对应测试状态；活动/排队运行和方案生成保护资源，异步准入再次核对配置。配置/测试/返回均不自动生成或运行，取消与超时不会由迟到凭据读取启动 HTTP。系统保护、两种供应商请求形状、原任务返回和三尺寸通过隔离验证，模板来源往返、未保存输入与滚动位置、显式资源绑定、来源变化保护和无需 AI 的入口另已通过真实链路；真实 API 与完整 U08 仍待验收，详见 [Figma 实施记录](design-implementation.md)。公开契约与 SQLite 表结构不变。
 
