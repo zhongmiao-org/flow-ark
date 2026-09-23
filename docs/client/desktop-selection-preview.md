@@ -2,6 +2,8 @@
 
 2026-09-23。依据 Figma `23:8087`、`23:8190`、`23:8344` 的选中窗口与原段落核对，继续完成 U12 的前置交互。当前仅限 macOS TextEdit；本规范不包含 AI 发送、任务持久绑定、执行授权或替换文字，完整目标仍为选区规划、确认修改、写入回读及失效阻断。
 
+2026-09-23 后续[应用选区 AI 预览](desktop-planning.md)在未发布 ready 响应中增加 previewId，并定义明确发送及清除接口；本文件描述的本地读取仍不会自动发送 AI。
+
 ## 发现 v2 与本机会话
 
 取代未发布的[初始发现 v1](desktop-window-discovery.md)请求/响应，无旧版兼容路径。`desktop.windows.list` 严格输入 `{requestId}`（UUID），返回发现 v2：保留 platform/accessibility/availability/windows/truncated/observedAt，version 改为 2，增加相同 requestId；仅 available 时附带 `{observationId,expiresAt}`。observationId 由 Main 生成，expiresAt 为最多五分钟后的 Unix 毫秒。窗口 id 仍由 Main 生成，仅映射到本次辅助程序保留的原生窗口对象。
