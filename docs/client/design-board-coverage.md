@@ -117,8 +117,8 @@
 | 107 | [23:4724 · AI · 修复后运行起点](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4724) | 1440 × 1080 | 局部实现：起点与任务修订、完整步骤记录、修订变化重新核对及失效出口；组件样例三尺寸人工查看，真实修复重跑与整板验收待完成 |
 | 108 | [23:4867 · 应用与工具 · 连接目录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4867) | 1440 × 1080 | 局部实现：读取失败/重试、来源与状态、长列表及详情返回；组件样例三尺寸人工查看，真实账号/原生助手与整板验收待完成 |
 | 109 | [23:5033 · 应用与工具 · 连接向导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5033) | 1440 × 1080 | 局部实现：双栏与操作前置、无窗口区分、系统设置后重查和记录折叠；组件样例三尺寸人工查看，真实权限/TextEdit 及整板验收待完成 |
-| 110 | [23:5195 · 应用与工具 · 已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5195) | 1440 × 1080 | 待核对 |
-| 111 | [23:5348 · 应用与工具 · 失效重连](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5348) | 1440 × 1080 | 待核对 |
+| 110 | [23:5195 · 应用与工具 · 已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5195) | 1440 × 1080 | 局部实现：有效观察管理页、三项能力、权限记录与选择入口；组件样例人工查看，真实 TextEdit 与整板验收待完成 |
+| 111 | [23:5348 · 应用与工具 · 失效重连](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5348) | 1440 × 1080 | 局部实现：观察到期、设置后复核、无窗口/失败恢复与重查；组件样例人工查看，真实权限与整板验收待完成 |
 | 112 | [23:5493 · 应用与工具 · 高级 MCP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5493) | 1440 × 1080 | 待核对 |
 | 113 | [23:5656 · AI · 模型未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5656) | 1440 × 1080 | 待核对 |
 | 114 | [23:5795 · AI · 模型配置后返回](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5795) | 1440 × 1080 | 待核对 |
