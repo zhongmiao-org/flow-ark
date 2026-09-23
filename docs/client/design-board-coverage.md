@@ -125,7 +125,7 @@
 | 115 | [23:5921 · AI · 全宽网页查看](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5921) | 1440 × 1080 | 局部实现：全宽工作区、桌面导航、地址保留与返回焦点；Renderer 样例三尺寸查看，100%/真实网页输入与整板验收待完成 |
 | 116 | [23:6084 · AI · 紧凑网页总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6084) | 1040 × 700 | 待核对 |
 | 117 | [23:6221 · AI · 紧凑目标聚焦](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6221) | 1040 × 700 | 待核对 |
-| 118 | [23:6333 · 编排 · 四十步任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6333) | 1920 × 1080 | 待核对 |
+| 118 | [23:6333 · 编排 · 四十步任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6333) | 1920 × 1080 | 局部实现：大纲搜索键盘选择、清空、嵌套分支定位；40 步虚构流程三尺寸查看，真实执行聚焦及整板验收待完成 |
 | 119 | [23:6516 · 配置 · Excel 映射编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516) | 1440 × 1080 | 待核对 |
 | 120 | [23:6726 · 配置 · 脚本编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6726) | 1440 × 1080 | 待核对 |
 | 121 | [23:6890 · 编排 · 更多操作](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6890) | 1440 × 1080 | 待核对 |
