@@ -97,7 +97,7 @@
 | 087 | [8:24374 · 选择变量 · 来源 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24374) | 1440 × 1080 | 待核对 |
 | 088 | [8:24539 · RUN-0921-018 · 输出与产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | 1440 × 1080 | 待核对 |
 | 089 | [8:24669 · RUN-0921-018 · 日志与步骤](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | 1440 × 1080 | 待核对 |
-| 090 | [23:1941 · AI · 开始任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) | 1440 × 1080 | 待核对 |
+| 090 | [23:1941 · AI · 开始任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) | 1440 × 1080 | 首页资料/应用/待处理入口已接入并局部人工走查，见实施记录 2026-09-24；整板待核对 |
 | 091 | [23:2106 · AI · 第一次实操](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | 1440 × 1080 | 待核对 |
 | 092 | [23:2280 · AI · 描述与附件](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2280) | 1440 × 1080 | 待核对 |
 | 093 | [23:2440 · AI · 选择操作对象](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2440) | 1440 × 1080 | 工具对象双栏已实现并局部人工走查，见实施记录 2026-09-24；整板待核对 |
