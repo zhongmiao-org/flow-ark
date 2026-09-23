@@ -119,7 +119,7 @@
 | 109 | [23:5033 · 应用与工具 · 连接向导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5033) | 1440 × 1080 | 局部实现：双栏与操作前置、无窗口区分、系统设置后重查和记录折叠；组件样例三尺寸人工查看，真实权限/TextEdit 及整板验收待完成 |
 | 110 | [23:5195 · 应用与工具 · 已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5195) | 1440 × 1080 | 局部实现：有效观察管理页、三项能力、权限记录与选择入口；组件样例人工查看，真实 TextEdit 与整板验收待完成 |
 | 111 | [23:5348 · 应用与工具 · 失效重连](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5348) | 1440 × 1080 | 局部实现：观察到期、设置后复核、无窗口/失败恢复与重查；组件样例人工查看，真实权限与整板验收待完成 |
-| 112 | [23:5493 · 应用与工具 · 高级 MCP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5493) | 1440 × 1080 | 待核对 |
+| 112 | [23:5493 · 应用与工具 · 高级 MCP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5493) | 1440 × 1080 | 局部实现：配置间距、协议折叠、字段错误与焦点反馈；组件样例三尺寸人工查看，真实 MCP/认证与整板验收待完成 |
 | 113 | [23:5656 · AI · 模型未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5656) | 1440 × 1080 | 待核对 |
 | 114 | [23:5795 · AI · 模型配置后返回](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5795) | 1440 × 1080 | 待核对 |
 | 115 | [23:5921 · AI · 全宽网页查看](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5921) | 1440 × 1080 | 待核对 |
