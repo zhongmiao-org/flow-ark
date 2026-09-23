@@ -103,7 +103,7 @@
 | 093 | [23:2440 · AI · 选择操作对象](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2440) | 1440 × 1080 | 工具对象双栏已实现并局部人工走查，见实施记录 2026-09-24；整板待核对 |
 | 094 | [23:2609 · AI · 应用窗口与能力](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | 1440 × 1080 | 待核对 |
 | 095 | [23:2766 · AI · 理解与补问](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2766) | 1440 × 1080 | 待核对 |
-| 096 | [23:2928 · AI · 确认任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2928) | 1440 × 1080 | 待核对 |
+| 096 | [23:2928 · AI · 确认任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2928) | 1440 × 1080 | 局部实现：采纳前后操作摘要、参数定位及首次差异折叠；整板待核对 |
 | 097 | [23:3109 · AI · 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3109) | 1440 × 1080 | 待核对 |
 | 098 | [23:3290 · AI · 同一流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3290) | 1440 × 1080 | 待核对 |
 | 099 | [23:3467 · AI · 修改差异](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3467) | 1440 × 1080 | 待核对 |
