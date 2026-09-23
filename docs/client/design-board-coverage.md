@@ -115,7 +115,7 @@
 | 105 | [23:4425 · AI · 失败与引导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4425) | 1440 × 1080 | 失败摘要、已记录影响、详情与返回局部核对；整板待核对，见实施记录 2026-09-24 |
 | 106 | [23:4575 · AI · 修复提议](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4575) | 1440 × 1080 | 局部实现：原／新目标完整定位与框架路径、网页信息折叠核对；组件样例人工查看，真实拾取／模型及整板验收待完成 |
 | 107 | [23:4724 · AI · 修复后运行起点](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4724) | 1440 × 1080 | 局部实现：起点与任务修订、完整步骤记录、修订变化重新核对及失效出口；组件样例三尺寸人工查看，真实修复重跑与整板验收待完成 |
-| 108 | [23:4867 · 应用与工具 · 连接目录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4867) | 1440 × 1080 | 待核对 |
+| 108 | [23:4867 · 应用与工具 · 连接目录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4867) | 1440 × 1080 | 局部实现：读取失败/重试、来源与状态、长列表及详情返回；组件样例三尺寸人工查看，真实账号/原生助手与整板验收待完成 |
 | 109 | [23:5033 · 应用与工具 · 连接向导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5033) | 1440 × 1080 | 待核对 |
 | 110 | [23:5195 · 应用与工具 · 已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5195) | 1440 × 1080 | 待核对 |
 | 111 | [23:5348 · 应用与工具 · 失效重连](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5348) | 1440 × 1080 | 待核对 |
