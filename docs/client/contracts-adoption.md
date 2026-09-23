@@ -1,6 +1,6 @@
 # 固定契约来源
 
-当前客户端设计分支固定采用 [契约 0.14.0](../../contracts/v0.14.0/README.md)，治理基线与不可变开发快照 `contracts-v0.14.0` 均为 `336170d3cfce3f541fbe4107587b57f5f881fd2e`（[PR #184](https://github.com/zhongmiao-org/flow-ark/pull/184)，CI `35868427748` 成功并自动合并）。客户端本地提交 `29f164d` 接入[桌面候选采纳](desktop-flow.md)、统一流程清单/图与步骤详情；节点格式与本机来源分别保存，未授予写入能力。共同 preflight 拒绝桌面执行，真实授权、Run 绑定、原生替换与回读仍未实现或验收。已再生成 TypeScript 类型并核对固定摘要，未新增或运行单元测试；流程格式 1.0、SDK 1.0、模板包 2.0 不变，无 SQLite 表结构迁移。
+当前客户端设计分支固定采用 [契约 0.14.0](../../contracts/v0.14.0/README.md)，不可变开发快照 `contracts-v0.14.0` 仍指向 `336170d3cfce3f541fbe4107587b57f5f881fd2e`（[PR #184](https://github.com/zhongmiao-org/flow-ark/pull/184)）。当前治理基线为 `036b1d6bb009dd1d27876537b502e991600b0b0c`（[PR #186](https://github.com/zhongmiao-org/flow-ark/pull/186)，CI `35870807190` 成功并自动合并），客户端本地提交 `7c47075` 接入[桌面单次试运行](desktop-run.md)：明确重新绑定原选区、统一 Run 确认、固定快照授权、原生单次替换与回读、三态修改回执。普通运行入口仍拒绝桌面步骤；仅原任务的完整检查与明确授权路径可进入执行。类型检查、Swift 编译、构建及模拟界面查看通过，真实 TextEdit 写入/回读、系统权限与生命周期未验收。未新增或运行单元测试；公共节点契约、流程格式 1.0、SDK 1.0、模板包 2.0 不变，无 SQLite 表结构迁移。
 
 此前客户端设计分支（应用 0.3.0，未正式发版）采用 [契约 0.13.0](../../contracts/v0.13.0/README.md)，治理基线和不可变开发快照 `contracts-v0.13.0` 均为 `7d2eb5dcd6f7c0941b392d54a04eac41fb2a8b13`（[PR #162](https://github.com/zhongmiao-org/flow-ark/pull/162)，CI `35839839726` 成功并自动合并）。客户端本地提交 `1c6c3ac` 消费 [MCP 工具节点 v1](mcp-tool-node.md) 与[任务工具目标](task-mcp-targets.md)，接入所选工具规划、可读参数和固定草稿绑定；真实工具调用、执行结果封装、Run 工具绑定与账号/权限验收仍未完成，含工具节点的运行入口明确拒绝。此前 v0.12.0 的编号文本输出、教学、附件、AI 配置与连接发现规则继续有效，未移动旧 tag。流程格式 1.0、SDK 1.0 和标准包 2.0 不变；无 SQLite 表结构迁移。
 
