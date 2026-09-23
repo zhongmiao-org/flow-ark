@@ -113,7 +113,7 @@
 | 103 | [23:4127 · AI · 可读结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4127) | 1440 × 1080 | 操作布局、预览返回与主区域尺寸局部核对；整板待核对，见实施记录 2026-09-24 |
 | 104 | [23:4283 · AI · 结果详细信息](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4283) | 1440 × 1080 | 详情双栏、文本/输出与文件反馈局部核对；整板待核对，见实施记录 2026-09-24 |
 | 105 | [23:4425 · AI · 失败与引导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4425) | 1440 × 1080 | 失败摘要、已记录影响、详情与返回局部核对；整板待核对，见实施记录 2026-09-24 |
-| 106 | [23:4575 · AI · 修复提议](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4575) | 1440 × 1080 | 待核对 |
+| 106 | [23:4575 · AI · 修复提议](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4575) | 1440 × 1080 | 局部实现：原／新目标完整定位与框架路径、网页信息折叠核对；组件样例人工查看，真实拾取／模型及整板验收待完成 |
 | 107 | [23:4724 · AI · 修复后运行起点](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4724) | 1440 × 1080 | 待核对 |
 | 108 | [23:4867 · 应用与工具 · 连接目录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4867) | 1440 × 1080 | 待核对 |
 | 109 | [23:5033 · 应用与工具 · 连接向导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5033) | 1440 × 1080 | 待核对 |
