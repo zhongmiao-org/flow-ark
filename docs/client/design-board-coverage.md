@@ -108,7 +108,7 @@
 | 098 | [23:3290 · AI · 同一流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3290) | 1440 × 1080 | 待核对 |
 | 099 | [23:3467 · AI · 修改差异](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3467) | 1440 × 1080 | 待核对 |
 | 100 | [23:3618 · AI · 采纳后的方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3618) | 1440 × 1080 | 待核对 |
-| 101 | [23:3799 · AI · 试运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3799) | 1440 × 1080 | 待核对 |
+| 101 | [23:3799 · AI · 试运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3799) | 1440 × 1080 | 局部实现：读取来源、保存位置与资源说明；三种目录读写状态人工走查，整板待核对 |
 | 102 | [23:3957 · AI · 试运行中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3957) | 1440 × 1080 | 待核对 |
 | 103 | [23:4127 · AI · 可读结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4127) | 1440 × 1080 | 待核对 |
 | 104 | [23:4283 · AI · 结果详细信息](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4283) | 1440 × 1080 | 待核对 |
