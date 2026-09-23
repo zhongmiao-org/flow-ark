@@ -64,7 +64,7 @@ Renderer 管理对话、理解卡、步骤清单与流程图投影，通过白�
 
 macOS 桌面能力经独立平台适配器提供，限定明确绑定的应用、窗口、选区及能力，不复用 BrowserDriver 冒充应用操作。权限缺失、目标关闭/变化、选区摘要不一致时阻止写入；写后回读，结果未知不自动重放。首版具体验收 App、可用操作和系统权限需在实现任务中确认，不承诺任意窗口。
 
-新增提案、连接、窗口绑定及 IPC wire 字段必须先定义版本化契约。完整流程提案由 [契约 0.9.0](../contracts/v0.9.0/README.md) 与 [AI 规划宿主](client/ai-planning.md) 定义；[本机附件 v1](client/task-attachments.md) 定义系统选择与加密副本、图片规划输入，不扩大执行授权或脚本 SDK。[MCP 连接发现 v1](client/mcp-connections.md) 定义来源、传输、能力核对与连接生命周期；[本机窗口与选区预览 v1](client/desktop-selection-preview.md) 定义 TextEdit 窗口元数据、短期会话与本地选区预览；[应用选区 AI 预览](client/desktop-planning.md)定义明确发送、原选区复验与结构化候选，不授予执行能力；[修改条件检查](client/desktop-confirmation.md)定义候选短期保留、原选区复验与系统能力只读查询，不等于写入授权；[桌面选区流程](client/desktop-flow.md)与[契约 0.14.0](../contracts/v0.14.0/README.md)定义固定文本步骤及同一任务的候选采纳；OAuth、MCP 执行绑定、桌面运行绑定和选区写入回读协议仍待独立增量，规范不代表实现验收。无需提前开发平台、管理台或远程执行，详见 [AI 任务设计](client/design-ai-task.md)。
+新增提案、连接、窗口绑定及 IPC wire 字段必须先定义版本化契约。完整流程提案由 [契约 0.9.0](../contracts/v0.9.0/README.md) 与 [AI 规划宿主](client/ai-planning.md) 定义；[本机附件 v1](client/task-attachments.md) 定义系统选择与加密副本、图片规划输入，不扩大执行授权或脚本 SDK。[MCP 连接发现 v1](client/mcp-connections.md) 定义来源、传输、能力核对与连接生命周期；[本机窗口与选区预览 v1](client/desktop-selection-preview.md) 定义 TextEdit 窗口元数据、短期会话与本地选区预览；[应用选区 AI 预览](client/desktop-planning.md)定义明确发送、原选区复验与结构化候选，不授予执行能力；[修改条件检查](client/desktop-confirmation.md)定义候选短期保留、原选区复验与系统能力只读查询，不等于写入授权；[桌面选区流程](client/desktop-flow.md)与[契约 0.14.0](../contracts/v0.14.0/README.md)定义固定文本步骤及同一任务的候选采纳；[桌面单次试运行](client/desktop-run.md)定义重新绑定、统一 Run 授权、原生单次修改与结果回执。OAuth 和 MCP 执行绑定仍待独立增量，规范不代表实现验收。无需提前开发平台、管理台或远程执行，详见 [AI 任务设计](client/design-ai-task.md)。
 
 
 `flow-ark` 是治理仓库和本地工作主目录。`flow-ark-client`、`flow-ark-server`、`flow-ark-admin`、`flow-ark-templates` 是被主仓库忽略的独立子仓库，不使用 submodule。

@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-09-23 桌面 UI/UE 增量：客户端本地提交 `7c47075` 接入重新绑定原窗口/选区、原文与替换文字核对、统一单次试运行授权及修改回执；类型、Swift 编译、构建和虚构接口页面查看通过，未运行单元测试。真实 TextEdit 写入/回读、权限与生命周期及完整 186 画板 / U01–U12 仍未验收，见[实施记录](docs/client/design-implementation.md)。本地 Figma 读取仍受 Mac 锁屏阻止。
+
 2026-09-21 最新设计范围：P1 优先打通普通用户通过 AI 完成任务的闭环。AI 生成完整流程、应用与工具（内置 MCP 客户端）和 macOS 绑定窗口的有限桌面操作进入 P1；此前列为后置的安排由本条覆盖。设计基线见 [AI 任务体验与验收](docs/client/design-ai-task.md)，客户端分批实施见 [Figma 实施记录](docs/client/design-implementation.md)。以下历史版本/运行证据不自动扩展到新能力。
 
 | 新增 P1 验收 | 范围 | 状态 |
