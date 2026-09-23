@@ -111,7 +111,7 @@
 | 101 | [23:3799 · AI · 试运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3799) | 1440 × 1080 | 局部实现：读取/保存位置、资源说明及失败原因/展开详情；目录读写和三种失败状态人工走查，整板待核对 |
 | 102 | [23:3957 · AI · 试运行中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3957) | 1440 × 1080 | 局部实现：紧凑进度摘要及短/长清单筛选；4/40 步虚构数据流程人工完成，整板待核对 |
 | 103 | [23:4127 · AI · 可读结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4127) | 1440 × 1080 | 操作布局、预览返回与主区域尺寸局部核对；整板待核对，见实施记录 2026-09-24 |
-| 104 | [23:4283 · AI · 结果详细信息](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4283) | 1440 × 1080 | 待核对 |
+| 104 | [23:4283 · AI · 结果详细信息](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4283) | 1440 × 1080 | 详情双栏、文本/输出与文件反馈局部核对；整板待核对，见实施记录 2026-09-24 |
 | 105 | [23:4425 · AI · 失败与引导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4425) | 1440 × 1080 | 待核对 |
 | 106 | [23:4575 · AI · 修复提议](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4575) | 1440 × 1080 | 待核对 |
 | 107 | [23:4724 · AI · 修复后运行起点](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4724) | 1440 × 1080 | 待核对 |
