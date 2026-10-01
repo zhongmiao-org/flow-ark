@@ -131,7 +131,7 @@
 | 121 | [23:6890 · 编排 · 更多操作](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6890) | 1440 × 1080 | 主菜单几何与复制反馈已核对；共用导航、原生持久化及整板验收待完成 |
 | 122 | [23:7031 · AI · v2 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7031) | 1440 × 1080 | 已局部对齐身份状态、双列卡片、步骤与底部确认；内存界面走查通过，完整视觉与真实运行待核对 |
 | 123 | [23:7158 · AI · v2 流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7158) | 1440 × 1080 | 工具栏、工作区、步骤面板及四步节点原始图形/坐标已局部对齐；35 步嵌套全图与选择已走查，其他节点类型和真实运行待核对 |
-| 124 | [23:7281 · AI · v2 运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | 1440 × 1080 | 待核对 |
+| 124 | [23:7281 · AI · v2 运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | 1440 × 1080 | 两栏尺寸、通过项详情折叠与确认入口已局部对齐；三尺寸内存界面核对确认/重查/失败提示，真实运行与整板验收待完成 |
 | 125 | [23:7385 · AI · v2 试运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7385) | 1440 × 1080 | 待核对 |
 | 126 | [23:7501 · AI · v2 结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7501) | 1440 × 1080 | 待核对 |
 | 127 | [23:7603 · AI · v2 结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7603) | 1440 × 1080 | 待核对 |
