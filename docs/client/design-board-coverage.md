@@ -54,7 +54,7 @@
 | 044 | [2:4526 · 计划状态与冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | 1440 × 1080 | 待核对 |
 | 045 | [2:4629 · AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | 1440 × 1080 | 待核对 |
 | 046 | [2:4732 · 资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | 1440 × 1080 | 待核对 |
-| 047 | [2:4837 · 模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | 1440 × 1080 | 局部推进：实例来源页导出接入内容核对，取消/成功保留草稿并返回来源页；真实 ZIP 与整板待验收 |
+| 047 | [2:4837 · 模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | 1440 × 1080 | 局部推进：采用版本摘要、创建后打开失败恢复、来源导出核对；内存恢复不重复创建，真实版本采用/ZIP 与整板待验收 |
 | 048 | [2:4940 · 导出 ZIP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | 1440 × 1080 | 局部推进：目录/实例共享导出核对与实际来源返回；内存取消、失败、成功已人工查看，真实 ZIP 与整板待验收 |
 | 049 | [2:5045 · 退出与运行环境](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5045) | 1440 × 1080 | 待核对 |
 | 050 | [2:5152 · 紧凑窗口与网页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5152) | 1040 × 700 | 待核对 |
