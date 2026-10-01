@@ -53,7 +53,7 @@
 | 043 | [2:4421 · 产物状态与清理](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | 1440 × 1080 | 局部推进：可用/改动/清理状态区分、清理来源校验、部分失败和完成后只刷新；虚构清理查看，真实删除与持久化待验收 |
 | 044 | [2:4526 · 计划状态与冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | 1440 × 1080 | 局部推进：保存/启停状态与冲突卡，冲突保留输入、禁用保存及明确重新读取；内存查看，真实并发/触发和整板待验收 |
 | 045 | [2:4629 · AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | 1440 × 1080 | 待核对 |
-| 046 | [2:4732 · 资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | 1440 × 1080 | 待核对 |
+| 046 | [2:4732 · 资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | 1440 × 1080 | 局部推进：凭据保护错误卡、列表读取失败直接恢复和旧列表禁用；存储故障摘要及只读回执焦点，内存查看，目录/依赖状态与真实异常仍待验收 |
 | 047 | [2:4837 · 模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | 1440 × 1080 | 局部推进：采用版本摘要、创建后打开失败恢复、来源导出核对；内存恢复不重复创建，真实版本采用/ZIP 与整板待验收 |
 | 048 | [2:4940 · 导出 ZIP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | 1440 × 1080 | 局部推进：目录/实例共享导出核对与实际来源返回；内存取消、失败、成功已人工查看，真实 ZIP 与整板待验收 |
 | 049 | [2:5045 · 退出与运行环境](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5045) | 1440 × 1080 | 待核对 |
