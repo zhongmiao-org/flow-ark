@@ -11,8 +11,8 @@
 | 001 | [1:198 · 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-198) | 1440 × 960 | 待核对 |
 | 002 | [1:394 · 流程编排](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-394) | 1920 × 1080 | 待核对 |
 | 003 | [1:2229 · 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-2229) | 1920 × 1080 | 待核对 |
-| 004 | [1:3125 · 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3125) | 1440 × 960 | 待核对 |
-| 005 | [1:3256 · 导入模板](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | 1440 × 1080 | 待核对 |
+| 004 | [1:3125 · 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3125) | 1440 × 960 | 局部推进：介绍区和卡片坐标尺寸、能力图标、版本与操作层级；筛选及窄窗口内存查看，共享导航和整板待验收 |
+| 005 | [1:3256 · 导入模板](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | 1440 × 1080 | 局部推进：标题、来源字段与侧栏布局；内存确认安装、取消及错误查看，真实 ZIP 与整板待验收 |
 | 006 | [1:3376 · 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3376) | 1440 × 960 | 待核对 |
 | 007 | [1:3539 · 运行详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3539) | 1440 × 960 | 待核对 |
 | 008 | [1:3673 · 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | 1440 × 1080 | 待核对 |
@@ -20,7 +20,7 @@
 | 010 | [1:3896 · 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3896) | 1440 × 960 | 待核对 |
 | 011 | [1:4023 · 首次使用](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-4023) | 1440 × 960 | 待核对 |
 | 012 | [2:812 · 安装完成](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-812) | 1440 × 1080 | 待核对 |
-| 013 | [2:892 · 实例列表](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-892) | 1440 × 1080 | 待核对 |
+| 013 | [2:892 · 实例列表](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-892) | 1440 × 1080 | 局部推进：按版本创建入口、卡片层级、零实例筛选与来源返回；内存创建及搜索焦点保留，真实隔离与整板待验收 |
 | 014 | [2:973 · 模板实例](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973) | 1440 × 1080 | 待核对 |
 | 015 | [2:1083 · 资源与动作授权](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | 1440 × 1080 | 局部推进：资源字段与操作区尺寸、入口状态可访问提示；内存目录选择、缺失提示和取消查看，真实授权及完整视觉待验收 |
 | 016 | [2:1199 · 入口输入与执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1199) | 1440 × 1080 | 待核对 |
@@ -42,7 +42,7 @@
 | 032 | [2:3227 · 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3227) | 1440 × 1080 | 待核对 |
 | 033 | [2:3333 · 本机浏览器绑定](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3333) | 1440 × 1080 | 待核对 |
 | 034 | [2:3431 · 创建计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3431) | 1440 × 1080 | 待核对 |
-| 035 | [2:3565 · 安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | 1440 × 1080 | 待核对 |
+| 035 | [2:3565 · 安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | 1440 × 1080 | 局部推进：实际页面内存检查失败、同版本冲突禁止安装、新旧版本并存；未做整板核对及真实 ZIP 校验验收 |
 | 036 | [2:3672 · 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | 1440 × 1080 | 待核对 |
 | 037 | [2:3779 · 保存与离开确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779) | 1440 × 1080 | 待核对 |
 | 038 | [2:3884 · 运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | 1440 × 1080 | 待核对 |
@@ -55,7 +55,7 @@
 | 045 | [2:4629 · AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | 1440 × 1080 | 待核对 |
 | 046 | [2:4732 · 资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | 1440 × 1080 | 待核对 |
 | 047 | [2:4837 · 模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | 1440 × 1080 | 待核对 |
-| 048 | [2:4940 · 导出 ZIP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | 1440 × 1080 | 待核对 |
+| 048 | [2:4940 · 导出 ZIP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | 1440 × 1080 | 局部推进：模板导出取消准确返回详情并恢复按钮焦点；未真实导出或完成整板核对 |
 | 049 | [2:5045 · 退出与运行环境](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5045) | 1440 × 1080 | 待核对 |
 | 050 | [2:5152 · 紧凑窗口与网页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5152) | 1040 × 700 | 待核对 |
 | 051 | [2:5253 · 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5253) | 1040 × 700 | 待核对 |
