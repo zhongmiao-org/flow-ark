@@ -37,7 +37,7 @@
 | 027 | [2:2640 · 输出与运行产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2640) | 1440 × 1080 | 待核对 |
 | 028 | [2:2744 · 日志与步骤输出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2744) | 1440 × 1080 | 局部推进：来源/快照、步骤实例与日志三栏，实例筛选、最近记录定位和有限展开；内存查看，真实宿主与整板待验收 |
 | 029 | [2:2911 · 人工确认与输入](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2911) | 1440 × 1080 | 局部推进：728/400 双栏、请求正文与 Schema 表单、同区取消确认及焦点恢复；内存交互查看，真实宿主和整板待验收 |
-| 030 | [2:3014 · 核对后重新运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014) | 1440 × 1080 | 待核对 |
+| 030 | [2:3014 · 核对后重新运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014) | 1440 × 1080 | 局部推进：728/400 双栏、执行摘要与明细折叠、确认/取消同区、错误聚焦及创建后只读恢复；内存重试/取消查看，真实重跑和整板待验收 |
 | 031 | [2:3118 · AI 服务配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3118) | 1440 × 1080 | 待核对 |
 | 032 | [2:3227 · 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3227) | 1440 × 1080 | 待核对 |
 | 033 | [2:3333 · 本机浏览器绑定](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3333) | 1440 × 1080 | 待核对 |
