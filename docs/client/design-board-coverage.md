@@ -153,7 +153,7 @@
 | 143 | [23:10940 · AI · 当前能力不支持](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10940) | 1440 × 1080 | 局部推进：520 高能力不足面板、208/184 操作宽度；限制展示、需求恢复与窄屏内存查看，真实能力验收待完成 |
 | 144 | [23:11076 · AI · 任务中替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11076) | 1440 × 1080 | 待核对 |
 | 145 | [23:11195 · AI · 修复版结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11195) | 1440 × 1080 | 待核对 |
-| 146 | [27:13212 · AI · 继续修改当前版本](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=27-13212) | 1440 × 1080 | 待核对 |
+| 146 | [27:13212 · AI · 继续修改当前版本](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=27-13212) | 1440 × 1080 | 局部推进：440/688×720 修改面板、步骤卡与提示布局；核对收起撤销勾选和恢复焦点，窄窗纵向排列，实时设计与真实生成待验收 |
 
 ## 辅助导航状态 · 40 项
 
