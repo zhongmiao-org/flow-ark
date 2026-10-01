@@ -35,7 +35,7 @@
 | 025 | [2:2367 · 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2367) | 1440 × 1080 | 待核对 |
 | 026 | [2:2534 · 逐步调试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2534) | 1440 × 1080 | 待核对 |
 | 027 | [2:2640 · 输出与运行产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2640) | 1440 × 1080 | 待核对 |
-| 028 | [2:2744 · 日志与步骤输出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2744) | 1440 × 1080 | 待核对 |
+| 028 | [2:2744 · 日志与步骤输出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2744) | 1440 × 1080 | 局部推进：来源/快照、步骤实例与日志三栏，实例筛选、最近记录定位和有限展开；内存查看，真实宿主与整板待验收 |
 | 029 | [2:2911 · 人工确认与输入](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2911) | 1440 × 1080 | 局部推进：728/400 双栏、请求正文与 Schema 表单、同区取消确认及焦点恢复；内存交互查看，真实宿主和整板待验收 |
 | 030 | [2:3014 · 核对后重新运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014) | 1440 × 1080 | 待核对 |
 | 031 | [2:3118 · AI 服务配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3118) | 1440 × 1080 | 待核对 |
@@ -96,7 +96,7 @@
 | 086 | [8:24218 · 选择变量 · 来源 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24218) | 1440 × 1080 | 待核对 |
 | 087 | [8:24374 · 选择变量 · 来源 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24374) | 1440 × 1080 | 待核对 |
 | 088 | [8:24539 · RUN-0921-018 · 输出与产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | 1440 × 1080 | 待核对 |
-| 089 | [8:24669 · RUN-0921-018 · 日志与步骤](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | 1440 × 1080 | 待核对 |
+| 089 | [8:24669 · RUN-0921-018 · 日志与步骤](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | 1440 × 1080 | 局部推进：日志标题、实际运行来源与原详情返回、进入/返回焦点；内存往返保留筛选，全部来源组合待验收 |
 | 090 | [23:1941 · AI · 开始任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) | 1440 × 1080 | 首页资料/应用/待处理入口已接入并局部人工走查，见实施记录 2026-09-24；整板待核对 |
 | 091 | [23:2106 · AI · 第一次实操](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | 1440 × 1080 | 待核对 |
 | 092 | [23:2280 · AI · 描述与附件](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2280) | 1440 × 1080 | 上下文限额与附件预览定位已补齐并局部人工走查，见实施记录 2026-09-24；整板待核对 |
