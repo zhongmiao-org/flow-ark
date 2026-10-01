@@ -2374,3 +2374,16 @@ TemplateResources 采用独立布局类，资源字段间距 20、标签间距 4
 1440 与 1040 窗口人工查看，1040 无横向溢出；长包说明继续垂直滚动。截图 `/private/tmp/flowark-template-import-states/failed-1440.jpg`、`installed-1440.jpg`、`conflict-1440.jpg`、`new-1040.jpg`；右下方为虚构内存控制，部分紧凑截图被控制区遮挡，不作为完整视觉验收。005/035 仅记相关状态与交互推进，整板及真实宿主仍待核对。
 
 `pnpm typecheck`、含 Swift 编译的 `pnpm build`、两文件 Prettier、`git diff --check` 通过；构建日志 `/private/tmp/flowark-template-import-states-build.log`，仅既有大包提示。未新增或运行单元测试、集成脚本，未启动 Electron 或第二个 FlowArk。页签 28、4248 服务已关闭，视口恢复，无关 IDE 改动保留。186 画板 / U01–U12 总目标未完成。
+
+
+### 2026-10-02 实例来源导出接入统一核对
+
+前序 [PR #257](https://github.com/zhongmiao-org/flow-ark/pull/257) 经非取消 CI `36925335289` 成功自动合并为 `8d20732b65e308c68833449e4476864d8bf477ab`，较早 `36925334839` 已取消。本轮客户端本地提交 `3e1d55a`；公开推送审批阻塞未解除，没有重试。
+
+依据已保存设计导出 047 模板版本与导出、048 导出 ZIP（本轮已查看 `/private/tmp/flowark-catalog-design/47-模板版本与导出.png`、`48-导出 ZIP.png`）。实例来源页原先直接调用导出，现统一进入 ExportReviewDialog；来源取实例固定包，检查中、来源错误或原包不存在时禁用，包缺失显示原因。核对页保留包含/排除内容和字面量提醒，勾选后才能明确导出。取消与成功后的返回文案按实际入口显示模板详情或来源与版本，关闭弹窗恢复原页面及按钮焦点。没有改变导出 IPC、身份或归档协议。
+
+单个后台 IAB 使用实际 App/Renderer 与虚构内存模板人工查看：目录导出取消返回模板详情；实例修改共享文本后进入来源导出，未勾选确认禁用。取消回原按钮；模拟原生保存取消显示没有导出文件，模拟失败显示保存位置不可写，模拟成功显示完成，返回后共享草稿原值保留。内存记录 export 调用三次且 key 固定为 memory-resources@1.0.0，inspect/install/create 均零。未生成真实 ZIP、未读写真实实例、未运行模板。控制台无错误。原包缺失和来源错误禁用本轮仅代码核对，未声称人工完成。
+
+1440 两栏核对截图 `/private/tmp/flowark-template-source-export/review-1440.jpg`、成功图 `done-1440.jpg`；1040×700 弹窗为 (24,24)、992×652，无横向溢出，截图 `review-1040.jpg`。延用现有导出组件，未据此声明整板 1:1。047/048 仅局部推进；最新线上设计与真实宿主验收仍待完成。
+
+`pnpm typecheck`、含 Swift 编译的 `pnpm build`、四文件 Prettier 与 `git diff --check` 通过；构建日志 `/private/tmp/flowark-template-source-export-build.log`，仅既有大包提示。未新增或运行单元测试、集成脚本，未启动 Electron 或第二个 FlowArk。页签 29、4249 服务已关闭，视口恢复，无关 IDE 改动保留。186 画板 / U01–U12 完整目标仍未完成。
