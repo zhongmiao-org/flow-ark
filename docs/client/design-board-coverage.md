@@ -151,8 +151,8 @@
 | 141 | [23:10659 · AI · 正在生成方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10659) | 1440 × 1080 | 局部推进：550 高等待面板、116 高任务卡、取消按钮；内存生成/取消与焦点查看，实时设计和真实 AI 待验收 |
 | 142 | [23:10802 · AI · 生成失败与重试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10802) | 1440 × 1080 | 局部推进：500 高失败面板、184 宽操作按钮；重试核对、取消重试和重新生成内存查看，真实失败恢复待验收 |
 | 143 | [23:10940 · AI · 当前能力不支持](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10940) | 1440 × 1080 | 局部推进：520 高能力不足面板、208/184 操作宽度；限制展示、需求恢复与窄屏内存查看，真实能力验收待完成 |
-| 144 | [23:11076 · AI · 任务中替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11076) | 1440 × 1080 | 待核对 |
-| 145 | [23:11195 · AI · 修复版结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11195) | 1440 × 1080 | 待核对 |
+| 144 | [23:11076 · AI · 任务中替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11076) | 1440 × 1080 | 局部核对：替换表单布局、失败保留、取消、新掩码与留空保留的内存查看；真实存储与实时设计待验收 |
+| 145 | [23:11195 · AI · 修复版结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11195) | 1440 × 1080 | 局部推进：执行证据直接显示原运行关联，读取失败与错配保留当前页；680/448×700 详情布局，真实结果与实时设计待验收 |
 | 146 | [27:13212 · AI · 继续修改当前版本](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=27-13212) | 1440 × 1080 | 局部推进：440/688×720 修改面板、步骤卡与提示布局；核对收起撤销勾选和恢复焦点，窄窗纵向排列，实时设计与真实生成待验收 |
 
 ## 辅助导航状态 · 40 项
