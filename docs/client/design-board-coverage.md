@@ -140,7 +140,7 @@
 | 130 | [23:7869 · AI · 修复版运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7869) | 1440 × 1080 | 局部推进：标题展示本次快照、任务修订与原运行只读入口；来源失败/错配/迟到响应内存界面查看，真实修复运行待验收 |
 | 131 | [23:7985 · AI · 修复版结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7985) | 1440 × 1080 | 局部推进：结果标题展示已确认步骤次数，详情保留固定版本与原运行关联；三尺寸内存界面查看，真实结果待验收 |
 | 132 | [23:8087 · AI · 应用窗口已就绪](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8087) | 1440 × 1080 | 局部推进：选中窗口标题、对象卡与权限状态层级；打开设置清除旧观察/选区，内存查看方案衔接与窄屏，真实窗口待验收 |
-| 133 | [23:8190 · AI · 应用任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8190) | 1440 × 1080 | 待核对 |
+| 133 | [23:8190 · AI · 应用任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8190) | 1440 × 1080 | 局部推进：450/678 双栏、需求卡、四步骤与改动入口；生成前后核对区域、失败/取消/换服务及窄屏内存查看，真实 AI 与整板待验收 |
 | 134 | [23:8344 · AI · 应用任务确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8344) | 1440 × 1080 | 待核对 |
 | 135 | [23:8492 · AI · 应用任务执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8492) | 1440 × 1080 | 待核对 |
 | 136 | [23:8631 · AI · 应用任务结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8631) | 1440 × 1080 | 待核对 |
