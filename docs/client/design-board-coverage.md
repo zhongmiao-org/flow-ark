@@ -1,6 +1,6 @@
 # Figma 186 画板逐板索引
 
-2026-09-24 建立。依据本机已保存的 `task-design-audit.json` 中 146 个页面/状态和 `navigation-audit.json` 中 40 个辅助导航状态，按节点 ID 去重，共 186 项。此清单是此前设计快照的索引；当前 Figma MCP 仍受 Starter 额度限制，本地客户端锁屏，尚未重新核实在线文件是否变化。
+2026-09-24 建立。依据本机已保存的 `task-design-audit.json` 中 146 个页面/状态和 `navigation-audit.json` 中 40 个辅助导航状态，按节点 ID 去重，共 186 项。此清单是此前设计快照的索引。2026-10-01 本地 Figma 与 MCP 已恢复读取，并逐项取得本轮相关节点；尚未重新核实全部在线画板是否变化。
 
 本表用于后续逐板核对，**不是完成率或验收通过表**。已有实现和人工证据见[实施记录](design-implementation.md)，产品基线见[设计系统](design-system.md)。表中“待核对”指尚未完成该节点的最终视觉、交互与真实目标系统验收，不代表没有代码；不能把共享组件复用或局部走查计作整板完成。仍按 UI、UE 与功能优先，不新增、不运行单元测试，186 画板完整后再统一补全。
 
@@ -129,7 +129,7 @@
 | 119 | [23:6516 · 配置 · Excel 映射编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516) | 1440 × 1080 | 局部实现：字段错误与弹窗后定位、增删焦点、空数据提示；三尺寸 Renderer 样例核对，真实持久化／写入及整板验收待完成 |
 | 120 | [23:6726 · 配置 · 脚本编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6726) | 1440 × 1080 | 局部实现：诊断定位代码、超时与输入错误聚焦、依赖折叠；真实 Monaco 与模拟保存三尺寸查看，真实执行与整板验收待完成 |
 | 121 | [23:6890 · 编排 · 更多操作](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6890) | 1440 × 1080 | 主菜单几何与复制反馈已核对；共用导航、原生持久化及整板验收待完成 |
-| 122 | [23:7031 · AI · v2 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7031) | 1440 × 1080 | 待核对 |
+| 122 | [23:7031 · AI · v2 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7031) | 1440 × 1080 | 已局部对齐身份状态、双列卡片、步骤与底部确认；内存界面走查通过，完整视觉与真实运行待核对 |
 | 123 | [23:7158 · AI · v2 流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7158) | 1440 × 1080 | 待核对 |
 | 124 | [23:7281 · AI · v2 运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | 1440 × 1080 | 待核对 |
 | 125 | [23:7385 · AI · v2 试运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7385) | 1440 × 1080 | 待核对 |
