@@ -85,7 +85,7 @@
 | 075 | [8:19176 · 运行详情 · 来源第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19176) | 1440 × 960 | 待核对 |
 | 076 | [8:19310 · 返回来源已失效](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19310) | 1440 × 1080 | 待核对 |
 | 077 | [8:20277 · 离开确认 · 流程参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20277) | 1440 × 1080 | 局部推进：640×320 参数离开确认、实际目的地、按钮顺序与焦点；内存保存/放弃/继续查看，整板与真实宿主待验收 |
-| 078 | [8:20443 · 离开确认 · 模板 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20443) | 1440 × 1080 | 局部推进：实际模板来源离开提示与放弃 Key 返回保留草稿、入口、焦点；上层模板守卫目的地和完整组合待核对 |
+| 078 | [8:20443 · 离开确认 · 模板 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20443) | 1440 × 1080 | 局部推进：实际模板与 AI 两层离开保留原目的地，640 宽确认、保存失败及焦点恢复；真实宿主与完整组合待验收 |
 | 079 | [8:20559 · 离开确认 · 首次配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20559) | 1440 × 1080 | 局部推进：首次配置离开目标、放弃文案、失败重试与输入焦点；内存查看，真实存储待验收 |
 | 080 | [8:20678 · 离开确认 · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20678) | 1440 × 1080 | 局部推进：替换 Key 离开目标、保留旧配置与清空新输入；内存查看，真实存储待验收 |
 | 081 | [8:20801 · 保存失败 · 保留参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20801) | 1440 × 1080 | 局部推进：错误状态、原因、重试和保留输入；内存失败/保存中禁用/校验聚焦查看，真实存储待验收 |
@@ -167,7 +167,7 @@
 | 152 | [8:27140 · 离开 流程参数 · 未保存 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27140) | navdirty → settings | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
 | 153 | [8:27310 · 离开 流程参数 · 未保存 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27310) | navdirty → browser | 待核对 |
 | 154 | [8:27477 · 离开 流程参数 · 未保存 → 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27477) | navdirty → formstates | 待核对 |
-| 155 | [8:27644 · 离开 DeepSeek · 来自模板配置 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27644) | navctxedit → home | 待核对 |
+| 155 | [8:27644 · 离开 DeepSeek · 来自模板配置 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27644) | navctxedit → home | 局部推进：实际 AI 到模板两层确认均显示我的流程，继续保留草稿、内存保存后进入原目标；真实保存与完整视觉待验收 |
 | 156 | [8:27761 · 离开 DeepSeek · 来自模板配置 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27761) | navctxedit → templates | 待核对 |
 | 157 | [8:27878 · 离开 DeepSeek · 来自模板配置 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27878) | navctxedit → runs | 待核对 |
 | 158 | [8:27995 · 离开 DeepSeek · 来自模板配置 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27995) | navctxedit → schedules | 待核对 |
