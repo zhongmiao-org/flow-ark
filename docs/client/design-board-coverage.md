@@ -34,7 +34,7 @@
 | 024 | [2:2200 · 流程控制配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2200) | 1440 × 1080 | 待核对 |
 | 025 | [2:2367 · 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2367) | 1440 × 1080 | 待核对 |
 | 026 | [2:2534 · 逐步调试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2534) | 1440 × 1080 | 待核对 |
-| 027 | [2:2640 · 输出与运行产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2640) | 1440 × 1080 | 待核对 |
+| 027 | [2:2640 · 输出与运行产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2640) | 1440 × 1080 | 局部推进：672/456 结果与产物双栏、同区清理/重跑、定位错误焦点；内存输出/长文本/空状态查看，真实文件及整板待验收 |
 | 028 | [2:2744 · 日志与步骤输出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2744) | 1440 × 1080 | 局部推进：来源/快照、步骤实例与日志三栏，实例筛选、最近记录定位和有限展开；内存查看，真实宿主与整板待验收 |
 | 029 | [2:2911 · 人工确认与输入](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2911) | 1440 × 1080 | 局部推进：728/400 双栏、请求正文与 Schema 表单、同区取消确认及焦点恢复；内存交互查看，真实宿主和整板待验收 |
 | 030 | [2:3014 · 核对后重新运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014) | 1440 × 1080 | 局部推进：728/400 双栏、执行摘要与明细折叠、确认/取消同区、错误聚焦及创建后只读恢复；内存重试/取消查看，真实重跑和整板待验收 |
@@ -50,7 +50,7 @@
 | 040 | [2:4104 · 浏览器故障与恢复](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4104) | 1440 × 1080 | 待核对 |
 | 041 | [2:4209 · 运行控制状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4209) | 1440 × 1080 | 局部推进：暂停/单步/取消请求反馈、防重复发送、错误聚焦与只刷新；虚构状态查看，真实边界暂停和资源回收待验收 |
 | 042 | [2:4316 · 人工请求与结果核对](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4316) | 1440 × 1080 | 局部推进：回应/失效详情、成功回应后刷新失败不重复提交、刷新恢复清除相关错误；内存状态查看，通知失败及真实有效期仍待验收 |
-| 043 | [2:4421 · 产物状态与清理](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | 1440 × 1080 | 待核对 |
+| 043 | [2:4421 · 产物状态与清理](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | 1440 × 1080 | 局部推进：可用/改动/清理状态区分、清理来源校验、部分失败和完成后只刷新；虚构清理查看，真实删除与持久化待验收 |
 | 044 | [2:4526 · 计划状态与冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | 1440 × 1080 | 局部推进：保存/启停状态与冲突卡，冲突保留输入、禁用保存及明确重新读取；内存查看，真实并发/触发和整板待验收 |
 | 045 | [2:4629 · AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | 1440 × 1080 | 待核对 |
 | 046 | [2:4732 · 资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | 1440 × 1080 | 待核对 |
@@ -95,7 +95,7 @@
 | 085 | [8:24062 · 选择变量 · 来源 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24062) | 1440 × 1080 | 待核对 |
 | 086 | [8:24218 · 选择变量 · 来源 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24218) | 1440 × 1080 | 待核对 |
 | 087 | [8:24374 · 选择变量 · 来源 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24374) | 1440 × 1080 | 待核对 |
-| 088 | [8:24539 · RUN-0921-018 · 输出与产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | 1440 × 1080 | 待核对 |
+| 088 | [8:24539 · RUN-0921-018 · 输出与产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | 1440 × 1080 | 局部推进：输出页标题与来源、进入焦点及重跑返回；内存往返查看，全部来源导航待验收 |
 | 089 | [8:24669 · RUN-0921-018 · 日志与步骤](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | 1440 × 1080 | 局部推进：日志标题、实际运行来源与原详情返回、进入/返回焦点；内存往返保留筛选，全部来源组合待验收 |
 | 090 | [23:1941 · AI · 开始任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) | 1440 × 1080 | 首页资料/应用/待处理入口已接入并局部人工走查，见实施记录 2026-09-24；整板待核对 |
 | 091 | [23:2106 · AI · 第一次实操](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | 1440 × 1080 | 待核对 |
