@@ -18,8 +18,8 @@
 | 008 | [1:3673 · 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | 1440 × 1080 | 局部推进：消除双重导航，两栏位置/尺寸、172 高列表与 32 高输入对照；内存编辑/暂停/返回查看，真实调度和整板待验收 |
 | 009 | [1:3794 · 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3794) | 1440 × 960 | 局部推进：重点/紧凑卡层级、状态颜色、列表滚动与详情返回焦点；内存搜索/归档/回应查看，整板和真实宿主待验收 |
 | 010 | [1:3896 · 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3896) | 1440 × 960 | 待核对 |
-| 011 | [1:4023 · 首次使用](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-4023) | 1440 × 960 | 待核对 |
-| 012 | [2:812 · 安装完成](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-812) | 1440 × 1080 | 待核对 |
+| 011 | [1:4023 · 首次使用](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-4023) | 1440 × 960 | 局部推进：1152×470 主卡与双入口核对，处理中反馈、取消焦点恢复、窄区自然增长；内存创建/导入路径查看，真实存储及整板待验收 |
+| 012 | [2:812 · 安装完成](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-812) | 1440 × 1080 | 局部推进：1152×384 卡片、标题/状态和两项操作对齐；内存安装/创建实例及失败恢复查看，真实 ZIP 和整板待验收 |
 | 013 | [2:892 · 实例列表](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-892) | 1440 × 1080 | 局部推进：按版本创建入口、卡片层级、零实例筛选与来源返回；内存创建及搜索焦点保留，真实隔离与整板待验收 |
 | 014 | [2:973 · 模板实例](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973) | 1440 × 1080 | 待核对 |
 | 015 | [2:1083 · 资源与动作授权](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | 1440 × 1080 | 局部推进：资源字段与操作区尺寸、入口状态可访问提示；内存目录选择、缺失提示和取消查看，真实授权及完整视觉待验收 |
