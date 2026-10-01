@@ -40,7 +40,7 @@
 | 030 | [2:3014 · 核对后重新运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014) | 1440 × 1080 | 局部推进：728/400 双栏、执行摘要与明细折叠、确认/取消同区、错误聚焦及创建后只读恢复；内存重试/取消查看，真实重跑和整板待验收 |
 | 031 | [2:3118 · AI 服务配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3118) | 1440 × 1080 | 待核对 |
 | 032 | [2:3227 · 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3227) | 1440 × 1080 | 待核对 |
-| 033 | [2:3333 · 本机浏览器绑定](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3333) | 1440 × 1080 | 待核对 |
+| 033 | [2:3333 · 本机浏览器绑定](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3333) | 1440 × 1080 | 局部推进：720 宽表单、字段位置与保存按钮对齐；发现空态、驱动差异、保存回执及独立重读内存查看，真实绑定与整板待验收 |
 | 034 | [2:3431 · 创建计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3431) | 1440 × 1080 | 局部推进：普通/模板创建前固定版本确认，离开显示实际去向与启用说明；内存保存失败保留和成功返回，真实创建及整板待验收 |
 | 035 | [2:3565 · 安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | 1440 × 1080 | 局部推进：拒绝冲突、已有版本直接打开、发现新版本和失败重选状态；内存计数核对不重复安装，真实校验/清理及整板待验收 |
 | 036 | [2:3672 · 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | 1440 × 1080 | 待核对 |
