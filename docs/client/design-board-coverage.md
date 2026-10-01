@@ -12,7 +12,7 @@
 | 002 | [1:394 · 流程编排](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-394) | 1920 × 1080 | 待核对 |
 | 003 | [1:2229 · 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-2229) | 1920 × 1080 | 待核对 |
 | 004 | [1:3125 · 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3125) | 1440 × 960 | 局部推进：介绍区和卡片坐标尺寸、能力图标、版本与操作层级；筛选及窄窗口内存查看，共享导航和整板待验收 |
-| 005 | [1:3256 · 导入模板](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | 1440 × 1080 | 局部推进：标题、来源字段与侧栏布局；内存确认安装、取消及错误查看，真实 ZIP 与整板待验收 |
+| 005 | [1:3256 · 导入模板](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | 1440 × 1080 | 局部推进：导入布局及失败重选撤销确认、旧结果身份提示和错误聚焦；内存安装查看，真实 ZIP 与整板待验收 |
 | 006 | [1:3376 · 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3376) | 1440 × 960 | 待核对 |
 | 007 | [1:3539 · 运行详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3539) | 1440 × 960 | 待核对 |
 | 008 | [1:3673 · 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | 1440 × 1080 | 待核对 |
@@ -42,7 +42,7 @@
 | 032 | [2:3227 · 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3227) | 1440 × 1080 | 待核对 |
 | 033 | [2:3333 · 本机浏览器绑定](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3333) | 1440 × 1080 | 待核对 |
 | 034 | [2:3431 · 创建计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3431) | 1440 × 1080 | 待核对 |
-| 035 | [2:3565 · 安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | 1440 × 1080 | 局部推进：实际页面内存检查失败、同版本冲突禁止安装、新旧版本并存；未做整板核对及真实 ZIP 校验验收 |
+| 035 | [2:3565 · 安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | 1440 × 1080 | 局部推进：拒绝冲突、已有版本直接打开、发现新版本和失败重选状态；内存计数核对不重复安装，真实校验/清理及整板待验收 |
 | 036 | [2:3672 · 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | 1440 × 1080 | 待核对 |
 | 037 | [2:3779 · 保存与离开确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779) | 1440 × 1080 | 待核对 |
 | 038 | [2:3884 · 运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | 1440 × 1080 | 待核对 |
