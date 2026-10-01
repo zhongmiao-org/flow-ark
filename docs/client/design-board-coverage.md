@@ -84,11 +84,11 @@
 | 074 | [8:19057 · DeepSeek · 模板来源已验证](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19057) | 1440 × 1080 | 待核对 |
 | 075 | [8:19176 · 运行详情 · 来源第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19176) | 1440 × 960 | 待核对 |
 | 076 | [8:19310 · 返回来源已失效](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19310) | 1440 × 1080 | 待核对 |
-| 077 | [8:20277 · 离开确认 · 流程参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20277) | 1440 × 1080 | 待核对 |
+| 077 | [8:20277 · 离开确认 · 流程参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20277) | 1440 × 1080 | 局部推进：640×320 参数离开确认、实际目的地、按钮顺序与焦点；内存保存/放弃/继续查看，整板与真实宿主待验收 |
 | 078 | [8:20443 · 离开确认 · 模板 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20443) | 1440 × 1080 | 待核对 |
 | 079 | [8:20559 · 离开确认 · 首次配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20559) | 1440 × 1080 | 待核对 |
 | 080 | [8:20678 · 离开确认 · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20678) | 1440 × 1080 | 待核对 |
-| 081 | [8:20801 · 保存失败 · 保留参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20801) | 1440 × 1080 | 待核对 |
+| 081 | [8:20801 · 保存失败 · 保留参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20801) | 1440 × 1080 | 局部推进：错误状态、原因、重试和保留输入；内存失败/保存中禁用/校验聚焦查看，真实存储待验收 |
 | 082 | [8:23606 · 选择变量 · 来源 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23606) | 1440 × 1080 | 待核对 |
 | 083 | [8:23758 · 选择变量 · 来源 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23758) | 1440 × 1080 | 待核对 |
 | 084 | [8:23910 · 选择变量 · 来源 条件与串行循环](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23910) | 1440 × 1080 | 待核对 |
@@ -159,12 +159,12 @@
 
 | 序号 | Figma 节点 / 画板 | 设计来源 → 目的标识 | 最终验收 |
 | --- | --- | --- | --- |
-| 147 | [8:26305 · 离开 流程参数 · 未保存 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26305) | navdirty → home | 待核对 |
-| 148 | [8:26472 · 离开 流程参数 · 未保存 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26472) | navdirty → templates | 待核对 |
-| 149 | [8:26639 · 离开 流程参数 · 未保存 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26639) | navdirty → runs | 待核对 |
-| 150 | [8:26806 · 离开 流程参数 · 未保存 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26806) | navdirty → schedules | 待核对 |
-| 151 | [8:26973 · 离开 流程参数 · 未保存 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26973) | navdirty → inbox | 待核对 |
-| 152 | [8:27140 · 离开 流程参数 · 未保存 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27140) | navdirty → settings | 待核对 |
+| 147 | [8:26305 · 离开 流程参数 · 未保存 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26305) | navdirty → home | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
+| 148 | [8:26472 · 离开 流程参数 · 未保存 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26472) | navdirty → templates | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
+| 149 | [8:26639 · 离开 流程参数 · 未保存 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26639) | navdirty → runs | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
+| 150 | [8:26806 · 离开 流程参数 · 未保存 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26806) | navdirty → schedules | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
+| 151 | [8:26973 · 离开 流程参数 · 未保存 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26973) | navdirty → inbox | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
+| 152 | [8:27140 · 离开 流程参数 · 未保存 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27140) | navdirty → settings | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
 | 153 | [8:27310 · 离开 流程参数 · 未保存 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27310) | navdirty → browser | 待核对 |
 | 154 | [8:27477 · 离开 流程参数 · 未保存 → 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27477) | navdirty → formstates | 待核对 |
 | 155 | [8:27644 · 离开 DeepSeek · 来自模板配置 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27644) | navctxedit → home | 待核对 |
