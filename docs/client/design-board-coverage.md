@@ -15,7 +15,7 @@
 | 005 | [1:3256 · 导入模板](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | 1440 × 1080 | 局部推进：导入布局及失败重选撤销确认、旧结果身份提示和错误聚焦；内存安装查看，真实 ZIP 与整板待验收 |
 | 006 | [1:3376 · 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3376) | 1440 × 960 | 待核对 |
 | 007 | [1:3539 · 运行详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3539) | 1440 × 960 | 待核对 |
-| 008 | [1:3673 · 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | 1440 × 1080 | 待核对 |
+| 008 | [1:3673 · 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | 1440 × 1080 | 局部推进：消除双重导航，两栏位置/尺寸、172 高列表与 32 高输入对照；内存编辑/暂停/返回查看，真实调度和整板待验收 |
 | 009 | [1:3794 · 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3794) | 1440 × 960 | 待核对 |
 | 010 | [1:3896 · 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3896) | 1440 × 960 | 待核对 |
 | 011 | [1:4023 · 首次使用](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-4023) | 1440 × 960 | 待核对 |
@@ -51,7 +51,7 @@
 | 041 | [2:4209 · 运行控制状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4209) | 1440 × 1080 | 待核对 |
 | 042 | [2:4316 · 人工请求与结果核对](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4316) | 1440 × 1080 | 待核对 |
 | 043 | [2:4421 · 产物状态与清理](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | 1440 × 1080 | 待核对 |
-| 044 | [2:4526 · 计划状态与冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | 1440 × 1080 | 待核对 |
+| 044 | [2:4526 · 计划状态与冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | 1440 × 1080 | 局部推进：保存/启停状态与冲突卡，冲突保留输入、禁用保存及明确重新读取；内存查看，真实并发/触发和整板待验收 |
 | 045 | [2:4629 · AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | 1440 × 1080 | 待核对 |
 | 046 | [2:4732 · 资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | 1440 × 1080 | 待核对 |
 | 047 | [2:4837 · 模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | 1440 × 1080 | 局部推进：采用版本摘要、创建后打开失败恢复、来源导出核对；内存恢复不重复创建，真实版本采用/ZIP 与整板待验收 |
