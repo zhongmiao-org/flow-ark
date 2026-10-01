@@ -128,7 +128,7 @@
 | 118 | [23:6333 · 编排 · 四十步任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6333) | 1920 × 1080 | 局部实现：大纲搜索键盘选择、清空、嵌套分支定位；40 步虚构流程三尺寸查看，真实执行聚焦及整板验收待完成 |
 | 119 | [23:6516 · 配置 · Excel 映射编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516) | 1440 × 1080 | 局部实现：字段错误与弹窗后定位、增删焦点、空数据提示；三尺寸 Renderer 样例核对，真实持久化／写入及整板验收待完成 |
 | 120 | [23:6726 · 配置 · 脚本编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6726) | 1440 × 1080 | 局部实现：诊断定位代码、超时与输入错误聚焦、依赖折叠；真实 Monaco 与模拟保存三尺寸查看，真实执行与整板验收待完成 |
-| 121 | [23:6890 · 编排 · 更多操作](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6890) | 1440 × 1080 | 待核对 |
+| 121 | [23:6890 · 编排 · 更多操作](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6890) | 1440 × 1080 | 主菜单几何与复制反馈已核对；共用导航、原生持久化及整板验收待完成 |
 | 122 | [23:7031 · AI · v2 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7031) | 1440 × 1080 | 待核对 |
 | 123 | [23:7158 · AI · v2 流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7158) | 1440 × 1080 | 待核对 |
 | 124 | [23:7281 · AI · v2 运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | 1440 × 1080 | 待核对 |
