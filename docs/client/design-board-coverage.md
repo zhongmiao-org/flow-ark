@@ -13,7 +13,7 @@
 | 003 | [1:2229 · 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-2229) | 1920 × 1080 | 待核对 |
 | 004 | [1:3125 · 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3125) | 1440 × 960 | 局部推进：介绍区和卡片坐标尺寸、能力图标、版本与操作层级；筛选及窄窗口内存查看，共享导航和整板待验收 |
 | 005 | [1:3256 · 导入模板](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | 1440 × 1080 | 局部推进：导入布局及失败重选撤销确认、旧结果身份提示和错误聚焦；内存安装查看，真实 ZIP 与整板待验收 |
-| 006 | [1:3376 · 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3376) | 1440 × 960 | 待核对 |
+| 006 | [1:3376 · 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3376) | 1440 × 960 | 局部推进：表格位置/80 高行与列宽、详情错误独立重试、当前游标保留；内存分页/详情返回查看，真实持久化和整板待验收 |
 | 007 | [1:3539 · 运行详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3539) | 1440 × 960 | 待核对 |
 | 008 | [1:3673 · 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | 1440 × 1080 | 局部推进：消除双重导航，两栏位置/尺寸、172 高列表与 32 高输入对照；内存编辑/暂停/返回查看，真实调度和整板待验收 |
 | 009 | [1:3794 · 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3794) | 1440 × 960 | 局部推进：重点/紧凑卡层级、状态颜色、列表滚动与详情返回焦点；内存搜索/归档/回应查看，整板和真实宿主待验收 |
@@ -64,7 +64,7 @@
 | 054 | [2:7867 · 动作授权：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7867) | 1440 × 1080 | 局部推进：自动模式选中、入口待保存与取消恢复，1040/820 无横向溢出；真实范围约束和完整视觉待验收 |
 | 055 | [2:7985 · 入口输入：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7985) | 1440 × 1080 | 待核对 |
 | 056 | [2:8100 · 运行记录：第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8100) | 1440 × 960 | 待核对 |
-| 057 | [2:8270 · 运行记录筛选](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | 1440 × 1080 | 待核对 |
+| 057 | [2:8270 · 运行记录筛选](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | 1440 × 1080 | 局部推进：四主字段尺寸/节奏与额外条件折叠、取消恢复入口及页码；内存多条件/空结果/窄窗查看，整板和真实查询待验收 |
 | 058 | [2:9120 · 模板运行：写入中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9120) | 1440 × 960 | 待核对 |
 | 059 | [2:9260 · 模板运行：结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9260) | 1440 × 1080 | 待核对 |
 | 060 | [4:10378 · DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10378) | 1440 × 1080 | 待核对 |
