@@ -22,7 +22,7 @@
 | 012 | [2:812 · 安装完成](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-812) | 1440 × 1080 | 待核对 |
 | 013 | [2:892 · 实例列表](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-892) | 1440 × 1080 | 待核对 |
 | 014 | [2:973 · 模板实例](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973) | 1440 × 1080 | 待核对 |
-| 015 | [2:1083 · 资源与动作授权](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | 1440 × 1080 | 待核对 |
+| 015 | [2:1083 · 资源与动作授权](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | 1440 × 1080 | 局部推进：资源字段与操作区尺寸、入口状态可访问提示；内存目录选择、缺失提示和取消查看，真实授权及完整视觉待验收 |
 | 016 | [2:1199 · 入口输入与执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1199) | 1440 × 1080 | 待核对 |
 | 017 | [2:1314 · 只读入口](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1314) | 1440 × 1080 | 待核对 |
 | 018 | [2:1398 · 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398) | 1440 × 1080 | 待核对 |
@@ -60,8 +60,8 @@
 | 050 | [2:5152 · 紧凑窗口与网页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5152) | 1040 × 700 | 待核对 |
 | 051 | [2:5253 · 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5253) | 1040 × 700 | 待核对 |
 | 052 | [2:6948 · P1 操作路径总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-6948) | 1440 × 1080 | 待核对 |
-| 053 | [2:7749 · 动作授权：每次确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7749) | 1440 × 1080 | 待核对 |
-| 054 | [2:7867 · 动作授权：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7867) | 1440 × 1080 | 待核对 |
+| 053 | [2:7749 · 动作授权：每次确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7749) | 1440 × 1080 | 局部推进：每次确认选中、相关入口待保存、失败保留与取消恢复；实际页面内存查看，真实执行与完整视觉待验收 |
+| 054 | [2:7867 · 动作授权：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7867) | 1440 × 1080 | 局部推进：自动模式选中、入口待保存与取消恢复，1040/820 无横向溢出；真实范围约束和完整视觉待验收 |
 | 055 | [2:7985 · 入口输入：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7985) | 1440 × 1080 | 待核对 |
 | 056 | [2:8100 · 运行记录：第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8100) | 1440 × 960 | 待核对 |
 | 057 | [2:8270 · 运行记录筛选](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | 1440 × 1080 | 待核对 |
