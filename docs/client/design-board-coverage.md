@@ -134,7 +134,7 @@
 | 124 | [23:7281 · AI · v2 运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | 1440 × 1080 | 两栏尺寸、通过项详情折叠与确认入口已局部对齐；三尺寸内存界面核对确认/重查/失败提示，真实运行与整板验收待完成 |
 | 125 | [23:7385 · AI · v2 试运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7385) | 1440 × 1080 | 本地 Figma 已核对步骤卡片规格，补充固定配置摘要、可见名称查找和顺序进度；内存事件三尺寸查看，整板视觉与真实运行待完成 |
 | 126 | [23:7501 · AI · v2 结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7501) | 1440 × 1080 | 局部推进：本地 Figma 核对摘要、双栏及单文件卡；结果/详情/修改入口与窄屏内存界面查看通过，真实运行和整板验收待补 |
-| 127 | [23:7603 · AI · v2 结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7603) | 1440 × 1080 | 待核对 |
+| 127 | [23:7603 · AI · v2 结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7603) | 1440 × 1080 | 局部推进：核对文件/JSON 框规格，调整正文和证据层级；三尺寸、长文本/空文件/文件切换内存界面查看通过，整板与真实运行待验收 |
 | 128 | [23:7691 · AI · 修复时重新拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7691) | 1040 × 700 | 待核对 |
 | 129 | [23:7765 · AI · 修复版运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7765) | 1440 × 1080 | 待核对 |
 | 130 | [23:7869 · AI · 修复版运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7869) | 1440 × 1080 | 待核对 |
