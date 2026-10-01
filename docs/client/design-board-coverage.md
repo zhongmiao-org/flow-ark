@@ -148,9 +148,9 @@
 | 138 | [23:8920 · 应用与工具 · 自定义已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8920) | 1440 × 1080 | 局部推进：已保存状态、返回目录主入口及维护/任务引用展开区；标题焦点与三尺寸内存查看，真实连接和完整画板待验收 |
 | 139 | [23:9067 · AI · 任务中填写模型](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9067) | 1440 × 1080 | 局部推进：输入区间距、取消按钮与来源副标题；字段错误定位和编辑焦点内存查看，最新设计与真实配置待验收 |
 | 140 | [23:9182 · AI · 任务中验证模型](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9182) | 1440 × 1080 | 局部推进：保存/验证/取消后连接状态焦点，失败与取消保留配置和草稿；三尺寸内存查看，真实供应商验证待完成 |
-| 141 | [23:10659 · AI · 正在生成方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10659) | 1440 × 1080 | 待核对 |
-| 142 | [23:10802 · AI · 生成失败与重试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10802) | 1440 × 1080 | 待核对 |
-| 143 | [23:10940 · AI · 当前能力不支持](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10940) | 1440 × 1080 | 待核对 |
+| 141 | [23:10659 · AI · 正在生成方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10659) | 1440 × 1080 | 局部推进：550 高等待面板、116 高任务卡、取消按钮；内存生成/取消与焦点查看，实时设计和真实 AI 待验收 |
+| 142 | [23:10802 · AI · 生成失败与重试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10802) | 1440 × 1080 | 局部推进：500 高失败面板、184 宽操作按钮；重试核对、取消重试和重新生成内存查看，真实失败恢复待验收 |
+| 143 | [23:10940 · AI · 当前能力不支持](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10940) | 1440 × 1080 | 局部推进：520 高能力不足面板、208/184 操作宽度；限制展示、需求恢复与窄屏内存查看，真实能力验收待完成 |
 | 144 | [23:11076 · AI · 任务中替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11076) | 1440 × 1080 | 待核对 |
 | 145 | [23:11195 · AI · 修复版结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11195) | 1440 × 1080 | 待核对 |
 | 146 | [27:13212 · AI · 继续修改当前版本](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=27-13212) | 1440 × 1080 | 待核对 |
