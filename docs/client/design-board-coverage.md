@@ -144,8 +144,8 @@
 | 134 | [23:8344 · AI · 应用任务确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8344) | 1440 × 1080 | 局部实现：窗口副标题、原文/修改稿/影响范围与提示卡、独立授权及辅助选项；内存界面查看通过，原生执行与整板验收待完成 |
 | 135 | [23:8492 · AI · 应用任务执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8492) | 1440 × 1080 | 局部推进：依据已保存导出图调整 560 高执行面板、32 内边距与 120 高目标卡；保留实际控制和未知状态，实时 Figma 与原生验收待完成 |
 | 136 | [23:8631 · AI · 应用任务结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8631) | 1440 × 1080 | 局部推进：依据已保存导出图调整 600 高结果面板、回读卡及后续操作；取消/错配内存查看，实时 Figma 与真实回读待验收 |
-| 137 | [23:8773 · 应用与工具 · 自定义能力检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8773) | 1440 × 1080 | 待核对 |
-| 138 | [23:8920 · 应用与工具 · 自定义已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8920) | 1440 × 1080 | 待核对 |
+| 137 | [23:8773 · 应用与工具 · 自定义能力检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8773) | 1440 × 1080 | 局部推进：少量工具直接展示用途卡片，声明可展开，身份来源可核对；保存失败/成功及长列表对照内存查看，实时设计与真实服务待验收 |
+| 138 | [23:8920 · 应用与工具 · 自定义已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8920) | 1440 × 1080 | 局部推进：已保存状态、返回目录主入口及维护/任务引用展开区；标题焦点与三尺寸内存查看，真实连接和完整画板待验收 |
 | 139 | [23:9067 · AI · 任务中填写模型](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9067) | 1440 × 1080 | 待核对 |
 | 140 | [23:9182 · AI · 任务中验证模型](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9182) | 1440 × 1080 | 待核对 |
 | 141 | [23:10659 · AI · 正在生成方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10659) | 1440 × 1080 | 待核对 |
