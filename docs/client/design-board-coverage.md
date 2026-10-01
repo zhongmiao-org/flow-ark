@@ -8,7 +8,7 @@
 
 | 序号 | Figma 节点 / 画板 | 设计尺寸 | 当前逐板记录 |
 | --- | --- | --- | --- |
-| 001 | [1:198 · 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-198) | 1440 × 960 | 待核对 |
+| 001 | [1:198 · 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-198) | 1440 × 960 | 局部推进：卡片网格及底部操作对齐；搜索、筛选、滚动和编辑返回焦点保留，活动详情缺失不显示为零；内存界面查看，真实宿主及整板视觉待验收 |
 | 002 | [1:394 · 流程编排](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-394) | 1920 × 1080 | 待核对 |
 | 003 | [1:2229 · 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-2229) | 1920 × 1080 | 待核对 |
 | 004 | [1:3125 · 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3125) | 1440 × 960 | 局部推进：介绍区和卡片坐标尺寸、能力图标、版本与操作层级；筛选及窄窗口内存查看，共享导航和整板待验收 |
