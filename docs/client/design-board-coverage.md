@@ -14,7 +14,7 @@
 | 004 | [1:3125 · 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3125) | 1440 × 960 | 局部推进：介绍区和卡片坐标尺寸、能力图标、版本与操作层级；筛选及窄窗口内存查看，共享导航和整板待验收 |
 | 005 | [1:3256 · 导入模板](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | 1440 × 1080 | 局部推进：导入布局及失败重选撤销确认、旧结果身份提示和错误聚焦；内存安装查看，真实 ZIP 与整板待验收 |
 | 006 | [1:3376 · 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3376) | 1440 × 960 | 局部推进：表格位置/80 高行与列宽、详情错误独立重试、当前游标保留；内存分页/详情返回查看，真实持久化和整板待验收 |
-| 007 | [1:3539 · 运行详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3539) | 1440 × 960 | 待核对 |
+| 007 | [1:3539 · 运行详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3539) | 1440 × 960 | 局部推进：摘要与双栏尺寸、当前步骤/最近记录、只读配置折叠；1440/1040/820 内存预览，真实宿主及整板视觉待验收 |
 | 008 | [1:3673 · 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | 1440 × 1080 | 局部推进：消除双重导航，两栏位置/尺寸、172 高列表与 32 高输入对照；内存编辑/暂停/返回查看，真实调度和整板待验收 |
 | 009 | [1:3794 · 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3794) | 1440 × 960 | 局部推进：重点/紧凑卡层级、状态颜色、列表滚动与详情返回焦点；内存搜索/归档/回应查看，整板和真实宿主待验收 |
 | 010 | [1:3896 · 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3896) | 1440 × 960 | 待核对 |
@@ -48,7 +48,7 @@
 | 038 | [2:3884 · 运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | 1440 × 1080 | 待核对 |
 | 039 | [2:3991 · 拾取与会话状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3991) | 1440 × 1080 | 待核对 |
 | 040 | [2:4104 · 浏览器故障与恢复](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4104) | 1440 × 1080 | 待核对 |
-| 041 | [2:4209 · 运行控制状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4209) | 1440 × 1080 | 待核对 |
+| 041 | [2:4209 · 运行控制状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4209) | 1440 × 1080 | 局部推进：暂停/单步/取消请求反馈、防重复发送、错误聚焦与只刷新；虚构状态查看，真实边界暂停和资源回收待验收 |
 | 042 | [2:4316 · 人工请求与结果核对](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4316) | 1440 × 1080 | 局部推进：回应/失效详情、成功回应后刷新失败不重复提交、刷新恢复清除相关错误；内存状态查看，通知失败及真实有效期仍待验收 |
 | 043 | [2:4421 · 产物状态与清理](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | 1440 × 1080 | 待核对 |
 | 044 | [2:4526 · 计划状态与冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | 1440 × 1080 | 局部推进：保存/启停状态与冲突卡，冲突保留输入、禁用保存及明确重新读取；内存查看，真实并发/触发和整板待验收 |
