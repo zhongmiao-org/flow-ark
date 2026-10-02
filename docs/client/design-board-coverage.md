@@ -83,7 +83,7 @@
 | 073 | [8:18938 · DeepSeek · 返回模板前](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18938) | 1440 × 1080 | 局部推进：已保存导出对照及实际页面内存配置返回核对，未自动运行；完整视觉和真实密钥存储待验收 |
 | 074 | [8:19057 · DeepSeek · 模板来源已验证](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19057) | 1440 × 1080 | 待核对 |
 | 075 | [8:19176 · 运行详情 · 来源第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19176) | 1440 × 960 | 待核对 |
-| 076 | [8:19310 · 返回来源已失效](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19310) | 1440 × 1080 | 待核对 |
+| 076 | [8:19310 · 返回来源已失效](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19310) | 1440 × 1080 | 局部推进：AI 返回前核对实例/包/入口流程，来源变化与暂不可读分开，保留配置并提供模板库/留在设置/重读；1440/1040 内存交互与草稿保护已查看，真实删除替换及整板待验收 |
 | 077 | [8:20277 · 离开确认 · 流程参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20277) | 1440 × 1080 | 局部推进：640×320 参数离开确认、实际目的地、按钮顺序与焦点；内存保存/放弃/继续查看，整板与真实宿主待验收 |
 | 078 | [8:20443 · 离开确认 · 模板 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20443) | 1440 × 1080 | 局部推进：实际模板与 AI 两层离开保留原目的地，640 宽确认、保存失败及焦点恢复；真实宿主与完整组合待验收 |
 | 079 | [8:20559 · 离开确认 · 首次配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20559) | 1440 × 1080 | 局部推进：首次配置离开目标、放弃文案、失败重试与输入焦点；内存查看，真实存储待验收 |
