@@ -122,8 +122,8 @@
 | 112 | [23:5493 · 应用与工具 · 高级 MCP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5493) | 1440 × 1080 | 局部实现：配置间距、协议折叠、字段错误与焦点反馈；组件样例三尺寸人工查看，真实 MCP/认证与整板验收待完成 |
 | 113 | [23:5656 · AI · 模型未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5656) | 1440 × 1080 | 局部实现：完整长需求、资料清单折叠与配置/手动回调；组件样例人工查看，原任务真实往返与整板验收待完成 |
 | 114 | [23:5795 · AI · 模型配置后返回](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5795) | 1440 × 1080 | 局部核对：保存待验证、掩码和长模型换行；组件样例双栏/窄窗查看，真实凭据/模型及整板验收待完成 |
-| 115 | [23:5921 · AI · 全宽网页查看](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5921) | 1440 × 1080 | 局部实现：全宽工作区、桌面导航、地址保留与返回焦点；Renderer 样例三尺寸查看，100%/真实网页输入与整板验收待完成 |
-| 116 | [23:6084 · AI · 紧凑网页总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6084) | 1040 × 700 | 待核对 |
+| 115 | [23:5921 · AI · 全宽网页查看](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5921) | 1440 × 1080 | 局部：任务对象页直接全宽查看，返回恢复来源面板/网址草稿/焦点；普通面板放大路径保留，宽窄 Renderer 内存核对；100%聚焦、真实网页输入及整板待验收 |
+| 116 | [23:6084 · AI · 紧凑网页总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6084) | 1040 × 700 | 局部：1040网页总览入口、返回选择对象及快捷键往返已接通，实际 Renderer 内存核对；网页区域仅占位，100%观察和原生坐标仍待实现/验收 |
 | 117 | [23:6221 · AI · 紧凑目标聚焦](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6221) | 1040 × 700 | 待核对 |
 | 118 | [23:6333 · 编排 · 四十步任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6333) | 1920 × 1080 | 局部实现：大纲搜索键盘选择、清空、嵌套分支定位；40 步虚构流程三尺寸查看，真实执行聚焦及整板验收待完成 |
 | 119 | [23:6516 · 配置 · Excel 映射编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516) | 1440 × 1080 | 局部实现：字段错误与弹窗后定位、增删焦点、空数据提示；三尺寸 Renderer 样例核对，真实持久化／写入及整板验收待完成 |
