@@ -74,7 +74,7 @@
 | 064 | [4:10835 · DeepSeek · 已验证](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10835) | 1440 × 1080 | 局部推进：验证摘要、模型与时间、重新测试及窄窗纵排；虚构响应查看，真实供应商验证及整板待验收 |
 | 065 | [4:10955 · DeepSeek · 连接失败](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10955) | 1440 × 1080 | 局部推进：鉴权/模型错误标题与对应修改入口，保留已配置掩码；内存失败恢复查看，真实错误分类及整板待验收 |
 | 066 | [4:11077 · DeepSeek · 移除确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11077) | 1440 × 1080 | 局部推进：页面内 728×440 确认卡、取消/返回焦点、在用和处理中限制、失败保留；三尺寸内存交互查看，真实凭据移除及整板待验收 |
-| 067 | [4:11164 · 模板 AI 资源配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11164) | 1440 × 1080 | 待核对 |
+| 067 | [4:11164 · 模板 AI 资源配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11164) | 1440 × 1080 | 局部推进：当前入口绑定、供应商切换清除旧模型、验证修订/模型匹配与详情；配置往返及错误状态内存查看，真实供应商与整板待验收 |
 | 068 | [8:18364 · 导航与返回演示](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18364) | 1440 × 1080 | 待核对 |
 | 069 | [8:18463 · 模板入口 · 待配置 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18463) | 1440 × 1080 | 局部推进：实际模板入口往返保留第二入口和草稿，配置按钮焦点恢复；虚构内存查看，完整视觉与真实宿主待验收 |
 | 070 | [8:18569 · 模板入口 · AI 已配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18569) | 1440 × 1080 | 局部推进：内存配置后返回显示掩码与待验证，输入不自动保存、入口不自动运行；完整视觉和真实配置待验收 |
