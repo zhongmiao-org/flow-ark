@@ -3047,3 +3047,20 @@ Editor向Picker传入活动状态，其他节点编辑窗口、大纲或紧凑�
 截图 `/private/tmp/flowark-save-feedback/copy-1440.jpg`、`leave-1440.jpg`、`save-failed-1040.jpg`、最终`invalid-1040.jpg` 已查看；1040/1440无页面横向溢出，失败确认640×360，普通确认640×320。首次缩窗后的invalid截图存在抓帧过早，已在稳定1040×700与身份错误状态下重新保存，不采用早帧作尺寸证据。复制和错误卡嵌入实际检查器、动态说明使布局不同于目录四卡；不记整板1:1验收。
 
 最终 `pnpm typecheck`、含Swift编译的`pnpm build`、四文件Prettier及`git diff --check`通过，日志 `/private/tmp/flowark-save-feedback-build.log`，仅既有大包提示。未新增/运行单元测试或集成脚本，未启动Electron或第二客户端；页签69与4288服务关闭、视口恢复，无关IDE改动保留。嵌套复制完整组合、保存中取消/长错误全部状态、真实持久化和原生遮挡、最新Figma与186画板 / U01–U12仍待验收。
+
+
+### 2026-10-02 高级节点 JSON 的字段与结构反馈
+
+前序 [PR #299](https://github.com/zhongmiao-org/flow-ark/pull/299) 经 CI `36989106131` 成功自动合并为 `9c087806bfa8b0f34c4e3ff3d14e5c301bec6f01`。客户端本轮本地提交 `b876aa2`；公开推送此前被自动审批以披露风险拒绝，未重试。
+
+继续落实037 `2:3779` 的“高级输入尚未完成”状态，补上前序记录的字段即时校验缺口。高级JSON在修改草稿前使用客户端固定的0.15.0契约Node定义检查当前类型/版本、必填字段、字段类型与限制。嵌套子步骤先按自身分支检查，错误使用 `$/then/0/selector` 等路径，不误报其他oneOf分支的字段。复用网页框架/表单命令检查、原有结构引用检查，并拒绝全流程重复ID、过深或过多步骤；输入无效时原有效草稿和画布保持，原错误卡、修正/恢复、保存及离开守卫继续生效。
+
+脚本 `generate-node-validator.mjs` 使用现有Ajv和esbuild依赖，将固定契约19个type/version分支预编译为静态浏览器模块及类型声明，记录源契约SHA256；正常构建与契约生成自动更新，生成文件纳入客户端以保持独立克隆的类型检查可用。Renderer不在运行时编译Schema、不引入动态代码权限，不更改CSP、契约内容、IPC或依赖锁。该字段和结构检查不代表真实资源绑定、脚本依赖、Excel映射及运行前全部语义已经通过，宿主仍执行完整验证。
+
+唯一后台IAB页签70加载实际App/Renderer及虚构内存IPC，使用正式index的相同CSP（script-src self，没有unsafe-eval）。初始旧内存读取节点缺少契约必填value，校验明确拒绝；补齐虚构样例后继续验证，没有放宽契约。selector数字显示必须是文字，timeoutMs字符串显示必须是整数，版本99显示不支持，check的文字true显示需要布尔值；错误保存时flow.save计数0。修正为h1与15000后明确保存，计数1且状态已保存。
+
+通过实际动作库添加条件，嵌套selector数字显示 `$/then/0/selector：必须是文字`，重复read拒绝，then对象显示必须是数组，steps.missing.output显示引用不存在/越界；以上均未增加有效草稿步骤。修正嵌套读取节点后画布从5到6，明确保存计数2。再次输入嵌套错误后恢复节点，读回原嵌套标题读取、selector=title、value=null，保存计数仍2。未执行流程、访问网页或调用模型。
+
+1040×700、1440×1080均无横向溢出，控制台无错误；截图 `/private/tmp/flowark-json-fields/nested-error-1040.jpg` 与 `nested-error-1440.jpg` 均已查看。缩窗后配置面板被收起，先根据实际状态打开当前步骤配置再继续；未将第一次定位隐藏输入失败记作产品验证通过。当前只是字段反馈与渲染的局部证据，不宣称全部节点组合、真实存储或整板1:1完成。
+
+最终 `pnpm typecheck`、含Swift编译及重新生成校验器的`pnpm build`、五个手写文件Prettier和`git diff --check`通过，日志 `/private/tmp/flowark-json-fields-build.log`，仅既有大包提示。未新增或运行单元测试/集成脚本，未启动Electron或第二客户端；页签70、4289服务关闭且视口恢复，无关IDE改动保留。全部19变体/极限深度数量、语义与真实宿主、最新Figma及186画板 / U01–U12整体仍待验收。
