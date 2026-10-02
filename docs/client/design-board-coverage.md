@@ -66,7 +66,7 @@
 | 056 | [2:8100 · 运行记录：第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8100) | 1440 × 960 | 局部推进：完整编号、相对日期与紧凑耗时、翻页定位及空页提示；第2页/详情返回/末页/失败恢复内存查看，真实游标数据与整板待验收 |
 | 057 | [2:8270 · 运行记录筛选](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | 1440 × 1080 | 局部推进：四主字段尺寸/节奏与额外条件折叠、取消恢复入口及页码；内存多条件/空结果/窄窗查看，整板和真实查询待验收 |
 | 058 | [2:9120 · 模板运行：写入中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9120) | 1440 × 960 | 局部推进：通用文件/表格步骤状态及目标配置，暂停/取消/缺回执区分；运行详情内存查看，真实模板写入与整板待验收 |
-| 059 | [2:9260 · 模板运行：结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9260) | 1440 × 1080 | 局部核对：步骤完成后切换既有结果/产物双栏，读取同次保存结果；虚构内存查看，模板来源返回、真实文件与整板待验收 |
+| 059 | [2:9260 · 模板运行：结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9260) | 1440 × 1080 | 局部推进：结果/产物双栏、当前运行待核对提醒及刷新恢复；模板入口往返和同次结果内存查看，真实回执/文件与整板待验收 |
 | 060 | [4:10378 · DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10378) | 1440 × 1080 | 局部推进：配置表单/状态双栏及字段层级；已有默认模型保留，读取失败不作未配置，真实初次配置和整板待验收 |
 | 061 | [4:10487 · DeepSeek · 首次填写](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10487) | 1440 × 1080 | 局部推进：遮蔽输入、表单内失败原因与焦点、失败保留后显式保存；内存查看，真实受保护写入及整板待验收 |
 | 062 | [4:10599 · DeepSeek · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10599) | 1440 × 1080 | 局部推进：空新 Key、原配置掩码及取消守卫，字段焦点恢复；内存修改/放弃查看，真实替换与整板待验收 |
