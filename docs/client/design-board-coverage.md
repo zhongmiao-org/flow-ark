@@ -32,7 +32,7 @@
 | 022 | [2:1866 · 网页动作配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1866) | 1440 × 1080 | 局部推进：五类实际动作切换、共用定位/期限、变量输入与应用返回；三尺寸内存查看，真实网页操作和整板视觉待验收 |
 | 023 | [2:2033 · HTTP文件与表格配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2033) | 1440 × 1080 | 局部推进：六类实际步骤配置、缺类添加、名称草稿保护与应用返回；三尺寸内存查看，真实 HTTP/文件/Excel 运行和整板视觉待验收 |
 | 024 | [2:2200 · 流程控制配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2200) | 1440 × 1080 | 局部推进：五类控制节点与共用期限/高级输入工作页，六卡基础几何对齐、输入保护、分支入口和添加；三尺寸内存查看，真实运行与整板视觉待验收 |
-| 025 | [2:2367 · 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2367) | 1440 × 1080 | 待核对 |
+| 025 | [2:2367 · 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2367) | 1440 × 1080 | 局部推进：六卡脚本配置、依赖核对与冲突反馈、历史预览及参数往返；三尺寸内存查看，真实包/脚本执行、模板来源及整板视觉待验收 |
 | 026 | [2:2534 · 逐步调试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2534) | 1440 × 1080 | 待核对 |
 | 027 | [2:2640 · 输出与运行产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2640) | 1440 × 1080 | 局部推进：672/456 结果与产物双栏、同区清理/重跑、定位错误焦点；内存输出/长文本/空状态查看，真实文件及整板待验收 |
 | 028 | [2:2744 · 日志与步骤输出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2744) | 1440 × 1080 | 局部推进：来源/快照、步骤实例与日志三栏，实例筛选、最近记录定位和有限展开；内存查看，真实宿主与整板待验收 |
