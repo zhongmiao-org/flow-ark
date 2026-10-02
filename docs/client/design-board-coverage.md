@@ -23,7 +23,7 @@
 | 013 | [2:892 · 实例列表](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-892) | 1440 × 1080 | 局部推进：按版本创建入口、卡片层级、零实例筛选与来源返回；内存创建及搜索焦点保留，真实隔离与整板待验收 |
 | 014 | [2:973 · 模板实例](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973) | 1440 × 1080 | 局部推进：共享表单字段节奏、布尔选项同行、保存中/失败重试与名称校验；三尺寸内存查看，真实保存和整板待验收 |
 | 015 | [2:1083 · 资源与动作授权](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | 1440 × 1080 | 局部推进：资源字段与操作区尺寸、入口状态可访问提示；内存目录选择、缺失提示和取消查看，真实授权及完整视觉待验收 |
-| 016 | [2:1199 · 入口输入与执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1199) | 1440 × 1080 | 待核对 |
+| 016 | [2:1199 · 入口输入与执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1199) | 1440 × 1080 | 局部推进：入口字段/执行摘要布局、独立输入保存与创建回执恢复；三尺寸内存查看，真实运行、跨重开和整板待验收 |
 | 017 | [2:1314 · 只读入口](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1314) | 1440 × 1080 | 待核对 |
 | 018 | [2:1398 · 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398) | 1440 × 1080 | 待核对 |
 | 019 | [2:1545 · 变量选择](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1545) | 1440 × 1080 | 待核对 |
