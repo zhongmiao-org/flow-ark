@@ -44,9 +44,9 @@
 | 034 | [2:3431 · 创建计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3431) | 1440 × 1080 | 局部推进：普通/模板创建前固定版本确认，离开显示实际去向与启用说明；内存保存失败保留和成功返回，真实创建及整板待验收 |
 | 035 | [2:3565 · 安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | 1440 × 1080 | 局部推进：拒绝冲突、已有版本直接打开、发现新版本和失败重选状态；内存计数核对不重复安装，真实校验/清理及整板待验收 |
 | 036 | [2:3672 · 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | 1440 × 1080 | 局部推进：共享配置表单内输入/保存错误与焦点、失败保留和显式重试；内存查看，其他编辑状态、真实持久化和整板待验收 |
-| 037 | [2:3779 · 保存与离开确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779) | 1440 × 1080 | 待核对 |
+| 037 | [2:3779 · 保存与离开确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779) | 1440 × 1080 | 局部推进：高级JSON错误卡及未完成状态、复制完成与查看草稿、主编辑器离开确认；内存失败/恢复/放弃查看，字段类型即时校验、真实持久化和整板待验收 |
 | 038 | [2:3884 · 运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | 1440 × 1080 | 局部推进：浏览器绑定、网页未就绪及检查过期恢复卡，确认被拒后重新检查并重新勾选；三尺寸内存查看，真实宿主及完整状态待验收 |
-| 039 | [2:3991 · 拾取与会话状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3991) | 1440 × 1080 | 局部推进：目标确认、运行详情恢复、未保存守卫/焦点与后台拾取失效；完整App内存查看，820检查器偏窄、真实网页与整板待验收 |
+| 039 | [2:3991 · 拾取与会话状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3991) | 1440 × 1080 | 局部推进：目标确认、运行详情恢复、未保存守卫/焦点与后台拾取失效；完整App内存查看，1040紧凑可滚动，真实网页与整板待验收 |
 | 040 | [2:4104 · 浏览器故障与恢复](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4104) | 1440 × 1080 | 局部推进：启动检查中的安装变化/绑定缺失提示及原流程编辑入口；内存查看，真实安装故障、会话丢失/回收与人工处理仍待验收 |
 | 041 | [2:4209 · 运行控制状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4209) | 1440 × 1080 | 局部推进：暂停/单步/取消请求反馈、防重复发送、错误聚焦与只刷新；虚构状态查看，真实边界暂停和资源回收待验收 |
 | 042 | [2:4316 · 人工请求与结果核对](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4316) | 1440 × 1080 | 局部推进：回应/失效详情、成功回应后刷新失败不重复提交、刷新恢复清除相关错误；内存状态查看，通知失败及真实有效期仍待验收 |
@@ -57,8 +57,8 @@
 | 047 | [2:4837 · 模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | 1440 × 1080 | 局部推进：采用版本摘要、创建后打开失败恢复、来源导出核对；内存恢复不重复创建，真实版本采用/ZIP 与整板待验收 |
 | 048 | [2:4940 · 导出 ZIP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | 1440 × 1080 | 局部推进：目录/实例共享导出核对与实际来源返回；内存取消、失败、成功已人工查看，真实 ZIP 与整板待验收 |
 | 049 | [2:5045 · 退出与运行环境](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5045) | 1440 × 1080 | 局部：原生退出提示分别显示当前活动、排队和启用计划，未知状态明确确认；类型/构建通过，应用内卡片、托盘、休眠及真实退出待验收 |
-| 050 | [2:5152 · 紧凑窗口与网页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5152) | 1040 × 700 | 待核对 |
-| 051 | [2:5253 · 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5253) | 1040 × 700 | 待核对 |
+| 050 | [2:5152 · 紧凑窗口与网页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5152) | 1040 × 700 | 局部推进：1040窗口两栏360/564、当前步骤摘要与配置往返；原生最小窗口范围已核对源码，真实网页及整板视觉待验收 |
+| 051 | [2:5253 · 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5253) | 1040 × 700 | 局部推进：目标/期限优先、通用设置折叠、独立滚动与底部操作、缩窗保留错误输入；1040内存查看，原生网页与整板待验收 |
 | 052 | [2:6948 · P1 操作路径总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-6948) | 1440 × 1080 | 待核对 |
 | 053 | [2:7749 · 动作授权：每次确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7749) | 1440 × 1080 | 局部推进：每次确认选中、相关入口待保存、失败保留与取消恢复；实际页面内存查看，真实执行与完整视觉待验收 |
 | 054 | [2:7867 · 动作授权：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7867) | 1440 × 1080 | 局部推进：自动模式选中、入口待保存与取消恢复，1040/820 无横向溢出；真实范围约束和完整视觉待验收 |
