@@ -104,7 +104,7 @@
 | 094 | [23:2609 · AI · 应用窗口与能力](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | 1440 × 1080 | 局部：窗口身份/能力、切换/刷新焦点、选区停止等待/清除/失败/过期恢复；内存迟到响应与宽窄界面查看，原生窗口及整板待验收 |
 | 095 | [23:2766 · AI · 理解与补问](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2766) | 1440 × 1080 | 局部推进：四张理解卡与可展开资料/工具/修改范围、文件名布局；1440/1040内存查看，真实模型与整板待验收 |
 | 096 | [23:2928 · AI · 确认任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2928) | 1440 × 1080 | 局部实现：采纳前后操作摘要、参数定位及首次差异折叠；整板待核对 |
-| 097 | [23:3109 · AI · 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3109) | 1440 × 1080 | 待核对 |
+| 097 | [23:3109 · AI · 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3109) | 1440 × 1080 | 局部：短清单卡片、长清单查找/分支折叠、参数定位及返回保留选择；四步/四十步宽窄 Renderer 内存查看，真实执行与整板待验收 |
 | 098 | [23:3290 · AI · 同一流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3290) | 1440 × 1080 | 待核对 |
 | 099 | [23:3467 · AI · 修改差异](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3467) | 1440 × 1080 | 局部推进：单条件前后对照、400/728双栏与采纳布局、完整差异展开；内存采纳/拒绝/撤销核对，真实模型与整板待验收 |
 | 100 | [23:3618 · AI · 采纳后的方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3618) | 1440 × 1080 | 最近运行入口局部实现与人工走查；整板待核对，见实施记录 2026-09-24 |
