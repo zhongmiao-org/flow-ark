@@ -3098,3 +3098,20 @@ AISettingsPage 在处理原有未保存配置/测试取消守卫后，使用现�
 最终版本补齐入口流程身份后重载，模拟同包同入口的流程ID替换仍进入失效页。1440主卡位置(256,230)、尺寸1152×350、内边距28，两按钮宽180；1040×700无横向溢出。截图 `/private/tmp/flowark-ai-source-unavailable/changed-final-1440.jpg`、`changed-final-1040.jpg` 已查看。运行时增加原来源说明，按钮纵坐标与静态稿不同，共享导航保留现行主路径，不宣称整板像素级验收。核对等待时点击我的流程，再释放读取，页面仍为我的流程，控制台无错误。
 
 最终 `pnpm typecheck`、含 Swift 编译的 `pnpm build`、六文件 Prettier 与 `git diff --check` 通过，构建日志 `/private/tmp/flowark-ai-source-unavailable-build-final.log`，仅既有大包提示。未新增/运行单元测试或集成脚本，未调用真实模型、保存真实凭据、删除真实实例、创建 Run 或启动 Electron；页签72、4291服务关闭，视口恢复，无关IDE改动保留。真实删除/替换、全部模板入口和未保存组合、最新Figma及186画板 / U01–U12整体仍待验收。
+
+
+### 2026-10-02 普通流程参数改名与引用同步
+
+前序 [PR #302](https://github.com/zhongmiao-org/flow-ark/pull/302) 经最新 CI `36993090078` 成功自动合并为 `353d7e2e4b7c50c7ed120cc5e09c56553dace2fe`。本轮客户端本地提交 `071477a`；公开推送仍受此前自动审批披露风险拒绝限制，未重试。
+
+实际查看保存导出018 `2:1398`，图片 `/private/tmp/flowark-parameters-design/18-流程参数与资源.png`。保留名称/类型/值三列和资源卡，普通流程名称由只读改为可编辑；名称变化才展开确认/取消与说明。未确认名称使用独立顶部状态，阻止保存并聚焦输入；重名、空名、点、首尾空格和原型相关名称拒绝。Enter确认、Escape取消，输入法组合输入不提前提交。受管模板仍沿用原Schema参数边界，未开放任意改名。
+
+确认时一次更新参数键及步骤树中的精确结构化参数引用，包含条件/循环的嵌套引用及数组子路径，保持参数值和顺序；相似前缀、普通文本和脚本字符串不自动改写，并在编辑说明中要求核对。使用原引用检查器拒绝新增引用问题；未完成的参数值或新参数输入阻止确认，避免重挂载丢失无效值。成功显示实际更新数量、保存后生效并聚焦新名称，原删除引用保护继续使用新名称。无新增IPC、契约、宿主存储或执行逻辑。
+
+唯一后台 IAB 页签73加载实际 App/Renderer、正式 CSP 和虚构内存 IPC。title改heading前尝试保存被阻止，保存计数为0；重名maxItems、constructor均保留输入并显示错误。maxItems值abc时确认改名被阻止且abc保留，修正20后改名成功，更新4处。items经Enter改documents更新2处，包含params.documents.0；Escape取消另一名称编辑后仍为heading。删除heading被阻止，错误指向read_title与params.heading。
+
+明确保存后，内存回执显示参数新键、嵌套条件和循环引用已同步；params.titleExtra与普通params.title、return params.title文本保持原样。重新进入显示已保存新名称。未确认改名后返回流程触发原离开确认，继续编辑保留输入；明确不保存离开后重开恢复已保存heading。再次确认heading到reportTitle显示4处引用和未保存状态，截图记录该局部状态，不代表真实数据库保存。
+
+1440×1080与1040×700人工查看无页面横向溢出，1040纵排并可键盘到达底部返回操作；控制台无错误。截图 `/private/tmp/flowark-parameter-rename/rename-1440.jpg`、`renamed-1440.jpg`、`rename-1040.jpg` 已查看。动态第五行、改名反馈和共享导航与静态四参数稿存在差异，不记整板像素级验收。未确认名称的顶部状态问题在首次查看后已修正并重新构建复核。
+
+最终 `pnpm typecheck`、含 Swift 编译的 `pnpm build`、四文件 Prettier 与 `git diff --check`通过，日志 `/private/tmp/flowark-parameter-rename-build-final.log`，仅既有大包提示。未新增/运行单元测试或集成脚本，未发起Run、启动Electron或第二客户端；页签73、4292服务关闭、视口恢复，无关IDE改动保留。变量选择联动、所有节点引用语义、受管模板参数、真实宿主持久化、最新Figma及186画板 / U01–U12整体仍待验收。
