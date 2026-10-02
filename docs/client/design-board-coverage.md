@@ -62,7 +62,7 @@
 | 052 | [2:6948 · P1 操作路径总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-6948) | 1440 × 1080 | 待核对 |
 | 053 | [2:7749 · 动作授权：每次确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7749) | 1440 × 1080 | 局部推进：每次确认选中、相关入口待保存、失败保留与取消恢复；实际页面内存查看，真实执行与完整视觉待验收 |
 | 054 | [2:7867 · 动作授权：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7867) | 1440 × 1080 | 局部推进：自动模式选中、入口待保存与取消恢复，1040/820 无横向溢出；真实范围约束和完整视觉待验收 |
-| 055 | [2:7985 · 入口输入：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7985) | 1440 × 1080 | 待核对 |
+| 055 | [2:7985 · 入口输入：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7985) | 1440 × 1080 | 局部推进：就绪状态、授权保存差异与配置往返；内存界面查看，真实授权执行待验收 |
 | 056 | [2:8100 · 运行记录：第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8100) | 1440 × 960 | 局部推进：完整编号、相对日期与紧凑耗时、翻页定位及空页提示；第2页/详情返回/末页/失败恢复内存查看，真实游标数据与整板待验收 |
 | 057 | [2:8270 · 运行记录筛选](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | 1440 × 1080 | 局部推进：四主字段尺寸/节奏与额外条件折叠、取消恢复入口及页码；内存多条件/空结果/窄窗查看，整板和真实查询待验收 |
 | 058 | [2:9120 · 模板运行：写入中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9120) | 1440 × 960 | 局部推进：通用文件/表格步骤状态及目标配置，暂停/取消/缺回执区分；运行详情内存查看，真实模板写入与整板待验收 |
