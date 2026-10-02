@@ -2979,3 +2979,20 @@ App 将侧栏、首次教学、从计划运行转往运行记录等去向传入�
 1440成功卡在组件容器内为514×250，1040互斥卡可完整阅读，820错误卡按16内边距呈现，页面scrollWidth分别为1440/1040/820，控制台无错误。截图 `/private/tmp/flowark-picker-feedback/verified-1440.jpg`、`busy-1040.jpg`、`error-820.jpg` 均已查看。此为组件展示，不等同完整App布局；稿中独立“应用目标”和“查看运行”尚未完整落实，原节点选择仍直接更新草稿，039不记整板1:1验收。
 
 最终 `pnpm typecheck`、含Swift编译的`pnpm build`、三文件Prettier与`git diff --check`通过，构建日志 `/private/tmp/flowark-picker-feedback-build.log`，仅既有大包提示。未新增或运行单元测试/集成脚本，未启动Electron或第二客户端。页签65与4284服务已关闭，视口恢复，无关IDE改动保留。真实嵌套框架、0匹配/多匹配、导航与关闭会话、TaskRepair来源、完整App及186画板 / U01–U12仍待验收。
+
+
+### 2026-10-02 明确应用网页目标
+
+前序 [PR #294](https://github.com/zhongmiao-org/flow-ark/pull/294) 经 CI `36962828515` 自动合并为 `46da9588d50d7e7dbe720ab3d469713b9cfdad35`。本轮先以 [PR #295](https://github.com/zhongmiao-org/flow-ark/pull/295) 定义只读确认契约，CI `36983842937` 成功自动合并为 `3fafa5ebf019885b426a985bec9eda964da2edf6`，客户端package.json已采用此治理基线。客户端本地提交 `9b14829`；公开推送此前被自动审批以披露风险拒绝，未重试。
+
+039 `2:3991` 的普通浏览器节点现为点选后暂存候选、展示目标/框架/结构提示，明确“应用目标”才修改selector/framePath/默认名称，原操作和填写值保留。应用按钮接收候选焦点，放弃返回拾取入口；重新拾取、手改定位、节点/操作/入口变化清理候选。TaskRepair默认不启用此确认，保留原页面已有的独立确认流程。
+
+新增严格白名单 `browser.embedded.pick.confirm` 仅接收requestId，宿主复用拾取/验证的运行互斥，Main拒绝并发网页操作并复用captureSelection/verifyTarget复核原资源、文档代际、URL/标题、唯一定位与语义内容/结构。没有网页执行、持久化或新Run。所选元数据沿用拾取摘要，完全相同内容/定位的DOM替换识别及下拉选项实时刷新不在此比较保证内，详见[拾取契约](element-picker.md#2026-10-02-显式应用目标增量)。
+
+确认期间按钮禁用、仍可放弃；旧响应以请求对象、入口代际及组件生命周期核对，取消或换节点后不能更新当前步骤。确认失败撤销候选并显示原因，原步骤保留，必须重新选取。节点内Picker的key包含节点ID与操作，避免相同定位的另一节点复用待应用状态。
+
+唯一后台IAB页签66使用实际BrowserNodeConfiguration/ElementPicker与虚构内存IPC人工查看，未加载完整App。点选后select/confirm均为0且原定位保持；放弃不调用confirm。明确应用后confirm=1、select=1，填写值仍为原文。延迟确认时应用/拾取/验证禁用，放弃后释放旧成功，select仍为1；再次确认时切换节点、释放旧成功也未新增select。模拟网页变化返回请求失效并移除候选，原定位不变；手改定位同样撤销候选。未调用真实宿主或原生网页确认。
+
+1440候选卡在组件容器内514×354，两个230宽按钮纵排；1040保持纵排，820按16内边距呈横排，Tab从应用可到达放弃。三尺寸scrollWidth分别1440/1040/820，控制台无错误。截图 `/private/tmp/flowark-picker-apply/confirm-1440.jpg`、`confirm-1040.jpg`、`confirm-820.jpg` 均已查看；820为键盘聚焦后的滚动画面。当前是组件内动态卡，不等同设计状态目录四卡整板1:1；“查看运行”快捷入口、完整App和TaskRepair全链路待验收。
+
+`pnpm typecheck`、含Swift编译的`pnpm build`、八文件Prettier与`git diff --check`最终通过，日志 `/private/tmp/flowark-picker-apply-build.log`，仅既有大包提示。最初类型检查发现可空资源及React useRef初值问题，已修复后重新通过。未新增/运行单元测试或集成脚本，未启动Electron或第二客户端；页签66和4285服务已关闭、视口恢复，无关IDE改动保留。真实导航/关闭/取消、宿主互斥、跨框架确认、应用持久化和186画板 / U01–U12整体仍待验收。
