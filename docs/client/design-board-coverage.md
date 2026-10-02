@@ -45,9 +45,9 @@
 | 035 | [2:3565 · 安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | 1440 × 1080 | 局部推进：拒绝冲突、已有版本直接打开、发现新版本和失败重选状态；内存计数核对不重复安装，真实校验/清理及整板待验收 |
 | 036 | [2:3672 · 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | 1440 × 1080 | 局部推进：共享配置表单内输入/保存错误与焦点、失败保留和显式重试；内存查看，其他编辑状态、真实持久化和整板待验收 |
 | 037 | [2:3779 · 保存与离开确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779) | 1440 × 1080 | 待核对 |
-| 038 | [2:3884 · 运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | 1440 × 1080 | 待核对 |
+| 038 | [2:3884 · 运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | 1440 × 1080 | 局部推进：浏览器绑定、网页未就绪及检查过期恢复卡，确认被拒后重新检查并重新勾选；三尺寸内存查看，真实宿主及完整状态待验收 |
 | 039 | [2:3991 · 拾取与会话状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3991) | 1440 × 1080 | 待核对 |
-| 040 | [2:4104 · 浏览器故障与恢复](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4104) | 1440 × 1080 | 待核对 |
+| 040 | [2:4104 · 浏览器故障与恢复](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4104) | 1440 × 1080 | 局部推进：启动检查中的安装变化/绑定缺失提示及原流程编辑入口；内存查看，真实安装故障、会话丢失/回收与人工处理仍待验收 |
 | 041 | [2:4209 · 运行控制状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4209) | 1440 × 1080 | 局部推进：暂停/单步/取消请求反馈、防重复发送、错误聚焦与只刷新；虚构状态查看，真实边界暂停和资源回收待验收 |
 | 042 | [2:4316 · 人工请求与结果核对](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4316) | 1440 × 1080 | 局部推进：回应/失效详情、成功回应后刷新失败不重复提交、刷新恢复清除相关错误；内存状态查看，通知失败及真实有效期仍待验收 |
 | 043 | [2:4421 · 产物状态与清理](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | 1440 × 1080 | 局部推进：可用/改动/清理状态区分、清理来源校验、部分失败和完成后只刷新；虚构清理查看，真实删除与持久化待验收 |
