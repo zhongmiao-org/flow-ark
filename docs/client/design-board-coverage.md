@@ -52,7 +52,7 @@
 | 042 | [2:4316 · 人工请求与结果核对](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4316) | 1440 × 1080 | 局部推进：回应/失效详情、成功回应后刷新失败不重复提交、刷新恢复清除相关错误；内存状态查看，通知失败及真实有效期仍待验收 |
 | 043 | [2:4421 · 产物状态与清理](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | 1440 × 1080 | 局部推进：可用/改动/清理状态区分、清理来源校验、部分失败和完成后只刷新；虚构清理查看，真实删除与持久化待验收 |
 | 044 | [2:4526 · 计划状态与冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | 1440 × 1080 | 局部推进：保存/启停状态与冲突卡，冲突保留输入、禁用保存及明确重新读取；内存查看，真实并发/触发和整板待验收 |
-| 045 | [2:4629 · AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | 1440 × 1080 | 待核对 |
+| 045 | [2:4629 · AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | 1440 × 1080 | 局部：生成失败原因、可展开本次服务/模型/本地请求标识与状态更新时间、缺失字段说明及键盘查看长错误；实际 Renderer 内存预览通过，完整连接/限流/输出异常与真实供应商仍待验收 |
 | 046 | [2:4732 · 资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | 1440 × 1080 | 局部推进：凭据/存储错误反馈与只读恢复；资源失效、依赖缺失/版本冲突的阻塞卡及配置入口，内存查看，真实异常与整板仍待验收 |
 | 047 | [2:4837 · 模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | 1440 × 1080 | 局部推进：采用版本摘要、创建后打开失败恢复、来源导出核对；内存恢复不重复创建，真实版本采用/ZIP 与整板待验收 |
 | 048 | [2:4940 · 导出 ZIP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | 1440 × 1080 | 局部推进：目录/实例共享导出核对与实际来源返回；内存取消、失败、成功已人工查看，真实 ZIP 与整板待验收 |
