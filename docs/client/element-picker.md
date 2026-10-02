@@ -43,3 +43,16 @@
 参考：[CDP Overlay](https://chromedevtools.github.io/devtools-protocol/tot/Overlay/)、[CDP DOM](https://chromedevtools.github.io/devtools-protocol/tot/DOM/)。原生检查模式的实际支持以本机 Electron 验证为准。
 
 静止点击依据：[Chromium 检查工具实现](https://chromium.googlesource.com/chromium/src/+/HEAD/third_party/blink/renderer/core/inspector/inspect_tools.cc)、[Electron 原生输入事件](https://www.electronjs.org/docs/latest/api/web-contents#event-before-mouse-event)。验收覆盖无先行移动、旧悬停目标、带偏移的网页视图、125% 缩放、嵌套跨源框架和解析失败；读取测试元素坐标前须等待所有框架的缩放和绘制生效，不能只读取主进程的缩放设置值或顶层网页的像素比。2026-09-20 回归记录过主框架已更新、跨进程框架仍按旧坐标路由输入的过渡状态，测试等待子框架绘制后再点击，不因此放宽定位或原生输入拦截。
+
+
+## 2026-10-02 显式应用目标增量
+
+对应 Figma 039 `2:3991`：普通浏览器节点点选后只保留待应用目标，展示目标摘要、框架层级和结构定位提示；用户点击“应用目标”才更新当前节点的 selector/framePath/默认名称，不改操作和填写值。放弃、重新拾取、切换节点/操作、手改定位或离开当前入口使待应用请求失效。任务修复沿用其独立确认目标与提议修改流程，不叠加第二次确认。
+
+新增本地白名单 `browser.embedded.pick.confirm`，请求为仅含 `requestId` 的对象，约束与 start/status 相同；响应为已有 ElementTarget。此方法只读确认该请求已选目标，不写数据库、不执行网页动作、不保存流程、不启动 Run。Renderer 不能传入新目标或任意脚本替换本请求的目标。
+
+宿主按 start/validate 相同规则检查执行阻断、活动运行状态及待处理继续指令。Main 拒绝并发网页操作，并复用已有 captureSelection/verifyTarget 核对请求、原生资源、文档代际、URL/标题、唯一定位及所选内容/结构。确认中关闭、导航、取消或新选择必须失败；确认回复若晚于入口/节点/定位变化，Renderer 丢弃且不能更新新节点。复核沿用修复目标的语义身份比较，不宣称能识别内容和定位完全相同的 DOM 节点替换。下拉选项沿用拾取摘要，不宣称已刷新选项清单。
+
+应用失败保留原步骤，显示原因并要求重新选取；用户可明确放弃待应用目标。确认等待中禁用重复应用，但允许放弃；迟到成功不能覆盖放弃后的选择。新接口不改变公共流程版本、模板格式或 SQLite，不新增旧版本兼容路径。客户端须记录本治理提交后采用；契约说明完成不代表实现、真实网页或整板已验收。
+
+验证顺序继续遵循当前 UI/UE 优先约定：不新增或运行单元测试。先类型/构建和内存 UI 人工查看；真实页面变化、执行互斥、跨框架确认与完整应用联动在后续验收分别记录。
