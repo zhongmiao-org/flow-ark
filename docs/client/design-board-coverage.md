@@ -175,8 +175,8 @@
 | 160 | [8:28229 · 离开 DeepSeek · 来自模板配置 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28229) | navctxedit → settings | 待核对 |
 | 161 | [8:28348 · 离开 DeepSeek · 来自模板配置 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28348) | navctxedit → browser | 待核对 |
 | 162 | [8:28466 · 离开 DeepSeek · 来自模板配置 → AI 服务配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28466) | navctxedit → ai | 待核对 |
-| 163 | [8:28583 · 离开 DeepSeek · 来自模板配置 → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28583) | navctxedit → resources | 待核对 |
-| 164 | [8:28700 · 离开 DeepSeek · 来自模板配置 → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28700) | navctxedit → scriptform | 待核对 |
+| 163 | [8:28583 · 离开 DeepSeek · 来自模板配置 → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28583) | navctxedit → resources | 局部推进：AI→资源入口接通，模板草稿仍需独立离开确认；内存明确放弃后到达资源页，真实双层保存与整板待验收 |
+| 164 | [8:28700 · 离开 DeepSeek · 来自模板配置 → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28700) | navctxedit → scriptform | 局部推进：AI→脚本包入口接通，模板草稿离开确认目的地保留，继续编辑恢复输入；内存查看，真实保存及节点配置全路径待验收 |
 | 165 | [8:28818 · 离开 DeepSeek · 来自模板配置 → AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28818) | navctxedit → aistates | 待核对 |
 | 166 | [8:28935 · 离开 DeepSeek · 首次填写 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28935) | aiedit → home | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
 | 167 | [8:29055 · 离开 DeepSeek · 首次填写 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29055) | aiedit → templates | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
@@ -185,8 +185,8 @@
 | 170 | [8:29415 · 离开 DeepSeek · 首次填写 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29415) | aiedit → inbox | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
 | 171 | [8:29535 · 离开 DeepSeek · 首次填写 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29535) | aiedit → settings | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
 | 172 | [8:29658 · 离开 DeepSeek · 首次填写 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29658) | aiedit → browser | 待核对 |
-| 173 | [8:29780 · 离开 DeepSeek · 首次填写 → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29780) | aiedit → resources | 待核对 |
-| 174 | [8:29900 · 离开 DeepSeek · 首次填写 → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29900) | aiedit → scriptform | 待核对 |
+| 173 | [8:29780 · 离开 DeepSeek · 首次填写 → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29780) | aiedit → resources | 局部推进：凭据与文件按钮接通，首次保存失败留页、显式重试后到达资源页并聚焦标题；内存查看，真实保存及整板待验收 |
+| 174 | [8:29900 · 离开 DeepSeek · 首次填写 → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29900) | aiedit → scriptform | 局部推进：脚本按钮接通，继续编辑保留输入、放弃后到达脚本包并聚焦标签，所属流程往返保留；真实保存及节点配置全路径待验收 |
 | 175 | [8:30020 · 离开 DeepSeek · 首次填写 → DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30020) | aiedit → aiempty | 待核对 |
 | 176 | [8:30140 · 离开 DeepSeek · 首次填写 → AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30140) | aiedit → aistates | 待核对 |
 | 177 | [8:30260 · 离开 DeepSeek · 替换 Key → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30260) | aireplace → home | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
@@ -196,6 +196,6 @@
 | 181 | [8:30756 · 离开 DeepSeek · 替换 Key → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30756) | aireplace → inbox | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
 | 182 | [8:30880 · 离开 DeepSeek · 替换 Key → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30880) | aireplace → settings | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
 | 183 | [8:31007 · 离开 DeepSeek · 替换 Key → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31007) | aireplace → browser | 待核对 |
-| 184 | [8:31133 · 离开 DeepSeek · 替换 Key → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31133) | aireplace → resources | 待核对 |
-| 185 | [8:31257 · 离开 DeepSeek · 替换 Key → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31257) | aireplace → scriptform | 待核对 |
+| 184 | [8:31133 · 离开 DeepSeek · 替换 Key → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31133) | aireplace → resources | 局部推进：替换页凭据与文件按钮接入相同目的地守卫；该组合未逐项人工查看，真实保存及整板待验收 |
+| 185 | [8:31257 · 离开 DeepSeek · 替换 Key → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31257) | aireplace → scriptform | 局部推进：替换页脚本目的地提示、放弃后到达脚本包且不保存新 Key；820 内存查看，真实保存与整板待验收 |
 | 186 | [8:31382 · 离开 DeepSeek · 替换 Key → AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31382) | aireplace → aistates | 待核对 |
