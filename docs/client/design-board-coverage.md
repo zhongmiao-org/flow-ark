@@ -21,7 +21,7 @@
 | 011 | [1:4023 · 首次使用](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-4023) | 1440 × 960 | 局部推进：1152×470 主卡与双入口核对，处理中反馈、取消焦点恢复、窄区自然增长；内存创建/导入路径查看，真实存储及整板待验收 |
 | 012 | [2:812 · 安装完成](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-812) | 1440 × 1080 | 局部推进：1152×384 卡片、标题/状态和两项操作对齐；内存安装/创建实例及失败恢复查看，真实 ZIP 和整板待验收 |
 | 013 | [2:892 · 实例列表](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-892) | 1440 × 1080 | 局部推进：按版本创建入口、卡片层级、零实例筛选与来源返回；内存创建及搜索焦点保留，真实隔离与整板待验收 |
-| 014 | [2:973 · 模板实例](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973) | 1440 × 1080 | 待核对 |
+| 014 | [2:973 · 模板实例](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973) | 1440 × 1080 | 局部推进：共享表单字段节奏、布尔选项同行、保存中/失败重试与名称校验；三尺寸内存查看，真实保存和整板待验收 |
 | 015 | [2:1083 · 资源与动作授权](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | 1440 × 1080 | 局部推进：资源字段与操作区尺寸、入口状态可访问提示；内存目录选择、缺失提示和取消查看，真实授权及完整视觉待验收 |
 | 016 | [2:1199 · 入口输入与执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1199) | 1440 × 1080 | 待核对 |
 | 017 | [2:1314 · 只读入口](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1314) | 1440 × 1080 | 待核对 |
@@ -43,7 +43,7 @@
 | 033 | [2:3333 · 本机浏览器绑定](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3333) | 1440 × 1080 | 局部推进：720 宽表单、字段位置与保存按钮对齐；发现空态、驱动差异、保存回执及独立重读内存查看，真实绑定与整板待验收 |
 | 034 | [2:3431 · 创建计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3431) | 1440 × 1080 | 局部推进：普通/模板创建前固定版本确认，离开显示实际去向与启用说明；内存保存失败保留和成功返回，真实创建及整板待验收 |
 | 035 | [2:3565 · 安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | 1440 × 1080 | 局部推进：拒绝冲突、已有版本直接打开、发现新版本和失败重选状态；内存计数核对不重复安装，真实校验/清理及整板待验收 |
-| 036 | [2:3672 · 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | 1440 × 1080 | 待核对 |
+| 036 | [2:3672 · 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | 1440 × 1080 | 局部推进：共享配置表单内输入/保存错误与焦点、失败保留和显式重试；内存查看，其他编辑状态、真实持久化和整板待验收 |
 | 037 | [2:3779 · 保存与离开确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779) | 1440 × 1080 | 待核对 |
 | 038 | [2:3884 · 运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | 1440 × 1080 | 待核对 |
 | 039 | [2:3991 · 拾取与会话状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3991) | 1440 × 1080 | 待核对 |
