@@ -25,7 +25,7 @@
 | 015 | [2:1083 · 资源与动作授权](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | 1440 × 1080 | 局部推进：资源字段与操作区尺寸、入口状态可访问提示；内存目录选择、缺失提示和取消查看，真实授权及完整视觉待验收 |
 | 016 | [2:1199 · 入口输入与执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1199) | 1440 × 1080 | 局部推进：入口字段/执行摘要布局、独立输入保存与创建回执恢复；三尺寸内存查看，真实运行、跨重开和整板待验收 |
 | 017 | [2:1314 · 只读入口](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1314) | 1440 × 1080 | 局部推进：1152×444独立入口页、共享配置只读展示、输入/返回保护和运行恢复；内存查看，严格只读语义、真实执行和整板待验收 |
-| 018 | [2:1398 · 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398) | 1440 × 1080 | 局部推进：三列表单、资源绑定、添加与保存反馈；普通参数改名同步结构化引用、未确认保护及内存保存回读；变量选择联动、受管参数和真实保存待验收 |
+| 018 | [2:1398 · 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398) | 1440 × 1080 | 局部推进：三列表单、资源绑定、添加与保存反馈；普通参数改名同步结构化引用、未确认保护及内存保存回读；改名后变量候选与引用内存联动已查看，受管参数和真实保存待验收 |
 | 019 | [2:1545 · 变量选择](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1545) | 1440 × 1080 | 局部推进：内容区双栏工作页、详情内应用/取消、展开子路径及缩窗返回；实际字段内存查看，全部入口与原生网页遮挡待验收 |
 | 020 | [2:1650 · 步骤编辑与位置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1650) | 1440 × 1080 | 局部推进：672/456双栏位置工作页、插入/移动/复制/删除、撤销重做、保存反馈及画布视图返回；内存操作核对，真实宿主与全部结构组合待验收 |
 | 021 | [2:1758 · 条件与串行循环](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1758) | 1920 × 1080 | 局部推进：真实草稿控制图、紧凑集合引用、条件/人工编辑、分支添加与输入保护；内存保存和窄窗查看，真实运行及完整视觉待验收 |
@@ -89,11 +89,11 @@
 | 079 | [8:20559 · 离开确认 · 首次配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20559) | 1440 × 1080 | 局部推进：首次配置离开目标、放弃文案、失败重试与输入焦点；内存查看，真实存储待验收 |
 | 080 | [8:20678 · 离开确认 · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20678) | 1440 × 1080 | 局部推进：替换 Key 离开目标、保留旧配置与清空新输入；内存查看，真实存储待验收 |
 | 081 | [8:20801 · 保存失败 · 保留参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20801) | 1440 × 1080 | 局部推进：错误状态、原因、重试和保留输入；内存失败/保存中禁用/校验聚焦查看，真实存储待验收 |
-| 082 | [8:23606 · 选择变量 · 来源 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23606) | 1440 × 1080 | 待核对 |
+| 082 | [8:23606 · 选择变量 · 来源 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23606) | 1440 × 1080 | 局部推进：来源路径、返回原字段、流程/目录导航与显示网页入口；宽窗来源及离开守卫内存查看，真实网页遮挡待验收 |
 | 083 | [8:23758 · 选择变量 · 来源 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23758) | 1440 × 1080 | 待核对 |
-| 084 | [8:23910 · 选择变量 · 来源 条件与串行循环](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23910) | 1440 × 1080 | 待核对 |
+| 084 | [8:23910 · 选择变量 · 来源 条件与串行循环](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23910) | 1440 × 1080 | 局部推进：条件来源路径、返回焦点及嵌套 Escape 隔离；未完成输入阻止跨页，双栏内存查看，真实运行及整板待验收 |
 | 085 | [8:24062 · 选择变量 · 来源 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24062) | 1440 × 1080 | 待核对 |
-| 086 | [8:24218 · 选择变量 · 来源 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24218) | 1440 × 1080 | 待核对 |
+| 086 | [8:24218 · 选择变量 · 来源 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24218) | 1440 × 1080 | 局部推进：紧凑来源路径、打开时来源跨尺寸保留及返回字段；1040布局查看，全部紧凑入口与原生窗口待验收 |
 | 087 | [8:24374 · 选择变量 · 来源 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24374) | 1440 × 1080 | 待核对 |
 | 088 | [8:24539 · RUN-0921-018 · 输出与产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | 1440 × 1080 | 局部推进：输出页标题与来源、进入焦点及重跑返回；内存往返查看，全部来源导航待验收 |
 | 089 | [8:24669 · RUN-0921-018 · 日志与步骤](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | 1440 × 1080 | 局部推进：日志标题、实际运行来源与原详情返回、进入/返回焦点；内存往返保留筛选，全部来源组合待验收 |
