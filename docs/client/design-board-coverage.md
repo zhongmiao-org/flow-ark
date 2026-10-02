@@ -101,7 +101,7 @@
 | 091 | [23:2106 · AI · 第一次实操](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | 1440 × 1080 | 局部推进：400/728教学双栏、实际进度标记、读取恢复及继续/重启/跳过反馈；内存核对，真实教学与整板待验收 |
 | 092 | [23:2280 · AI · 描述与附件](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2280) | 1440 × 1080 | 上下文限额与附件预览定位已补齐并局部人工走查，见实施记录 2026-09-24；整板待核对 |
 | 093 | [23:2440 · AI · 选择操作对象](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2440) | 1440 × 1080 | 工具对象双栏已实现并局部人工走查，见实施记录 2026-09-24；整板待核对 |
-| 094 | [23:2609 · AI · 应用窗口与能力](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | 1440 × 1080 | 待核对 |
+| 094 | [23:2609 · AI · 应用窗口与能力](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | 1440 × 1080 | 局部推进：窗口身份/能力与多窗口切换、刷新结果焦点；虚构界面查看，原生窗口与整板待验收 |
 | 095 | [23:2766 · AI · 理解与补问](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2766) | 1440 × 1080 | 局部推进：四张理解卡与可展开资料/工具/修改范围、文件名布局；1440/1040内存查看，真实模型与整板待验收 |
 | 096 | [23:2928 · AI · 确认任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2928) | 1440 × 1080 | 局部实现：采纳前后操作摘要、参数定位及首次差异折叠；整板待核对 |
 | 097 | [23:3109 · AI · 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3109) | 1440 × 1080 | 待核对 |
