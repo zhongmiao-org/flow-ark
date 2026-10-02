@@ -90,11 +90,11 @@
 | 080 | [8:20678 · 离开确认 · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20678) | 1440 × 1080 | 局部推进：替换 Key 离开目标、保留旧配置与清空新输入；内存查看，真实存储待验收 |
 | 081 | [8:20801 · 保存失败 · 保留参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20801) | 1440 × 1080 | 局部推进：错误状态、原因、重试和保留输入；内存失败/保存中禁用/校验聚焦查看，真实存储待验收 |
 | 082 | [8:23606 · 选择变量 · 来源 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23606) | 1440 × 1080 | 局部推进：来源路径、返回原字段、流程/目录导航与显示网页入口；宽窗来源及离开守卫内存查看，真实网页遮挡待验收 |
-| 083 | [8:23758 · 选择变量 · 来源 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23758) | 1440 × 1080 | 待核对 |
+| 083 | [8:23758 · 选择变量 · 来源 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23758) | 1440 × 1080 | 确认缺口：参数页尚无选择变量入口，保存稿未指明引用消费字段；需明确字段后接入未保存草稿与返回保护，不能以步骤配置选择器计覆盖 |
 | 084 | [8:23910 · 选择变量 · 来源 条件与串行循环](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23910) | 1440 × 1080 | 局部推进：条件来源路径、返回焦点及嵌套 Escape 隔离；未完成输入阻止跨页，双栏内存查看，真实运行及整板待验收 |
 | 085 | [8:24062 · 选择变量 · 来源 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24062) | 1440 × 1080 | 待核对 |
 | 086 | [8:24218 · 选择变量 · 来源 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24218) | 1440 × 1080 | 局部推进：紧凑来源路径、打开时来源跨尺寸保留及返回字段；1040布局查看，全部紧凑入口与原生窗口待验收 |
-| 087 | [8:24374 · 选择变量 · 来源 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24374) | 1440 × 1080 | 待核对 |
+| 087 | [8:24374 · 选择变量 · 来源 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24374) | 1440 × 1080 | 确认缺口：参数页尚无选择变量入口，保存稿未指明引用消费字段；需明确字段后接入未保存草稿与返回保护，不能以步骤配置选择器计覆盖 |
 | 088 | [8:24539 · RUN-0921-018 · 输出与产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | 1440 × 1080 | 局部推进：输出页标题与来源、进入焦点及重跑返回；内存往返查看，全部来源导航待验收 |
 | 089 | [8:24669 · RUN-0921-018 · 日志与步骤](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | 1440 × 1080 | 局部推进：日志标题、实际运行来源与原详情返回、进入/返回焦点；内存往返保留筛选，全部来源组合待验收 |
 | 090 | [23:1941 · AI · 开始任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) | 1440 × 1080 | 首页资料/应用/待处理入口已接入并局部人工走查，见实施记录 2026-09-24；整板待核对 |
@@ -149,11 +149,11 @@
 | 139 | [23:9067 · AI · 任务中填写模型](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9067) | 1440 × 1080 | 局部推进：输入区间距、取消按钮与来源副标题；字段错误定位和编辑焦点内存查看，最新设计与真实配置待验收 |
 | 140 | [23:9182 · AI · 任务中验证模型](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9182) | 1440 × 1080 | 局部推进：保存/验证/取消后连接状态焦点，失败与取消保留配置和草稿；三尺寸内存查看，真实供应商验证待完成 |
 | 141 | [23:10659 · AI · 正在生成方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10659) | 1440 × 1080 | 局部推进：550 高等待面板、116 高任务卡、取消按钮；内存生成/取消与焦点查看，实时设计和真实 AI 待验收 |
-| 142 | [23:10802 · AI · 生成失败与重试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10802) | 1440 × 1080 | 局部推进：500 高失败面板、184 宽操作按钮；重试核对、取消重试和重新生成内存查看，真实失败恢复待验收 |
+| 142 | [23:10802 · AI · 生成失败与重试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10802) | 1440 × 1080 | 局部推进：500 高失败面板、184 宽操作按钮；重试核对、取消重试和重新生成内存查看，已有方案失败返回修改对照页并保留请求，首次/单步路径内存核对；真实失败恢复待验收 |
 | 143 | [23:10940 · AI · 当前能力不支持](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10940) | 1440 × 1080 | 局部推进：520 高能力不足面板、208/184 操作宽度；限制展示、需求恢复与窄屏内存查看，真实能力验收待完成 |
 | 144 | [23:11076 · AI · 任务中替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11076) | 1440 × 1080 | 局部核对：替换表单布局、失败保留、取消、新掩码与留空保留的内存查看；真实存储与实时设计待验收 |
 | 145 | [23:11195 · AI · 修复版结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11195) | 1440 × 1080 | 局部推进：执行证据直接显示原运行关联，读取失败与错配保留当前页；680/448×700 详情布局，真实结果与实时设计待验收 |
-| 146 | [27:13212 · AI · 继续修改当前版本](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=27-13212) | 1440 × 1080 | 局部推进：440/688×720 修改面板、步骤卡与提示布局；核对收起撤销勾选和恢复焦点，窄窗纵向排列，实时设计与真实生成待验收 |
+| 146 | [27:13212 · AI · 继续修改当前版本](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=27-13212) | 1440 × 1080 | 局部推进：440/688×720 修改面板、步骤卡与提示布局；核对收起撤销勾选和恢复焦点，窄窗纵向排列，失败请求恢复与临时要求保留、重新核对后发送内存查看；实时设计与真实生成待验收 |
 
 ## 辅助导航状态 · 40 项
 
