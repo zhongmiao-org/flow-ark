@@ -101,7 +101,7 @@
 | 091 | [23:2106 · AI · 第一次实操](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | 1440 × 1080 | 局部推进：400/728教学双栏、实际进度标记、读取恢复及继续/重启/跳过反馈；内存核对，真实教学与整板待验收 |
 | 092 | [23:2280 · AI · 描述与附件](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2280) | 1440 × 1080 | 局部：资料摘要/展开编辑、新增移除焦点、上下文限额与附件预览；需求框/资料按钮/说明卡几何对齐，宽窄内存查看，动态整板与真实附件待验收 |
 | 093 | [23:2440 · AI · 选择操作对象](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2440) | 1440 × 1080 | 局部：网页/工具双栏、网页检查等待/失败/就绪、能力与确认联动、地址校验和连接其他应用往返；宽窄 Renderer 内存查看，真实网页选择及整板视觉待验收 |
-| 094 | [23:2609 · AI · 应用窗口与能力](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | 1440 × 1080 | 局部推进：窗口身份/能力与多窗口切换、刷新结果焦点；虚构界面查看，原生窗口与整板待验收 |
+| 094 | [23:2609 · AI · 应用窗口与能力](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | 1440 × 1080 | 局部：窗口身份/能力、切换/刷新焦点、选区停止等待/清除/失败/过期恢复；内存迟到响应与宽窄界面查看，原生窗口及整板待验收 |
 | 095 | [23:2766 · AI · 理解与补问](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2766) | 1440 × 1080 | 局部推进：四张理解卡与可展开资料/工具/修改范围、文件名布局；1440/1040内存查看，真实模型与整板待验收 |
 | 096 | [23:2928 · AI · 确认任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2928) | 1440 × 1080 | 局部实现：采纳前后操作摘要、参数定位及首次差异折叠；整板待核对 |
 | 097 | [23:3109 · AI · 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3109) | 1440 × 1080 | 待核对 |
