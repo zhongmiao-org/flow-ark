@@ -56,7 +56,7 @@
 | 046 | [2:4732 · 资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | 1440 × 1080 | 局部推进：凭据/存储错误反馈与只读恢复；资源失效、依赖缺失/版本冲突的阻塞卡及配置入口，内存查看，真实异常与整板仍待验收 |
 | 047 | [2:4837 · 模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | 1440 × 1080 | 局部推进：采用版本摘要、创建后打开失败恢复、来源导出核对；内存恢复不重复创建，真实版本采用/ZIP 与整板待验收 |
 | 048 | [2:4940 · 导出 ZIP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | 1440 × 1080 | 局部推进：目录/实例共享导出核对与实际来源返回；内存取消、失败、成功已人工查看，真实 ZIP 与整板待验收 |
-| 049 | [2:5045 · 退出与运行环境](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5045) | 1440 × 1080 | 待核对 |
+| 049 | [2:5045 · 退出与运行环境](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5045) | 1440 × 1080 | 局部：原生退出提示分别显示当前活动、排队和启用计划，未知状态明确确认；类型/构建通过，应用内卡片、托盘、休眠及真实退出待验收 |
 | 050 | [2:5152 · 紧凑窗口与网页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5152) | 1040 × 700 | 待核对 |
 | 051 | [2:5253 · 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5253) | 1040 × 700 | 待核对 |
 | 052 | [2:6948 · P1 操作路径总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-6948) | 1440 × 1080 | 待核对 |
