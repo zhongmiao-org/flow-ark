@@ -98,7 +98,7 @@
 | 088 | [8:24539 · RUN-0921-018 · 输出与产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | 1440 × 1080 | 局部推进：输出页标题与来源、进入焦点及重跑返回；内存往返查看，全部来源导航待验收 |
 | 089 | [8:24669 · RUN-0921-018 · 日志与步骤](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | 1440 × 1080 | 局部推进：日志标题、实际运行来源与原详情返回、进入/返回焦点；内存往返保留筛选，全部来源组合待验收 |
 | 090 | [23:1941 · AI · 开始任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) | 1440 × 1080 | 首页资料/应用/待处理入口已接入并局部人工走查，见实施记录 2026-09-24；整板待核对 |
-| 091 | [23:2106 · AI · 第一次实操](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | 1440 × 1080 | 待核对 |
+| 091 | [23:2106 · AI · 第一次实操](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | 1440 × 1080 | 局部推进：400/728教学双栏、实际进度标记、读取恢复及继续/重启/跳过反馈；内存核对，真实教学与整板待验收 |
 | 092 | [23:2280 · AI · 描述与附件](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2280) | 1440 × 1080 | 上下文限额与附件预览定位已补齐并局部人工走查，见实施记录 2026-09-24；整板待核对 |
 | 093 | [23:2440 · AI · 选择操作对象](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2440) | 1440 × 1080 | 工具对象双栏已实现并局部人工走查，见实施记录 2026-09-24；整板待核对 |
 | 094 | [23:2609 · AI · 应用窗口与能力](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | 1440 × 1080 | 待核对 |
