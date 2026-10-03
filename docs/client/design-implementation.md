@@ -3751,3 +3751,16 @@ HTTP(S)地址校验失败显示可读提示、字段错误标志与边框并聚�
 单个 IAB 加载实际 App/Renderer 与虚构内存 IPC：1440×1080 查看与设计一致的标题位置；数值输入“-”、取消改名、新参数待确认/取消均核对。1040×900 不完整 JSON 显示未保存且保存被阻止；恢复原值清除标记。最终构建模拟保存失败，输入和标记保留；重试成功返回编排，重开显示保存后的值且无未保存标记。对状态报告采用 layout effect，消除输入恢复后标题短暂滞后。最终控制台无错误/警告。截图 `unsaved-1440.png`、`incomplete-1040.png`、`save-error-1040.png` 位于同一临时目录并已查看。原生资源选择、真实持久化及整板像素验收未完成。
 
 `pnpm typecheck`、`pnpm build`（含 Swift）、五文件 Prettier 和 `git diff --check` 通过，日志 `/private/tmp/flowark-parameter-dirty-build.log`；构建保留大块体积提示。没有新增/运行单元测试或集成脚本，没有启动 Electron；临时页/服务关闭且恢复视口。保留用户 IDE 改动。186 画板 / U01–U12 仍未完成。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交，没有重试。
+
+
+### 2026-10-04 参数引用的真实桌面往返与可读保护提示
+
+前序 [PR #351](https://github.com/zhongmiao-org/flow-ark/pull/351) 经 [CI 37142186825](https://github.com/zhongmiao-org/flow-ark/actions/runs/37142186825) Validate / Auto Merge 成功，已实际合并为 `7a2e2a2b69de979758917642e7afa3a3df2a4639`。本轮本地 Figma 实际打开 087 `8:24374`，截图 `/private/tmp/flowark-parameter-references/figma-087-native.png`。设计仍没有标明参数页变量入口的消费字段，已向用户询问“先选步骤字段 / 仅查看复制 / 参数表达式”三种语义；未收到答复时不实施该依赖，不擅自改变参数字面值契约。
+
+单个真实 Electron 开发实例使用隔离目录 `/private/tmp/flowark-ui-native-upj7GO`，通过原生 UI 手动创建“UI 核对 · 参数与引用”，添加文本参数 title=本周项目记录并保存；从实际数据步骤打开变量页、选择 params.title、应用并保存。参数改为 heading 时提示同步更新 1 处引用，保存后步骤显示 params.heading；复制为两个纯数据步骤。期间发现删除引用参数只显示内部步骤 ID，难以对应界面中的步骤。
+
+客户端本地提交 `d75be12` 复用流程大纲编号与可读步骤名称，参数变更导致引用失效时列出所有新增问题的步骤编号、名称与路径，并按步骤/路径去重；错误文本分行显示。原来的引用判定、草稿保留及宿主校验不变，无新 IPC。退出旧实例并确认主进程消失后才启动新构建，始终最多一个主实例。重开同一隔离目录看到保存的参数、两个引用步骤；删除被阻止，提示“第 1 步读取标题参数 / 第 2 步读取标题参数 副本 → params.heading”，参数没有改变。实际界面截图 `delete-before.png`、`delete-after-native.png` 位于上述证据目录。
+
+通过运行按钮执行两个纯数据步骤，Run `17833dd6-38b9-4bf9-b4fb-a7b234ae7ffd`，固定版本前缀 `cd863aa649ad`；详情中两个步骤均完成，输出页分别保存“本周项目记录”，没有文件产物。截图 `run-output-native.png` 已查看。这是实际宿主保存、进程重开、变量绑定与纯数据运行证据，不是内存 IPC；不代表网页、脚本、复杂分支/循环、受管参数或外部业务验收。没有调用 AI 或执行文件写入动作。
+
+`pnpm typecheck`、`pnpm build`（含 Swift）、两文件 Prettier 与 `git diff --check` 通过，构建日志 `/private/tmp/flowark-parameter-references-build.log`；未新增/运行单元测试或自动集成脚本。两个顺序启动会话均 exit 0，最后一次会话收尾日志有一次 `flowark:request` 的“进程已断开”，具体请求未定位，不能称为无错误运行；退出后没有残留主实例。隔离数据和证据保留，不影响日常数据、凭据或浏览器状态。186 画板 / U01–U12 仍未完成。公开源码推送继续受此前自动审批披露风险拒绝限制，代码仅本地提交。
