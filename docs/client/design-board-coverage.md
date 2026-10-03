@@ -64,7 +64,7 @@
 | 054 | [2:7867 · 动作授权：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7867) | 1440 × 1080 | 局部推进：自动模式选中、入口待保存与取消恢复，1040/820 无横向溢出；真实范围约束和完整视觉待验收 |
 | 055 | [2:7985 · 入口输入：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7985) | 1440 × 1080 | 局部推进：就绪状态、授权保存差异与配置往返；内存界面查看，真实授权执行待验收 |
 | 056 | [2:8100 · 运行记录：第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8100) | 1440 × 960 | 局部推进：完整编号、相对日期与紧凑耗时、翻页定位及空页提示；第2页/详情返回/末页/失败恢复内存查看，真实游标数据与整板待验收 |
-| 057 | [2:8270 · 运行记录筛选](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | 1440 × 1080 | 局部推进：四主字段尺寸/节奏与额外条件折叠、取消恢复入口及页码；内存多条件/空结果/窄窗查看，整板和真实查询待验收 |
+| 057 | [2:8270 · 运行记录筛选](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | 1440 × 1080 | 局部推进：四主字段尺寸/节奏与额外条件折叠、取消恢复入口及页码；内存多条件/空结果/窄窗查看；进入筛选后迟到详情不覆盖输入，整板和真实查询待验收 |
 | 058 | [2:9120 · 模板运行：写入中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9120) | 1440 × 960 | 局部推进：通用文件/表格步骤状态及目标配置，暂停/取消/缺回执区分；运行详情内存查看，真实模板写入与整板待验收 |
 | 059 | [2:9260 · 模板运行：结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9260) | 1440 × 1080 | 局部推进：结果/产物双栏、当前运行待核对提醒及刷新恢复；模板入口往返和同次结果内存查看，真实回执/文件与整板待验收 |
 | 060 | [4:10378 · DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10378) | 1440 × 1080 | 局部推进：配置表单/状态双栏及字段层级；已有默认模型保留，读取失败不作未配置，真实初次配置和整板待验收 |
@@ -82,7 +82,7 @@
 | 072 | [8:18826 · DeepSeek · 来自模板配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18826) | 1440 × 1080 | 局部推进：实际模板入口与实例授权来源分别返回，所选入口、共享草稿与焦点保留；真实宿主待验收 |
 | 073 | [8:18938 · DeepSeek · 返回模板前](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18938) | 1440 × 1080 | 局部推进：已保存导出对照及实际页面内存配置返回核对，未自动运行；完整视觉和真实密钥存储待验收 |
 | 074 | [8:19057 · DeepSeek · 模板来源已验证](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19057) | 1440 × 1080 | 待核对 |
-| 075 | [8:19176 · 运行详情 · 来源第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19176) | 1440 × 960 | 待核对 |
+| 075 | [8:19176 · 运行详情 · 来源第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19176) | 1440 × 960 | 局部推进：详情编号错配留在原页并可重试；第二页面包屑/顶部返回恢复页码和原行焦点，行不可见时聚焦列表标题；内存宽窄查看，实时整板及真实数据待验收 |
 | 076 | [8:19310 · 返回来源已失效](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19310) | 1440 × 1080 | 局部推进：AI 返回前核对实例/包/入口流程，来源变化与暂不可读分开，保留配置并提供模板库/留在设置/重读；1440/1040 内存交互与草稿保护已查看，真实删除替换及整板待验收 |
 | 077 | [8:20277 · 离开确认 · 流程参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20277) | 1440 × 1080 | 局部推进：640×320 参数离开确认、实际目的地、按钮顺序与焦点；内存保存/放弃/继续查看，整板与真实宿主待验收 |
 | 078 | [8:20443 · 离开确认 · 模板 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20443) | 1440 × 1080 | 局部推进：实际模板与 AI 两层离开保留原目的地，640 宽确认、保存失败及焦点恢复；真实宿主与完整组合待验收 |
