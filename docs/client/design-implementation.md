@@ -3680,3 +3680,12 @@ HTTP(S)地址校验失败显示可读提示、字段错误标志与边框并聚�
 另使用 6 秒延迟完成的虚构回复：取消失败后原验证仍完成，确认框切换已结束状态并清除取消错误。最终构建再次查看无需取消的自然完成，原本地设置目标保留，“查看测试结果”聚焦连接状态；再验证并请求待办，完成后继续离开仍进入模板草稿保护，明确放弃后进入待办并聚焦侧栏。820×700 页面无横向溢出，控制台无错误/警告。截图 `/private/tmp/flowark-ai-cancel-navigation/cancelling-1440.png`、`cancel-failed-820.png`、`finished-leave-820.png` 已查看；本机计划与运行记录只核对到上述分支，不扩展为全部组合验收。
 
 最终 `pnpm typecheck`、`pnpm build`（含 Swift）、AISettingsPage.tsx 的 Prettier 与 `git diff --check` 通过，日志 `/private/tmp/flowark-ai-cancel-navigation-build.log`。没有新增/运行单元测试或集成脚本，未启动 Electron；临时页/服务关闭、视口恢复。没有调用真实 AI、写入凭据或执行模板；真实取消/超时、来源组合、实时整板及全部 186 画板 / U01–U12 仍待完成。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交，没有重试。
+
+
+### 2026-10-03 本机资源页返回原设置上下文
+
+依据现有画板 010/032 和导航规范，客户端本地提交 `7892df7` 修正从 AI 服务或脚本包进入凭据与本机资源后总返回浏览器的问题。进入资源页时保留分类、搜索词、滚动位置和入口；顶部返回、面包屑及 Alt+左方向键恢复实际来源。由 AI 配置明确请求资源页时重置本地来源，避免沿用上一次分类；未新增页面、样式或 IPC。未重新读取实时 Figma，不据此声称整板视觉完成。
+
+单个隐藏 IAB 使用实际 App/Renderer 和明确虚构内存 IPC 人工查看：1440×1080 脚本包搜索 summary，仅显示 summary-kit，进入资源后顶部返回仍选中脚本包、保留搜索和结果；AI 服务进入资源后点击面包屑恢复 AI 分类。随后从 DeepSeek 配置的“凭据与文件”明确进入资源，返回浏览器分类，不误用旧 AI 来源。820×700 从“查看文件与存储”卡片进入，Alt+左方向键返回后聚焦原卡片，前后 main.scrollTop 均为 818，页面宽/滚动宽均为 820。控制台无错误或警告。截图 `/private/tmp/flowark-settings-resource-return/scripts-restored-1440.png`、`browser-card-restored-820.png` 已查看。右下角折叠项为虚构预览控制，不属于产品。
+
+`pnpm typecheck`、`pnpm build`（含 Swift）、LocalSettingsPage.tsx 的 Prettier 与 `git diff --check` 通过，日志 `/private/tmp/flowark-settings-resource-return-build.log`；构建保留现有大分包提示。未新增/运行单元测试或集成脚本，未启动 Electron；临时页/服务关闭、视口恢复。没有写入真实凭据或调用 AI；真实资源持久化、其他来源组合、实时整板及全部 186 画板 / U01–U12 仍待完成。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交，没有重试。
