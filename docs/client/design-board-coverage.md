@@ -129,8 +129,8 @@
 | 119 | [23:6516 · 配置 · Excel 映射编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516) | 1440 × 1080 | 局部实现：字段错误与弹窗后定位、增删焦点、空数据提示；三尺寸 Renderer 样例核对，真实持久化／写入及整板验收待完成 |
 | 120 | [23:6726 · 配置 · 脚本编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6726) | 1440 × 1080 | 局部实现：诊断定位代码、超时与输入错误聚焦、依赖折叠；真实 Monaco 与模拟保存三尺寸查看，真实执行与整板验收待完成 |
 | 121 | [23:6890 · 编排 · 更多操作](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6890) | 1440 × 1080 | 主菜单几何与复制反馈已核对；共用导航、原生持久化及整板验收待完成 |
-| 122 | [23:7031 · AI · v2 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7031) | 1440 × 1080 | 已局部对齐身份状态、双列卡片、步骤与底部确认；内存界面走查通过，完整视觉与真实运行待核对 |
-| 123 | [23:7158 · AI · v2 流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7158) | 1440 × 1080 | 工具栏、工作区、步骤面板及四步节点原始图形/坐标已局部对齐；35 步嵌套全图与选择已走查，其他节点类型和真实运行待核对 |
+| 122 | [23:7031 · AI · v2 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7031) | 1440 × 1080 | 已局部对齐身份状态、双列卡片、步骤与底部确认；映射步骤可展开核对字段、目标列、类型与表头，内存界面查看，完整视觉与真实运行待核对 |
+| 123 | [23:7158 · AI · v2 流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7158) | 1440 × 1080 | 工具栏、工作区、步骤面板及四步节点原始图形/坐标已局部对齐；35 步嵌套全图与选择已走查；Excel 映射详情与清单共用已保存配置，窄窗内存查看，其他节点类型和真实运行待核对 |
 | 124 | [23:7281 · AI · v2 运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | 1440 × 1080 | 两栏尺寸、通过项详情折叠与确认入口已局部对齐；三尺寸内存界面核对确认/重查/失败提示，真实运行与整板验收待完成 |
 | 125 | [23:7385 · AI · v2 试运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7385) | 1440 × 1080 | 本地 Figma 已核对步骤卡片规格，补充固定配置摘要、可见名称查找和顺序进度；内存事件三尺寸查看，整板视觉与真实运行待完成 |
 | 126 | [23:7501 · AI · v2 结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7501) | 1440 × 1080 | 局部推进：本地 Figma 核对摘要、双栏及单文件卡；结果/详情/修改入口与窄屏内存界面查看通过，真实运行和整板验收待补 |
