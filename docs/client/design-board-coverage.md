@@ -169,10 +169,10 @@
 | 154 | [8:27477 · 离开 流程参数 · 未保存 → 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27477) | navdirty → formstates | 待核对 |
 | 155 | [8:27644 · 离开 DeepSeek · 来自模板配置 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27644) | navctxedit → home | 局部推进：实际 AI 到模板两层确认均显示我的流程，继续保留草稿、内存保存后进入原目标；真实保存与完整视觉待验收 |
 | 156 | [8:27761 · 离开 DeepSeek · 来自模板配置 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27761) | navctxedit → templates | 局部推进：修正侧栏目标为模板库首页，AI 与模板草稿分层确认；内存保存/放弃/继续/失败、无修改直达及 820 窄窗核对，返回入口仍保留原输入；真实持久化与整板待验收 |
-| 157 | [8:27878 · 离开 DeepSeek · 来自模板配置 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27878) | navctxedit → runs | 待核对 |
-| 158 | [8:27995 · 离开 DeepSeek · 来自模板配置 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27995) | navctxedit → schedules | 待核对 |
-| 159 | [8:28112 · 离开 DeepSeek · 来自模板配置 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28112) | navctxedit → inbox | 待核对 |
-| 160 | [8:28229 · 离开 DeepSeek · 来自模板配置 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28229) | navctxedit → settings | 待核对 |
+| 157 | [8:27878 · 离开 DeepSeek · 来自模板配置 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27878) | navctxedit → runs | 局部推进：取消验证等待回执后再进入模板草稿确认，保留运行记录目标；内存等待/单次取消/Escape 保护已查看，最终进入记录及真实取消待验收 |
+| 158 | [8:27995 · 离开 DeepSeek · 来自模板配置 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27995) | navctxedit → schedules | 局部推进：取消失败留在 AI 确认框并保留本机计划目标，可继续等待；内存窄窗查看，最终跳转与真实取消待验收 |
+| 159 | [8:28112 · 离开 DeepSeek · 来自模板配置 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28112) | navctxedit → inbox | 局部推进：验证自然结束后可继续离开，经模板草稿确认进入待办并恢复导航焦点；内存查看，真实来源与整板待验收 |
+| 160 | [8:28229 · 离开 DeepSeek · 来自模板配置 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28229) | navctxedit → settings | 局部推进：离开确认等待中验证结束，保留本地设置目标；查看结果定位连接状态，内存窄窗查看，最终跳转与真实来源待验收 |
 | 161 | [8:28348 · 离开 DeepSeek · 来自模板配置 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28348) | navctxedit → browser | 待核对 |
 | 162 | [8:28466 · 离开 DeepSeek · 来自模板配置 → AI 服务配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28466) | navctxedit → ai | 待核对 |
 | 163 | [8:28583 · 离开 DeepSeek · 来自模板配置 → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28583) | navctxedit → resources | 局部推进：AI→资源入口接通，模板草稿仍需独立离开确认；内存明确放弃后到达资源页，真实双层保存与整板待验收 |
