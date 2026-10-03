@@ -78,7 +78,7 @@
 | 068 | [8:18364 · 导航与返回演示](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18364) | 1440 × 1080 | 待核对 |
 | 069 | [8:18463 · 模板入口 · 待配置 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18463) | 1440 × 1080 | 局部推进：实际模板入口往返保留第二入口和草稿，配置按钮焦点恢复；虚构内存查看，完整视觉与真实宿主待验收 |
 | 070 | [8:18569 · 模板入口 · AI 已配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18569) | 1440 × 1080 | 局部推进：内存配置后返回显示掩码与待验证，输入不自动保存、入口不自动运行；完整视觉和真实配置待验收 |
-| 071 | [8:18679 · 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18679) | 1440 × 1080 | 待核对 |
+| 071 | [8:18679 · 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18679) | 1440 × 1080 | 局部对齐：本地 Figma 核对标题、面包屑与说明；输入草稿同步未保存状态，宽窄内存查看；变量引用入口、真实保存与整板待验收 |
 | 072 | [8:18826 · DeepSeek · 来自模板配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18826) | 1440 × 1080 | 局部推进：实际模板入口与实例授权来源分别返回，所选入口、共享草稿与焦点保留；真实宿主待验收 |
 | 073 | [8:18938 · DeepSeek · 返回模板前](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18938) | 1440 × 1080 | 局部推进：已保存导出对照及实际页面内存配置返回核对，未自动运行；完整视觉和真实密钥存储待验收 |
 | 074 | [8:19057 · DeepSeek · 模板来源已验证](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19057) | 1440 × 1080 | 待核对 |
@@ -124,7 +124,7 @@
 | 114 | [23:5795 · AI · 模型配置后返回](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5795) | 1440 × 1080 | 局部核对：保存待验证、掩码和长模型换行；组件样例双栏/窄窗查看，真实凭据/模型及整板验收待完成 |
 | 115 | [23:5921 · AI · 全宽网页查看](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5921) | 1440 × 1080 | 局部：任务对象页直接全宽查看，返回恢复来源面板/网址草稿/焦点；普通面板放大路径保留，宽窄 Renderer 内存核对；100%聚焦、真实网页输入及整板待验收 |
 | 116 | [23:6084 · AI · 紧凑网页总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6084) | 1040 × 700 | 局部：1040网页总览入口、返回选择对象及快捷键往返已接通，实际 Renderer 内存核对；网页区域仅占位，100%观察和原生坐标仍待实现/验收 |
-| 117 | [23:6221 · AI · 紧凑目标聚焦](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6221) | 1040 × 700 | 待核对 |
+| 117 | [23:6221 · AI · 紧凑目标聚焦](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6221) | 1040 × 700 | 确认缺口：本地 Figma 要求同一网页 100% 阅读、平移与执行坐标不变；原生聚焦及完整输入/拾取/执行联动尚待实现验收，现有总览不能代替 |
 | 118 | [23:6333 · 编排 · 四十步任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6333) | 1920 × 1080 | 局部实现：大纲搜索键盘选择、清空、嵌套分支定位；40 步虚构流程三尺寸查看，真实执行聚焦及整板验收待完成 |
 | 119 | [23:6516 · 配置 · Excel 映射编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516) | 1440 × 1080 | 局部实现：字段错误与弹窗后定位、增删焦点、空数据提示；三尺寸 Renderer 样例核对，真实持久化／写入及整板验收待完成 |
 | 120 | [23:6726 · 配置 · 脚本编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6726) | 1440 × 1080 | 局部实现：诊断定位代码、超时与输入错误聚焦、依赖折叠；真实 Monaco 与模拟保存三尺寸查看，真实执行与整板验收待完成 |
