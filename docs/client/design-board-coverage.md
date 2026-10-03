@@ -159,12 +159,12 @@
 
 | 序号 | Figma 节点 / 画板 | 设计来源 → 目的标识 | 最终验收 |
 | --- | --- | --- | --- |
-| 147 | [8:26305 · 离开 流程参数 · 未保存 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26305) | navdirty → home | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
-| 148 | [8:26472 · 离开 流程参数 · 未保存 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26472) | navdirty → templates | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
-| 149 | [8:26639 · 离开 流程参数 · 未保存 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26639) | navdirty → runs | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
-| 150 | [8:26806 · 离开 流程参数 · 未保存 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26806) | navdirty → schedules | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
-| 151 | [8:26973 · 离开 流程参数 · 未保存 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26973) | navdirty → inbox | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
-| 152 | [8:27140 · 离开 流程参数 · 未保存 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27140) | navdirty → settings | 局部推进：参数离开确认显示该实际目标，继续编辑恢复原值与焦点；逐目标真实保存和完整跳转仍待验收 |
+| 147 | [8:26305 · 离开 流程参数 · 未保存 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26305) | navdirty → home | 局部推进：参数离开确认保留实际目的地；内存放弃后返回我的流程并聚焦导航项；真实持久化与整板仍待验收 |
+| 148 | [8:26472 · 离开 流程参数 · 未保存 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26472) | navdirty → templates | 局部推进：参数离开确认保留实际目的地；内存放弃后进入模板库并聚焦导航项，重开保留此前已保存值；真实持久化与整板仍待验收 |
+| 149 | [8:26639 · 离开 流程参数 · 未保存 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26639) | navdirty → runs | 局部推进：参数离开确认保留实际目的地；内存保存后进入运行记录并聚焦导航项，两层草稿确认继续/放弃核对；真实持久化与整板仍待验收 |
+| 150 | [8:26806 · 离开 流程参数 · 未保存 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26806) | navdirty → schedules | 局部推进：参数离开确认保留实际目的地；内存放弃后进入本机计划并聚焦导航项；真实持久化与整板仍待验收 |
+| 151 | [8:26973 · 离开 流程参数 · 未保存 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26973) | navdirty → inbox | 局部推进：参数离开确认保留实际目的地；内存放弃后进入待办并聚焦导航项；真实持久化与整板仍待验收 |
+| 152 | [8:27140 · 离开 流程参数 · 未保存 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27140) | navdirty → settings | 局部推进：参数离开确认保留实际目的地；内存失败留页及继续编辑恢复输入；慢保存禁用操作，完成后进入设置并聚焦导航项；真实持久化与整板仍待验收 |
 | 153 | [8:27310 · 离开 流程参数 · 未保存 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27310) | navdirty → browser | 待核对 |
 | 154 | [8:27477 · 离开 流程参数 · 未保存 → 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27477) | navdirty → formstates | 待核对 |
 | 155 | [8:27644 · 离开 DeepSeek · 来自模板配置 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27644) | navctxedit → home | 局部推进：实际 AI 到模板两层确认均显示我的流程，继续保留草稿、内存保存后进入原目标；真实保存与完整视觉待验收 |
