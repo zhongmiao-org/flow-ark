@@ -140,7 +140,7 @@
 | 130 | [23:7869 · AI · 修复版运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7869) | 1440 × 1080 | 局部推进：标题展示本次快照、任务修订与原运行只读入口；来源失败/错配/迟到响应内存界面查看，真实修复运行待验收 |
 | 131 | [23:7985 · AI · 修复版结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7985) | 1440 × 1080 | 局部推进：结果标题展示已确认步骤次数，详情保留固定版本与原运行关联；三尺寸内存界面查看，真实结果待验收 |
 | 132 | [23:8087 · AI · 应用窗口已就绪](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8087) | 1440 × 1080 | 局部推进：选中窗口标题、对象卡与权限状态层级；打开设置清除旧观察/选区，内存查看方案衔接与窄屏，真实窗口待验收 |
-| 133 | [23:8190 · AI · 应用任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8190) | 1440 × 1080 | 局部推进：450/678 双栏、需求卡、四步骤与改动入口；生成前后核对区域、失败/取消/换服务及窄屏内存查看，真实 AI 与整板待验收 |
+| 133 | [23:8190 · AI · 应用任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8190) | 1440 × 1080 | 局部推进：450/678 双栏、需求卡、四步骤与改动入口；需求填写/修改入口前置，真实 TextEdit 选区读取、返回与草稿保存人工查看；真实 AI、完整写入与整板待验收 |
 | 134 | [23:8344 · AI · 应用任务确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8344) | 1440 × 1080 | 局部实现：窗口副标题、原文/修改稿/影响范围与提示卡、独立授权及辅助选项；内存界面查看通过，原生执行与整板验收待完成 |
 | 135 | [23:8492 · AI · 应用任务执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8492) | 1440 × 1080 | 局部推进：依据已保存导出图调整 560 高执行面板、32 内边距与 120 高目标卡；保留实际控制和未知状态，实时 Figma 与原生验收待完成 |
 | 136 | [23:8631 · AI · 应用任务结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8631) | 1440 × 1080 | 局部推进：依据已保存导出图调整 600 高结果面板、回读卡及后续操作；取消/错配内存查看，实时 Figma 与真实回读待验收 |
