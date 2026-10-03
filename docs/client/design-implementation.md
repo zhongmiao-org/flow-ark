@@ -3656,3 +3656,14 @@ HTTP(S)地址校验失败显示可读提示、字段错误标志与边框并聚�
 另将外层流程名称改为草稿后打开参数改为 35：先放弃参数仍弹出外层流程确认，保留运行记录目标；继续编辑恢复参数页和外层草稿，参数按已明确放弃恢复为 34，再次放弃外层草稿后进入运行记录并聚焦对应导航项。无真实 Run 创建、文件写入或 AI 调用；不是实际宿主持久化证据。截图 `/private/tmp/flowark-parameter-leave/destination-settings-820.png`、`destination-run-focus-820.png` 已查看，右下角折叠项为虚构预览控制。控制台无错误或警告。
 
 `pnpm typecheck`、`pnpm build`（含 Swift）、App.tsx 的 Prettier 与 `git diff --check` 通过，日志 `/private/tmp/flowark-parameter-destination-build.log`。未新增/运行单元测试或集成脚本，未启动 Electron；临时页及服务关闭、视口恢复。没有将六个目的地均标记为真实保存通过；其他来源、实时整板和全部 186 画板 / U01–U12 仍未完成。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交，没有重试。
+
+
+### 2026-10-03 模板来源 AI 设置的模板库目的地
+
+依据画板 156 `8:27761` 的 `navctxedit → templates` 映射与 [导航规范](design-navigation.md)，人工查看确认原侧栏“模板库”在 AI 离开提示中写模板库，实际却返回原实例入口。客户端本地提交 `194fecc` 移除该路径跳过模板守卫的例外，先处理 AI 输入，再通过原模板草稿守卫，最终明确请求模板库首页。专用“返回模板入口”继续核对来源并保留原实例/入口输入，不受此变更影响。没有新增页面、契约或保存/运行接口；本轮未读取实时 Figma，不将现有组件复用当作整板视觉完成。
+
+单个隐藏 IAB 使用实际 App/Renderer 与明确虚构内存 IPC 人工查看：修改共享配置和入口主题，进入 AI 设置填写虚构 Key，侧栏离开放弃 AI 后弹出独立模板确认，目标仍为模板库；继续编辑保留两处草稿，重开 AI 的 Key 输入为空。专用返回入口保留主题。再次离开并放弃模板后进入模板库首页，重开实例恢复原始共享值和原始主题。
+
+820×700 下重新修改两处输入，保存 AI 后仍要求处理模板草稿；模拟模板保存失败保留确认框与目标，继续编辑后改为正常回复再显式保存，成功进入首页。重开实例可见保存后的共享值和主题；无修改时由 AI 设置直接进入首页，不额外弹窗。页面宽/滚动宽均为 820，控制台无错误或警告。截图 `/private/tmp/flowark-template-leave/library-second-guard-1440.png`、`library-save-failed-820.png`、`library-arrived-820.png` 已查看，右下角折叠项为虚构预览控制。一次夹具选择器 exact label 未匹配，经 DOM 确認改用 combobox 后继续，不是产品错误。
+
+`pnpm typecheck`、`pnpm build`（含 Swift）、App.tsx 的 Prettier 与 `git diff --check` 通过，日志 `/private/tmp/flowark-ai-template-library-build.log`。未新增/运行单元测试或集成脚本，未启动 Electron；临时页/服务关闭、视口恢复。没有输入真实密钥、调用 AI 或执行模板；真实系统存储、逐来源组合、实时整板与全部 186 画板 / U01–U12 仍未完成。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交，没有重试。

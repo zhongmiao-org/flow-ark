@@ -168,7 +168,7 @@
 | 153 | [8:27310 · 离开 流程参数 · 未保存 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27310) | navdirty → browser | 待核对 |
 | 154 | [8:27477 · 离开 流程参数 · 未保存 → 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27477) | navdirty → formstates | 待核对 |
 | 155 | [8:27644 · 离开 DeepSeek · 来自模板配置 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27644) | navctxedit → home | 局部推进：实际 AI 到模板两层确认均显示我的流程，继续保留草稿、内存保存后进入原目标；真实保存与完整视觉待验收 |
-| 156 | [8:27761 · 离开 DeepSeek · 来自模板配置 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27761) | navctxedit → templates | 待核对 |
+| 156 | [8:27761 · 离开 DeepSeek · 来自模板配置 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27761) | navctxedit → templates | 局部推进：修正侧栏目标为模板库首页，AI 与模板草稿分层确认；内存保存/放弃/继续/失败、无修改直达及 820 窄窗核对，返回入口仍保留原输入；真实持久化与整板待验收 |
 | 157 | [8:27878 · 离开 DeepSeek · 来自模板配置 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27878) | navctxedit → runs | 待核对 |
 | 158 | [8:27995 · 离开 DeepSeek · 来自模板配置 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27995) | navctxedit → schedules | 待核对 |
 | 159 | [8:28112 · 离开 DeepSeek · 来自模板配置 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28112) | navctxedit → inbox | 待核对 |
