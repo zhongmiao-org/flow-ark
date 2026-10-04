@@ -3929,3 +3929,14 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 同目录 `native-hidden-candidate-final.png`、`native-candidate-1440-final.png`、`native-candidate-1040-final.png`来自PID66964，证明候选清除与1440×960/1040×700布局；它们不证明最后补充的展开确认逻辑。`native-applied-final.png`来自PID67331，证明最后逻辑的实际任务回填。本轮未更改布局之后再次扩展响应式验证，也未把中间失败记为最终通过。最终类型检查、含Swift构建、三文件Prettier、diff检查通过，`build-final.log`保留既有构建体积提示。未新增/运行单元测试或自动集成脚本。最终实例⌘Q退出0，HTTP关闭，主实例列表为空；IAB页签关闭、视口复位，4317预览服务TERM退出143。原生日志仍有sandbox_extension、IMK和task_policy_set提示。
 
 093保持局部：长标题/动态状态完整视觉、等待中的迟到回执、最小化及任务外步骤拾取仍需独立人工核对；真实元素只读执行和186画板 / U01–U12未完成。客户端公开推送仍受此前自动审批源码披露风险拒绝限制，仅本地提交，未重试；无关IDE内容保留。
+
+
+### 2026-10-05 理解页来源与补问核对
+
+本地Figma客户端实际读取095 `23:2766`（1440×1080、67%），证据 `/private/tmp/flowark-understanding-oct5/figma-095.png`。客户端本地提交 `dfd81be` 沿用420/708双栏和710最小高度，把AI服务、发送范围、确认及保存集中到较紧凑的控制区；保留展开详情和长内容自然滚动。输入来源区分已选整页、已选元素、工具定义，按实际资料和附件显示数量。展开可核对保存的网页标题、完整地址、元素名及框架层级，并明确保存的选择仍需在执行前核对有效性，未把旧网页快照当作当前连接成功。
+
+发送前的补问内容改为问题原文与当前回答；未回答项显示“尚未补充”，不在当前问题集合中的历史回答保留为“先前补充”。没有修改问题必填策略、生成协议、持久化或实际发送内容。后台IAB使用真实AITaskWorkspace、TaskUnderstandingPage和PlanningQuestions加显式内存回执人工查看：选择一项后核对对应原文、未答项与历史回答；填写多行第二项后核对显示同步，已勾选的发送确认被清除，生成按钮重新禁用。没有点击生成或调用模型。820×700下内容单列、主操作可滚动到达；DOM读取document宽820、main client/scroll宽均748，未发现横向溢出。预览侧栏是简化外壳，不计入真实App视觉验收。
+
+最终原生构建PID68343使用既有隔离目录 `/private/tmp/flowark-ui-native-upj7GO`：1440×960下未配置AI、未选输出的任务已能在首屏看到生成/保存按钮；展开来源显示先前保存的网页与具体元素。打开系统目录选择并取消后，显示取消反馈，焦点回到“结果保存到哪里？”按钮。1040×700下单列滚动可到达控制区和理解卡，无控件裁切。证据目录包含 `native-before.png`、`native-1440-final.png`、`native-source-final.png`、`native-1040-final.png`、`answers-review.png`、`compact-820.png`。原生没有真实补问提案，因此补问证据仅属于Renderer内存预览；原生保存、真实模型生成和096方案衔接仍待验收。
+
+`pnpm typecheck`、含Swift的 `pnpm build`、3文件Prettier及 `git diff --check`通过，构建日志 `build.log`保留既有体积提示。未新增/运行单元测试、自动集成脚本，未创建Run或访问用户业务网页。旧PID68042退出后才启动最终PID68343；最终退出0、`readDesktopMains()`为空，临时IAB页签关闭、视口复位，4318服务已停止。原生日志仍有既有sandbox_extension提示。095整板及186画板 / U01–U12保持局部。客户端公开推送仍受此前自动审批以源码披露风险拒绝限制，本轮仅本地提交，未重试；无关IDE改动保留。
