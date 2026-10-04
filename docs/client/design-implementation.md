@@ -3788,3 +3788,16 @@ HTTP(S)地址校验失败显示可读提示、字段错误标志与边框并聚�
 截图 `sources-1440.png`、`source-error-1040.png`、`sources-820.png` 位于 `/private/tmp/flowark-attention-sources/`，均已查看。最终控制台没有错误或警告，预览服务有 favicon 404；运行读取计数包含 App 轮询，未创建或控制任何运行。最终 `pnpm typecheck`、含 Swift 的 `pnpm build`、四文件 Prettier 与 `git diff --check` 通过，日志 `/private/tmp/flowark-attention-sources-build-final.log` 仅保留大块体积提示。未新增/运行单元测试或自动集成脚本，未启动 Electron；临时页签和 4342 服务已关闭，视口已复位，无关 IDE 修改保留。真实系统休眠、宿主记录与整板视觉仍待验收，186 画板 / U01–U12 未完成。客户端公开推送仍受此前自动审批源码披露风险拒绝限制，本轮仅本地提交，未重试。
 
 收尾复核补充：本地提交 `f47cbd7` 保留原写操作方法中的 Electron IPC 错误前缀清理，避免来源读取改为独立操作后向用户暴露内部包装文本。只调整错误呈现，未新增请求；再次通过 typecheck、含 Swift 的 build、该文件 Prettier 和 diff 检查，构建日志仍为上述 final 路径。此处未再次开启 GUI，截图对应 `c53831d`，不另宣称原生错误已验证。主体记录 [PR #354](https://github.com/zhongmiao-org/flow-ark/pull/354) 已经 [CI 37145422456](https://github.com/zhongmiao-org/flow-ark/actions/runs/37145422456) Validate / Auto Merge 成功，实际合并为 `10c34c7844aa52e0bdd34f6169f8177880e0da77`。
+
+
+### 2026-10-04 原字号观察下的执行点击偏移
+
+本地 Figma 已解锁，实时读取原文件 `sVciNUZHG9yx81gCpYzjH9` 的 117 `23:6221`：100% 阅读，只平移观察窗口，执行坐标保持不变。未再次调用受限连接器。原生图 `/private/tmp/flowark-focus-oct4/figma-117-native.png` 保留原板的返回总览、确认目标和返回目标选择要求；本轮没有把核对工具的控制栏当作产品界面。
+
+原生人工核对复用实际 `EmbeddedPage`、已安装 Electron 44.4.1 与隔离 Profile，仅访问临时 HTTP 主页面及跨源 localhost 框架。现有代码在 100% 观察下手动输入/点击正常，但执行器主页面点击超时且未产生额外请求。可视区因定位滚动发生偏移，原先直接使用布局矩形坐标会错位。乘以视觉缩放因子的候选仍失败，有限可信鼠标记录证实重复缩放会放大坐标。客户端本地提交 `234df52` 改为把逐层框架得到的布局点减去根视觉视口 offsetLeft/offsetTop，再交给 CDP；保留原有可信悬停、身份复核与单次按下/释放，不新增重试或公开接口。
+
+最终实例 PID 8068：1040×700 下明确点击执行主页面、框架按钮，分别取得一次回执；画面坐标填写 `same-frame-oct4`，100% 与总览分别拾取得到同一 `#remote → #frame-input`，期间请求计数保持 2。两种视图保持 WebContents ID=2、根 timeOrigin=1791085702945.5、框架 timeOrigin=1791085702966.1，输入保留。向右平移后再明确执行框架按钮取得一次新回执；在网页区域左边界外点击未新增请求。1500×920 下再明确执行框架按钮，输入和文档身份仍保留。显式导航新页后，宽窗执行主页面、返回1040执行框架均取得回执；最终 6 次明确执行对应 6 个 HTTP 请求，没有失败后自动重放。这里是单层、无变换框架；1920×1080、嵌套/变换、完整平移和产品入口仍待核对，不把1500代替设计要求。
+
+证据目录 `/private/tmp/flowark-focus-oct4/` 包含 `before-reports.json`、`multiplied-reports.json`、`pointer-diagnostic.json`、最终 `reports.json`、`before-click-failure.png`、`frame-focus-1040.png`、`frame-focus-wide.png`。截图均经原生工具查看。原型最终汇总的 bounds 字段引用可变对象，收尾时历史宽度均变为880；每条 zoom、原生截图和操作时 UI 回执保留实际宽窗证据。已修正原型后续记录为值拷贝，没有改写旧证据或因此重跑。首次初始化在空渲染器上等待 CDP，正常退出后改为先载入 about:blank；后续每个构建均在旧主进程 exit 0 后启动，最终无残留主实例。启动日志有 sandbox_extension 提示，一次中间退出有 macOS task_policy 提示，不称为无警告运行。
+
+`pnpm typecheck`、含 Swift 的 `pnpm build`、该文件 Prettier 与 `git diff --check` 通过，构建日志 `/private/tmp/flowark-focus-oct4-build.log` 保留既有大块体积提示。未新增/运行单元测试或自动集成脚本；核对窗口按钮由 CUA 人工操作。没有调用真实 AI、访问用户网页或写入日常数据。原字号产品模式与117整板仍未实现验收，186画板 / U01–U12 未完成。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交，未重试。
