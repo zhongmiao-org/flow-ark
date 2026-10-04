@@ -3859,3 +3859,17 @@ UI复用既有全宽观察布局，显示真实网页与独立的目标/页面�
 后续本地提交 `50cf1f1` 补齐固定高度卡片的位置同步：提示出现时视区只改变位置，ResizeObserver不能单独覆盖，因此在相关提示状态变化后重新提交视区边界。最终组件预览中正常视区为(113,265,870,57)，错误出现后为(113,311,870,57)，恢复后回到原值；页面上明确显示的内存宿主接口边界与DOM测量一致。这仍不证明原生WebContents已经正确移位。
 
 最终正常/失败截图 `/private/tmp/flowark-focus-layout/focus-1040-final.png`、`focus-error-1040-final.png` 均已查看。浏览器错误/警告列表为空，临时HTTP服务有favicon 404；页签已关闭、视口已复位、服务退出0。`pnpm typecheck`、含Swift的 `pnpm build`、两文件Prettier及 `git diff --check` 通过，最终日志 `/private/tmp/flowark-focus-layout-build-final.log` 保留既有构建体积提示。未新增/运行单元测试或自动集成脚本，未启动Electron，主实例列表为空。真实聚焦、任务初次元素上下文及186画板 / U01–U12仍未完成；公开客户端推送继续受此前自动审批源码披露风险拒绝限制，本轮仅本地提交，无关IDE内容保留。
+
+### 2026-10-04 真实目标内容定位与确认回填
+
+前序 [PR #364](https://github.com/zhongmiao-org/flow-ark/pull/364) 经 [CI 37198195836](https://github.com/zhongmiao-org/flow-ark/actions/runs/37198195836) Validate / Auto Merge 成功，已实际合并为 `777c36dd33ad8eb23d4f8ba6dc1ba42482e55fe5` 并同步main。Mac恢复解锁，继续依据本地Figma原文件117 `23:6221`及已保存的 `figma-117-current.png`，没有重试受限连接器。
+
+真实客户端暴露出标题身份虽通过、原字号区域却显示宽标题块空白中心的问题。客户端本地提交 `8d25a7a` 对标题使用不改变DOM或选区的临时Range测量内容区域，再通过Chromium原生滚动把该区域带入视觉视口；一般目标保留边框区域，过大区域按可用视口截取。显示回执前核对区域在框架及根视觉视口内，失败给出可读提示，仍保留原节点身份和目标描述复核。没有新IPC或契约版本。另发现宽窗口转紧凑布局时来源配置被视为失活，导致聚焦退出；进入聚焦时保留节点配置面板状态，返回继续显示原步骤，不放宽来源卸载或节点切换的取消逻辑。
+
+实际App、Main与WebContents使用隔离目录 `/private/tmp/flowark-ui-native-upj7GO`、临时主页面及跨源localhost框架。PID37570构建已含内容区域修正：1440×960和1040×700下主页面标题可见；紧凑截图2080×1400，原生视区高57 CSS px仍完整显示24px标题，输入 `native-focus-fixed` 与页面创建标识保留。该构建尚不含随后补充的来源面板状态修正，不能拿它证明跨尺寸保持已修复。
+
+最终构建PID40989在1440×960核对：填写主页面 `focus-final-root` 与框架 `focus-final-frame`，拾取主标题、聚焦；手动点击样例的同名替换按钮后，确认留在聚焦页，显示“目标在选取期间已被替换，请重新选取”，确认按钮禁用，来源步骤未变更。返回后重新拾取框架标题，原字号显示真实“右侧框架资料”；返回总览再聚焦后确认，原读取步骤回填 `h1` 和一层框架，并保存本地草稿。根/框架创建标识始终为 `1791113879812.3` / `1791113879825.1`，两处输入保留。`hits.json`仅有一条明确点击产生的 `/replace?from=root`，没有记录按钮请求；未创建Run。较早临时样例的按钮脚本缺少分号，未产生替换，已修正后重启再核对，不将早先无变化的点击计为拒绝验证。
+
+证据目录 `/private/tmp/flowark-native-focus/`：`focus-native-1040.png`对应内容定位修正；`focus-final-wide.png`、`replaced-target-final.png`、`frame-focus-final.png`、`frame-applied-final.png`对应最终构建，均已查看。最终构建的窗口拖动没有实际缩小，原生日志出现“Window move completed without beginning”；因此跨尺寸保持修正、1040框架及失败态仍待人工复核。单层无变换样例不覆盖嵌套、CSS变换、遮挡及任意网页兼容；任务初次选择对象仍缺元素上下文，117整板与186画板 / U01–U12未完成。
+
+`pnpm typecheck`、含Swift的 `pnpm build`、两文件Prettier及 `git diff --check`通过；最终构建日志 `build-final.log` 保留既有体积提示。未新增/运行单元测试、自动集成脚本，未调用真实AI或用户业务网页。每次启动前确认上一主实例退出；最终PID40989退出0、临时服务关闭，`readDesktopMains()`为空。日志另有既有sandbox_extension、IMK提示及预期的替换拒绝错误，不声称无警告。无关IDE改动保留。客户端公开推送仍受此前自动审批以源码披露风险拒绝的限制，本轮仅本地提交，没有重试。
