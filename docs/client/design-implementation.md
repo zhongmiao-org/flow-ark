@@ -3813,3 +3813,11 @@ HTTP(S)地址校验失败显示可读提示、字段错误标志与边框并聚�
 证据保留于 `/private/tmp/flowark-observation-oct4/`：最终 `renderer-readable-1040.png`、`renderer-pending-1040.png` 和裁切的 `renderer-overview-1920.png`；`renderer-failure-1040.png` 是中间错误呈现版本。最终 `pnpm typecheck`、含 Swift 的 `pnpm build`、七文件 Prettier、`git diff --check` 通过，构建日志 `/private/tmp/flowark-observation-ui-build-final.log` 保留既有大块体积提示。未新增/运行单元测试或自动集成脚本；预览页签、4342服务均已关闭，视口复位，没有 FlowArk/Electron 主实例。
 
 Mac 解锁后仍需用实际完整客户端核对1040与1920下的同一页面身份、输入保留、原生点击/滚动、模式恢复、拾取、执行及并发失败；本轮内存截图不替代原生证据。186画板 / U01–U12 仍未完成。无关 IDE 修改保留；公开客户端推送仍受此前自动审批源码披露风险拒绝限制，未重试，仅本地提交。PR附件因当前聊天已有100条身份上限未附加，不删除旧附件。
+
+### 2026-10-04 观察调整与拾取入口衔接
+
+前序 [PR #358](https://github.com/zhongmiao-org/flow-ark/pull/358) 已经 [CI 37176759827](https://github.com/zhongmiao-org/flow-ark/actions/runs/37176759827) Validate / Auto Merge 成功，实际合并为 `46735fc0b83ed00d2f50bc5b23559dc052b6222d`。本轮重新读取本地 Figma 仍返回 Mac 锁屏，没有启动新的 Electron 实例。查看已保存117原图及现行代码：任务对象页当前保存的是整页身份，元素候选由 ElementPicker 管理，后续目标聚焦须显式衔接真实候选，不能拿网页标题或固定选择器冒充已选元素。本轮未把117聚焦入口标记完成。
+
+源码检查发现 `1dbc30d` 接入的两处衔接问题：打开网页面板会异步确认比例，紧接着的拾取却直接拒绝等待中的比例更新；宿主共用的新提示文字与 ElementPicker 的运行占用分类不一致，会隐藏“查看运行”入口。客户端本地提交 `652ee97` 让拾取/定位验证先占用操作槽、等待已接受的比例更新，然后重新检查会话、显示与加载状态；等待中的拾取按请求号取消，并同步记录停止原因，迟到的比例完成不再激活已取消拾取。目标验证完成也应用延后的尺寸更新。宿主恢复拾取原提示，观察模式使用独立文案；没有改变运行准入规则或新增 IPC。
+
+本轮只完成代码路径核对、`pnpm typecheck`、含 Swift 的 `pnpm build`、两文件 Prettier 及 `git diff --check`，构建日志 `/private/tmp/flowark-observation-pick-build-final.log` 保留既有大块体积提示。没有新增/运行单元测试或自动集成脚本，没有将上一轮内存截图当成本轮原生行为证据。实际拾取、等待中取消、窗口尺寸变化和运行详情跳转仍待 Mac 解锁后人工核对；186画板 / U01–U12 仍未完成。客户端公开推送继续受此前自动审批源码披露风险拒绝限制，仅本地提交，未重试。
