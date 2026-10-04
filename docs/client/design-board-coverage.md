@@ -116,9 +116,9 @@
 | 106 | [23:4575 · AI · 修复提议](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4575) | 1440 × 1080 | 局部：完整目标定位、修订失效提示、重新选择清理、生成反馈焦点与紧凑单栏；App 内存流程人工查看，真实拾取／模型及整板待验收 |
 | 107 | [23:4724 · AI · 修复后运行起点](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4724) | 1440 × 1080 | 局部：起点／修订、完整历史、修订失效与紧凑单栏；App 内存采纳到重新检查及返回清空确认人工查看，真实修复重跑与整板待验收 |
 | 108 | [23:4867 · 应用与工具 · 连接目录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4867) | 1440 × 1080 | 局部实现：读取反馈、地址/程序识别、长列表查找及详情返回；实际 Renderer 内存样例三尺寸人工查看，真实账号/原生助手与整板验收待完成 |
-| 109 | [23:5033 · 应用与工具 · 连接向导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5033) | 1440 × 1080 | 局部实现：双栏与操作前置、无窗口区分、系统设置后重查和记录折叠；组件样例三尺寸人工查看，真实权限/TextEdit 及整板验收待完成 |
-| 110 | [23:5195 · 应用与工具 · 已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5195) | 1440 × 1080 | 局部实现：有效观察管理页、三项能力、权限记录与选择入口；组件样例人工查看，真实 TextEdit 与整板验收待完成 |
-| 111 | [23:5348 · 应用与工具 · 失效重连](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5348) | 1440 × 1080 | 局部实现：观察到期、设置后复核、无窗口/失败恢复与重查；组件样例人工查看，真实权限与整板验收待完成 |
+| 109 | [23:5033 · 应用与工具 · 连接向导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5033) | 1440 × 1080 | 局部：双栏、空/不完整清单区分、设置请求反馈、失败步骤与操作后焦点；App 内存样例三尺寸查看，真实权限/TextEdit 与整板待验收 |
+| 110 | [23:5195 · 应用与工具 · 已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5195) | 1440 × 1080 | 局部：有效观察、三项能力、权限记录、选择入口与不完整清单提示；App 内存样例查看，真实 TextEdit 与整板待验收 |
+| 111 | [23:5348 · 应用与工具 · 失效重连](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5348) | 1440 × 1080 | 局部：观察到期、设置等待/失败反馈、复核恢复与焦点衔接；App 内存样例及离开后迟到回复人工查看，真实权限与整板待验收 |
 | 112 | [23:5493 · 应用与工具 · 高级 MCP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5493) | 1440 × 1080 | 局部实现：配置间距、协议折叠、字段错误与焦点反馈；组件样例三尺寸人工查看，真实 MCP/认证与整板验收待完成 |
 | 113 | [23:5656 · AI · 模型未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5656) | 1440 × 1080 | 局部实现：完整长需求、资料清单折叠与配置/手动回调；实际工作区内存查看手动创建失败/等待、原任务返回及同会话复用，真实持久化与整板验收待完成 |
 | 114 | [23:5795 · AI · 模型配置后返回](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5795) | 1440 × 1080 | 局部核对：保存待验证、掩码和长模型换行；组件样例双栏/窄窗查看，真实凭据/模型及整板验收待完成 |
