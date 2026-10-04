@@ -3940,3 +3940,14 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 最终原生构建PID68343使用既有隔离目录 `/private/tmp/flowark-ui-native-upj7GO`：1440×960下未配置AI、未选输出的任务已能在首屏看到生成/保存按钮；展开来源显示先前保存的网页与具体元素。打开系统目录选择并取消后，显示取消反馈，焦点回到“结果保存到哪里？”按钮。1040×700下单列滚动可到达控制区和理解卡，无控件裁切。证据目录包含 `native-before.png`、`native-1440-final.png`、`native-source-final.png`、`native-1040-final.png`、`answers-review.png`、`compact-820.png`。原生没有真实补问提案，因此补问证据仅属于Renderer内存预览；原生保存、真实模型生成和096方案衔接仍待验收。
 
 `pnpm typecheck`、含Swift的 `pnpm build`、3文件Prettier及 `git diff --check`通过，构建日志 `build.log`保留既有体积提示。未新增/运行单元测试、自动集成脚本，未创建Run或访问用户业务网页。旧PID68042退出后才启动最终PID68343；最终退出0、`readDesktopMains()`为空，临时IAB页签关闭、视口复位，4318服务已停止。原生日志仍有既有sandbox_extension提示。095整板及186画板 / U01–U12保持局部。客户端公开推送仍受此前自动审批以源码披露风险拒绝限制，本轮仅本地提交，未重试；无关IDE改动保留。
+
+
+### 2026-10-05 确认方案的目标名称、采纳操作与紧凑布局
+
+前序 [PR #371](https://github.com/zhongmiao-org/flow-ark/pull/371) 经 [CI 37232667732](https://github.com/zhongmiao-org/flow-ark/actions/runs/37232667732) 成功，实际合并为 `8b1cd1cef1827e0ec6aed9ebfd07e88f5a4c7006`，本轮从该main继续。通过本地Figma读取096 `23:2928`（1440×1080、67%），截图 `/private/tmp/flowark-plan-review-oct5/figma-096.png`。客户端本地提交 `6d31fa1` 让网页步骤摘要在静态定位和完整框架路径均一致时显示已选元素名称；不一致时继续展示实际定位，不把其他框架的同名定位显示成已选对象。共享摘要用于步骤清单、操作范围和参数说明，详细参数保留真实定位与框架；没有修改宿主的目标复验或执行范围。
+
+待采纳方案暂不展示导出/复制等更多操作，采纳后才出现；其原有未保存、陈旧状态和操作中禁用规则保留。采纳/不采纳使用确认区按钮尺寸，清单/流程图页签不因隐藏更多按钮而分离到两端。人工查看发现1040窗口的内容宽904，原900断点仍挤成408/472双栏；将方案页断点统一到950，1040与820改为单列滚动，不固定裁切步骤或操作区。
+
+后台IAB加载真实AITaskWorkspace、TaskStepList及TaskStepInspector，使用显式Renderer内存任务/提案/采纳/运行列表回执；没有原生宿主或AI。1440×1080人工核对待采纳、采纳后修订标识、更多及试运行入口，选择步骤后名称与完整定位同时可见，返回清单恢复所选步骤焦点；内存采纳不算真实持久化。对照场景保留相同h1、仅改变框架路径：一致的读取步骤显示元素名与一层内嵌页面，不一致时显示h1及iframe.preview，未借用元素名。1040×700的grid为904单列，main client/scroll宽均968；820×700为684单列、main client/scroll宽均748，document宽820，采纳/试运行、手动编辑及撤销按钮均可滚动到达。未进入实际试运行。证据：`pending-1440.png`、`adopted-1440.png`、`pending-1040-final.png`、`adopted-820-final.png`、`frame-mismatch.png`；预览侧栏是简化外壳，不计入整App视觉验收。
+
+`pnpm typecheck`、最终 `pnpm build`、3文件Prettier及 `git diff --check`通过；最终日志 `build-final.log`保留既有体积提示。未新增/运行单元测试、自动集成脚本，未创建Run或调用模型。本轮没有启动Electron，检查主实例为空；临时IAB页签已关闭、视口复位，4319服务已停止。096及186画板 / U01–U12仍未完整验收；真实生成、采纳持久化、试运行、长内容和完整视觉后续独立核对。客户端公开推送仍受此前自动审批源码披露风险拒绝限制，仅本地提交，未重试；无关IDE内容保留。
