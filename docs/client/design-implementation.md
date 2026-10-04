@@ -3801,3 +3801,15 @@ HTTP(S)地址校验失败显示可读提示、字段错误标志与边框并聚�
 证据目录 `/private/tmp/flowark-focus-oct4/` 包含 `before-reports.json`、`multiplied-reports.json`、`pointer-diagnostic.json`、最终 `reports.json`、`before-click-failure.png`、`frame-focus-1040.png`、`frame-focus-wide.png`。截图均经原生工具查看。原型最终汇总的 bounds 字段引用可变对象，收尾时历史宽度均变为880；每条 zoom、原生截图和操作时 UI 回执保留实际宽窗证据。已修正原型后续记录为值拷贝，没有改写旧证据或因此重跑。首次初始化在空渲染器上等待 CDP，正常退出后改为先载入 about:blank；后续每个构建均在旧主进程 exit 0 后启动，最终无残留主实例。启动日志有 sandbox_extension 提示，一次中间退出有 macOS task_policy 提示，不称为无警告运行。
 
 `pnpm typecheck`、含 Swift 的 `pnpm build`、该文件 Prettier 与 `git diff --check` 通过，构建日志 `/private/tmp/flowark-focus-oct4-build.log` 保留既有大块体积提示。未新增/运行单元测试或自动集成脚本；核对窗口按钮由 CUA 人工操作。没有调用真实 AI、访问用户网页或写入日常数据。原字号产品模式与117整板仍未实现验收，186画板 / U01–U12 未完成。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交，未重试。
+
+### 2026-10-04 网页观察模式的产品入口
+
+本轮开始时从本地 Figma 实时读取115 `23:5921` 的“100% · 清晰查看”“适应全部”和不重排网页说明。后续保存对照图时 Mac 再次锁屏，未取得该次截图，也未启动 Electron。消费前协议 [PR #357](https://github.com/zhongmiao-org/flow-ark/pull/357) 经 [CI 37176103705](https://github.com/zhongmiao-org/flow-ark/actions/runs/37176103705) Validate / Auto Merge 成功，实际合并为 `38dc91802cd1027d46e9de345159fc7c96a9e5ba`，随后同步治理 main。
+
+客户端本地提交 `1dbc30d` 在既有全宽观察页增加两个40px查看按钮、当前比例、等待和错误反馈。新白名单 IPC 经宿主人工操作准入后，在 Main 复用同一 WebContents 调整视觉比例；取消旧拾取身份，按代次串行更新，读取实际原生比例后回传。导航完成恢复总览；任务动作等待已接受的调整，动作期间将尺寸更新延至结束。模式失败阻止继续执行，界面立即撤销旧比例确认；轮询旧回执和卸载后的模式回执不更新当前组件。没有新增平移按钮或将“聚焦选中目标”标记已完成。
+
+使用实际 BrowserSidebar 与样式的后台 IAB 页签5进行人工查看，IPC、网页标题和比例均为虚构内存状态，原生网页区域为空占位。1040×700 查看两种模式、失败、等待与任务执行中禁用；等待时可返回来源，临时草稿保持，释放旧回复后留在来源。发现失败后旧比例短暂保留及旧错误遮盖等待文字，已修正并重建复核。1920×1080逻辑视口的 DOM 宽度与滚动宽度同为1920，按钮高度均40；截图输出实际为1605×1080且右侧裁切，因此仅作为局部观察，不能算完整1920视觉验收。最终控制台无错误或警告。
+
+证据保留于 `/private/tmp/flowark-observation-oct4/`：最终 `renderer-readable-1040.png`、`renderer-pending-1040.png` 和裁切的 `renderer-overview-1920.png`；`renderer-failure-1040.png` 是中间错误呈现版本。最终 `pnpm typecheck`、含 Swift 的 `pnpm build`、七文件 Prettier、`git diff --check` 通过，构建日志 `/private/tmp/flowark-observation-ui-build-final.log` 保留既有大块体积提示。未新增/运行单元测试或自动集成脚本；预览页签、4342服务均已关闭，视口复位，没有 FlowArk/Electron 主实例。
+
+Mac 解锁后仍需用实际完整客户端核对1040与1920下的同一页面身份、输入保留、原生点击/滚动、模式恢复、拾取、执行及并发失败；本轮内存截图不替代原生证据。186画板 / U01–U12 仍未完成。无关 IDE 修改保留；公开客户端推送仍受此前自动审批源码披露风险拒绝限制，未重试，仅本地提交。PR附件因当前聊天已有100条身份上限未附加，不删除旧附件。
