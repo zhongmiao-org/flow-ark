@@ -3994,3 +3994,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 1440×1080、1040×700、820×700 均无页面横向溢出，后两者检查列实测宽 904/684px。截图 `/private/tmp/flowark-preflight-summary-oct5/check-1440.png`、`debug-1040.png`、`receipt-820.png` 已查看；后两张是滚动到目标卡片的局部证据。控制台无错误或警告。`pnpm typecheck`、`pnpm build`（含 Swift）、两个文件 Prettier 与 `git diff --check` 通过；构建日志 `/private/tmp/flowark-preflight-summary-oct5-build.log` 仅既有大包提示。未新增或运行单元测试、集成或 smoke 脚本。页签和 4322 服务已关闭，视口恢复，未启动 Electron，结束核对 FlowArk/Electron 主进程为空，IDE 改动保留。
 
 客户端公开推送此前被自动审批以源码披露风险拒绝，代码仅保存本地且未重试。原生确认、真实执行、最新整板视觉及完整 186 画板 / U01–U12 仍未完成。
+
+
+### 2026-10-05 运行步骤名称、编号查找与暂停清单
+
+前序 [PR #375](https://github.com/zhongmiao-org/flow-ark/pull/375) 经 [CI 37235092558](https://github.com/zhongmiao-org/flow-ark/actions/runs/37235092558) 成功，实际合并为 `5640c107966cb7fbc8ce19bf4b9c4bc55c70b4af`，本轮从该 main 开始。找到并查看 2026-09-21 保存设计包中的 taskrunning / taskrunningrepair 原尺寸导出，来源为 `/Users/mac/.codex/visualizations/2026/09/21/01a0c1fc-76eb-7172-8512-4e4a56416ec0/flowark-ai-task-design/FlowArk-AI-task-design.zip`。本地副本 `/private/tmp/flowark-execution-design-oct5/`。这不是新的在线 Figma 上下文；此前额度限制与 Mac 锁屏没有收到解除信息，未重复调用。
+
+客户端本地提交 `f045218` 统一运行页、进度摘要和详情清单的动作名称，按固定快照使用共享步骤命名；文件步骤显示“新建文本文件”等动作，文件名仍在对象与配置说明中。查找支持完整清单的原编号和补零编号，同时保留内部身份、循环位置和原始字符串名称（包括文件名）匹配。暂停时，已开始但未结束的父循环显示“已暂停 · 未完成”，下一步仍保留独立定位。仅调整 Renderer 展示，宿主状态、控制、回放和事件存储未改。运行页内容宽度不超过 950px 时使用单栏并取消卡片最低高度；结果与详情断点保持原有规则。
+
+唯一隐藏 IAB 加载实际 App/Renderer、四步固定方案及四十步定义的明确虚构内存 IPC。人工核对：`03` 找到完整清单第 3 步，文件名查找在概要/详情往返保留并显示相同动作；定位当前/下一步清空筛选并将焦点移到对应实例。四十步定义包含两次文件循环，共 41 条记录，已完成 39、已开始未完成 1、尚未执行 1；查找文件名分别显示 batch[0]/save 与 batch[1]/save，叠加尚未执行筛选只保留后者，定位滚动到第 41 条。最终版本父循环显示暂停未完成，未将其标为运行中。完成样例进入文件预览，返回结果后焦点回到原文件按钮；没有真实 Run、文件、网页、AI 或宿主持久化执行。
+
+1440×1080 四步运行两卡位置分别 (256,230)、(750,230)，宽 470/658、高 700，与保存稿基础几何一致。真实状态、对象详情、筛选及控制文案与原型演示按钮有差异，不记整板 1:1。1040×700 运行列宽 920、main 可用/滚动宽均 968；820×700 列宽 700、main 可用/滚动宽均 748，无页面横向溢出。截图 `/private/tmp/flowark-run-readability-oct5/running-1440.png`、`paused-1040.png`、`loop-filter-820.png`、`loop-paused-1440-final.png` 已查看；820 为滚动到筛选区的局部证据。最初临时夹具缺少运行级事件的空 nodeInstance 字符串导致详情报错，补齐契约字段并重载后详情往返正常；最终预览无新增控制台错误，未将夹具问题改成生产兼容分支。
+
+最终 `pnpm typecheck`、`pnpm build`（含 Swift）、五文件 Prettier 和 `git diff --check` 通过。构建日志 `/private/tmp/flowark-run-readability-oct5/build-final.log` 保留既有大包提示。未新增或运行单元测试、集成或 smoke 脚本；未启动 Electron，主实例检查为空。临时页签和 4323 服务已关闭、视口恢复，无关 IDE 内容保留。客户端公开推送此前被自动审批以源码披露风险拒绝，仅本地提交且未重试。102 / 104 及完整 186 画板 / U01–U12 保持未完整验收，真实执行与原生目标系统核对后续独立完成。
