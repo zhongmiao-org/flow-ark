@@ -98,3 +98,10 @@ macOS 在窗口已最小化时创建新 WebContentsView，可能没有可截图�
 - 取消、导航和新拾取废弃旧查询；未完成的只读 CDP 返回不得修改新状态或关闭新预览。取消不等待无限期传输，旧异步拒绝应被消费。真实释放仍由原按下拦截配对，后续普通点击不能被误吞。
 
 实现验收须包括旋转/缩放及同进程框架、两层跨源和内层滚动、两尺寸、遮挡和边界、目标/框架变化、取消后的迟到结果、普通点击恢复及原有拾取回归。透视变换与退化几何须分别取证，不能从数学函数通过直接推断浏览器已通过。此约定允许开始代码实施，尚不构成产品观察模式或 U11 完成。
+
+
+### 2026-10-04 原字号观察的点击坐标修正
+
+客户端本地提交 `234df52` 补齐执行点击的根视觉视口偏移换算：框架链上累加的布局坐标减去 `visualViewport.offsetLeft/offsetTop`，形成 CDP 使用的可见视口 CSS 点；不再次乘视觉缩放因子。现有悬停命中复核、单次按下/释放和无自动重试保持。实际原生核对覆盖1040×700与1500×920的单层跨源页面、手动输入、总览/100%往返、同一目标拾取、平移后点击及显式导航后的点击。过程、失败对照与边界见[实施记录](design-implementation.md#2026-10-04-原字号观察下的执行点击偏移)。
+
+此改动没有开放原字号产品入口、修改 IPC 或改变流程契约，也不宣称1920×1080和嵌套/变换框架已验收。原字号启用/恢复、完整平移、观察与执行并发及产品目标聚焦仍需接通并验证。使用的 API 依据为 [Electron 视觉缩放](https://www.electronjs.org/docs/latest/api/web-contents#contentssetvisualzoomlevellimitsminimumlevel-maximumlevel)和 [CDP Input](https://chromedevtools.github.io/devtools-protocol/tot/Input/#method-dispatchMouseEvent)；本机运行结果仅适用于已记录版本与场景。
