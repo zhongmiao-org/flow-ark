@@ -3873,3 +3873,15 @@ UI复用既有全宽观察布局，显示真实网页与独立的目标/页面�
 证据目录 `/private/tmp/flowark-native-focus/`：`focus-native-1040.png`对应内容定位修正；`focus-final-wide.png`、`replaced-target-final.png`、`frame-focus-final.png`、`frame-applied-final.png`对应最终构建，均已查看。最终构建的窗口拖动没有实际缩小，原生日志出现“Window move completed without beginning”；因此跨尺寸保持修正、1040框架及失败态仍待人工复核。单层无变换样例不覆盖嵌套、CSS变换、遮挡及任意网页兼容；任务初次选择对象仍缺元素上下文，117整板与186画板 / U01–U12未完成。
 
 `pnpm typecheck`、含Swift的 `pnpm build`、两文件Prettier及 `git diff --check`通过；最终构建日志 `build-final.log` 保留既有体积提示。未新增/运行单元测试、自动集成脚本，未调用真实AI或用户业务网页。每次启动前确认上一主实例退出；最终PID40989退出0、临时服务关闭，`readDesktopMains()`为空。日志另有既有sandbox_extension、IMK提示及预期的替换拒绝错误，不声称无警告。无关IDE改动保留。客户端公开推送仍受此前自动审批以源码披露风险拒绝的限制，本轮仅本地提交，没有重试。
+
+### 2026-10-04 任务网页元素来源接入，原生界面待解锁
+
+本轮通过本地Figma客户端实际查看093 `23:2440`（1440×1080、67%），保存 `/private/tmp/flowark-task-element/figma-093.png`。对照对象、能力和确认布局，沿用117已读的真实目标聚焦设计。消费前约定 [PR #366](https://github.com/zhongmiao-org/flow-ark/pull/366) 经 [CI 37200083372](https://github.com/zhongmiao-org/flow-ark/actions/runs/37200083372) Validate / Auto Merge成功，实际合并为 `8e01f90341e4633b6a89d5b693fdf996caea1cc0` 并同步main；较早37200083140取消，不计通过。
+
+客户端本地提交 `8d578be` 采用该治理基线，落实 [任务网页元素约定](task-web-elements.md)。对象页增加现有拾取器的任务入口，候选支持放弃、聚焦和确认；异步确认先取得宿主元素来源，再保存任务并进入理解页，离开来源后的回执不跳转页面。整页选择继续保留，已保存元素时明确显示“改用整个网页”。描述、理解及上下文核对页显示具体元素和只读范围。拾取器确认回调等待宿主保存后才清理候选，兼容现有步骤回填。
+
+Host的网页预览/选择接受可选拾取请求id，token绑定任务、页面及元素。Main保存原生节点身份，读取结果前后同一操作内复验，缓存同一id不得重新绑定替代节点；仅可读元数据进入任务及模型上下文。元素任务的静态selector/framePath必须一致，只允许read/wait，禁止navigate和其他网页操作；现有整页及文件授权保持原义。任务、流程记录和快照复用可选element字段，不改SQLite表、公开契约0.15.0或模板仓库。
+
+`pnpm typecheck`、含Swift的 `pnpm build`、14文件Prettier及 `git diff --check`通过，保留既有构建体积提示。未新增或运行单元测试、自动集成脚本，未创建Run、调用真实AI或访问用户业务网页。准备人工核对时 `readDesktopMains()`为空，仅启动PID43923，使用既有隔离数据及临时本地网页；CUA随后报告Mac锁屏，已请求解锁。本轮未取得新客户端截图，不能把此前编排器证据当作新任务入口通过。该唯一主进程收到TERM后退出0，临时服务关闭，再查主实例为空。
+
+093/117仍为局部：真实任务选取→聚焦→确认→理解、跨源框架、放弃/迟到回执、同名替换及实际只读执行均待人工核对；整板视觉、186画板 / U01–U12未完成。此前客户端公开推送被自动审批以源码披露风险拒绝，本轮只保留本地提交，没有重试；无关IDE内容保留。治理PR附件因聊天100条身份上限未附加，没有删除旧附件。
