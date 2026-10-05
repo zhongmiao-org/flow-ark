@@ -4181,3 +4181,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 1440×1080 主卡为 (256,230)、520×620；六按钮宽 472、高 40，y=299/355/411/467/523/579，与保存稿一致。现有导航图片均加载成功且自然/显示尺寸为 20×20，主菜单没有新增静态资源。1040×700 与 820×700 保留 520px 卡片并纵向滚动，三尺寸无页面横向溢出。已查看截图 `menu-1440-final.png`、`source-changed-1040-final.png`、`created-refresh-error-820-final.png`，位于 `/private/tmp/flowark-more-workspace-oct5/`；1040 图对应最终菜单组件，之后只改 App 的读取失败标题。导航的计划入口、真实返回文案及来源状态仍不同于静态示例，未标整板 1:1 完成。
 
 最终 `pnpm typecheck`、`pnpm build`（含 Swift）、两文件 Prettier 与 `git diff --check` 通过，构建日志 `/private/tmp/flowark-more-workspace-oct5/client-build-final.log` 仅既有大包提示，控制台无错误或警告。未新增或运行单元测试、自动集成或 smoke 脚本。没有启动 Electron，主实例为空；临时页签、4335 服务关闭、视口复位，IDE 改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交且未重试。完整 186 画板 / U01–U12 仍未完成。
+
+
+### 2026-10-05 方案步骤的完整配置内容
+
+前序 [PR #388](https://github.com/zhongmiao-org/flow-ark/pull/388) 经 [CI 37246534857](https://github.com/zhongmiao-org/flow-ark/actions/runs/37246534857) 成功自动合并为 `900024e5141b38a9fef36b62a0c96810dd7d0e08`，本轮从该 main 开始。查看 122/123 的 taskwork2 / taskgraph2 原尺寸导出，副本在 `/private/tmp/flowark-plan-values-oct5/`，来源仍为 2026-09-21 的 57 图 ZIP；结合前序实时上下文与现有完整参数区实施，没有新的实时 Figma 上下文，未重复请求受限连接器或锁屏桌面。
+
+客户端本地提交 `9fe89acb7fc42b4b49bf9af143d59430871fc985` 补充 TaskStepInspector 的配置值展开。对象和列表原先只显示字段/条目数，长文本只显示摘要；现在可在各自参数下展开完整 JSON 或文本，保留嵌套字段、空值、布尔值、数字、换行与首尾空白。引用沿用可读来源名称，同时可查看完整引用路径，并说明实际值由运行提供；不解析执行输出。切换步骤收起上一项的配置展开状态，清单、流程图及既有共用检查器使用同一实现。阅读区可键盘聚焦、自动换行、最高 260px 并内部滚动；不改步骤摘要、流程定义、引用解析、保存或执行契约，没有新增静态资源。
+
+唯一隐藏 IAB 加载实际 App/Renderer，使用四步虚构内存方案。人工核对对象里的 0、false、null、空字符串、嵌套数组与字面标签均原样显示；切到脚本输入后配置收起，展开仅显示 `steps.records`，没有伪装成解析结果。切到流程图仍选中脚本，展开完整参数后选择 HTTP 步骤，请求头与嵌套请求内容可分别核对。切到文件步骤后旧展开状态清除；353 字符文本包含首部两个空格、换行及末尾 TAIL-END 与空白，全部保留。修正阅读区样式优先级并完成最终检查后，构建重载：1040 下实测高 260、内容高 436、键盘 End 后 scrollTop=176 到达底部；820 下换行后全文高 216。图回清单仍选中 write，执行计数始终为 0，没有请求外网、AI、文件写入或宿主运行。
+
+1440×1080、1040×700 与 820×700 无页面横向溢出。最终截图 `object-1440-final.png`、`text-scroll-1040-final.png`、`text-820-final.png` 位于 `/private/tmp/flowark-plan-values-oct5/` 且已查看，均为滚动到参数的局部证据；请求头图 `request-1040-final.png` 早于最后的高度限制优先级修正。1440 对象区高 260、内容高 296，保留内部滚动。沿用现有卡片、字体、语义颜色和图形，没有把参数展开或内存预览计作整板 1:1、长流程新验收或真实运行通过。
+
+最终 `pnpm typecheck`、`pnpm build`（含 Swift）、两文件 Prettier 和 `git diff --check` 通过，日志 `/private/tmp/flowark-plan-values-oct5/client-build-final.log` 仅既有大包提示，控制台无错误或警告。未新增或运行单元测试、自动集成或 smoke 脚本。未启动 Electron，主实例为空；临时页签、4336 服务关闭、视口复位，IDE 改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交且未重试。完整 186 画板 / U01–U12 仍未完成。
