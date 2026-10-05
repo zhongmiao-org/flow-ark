@@ -107,7 +107,7 @@
 | 097 | [23:3109 · AI · 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3109) | 1440 × 1080 | 局部：短清单卡片、补零编号查找、切图保留查找/分支折叠、参数返回定位；四步/四十步宽窄 Renderer 内存查看，真实执行与整板待验收 |
 | 098 | [23:3290 · AI · 同一流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3290) | 1440 × 1080 | 局部：图旁长流程导航、首尾/前后步骤、图与参数键盘往返及清单上下文保留；四/四十步三尺寸 Renderer 内存查看，真实执行和整板待验收 |
 | 099 | [23:3467 · AI · 修改差异](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3467) | 1440 × 1080 | 局部推进：单条件前后对照、400/728双栏与采纳布局；完整差异含动作名称、原新序号查找及各自引用来源；内存采纳/拒绝/撤销核对，真实模型与整板待验收 |
-| 100 | [23:3618 · AI · 采纳后的方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3618) | 1440 × 1080 | 最近运行入口局部实现与人工走查；整板待核对，见实施记录 2026-09-24 |
+| 100 | [23:3618 · AI · 采纳后的方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3618) | 1440 × 1080 | 局部推进：采纳后修改操作归入左栏、所选步骤单独修改与撤销入口、最近运行按需展开读取；三尺寸内存核对失败保留及收起后旧回应不跳转，真实持久化和整板待验收 |
 | 101 | [23:3799 · AI · 试运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3799) | 1440 × 1080 | 局部实现：读取/保存位置、资源/失败说明、执行版本与调试方式常显、1040单栏及提交后返回语义；内存确认回执与三尺寸查看，真实执行和整板待核对 |
 | 102 | [23:3957 · AI · 试运行中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3957) | 1440 × 1080 | 局部实现：动作名称、编号/文件名查找、暂停父循环状态及紧凑单栏；4/40 步内存界面人工核对，整板待核对 |
 | 103 | [23:4127 · AI · 可读结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4127) | 1440 × 1080 | 操作布局、预览返回与主区域尺寸局部核对；整板待核对，见实施记录 2026-09-24 |
