@@ -134,7 +134,7 @@
 | 124 | [23:7281 · AI · v2 运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | 1440 × 1080 | 两栏尺寸、通过项详情折叠与确认入口已局部对齐；补齐检查/确认反馈的键盘位置，三尺寸内存界面已核对，真实运行与整板验收待完成 |
 | 125 | [23:7385 · AI · v2 试运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7385) | 1440 × 1080 | 本地 Figma 已核对步骤卡片规格，补充固定配置摘要、可见名称查找和顺序进度；内存事件三尺寸查看，整板视觉与真实运行待完成 |
 | 126 | [23:7501 · AI · v2 结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7501) | 1440 × 1080 | 局部推进：本地 Figma 核对摘要、双栏及单文件卡；结果/详情/修改入口与窄屏内存界面查看通过，真实运行和整板验收待补 |
-| 127 | [23:7603 · AI · v2 结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7603) | 1440 × 1080 | 局部推进：核对文件/JSON 框规格，调整正文和证据层级；三尺寸、长文本/空文件/文件切换内存界面查看通过，整板与真实运行待验收 |
+| 127 | [23:7603 · AI · v2 结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7603) | 1440 × 1080 | 局部推进：核对文件/JSON 框规格、正文和证据层级；长输出/日志展开收起恢复开头并支持键盘滚动，三尺寸内存界面已核对，整板与真实运行待验收 |
 | 128 | [23:7691 · AI · 修复时重新拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7691) | 1040 × 700 | 局部推进：紧凑标题/操作/目标卡尺寸已对齐，旧目标清除、取消与焦点经内存界面查看；原字号网页聚焦及真实修复验收待补 |
 | 129 | [23:7765 · AI · 修复版运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7765) | 1440 × 1080 | 局部推进：修正嵌套留白与五卡层级，修复版本按检查修订显示；确认拒绝/修订变化/失败及三尺寸内存界面查看，真实运行待验收 |
 | 130 | [23:7869 · AI · 修复版运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7869) | 1440 × 1080 | 局部推进：标题展示本次快照、任务修订与原运行只读入口；来源失败/错配/迟到响应内存界面查看，真实修复运行待验收 |

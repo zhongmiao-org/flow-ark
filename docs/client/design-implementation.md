@@ -4207,3 +4207,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 1440×1080、1040×1080、820×1080 无页面横向溢出。1440 卡片仍为 x=256/960、y=230、宽 680/448；实际较长影响与版本说明使左卡高 742，右卡高 700，不裁切成静态示例。1040/820 单列。最终截图 `unknown-1440-final.png`、`created-error-820-final.png` 与阶段截图 `resource-failure-1040.png` 位于 `/private/tmp/flowark-review-oct5/` 并已查看；窄屏为滚动后的局部证据，1040 图只截到失败卡上部，不作为完整恢复卡视觉验收。没有把焦点修正或内存预览计作整板 1:1 完成。
 
 `pnpm typecheck`、`pnpm build`（含 Swift）、单文件 Prettier 与 `git diff --check` 通过，日志 `/private/tmp/flowark-review-oct5/client-build.log` 仅既有大包提示，控制台无错误或警告。未新增或运行单元测试、自动集成或 smoke 脚本。没有启动 Electron，主实例为空；临时页签和 4337 服务已关闭、视口复位，IDE 改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交且未重试。真实确认与运行、桌面授权路径及完整 186 画板 / U01–U12 仍待完成。
+
+
+### 2026-10-05 结果详情的长输出与日志阅读
+
+前序 [PR #390](https://github.com/zhongmiao-org/flow-ark/pull/390) 经 [CI 37248186180](https://github.com/zhongmiao-org/flow-ark/actions/runs/37248186180) 成功自动合并为 `6314d5023087024aee065f67ebeb2489d4f97a25`，本轮从该 main 开始。查看 125/127 保存导出，结合既有本地 Figma 属性核对记录继续完善 127 `23:7603`；来源为 2026-09-21 的 57 图 ZIP，本轮没有取得新的实时 Figma 上下文，未重复请求受限连接器或锁屏桌面。
+
+客户端本地提交 `4e1da6212ba06134d9f04e29a3804a4a8eaafa6f` 修正 RunOutput 与 RunEventLog 的长内容阅读。原完整 JSON 滚到底再收起后，浏览器保留并钳制旧滚动位置，显示截断内容的末尾；现在主动展开或收起后回到内容开头，焦点仍在触发按钮时转入阅读框，可直接使用键盘滚动。展开按钮通过 aria-controls 关联阅读区；日志正文、步骤输出预览和原始记录分别有可聚焦阅读框、名称与可见焦点。只有用户切换展示范围时调整阅读位置，普通运行数据更新不主动滚动或抢焦点。保留原 8192/1600 字符预览限制、原始数据与脱敏边界，不恢复宿主已截掉的内容，不更改 IPC、保存或执行逻辑，没有新增静态资源。
+
+唯一隐藏 IAB 加载实际 App/Renderer，使用四步虚构内存方案、文件文本、长 JSON 和已保存事件。修改前重现收起 JSON 后 scrollTop=8284；修改后展开显示 15390 字符并含 OUTPUT-END，收起为 8192 字符，均从 scrollTop=0 开始且聚焦阅读框。150 行日志展开可读 LOG-END，键盘 End 滚动到 2606，收起为 1601 字符（含省略号）且回到顶部；步骤输出预览展开可读 PREVIEW-END，原始记录展开与收起同样保留范围和定位。820 窗口 PageDown 后结构化输出 scrollTop=278，焦点保留；返回结果摘要后聚焦原“详细信息”按钮。未调用真实文件、数据库、AI、Main/Worker 或执行引擎，内存回执不计真实运行验收。
+
+1440×1080、1040×700、820×700 均无页面横向溢出。短 JSON 内容框仍位于 y=543、高 156，与既有设计基准一致；长 JSON 和日志使用原有高度限制与内部滚动。截图 `output-1440-final.png`、`log-preview-1040-final.png`、`output-820-final.png` 位于 `/private/tmp/flowark-run-output-oct5/` 且已查看；后两张是滚动后的局部阅读证据。另保存短内容截图 `details-1440-final.png`，未据本轮阅读行为补齐标记整板 1:1 完成。
+
+`pnpm typecheck`、`pnpm build`（含 Swift）、三文件 Prettier 与 `git diff --check` 通过，日志 `/private/tmp/flowark-run-output-oct5/client-build.log` 仅既有大包提示，控制台无错误或警告。未新增或运行单元测试、自动集成或 smoke 脚本。未启动 Electron，主实例为空；临时页签、4338 服务已关闭、视口复位，IDE 改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交且未重试。真实文件与执行结果、完整视觉及 186 画板 / U01–U12 仍待完成。
