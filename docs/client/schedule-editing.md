@@ -41,7 +41,7 @@
 
 新增只读本地 IPC `schedule.inspect`：严格对象 `{ id, cursor? }`，id 为非空至多 100 字符；cursor 为严格 `{ scheduleId, ceiling, before }`，scheduleId 必须与 id 一致，ceiling 为非负安全整数，before 为正安全整数。首次以实际 `schedule-log` 最高位置为 ceiling，按插入位置倒序扫描，每页最多 20 条当前计划记录，回复 `nextCursor` 或 null。后续页只读该 ceiling 内记录，新的记录仅在明确刷新/重开记录时出现；其他计划的记录不会混入。
 
-回复包含当前 `plan`、`version`（仅 id/name/savedAt，缺失则 null）、`records`、`nextCursor` 和当前 `activeRun`（仅该计划非终态运行的 id/name/state，缺失则 null）。记录只含位置、归类 kind（occupied/missed/failed）、脱敏 reason、真实 time/from/to；应用重开、系统恢复或时钟间隙归类 missed，不能凭单条日志推算错过次数。缺失时间显示未报告，不编造时间。固定版本正文、脚本、绑定、密钥和文件内容不返回。读取无写入、不触发运行、不改变计时；计划不存在明确报错，不按名称替换。活动运行按钮只打开回复中的真实 Run 并再次核对 scheduleId。
+回复包含当前 `plan`、`version`（仅 id/name/savedAt，缺失则 null）、`records`、`nextCursor` 和当前 `activeRun`（仅该计划非终态运行的 id/name/state，缺失则 null）。记录只含位置、归类 kind（occupied/missed/failed）、脱敏 reason、真实 time/from/to；应用重开、系统恢复或时钟间隙归类 missed，不能凭单条日志推算错过次数。缺失时间显示未报告，不编造时间。固定版本正文、脚本、绑定、密钥和文件内容不返回。读取无写入、不触发运行、不改变计时；计划不存在明确报错，不按名称替换。活动运行按钮只打开回复中的真实 Run，并再次核对运行 id 与 scheduleId。记录回复及后续游标也必须属于当前计划。记录与运行详情的读取失败独立于计划编辑反馈；刷新记录清除旧详情错误，记录读取失败保留上次内容并暂时禁用活动运行入口。只读等待中可返回计划，离开后忽略迟到回复，不重开记录或跳入运行详情；不取消实际运行。
 
 `schedule.save` 新增可选 `flowUpdatedAt`（ISO datetime）。提供时在预检前校验保存时间并捕获整个流程记录摘要，预检后再次核对摘要；拒绝时不产生版本或计划。此字段与 `templateSource` 可并用，各自都必须匹配。不改变已有 schedule.update/toggle 的语义、持久化结构、公开流程契约、SDK 或 ZIP 版本。
 
