@@ -4709,3 +4709,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 实时参数设计文本保存在 `/Users/mac/.codex/visualizations/2026/10/08/flowark-parameters-layout/figma-2-1398.txt`；截图`parameters-1440.png`、`add-error-1040.png`、`added-820.png`均已查看。表单内容区没有静态图像槽；既有共用导航八处SVG加载正常且20×20，沿用本地原始资源，没有新增或替换资产。新旧设计导航数量/字体及实际资源内容差异继续保留，018不记整板验收通过。非columns编辑器入口、真实持久化及完整参数/变量组合仍待验收。
 
 `pnpm typecheck`、`pnpm build`、两文件Prettier与`git diff --check`通过，最终构建日志为同目录`build-final.log`，仅既有大包提示。未新增或运行单元、集成、smoke测试。临时页签、4366服务已关闭，视口恢复，未启动Electron，IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交且未重试；186画板 / U01–U12仍未完成。
+
+
+### 2026-10-08 变量来源序号与实时设计核对
+
+前序 [PR #427](https://github.com/zhongmiao-org/flow-ark/pull/427) 最新头 `f9842b992cd10ba51d6f963741c752d78c93c244` 经 [CI 37716324897](https://github.com/zhongmiao-org/flow-ark/actions/runs/37716324897) 成功自动合并为 `4d929d03196baf39924ca32c03b0b329faa3dd5e`，本轮从该 main 开始。Figma get_design_context 成功取得019 `2:1545`实时完整上下文与截图；按 figma-design-to-code 使用已有React、语义颜色与控件，没有新增图像资产或依赖。
+
+客户端本地提交 `4888ce8`：变量来源使用画布相同的深度优先步骤序号和动作名称，区分同名步骤；文件与表格来源不再显示内部ID或文件名。抽出已有任务步骤标题函数供两处共用，保持引用路径、词法作用域与执行契约不变。搜索未匹配后清除，会恢复搜索框焦点；当前选择保留。标题调整为28/40、700字重，正文14/22，来源卡间距16、字段6及58高、来源值20行高，匹配实时稿。候选数量与字段名来自实际草稿，不伪造运行输出。参数页变量消费语义问题仍待用户答复，本轮没有改动该入口。
+
+唯一隐藏IAB载入最终App/Renderer，内存宿主提供两个同名数据步骤、文件读取、条件分支和消费步骤。1440查看来源01/02可区分、03显示读取文本文件；消费步骤候选中没有分支内的05/06输出。搜索无匹配仍保留02选择，清除后焦点回搜索框；取消保持原steps.read-title.text并恢复原触发按钮焦点。1040在02根来源输入text..name显示错误并禁用应用；820修正为text后应用得到steps.read-again.text，保存并重开仍选中02的text，内存保存1、真实执行0。三尺寸截图均已查看，窄窗正常纵向滚动；820仅Renderer观察，不代表原生最小窗口支持。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/08/flowark-variable-sources/`：`variables-1440.png`、`invalid-1040.png`、`applied-820.png`、`build.log`及隔离预览文件。实际客户端侧栏沿用新版菜单，实时019仍为旧版菜单；本轮未据旧版覆盖新版导航。源数据数量、说明内容与高级子路径交互均依据现有功能边界，因此019仅局部推进，不能宣称整板1:1验收。全部节点入口、嵌套循环、真实宿主持久化和网页视图遮挡仍待验收。
+
+最初抽取标题函数时遗漏browserLabels导出，类型检查指出后已修复；最终 `pnpm typecheck`、`pnpm build`、五文件Prettier与`git diff --check`通过，仅既有大包提示。未新增或运行单元、集成、smoke测试。临时页签9、4366服务已关闭，视口恢复；没有启动Electron，IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅本地提交。186画板 / U01–U12仍未完成。
