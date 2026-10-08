@@ -4954,3 +4954,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 证据目录 `/Users/mac/.codex/visualizations/2026/10/08/flowark-native-branch-loop/` 包含 `figma-generation-failure.png`、`generation-incomplete.png`、`generated-plan.png`、`branch-graph.png`、`run-result.png`、`run-output.png`、`condition-diff.png`、`preserved-old-output.png`、`modified-output.png`和构建日志；设计失败页、原生图、单步差异及第一版输出截图已查看，完整输出以对应AX读取为准。
 
 `pnpm typecheck`、`pnpm build`、两文件Prettier、`git diff --check`通过；未新增或运行单元、集成、smoke测试。两个开发启动先后进行，前一个退出后才构建和启动后一个，终端均退出码0；当前无开发实例或IAB预览，无关IDE变更保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅本地提交；治理记录单独走PR。
+
+
+### 2026-10-08 采纳后摘要与撤销后的真实显示
+
+前序 [PR #445](https://github.com/zhongmiao-org/flow-ark/pull/445) 最新头 `bac75374c0d7ce7c249ee87ddbce5cc783e55c5e` 经 CI 37746762482 成功自动合并为 `0db186f91d9c108e32a221bd553b66d67464ffcc`。本轮本地Figma查看100 / `23:3618`，蓝色FlowArk卡说明具体采纳改动；原客户端在采纳及重开后只显示总步骤数。Figma仍有重连提示，仅以本地可见稿为依据。
+
+先行 [PR #446](https://github.com/zhongmiao-org/flow-ark/pull/446) 定义本机详情摘要扩展，最新头 `4714b5d22a0dc8379867853a6facc8e5b4a0b24a` 经 [CI 37747404648](https://github.com/zhongmiao-org/flow-ark/actions/runs/37747404648) 成功自动合并为 `bb542365d644304063b812dc22e91baf942919ee`，随后客户端本地提交 `888c81f` 实现并将package.json治理基线更新到该合并提交，公共契约仍为0.16.0。宿主从已有加密undo.before及当前流程生成有界摘要，仅在当前流程/绑定hash匹配最近采纳时返回；没有新存储、迁移、请求方法或模型调用。Renderer复用说明卡，首次采纳显示步骤数，单步修改显示序号、名称和可读当前配置；多步显示前三个变化、其余数量和顶层字段。无摘要、撤销、未保存输入、陈旧详情或待审提案分别走既有对应显示。
+
+使用既有隔离目录 `/Users/mac/.codex/visualizations/2026/10/08/flowark-native-flow-workspace/user-data`，启动唯一真实Electron。打开上一轮已保存的分支循环任务（修订6），直接读到“已采纳修改：第3步判断当前项是否包含交互”，并展示当前循环项包含“交互”、其他步骤保持原样；无需重新生成或采纳。点击撤销最近采纳，修订变为7，摘要及撤销入口消失，第三步恢复判断“界面”。展开最近运行仍显示此前运行来自修订6、当前草稿修订7及版本不同提示，没有创建新Run。随后打开既有两步任务（修订3），显示“已采纳方案，共2个步骤”。这是已有持久化数据重开、修改摘要、撤销和首次采纳文案的真实宿主证据；手动编辑失效、多步新增/移除/移动、待审与未保存输入的隐藏边界未逐项原生验收。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/08/flowark-adoption-summary/`：`reopened-adoption.png`、`undo.png`、`created-plan.png`及构建日志。重开后摘要截图已查看；撤销及首次采纳内容经AX读取。原生窗口1440×960，Retina截图2880×1920，设计1440×1080，不作为整板完成。原需求卡保留初始请求，采纳说明呈现后来修改；历史运行仍是固定版本，摘要不是执行成功证明。
+
+`pnpm typecheck`、`pnpm build`、六文件Prettier及 `git diff --check` 通过；构建保留既有大chunk提示。没有新增或运行单元、集成、smoke测试，没有调用AI或读取密钥。唯一实例已应用退出，终端退出码0，无IAB或并行实例；无关IDE变更保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，只有本地提交。100及186画板 / U01–U12继续未完整验收。
