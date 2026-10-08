@@ -4923,3 +4923,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-deepseek-plan-reference/`：`figma-plan.png`、`before-failure.png`、`reference-diff.png`、`repaired-result.png`、`repaired-output.png`、`fresh-plan.png`、`fresh-result.png`、`fresh-output.png`及最终构建日志。Figma方案、失败、差异、修复输出和首次生成最终结果截图已查看。原生窗口1440×960，Retina截图2880×1920，不能作为1440×1080设计整板完成；模型回复仍含部分技术术语，长内容与所有状态的完整视觉未验收。186画板 / U01–U12继续未完成。
 
 `pnpm typecheck`、`pnpm build`、单文件Prettier、`git diff --check`通过；未新增或运行单元、集成、smoke测试。两个开发启动先后进行，第一实例退出后才构建并启动第二个，均已退出且终端退出码0；第二次终端保留输入法mach port和退出时IPC“进程已断开”提示，没有宣称日志无错误。未启动IAB或第二并行实例，无关IDE变更保留。客户端公开源码推送此前被自动审批拒绝，本轮未重试，仅本地提交；治理证据独立走PR。
+
+
+### 2026-10-08 方案步骤导航的阅读焦点
+
+前序 [PR #443](https://github.com/zhongmiao-org/flow-ark/pull/443) 最新头 `3207017edcc2ac298dce62a4bb457ec203ea3599` 经 [CI 37743122755](https://github.com/zhongmiao-org/flow-ark/actions/runs/37743122755) 成功自动合并为 `f20af02fee87999dd82b5f47400c3ab8e17d994d`。本轮继续使用本地Figma，查看098 / `23:3290` 同一流程图；方案名称/保存标签、工具栏与图旁步骤卡已经使用既有设计，无须重复替换。Figma仍提示等待重连，设计证据仅代表本地可见稿。
+
+真实Electron打开上一轮已保存的两步AI方案，选择第二步后切图，图和步骤参数同步保留；展开完整参数并点上一步/下一步，到首尾时原按钮禁用，焦点落回整个HTML页面。客户端本地提交 `1ab0238` 在共用TaskStepInspector增加本次导航目标和标题引用：前后步骤及条件/循环内部入口切换完成后，滚动显示新标题并聚焦；仅由这些明确导航动作触发。下拉选择及外部图/清单选择保持原有焦点规则，不改变展开内容、步骤定义或执行顺序。没有IPC、存储、运行或契约变更。
+
+最终构建的唯一真实客户端中，清单参数2→1→2分别聚焦“输出固定文本”“断言输出不为空”；切图后同一第二步仍选中，完整参数展开保持，图参数2→1→2分别聚焦第1/2步标题。原生下拉通过键盘上移并回车选择第一步后焦点留在选择器，没有被标题抢走。回到对话恢复方案清单、第一步选择、原需求及修订3，焦点为任务方案对话。仅查看同一保存流程，没有调用AI、修改草稿或新建Run。条件/循环入口复用同一处理，但本轮未独立做原生分支点击，不将其标为已验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-plan-graph-navigation/`：`figma-graph.png`、`before-graph.png`、`before-navigation.png`、`focused-last-step.png`、`returned-conversation.png`及最终构建日志。设计、原生图和最终末步画面已查看，焦点以对应AX观察为准。原生窗口1440×960，设计1440×1080，完整参数自然延伸并可滚动，不把当前截图作为整板尺寸验收；长流程、嵌套分支与紧凑原生仍待验证，097/098及完整186画板 / U01–U12未完成。
+
+`pnpm typecheck`、`pnpm build`、单文件Prettier、`git diff --check`通过；未新增或运行单元、集成、smoke测试。修复前窗口退出后才构建并重新启动，两次终端均退出码0，当前无开发实例或IAB预览，无关IDE变更保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅本地提交。
