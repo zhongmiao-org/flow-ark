@@ -4774,3 +4774,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-script-dependencies/`：`figma-local.png`、`config-1440.png`、`checked-1040.png`、`invalid-820.png`、`saved-1440.png`均已查看，含最终`build.log`及隔离预览文件。三尺寸dialog可用宽与滚动宽相等（1201/953/733），动态JSON和展开依赖会增高卡片，底部内容通过纵向滚动访问，不按静态示例裁切。820只是Renderer观察。真实目录、包编译及脚本执行、异步核对过程中切换页面/修改声明、模板来源、全部入口和整板视觉仍待验收；025仅局部推进，186画板 / U01–U12未完成。
 
 `pnpm typecheck`、`pnpm build`、三文件Prettier和`git diff --check`通过。未新增或运行单元、集成、smoke测试。临时页签13与4366服务已关闭，视口恢复，未启动Electron，用户Figma保持打开。无关IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅保留本地提交。
+
+
+### 2026-10-08 资源目录绑定纠错与步骤标识
+
+前序 [PR #432](https://github.com/zhongmiao-org/flow-ark/pull/432) 最新头 `10d2ae0b770cefa9e35b9bad54ef41537b7cffae` 经 [CI 37721160234](https://github.com/zhongmiao-org/flow-ark/actions/runs/37721160234) 成功自动合并为 `f49fb8e8ede82028273ec5e360f55dbc299b8ac0`，本轮从该 main 开始。本地Figma读取023 `2:2033`，确认1440×1080六卡、逻辑目录、固定值/引用及工作簿摘要；未请求额度受限连接器，未修改设计。Figma仍有重新连接后同步提示，不能据本地可读认定云端已同步。
+
+客户端本地提交 `992f6d0`：文件/Excel共用的目录绑定字段保留未完成输入，空白及已有规则禁止的保留名称就地报错；有效名称才更新流程草稿。错误通过既有输入守卫阻止切换、关闭或应用，选择目录按钮禁用；“恢复已应用绑定”恢复原值并聚焦输入框。错误关联aria-invalid与描述，不新增绑定命名规则或执行契约。有效但未选择本机目录的名称仍可作为草稿保存，界面继续显示未绑定，不伪造目录可用。资源工作页的同类选择器改用全局序号和实际动作标题，单项卡也显示对应步骤；文件名继续作为资源数据，不当作步骤名。共享标题700字重、说明14/22，绑定字段6间距。
+
+唯一隐藏IAB加载实际App/Renderer和七步虚构内存流程，包含六类资源及同类文件读写。1440选择器明确02读取文本文件与03写入文本文件。02目录名清空后选择03，被守卫拒绝，错误字段获焦；1040恢复得到output，错误标记清除且焦点仍在输入框。再选03输入constructor并返回，页面保留且显示保留名称错误；修正reports后切换Excel写入。820输入纯空格并应用被拒绝，恢复output后可返回。保存重开03仍为reports且明确“尚未选择本机目录”，Excel摘要仍为output；内存保存1、真实执行0。没有发HTTP请求、实际选择目录或写入文件。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-resource-binding/`：`figma-local.png`、`resources-1440.png`、`restored-1040.png`、`excel-invalid-820.png`、`saved-1440.png`均已查看，另有最终`build.log`及预览文件。1440/1040 dialog可用宽与滚动宽相等（1201/953）；820截图可纵向浏览，只是Renderer补充观察。活动卡真实字段较静态示例更高，底部通过滚动查看；非活动摘要、步骤标识及新版导航仍有设计差异，023仅局部推进。真实宿主持久化、文件/表格执行、原生目录选择、全部嵌套/错误状态与整板视觉仍待验收。
+
+`pnpm typecheck`、`pnpm build`、四文件Prettier与`git diff --check`通过。未新增或运行单元、集成、smoke测试。页签14与4366服务已关闭，视口恢复，未启动Electron，用户Figma及无关IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅本地提交。186画板 / U01–U12仍未完成。
