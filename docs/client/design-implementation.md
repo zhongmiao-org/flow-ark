@@ -4906,3 +4906,20 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 证据目录 `/Users/mac/.codex/visualizations/2026/10/08/flowark-native-flow-workspace/`：`figma-001.png`、`returned-list.png`、`native-output.png`、`native-log.png`、`restarted-list.png`、`restarted-output.png`。设计、原生输出/日志、重启列表/输出已查看；实际原生窗口1440×960，截图为Retina 2880×1920，日志下方连续事件仍需滚动。002设计1920×1080、027/028设计1440×1080，因此此次窗口不作为这些画板的标准整板尺寸验收。左上紫色电脑控制提示属于操作工具，不是产品界面。
 
 此次只补真实本地数据流程主路径证据，不覆盖全部检查器、并发/失败/暂停、浏览器、真实文件产物、AI供应商或业务验收；001/002/007/027/028及完整186画板 / U01–U12仍未完成。不新增或运行单元、集成、smoke测试；源码未改，不重复类型检查与构建。治理检查及差异检查另行记录，客户端无关IDE改动保留，未重试此前被自动审批拒绝的公开源码推送。
+
+
+### 2026-10-08 DeepSeek 真实规划引用修正与任务闭环
+
+前序 [PR #442](https://github.com/zhongmiao-org/flow-ark/pull/442) 最新头 `fcf544ea26fb376683e7326fc7092074ace8fe15` 经 [CI 37742009235](https://github.com/zhongmiao-org/flow-ark/actions/runs/37742009235) 成功自动合并为 `0a5cdf4d3f36a5e3a956e75c1a267e13844ee6c7`。本轮按用户授权复用客户端已保存DeepSeek配置，界面模型为 `deepseek-flash`；没有重新输入、导出或记录Key。沿用上一轮隔离工作目录，本地Figma查看096 / `23:2928` 的方案双栏及确认衔接，仍提示等待重连，不声称云端最新。
+
+修复前实际Electron经首页描述、发送内容核对、DeepSeek理解直接得到两步方案：输出“今天核对任务界面”并断言非空，不带附件或外部资源。采纳后检查通过并显式试运行，Run `aba56567-0c06-47c3-aa05-aad457cfeacc` 在第二步失败：`steps.set-text.value` 不存在。失败页准确列出第一步完成、第二步未确认及无外部步骤影响。代码核对确认数据步骤直接输出文本，原通用规划说明没有交代配置与输出形状的区别；没有放宽执行器的缺失引用校验。
+
+客户端本地提交 `41bf5b81bec4ed6d14a07ee72b538720d6a93be5` 仅更新 `src/ai/planning.ts` 的通用规划说明：引用整个步骤结果、不虚构包装字段，明确数据/断言输出以及条件/循环聚合和作用域。没有新增节点、接口、存储或公共契约，没有修改已有失败记录或静默重放。提示词改善生成质量，不代表模型以后一定不会生成错误引用，完整静态输出类型校验仍非本次交付。
+
+更新构建后恢复原任务，经继续描述修改和发送核对，真实DeepSeek返回只改第二步的提案。差异页显示 `steps.set-text.value` 到 `steps.set-text`，1/2步修改，其余配置保留；采纳为修订5，再次检查的核对框未勾选，显式勾选后Run `00dfd0e2-026c-4ad0-a842-c2ff87e02de6` 两步完成。结果摘要显示2次完成、0未确认、0尚未执行、无文件；详情读取文本与断言 `{verified:true}`。
+
+另以完全相同原始描述创建新任务，不提供引用修复提示，再做一次真实首次生成。提案直接引用数据步骤整体输出；采纳和确认后Run `a3a0d9fe-9488-4c56-ab7e-01f0813bea41` 两步完成，详情为 `set-text` 的固定文本及 `assert-text.verified:true`。本轮总共3次明确发起的模型规划（修复前首次、修改、修复后首次）及3次本地Run（1失败、2完成）；没有AI自动重试、网页/文件/工具/业务操作。这是描述→生成→采纳→检查→试运行→结果，以及继续修改→差异→采纳的真实局部证据；未经过缺信息补问、目标选择或专用失败重跑入口，不能替代它们的验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-deepseek-plan-reference/`：`figma-plan.png`、`before-failure.png`、`reference-diff.png`、`repaired-result.png`、`repaired-output.png`、`fresh-plan.png`、`fresh-result.png`、`fresh-output.png`及最终构建日志。Figma方案、失败、差异、修复输出和首次生成最终结果截图已查看。原生窗口1440×960，Retina截图2880×1920，不能作为1440×1080设计整板完成；模型回复仍含部分技术术语，长内容与所有状态的完整视觉未验收。186画板 / U01–U12继续未完成。
+
+`pnpm typecheck`、`pnpm build`、单文件Prettier、`git diff --check`通过；未新增或运行单元、集成、smoke测试。两个开发启动先后进行，第一实例退出后才构建并启动第二个，均已退出且终端退出码0；第二次终端保留输入法mach port和退出时IPC“进程已断开”提示，没有宣称日志无错误。未启动IAB或第二并行实例，无关IDE变更保留。客户端公开源码推送此前被自动审批拒绝，本轮未重试，仅本地提交；治理证据独立走PR。
