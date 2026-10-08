@@ -4647,3 +4647,18 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 截图保存在 `/Users/mac/.codex/visualizations/2026/10/08/flowark-human-input/` 的 `context-1440.png`、`context-state-1040.png`、`context-source-820.png`。临时底部场景切换条不属于产品。八处沿用导航图像加载正常且显示20×20，本轮右栏无新图像资产；既有共享导航差异未计通过。目标与拟写入内容的独立结构化呈现、真实宿主状态转换和整板视觉仍待验收，不记整板完成。
 
 `pnpm typecheck`、`pnpm build`、两文件 Prettier、`git diff --check` 通过；最终构建日志为同目录 `context-build-final.log`，仅既有大包提示。遵照 UI/UE 优先约定，未新增或运行单元、集成、smoke 测试。页签和4366临时服务已关闭，视口恢复，未启动 Electron，IDE改动保留。此前客户端公开推送被自动审批以源码披露风险拒绝，本轮未重试。186画板 / U01–U12仍未完成。
+
+
+### 2026-10-08 结构化人工核对目标与内容
+
+前序 [PR #422](https://github.com/zhongmiao-org/flow-ark/pull/422) 最新头 `427abbf4c92d11cd0213419c782d7a692d35f337` 的 [CI 37712987739](https://github.com/zhongmiao-org/flow-ark/actions/runs/37712987739) 成功自动合并为 `f56e6c82d32e1dbabf5a87b97d93643ce1558859`。继续按已实际读取的本地 Figma 029 `2:2911` 及保存稿推进，不将原说明中的文本猜成操作目标。
+
+先交付[契约0.16.0](../../contracts/v0.16.0/README.md)：[PR #423](https://github.com/zhongmiao-org/flow-ark/pull/423) 最新头 `97c1bf683a46d43ac30331048bb727fe5857f458` 经 [CI 37713327968](https://github.com/zhongmiao-org/flow-ark/actions/runs/37713327968) 成功自动合并为 `dea27a5f0eebc11a401d7088517ccc6f3f4367d9`，随后发布且核实不可变开发快照 `contracts-v0.16.0` 指向该提交。新增 TemplateHumanReview v1（version、target、content）及 human-review-v1 能力，SDK human 与 effect.prepare 可携带明确的核对文本；保持原有权限、去重和执行语义。未提供结构的普通输入请求仍按实际说明显示。
+
+客户端本地提交 `83e5886bb9cf95e48a43424e64373ea97485753d` 固定采用该快照，生成类型及 Renderer 静态校验器。直接 human 请求与 effect.prepare 的 review 均要求入口声明能力；宿主校验后保存到本次待办，后者在 confirm 授权分支传给人工请求，auto/deny及旧去重记录处理不变。界面分别显示「目标」「拟执行内容」，保留多行和空字符串；仅把核对文本当文本展示，不将目标变为新的资源绑定、打开链接或执行 HTML。无效结构显示错误且不渲染回应表单，仍可查看来源。正文表单通用说明标题仅保留无障碍标签，避免与请求 Schema 的字段标题重复。
+
+最终 App/Renderer 唯一隐藏 IAB 中，1440结构化请求显示明确文件目标及两行内容；修改备注并返回列表再进入，目标/内容及备注保留，核对复选框清除。空字符串显示「空内容」；1040长文件名、长文本自然换行，完整文本未截断，含 `<b>` 的文字没有形成HTML子元素。820无效版本显示错误且没有回应入口。1040/820无页面横向溢出，控制台无错误或警告，八处沿用导航图片正常加载并保持20×20，无新增资产。最终内存回应0、实际执行0，没有提交回应或控制运行。
+
+截图为 `/Users/mac/.codex/visualizations/2026/10/08/flowark-human-input/` 中的 `review-1440.png`、`review-long-1040.png`、`review-invalid-820.png`，均已人工查看；底部场景切换条不属于产品。类型生成、`pnpm typecheck`、`pnpm build`、八个手写文件格式检查、`git diff --check` 和所采用契约字节/摘要核对通过。最终构建日志为同目录 `review-build-final.log`，仅既有大包提示。未新增或运行单元、集成、smoke 测试；页面预览不证明真实模板 RPC、持久化、能力拒绝或完整副作用确认链路已验收，独立模板本轮未修改。共享导航和整板视觉继续保留缺口。
+
+临时页签和4366服务已关闭、视口恢复、未启动 Electron，IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮仅本地提交且未重试。186画板 / U01–U12仍未完成。
