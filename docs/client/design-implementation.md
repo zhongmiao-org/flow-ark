@@ -4982,3 +4982,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-modification-reject/`：`figma-modify.png`、`proposal-diff.png`、`before-rejected.png`、`rejected.png`、`restarted-rejected.png`、`current-revision.png`及构建日志；设计、差异、重开拒绝及修改页截图已查看。原生1440×960，设计1440×1080，非整板验收，099/100/146及完整186画板 / U01–U12继续未完成。
 
 类型检查、构建、六文件Prettier与差异检查通过，构建保留既有大chunk提示；没有新增或运行单元、集成、smoke测试。三次启动严格先退出再启动，终端均退出码0，当前无开发实例或IAB；无关IDE变更保留。客户端源码公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅本地提交。
+
+
+### 2026-10-08 待采纳方案的简明主卡与原文展开
+
+前序 [PR #449](https://github.com/zhongmiao-org/flow-ark/pull/449) 最新头 `b79274c3f294be5af9d2ee5b28e3dbc9aba3b554` 经 [CI 37750185838](https://github.com/zhongmiao-org/flow-ark/actions/runs/37750185838) 成功自动合并为 `1a2ef1f729cb867c6939190f6c66ade955956b75`。本轮本地Figma查看096 / `23:2928`，主说明为简洁步骤提示，技术参数不占据主要对话。上一轮真实DeepSeek回复在主卡展示value/assert、节点ID与引用路径，作为可读性差异依据；Figma仍有重连提示，不声称云端已同步。
+
+客户端本地提交 `381190b`：TaskPlanConversation和单步提案主卡使用已校验流程与宿主差异生成说明，复用现有步骤标题和参数可读投影。首次方案显示含嵌套步骤的总数，单步骤配置修改显示具体拟议设置及额外顶层设置变化，多步/结构修改显示数量，无差异明确说明；只描述待采纳结果。模型原文通过既有disclosure样式展开，不删改右侧原始差异、参数和限制。通用规划提示补充普通中文表达及真实限制要求，同时明确不为可读性改写结构化类型、引用或原始数据。无IPC、存储或公共契约变更。
+
+唯一真实Electron复用既有隔离目录和DeepSeek / deepseek-flash配置，从修订4任务继续修改，再次输入与上一轮相同固定文本需求并核对发送。此次主卡显示“建议修改第1步输出固定文本：输出数据修改提议核对”，同时注明另有1项流程设置变化；右侧实际2项差异分别为固定文本及流程说明。展开AI说明后为中文动作描述，没有此前value/assert、节点ID和引用路径；limitations说明只处理固定文本、不核对外部数据。原有flow.description里仍有此前技术词，其逐字差异保留，未掩盖真实数据。展开及收起均可用。本轮1次真实生成，提案保持待采纳，没有Run、外部网页/文件/工具动作，没有重新读取或输入密钥。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/08/flowark-readable-proposal/` 包含 `figma-plan.png`、`model-explanation.png`、`readable-summary.png`及构建日志；设计及收起后的主卡截图已查看，模型原文和限制经AX读取。此轮原生只覆盖完整任务中单步骤配置加顶层说明修改；首次生成、多步/结构变化、无差异及单步范围入口的新增主卡文案未逐项原生验收，提示词不能保证所有模型回复始终无术语。窗口1440×960，设计1440×1080，096/099及186画板 / U01–U12继续未完整验收。
+
+类型检查、构建、四文件Prettier及差异检查通过，构建保留既有大chunk提示；没有新增或运行单元、集成、smoke测试。唯一实例已退出，终端退出码0但保留输入法mach port提示，不宣称终端无错误；无IAB或第二实例，无关IDE变更保留。客户端源码公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，只作本地提交。
