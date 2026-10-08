@@ -187,7 +187,7 @@
 | 172 | [8:29658 · 离开 DeepSeek · 首次填写 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29658) | aiedit → browser | 部分实现：AI 服务显示网页、未保存提示、保存失败重试与放弃后恢复、总览返回及焦点已人工核对；完整网页操作与拾取、真实宿主及整板视觉待验收 |
 | 173 | [8:29780 · 离开 DeepSeek · 首次填写 → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29780) | aiedit → resources | 局部推进：凭据与文件按钮接通，首次保存失败留页、显式重试后到达资源页并聚焦标题；内存查看，真实保存及整板待验收 |
 | 174 | [8:29900 · 离开 DeepSeek · 首次填写 → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29900) | aiedit → scriptform | 局部推进：脚本按钮接通，继续编辑保留输入、放弃后到达脚本包并聚焦标签，所属流程往返保留；真实保存及节点配置全路径待验收 |
-| 175 | [8:30020 · 离开 DeepSeek · 首次填写 → DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30020) | aiedit → aiempty | 待核对 |
+| 175 | [8:30020 · 离开 DeepSeek · 首次填写 → DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30020) | aiedit → aiempty | 局部推进：本地 Figma 核对离开确认，取消后保存采用新配置回执并聚焦状态；放弃首次输入回到空密钥与模型焦点，三尺寸内存查看，真实保存及整板待验收 |
 | 176 | [8:30140 · 离开 DeepSeek · 首次填写 → AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30140) | aiedit → aistates | 重新核对：首次填写沿用保存/放弃守卫；上一轮虚构内存往返仅为历史证据，独立状态目录已移除，不能计为该辅助画板完成 |
 | 177 | [8:30260 · 离开 DeepSeek · 替换 Key → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30260) | aireplace → home | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
 | 178 | [8:30384 · 离开 DeepSeek · 替换 Key → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30384) | aireplace → templates | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
