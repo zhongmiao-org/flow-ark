@@ -5085,3 +5085,20 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-desktop-unavailable/`：`figma-recovery.png`、`before.png`、`assistant-after.png`、`task-after.png`及构建日志。设计与最终任务页截图已查看，向导状态经AX核对。原生1440×960、设计1440×1080；本轮为094/109的真实失败状态与共同连接提示增量，不代表111已连接后失效或整板完成，186画板目标保持。
 
 `pnpm typecheck`、`pnpm build`、两文件Prettier和`git diff --check`通过；构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。两个开发实例严格串行，均退出码0；首个终端有一次IMKCFRunLoopWakeUpReliable mach port警告，第二个无额外错误。无关IDE改动保留，未停止TextEdit。客户端公开源码推送此前被自动审批以披露风险拒绝，本轮未重试；治理资料独立PR交付。
+
+
+### 2026-10-08 主文档网页动作的修复入口与宿主覆盖
+
+前序 [PR #456](https://github.com/zhongmiao-org/flow-ark/pull/456) 最新头 `6be5072280d9d6c92895dcd4df291290aeb8a4da` 经 [CI 37757292637](https://github.com/zhongmiao-org/flow-ark/actions/runs/37757292637) 成功自动合并为 `ff7379415233010469ab6604afc6c75feb95341e`。本轮查看本地Figma106 / `23:4575`，对照真实选取、原新目标与采纳起点流程；不声明云端同步已验证。
+
+新建独立只读任务，明确选择内置 https://example.com/ 整页，要求严格读取h2、缺失停止，不写文件/点击链接/提交表单。一次真实DeepSeek / deepseek-flash请求生成单步read-h2，采纳到任务修订4并明确试运行。Run `ac580d65-a07d-4322-8880-21628f571050` 因网页读取超时停止，0完成/1已开始未完成，失败页没有专用目标修复入口。通过原生ZIP导出并只读查看flow确认该步是现行Schema支持的browser version 1、selector h2、value null；原运行与方案没有被为了打开入口而手工升级。
+
+根因是Renderer和宿主均限定v2/v3。治理 [PR #457](https://github.com/zhongmiao-org/flow-ark/pull/457) 最新头 `bec3b7eb1090972d523c9bb0ba277bbd3f387889` 经 [CI 37758310428](https://github.com/zhongmiao-org/flow-ark/actions/runs/37758310428) 成功自动合并为 `f1e38c06f86aee945e651ac4c8f84f51fa9b1843`，先定义[主文档修复范围](task-target-repair.md#2026-10-08-主文档动作覆盖)。首轮建PR在分支推送尚未完成时返回无head明确失败，推送成功后才重新创建；未绕过CI。
+
+客户端本地 `0c7df4e` 采用该治理基线，公共契约仍0.16.0。入口与宿主支持v1/v2/v3静态网页目标；v1在预览发送前拒绝非空framePath，给出改选主文档或回任务修改支持框架方案的原因。v1允许结果只改变selector，保留version且不添加framePath；模型输入明确此限制，完整canonical比较继续拒绝越界修改。v2/v3仍只改selector/framePath。没有新增公开节点、IPC字段、数据库迁移或自动重跑。
+
+重建后原生重开同一任务及原失败Run，新增“重新选择网页目标”和“让AI提议修复”，进入真实拾取页并保留原运行/步骤身份。点击“从网页选取”时电脑使用工具报告Mac已锁定且无法自动解锁，已请求用户手动解锁，未绕过锁屏或伪造拾取。本轮仅验证失败/入口及页面衔接，未取得新选择、未发送修复模型请求、未采纳修复或产生关联新Run；嵌套框架拒绝、模型越界拒绝及完整修复闭环未做原生验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-native-target-repair/` 包含 `figma-repair.png`、`repair-before.flowark-template.zip`及最终构建日志；设计截图已查看，真实失败和新入口由AX核对。原生1440×960、设计1440×1080，105/106/107与完整186画板 / U01–U12继续未验收。
+
+最终类型检查、构建、三文件Prettier和差异检查通过；构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。首个实例退出码0，有TASK_SUPPRESSION_POLICY与IMKCFRunLoopWakeUpReliable系统警告；第二个实例保留在修复页等待解锁，已核对只有一个Electron主进程，不启动额外实例。无关IDE改动保留。客户端源码公开推送此前被自动审批以披露风险拒绝，本轮未重试，治理记录独立PR交付。
