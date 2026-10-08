@@ -5070,3 +5070,18 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-adopted-settings/`：`figma-adopted.png`、`adopted-summary.png`、`modified-result.png`、`original-result.png`。设计与修正摘要截图已查看，新旧输出经AX核对。原生1440×960，设计1440×1080，沿用既有双栏与样式；本轮不作为整板视觉或186画板 / U01–U12完整验收。
 
 `pnpm typecheck`、单文件Prettier、`pnpm build`、`git diff --check`通过，构建保留既有大chunk提示；未新增或运行单元、集成、smoke测试。两次客户端严格串行且退出码0；第一次退出前终端有一次IMKCFRunLoopWakeUpReliable mach port警告，第二次无额外输出。无关IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，治理记录独立PR交付。
+
+
+### 2026-10-08 原生应用窗口不可读的分层引导
+
+前序 [PR #455](https://github.com/zhongmiao-org/flow-ark/pull/455) 最新头 `cb63a61c7324fb1f56e4aea073c9cac59d92e2d7` 经 [CI 37756464135](https://github.com/zhongmiao-org/flow-ark/actions/runs/37756464135) 成功自动合并为 `856fdeefbf81a90b31385e04c89a798eda66809d`。本轮本地Figma查看111 / `23:5348`，沿用连接失效原因和明确恢复操作设计；没有调用受限连接器，不声明云端同步已验证。
+
+原生从应用与工具进入本机应用助手，明确检查后取得辅助功能granted、窗口availability unavailable；展开权限记录确认为本次已授予。系统应用清单显示TextEdit正在运行，但直接通过原生界面查看它同样超时。此证据只证明当前窗口读取不可用，未诊断进程内部原因；未强制退出或改动用户文本编辑文档，已请求用户确认应用能否响应。
+
+客户端本地 `94ac746` 修正Renderer引导：连接向导在本次权限granted且窗口unavailable时显示“暂时无法读取应用窗口”，明确先确认文本编辑文档窗口响应，再重新检查；权限未知及未授予仍沿用既有原因。任务窗口列表同样补充本次权限已确认的引导，过期或正在检查时不沿用此说明。系统设置仍为可选管理入口，权限、选择、读取及执行条件不变。无新增IPC、原生能力、存储或契约。
+
+重建并重开后，真实连接向导检查再次取得相同状态，显示新原因，焦点移到检查结果。经首页“检查应用窗口”创建普通任务草稿并进入应用窗口页，实际空窗口列表显示相同权限/应用区分，右侧系统权限已就绪但各项窗口/选区能力未勾选，没有可继续选区或生成的入口。本轮未调用模型、未读取段落、未采纳桌面方案、未产生Run；应用响应恢复、目标选择、写入回读及U12仍未验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-desktop-unavailable/`：`figma-recovery.png`、`before.png`、`assistant-after.png`、`task-after.png`及构建日志。设计与最终任务页截图已查看，向导状态经AX核对。原生1440×960、设计1440×1080；本轮为094/109的真实失败状态与共同连接提示增量，不代表111已连接后失效或整板完成，186画板目标保持。
+
+`pnpm typecheck`、`pnpm build`、两文件Prettier和`git diff --check`通过；构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。两个开发实例严格串行，均退出码0；首个终端有一次IMKCFRunLoopWakeUpReliable mach port警告，第二个无额外错误。无关IDE改动保留，未停止TextEdit。客户端公开源码推送此前被自动审批以披露风险拒绝，本轮未重试；治理资料独立PR交付。
