@@ -4967,3 +4967,18 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 证据目录 `/Users/mac/.codex/visualizations/2026/10/08/flowark-adoption-summary/`：`reopened-adoption.png`、`undo.png`、`created-plan.png`及构建日志。重开后摘要截图已查看；撤销及首次采纳内容经AX读取。原生窗口1440×960，Retina截图2880×1920，设计1440×1080，不作为整板完成。原需求卡保留初始请求，采纳说明呈现后来修改；历史运行仍是固定版本，摘要不是执行成功证明。
 
 `pnpm typecheck`、`pnpm build`、六文件Prettier及 `git diff --check` 通过；构建保留既有大chunk提示。没有新增或运行单元、集成、smoke测试，没有调用AI或读取密钥。唯一实例已应用退出，终端退出码0，无IAB或并行实例；无关IDE变更保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，只有本地提交。100及186画板 / U01–U12继续未完整验收。
+
+
+### 2026-10-08 继续修改与拒绝提案的持久显示
+
+前序 [PR #447](https://github.com/zhongmiao-org/flow-ark/pull/447) 最新头 `15fac0be852a3af655108c1bcb89c4e3b0d4258c` 经 [CI 37748456396](https://github.com/zhongmiao-org/flow-ark/actions/runs/37748456396) 成功自动合并为 `f53e3a52fa21135bdced825e89bfaa8b047b4e53`。本轮本地Figma查看146 / `27:13212`，核对440/688双栏、当前版本、空修改要求、原方案保留及返回入口；仍有重连提示，不代表云端已同步。
+
+真实Electron使用既有隔离目录和已保存DeepSeek / deepseek-flash。打开“本地文本输出与非空断言”修订3，从继续修改输入“保持两个步骤、名称和引用，只把第一步固定文本改为修改提议核对”，核对发送内容后生成提案。差异显示固定文本及流程说明两处变化。点不采纳后，步骤仍为“今天核对任务界面”，但左栏在被拒绝的新要求下显示旧的“已采纳方案”说明，复现状态误导。
+
+先行 [PR #448](https://github.com/zhongmiao-org/flow-ark/pull/448) 最新头 `66b9806f326db7796928480be2d3bb86662cfffd` 经 [CI 37749603077](https://github.com/zhongmiao-org/flow-ark/actions/runs/37749603077) 成功自动合并为 `57522bf8b53724e82c2c59d918a8dcf2860089ae`，定义本机拒绝标记及可选详情字段。客户端本地提交 `77ffa03` 采用该治理基线，公共契约仍为0.16.0：拒绝时保存revision/requestId/flowHash标记，只在当前草稿匹配、无提案且状态draft时返回proposalRejected；不暴露标记到任务列表，不保存额外提案正文。方案说明优先显示本次未采纳，单步范围页复用该提示；最近采纳的撤销数据保留。修改页标题和右侧当前方案同步显示真实修订号。
+
+退出原实例、构建后顺序重开，旧拒绝没有历史标记，未推断或迁移。再次从空要求输入同一修改，真实生成完整提案后不采纳，当前修订仍为4、原两个步骤及文本不变，说明变为“本次提案未采纳，当前保留已有草稿”。最近运行仍显示此前修订3，当前修订4。应用退出并重新启动后，同一任务仍展示未采纳说明及原步骤；再进入继续修改，输入为空、发送核对按钮禁用，右侧为“当前方案·修订4”，没有套用被拒绝提案。本轮共两次显式DeepSeek请求，均得到提案后拒绝；没有创建Run或执行网页、文件、工具动作，没有读取或重新输入Key。保存/新请求/手动流程变化后的失效边界及单步拒绝未逐项原生验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-modification-reject/`：`figma-modify.png`、`proposal-diff.png`、`before-rejected.png`、`rejected.png`、`restarted-rejected.png`、`current-revision.png`及构建日志；设计、差异、重开拒绝及修改页截图已查看。原生1440×960，设计1440×1080，非整板验收，099/100/146及完整186画板 / U01–U12继续未完成。
+
+类型检查、构建、六文件Prettier与差异检查通过，构建保留既有大chunk提示；没有新增或运行单元、集成、smoke测试。三次启动严格先退出再启动，终端均退出码0，当前无开发实例或IAB；无关IDE变更保留。客户端源码公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅本地提交。
