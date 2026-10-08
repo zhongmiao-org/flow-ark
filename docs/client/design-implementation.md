@@ -5057,3 +5057,16 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 本地证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-native-learning/` 包含 `figma-guide.png`、`title-preview.png`、`completed-guide.png`、`reopened-result.png` 和output真实文件；设计、首次预览和完成引导截图已查看，重开结果经AX核对。原生1440×960，设计1440×1080；空标题/失败、跳过继续、重新学习隔离、无凭据、并发及整板视觉仍未完整验收，186画板 / U01–U12目标不变。
 
 本轮无代码变更，沿用此前检查通过的构建，未重跑类型/构建，未新增或运行单元、集成、smoke测试。无关IDE改动保留。治理文档检查后独立PR交付；客户端此前公开源码推送被自动审批以披露风险拒绝，本轮没有重试。
+
+
+### 2026-10-08 单步采纳与流程设置变化的完整摘要
+
+前序 [PR #454](https://github.com/zhongmiao-org/flow-ark/pull/454) 最新头 `34d2b157190269f5a07def4c4c01969926dbb2de` 经 [CI 37755794440](https://github.com/zhongmiao-org/flow-ark/actions/runs/37755794440) 成功自动合并为 `3e23ebd5de9a786f5cdecc9978d33a9a70328b13`。本轮本地Figma查看100 / `23:3618`，其FlowArk卡以具体采纳内容说明修改；没有重复请求受限连接器，不声明云端同步已验证。
+
+原生打开此前真实DeepSeek生成的待采纳提案：固定输出由“今天核对任务界面”改为“修改提议核对”，同时更新流程说明。采纳到修订5后发现摘要退化为“修改输出固定文本；更新方案说明”，右侧虽有具体值，左侧采纳答复丢失了它。客户端本地提交 `93522be` 修复Renderer摘要条件：只有一个步骤的配置修改时，始终复用当前步骤可读配置，即使同时存在顶层字段变化；另列已更新的方案字段。新增、删除、移动及多步骤仍采用已有范围摘要。无宿主、IPC、存储或契约变化。
+
+重建后原生重开同一任务，摘要显示第1步、输出数据“修改提议核对”、另已更新方案说明、其他步骤保持原样。当前保存修订5；旧最近运行明确来自任务修订3，与当前草稿不同。显式进入确认页核对修订5后运行 `1825ce9f-34bb-4186-b03a-0bf1ddf7035a`，两步完成、0未确认、0未执行，实际输出set-text为“修改提议核对”，assert-text.verified为true。经运行记录第2页打开原Run `a3a0d9fe-9488-4c56-ab7e-01f0813bea41`，输出仍为“今天核对任务界面”及verified true，旧结果未被采纳覆盖。本轮零模型请求、一次明确运行。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-adopted-settings/`：`figma-adopted.png`、`adopted-summary.png`、`modified-result.png`、`original-result.png`。设计与修正摘要截图已查看，新旧输出经AX核对。原生1440×960，设计1440×1080，沿用既有双栏与样式；本轮不作为整板视觉或186画板 / U01–U12完整验收。
+
+`pnpm typecheck`、单文件Prettier、`pnpm build`、`git diff --check`通过，构建保留既有大chunk提示；未新增或运行单元、集成、smoke测试。两次客户端严格串行且退出码0；第一次退出前终端有一次IMKCFRunLoopWakeUpReliable mach port警告，第二次无额外输出。无关IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，治理记录独立PR交付。
