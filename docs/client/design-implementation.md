@@ -4735,3 +4735,16 @@ CUA人工操作实际App/Main/WebContents，使用既有隔离目录 `/private/t
 证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-step-position/`：`position-1440.png`、`deleted-1040.png`、`moved-820.png`、`saved-1440.png`均已查看；`build.log`为最终构建。宽屏双卡结构保持，窄屏可纵向滚动；820仅Renderer观察。旧设计导航与新版菜单、实际数据和可操作入口差异仍保留，020仅局部推进，不能记为整板1:1通过。
 
 `pnpm typecheck`、`pnpm build`、三文件Prettier、`git diff --check`通过；仅既有大包提示。未新增或运行单元、集成、smoke测试。页签10及4366服务已关闭，视口已恢复，未启动Electron，无关IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅保留本地提交。186画板 / U01–U12仍未完成。
+
+
+### 2026-10-08 条件循环页导航与配置衔接
+
+前序 [PR #429](https://github.com/zhongmiao-org/flow-ark/pull/429) 最新头 `bcbbe354b8fafa669e78208203d5a7d52ecf8110` 经 [CI 37717757616](https://github.com/zhongmiao-org/flow-ark/actions/runs/37717757616) 成功自动合并为 `1a83eaeccd6db5e337ab38a1ada6d6dde2cdf9d4`，本轮从该 main 开始。连接器请求021 `2:1758`提示Starter额度用尽，停止重试；本地Figma现在可以读取，搜索条件与串行循环定位到同一节点，尺寸1920×1080。直接查看客户端画板确认公共面包屑、显示网页、图与配置卡布局。没有升级账户或修改设计。
+
+客户端本地提交 `665a900`：ControlWorkspace改用已有EditorWorkspaceToolbar，目录、流程与网页入口复用原有输入/未保存守卫；配置卡用实际深度优先序号和通用动作名称对齐画布，关联条件/数据入口成功切换后聚焦卡标题，校验拒绝时保留字段焦点。添加位置缺失时显示原位置已删除并禁用选择动作，取消原先界面默默回显main的行为。错误提示聚焦不覆盖已有无效字段；保存完成恢复按钮。标题700字重、正文14/22及添加字段6间距沿用共享设计。没有改变分支、循环和执行契约。
+
+唯一隐藏IAB加载实际App/Renderer，内存流程包含数据、循环、条件、人工和当前项输出。1920 DOM确认左图(104,230)1120×790、右卡(1248,230)640×790，dialog宽/scroll均1848。关联条件进入03标题并聚焦；1040比较值abc后点击流程面包屑，原字段与焦点保留，修正2后目录导航出现离开确认，继续编辑保留值。内存宿主首次保存主动报错，错误获焦并提供重试；820重试成功恢复保存按钮，内存保存1、真实执行0，dialog可用/滚动宽均733。数据入口切换到01并聚焦，流程面包屑返回原编辑器。1440重开循环页保存完整截图。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-control-navigation/`：本地Figma截图`figma-local.png`；`control-1440.png`、`save-error-1040.png`、`saved-820.png`均已查看。1920的`control-1920.png`实际截图宽1821，右侧被截图工具截断，因此不作为完整视觉验收；对应尺寸以DOM记录为准。820只是额外Renderer观察。失效添加位置分支、真实网页遮挡/显示、真实宿主持久化、调试状态入口、图布局与整板视觉仍待验收；仅记录021局部推进。
+
+最终 `pnpm typecheck`、`pnpm build`、三文件Prettier与`git diff --check`通过，构建日志`build.log`仅既有大包提示。未新增或运行单元、集成、smoke测试；页签11及4366服务已关闭，视口恢复，未启动Electron，未关闭用户Figma。无关IDE改动保留。客户端公开推送此前被自动审批以源码披露风险拒绝，本轮未重试，仅本地提交。186画板 / U01–U12仍未完成。
