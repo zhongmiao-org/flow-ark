@@ -5479,3 +5479,14 @@ Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entr
 证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-human-array/`：`fields.png`、`list-fields.png`、`build.log`；已人工查看长表单的上下两段，采用正常纵向滚动，未把单屏容纳所有字段作为目标。AX核对错误、禁用、焦点、值和真实输出。pnpm typecheck、pnpm build、三文件 Prettier、git diff --check 通过。未新增/运行单元、集成、smoke 测试。客户端正常退出码0，关闭时出现宿主已停止的晚到请求日志，不计为运行失败；结束无活动业务运行。用户 IDE 改动保留。本轮无外部网络/资料/写入动作。自然超时、所有嵌套Schema、无效声明降级界面、全尺寸及完整186画板 / U01–U12 仍待验收。
 
 [客户端 PR #51](https://github.com/zhongmiao-org/flow-ark-client/pull/51) 最终 head `a7fc11b1a583371636cd431bf35491684755904e` 的 [CI 37896152151](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37896152151) Validate / Auto Merge 均成功，实际合并提交 `2b5091c95c90c4d1c502ba4e8fb03d14719d2a4f`。同 head 并发取消的流水线不计为通过。
+
+
+### 2026-10-09 重开结果核对与恢复提醒的来源关联
+
+用户同意继续保存/重开核对。本轮在无 Electron 主进程时启动唯一原生实例，读取既有隔离数据，运行记录仍为23条。打开 `d1acfb48-c516-48cf-a6f1-bea22593b4e4` 的已保存输出，备注“字段模式人工核对”、count:0、enabled:false 和两项列表完整保留。查看本次待核对结果显示明确空态，刷新不创建运行，返回保留同一 Run 输出并将焦点还给入口。客户端正常退出码0；未修改凭据、模板实例、计划或运行数据，也未再次执行入口。
+
+对照已有 Figma `2:9260` 对应结果页实现，发现 Store 启动恢复将 submitting 模板操作置为 unknown 后，提醒 detail 只有 effectId，而结果页按 runId/runIds 关联。客户端 `0023afd356cd60dc3e057df64a3d46e0f43e79f0` 从同一已落盘操作补入 runId，不改变状态、去重键、事务、不重放规则和 UI 布局，不回填历史提醒。沿用已有提醒详情中的 runId 字段，无新增 IPC、公共契约版本或数据库格式。
+
+pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，构建保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。原生核对使用修改前已构建客户端，新恢复分支本轮仅静态核对与构建检查，没有制造崩溃或提交中的操作，因此不宣称异常重启验收通过。普通运行结束和显式 resolve unknown 的提醒覆盖仍需后续核对。证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-human-array/reopened-output.png`、`recovery-build.log`；结构化值、运行编号、条数与焦点由原生 AX 核对。用户 IDE 改动保留。186画板 / U01–U12 尚未完成。
+
+[客户端 PR #52](https://github.com/zhongmiao-org/flow-ark-client/pull/52) 最终 head `0023afd356cd60dc3e057df64a3d46e0f43e79f0` 的 [CI 37897001351](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37897001351) Validate / Auto Merge 均成功，实际合并提交 `bedb269ae17d7304674c90a2d5c9c37ea55e08f1`；同 head 并发取消流水线不计为通过。
