@@ -5407,3 +5407,12 @@ Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entr
 证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-grant-save/`：`figma-confirm.png`、`figma-auto.png`、`saved-focus-final.png`、`build-final.log`；最终截图已查看，焦点、模式、未保存状态通过原生 AX 核对。pnpm typecheck、pnpm build、两文件 Prettier、git diff --check 通过，保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。四次客户端严格串行，均退出码 0，结束无本轮主进程；一次退出有 macOS IMKCFRunLoopWakeUpReliable 日志，不列为全程无日志错误。用户操作期间停止点击并经明确回复继续核对，无关 IDE 文件保留。实际 1440×960；紧凑尺寸、慢响应时主动焦点切换、真实授权执行与完整 186 画板 / U01–U12 尚未验收。
 
 [客户端 PR #47](https://github.com/zhongmiao-org/flow-ark-client/pull/47) 最终 head `ecb8a7f273fb23998f0c957c627ab7656e7df962` 经 [CI 37891167713](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37891167713) Validate / Auto Merge 成功，实际合并为 `bea3331eda6b3a3057bf9c6904382bfeea59d1bb`；同 head 并发取消的另一流水线不计为通过。
+
+
+### 2026-10-09 真实文件结果与继续修改往返
+
+本地 Figma 查看 `23:4127` 可读结果的摘要、文件卡、继续完善与返回入口。客户端保持已合并版本 `bea3331eda6b3a3057bf9c6904382bfeea59d1bb`，本轮未发现需要修改的代码，仅补原生交互证据。
+
+隔离数据中的“新建文本文件保存固定两行文本”任务，当前草稿修订 5，最近运行 `ab9fd92c-761b-4c1c-9e24-cd2b00afeeec` 于 2026-10-08 17:03:15 已完成。打开结果显示 2 次步骤已确认完成、1 个 66 字节文件副本已核对、创建文件 1 次、未确认与尚未执行均为 0。点击“告诉 AI 怎么改”进入同任务修订 5，输入框获得焦点，两个原步骤及输出目录保留。输入本轮虚构临时要求后返回当前方案，焦点到“继续描述修改”；再次打开最近同一 Run 的结果，再进入修改，临时要求仍保留。展开“核对修改要求”后焦点到发送前确认区域，DeepSeek 确认框未勾选且发送按钮禁用。
+
+全程未发送模型请求、未保存或采纳新方案、未创建新 Run、未写入新产物。结束前清空本轮临时要求，核对按钮恢复禁用、发送核对收起；唯一原生实例正常退出，退出码 0，随后无 Electron 主进程。用户 IDE 改动保留，客户端和模板代码未改。证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-result-modification/`：`figma-readable-result.png`、`modification-review.png`，截图已查看，焦点和 Run 标识经原生 AX 核对。窗口 1440×960，未新增或运行单元、集成、smoke 测试；文档执行治理检查与差异空白检查。本轮不重复声明真实 AI 修改生成或新运行通过；紧凑尺寸、当前草稿与历史运行修订不同时的往返及全状态仍待核对，186 画板 / U01–U12 未完成。
