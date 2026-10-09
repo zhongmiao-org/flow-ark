@@ -6679,3 +6679,21 @@ DesktopAssistantConnection 的来源、三项能力、两处外层面板与两�
 pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过，最终CSS清理后重建成功，日志 `/tmp/flowark-assistant-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、原生应用或系统设置、访问凭据、读写选区、创建Run或打包安装。页签91关闭、视口复位、4242 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实权限/窗口/观察失效、选区操作/保存与完整186体验仍待验收。
 
 [客户端 PR #119](https://github.com/zhongmiao-org/flow-ark-client/pull/119) 最终 head `c1115ad7f73e1c19fe4d023c4be6c401b49e0911` 的 [CI 38001208822](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38001208822) Validate41秒 / Auto Merge9秒成功，实际合并提交 `9f70e61b00836dbd2a144c6d93d95ff4130aa14b`。同head较早 `38001208257` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 本机与模板计划卡片
+
+查看保存的 `flowark-design-v2/screens/08-本机计划.png`（008 `1:3673`）、`34-创建计划.png`（034 `2:3431`）及 `44-计划状态与冲突.png`（044 `2:4526`），沿用计划编辑规范。未取得最新在线Figma上下文，不增加186整板通过数。
+
+ScheduleWorkbench 列表/计划项、编辑表单/未选提示、记录摘要/活动运行/单条记录，以及 TemplateSchedulePage 列表/计划项/创建表单共十处声明直接用Card；无本机计划、无入口计划、无错过/跳过记录改用Empty。保留 section/article/form语义、选中标识、672/456双栏与676px最低高度、窄屏单列、固定版本和当前保存版本区分、所有状态/按钮/输入/离开保护/记录分页。普通body集中主题24px，小计划/摘要body12px，计划项原20px改为12px，记录摘要原16×20px改为12px，不宣称原板整体验收通过。清理重复边框/圆角/内边距和旧卡片选择器；首次宽图发现style.css旧schedule-edit规则带入22px上留白，删除唯一消费者的该旧规则后左右卡片顶端相同、form padding0。未新增基础包装组件、改IPC/启停/调度/版本采用/保存或运行契约。
+
+唯一隐藏IAB页签92载入实际两页及ScheduleLeaveDialog，计划、来源实例、保存/启停/记录/运行读取均为虚构响应。编辑虚构计划0保持原固定版本日期和未采用新版本；60改90后取消弹出三选保护，继续编辑保留90并聚焦间隔。第一次虚构保存失败保留输入、错误获焦；打开记录读取2条，再分页追加失败记录为3条，展示missed/occupied/failed，虚构活动运行读取失败显示独立错误。返回同一编辑保留90与原保存错误、焦点回查看错过/占用按钮。解除虚构保存失败后明确保存成功显示90，返回反馈聚焦原编辑入口；明确暂停显示暂无下次执行，反馈标题获焦，返回聚焦启用按钮。
+
+虚构记录等待时刷新禁用、返回可用；返回后完成迟到响应不重开弹窗。虚构空记录显示Empty；清空夹具计划后无本机计划Empty与默认创建表单同时显示，来源未选时确认/创建不可用。切换模板页后来源核对通过，入口空态与创建表单；填写120后管理本机计划显示原目的地离开保护，未确认时保存并离开禁用，继续编辑保留120。明确确认固定内容后创建等待，表单、创建、取消和返回均禁用；完成虚构响应后显示已创建、固定版本、首次间隔后执行的说明。明确暂停新虚构计划显示暂停反馈，返回恢复启用计划焦点；编辑只触发带fixture-created-3的虚构manage回调，未验证真实页面跳转。结束计数5次记录/编辑读取、3次保存（含1失败）、2次启停、1次活动运行失败、1次来源核对，不计真实持久化/分钟计时或实际Run。未核对新版本采用、并发来源变化、读取失败保留旧记录、全局创建成功、真实运行详情往返及完整导航。
+
+宽实际1443、文档1443，外卡807.60/548.01px，本机编辑双卡676px高，计划项758.11×172px；模板成功表单内容自然高732.23px。记录弹窗1040px、client/scroll1040/1040，摘要984.00×138.97px、活动卡984.00×170.98px，双列记录480px且220px最低，长恢复记录自然高226.97px。窄实际782、文档782，普通外卡717.96px、无计划左卡237.47px/创建520.20px，记录弹窗749.95px、client/scroll750/750，记录单列693.96px；模板计划项668.47×222.96px。圆角12px，普通body24px/小body12px，无横向溢出。
+
+已查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-schedules/` 的edit-wide.png、edit-wide-final.png、history-wide.png、history-narrow.png、history-empty-narrow.png、empty-narrow.png、template-created-narrow.png及template-wide-final.png。首张编辑图为22px留白修复前；宽图右/下裁切，记录宽图已滚动且标题局部裁切，窄图为局部视口，模板创建窄图不完整显示结果表单。夹具工具条、虚构导航/计数不属产品内容，没有实际侧栏/原生1440尺寸整板证据。一次对无tabIndex的模板h1执行工具press超时，观察后改在可聚焦返回按钮按Control+Home滚到顶部，不记为产品键盘功能失败或通过证据。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、五文件Prettier --check和git diff --check通过，日志 `/tmp/flowark-schedule-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、访问凭据、真实计时触发/创建Run、系统设置、网页或文件操作、打包安装。页签92关闭、视口复位、4243 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实调度/启停/持久化、原生布局、最新设计与完整186体验仍待验收。
+
+[客户端 PR #120](https://github.com/zhongmiao-org/flow-ark-client/pull/120) 最终 head `dd2ea2e81966efda334952b60bd627d9d080253a` 的 [CI 38001977833](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38001977833) Validate43秒 / Auto Merge8秒成功，实际合并提交 `605a8114cb8d40157446b86cc1e801dc31a72e6a`。同head较早 `38001977197` 取消，不计为通过。
