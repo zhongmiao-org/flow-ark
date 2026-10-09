@@ -6187,3 +6187,17 @@ pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，�
 本轮确认 Mac 仍锁屏，没有新 Figma MCP 上下文请求，不增加 186 画板 / U01–U12 完整验收数量。真实选择器、目录持久化/同名策略执行、模型配置往返及完整原生视觉仍待独立核对。pnpm typecheck、pnpm build、五文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-task-understanding-antd-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装；临时 HTML/TSX 删除，唯一隐藏 IAB tab 59 关闭，viewport reset，Vite session 79330 Ctrl-C exit 130 停止，IDE 文件未提交。
 
 客户端 [PR #87](https://github.com/zhongmiao-org/flow-ark-client/pull/87) 最新 head `00f91c00a6a20cedb9b6dce786d9d13f93ce142b` 的 CI run `37964084939` Validate（43 秒）与 Auto Merge（9 秒）成功，实际合并为 `2736ad25c5fd114357f7cd3cc946cf4753d2ec89`。并发替代 run `37964083723` 为 CANCELLED，不计为通过；CI 仅运行类型检查与构建，合并不代表真实输出操作或完整画板验收。
+
+### 2026-10-10 Ant Design 描述与文本资料编辑迁移
+
+沿用描述与附件 `23:2280`、U02 的既有布局与业务说明。TaskBriefPage 每项文本资料及格式说明直接使用 Collapse，上限提醒与不执行说明使用 Alert，草稿保存状态使用 Tag；删除原 summary 边框、光标、颜色及折叠间距样式，不新增基础包装组件。保留字符数、未命名提示、收起时前 120 字符摘要、资料身份和独立展开状态。forceRender 保持原内容挂载，库折叠标题经原焦点表返回；添加名称选择、删除邻近项/空列表焦点、busy 和数量限制仍沿用原逻辑，不改 IPC、宿主、权限或附件副本规则。
+
+人工预览实际 TaskBriefPage、TaskAttachmentFeedback 与集中主题/产品 CSS，全部资料及附件元数据虚构，选择/重试/保存只修改夹具状态，不访问宿主、系统选择器、文件、网络、模型或 Run。Space/Enter 展开编辑与格式说明，添加第四项后名称获焦且 selectionStart/end=0/4；更名和文本换行/末尾空格保留，收起再展开仍显示原内容。单独复核移除第四项后第三项标题获焦，移除首项后邻项获焦，最后一项移除后回添加按钮；一次动画期间的快速移除观察未生效，等待状态后独立重试确认，不计首次观察为通过。
+
+忙碌时描述、附件/对象/图片、资料名称/内容/移除、添加、保存与理解入口禁用，查看折叠仍可用。20 项资料 Alert 与文件/图片/文本添加禁用；四张虚构图片只禁图片，文本仍可添加，移除一张恢复图片按钮。既有附件失败反馈获焦，重试进入等待，取消后保留三项资料与原展开；这些回调不证明真实附件读取。编辑显示待保存 Tag，虚构保存切已保存，不证明持久化。最终浏览器控制台无 error/warn。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-task-brief/，已查看 edit-wide-final、edit-narrow、format-narrow。请求 viewport 1480×1100 时网格 clientWidth/scrollWidth 均 1065；1040×1100 时均 734。实际浏览器 CSS 宽受工具缩放影响，宽请求时 innerWidth 为 1112；宽初次 fullPage 截图裁掉右侧，改用正常截图取得最终双栏证据。长资料名称换行，格式和保存入口在窄布局可见；夹具没有完整 App 外壳，不代表原生三尺寸或完整画板几何 1:1。
+
+本轮 Mac 仍锁屏，没有新 Figma 上下文请求，不增加完整 186 画板 / U01–U12 验收数量。真实系统选择、任务往返保存及全页视觉仍待核对。pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-task-brief-antd-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 60 关闭、viewport reset，Vite session 3959 Ctrl-C exit 130 停止；IDE 文件未提交。
+
+客户端 [PR #88](https://github.com/zhongmiao-org/flow-ark-client/pull/88) 最新 head `0357acda042d85cca4b75808d32436173497661d` 的 CI run `37965227717` Validate（42 秒）与 Auto Merge（8 秒）成功，实际合并为 `467e2274ceb4a905315b61d59677c98073459c5a`。并发替代 run `37965227195` 为 CANCELLED，不计为通过；CI 类型检查与构建不替代真实附件、保存或完整画板验收。
