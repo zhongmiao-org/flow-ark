@@ -6000,3 +6000,20 @@ OAuth 四站点样本包括可选公开客户端、不支持公开客户端、�
 最终 pnpm typecheck、pnpm build、八个变更文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留。未新增/运行单元、集成、smoke 测试，未启动 Electron、实际 Run、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 49 关闭，viewport reset，Vite session 72350 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
 
 客户端 [PR #77](https://github.com/zhongmiao-org/flow-ark-client/pull/77) 最新 head `95a4f1852ab9ed01ac9efc6899948e72f4c900c5` 的 CI run `37948593083` Validate（42 秒）与 Auto Merge（9 秒）成功，实际合并为 `660a71927f0a26db4ce66439e414075da5eb018b`。并发替代的 run `37948592581` 为 CANCELLED，不记为通过；CI 合并不代表真实主窗口、供应商或完整画板验收。
+
+
+### 2026-10-09 Ant Design 主任务工作台折叠与方案来源迁移
+
+延续理解补问、确认方案和采纳方案已有映射 `23:2766`、`23:2928`、`23:3618` 及 U04–U06，按用户直接使用 Ant Design 的要求，AITaskWorkspace 的六处原生 details（AI 服务、发送内容、单步方案说明/来源、原任务描述、资源声明与生成差异）改为 Collapse；单步提案修订/步骤/基线/提供者/模型用 Descriptions。全部 forceRender 保持原内容挂载，使用已有 Space 激活函数，删除旧折叠边框/标题样式及失效选择器，主题继续由 ApplicationTheme 管理。没有新增基础包装组件或新的设计状态，原规划、采纳、发送范围、任务版本、IPC、宿主与授权逻辑不变。
+
+人工查看采用实际 AITaskWorkspace、子组件、ApplicationTheme 与产品 CSS；临时宿主只提供虚构任务、取消及附件预览，其他方法拒绝。AI 服务和发送范围支持 Enter/Space；核对后修改模型或补问答案会清除确认，改选 OpenAI 后未配置提示与生成禁用保留。附件显示完整虚构文本，关闭后返回原预览按钮焦点。完整资源声明展开可查看资源/能力与实际 PlanningChanges；单步说明、提案元数据、原任务描述和所选范围发送说明保留，未采纳或生成。生成等待时仍只有原取消入口；虚构取消后返回理解页面，需求、所选资料、附件和旧回答保留，可展开发送内容，不能据此证明真实供应商取消或持久化。
+
+夹具最初遗漏 result.limitations，导致方案页面读取 length 报错；补齐空列表并重新打开后完成上述核对，未将夹具错误记为产品缺陷。附件夹具补齐文件名后重新查看和核对焦点。控制台最后两条错误/警示均为修正前 15:09:45 UTC 的夹具错误，修正后未出现新增错误。没有访问真实模型、文件、浏览器任务或 Run。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/09/flowark-antd-task-workspace/，含 sending-content、plan-resource-differences、scoped-proposal-source、最终 proposal-source-narrow/wide 截图。窄 viewport 请求 1040×1100，实际 Renderer/documentElement scrollWidth 均 782，元数据内容格宽/scrollWidth 均 473；宽请求 1480×1100，文档宽/scrollWidth 均 1112。截图为组件滚动片段，不能代表原生三尺寸或完整页面几何 1:1。
+
+本轮原生入口仍因 Mac 锁屏且无法自动解锁不可读；此前 Figma MCP Starter 限额本轮未再次请求，不声称获得新上下文，不增加 186 画板/U01–U12 完整验收数。全页设计比对、真实生成/采纳/保存、供应商失败与任务完整往返仍需独立验收。
+
+最终 pnpm typecheck、pnpm build、四个变更文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留。未新增/运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删除，唯一隐藏 IAB tab 50 已关闭，viewport reset，Vite session 46471 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
+
+客户端 [PR #78](https://github.com/zhongmiao-org/flow-ark-client/pull/78) 最新 head `af012353e7ec746c95b7b8cb555b2da3c60186c8` 的 CI run `37950548124` Validate（37 秒）与 Auto Merge（9 秒）成功，实际合并为 `a3a514fc101ba7b50921651f992d2cfc42b82308`。并发替代 run `37950547550` 为 CANCELLED，不记为通过；CI 合并不代表真实任务或完整画板验收。
