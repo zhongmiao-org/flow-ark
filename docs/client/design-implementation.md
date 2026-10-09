@@ -5754,3 +5754,23 @@ AI 设置的分类属于跨页面导航，直接使用 Ant Design Menu，并沿�
 `pnpm typecheck`、`pnpm build`、四个变更文件的 Prettier 检查、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、生成安装包或执行实际 Run。只开一个临时预览页签，临时源码已删除、4366 服务/页签关闭、视口恢复，IDE 无关改动未提交。本轮未取得新的 Figma 上下文，迁移依据既有产品布局与用户 Ant Design 指令，不增加 186 画板 / U01–U12 完整验收数量。
 
 [客户端 PR #65](https://github.com/zhongmiao-org/flow-ark-client/pull/65) 最终 head `c08e4703f156dcb34328e46c478d6632ee5fee43` 的 [CI 37927666651](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37927666651) Validate / Auto Merge 成功，实际合并提交 `2bb254c817b4fb51a3c6c44e5beb0ca946fb71d7`；同 head 并发取消的流水线不计为通过。本地 main 已同步该合并提交。
+
+### 2026-10-09 Ant Design 执行步骤筛选与状态迁移
+
+TaskExecutionSteps 的普通/紧凑清单、RunDetail 时间线和 DebugRunWorkspace 步骤侧栏直接使用 Ant Design Tag / Badge，复用统一主题中的运行状态颜色建立步骤 tone 映射；删除旧 run-status / run-tone-* 状态点、配色、圆角和内边距样式。保持模型提供的完成、当前、未确认和未执行含义，调试“下一步”仍明确显示“下一步 · 未执行”并使用中性标签，不将尚未执行的步骤表示为运行中。
+
+步骤状态筛选直接使用 Segmented，维持全部/已完成/已开始未完成/尚未执行计数、搜索组合及清单原序号；继续保留展开的记录身份、清除/定位焦点和原有滚动更新。给控件组设置 tabIndex=-1，使 Tab 从搜索直接进入选中的单选项，避免先停在不处理方向键的组容器；原生 radio 和库事件负责方向键切换。旧 style.css / design-system.css 中错误的 ant-segmented-input 排除类名修正为实际 ant-segmented-item-input，新增筛选不再受普通字段宽度/焦点规则影响；清理旧筛选按钮外观，只保留布局和必要横向滚动。
+
+使用实际组件和 ApplicationTheme、明确标注“不连接真实宿主”的虚构事件人工核对，未调用真实 API 或执行 Run：
+
+- 虚构清单 10 条，已完成 2 次、已开始未确认 2 次、未执行 6 个。点击未完成筛选留下原序号 02/04；同一步骤的 batch[0]/item 和 batch[1]/item 保持独立。展开 04 显示该次开始事件。
+- 搜索框 Tab 直接进入当前 Segmented 单选项，方向键从全部切到已完成；结合 batch[0]/item 搜索只显示原序号 03，展开显示此循环的开始/完成记录。
+- “定位当前步骤”清除搜索和筛选并聚焦原序号 04 的列表项；无匹配搜索显示 0/10 与空结果说明，“清除步骤筛选”恢复全部并聚焦搜索框。
+- 紧凑清单保留已完成绿色、运行中蓝色和循环位置，展开的记录身份保留。虚构 PAUSED 状态及随后 debug-pause 事件使调试侧栏显示中性的“下一步 · 未执行”；此前缺少 PAUSED 状态事件的虚构数据按现有规则显示位置未知，补齐预览事件后核对了明确下一步，没有修改业务判断。
+- 普通运行详情保留固定快照版本、当前步骤和完成/未执行区分。切到虚构 FAILED 后显示“未完成 · 待核对”，未访问分支仍为尚未执行。预览一度因缺少必需 versionId 无法渲染，补齐虚构 Run 字段后查看通过，不修改真实 Run 契约或对缺字段静默兼容。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-execution-step-controls/` 保存 `compact-step-tags.png`、`debug-paused-next-step.png`、`run-detail-unresolved.png`、`execution-step-segmented.png` 与最终 typecheck/build 日志；截图已查看。紧凑截图为定位后的滚动片段；宽截图右侧截断，不作为整窗 1:1 证据。默认实际约 962×541、宽请求 1920×1280 后实际约 1443×962 的组件布局已查看；额外请求 1040×700 后实际 782×526，筛选 client/scrollWidth 均 668px、main 均 782px，没有横向溢出，但这不是原生最小窗口验收。
+
+最终 `pnpm typecheck`、`pnpm build`、8 个变更文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或验证真实 Run。临时源码删除、唯一预览页签/4366 服务关闭、视口恢复；IDE 无关改动未提交。Figma 运行详情 1:3539 上下文仍返回 Starter 额度限制，whoami 确认 liuwufangzhou@gmail.com / Ark 65 / Starter View。本轮只迁移既有布局的库控件，不增加 186 画板 / U01–U12 完整验收数量。
+
+[客户端 PR #66](https://github.com/zhongmiao-org/flow-ark-client/pull/66) 最终 head `3a61e0e98dc231c18b3354e99201ca5763c08d23` 的 [CI 37929161794](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37929161794) Validate / Auto Merge 成功，实际合并提交 `2658253bd4b3cfa7c5747c65890e2885d76a9ea7`；同 head 并发取消的流水线不计为通过。本地 main 已同步该合并提交。
