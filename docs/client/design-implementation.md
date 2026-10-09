@@ -6293,3 +6293,19 @@ pnpm typecheck、pnpm build、三个文件 Prettier 与 git diff --check 通过�
 pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-ai-settings-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 66 关闭、viewport reset、Vite session 84910 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏；真实配置持久化/API/来源往返与原生完整视觉待核对，不增加 186 画板 / U01–U12 完整验收数。
 
 客户端 [PR #94](https://github.com/zhongmiao-org/flow-ark-client/pull/94) 已由 CI 自动合并：head c0313afd1ba92721ffcb04ed9569f624a3358743，run 37973176611 的 Validate（46 秒）与 Auto Merge（10 秒）成功，合并提交 01b88b410e0e2ca20e42e62575dd1e37ad359f93。旧同 head run 37973176363 为 CANCELLED，不计为通过。
+
+### 2026-10-10 Ant Design 本地浏览器设置详情迁移
+
+沿用本地设置 1:3896 与本机浏览器绑定 2:3333，没有请求新 Figma 上下文。LocalSettingsPage 的网页会话详情、浏览器与驱动说明直接使用小尺寸 Collapse，forceRender 保留正文挂载，使用已有 Space 处理并由库处理 Enter；网页布局字段使用纵向 Descriptions。只读执行方式用填充 Input，驱动选择用 default color / filled / small Button，删除重复字段表、折叠及输入/按钮外观 CSS，保留业务卡片、网格、间距、长路径省略与完整 title；没有新增基础包装库。
+
+没有改会话轮询、显示优先级（读取错误 → 回收受阻 → URL → 未创建说明）、发现/选择/绑定/列表刷新、驱动清除、返回保护及焦点，也没有改 IPC、宿主或权限。Firefox 无驱动仍提示任务受阻，有驱动回执仍明确安装信息通过不代表网页兼容验收。
+
+唯一隐藏 IAB tab 67 加载实际 LocalSettingsPage 与集中主题/产品样式，所有会话地址、安装、版本、驱动及保存均虚构，API 和刷新为假回调，不连接宿主或外部服务、不创建浏览器进程。人工确认两组 Collapse 的 Space/Enter、刷新与普通渲染保留折叠、长 URL 换行不溢出、回收受阻及读取失败替换旧地址、空会话说明。绑定后模拟列表刷新失败保留已保存回执、警告获焦；取消选择保留路径/回执，重新读取恢复列表，选择驱动清除旧回执、清除驱动恢复待保存，有驱动假保存显示安装信息回执；返回聚焦本机浏览器管理入口。没有真实绑定或保存文件。
+
+最初 typecheck 发现 Collapse 根属性不支持 onKeyDown，移到 item 后修复；最初驱动 variant 未配 color，观察 DOM 确认仍为 outlined，改为 default color 后确认 filled。输入和安装位置采用集中 controlHeight，不额外覆盖高度。修改 CSS 触发预览重载，重新观察后核对最终控件与有驱动保存。一次空会话刷新后的即时快照仍为旧地址，随后观察已显示未创建说明，不把即时旧地址记为通过。早期几何读数在样式更新瞬间不稳定，最终 computed height 为安装按钮约 40px、驱动按钮约 30px。
+
+截图目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-browser-settings/，已查看 binding-refresh-error-narrow、binding-final-narrow、overview-final-wide。宽请求 1480×1100 时总览 clientWidth/scrollWidth 均 1001、详情均 309；窄请求 1040×1100 时总览均 670 单列、绑定卡片均 668。长路径以省略显示，scrollWidth 大于控件宽度是保留的内部截断，不是卡片溢出。最终宽图上方标题在视口外且捕获收起动画、正文尚可见；不单独用它证明折叠完成。最终窄图完整展示绑定说明，夹具及工具缩放不代表完整 App 外壳/原生三尺寸/Figma 1:1。
+
+控制台无 warn/error。pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示（/tmp/flowark-browser-settings-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 tab 67 关闭、viewport reset、Vite session 43759 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏，真实宿主持久化、会话与原生完整验收待核对，不增加 186 画板 / U01–U12 完整验收数。
+
+客户端 [PR #95](https://github.com/zhongmiao-org/flow-ark-client/pull/95) 已由 CI 自动合并：head f8500b352519c437515830c7f6176cbd45b4b19f，run 37974352936 的 Validate（48 秒）与 Auto Merge（10 秒）成功，合并提交 5aa37c246b280b35934801bf7e3f6a3f0369c06f。旧同 head run 37974351978 为 CANCELLED，不计为通过。
