@@ -6573,3 +6573,17 @@ TaskWebTargetPage 的双栏、当前网页、其他网页与对象摘要五处�
 pnpm typecheck、pnpm build、两文件Prettier和git diff --check通过，构建日志 `/tmp/flowark-task-target-antd-build.log` 保留大chunk提示，最终console warn/error为空。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、读取凭据、打包安装或执行流程。页签84关闭、视口复位、4235 Vite回收、临时HTML/TSX删除，IDE改动保留且不在提交中。最新云端设计、真实网页/选择器/保存、系统窗口、工具定义和完整186体验仍待验收。
 
 [客户端 PR #112](https://github.com/zhongmiao-org/flow-ark-client/pull/112) 最终 head `13bb3e8c14051f8d6de95f6cde8f99397af5188f` 的 [CI 37995645926](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37995645926) 成功，实际合并提交 `7482fcd377c292705f442224bc420fb732e3c25c`。同head较早 `37995645110` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 规划反馈与 AI 草稿卡片
+
+查看既有 `FlowArk-AI-task-design.zip` 中 taskgenerating（`23:10659`）、taskgenerateerror（`23:10802`）、taskunsupported（`23:10940`）与 taskmissingai 四张原设计导出，提取副本在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-generation/design-*.png`。本轮未获得最新在线Figma上下文，不增加186整板通过数。
+
+TaskGenerationPage 外层、当前需求和重试核对区，以及 TaskMissingAI 外层和当前草稿，五处直接采用 Card，移除对应手写边框、圆角与内边距。保留 section/article 语义、生成/失败/能力不足状态高度、请求失败/保留草稿 Alert、重试核对焦点、取消按钮焦点、已有 Collapse/Descriptions/Tag、资料显示及原回调。重试区保留可聚焦外层，Card 负责外观。未新增基础包装组件，未修改IPC、模型请求、保存或执行契约。
+
+唯一隐藏IAB页签85载入实际两组件，父层状态、需求、资料、请求记录与动作回调均虚构。重试展开 reset=1且焦点位于核对区；等待期间所有动作禁用，核对输入保留，取消 reset=2并回重试按钮；再展开仍保留输入，Space展开请求记录。生成中取消仅触发虚构callback；能力不足可Space展开两项限制、工具/修改入口仅回调。未配置页Space展开两项资料，busy进入/退出仍保留展开与需求；配置/手动按钮只触发虚构callback，configured切换显示已配置但仍提示使用前核对，不证明真实配置或返回任务。夹具首次错误引用未安装字体路径，修正为工程现有fontsource-variable后正常；最终console warn/error为空。
+
+宽实际1443、文档1443，生成外卡1379.62px、核对卡1330.12px；窄实际782、文档782，生成/未配置外卡717.96px、需求/草稿卡668.47px，各client/scroll相等，计算圆角均12px。已查看该目录 failed-wide.png、missing-narrow.png、unsupported-narrow-final.png、generating-narrow.png；宽图滚动到核对区且右/下裁切，窄图不含实际App导航。早期 unsupported-narrow.png 捕获视口切换缩放过渡，不作稳定布局证据；最终图在后续状态操作后保存。预览控制与虚构需求编辑不属于产品内容。
+
+pnpm typecheck、pnpm build、四文件Prettier与git diff --check通过，构建日志 `/tmp/flowark-generation-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、读取凭据、打包安装、调用模型或运行流程。页签85关闭、视口复位、4236 Vite回收、临时HTML/TSX删除；IDE改动未提交。真实规划/保存、原任务返回、最新云端设计、原生客户端及完整186体验仍待验收。
+
+[客户端 PR #113](https://github.com/zhongmiao-org/flow-ark-client/pull/113) 最终 head `ba1f32419ba7302aa20ba1ccac8c2cff73402e91` 的 [CI 37996232688](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37996232688) 成功，实际合并提交 `95c7c907ae7ff19d13f96c6cc1ac80f21a7ed22e`。同head较早 `37996232051` 取消，不计为通过。
