@@ -6441,3 +6441,17 @@ LogicConfigurationWorkspace 的只读字段和 LogicNodeConfiguration 的条件/
 六文件 pnpm typecheck、pnpm build、Prettier及git diff --check通过，构建日志 `/tmp/flowark-logic-controls-antd-build.log`，仅既有chunk大小提示。夹具存在时一次类型检查因虚构Flow缺description失败，删除临时夹具后对最终工程重新检查通过，不计初次为通过；一次只读DOM检查因工具不提供HTMLInputElement构造器失败，实际AX已显示90毫秒获焦，不以失败读取支持结论。未新增或运行单元、集成/smoke测试，未启动Electron或第二客户端、打包安装、读取凭据或执行真实节点。页签75关闭、视口恢复、Vite39136回收、临时HTML/TSX删除，IDE文件保留未提交。原生保存/运行、最新云端稿和186画板 / U01–U12完整验收仍待完成，本轮不增加完整画板通过数。
 
 [客户端 PR #103](https://github.com/zhongmiao-org/flow-ark-client/pull/103) 最终head `f0d1774d2f6bc107f289e2f80de1e78ca2af653c` 的 [CI 37984486968](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37984486968) Validate43秒 / Auto Merge8秒成功，实际合并提交 `c02a6497b120aba473d5538f41c523d980f68daf`。同head较早 `37984485651` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 条件循环与共享变量按钮
+
+查看已保存021 `2:1758` 导出 `/Users/mac/.codex/visualizations/2026/09/21/01a0c1fc-76eb-7172-8512-4e4a56416ec0/flowark-design-v2/screens/21-条件与串行循环.png`，沿用流程图与配置卡布局。没有取得新的在线 Figma 上下文。本轮按用户要求直接使用 Ant Design 的外观和主题，不新增基础控件包装。
+
+ControlWorkspace 保存错误直接使用 Alert，保留原可聚焦反馈容器；保存按钮显示 loading，ConfigProvider 始终传入布尔 busy，避免忙碌状态改变子树结构而丢失未完成输入。循环固定值入口使用数组默认值，并沿用已有数组 / 最多1000项限制；变量引用仍交由原作用域和宿主校验。删除工作区输入框、按钮和错误面板的重复外观规则。ValueField 的紧凑来源按钮直接使用 filled，普通选择/恢复按钮使用 primary outlined small；共用换行和标签布局，删除资源、浏览器动作、脚本及 Excel 页重复的按钮颜色/边框/高度设置。保留业务复合配置、React Flow、节点身份、导航与执行接口。
+
+唯一隐藏 IAB 页签76载入实际 App、ControlWorkspace、ValueField，注入虚构五步骤内存记录与有限 IPC。长参数名能换行，取消变量选择返回来源按钮；配置数据入口切换实际步骤。数据值输入0007在慢保存、模拟失败、显式重试成功期间均保留原文，失败聚焦反馈，成功聚焦保存；无效abc由原守卫阻止保存并聚焦字段，恢复已应用值后继续。循环明确改为固定值[]，对象和1001项数组分别显示校验错误且不发保存；修正[甲,乙]后摘要显示列表2项。循环内条件选择器提供item/index，Escape只关闭选择器并返回入口。第三次显式保存成功后返回编排、重开工作区，循环仍读回两项数组；最终虚构保存3次（首个失败）、运行0次、未提供接口0次，控制台无error/warn。该重开仅为内存草稿，不是真实宿主持久化验收；返回编排后焦点为文档，不计入口焦点返回通过。
+
+实际宽1443：工作区网格client/scroll1308/1308，两列约817/467；长来源按钮416/416、约41px高。实际窄782稳定后：文档782/782，网格646/646单列、配置卡644/644，没有观察到页面横向溢出。普通按钮最终计算高度约30px；前次瞬时读取的20/21不能作为最终尺寸证据。截图目录 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-control-fields/` 的 control-wide.png、condition-narrow.png、loop-final-narrow.png均已查看；宽图右侧、窄图上下被截取，夹具计数/释放按钮为核对工具，不是产品UI。本轮不作为整板1:1证据，其他共享按钮消费页未逐页重新查看。
+
+最终pnpm typecheck、pnpm build、九文件Prettier及git diff --check通过，构建日志 `/tmp/flowark-control-fields-antd-build.log` 保留既有chunk大小提示。未新增或运行单元、集成/smoke测试，未启动Electron或第二客户端、打包安装、调用模型、执行真实节点或读取凭据。页签76关闭、视口复位、4227 Vite回收、临时HTML/TSX删除，原有IDE文件保留未提交。原生保存运行、真实持久化、最新云端全尺寸设计和186画板 / U01–U12完整验收仍待完成，本轮不增加完整画板通过数。
+
+[客户端 PR #104](https://github.com/zhongmiao-org/flow-ark-client/pull/104) 最终head `cd7ebf1c9103b4612604ad3309c13f2d1c304716` 的 [CI 37985879721](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37985879721) Validate43秒 / Auto Merge7秒成功，实际合并提交 `19923911df8d2b71be9c6d247dd4d5f4d472973b`。同head较早 `37985878870` 取消，不计为通过。
