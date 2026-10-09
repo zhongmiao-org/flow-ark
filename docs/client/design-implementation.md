@@ -5297,3 +5297,16 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 pnpm typecheck、pnpm build、三文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示。未新增或运行单元、集成、smoke 测试。正常退出码 0，结束无本轮主进程；保留无关 IDE 文件。
 
 [客户端 PR #39](https://github.com/zhongmiao-org/flow-ark-client/pull/39) 最终 head `57779cb37b5ec6f8c27473225660446e081e04b0` 经 [CI 37878707062](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37878707062) Validate 与 Auto Merge 成功，实际合并为 `2556ba8dd9dacb5a10d0b505e62a13a3e59783b2`。较早因事件并发取消的流水线不计为通过。
+
+
+### 2026-10-09 模板入口缺项修复操作
+
+本轮通过本地 Figma 查看运行前检查 `2:3884`（1440×1080），资源未绑定状态在原因旁提供配置操作。客户端原先把配置资源与动作授权放在入口详情折叠区，首屏只显示缺项与禁用运行。客户端 `cf2daee` 将缺少当前入口资源或动作授权时的配置按钮移到首屏动作行，加载时不呈现、忙碌或读取错误时禁用；已就绪入口保留既有查看授权操作。进入资源分类后聚焦该分类按钮。复用已有按钮样式，没有修改 IPC、绑定、授权或执行语义。
+
+真实 Electron 使用既有隔离数据，仅启动一个客户端。实例乙 `75ff46a8-2f11-43d8-9c8f-dfef359b9981` 的离线检查入口显示资源与授权已就绪，无修复按钮；填写并回读详情在折叠区关闭时，首屏显示测试浏览器待配置、填写动作禁止、可点击的配置按钮和禁用运行按钮。点击配置后进入资源与动作授权分类，原生 AX 确认焦点落在该分类；浏览器仍未绑定、授权仍为禁止。返回操作入口后继续选中填写并回读，缺项、修复操作与禁用运行状态保持。未保存配置、授予权限、启动任务或调用 AI。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-template-entry-readiness/`：`figma-readiness.png`、`missing-entry.png`、`build.log`；截图已查看，跳转和焦点通过原生 AX 核对。实际 1440×960；紧凑尺寸、读取失败、配置完成后的真实运行以及完整 186 画板 / U01–U12 仍待验收。
+
+pnpm typecheck、pnpm build、两文件 Prettier、git diff --check 通过，保留已有大 chunk 提示。未新增或运行单元、集成、smoke 测试。客户端正常退出码 0，结束无本轮主进程；保留无关 IDE 文件。
+
+[客户端 PR #40](https://github.com/zhongmiao-org/flow-ark-client/pull/40) 最终 head `cf2daeeaf1cef7ff6e72af274ed0889c223b1c97` 经 [CI 37879322000](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37879322000) Validate 成功后自动合并，实际合并提交 `25415eb775dd22bedb427e5e3e99ddb2abfe33fa`。同 head 因事件并发取消的流水线不计为通过。
