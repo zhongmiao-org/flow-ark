@@ -6325,3 +6325,21 @@ pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，�
 最终参数截图上方夹具导航不在视口内，source-wide 下方字段/版本采用在视口外，完整内容以 DOM 核对为准；工具缩放与夹具不代表完整 App 外壳或原生三尺寸/Figma 1:1。控制台无 warn/error。pnpm typecheck、pnpm build、六文件 Prettier 与 git diff --check 通过，保留大 chunk 提示（/tmp/flowark-template-information-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装；临时 HTML/TSX 删除、tab 68 关闭、viewport reset、Vite session 32314 Ctrl-C exit 130，IDE 文件保持未提交。Mac 仍锁屏，真实模板安装/持久化/来源返回与完整视觉验收待核对，不增加 186 画板 / U01–U12 完整验收数。
 
 客户端 [PR #96](https://github.com/zhongmiao-org/flow-ark-client/pull/96) 已由 CI 自动合并：head 0c6aeb0014422a30e26794b33d5f3984916fa7eb，run 37975313965 的 Validate（43 秒）与 Auto Merge（8 秒）成功，合并提交 008e5bad377ddb879d5efe2e67be1b561be8e82f。旧同 head run 37975312034 为 CANCELLED，不计为通过。
+
+### 2026-10-10 Ant Design 脚本配置迁移与保存状态保留
+
+沿用保存的脚本编辑 23:6726 与六卡脚本/依赖配置 2:2367，没有请求新 Figma 上下文。ScriptEditorPage 的输入、依赖、文件与凭据说明直接使用小尺寸 Collapse，forceRender 保持 ValueField/ScriptPackages 挂载，Space 使用已有处理；控制展开状态，让收起的未完成输入在保存校验后先展开，再在下一帧定位/滚动到原错误控件，保留内层原生 details 的展开处理。ScriptConfigurationWorkspace 的六个摘要和固定来源使用 Descriptions，删除同义 Summary 包装，依赖/模板来源/AI 绑定详情直接使用 Collapse；移除重复折叠外观及超时错误边框 CSS，Input status 与业务布局保留。
+
+预览发现保存失败后依赖核对提示重置。已安装 Ant Design ConfigProvider 源码在 componentDisabled !== undefined 时添加 DisabledContextProvider，原 saving || undefined 在保存时改变组件树。改为始终传布尔 saving，保持上下文结构；最终独立核对取得依赖失败提示后再保存失败，提示仍保留。没有改保存数据、流程/脚本契约、依赖绑定与共享冲突规则、宿主、IPC、执行或可信代码边界；不自动安装依赖，不把语法或绑定检查当作业务结果。
+
+唯一隐藏 IAB tab 69 加载实际 ScriptEditorPage/Monaco 和 ScriptConfigurationWorkspace、集中主题及产品样式，流程、输入、包名/版本、路径、模板身份、AI 绑定均虚构；保存与 script.package.inspect 为假请求，不连接宿主/真实目录。人工确认三个编辑折叠与三个工作区折叠的 Space/Enter。收起未完成 JSON 后保存保留“{”、重新展开输入并聚焦原 textarea；修正后 99ms 超时校验聚焦 script-timeout。正常虚构输入保存失败时草稿保留，全局错误获焦；最终依赖错误在保存失败后仍显示。取消出现离开确认，保存并离开遇到未完成 JSON 关闭弹窗、展开并聚焦原输入；恢复已应用值保留此前有效虚构草稿。
+
+工作区六卡显示真实绑定投影的版本不一致/缺少目录数量、固定包/入口/实例/摘要、可信进程说明和现有 AI provider/model；折叠源码与绑定信息没有表示签名认证、密钥可用或 API 已验证。返回由夹具切回编辑页；该切换重新挂载编辑页，不宣称跨夹具重新挂载保留草稿。未点击语法检查、执行脚本、绑定/移除真实依赖、调用 AI、创建 Run 或保存真实流程。
+
+首次预览夹具遗漏 flow.parameters，在 referenceChoices 产生一条 TypeError 与一条 React 警告；补齐后页面正常加载，最终控制台仅有上述旧两条，没有新增 warn/error。一次连续批次在目录假核对后立即编辑/保存，未先取得核对完成证据，不计它为提示保留验证；最终先独立读取失败提示，再单独保存失败，确认原提示保留。修改 ScriptEditorPage 触发临时页重载，重新观察并核对最终版本；没有把重载后的状态恢复当作保存。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-script-settings/，已查看 editor-final-wide、workspace-narrow、workspace-final-wide、workspace-final-narrow。早期编辑图捕获折叠动画且标题在视口外；首次窄工作区图在 Drawer 尺寸动画中左侧裁切，917px 读数不用于稳定布局判断。重新打开窄工作区后 viewport 782、Drawer left≈72/right≈782、网格 clientWidth/scrollWidth 均 646 单列；最终宽 viewport 1443、网格均 1156 三列。最终窄图完整显示模板固定来源卡，宽图右侧部分内容受截图裁切、第二行不在视口内；六卡和完整字段以 DOM 核对为准，不宣称截图证明全页或原生三尺寸/Figma 1:1。
+
+pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，保留大 chunk 提示（/tmp/flowark-script-settings-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、tab 69 关闭、viewport reset、Vite session 13892 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏，真实保存/目录/历史输出与原生完整视觉验收待完成，不增加 186 画板 / U01–U12 完整验收数。
+
+客户端 [PR #97](https://github.com/zhongmiao-org/flow-ark-client/pull/97) 已由 CI 自动合并：head c477772813a4be436b49aa93af7871e66eea7693，run 37976637329 的 Validate（47 秒）与 Auto Merge（9 秒）成功，合并提交 5730de60bd2e3653e8cf740b772a7e8a89b6a918。旧同 head run 37976635973 为 CANCELLED，不计为通过。
