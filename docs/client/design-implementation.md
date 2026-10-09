@@ -6017,3 +6017,22 @@ OAuth 四站点样本包括可选公开客户端、不支持公开客户端、�
 最终 pnpm typecheck、pnpm build、四个变更文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留。未新增/运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删除，唯一隐藏 IAB tab 50 已关闭，viewport reset，Vite session 46471 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
 
 客户端 [PR #78](https://github.com/zhongmiao-org/flow-ark-client/pull/78) 最新 head `af012353e7ec746c95b7b8cb555b2da3c60186c8` 的 CI run `37950548124` Validate（37 秒）与 Auto Merge（9 秒）成功，实际合并为 `a3a514fc101ba7b50921651f992d2cfc42b82308`。并发替代 run `37950547550` 为 CANCELLED，不记为通过；CI 合并不代表真实任务或完整画板验收。
+
+
+### 2026-10-09 Ant Design 完整方案差异与工具调用核对迁移
+
+延续完整方案修改画板 `23:3467` 和执行前工具核对既有设计，按用户直接使用 Ant Design 的指令迁移 TaskProposalReview、PlanningChanges、RunReviewTools。七处原生折叠直接采用 Collapse，完整提案来源、新增/移除步骤字段和工具来源/服务注解采用 Descriptions，差异类型采用 Tag；筛选和选中项消费库主题，删除手写键值表、折叠标题、类型标签及选中外观 CSS。保留专用原值/新值对照、条件说明与布局，没有新增基础组件包装或新的设计状态。
+
+资源区受控展开随条件单项修改标记变化，条件默认收起/其他方案默认展开；工具受控展开随异常参数布尔标记变化，异常之间切换保留手动收起，恢复正常后再进入异常会展开。全部 forceRender 保持原内容挂载，保留既有 Space 激活和库 Enter 行为。为保证 React hooks 顺序，无提案/无基线的空返回置于展开状态 hooks 之后；仍不渲染方案。原主机计算差异、引用说明、步骤编号、筛选不缩小采纳范围和账号/权限未核对提示不变，未修改宿主、网络、执行、协议或持久化。
+
+人工预览使用实际三个组件、ApplicationTheme 与产品 CSS，全部数据为虚构，无宿主方法、联网、文件、采纳或 Run。条件对照默认差异/资源收起，Enter/Space 可展开；内层资源 Space 不影响外层。长提案 ID 与完整摘要保留；切换完整方案资源区展开并显示新增能力。新增/移除步骤显示对应原草稿缺失/新方案移除和字段表格；原始差异可展开。删除筛选加无匹配搜索显示 0/4，清除后恢复全部并聚焦搜索框，选择删除项聚焦实际对照标题。未核对移动内容或真实采纳，不能据预览验收完整往返。
+
+工具正常核对结果默认收起，切换 invalid 自动展开。完整定义内外层可分别 Space 展开，未声明/声明为否/声明为是分开显示；缺连接、来源和定义保留明确占位。手动收起 invalid 后切换 unsupported 保持收起，再切换 deferred 保持收起，再切 unavailable 自动展开。动态引用保留 /nested/a~1b、流程参数来源与未求值说明；没有发送参数或连接服务。预览控制台无 error/warn。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/09/flowark-antd-proposal-review/，含 source-narrow、removed-step、missing-tool-definition、tool-records-narrow/wide。窄 viewport 请求 1040×1100，实际文档 clientWidth/scrollWidth 均 782，来源内容格宽/scrollWidth 均 539，工具内容格均 505；宽请求 1480×1100，文档宽/scrollWidth 均 1113。截图为组件滚动片段，tool-records 图主要展示原始参数与引用，不能代表原生三尺寸或完整画板几何 1:1。
+
+原生 Figma 入口本轮仍因 Mac 锁屏且无法自动解锁不可读；此前 MCP Starter 限额本轮未再次请求，不声称获得新设计上下文。不增加 186 画板/U01–U12 完整验收数量，全页比对、真实规划/采纳和工具执行仍待独立验收。
+
+最终 pnpm typecheck、pnpm build、六个变更文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留；构建日志 /tmp/flowark-proposal-review-build.log。没有新增/运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 51 已关闭，viewport reset，Vite session 63387 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
+
+客户端 [PR #79](https://github.com/zhongmiao-org/flow-ark-client/pull/79) 最新 head `5f5e0a2f4764be4967e7afd430e2efd85bbfdae6` 的 CI run `37951962215` Validate（43 秒）与 Auto Merge（10 秒）成功，实际合并为 `c6bfae36fcf7435c2dedabd69c583359f612ee4f`。并发替代 run `37951959946` 为 CANCELLED，不记为通过；CI 合并不代表真实工具调用或完整画板验收。
