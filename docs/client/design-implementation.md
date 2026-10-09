@@ -6601,3 +6601,17 @@ TaskRepairPage 的拾取摘要、修复双栏、说明与复核结果，TaskRepa
 pnpm typecheck、pnpm build、四文件Prettier与git diff --check通过，日志 `/tmp/flowark-repair-antd-build.log` 保留大chunk提示，最终console warn/error为空。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、读取凭据、打包安装或执行流程。页签86关闭、视口复位、4237 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实拾取/模型/采纳、关联新运行、原生客户端及完整186体验仍待验收。
 
 [客户端 PR #114](https://github.com/zhongmiao-org/flow-ark-client/pull/114) 最终 head `6b0d223f268d849f43f74e8aebd3d76656db8163` 的 [CI 37996966806](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37996966806) Validate43秒 / Auto Merge8秒成功，实际合并提交 `c4b47266628ed9e6d5ae115f28b72b2d86e1d056`。同head较早触发的 `37996966833` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 执行与结果卡片
+
+查看既有 `FlowArk-AI-task-design.zip` 中 taskrunning（`23:3957`）、taskresult（`23:4127`）、taskdetails（`23:4283`）和 taskfailure（`23:4425`）原导出，副本在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-run/design-*.png`。未取得最新在线 Figma 上下文，不增加186整板通过数。
+
+TaskRunPage 的重跑容器、详情双栏、成功摘要/结果双栏、停止/未知主卡及后续动作、文件列表和四项摘要，TaskRunFailure 三项影响说明，以及 TaskRunTarget 对象说明，共17处声明直接使用 Card；学习状态观察错误直接使用 Alert。外观交由集中主题，保留 section/文件标识语义、全部状态文案、双栏比例与高度、窄窗口单列、成功/影响底色、折叠与焦点逻辑。DesktopTaskRun 文件容器仍未迁移，旧边框/圆角/内边距限定非 Ant 卡片；TaskExecutionSteps 也留待后续迁移。未增加基础组件包装，未修改 IPC、访问文件、运行控制、重跑或权限契约。
+
+唯一隐藏 IAB 页签87载入实际 TaskRunPage，父层运行快照、事件、产物、学习状态和预览均虚构。完成页显示2次完成、1个未执行步骤，并保留未选分支说明；预览失败聚焦状态，显式重读期间按钮禁用，完成后内容恢复，立即重读的焦点回到文本内容。返回摘要聚焦原文件预览入口。两个文件分别有独立入口，选择第二个读取其内容，再通过 Ant Select 键盘切换第一文件，内容与文件标识对应。失败页 Space 展开完整错误和对象定位；未知观察保留核对提示及4项摘要，不显示成功摘要；运行页显示当前步骤/完成/未执行和原控制入口，未点击暂停/取消或执行。慢速预览的完成由夹具工具条触发，该次焦点在工具条，不计为自动恢复焦点证据。
+
+宽实际1443、文档1443，结果主卡851.18/520.44px，主 Card body 内边距24px、小 Card 12px，计算圆角12px。运行双卡571.50/800.12px、700px高。窄实际782、文档782，详情和失败主卡733.96px且 client/scroll732/732；详情两个卡片依次排列，自动高度。已查看 success-wide.png、details-wide.png、failure-narrow.png、running-wide-final.png、details-narrow.png，宽图右/下裁切，窄图为滚动视口局部且不含实际应用导航。早期 running-wide.png 捕获视口切换前后的过渡，不作稳定双栏证据。夹具初始父层 API 安装晚于子组件读取，产生虚构读取错误，改为布局阶段安装并刷新；最初虚构检查节点字段/运行时间不完整，修正后生成最终运行图。最终 console warn/error为空。这些夹具修正不涉及产品代码。
+
+pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check通过，构建日志 `/tmp/flowark-run-antd-build.log` 保留大 chunk 提示。未新增或运行单元/集成/smoke测试，未启动 Electron/第二客户端、访问凭据、实际文件/网页或执行流程，未打包安装。页签87关闭、视口复位、4238 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、原生客户端、真实文件预览、控制/重跑/修复/保存及完整186体验仍待验收。
+
+[客户端 PR #115](https://github.com/zhongmiao-org/flow-ark-client/pull/115) 最终 head `ca611a42f9451389ac5ddaf2449775998cea07e1` 的 [CI 37997873309](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37997873309) Validate42秒 / Auto Merge10秒成功，实际合并提交 `ae6b118dc4183e2377e3f6b219c9cbd56f2c182c`。同 head 较早 `37997873131` 取消，不计为通过。
