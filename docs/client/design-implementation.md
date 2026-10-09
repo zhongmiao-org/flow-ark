@@ -5943,3 +5943,22 @@ McpArgumentCheck 五种结果直接使用 Alert + Tag，固定值符合定义使
 最终 pnpm typecheck、pnpm build、六个变更文件 Prettier 和 git diff --check 通过，既有大分块构建提示保留。未新增/运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时预览 HTML/TSX 已删除，唯一 IAB tab 46 已关闭，viewport reset，Vite session 85575 已停止（Ctrl-C exit 130）；无关 IDE 文件未提交。
 
 客户端 [PR #74](https://github.com/zhongmiao-org/flow-ark-client/pull/74) 最新 head `28ad19860670bf4f4b200d5b715973232fd0c740` 的 CI run `37942831361` Validate（46 秒）与 Auto Merge（10 秒）成功，实际合并提交 `c36642928e870c109ff56f45c88ab9891d08c87b`。并发替代的 run `37942830803` 为 CANCELLED，不记为通过；CI 合并不代表真实桌面或完整画板验收。
+
+
+### 2026-10-09 Ant Design 工具声明表格与检查记录迁移
+
+继续沿用 MCP 连接/能力核对和本机助手既有布局，对应 `23:4867`、`23:5493`、`23:8773`、`23:8920` 与 U07；本轮只执行用户 Ant Design 指令，不添加新功能或设计状态。ToolDefinitionDetails 的四项注解、ToolOAuthInspection 的服务/资源/检查时间/范围来源和站点元数据、DesktopAssistantConnection 的来源及检查记录改为 Descriptions。完整定义、小清单行为、连接身份变化、逐字段变化、站点声明/访问记录和助手记录直接使用 Collapse；OAuth 站点直接使用 Card。删除旧键值表、身份框警示底色、折叠标题和站点卡边框/背景/圆角 CSS，保留对照布局和长内容滚动。元数据标签宽度 160px 只用于本组表格布局，解决长中文标签被挤成逐字换行；长地址仍为可换行的纯文本，不创建链接或自动打开。
+
+既有生成页空格键激活逻辑抽为 collapseKeyboard 函数并供本组 Collapse item 使用；生成页仅改导入，没有新增基础控件包装。连接身份变化与 annotations 差异默认展开，其他详情默认收起；未声明/声明为否、原来/本次、过滤计数和删除工具原定义均保持。OAuth 明确选站、公开客户端能力、范围来源、时限、登录前核对、参数变化清除核对及等待禁用仍由原逻辑控制；助手权限/任务授权分开记录。没有改变比较函数、useDesktopWindows、网络请求、宿主、权限、执行、凭据或协议。
+
+人工核对使用实际组件、ApplicationTheme 和应用 CSS，全部为虚构工具/站点/窗口；宿主只返回虚构窗口，其他方法明确拒绝。身份变化默认展开，Enter/Space 收起与展开通过；annotations 差异默认展开，输入参数差异可打开。1153 字符完整定义保留，区域宽/scrollWidth 均 798、高度 280/内容 684，PageDown 后 scrollTop 约 149。已移除筛选显示原保存定义，无结果后清除筛选恢复全部并返回搜索框焦点；空发现警示不被旧定义冒充本次能力。两个工具的小清单支持内外层 Space 展开，两层均保持展开，没有重复触发。
+
+OAuth 四站点样本包括可选公开客户端、不支持公开客户端、缺 S256 与检查失败；只有一个选择控件。站点声明和访问记录支持 Enter/Space，页面链接数量为 0。选择站点后才出现登录核对；未勾选时按钮禁用，勾选后可用，回调端口 1023 或客户端 ID 变化后再次禁用。虚构登录回调接收明确 issuer/client ID/端口；busy 时原控件禁用并保留取消，取消仅核对夹具回调，不代表真实会话清理。过期样本禁止选站，未列范围保留不代表无需权限说明。助手未检查记录与 connected 来源表格均查看，权限仍为尚未选择窗口/未授予任务授权。生成页共用函数的请求记录 Space 展开/收起已复核。未实际登录、打开系统设置、联系站点、调用工具或执行 Run。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-tool-records/`，包含 capability-differences、tool-cards、empty-discovery、oauth-waiting、assistant-source-records、最终 oauth-long-address-narrow、oauth-records-wide 截图及检查日志。窄请求 1040×1000，实际 Renderer 782×752，文档 client/scrollWidth 均 782，元数据区宽/scrollWidth 分别均 684 或 625；宽请求 1480×1100，实际 1112×827，文档宽均 1112，元数据区分别均 1015 或 956。早期窄截图标签拥挤，修正列宽后复核并保存最终图；截图是组件滚动片段，不能证明原生三尺寸或完整资产几何 1:1。
+
+原生入口复核仍为 Mac 锁屏；此前 Figma MCP 因 Starter 额度拒绝上下文，本轮未再次请求或声称取得新设计数据。未新增 186 画板/U01–U12 完整验收数，完整能力核对往返、真实 OAuth/提供者、系统权限和全页视觉仍需独立验收。
+
+最终 pnpm typecheck、pnpm build、七个变更文件 Prettier、git diff --check 通过，既有大 chunk 提示保留。未新增/运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 47 已关闭，viewport reset，Vite session 22477 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
+
+客户端 [PR #75](https://github.com/zhongmiao-org/flow-ark-client/pull/75) 最新 head `532ce21e5fedbe229b26233287349afbe395abb8` 的 CI run `37944754593` Validate（43 秒）与 Auto Merge（10 秒）成功，实际合并为 `0d8d72e76c4cf8101004115620eb9411f040e66d`。并发替代的 run `37944752169` 为 CANCELLED，不记为通过；CI 合并不代表真实工具/登录或完整画板验收。
