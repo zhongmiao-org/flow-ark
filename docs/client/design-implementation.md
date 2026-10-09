@@ -6405,3 +6405,21 @@ pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，�
 本轮是018局部组件迁移。未验证完整 App、真实目录对话框、真实宿主持久化和全尺寸最新 Figma；不增加完整画板验收数量，186画板 / U01–U12目标仍未完成。
 
 [客户端 PR #101](https://github.com/zhongmiao-org/flow-ark-client/pull/101) 最终 head `44538513a279d89138e3eb3c6fc914a4d061b5a5` 的 [CI 37981123462](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37981123462) Validate 42秒 / Auto Merge 9秒成功，实际合并提交 `2217d5d00cf114ca2cfb7ed1a131137360ef160e`。同 head 较早 `37981123198` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 变量选择与流程大纲控件
+
+实际查看已保存019 `2:1545` 导出 `/Users/mac/.codex/visualizations/2026/09/21/01a0c1fc-76eb-7172-8512-4e4a56416ec0/flowark-design-v2/screens/19-变量选择.png`，保留来源/详情双栏和原导航。流程大纲沿用既有 U11 / `23:6333` 实施记录与布局；没有取得新的实时 Figma 上下文或长流程原稿复核，本轮限定为用户要求的通用控件迁移。
+
+VariablePicker 子路径直接使用受控 Collapse 与 forceRender，已有子路径默认展开，折叠不清除输入；说明使用 Descriptions，失败和无效路径用 Alert，来源按钮与面包屑直接用 Button 类型。删除输入框、选中按钮、原生折叠与描述列表的重复外观 CSS，长来源按钮保留换行并读取主题控件高度。继续使用 referenceChoices/composeReference，不读取历史运行值、不扩大变量作用域，选择/固定值/取消回调与来源导航边界未变。
+
+FlowOutlineWorkspace 的原生更多菜单直接改为 Dropdown，删除手写定位/边框/背景样式和 document pointerdown 监听；方向键打开、菜单 Escape 阻止外层导航并返回入口，Tab 移开焦点或外部点击收起，操作后先立即恢复入口焦点再调用原保存行为，更多回调保持原入口。隐藏工作区收起菜单，保存中和已保存保持原禁用。分组、步骤、来源与分支按钮用 Button 的颜色/类型/尺寸表达状态；保留 current/selected 标记、定义编号、草稿/快照选择和折叠记忆。摘要改用 Descriptions，完整配置用 Collapse，保留原序列化、只读和65536字符截断规则；React Flow、执行观察和公共接口未变。两个页面原生 details 共3处移除，未新增同义基础包装。
+
+唯一隐藏 IAB 页签74使用实际 VariablePicker、FlowOutlineWorkspace 与真实来源/路径函数，仅注入虚构四十步内存流程：35个根数据步骤和5个循环/条件层次节点，run.list/detail 返回虚构已完成记录及独立命名快照，没有真实运行事件。菜单 ArrowDown 打开后聚焦首项；Escape 回更多，Tab 收起并到下一分组，折叠全部隐藏循环子树、搜索39自动展开所属祖先。完整配置 Space 展开可读；保存请求等待时保存/更多禁用，模拟失败恢复草稿状态，切换只读来源保留第39步并显示独立快照名称，没有编辑按钮。更多调用虚构入口；已保存项 aria-disabled=true，隐藏大纲菜单收起。最终将焦点返回从 RAF 调整为与原行为相同的立即恢复，预览随 Vite 重载；重新核对 ArrowDown/Escape、展开全部、焦点、更多、已保存禁用与隐藏。
+
+变量已有 custom.rows.0.name 自动展开；rows..name 和 __proto__.name 禁止应用，折叠/重开仍保留输入。搜索另一条件分支名称无匹配，已选来源和子路径保持。虚构选择失败聚焦 Alert 外层，当前选择的路径/搜索/子路径保留；取消返回打开按钮，原字段仍是 params.items.custom.rows.0.name。循环序号 index 禁用子路径并成功应用；缺失 steps.removed 显示来源不可用、应用禁用，可改固定值。随后选择 params.items，修正合法 rows.0.name，宽窄切换保留输入并应用 params.items.rows.0.name。没有调用模型、扩大授权、执行或创建真实 Run。
+
+实际宽1443/窄782：变量两卡约401/730px，窄屏单列约646px，Drawer client/scroll 710/710；大纲宽屏三卡约224/808/300px，窄屏220/474双列、详情下置。已观察卡片 clientWidth/scrollWidth 相等，窄屏文档782/782、宽屏1444/1444，无内容横向溢出。截图目录 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-variable-outline/` 的 variables-wide.png、variables-narrow.png、outline-wide.png、outline-narrow-inspector.png 均已查看。截图为视口局部，右侧/下方与清单滚动裁切保留；夹具左侧显示底层大纲而非产品导航，不是完整 App 或整板1:1视觉证据。
+
+pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，构建日志 `/tmp/flowark-variable-outline-antd-build.log`，仅既有大 chunk 提示。未新增或运行单元、集成、smoke 测试；未启动 Electron/第二个客户端、打包安装、读取真实凭据/目录或写真实持久化。最终控制台无 error/warn。页签74关闭、视口恢复，Vite 回收、临时 HTML/TSX 删除，用户 IDE 文件未提交。真实执行定位/过期观察、完整 App 嵌套导航与最新全尺寸 Figma 仍待验收；本轮不增加完整画板数量，186画板 / U01–U12目标保持。
+
+[客户端 PR #102](https://github.com/zhongmiao-org/flow-ark-client/pull/102) 最终 head `a2901ffd4b2c30461c42214d6ba66eef6fc4c073` 的 [CI 37983051468](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37983051468) Validate 43秒 / Auto Merge 9秒成功，实际合并提交 `d0f070097bc5f4e6783e0df4c44de308696e2e44`。同 head 较早 `37983049871` 取消，不计为通过。
