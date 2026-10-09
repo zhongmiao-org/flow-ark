@@ -5280,3 +5280,20 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 最终 pnpm typecheck、pnpm build、单文件 Prettier 和 git diff --check 通过，构建保留大 chunk 提示。未新增或运行单元、集成、smoke 测试。两个客户端严格串行、均退出码 0，结束无本轮主进程；无关 IDE 文件保留。应用代码通过独立客户端 PR 交付。
 
 [客户端 PR #38](https://github.com/zhongmiao-org/flow-ark-client/pull/38) 的最终 head `279261ea5549af74b78271251259b09f3c5cb4cc` 经 [CI 37878002164](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37878002164) Validate / Auto Merge 成功，实际合并为 `76ab31aff775ab69792d1218df7573c91f9bda39`。同 head 较早因事件并发取消的流水线不计为通过。
+
+
+### 2026-10-09 模板工作区内置网页入口
+
+本轮本地 Figma 再次查看 047 / `2:4837`，其顶部右侧包含“显示网页”。客户端模板库、实例配置与入口页尚未连接这一公共操作，虽然其他工作区已提供同一个内置面板。
+
+客户端 `57779cb` 从 App 将既有 browserOpen 开关作为 browserControl 传入 TemplateLibrary，并继续传入 TemplateInstancePage；两类顶部导航复用已有 embedded-show 样式、显示/收起文案和 aria-pressed 状态。模板版本、实例列表、配置、资源、来源和入口详情都使用当前页面顶部，不新增浏览器会话或直接调用宿主。没有改变资源绑定、动作权限、保存、执行或 IPC 契约，也没有新增资产或独立配色。
+
+真实 Electron 沿用既有隔离数据，仅启动一个客户端。模板库输入“多入口”后收起网页，搜索条件保留；最初原生 typeText 没有实际写入，改用粘贴并看到字段值和筛选结果后才继续，不把工具输入失败记为产品缺陷。打开实例乙 `75ff46a8-2f11-43d8-9c8f-dfef359b9981`，将虚构名称临时改为“网页面板核对草稿”；展开及收起均保留输入，没有保存或出现离开确认。再次展开，配置区按既有布局转为单列，标题、字段、保存/取消与顶部收起按钮可见。点击取消更改恢复“实例乙独立资料”。
+
+保持面板展开切换到操作入口，再进入“填写并回读”详情，面板和开关保持同步；入口仍显示测试浏览器待配置、填写动作禁止，运行按钮禁用。通过面板自身关闭按钮收起后，顶部恢复“显示网页”并获得焦点，已保存配置仍为原值。全过程停留 about:blank，没有访问网站、调用 AI、执行模板、创建计划、保存配置或授予权限，不以面板显示代替网页业务验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-template-browser/`：`figma-version.png`、`draft-with-browser-final.png`、`draft-after-close.png`、`entry-closed.png` 与 `build.log`，最终截图已查看。实际窗口 1440×960，展开后网页区域保持 1920 CSS px / 31% 缩放；首次展开截图未清晰显示顶部按钮，同一构建重新展开后截图确认可见，期间没有修改布局；未确认初次截图差异的具体原因。1040×700 极限尺寸、真实网页入口执行及完整 186 画板 / U01–U12 仍待验收。
+
+pnpm typecheck、pnpm build、三文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示。未新增或运行单元、集成、smoke 测试。正常退出码 0，结束无本轮主进程；保留无关 IDE 文件。
+
+[客户端 PR #39](https://github.com/zhongmiao-org/flow-ark-client/pull/39) 最终 head `57779cb37b5ec6f8c27473225660446e081e04b0` 经 [CI 37878707062](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37878707062) Validate 与 Auto Merge 成功，实际合并为 `2556ba8dd9dacb5a10d0b505e62a13a3e59783b2`。较早因事件并发取消的流水线不计为通过。
