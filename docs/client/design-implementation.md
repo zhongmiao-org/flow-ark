@@ -5453,3 +5453,16 @@ Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entr
 当前证据只覆盖本机布尔确认与取消路径。十分钟自然超时、宿主退出中的请求失效、通知故障、复杂输入、全部尺寸及整板视觉仍未验收；回应移除按钮后的焦点改善也留作后续 UI 核对。186 画板 / U01–U12 尚未完成。
 
 [客户端 PR #49](https://github.com/zhongmiao-org/flow-ark-client/pull/49) 最终 head `a4eccd406c0652f75eaea6acfa497d385b748816` 的 [CI 37894340192](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37894340192) Validate / Auto Merge 均成功，实际合并提交 `2b69baf1f874ab2636d68ef4dca5c5287ebe5d75`；同 head 并发取消的流水线不计为通过。
+
+
+### 2026-10-09 人工输入校验与成功回应焦点
+
+本地 Figma 查看 `2:2911` 人工确认与输入的目标、拟执行内容、补充输入及仅本次生效双栏。针对上一轮真实回应后按钮消失、焦点落到整页的缺口，客户端记录本次提交的请求 ID，等待回应与刷新结束；仅在仍查看同一请求、没有错误且 document.activeElement 为 body 时，将焦点放到已处理标题，不滚动页面。错误区域保留既有优先焦点，已转移的焦点不被覆盖；不更改宿主或请求契约。
+
+真实 Electron 通过模板库导入本机 `human-ui-review@1.0.0-ui.3`，实例前缀 `cb233283`，Run `1d0745f5-71f0-4ecf-9beb-29cddaf5a4b1`。样例要求含备注、数量、布尔值及列表的对象，因 minItems 不在普通字段编辑器子集中，界面明确使用“复杂数据格式 / 处理结果 JSON”，本轮未扩大契约字段范围，也不把 JSON 模式当作普通字段表单验收。
+
+手工输入不完整 JSON，确认后被前端拦截并聚焦输入；改为 count:10 后修改会清除旧核对，重新确认提交被宿主以 count 必须不大于9拒绝，错误区聚焦、草稿保留、复选框清除。打开来源运行再返回，JSON 原文保留、焦点回到关联运行按钮。修正为 count:0、enabled:false、两项列表和含换行的备注后重新确认，来源运行成功，输出逐项保留。回应后焦点到“人工事项已处理”标题，下一次 Tab 到“查看请求详情与格式”，不会回到页面顶端导航。模板只返回本机输入，不访问网络、读取资料或执行外部写入。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-human-input/`：`answered.png`、`output.png`、`build.log` 及本机样例源码/ZIP；截图已查看，输入错误、草稿、Run ID 和焦点由原生 AX 核对。最终 pnpm typecheck、pnpm build、单文件 Prettier、git diff --check 通过；构建保留既有大 chunk 提示。未新增或运行单元、集成、smoke 测试。仅启动一个原生实例，正常退出码 0；宿主日志中的 Schema 错误为本轮明确触发的范围拒绝。用户 IDE 改动保留。刷新失败并发、用户主动移动焦点的慢请求场景、自然超时、普通字段模式及完整尺寸/视觉仍未验收，186画板 / U01–U12 尚未完成。
+
+[客户端 PR #50](https://github.com/zhongmiao-org/flow-ark-client/pull/50) 最终 head `30dadc1ce5b4cbddce1c3ff2a9766f782a89c900` 的 [CI 37895302492](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37895302492) Validate / Auto Merge 均成功，实际合并提交 `550299bfa8b20ee23ec182c63e0be66a41fe7e4a`。同 head 另一条并发取消流水线不计为通过。
