@@ -5924,3 +5924,22 @@ McpArgumentCheck 五种结果直接使用 Alert + Tag，固定值符合定义使
 `pnpm typecheck`、`pnpm build`、八个变更文件 Prettier 检查与 `git diff --check` 通过，既有大分块构建提示保留。没有新增/运行单元、集成或 smoke 测试；未启动 Electron、实际 Run 或真实服务，未打包/安装。预览 HTML/TSX 已删除，唯一 IAB tab 45 已关闭，viewport reset，Vite session 4484 已停止（Ctrl-C，exit 130）。无关 IDE 文件保留。
 
 客户端 [PR #73](https://github.com/zhongmiao-org/flow-ark-client/pull/73) 最新 head `f0273cdb2545e1a52eb7af6aa439beb712c2687f` 的 CI run `37940994247` Validate（43 秒）与 Auto Merge（8 秒）成功，实际合并提交 `836a453699e35f6fb38281ee6145819511aaf105`。并发替代的 run `37940993512` 为 CANCELLED，不记为通过；CI 合并不代表真实桌面或完整画板验收。
+
+
+### 2026-10-09 Ant Design 窗口、选区与绑定反馈迁移
+
+对应已有窗口/桌面任务映射 `23:2609`、`23:8087`、`23:8190`、`23:8344`，按用户要求直接使用 Ant Design。DesktopWindowList 的检查/失败/不完整清单说明、DesktopWindowCapabilities 的权限提示、DesktopSelectionPreview 的读取/清除/遮盖/失败/到期提示、DesktopRunBinding 的等待/遮盖/失败反馈以及 DesktopAssistantConnection 的检查/恢复/设置失败说明改为 Alert。删除权限卡背景/边框/圆角和选区失败颜色 CSS；绑定 fieldset 只补布局间距。没有新增基础组件包装，既有按钮/复选框/标签与集中 ApplicationTheme 继续复用。
+
+需要程序焦点的错误使用 AlertRef.nativeElement，聚焦前设置 tabIndex=-1；刷新成功的窗口按钮仍保留正常键盘顺序。原读取完成标题焦点、清除/停止后返回读取入口、设置后不抢其他控件焦点、原文遮盖禁用绑定、绑定等待禁用和可取消、窗口身份/到期/迟到回复规则保持。没有改变 useDesktopWindows、宿主、IPC、权限、原生读写或持久化。
+
+人工查看采用实际四个组件、useDesktopWindows、ApplicationTheme 与产品 CSS；临时宿主仅返回虚构窗口、原文和绑定，其他方法明确拒绝。读取完成标题获焦；清除/停止后焦点返回读取按钮且原文消失，释放迟到回复后 pre 数量仍为 0。无选区失败的错误 Alert 获焦，窗口刷新失败也获焦；遮盖原文显示两个相关提示，绑定按钮禁用。绑定失败保留原文和错误；等待时读取/清除/更换/绑定均禁用，取消返回可用，离开后迟到返回没有加入结果。成功样本只核对 bound 回调，夹具没有模拟确认页面卸载，故绑定卡仍保持 busy；不能据此验收完整确认往返或真实绑定。
+
+助手初次检查失败、恢复/connected 阶段、不完整清单、未授予权限及设置失败已查看；设置失败 Alert 获焦，选择入口消失且权限显示尚未核对，没有实际打开系统设置。6 秒虚构观察到期后原文清除、读取禁用、提供重新检查。没有执行真实 TextEdit、供应商调用、系统权限调整、Run 或文档写入。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-desktop-selection/` 保存 read-failed、redacted-binding、binding-error、assistant-settings-error、assistant-permission-narrow、expired-selection、redacted-binding-narrow/wide 截图及 typecheck/build 日志。窄请求 1040×1000，实际 Renderer 782×752，body client/scrollWidth 均 782，fieldset 均 700；宽请求 1480×1100，实际 1112×827，documentElement client/scrollWidth 均 1112，body 测量四舍五入均 1113。截图是组件滚动片段，宽截图右侧截断，不能代表原生三尺寸/全部资产几何 1:1。
+
+本轮原生入口复核仍为 Mac 锁屏；没有再次请求此前已被 Starter 额度拒绝的 Figma 上下文，不声称取得新设计数据。不新增 186 画板/U01–U12 完整验收数量，全页视觉、真实窗口/选区、系统权限与任务确认往返仍待完成。
+
+最终 pnpm typecheck、pnpm build、六个变更文件 Prettier 和 git diff --check 通过，既有大分块构建提示保留。未新增/运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时预览 HTML/TSX 已删除，唯一 IAB tab 46 已关闭，viewport reset，Vite session 85575 已停止（Ctrl-C exit 130）；无关 IDE 文件未提交。
+
+客户端 [PR #74](https://github.com/zhongmiao-org/flow-ark-client/pull/74) 最新 head `28ad19860670bf4f4b200d5b715973232fd0c740` 的 CI run `37942831361` Validate（46 秒）与 Auto Merge（10 秒）成功，实际合并提交 `c36642928e870c109ff56f45c88ab9891d08c87b`。并发替代的 run `37942830803` 为 CANCELLED，不记为通过；CI 合并不代表真实桌面或完整画板验收。
