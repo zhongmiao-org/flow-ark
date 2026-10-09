@@ -6587,3 +6587,17 @@ TaskGenerationPage 外层、当前需求和重试核对区，以及 TaskMissingA
 pnpm typecheck、pnpm build、四文件Prettier与git diff --check通过，构建日志 `/tmp/flowark-generation-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、读取凭据、打包安装、调用模型或运行流程。页签85关闭、视口复位、4236 Vite回收、临时HTML/TSX删除；IDE改动未提交。真实规划/保存、原任务返回、最新云端设计、原生客户端及完整186体验仍待验收。
 
 [客户端 PR #113](https://github.com/zhongmiao-org/flow-ark-client/pull/113) 最终 head `ba1f32419ba7302aa20ba1ccac8c2cff73402e91` 的 [CI 37996232688](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37996232688) 成功，实际合并提交 `95c7c907ae7ff19d13f96c6cc1ac80f21a7ed22e`。同head较早 `37996232051` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 目标修复与重新执行卡片
+
+查看既有 `FlowArk-AI-task-design.zip` 中 taskrepair（`23:4575`）、taskrestart（`23:4724`）和 taskfocusrepair（`23:7691`）原导出，提取副本位于 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-repair/design-*.png`。本轮未取得新的在线Figma上下文，不增加186整板通过数。
+
+TaskRepairPage 的拾取摘要、修复双栏、说明与复核结果，TaskRepairTarget 的原/新目标对照，以及 TaskRepairRestart 的双栏和起点说明，累计十处容器直接采用 Card。清理手写边框、圆角与内边距，保留旧/新目标及起点说明的语义底色、双栏比例、700px最小高度/窄屏单列、section语义、折叠定位/发送/差异内容、焦点和全部原版本/范围保护。未增加基础包装组件，未修改IPC、实际拾取、模型、采纳或运行契约。
+
+唯一隐藏IAB页签86载入实际 TaskRepairPage（含目标与起点子组件），运行快照/事件、拾取、模型与采纳均为虚构响应。原开始未完成的标题步骤可进入拾取；候选到达聚焦确认，慢速目标复核时按钮禁用，完成后聚焦修复标题。Space展开新目标完整定位/框架和发送内容，模型改变清除确认。虚构生成失败聚焦就地错误，显式再次确认后返回方案并聚焦差异标题；完整差异列出 selector 前后值。虚构采纳一次后进入修订2的起点页，确认框未选时禁止重新检查；勾选后启用，但未点击运行前检查或执行。原完成/未完成历史各一条均可Space展开。移除虚构修复依据后确认清除且禁用，显示返回任务入口；返回只触发虚构callback。刷新夹具重置所有内存状态后再拾取，任务修订变化使发送确认清除/禁用，旧核对不能生成。没有真实保存、模型、内置网页或运行；未核对目标复核失败、不采纳、采纳回执未知及运行前检查。末尾右侧“回到任务修改”的界面工具点击定位失败，未将该返回计为通过。
+
+宽实际1443、文档1443，修复双卡552.82/802.80px、计算圆角12px；窄实际782、文档782，修复/起点主卡717.96px且各client/scroll716/716，第二卡在第一卡下方。已查看目录中 review-wide.png、restart-wide.png、restart-narrow.png、restart-unavailable-narrow.png、pick-narrow.png、review-changed-narrow.png与review-targets-narrow-final.png。宽图右/下裁切，窄图部分按控件自动滚动到下方；restart-narrow和review-changed-narrow含展开动画过程，不作稳定完整尺寸依据；最终目标对照图在后续状态查看后保存，仍为局部。夹具工具条、虚构响应及重载不属于产品UI/持久化验收。
+
+pnpm typecheck、pnpm build、四文件Prettier与git diff --check通过，日志 `/tmp/flowark-repair-antd-build.log` 保留大chunk提示，最终console warn/error为空。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、读取凭据、打包安装或执行流程。页签86关闭、视口复位、4237 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实拾取/模型/采纳、关联新运行、原生客户端及完整186体验仍待验收。
+
+[客户端 PR #114](https://github.com/zhongmiao-org/flow-ark-client/pull/114) 最终 head `6b0d223f268d849f43f74e8aebd3d76656db8163` 的 [CI 37996966806](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37996966806) Validate43秒 / Auto Merge8秒成功，实际合并提交 `c4b47266628ed9e6d5ae115f28b72b2d86e1d056`。同head较早触发的 `37996966833` 取消，不计为通过。
