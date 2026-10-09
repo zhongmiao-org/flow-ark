@@ -5340,3 +5340,18 @@ pnpm typecheck、pnpm build、三文件 Prettier 和 git diff --check 通过，�
 最终 pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示。未新增或运行单元、集成、smoke 测试。四次客户端严格串行，前一实例退出码 0 后才启动下一次，结束无本轮主进程；模板产品仓库未改动，无关 IDE 文件保留。实际 1440×960，完整值类型、来源失效后的焦点后备路径、紧凑尺寸、业务执行与完整 186 画板 / U01–U12 仍未验收。
 
 [客户端 PR #42](https://github.com/zhongmiao-org/flow-ark-client/pull/42) 最终 head `100035cd1c1eace0f2979571c55a04b491f6fd8b` 经 [CI 37881265529](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37881265529) Validate / Auto Merge 成功，实际合并提交 `b95edfa37985f3857f3726478c59af05ac8e3711`。同 head 因事件并发取消的流水线不计为通过。
+
+
+### 2026-10-09 结构化选项字段
+
+继续依据本地 Figma `2:1199` 入口输入与既有 `2:3672` 输入修正状态，检查模板支持的表单类型。发现 `Field` 在读取 enum/oneOf 前就按 object/array 展开，导致同时声明类型和结构化选项时没有下拉选择入口。客户端 `cfbca84` 将选项识别放到结构展开之前，复用原选择控件、深层值匹配和错误标记；选择后回传完整对象/数组，无标题的对象或数组选项显示 JSON。普通对象与列表继续使用原编辑器。没有改变契约、默认值、IPC 或持久化。
+
+本轮先构建本机虚构样本 `entry-constraints-ui@1.0.0-ui.1`，摘要 `2ffd0aafe65ac07dbc9e63c3d271b4493368ed6bd11b962316a8df4e69a2c5b6`。最初样本含不受现行契约支持的 minItems，构建拒绝后移除；流程参数误写为 params 也被构建拒绝，改为现行 parameters 后构建通过。正常 ZIP 选择和检查页已显示正确名称与摘要校验通过；点击确认安装时 Mac 锁屏，工具未能返回结果，安装是否完成尚待解锁查看，不自动重复安装。
+
+锁屏期间通过临时浏览器页面直接加载产品 `Field` 做人工查看，数据只在组件内存中。对象选项初值的键顺序与声明不同仍正确选中；对象 oneOf、数组 enum 和无标题对象 oneOf 均可选择，侧栏显示完整布尔值及数组内容；不匹配对象显示“请选择一个有效选项”和 data-value-invalid，重新选择后恢复。普通对象字段仍显示，普通列表添加至 3 项后禁用添加，移除后恢复。Tab 可从对象选项进入数组选项。此页不调用宿主、不保存实例、不执行模板。初始预览缺少设计样式，补齐产品字体和 design-system/ai-task CSS 后重新查看；临时 viewport 覆盖实际未得到目标 1040×700，不计作该尺寸验收，已恢复默认并关闭页面。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-entry-constraints/` 保存样本源码和 ZIP、人工预览源码、build.log 与 structured-options-final.png；早期截图仅作过程记录，最终截图为组件核对，不代表整板视觉验收。临时预览位于客户端忽略目录 artifacts，未纳入提交，服务已关闭。pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。
+
+本轮只启动一个原生客户端（隔离数据沿用 flowark-native-flow-workspace/user-data），进程仍在运行；没有因锁屏重启或强制退出，解锁后先核对安装结果，再按需正常退出并启动新构建。结构化选项的真实保存/重开、原生紧凑窗口、完整画板和 186 画板 / U01–U12 验收仍未完成。
+
+[客户端 PR #43](https://github.com/zhongmiao-org/flow-ark-client/pull/43) 最终 head `cfbca848784f4f07d71ec7537c384d4dbf8b761b` 经 [CI 37882161404](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37882161404) Validate / Auto Merge 成功，实际合并提交 `19cd7f70f32235f79eecdeb44098c3fa01e98865`；同 head 并发取消的流水线不计为通过。
