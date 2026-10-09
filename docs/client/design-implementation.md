@@ -6791,3 +6791,19 @@ TemplateLibrary 和 TemplateManifestOverview 共八处介绍／定义／侧栏�
 pnpm typecheck、pnpm build、三文件Prettier --check及git diff --check通过，构建日志 `/tmp/flowark-catalog-cards-antd-build.log` 保留大chunk提示。未新增或运行单元／集成／smoke测试，未启动Electron／第二客户端，未选择真实ZIP／目录、安装／卸载真实包、创建真实实例、读取凭据或执行Run。页签97关闭、视口复位、4248 Vite回收、临时HTML／TSX删除，IDE改动保留且不提交。真实ZIP／版本采用／删除及跨启动恢复、最新设计、原生整板和完整186体验仍待验收。
 
 [客户端 PR #125](https://github.com/zhongmiao-org/flow-ark-client/pull/125) 最终head `28980690231422b92eb1e870a1d8a84884b05e6f` 的 [CI 38006040997](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38006040997) Validate45秒／Auto Merge9秒成功，实际合并提交 `2e3958c7bce78866eecb410e41fcce567a4bd951`。同head较早 `38006040001` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 导出核对与结果卡片
+
+导出核对页 ExportReviewDialog 的两个说明区和完成结果直接使用三处 Ant Design Card，保留 section/aside、来源快照、aria、确认、取消、错误聚焦与返回焦点。删除重复卡片内边距/边框/圆角/背景与 Checkbox 外观；普通内边距继承集中主题24px，完成结果原32px、窄说明原20px统一为24px。仅保留两栏等高和原760px响应断点的布局样式；未新增基础包装组件或修改IPC、ZIP、宿主、授权及持久化行为。
+
+Figma 2:4940 在线上下文与截图仍受Starter配额限制，实际查看保存导出047模板版本与导出（2:4837）、048导出ZIP（2:4940）；规格状态图不作为新增独立页面。本轮不计最新整板1:1或完整186画板验收。
+
+唯一隐藏IAB页签98加载实际组件、ApplicationTheme及生产样式，所有来源、导出/导入结果虚构，其他IPC拒绝。未勾选禁止导出，初始焦点最终到确认框；虚构延后导出时关闭、取消和确认禁用，失败后错误获焦、勾选保留；明确重试返回取消保存仍停在核对页，下一次虚构成功聚焦完成标题。导入取消保留完成结果，检查失败获焦并提供重选，虚构重选成功后才关闭并返回草稿入口。模板取消不增加请求，重开确认复位；虚构成功显示原模板身份与版本，返回版本引用后焦点回模板入口。最终虚构计数关闭3、导出4（flow.export3/template.export1）、导入3；不证明真实ZIP生成/安装。
+
+浏览器原133%缩放，申请1920宽实际CSS1443、文档1443，宽草稿两卡约551.49/408.52px且等高554.34px；中间1040宽实际782仍高于断点、保持双栏。申请936宽实际703、文档703，模板纵向两卡631.77px宽、462.66/398.09px高；普通及结果body均24px，最终结果两个按钮约40px高，未见页面横向溢出。窄核对内容超过Modal内部高度时保持原滚动，分别捕获顶部和勾选后的底部，不能以一张图宣称完整内容同时可见。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-export-cards/` 的draft-wide.png、error-narrow.png、done-narrow.png、import-error-narrow.png、template-narrow-top.png、template-narrow-footer.png、template-wide-final.png和template-done-wide.png。draft-wide因确认框自动聚焦使标题滚出，窄模板上下截图各为局部；最终宽模板图包含完整核对和结果。只读CDP按原缩放捕获，未改变浏览器缩放。虚构工具条/计数不是产品内容，无产品侧栏或原生整板证据，最终console warn/error为空。
+
+pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过；构建日志 `/tmp/flowark-export-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成或smoke测试，未启动Electron/第二客户端、选择真实文件、生成ZIP、访问凭据或执行Run。页签98关闭、视口复位、4249 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实导出/导入/跨启动恢复、最新设计和完整186体验仍待验收。
+
+[客户端 PR #126](https://github.com/zhongmiao-org/flow-ark-client/pull/126) 最终head `da572ec8ce16c034bdfc658728ba3a588622fa55` 的 [CI 38006602576](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38006602576) Validate37秒/Auto Merge8秒成功，已实际合并为 `78d2610cd7f318ba082a417f8dfa05cce042e984`；同head较早38006601445取消，不计为通过。
