@@ -6423,3 +6423,21 @@ FlowOutlineWorkspace 的原生更多菜单直接改为 Dropdown，删除手写�
 pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，构建日志 `/tmp/flowark-variable-outline-antd-build.log`，仅既有大 chunk 提示。未新增或运行单元、集成、smoke 测试；未启动 Electron/第二个客户端、打包安装、读取真实凭据/目录或写真实持久化。最终控制台无 error/warn。页签74关闭、视口恢复，Vite 回收、临时 HTML/TSX 删除，用户 IDE 文件未提交。真实执行定位/过期观察、完整 App 嵌套导航与最新全尺寸 Figma 仍待验收；本轮不增加完整画板数量，186画板 / U01–U12目标保持。
 
 [客户端 PR #102](https://github.com/zhongmiao-org/flow-ark-client/pull/102) 最终 head `a2901ffd4b2c30461c42214d6ba66eef6fc4c073` 的 [CI 37983051468](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37983051468) Validate 43秒 / Auto Merge 9秒成功，实际合并提交 `d0f070097bc5f4e6783e0df4c44de308696e2e44`。同 head 较早 `37983049871` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 流程控制与节点高级输入
+
+查看已保存024 `2:2200` 导出 `/Users/mac/.codex/visualizations/2026/09/21/01a0c1fc-76eb-7172-8512-4e4a56416ec0/flowark-design-v2/screens/24-流程控制配置.png`，保留原六卡布局、当前步骤和从实际草稿生成的摘要；没有取得新的在线 Figma 上下文。本轮继续按用户指定直接使用 Ant Design，不新增基础控件包装。
+
+LogicConfigurationWorkspace 的只读字段和 LogicNodeConfiguration 的条件/循环数量直接使用 Descriptions，错误提示直接用 Alert；移除手写 dl、dt/dd 及原生折叠的重复样式。高级节点 JSON 在 App 中直接改为 Collapse，按节点身份重置展开项、forceRender 保留未完成文字，使用现有 Space 处理和 data-draft-collapse 接入原 revealDraftInput / 导航守卫，错误反馈与恢复仍沿用原解析逻辑。条件/循环直接子步骤数量、item/index、原作用域和节点期限语义不变，没有改变宿主、IPC 或执行契约。
+
+配置页两个 ConfigProvider 始终传入布尔 advancedInvalid。实际安装的 Ant Design 源码仅在 componentDisabled 非 undefined 时增加 DisabledContextProvider，原 `advancedInvalid || undefined` 在错误状态切换时改变组件树；本次稳定结构，保留尚未应用的 LiteralValue 和 NodeTiming 本地输入。
+
+唯一隐藏 IAB 页签75载入实际完整 App / Renderer、虚构九步骤内存记录和有限 IPC：数据、条件的两个子分支、断言、循环及其当前项、人工等待和第二个数据步骤。条件高级 JSON 以 Space 展开，填写未完成 `{"id":` 后折叠并返回，真实 App 守卫展开原 JSON、聚焦且显示 Alert，虚构保存/运行均0。设置期限60000后填90，再将高级 JSON 改为未完成并恢复，90及错误保持，返回仍阻止并聚焦期限；恢复默认后继续。条件由 exists 改为 equals 显示比较值，填写虚构比较文字并切至循环，摘要保留判断值和成立/否则各1步。
+
+循环从参数来源明确改为固定值[]；填写对象 `{"bad":true}` 显示必须为数组的原校验错误，再切换高级 JSON 无效/恢复后对象草稿和错误仍保留，应用仍阻止并聚焦循环集合，没有保存。修正为[甲,乙]，宽窄切换保留数组，摘要显示列表2项与1个直接子步骤。人工提示改为“请核对虚构修改，确认后继续”，应用返回原编排，模拟首次保存失败保留，显式再次保存成功。编排页再次将高级 JSON 改为未完成并折叠，保存重新展开聚焦，虚构保存计数仍2；恢复并重开配置读回条件比较、2项数组和人工提示。最终虚构保存请求2次（首个失败）、运行0次、未提供接口0次，控制台无error/warn。该内存重开不是宿主持久化验收；窄屏切换后原入口已卸载、应用返回时焦点为文档，不作为入口焦点返回通过证据。
+
+实际宽1443、高1278：网格 clientWidth/scrollWidth1156/1156，三列约374.5px、六卡373/373；窄782稳定后单列网格646/646、Drawer710/710、文档782/782，无观察到的横向溢出。视口变化后的瞬间曾显示两列，等待正常布局更新后记录单列。截图 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-logic-controls/`：condition-wide.png、control-final-wide.png、loop-narrow-fields.png、advanced-invalid-narrow.png均已查看；最终宽图右侧/下方、窄图上下被裁切，错误窄图未覆盖下方JSON字段，实际聚焦与展开以DOM核对为准，不能作为全尺寸整板1:1证据。loop-narrow/loop-narrow-final 初始截图仅保留追溯，未覆盖循环输入，使用最终字段截图。
+
+六文件 pnpm typecheck、pnpm build、Prettier及git diff --check通过，构建日志 `/tmp/flowark-logic-controls-antd-build.log`，仅既有chunk大小提示。夹具存在时一次类型检查因虚构Flow缺description失败，删除临时夹具后对最终工程重新检查通过，不计初次为通过；一次只读DOM检查因工具不提供HTMLInputElement构造器失败，实际AX已显示90毫秒获焦，不以失败读取支持结论。未新增或运行单元、集成/smoke测试，未启动Electron或第二客户端、打包安装、读取凭据或执行真实节点。页签75关闭、视口恢复、Vite39136回收、临时HTML/TSX删除，IDE文件保留未提交。原生保存/运行、最新云端稿和186画板 / U01–U12完整验收仍待完成，本轮不增加完整画板通过数。
+
+[客户端 PR #103](https://github.com/zhongmiao-org/flow-ark-client/pull/103) 最终head `f0d1774d2f6bc107f289e2f80de1e78ca2af653c` 的 [CI 37984486968](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37984486968) Validate43秒 / Auto Merge8秒成功，实际合并提交 `c02a6497b120aba473d5538f41c523d980f68daf`。同head较早 `37984485651` 取消，不计为通过。
