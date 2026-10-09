@@ -6151,3 +6151,21 @@ pnpm typecheck、pnpm build、七个变更文件 pnpm exec prettier --check 与 
 pnpm typecheck、pnpm build、六文件 Prettier 与 git diff --check 均通过，构建保留既有大 chunk 提示（/tmp/flowark-task-tools-antd-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删除，唯一隐藏 IAB tab 57 关闭，viewport reset，Vite session 43535 Ctrl-C exit 130 停止；IDE 文件未提交。
 
 客户端 [PR #85](https://github.com/zhongmiao-org/flow-ark-client/pull/85) 最新 head `41da0c0cb629b512b09ea2b375f7c6ca6510cc11` 的 CI run `37961478005` Validate（44 秒）与 Auto Merge（10 秒）成功，实际合并为 `0cb87ce36f62f4defc9e66d5c898508a8042a0cb`。并发替代 run `37961477209` 为 CANCELLED，不计为通过；合并不代表真实工具调用或完整画板验收。
+
+### 2026-10-10 Ant Design 方案步骤详情与完整配置迁移
+
+延续步骤清单 `23:3109`、流程图 `23:3290` 与 U06 已有映射。TaskStepInspector 的 Excel 字段映射、图中完整参数、两种展示的原始配置和 ConfiguredValue 五处折叠直接使用 Collapse，所有已有步骤字段采用纵向 Descriptions。复用集中主题、metadata-facts 与 Space 激活，删除旧字段表、summary 和折叠内容间距 CSS；保留业务面板、导航、分支及可聚焦的内部滚动区，没有新增基础组件包装。初始横向字段表在 420px 图中面板把嵌套内容挤窄，人工截图发现后改为原 dt/dd 一致的纵向库布局，最终值单元格宽约 337.5px。
+
+全部 forceRender 保持原生 details 内容挂载，原 Excel 和配置值步骤 key 保留，原始配置与外层图中参数没有新增换步重置。原导航标题聚焦、选择身份、可读引用、固定配置、流程定义、IPC、权限及执行均不变。本轮实际组件加集中主题/产品 CSS，全部步骤和路径虚构，没有宿主、网络、AI、写文件或 Run；定位/操作回调只显示演示记录。
+
+人工核对完整文本 Space 与原始配置 Enter 展开，1036 字符的首两个空格、换行及末尾 Tab/空格均保留；pre 高 260/scrollHeight 795，PageDown 后复核 scrollTop 约 245.11 且仍获焦。前后步骤、条件内步骤入口均聚焦新标题，换步收起配置值；原始配置展开时换步更新内容且保持展开。对象保留 null、false、0、数组和多行字符串，可读引用显示步骤来源名称与 steps.text 原路径，不解析执行值。
+
+16 步长方案从清单切图保留选中项，图外显示导航；短方案导航仍放在完整参数内，末步下一步禁用、首步上一步禁用。图中外层 Enter/Space 收起再展开后内部映射/引用仍展开；换到下一 Excel 步骤时映射收起。A/C/AA、文本/数字/布尔及空白表头均保持原信息，不写表头明确展示已设而不写入的值，空列表展开显示 []。未选步仍显示选择入口，空方案明确没有步骤；回图只记录同一选中步骤，未修改图或执行。最终浏览器控制台无 error/warn。
+
+截图目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-step-inspector/，已查看 text-full-wide、graph-mapping-wide/narrow、graph-object-narrow-final；graph-object-wide 为修改纵向布局之前的诊断截图，不记为最终验收。请求 viewport 1480×1100 时完整字段表 clientWidth/scrollWidth 均 851；图中面板宽/scrollWidth 均 418，1040×1100 时图中面板亦均 418。长字段名与路径换行，最终所在卡无横向溢出。夹具只展示共用详情面板、没有实际图画布或全 App 外壳，不代表原生三尺寸或完整画板几何 1:1。
+
+本轮 Mac 仍锁屏，没有新 Figma 上下文请求；不增加 186 画板 / U01–U12 完整验收数，真实方案/保存/运行和全页视觉仍待独立核对。临时夹具初次误引用不存在的 styles.css，已改为真实 style.css/design-system.css/workspace.css；这是预览配置错误，没有修改产品入口。
+
+pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，构建仍有既有大 chunk 提示（/tmp/flowark-step-inspector-antd-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删除，唯一隐藏 IAB tab 58 关闭，viewport reset，Vite session 11708 Ctrl-C exit 130 停止，IDE 文件保留未提交。
+
+客户端 [PR #86](https://github.com/zhongmiao-org/flow-ark-client/pull/86) 最新 head `c297bf28b0af25d6d019e78586d8b4f6b964be05` 的 CI run `37962707244` Validate（41 秒）与 Auto Merge（9 秒）成功，实际合并为 `45a1cefb2c1c11fbbfffaffb2815b46765b2bc2a`。并发替代 run `37962705825` 为 CANCELLED，不计为通过；合并不代表真实方案执行或完整画板验收。
