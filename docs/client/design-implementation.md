@@ -6697,3 +6697,21 @@ ScheduleWorkbench 列表/计划项、编辑表单/未选提示、记录摘要/�
 pnpm typecheck、pnpm build、五文件Prettier --check和git diff --check通过，日志 `/tmp/flowark-schedule-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、访问凭据、真实计时触发/创建Run、系统设置、网页或文件操作、打包安装。页签92关闭、视口复位、4243 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实调度/启停/持久化、原生布局、最新设计与完整186体验仍待验收。
 
 [客户端 PR #120](https://github.com/zhongmiao-org/flow-ark-client/pull/120) 最终 head `dd2ea2e81966efda334952b60bd627d9d080253a` 的 [CI 38001977833](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38001977833) Validate43秒 / Auto Merge8秒成功，实际合并提交 `605a8114cb8d40157446b86cc1e801dc31a72e6a`。同head较早 `38001977197` 取消，不计为通过。
+
+### 2026-10-10 Ant Design AI 设置卡片
+
+查看保存的 `flowark-deepseek-design/screens/AI 服务配置.png`（`2:3118`）、`DeepSeek · 替换 Key.png`（`4:10599`）及 `DeepSeek · 移除确认.png`（`4:11077`），沿用已有来源不可用 `8:19310` 和 AI配置/导航规范。未取得最新在线Figma上下文，不增加186整板通过数。
+
+AISettingsPage 来源不可用、移除确认、配置读取、服务配置、Key掩码和连接状态共六处声明直接用Card。保留article/section和aria-labelledby/busy语义、728/400双栏比例、普通/来源卡656/688px最低高度、移除440px/来源不可用350px/掩码136px最低高度、窄屏单列及原校验、焦点、折叠详情、保存/取消/移除、来源核对逻辑。普通body集中主题24px、小掩码12px，替代原服务/来源28px、移除32px和掩码20px；清理重复边框/圆角/内边距与小屏padding覆盖，直接子元素选择器改指向Card body。不新增基础包装组件、不修改IPC、系统凭据保护、供应商调用或配置修订契约，不宣称整板像素验收通过。
+
+唯一隐藏IAB页签93载入实际AISettingsPage，配置、尾号、原验证记录、保存/连接检查/取消/移除和模板来源核对全部虚构。首次读取失败展示“未将错误当作未配置”，错误获焦；解除虚构失败后通过产品重新读取恢复已配置掩码及虚构原验证，焦点进连接状态。Space展开服务说明与本次详情，修改模型保持原折叠和已保存记录；空模型校验聚焦输入，不调用保存。改为deepseek-ui-review后第一次虚构保存失败保留模型、旧掩码和记录，Key输入长度0，错误获焦。取消进入离开确认，继续编辑保留草稿；解除虚构保存失败并明确重试成功，回待验证、旧验证详情移除、结果标题获焦，未自动发起连接检查。
+
+一次明确虚构连接检查等待，服务商/模型/替换/移除禁用；第一次取消失败保留检查及错误，第二次明确取消成功显示已取消、清旧错误和恢复操作，结果标题获焦。完成原迟到虚构检查后仍显示取消，未把旧回复当成功。替换Key输入仍为空，未输入任何真实或虚构Key；无修改取消回详情。第一次虚构移除失败保留确认、错误和重试，焦点进移除标题；取消恢复原移除按钮焦点，详情仍有原掩码与取消记录。模板来源隐藏通用服务商/移除，返回核对失败显示独立来源Card和明确三种去向；解除来源故障、明确重新核对成功只触发虚构原来源回调，不验收实际模板恢复或输入持久化。回通用设置第二次明确移除虚构配置后显示未配置、空Key输入并聚焦模型。选择OpenAI恢复其独立虚构模型/掩码/原验证；Space展开说明显示Responses地址，没有发起该供应商连接检查。累计2次虚构模型保存（含1失败）、1次连接检查、2次取消、2次移除（含1失败）、2次来源核对；轮询读取未用来证明重开或持久化。
+
+宽实际1443、文档1443，服务/连接卡874.90/480.72px且656px高，掩码825.41×136px。窄实际782、文档782，外卡717.96px，替换服务卡内容自然高729.66px、取消连接卡379.08px，移除717.96×440px/来源717.96×350px；OpenAI展开说明后的服务/连接卡672.91/513.05px高，小掩码668.47×136px。普通body24px、小body12px，圆角12px，无横向溢出。
+
+已查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-ai-settings-cards/` 的read-error-wide.png、saved-wide.png、replace-narrow.png、remove-error-narrow.png、source-unavailable-narrow.png和openai-narrow-final.png。宽图右/下裁切，窄图为局部视口，替换图只到Key输入、最终OpenAI图未显示下方连接卡；移除图工具条上部被滚动裁切。夹具工具条/尾号/模型/导航回调不是产品实接证据，未验证真实费用/网络/系统存储/页面往返。最终console warn/error为空，未新增交互逻辑测试或扩大测试范围。
+
+pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过，日志 `/tmp/flowark-ai-settings-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、读取/填写真实Key或访问凭据、实际供应商请求、打开网页、创建Run、打包安装。页签93关闭、视口复位、4244 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实保存/重开/取消/移除、模板与任务返回、运行在用/来源变化/失败类别、最新设计和完整186体验仍待验收。
+
+[客户端 PR #121](https://github.com/zhongmiao-org/flow-ark-client/pull/121) 最终 head `fb0de308bf46ffd60e7c7547d683d08e3c49b6c1` 的 [CI 38002835142](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38002835142) Validate45秒 / Auto Merge9秒成功，实际合并提交 `a249ab4f02668bebcb3f0ec18486261aacdfe32d`。同head较早 `38002834630` 取消，不计为通过。
