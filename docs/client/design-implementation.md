@@ -6503,3 +6503,17 @@ ScriptPackages 依赖卡直接用 Card、状态用 Tag，目录详情使用 Coll
 最终四文件Prettier、pnpm typecheck、pnpm build及git diff --check通过，构建日志 `/tmp/flowark-script-packages-antd-build.log` 保留大chunk提示。最终浏览器warn/error为空，但Vite两次记录ResizeObserver loop通知，未宣称已修复。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行节点。页签79关闭、视口恢复、Vite4230回收、临时HTML/TSX删除，用户IDE改动保留未提交。工作区外层错误未重新触发，真实目录、原生保存、完整编译与执行，以及186画板/U01–U12整体验收仍待完成；本轮不增加整板通过数。
 
 [客户端 PR #107](https://github.com/zhongmiao-org/flow-ark-client/pull/107) 最终head `365e0ea64b21c60f163de3b6e7473aa6e309361f` 的 [CI 37989884597](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37989884597) Validate38秒 / Auto Merge8秒成功，实际合并提交 `b3c8aa4dec36bd4433144bc0e71e046ca474cf33`。同head较早 `37989883741` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 读取文字与通用检查器
+
+本轮按用户组件库调整，查看051 `2:5253` 已保存导出 `flowark-design-v2/screens/51-紧凑配置抽屉.png`（位于既有2026/09/21设计导出目录），沿用002 `1:394` 的读取名称、输出与引用映射。未取得新的在线Figma上下文，不增加186画板/U01–U12整板通过数。
+
+ReadStepInspector 的名称/编号、输出引用直接使用 Collapse、Input、Tag，应用回执用 Alert，流程图按钮用 Space.Compact；更多步骤设置和通用设置迁移 Collapse，保留节点创建/修改、引用消费者跳转、草稿保存和原业务回调。删除选中标签、输入框、输出框、拼接按钮和折叠标题的手写外观，业务排版保留，主题仍由 ApplicationTheme 管理。forceRender、稳定组件键和 componentDisabled 的布尔值保持组件树，避免切换宽度或高级JSON禁用时丢失未完成字段。错误定位在期限被JSON禁用时先打开可编辑的高级输入；修复没有元素目标的打开网页步骤读取空 target.framePath 的崩溃；紧凑网页栏取消522px最小宽度，保留按比例双栏。
+
+唯一隐藏IAB页签80载入实际完整App与虚构四步骤内存记录。人工核对输出引用Space展开、1个消费者跳转、0消费者说明、名称修改及应用回执；通用检查器期限12无效后输入无效JSON，字段禁用仍保留12，折叠JSON后保存会展开并聚焦textarea且save保持0，恢复JSON后12仍在，单独保存聚焦期限，修正为12000才能离开。读取检查器内外两层折叠均关闭时，无效JSON保存会打开两层并聚焦textarea。紧凑名称折叠可编辑；打开网页步骤不再崩溃，步骤与更多设置用Space展开，改名后收起、宽窄切换返回仍收起并保持名称。最后显式save=1/unexpected=[]，返回列表重开仍读到四步骤与两个改名；没有触发运行或真实网页访问。仅内存保存，不证明宿主持久化。
+
+实际宽1804时文档scroll约1805（1px差）；窄782时文档782/782。紧凑网页修正前配置栏被522px网页最小宽度挤压，修正后检查器257.50px、网页408.47px。已查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-step-inspectors/read-compact-final.png`，能看到目标、期限和折叠入口，下方有裁切。read-wide.png右侧检查器被截图裁切，read-compact.png和早期read-compact-final图含滚动/动画过程，不作全页1:1尺寸证据。未增加静态图片资源。
+
+最终pnpm typecheck、pnpm build、五文件Prettier及git diff --check通过，构建保留大chunk提示。初始预览漏填 requiredCapabilities 的错误属于夹具，已补齐；无目标崩溃是产品错误，修复并重开核对后未再出现。宽窄切换仍记录一次React Flow隐藏容器尺寸警告，未宣称修复。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行节点。页签80关闭、视口恢复、4231 Vite回收、临时HTML/TSX删除，用户IDE改动未提交。最新云端设计、原生窗口、真实持久化、真实网页读取和186整体验收仍待完成。
+
+[客户端 PR #108](https://github.com/zhongmiao-org/flow-ark-client/pull/108) 最终head `475333315c7d924c8b9d96c0eaa5634da703b8eb` 的 [CI 37991357903](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37991357903) Validate46秒 / Auto Merge8秒成功，实际合并提交 `cbe2cb46706ac0b3f6e8acb121b1e3b9a66de8ea`。同head较早 `37991356513` 取消，不计为通过。
