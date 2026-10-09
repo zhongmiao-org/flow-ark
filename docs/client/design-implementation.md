@@ -6545,3 +6545,17 @@ AITaskWorkspace 首页的描述、教学进度、待处理和最近任务四处�
 最终 pnpm typecheck、pnpm build、三文件 Prettier 和 git diff --check 通过；构建日志 `/tmp/flowark-task-cards-antd-build.log` 保留大chunk提示，最终console warn/error为空。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、读取凭据、打包安装或真实规划/输出。页签82关闭、视口恢复、4233 Vite回收，临时HTML/TSX删除，IDE改动不在提交中。真实保存/目录选择/模型/运行、原生窗口、最新在线设计和完整186体验仍待验收。
 
 [客户端 PR #110](https://github.com/zhongmiao-org/flow-ark-client/pull/110) 最终 head `150ae757541f107996723d139f22fa46707ad8fc` 的 [CI 37993539493](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37993539493) Validate43秒 / Auto Merge10秒成功，实际合并提交 `ccf0cc3143095177ff701c35d0b3b3a96734c1a2`。同head较早 `37993538785` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 首次教学与描述资料卡片
+
+查看既有 `FlowArk-AI-task-design.zip` 中 `taskguide-AI · 第一次实操.png`（091 `23:2106`）、`taskbrief-AI · 描述与附件.png`（092 `23:2280`），提取副本在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-guide-brief/design-{guide,brief}.png`；另看2026-10-08本地Figma教学截图。旧临时 `design-092.png` 已不存在，未以它作为本轮证据。本轮无新在线Figma上下文，不增加186整板通过数。
+
+FirstTaskGuide 的双栏、四项学习和四步练习共十处直接用 Card，范围说明、读取错误与任务缺失提示用 Alert，完成标记用 Tag。读取失败时不根据旧 taskExists 再断言任务缺失；继续/重启/跳过仍禁用，重读焦点逻辑保留。TaskBriefPage 双栏、资料区和三块说明共六处用 Card，资料输入 ConfigProvider 使用稳定布尔禁用值，紧凑操作使用 Button small；清理对应边框/圆角/内边距和按钮重复外观，保留布局、20项/4图片预算、副本范围、草稿与原回调。集中 theme 的 Card 设置12px圆角、boxShadowTertiary none，影响所有消费此主题的Card；未增加基础包装组件，未修改IPC或持久化契约。
+
+唯一隐藏IAB页签83载入实际 FirstTaskGuide、TaskBriefPage，父壳、学习/资料和回调均虚构。核对未取得记录时等待且禁用；原任务缺失时禁止继续但允许重启；随后读取失败聚焦就地错误，不再显示任务缺失断言，旧完成标记显示上次记录且全部动作禁用；只读重读等待后焦点落到重启，显式重启只触发虚构callback；虚构完成记录显示四个Tag、查看结果且隐藏跳过。描述两行和新资料名称/正文在折叠、busy进入/退出后保留；新增展开并聚焦/全选名称，依次移除时聚焦相邻摘要，最后一项回附加文本。附件等待禁用、取消保留、失败聚焦Feedback；四张图片只禁新增图片，20项同时禁新增文件/图片/文本。仅响应展示，无真实附件、存储、学习写入或模型执行。
+
+宽实际1443、文档1443；教学列400/923.63px，描述列470/853.64px，描述内资料约420.50px。窄实际782、文档782，教学/描述主卡约685.97px、资料约636.48px，各client/scroll相等。读取计算样式得到Card圆角12px、练习步骤shadow none。已查看该目录 guide-completed-wide.png、guide-error-narrow.png、brief-wide-final.png 与 brief-narrow-final.png；均局部裁切，窄图按内容滚动，不含实际App侧栏/导航。早期brief-wide.png包含收起动画、brief-narrow.png包含展开动画，不作为稳定展开尺寸证据；HMR修改夹具会重新载入，最终截图使用重新设置的虚构记录，不冒充持久化或跨重开恢复。
+
+最终 pnpm typecheck、pnpm build、四文件Prettier与git diff --check通过，日志 `/tmp/flowark-guide-brief-antd-build.log` 保留大chunk提示，最终console warn/error为空。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行流程。页签83关闭、视口恢复、4234 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新云端设计、真实保存/选择器/模型/运行、原生窗口、主题对其他Card页面的完整视觉回归和186整体验收仍待完成。
+
+[客户端 PR #111](https://github.com/zhongmiao-org/flow-ark-client/pull/111) 最终 head `f2f58dc77fdf3a45a08f51327c37d26fb150fac7` 的 [CI 37994669861](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37994669861) Validate48秒 / Auto Merge11秒成功，实际合并提交 `ae828e83ad4ffb38d01a55dfa72e52fc4eef04fc`。同head较早 `37994669682` 取消，不计为通过。
