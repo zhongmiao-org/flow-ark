@@ -6559,3 +6559,17 @@ FirstTaskGuide 的双栏、四项学习和四步练习共十处直接用 Card，
 最终 pnpm typecheck、pnpm build、四文件Prettier与git diff --check通过，日志 `/tmp/flowark-guide-brief-antd-build.log` 保留大chunk提示，最终console warn/error为空。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行流程。页签83关闭、视口恢复、4234 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新云端设计、真实保存/选择器/模型/运行、原生窗口、主题对其他Card页面的完整视觉回归和186整体验收仍待完成。
 
 [客户端 PR #111](https://github.com/zhongmiao-org/flow-ark-client/pull/111) 最终 head `f2f58dc77fdf3a45a08f51327c37d26fb150fac7` 的 [CI 37994669861](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37994669861) Validate48秒 / Auto Merge11秒成功，实际合并提交 `ae828e83ad4ffb38d01a55dfa72e52fc4eef04fc`。同head较早 `37994669682` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 操作对象卡片与提示
+
+查看既有 `FlowArk-AI-task-design.zip` 中 `tasktarget-AI · 选择操作对象.png`（093 `23:2440`），本轮查看的提取副本为 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-task-target/design-target.png`。未取得新的在线 Figma 上下文，不增加186整板通过数。
+
+TaskWebTargetPage 的双栏、当前网页、其他网页与对象摘要五处直接使用 Card；已保存选择、目标变化、切换范围说明、操作失败和未就绪状态使用 Alert。清理相应手写边框、圆角、内边距和失效直接子元素规则，保留当前网页语义底色、700px最小高度/窄屏单列、Tabs forceRender、工具详情挂载位置、错误/状态焦点与只读限制。未修改IPC、版本确认、持久化或权限契约，未新增基础包装组件。
+
+唯一隐藏IAB页签84载入实际 TaskWebTargetPage，父壳、网页、工具/窗口响应与回调均虚构。无效地址聚焦输入；打开失败聚焦 task-web-error，显式恢复后显示虚构新地址且旧选择提示需重查。整页确认回调 select=1/revision2；元素候选显示名称与待确认说明，确认后 select=2/revision3。网页未就绪时选择禁用，重查后聚焦 task-web-preview-feedback。工具标签显示空连接/右侧说明，窗口标签显示权限缺失及禁用能力；未点击系统授权。返回网页保留地址并显式重查，移除触发 clear=1/revision4。没有真实导航、模型、运行、存储或系统操作；未核对慢速请求、工具读取失败及具体工具定义详情，不把虚构回调作为持久化证据。
+
+宽实际1443px、文档1443px，双卡约492.84/830.79px，计算圆角均12px；窄实际782px、文档782px，单列卡约685.97px，第二卡位于第一卡下方。已查看该目录 target-wide.png 与 target-narrow.png；宽图右/下裁切，窄图只含第一卡和第二卡标题，不作为完整画板截图。预览控制与虚构说明不属于产品内容。
+
+pnpm typecheck、pnpm build、两文件Prettier和git diff --check通过，构建日志 `/tmp/flowark-task-target-antd-build.log` 保留大chunk提示，最终console warn/error为空。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、读取凭据、打包安装或执行流程。页签84关闭、视口复位、4235 Vite回收、临时HTML/TSX删除，IDE改动保留且不在提交中。最新云端设计、真实网页/选择器/保存、系统窗口、工具定义和完整186体验仍待验收。
+
+[客户端 PR #112](https://github.com/zhongmiao-org/flow-ark-client/pull/112) 最终 head `13bb3e8c14051f8d6de95f6cde8f99397af5188f` 的 [CI 37995645926](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37995645926) 成功，实际合并提交 `7482fcd377c292705f442224bc420fb732e3c25c`。同head较早 `37995645110` 取消，不计为通过。
