@@ -6663,3 +6663,19 @@ ToolConnectionsPage 的预设三卡、保存记录/高级设置、配置/说明�
 pnpm typecheck、pnpm build、五文件Prettier --check与git diff --check通过，日志 `/tmp/flowark-tool-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、原生助手或访问凭据，未登录/连接服务/调用工具/创建Run、打包安装。页签90关闭、视口复位、4241 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实发现/保存/重开/认证、助手连接、断开/删除、失效/过期及完整186体验仍待验收。
 
 [客户端 PR #118](https://github.com/zhongmiao-org/flow-ark-client/pull/118) 最终 head `4fdffc36ac3257cf61ee58225c868ceeb9dcb554` 的 [CI 38000329502](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38000329502) Validate45秒 / Auto Merge7秒成功，实际合并提交 `44edcf9a97ef113fa9851caee8f0e2dc2d48aa69`。同head较早 `38000329436` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 应用助手连接卡片
+
+查看既有 `FlowArk-AI-task-design.zip` 的 taskconnect（`23:5033`）、taskconnected（`23:5195`）及 taskexpired（`23:5348`）原导出，副本在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-assistant/design-*.png`。未取得最新在线Figma上下文，不增加186整板通过数。
+
+DesktopAssistantConnection 的来源、三项能力、两处外层面板与两项恢复提示共八处声明直接采用 Card。布局改指向 Card body，清理 tool-definition 手写卡片回退及已无消费者的 tool-dialog/旧details/旧ai-task-card选择器。保留 section 与能力列表语义、660/468双栏比例、setup716px/managed700px最低高度和窄屏单列。普通body集中主题24px，小卡12px；未新增基础包装组件，未修改窗口观察、释放、IPC、设置、单次授权或执行逻辑。Setup 因三项能力改用Card而自然增高，不宣称整板像素通过。
+
+唯一隐藏IAB页签91载入实际 ToolConnectionsPage、DesktopAssistantConnection 和 useDesktopWindows；窗口、系统权限、打开设置和释放均为虚构响应。进入向导不自动检查，第一次检查显示需权限，Space展开检查记录；第一次虚构设置请求失败保留错误与人工系统路径提示。第二次检查取得两虚构TextEdit窗口，显示选择入口、系统已授予但任务未授权；选择只触发虚构回调，未读取选区。第二次虚构设置请求成功后释放观察、隐藏选择入口与有效期，要求重新检查。
+
+第三次虚构检查保持等待，相关按钮禁用；返回目录后完成迟到回复仍保持目录，释放迟到观察，再进入不自动检查。第四次明确检查恢复管理状态，Space展开来源。第五次为两秒观察，后续观察到期后进入恢复页，移除选择入口/有效期。第六次检查失败保持恢复，第七次显示已授予权限但窗口不可读，第八次显示零个可显示窗口并提示清单不完整，都不能选择窗口。第九次明确检查恢复管理状态；结束前计数9次检查、5次释放、2次虚构设置请求，不将夹具内存记录当作真实系统行为。未核对完整空清单/不支持平台、真实权限或窗口、跨启动保存与原生执行。
+
+宽实际1443、文档1443，setup外卡793.18/562.44px，左卡自然高738.36px/右卡716px，来源743.69×126px；managed双卡700px高，能力743.69×111px。窄实际782、文档782，外卡717.96px，能力668.47×111px，恢复卡668.47×120px，展开来源634.97×126px；计算圆角12px，普通body24px/小body12px，无横向溢出。已查看setup-wide.png、connected-wide.png、recovery-narrow.png、connected-narrow.png、recovery-narrow-final.png、connected-narrow-final.png；宽图右/下裁切，窄图为局部视口，部分来源折叠截图仍在动画中，不用其证明稳定整卡高度。connected-narrow-final.png展示稳定管理卡片上部，下方右卡不在视口；夹具工具条/导航回调不属于产品UI验收。一次夹具虚拟下拉首项未渲染导致点击超时，检查菜单后用ArrowUp/Enter选中首项，不将其计为产品键盘交互证据。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过，最终CSS清理后重建成功，日志 `/tmp/flowark-assistant-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、原生应用或系统设置、访问凭据、读写选区、创建Run或打包安装。页签91关闭、视口复位、4242 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实权限/窗口/观察失效、选区操作/保存与完整186体验仍待验收。
+
+[客户端 PR #119](https://github.com/zhongmiao-org/flow-ark-client/pull/119) 最终 head `c1115ad7f73e1c19fe4d023c4be6c401b49e0911` 的 [CI 38001208822](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38001208822) Validate41秒 / Auto Merge9秒成功，实际合并提交 `9f70e61b00836dbd2a144c6d93d95ff4130aa14b`。同head较早 `38001208257` 取消，不计为通过。
