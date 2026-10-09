@@ -6093,3 +6093,22 @@ pnpm typecheck、pnpm build、七个变更文件 pnpm exec prettier --check 与 
 最终 pnpm typecheck、pnpm build、五个变更文件 Prettier 与 git diff --check 均通过。构建仍提示既有大 chunk（/tmp/flowark-run-object-records-build.log），未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删除，唯一隐藏 IAB tab 54 关闭，viewport reset，Vite session 52889 Ctrl-C exit 130 停止；IDE 文件未提交。
 
 客户端 [PR #82](https://github.com/zhongmiao-org/flow-ark-client/pull/82) 最新 head `537a82bd69503ab00d80fc4803ba27454145fced` 的 CI run `37956487656` Validate（42 秒）与 Auto Merge（10 秒）成功，实际合并为 `ec92508db05234886edc24f03452f7270329f04d`。并发替代 run `37956485346` 为 CANCELLED，不计为通过；合并不等于真实应用运行或完整画板验收。
+
+
+### 2026-10-10 Ant Design 重新运行核对与来源记录迁移
+
+延续 030 `2:3014` 核对后重新运行的已有映射，按用户直接使用 Ant Design 的指令，将共享 RunRerunPanel 的版本/绑定/引用明细、固定脚本、阻止原因、来源记录及派生列表五处折叠直接改为 Collapse。预览来源/摘要、完整版本字段与原运行信息三组采用 Descriptions，错误、未知确认和预览 warning 采用 Alert。复用集中主题和 metadata-facts，删除旧 summary、dt/dd、手写展开按钮及已失效的单选卡片外观 CSS，保留业务页面双栏、记录列表和导航。没有新增基础组件包装或设计状态。
+
+原生折叠 forceRender 保留内容挂载，派生列表默认展开；受控原因/来源仍由原 reasonsOpen/relationsOpen 管理，业务 section 保持原展开时挂载。沿用 Space 激活和库内 Enter。人工核对发现受控 Collapse 的展开内容初次尚未可见，原同步聚焦未生效；已推迟到下一帧，并优先恢复关联记录返回时的原按钮焦点，避免标题抢走焦点。原确认请求身份、结果未知查询、模式/调试重置、关联身份校验、宿主、IPC、权限与持久化不变。
+
+人工使用实际 RunRerunPanel、ApplicationTheme 和产品 CSS，仅允许虚构 run.rerun.preview/confirm/detail；其他方法拒绝。版本和固定脚本支持 Space/Enter，原因/来源展开后标题获焦；派生列表默认展开，可独立收起。查看虚构派生记录再返回，mode/debug、两个外层展开状态保留且原派生按钮获焦。输出/日志仅触发夹具导航记录。预览后整页表单获焦；改为当前已保存流程清除旧预览/核对，勾选逐步调试后新预览为 saved/debug=true，未核对且确认禁用。
+
+虚构确认首次回复未知时错误容器获焦；再次查询两次 requestId 相同、mode=snapshot/debug=false/reviewed=true，详情读取失败后仍保留 demo-created 查看入口并聚焦错误。pending 时模式、调试、勾选、确认和取消均禁用，释放后取得新运行并聚焦查看按钮。预览失败错误获焦；资源未绑定时预览禁用且原因可展开。关联回复身份不符时拦截且错误获焦，没有打开其他记录。嵌入布局离开后释放迟到预览，焦点留在释放按钮；返回后预览标题获焦，原状态保留。没有真实 Run、文件、网页操作或模型调用，不能据夹具证明真实去重、保存、执行或外部结果。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-rerun-review/，含 preview-wide/narrow 与 confirm-detail-error。请求 viewport 1480×1100 时主卡 clientWidth/scrollWidth 均 670，来源卡均 368；1040×1100 时主卡均 732。长版本号和浏览器标识正常换行，实际查看两种截图及创建后错误截图，控制台无 error/warn。截图为滚动片段，不代表原生三尺寸或完整画板几何 1:1。
+
+原生 Figma/客户端入口本轮仍因 Mac 锁屏不可读，没有新 Figma MCP 上下文请求。不增加 186 画板 / U01–U12 完整验收数量，真实重新运行、保存与原生视觉比对仍待独立核对。
+
+最终 pnpm typecheck、pnpm build、三文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示（/tmp/flowark-rerun-review-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删除，唯一隐藏 IAB tab 55 关闭，viewport reset，Vite session 94963 Ctrl-C exit 130 停止；IDE 文件未提交。
+
+客户端 [PR #83](https://github.com/zhongmiao-org/flow-ark-client/pull/83) 最新 head `e725bd7145e79f0f7888190a322acec1e6b6c766` 的 CI run `37958369792` Validate（44 秒）与 Auto Merge（9 秒）成功，实际合并为 `83e993ba12f3834e2a0a1a8a19935b94e6fa5cdc`。并发替代 run `37958368263` 为 CANCELLED，不计为通过；合并不等于真实重新运行或完整画板验收。
