@@ -6733,3 +6733,21 @@ TemplateInstancePage 共享配置/实例说明、来源与版本/导出说明及
 pnpm typecheck、pnpm build、三文件Prettier --check与git diff --check通过，构建日志 `/tmp/flowark-template-instance-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、真实选择文件/目录、访问凭据、调用AI、创建Run/计划或实际实例、生成ZIP/安装包。页签94关闭、视口复位、4245 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实保存/重开/版本创建、模板/AI返回、来源变化、空资源/动作/实例状态、原生布局、最新设计及完整186体验仍待验收。
 
 [客户端 PR #122](https://github.com/zhongmiao-org/flow-ark-client/pull/122) 最终head `9a26184166393275f70e01635e2945c095eb1efc` 的 [CI 38003635448](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38003635448) Validate38秒 / Auto Merge7秒成功，实际合并提交 `84f943cd391703840a724ae4d895bdd92ad324b2`。同head较早 `38003635578` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 任务修改与应用方案卡片
+
+查看保存的任务修改画板146 `taskeditnext`（`27:13212`），并从既有 `FlowArk-AI-task-design.zip` 提取查看应用任务方案133 `taskappplan`（`23:8190`）与应用任务确认134 `taskappcheck`（`23:8344`）。没有最新在线Figma上下文；本次只迁移现有修改／方案／候选对照容器，不宣称完整134确认试运行画板、全部功能或186整板通过。
+
+TaskModificationPage 两处外卡及 DesktopTaskPlan 两处外卡、需求、当前对象／影响范围和共用原文／候选文本卡共八处声明直接使用 Ant Design Card，保留语义section、方案步骤与详情、原文／候选底色、只读pre标签及双栏／窄屏容器查询。删除重复卡片内边距、边框、圆角和零引用desktop-plan-candidate外观；普通body用集中主题24px，小body由原16px调整为主题12px，最小内容高度继续保留。草稿冲突直接用error Alert与原重新核对按钮。生成区ConfigProvider始终传布尔busy，避免undefined／true切换上下文结构；没有新增基础包装组件、IPC／宿主／执行／持久化／AI契约改动。
+
+唯一隐藏IAB页签95加载实际两页及ApplicationTheme，所有任务、文本、配置、生成和检查响应为虚构数据。修改页初始空要求禁用核对并聚焦输入；输入后展开核对聚焦确认区，虚构勾选使发送入口可用、收起重置确认；冲突禁用核对，重新核对保留要求、更新修订并恢复输入；步骤断言详情与返回对应步骤的焦点可见，忙碌时输入、核对、收起和返回禁用。夹具发送按钮与确认框只是调用方替身，不证明真实修改请求或持久化。
+
+应用方案虚构配置读取失败禁用发送，明确重读恢复；原文／生成两组Collapse以Space收起及展开。虚构生成等待时供应商、重读及确认禁用，取消后确认复位、显示未修改提示；随后返回旧异步结果仍无候选。重新勾选后新候选出现并聚焦“查看改动并确认”，原文／生成说明自动收起；进入对照后原文／候选、影响范围、虚构能力条件可见且检查标题获焦。adoptionUnavailable明确禁用保存，返回方案保留候选；ArrowDown／Enter改为OpenAI后清除候选并重新核对模型。最终虚构计数read4／generate3（含一次被取消后迟到）／cancel2／inspect2；无adopt、写入、真实AI请求或Run。
+
+浏览器原有缩放133%，申请1440／782视口后实际页面CSS宽1082／588，页面scrollWidth与之相同。窄外卡约523.98px宽并纵向排列；宽候选对照两卡约471.95／522.77px，普通body24px、小文本卡body12px，修改页两个直接按钮实测约40px高。初始夹具漏挂产品ai-task-page容器导致窄布局错误，补齐产品容器后重新核对；该临时夹具修正不属于产品变更。普通截图因浏览器缩放裁切，改用只读CDP布局尺寸与captureScreenshot按缩放后的页面尺寸捕获完整图，不改变页面或浏览器缩放。
+
+已查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-task-plan-cards/` 最终modification-wide-complete.png、conflict-narrow.png、changes-narrow.png、changes-wide.png和plan-wide.png。最终宽图包含完整双卡、窄图包含纵向两卡；工具条、计数、虚构任务数据属于夹具，没有产品侧栏或原生整板证据。较早modification-wide.png仍是裁切图，不作为完整布局证据。
+
+pnpm typecheck、pnpm build、四个变更文件Prettier --check及git diff --check通过，构建日志 `/tmp/flowark-task-plan-cards-antd-build.log` 保留大chunk提示。未新增或运行单元／集成／smoke测试，未启动Electron／第二客户端、访问凭据／真实窗口、调用AI、保存方案、修改文档或创建Run。页签95关闭、临时视口复位、4246 Vite回收、临时HTML／TSX删除，IDE改动未提交。真实供应商、选择与能力失效、保存重开、授权写入回读、最新设计和完整186体验仍待验收。
+
+[客户端 PR #123](https://github.com/zhongmiao-org/flow-ark-client/pull/123) 最终head `6eb3b0cbf1beee6ec5a0d8bb3f65bdf40af993a4` 的 [CI 38004517014](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38004517014) Validate41秒／Auto Merge7秒成功，实际合并提交 `a13b4f2d5fe9eab7f929f94b0df7b018c7e1f173`。同head较早 `38004515862` 取消，不计为通过。
