@@ -5510,3 +5510,16 @@ pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，�
 证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-unknown-result/`：`figma-result.png`、`unknown-reopened.png`、`unfinished.png`、`read-still-pending.png`、`build.log` 和自建包源码/ZIP，均未纳入产品仓库。截图已查看，编号、原因、空态、去重输出及焦点由原生AX核对。每次只启动一个Electron，两次均正常退出码0，结束无主进程。最终 pnpm typecheck、pnpm build、三文件Prettier、git diff --check通过，构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试，用户IDE改动保留。强制崩溃、取消分支、通知失败、真实外部回执、紧凑尺寸及全部186画板 / U01–U12仍待验收。
 
 [客户端 PR #53](https://github.com/zhongmiao-org/flow-ark-client/pull/53) 最终 head `650dbbe16c73cf1f57a3bb77096e97240b63f0ce` 的 [CI 37898676882](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37898676882) Validate / Auto Merge 均成功，实际合并提交 `81e3b49ce10b2ff860f0220697308e1f43bd5b85`。
+
+
+### 2026-10-09 待办已读与复制操作的焦点衔接
+
+本地 Figma 查看 `1:3794` 待办与提醒的状态页签、结果待核对卡及来源运行入口；客户端继续使用既有详情双栏和成功提示，不新增配色、控件或持久化语义。Figma仍提示离线未同步，本轮只以本地画板为参考。承接上一轮标已读后焦点落到整页的真实缺口，AttentionWorkspace为当前操作记录触发按钮和访问编号。成功后若仍在本页且焦点留在body，可用按钮恢复焦点；按钮已移除或禁用则聚焦成功提示。切页、筛选改变、错误区和主动移焦不被覆盖；人工回应的既有标题焦点保持优先。
+
+唯一原生实例复用已有隔离库，打开“运行已结束”搜索后的提醒（来源Run `cd420604-d530-4dae-a6e7-9e37749cc27d`）。标为已读后，按钮禁用、未读角标消失，焦点进入“已标为已读；不会更改运行或外部业务结果。”，下一次Tab到查看原始详情。复制内容后焦点回按钮，Tab到对应来源运行，Enter打开正确Run，返回恢复来源按钮焦点。再次复制后返回列表，把剪贴板临时粘贴到本机搜索框，确认含正确effectId、runId及原因；随后恢复原搜索，无外发。
+
+返回待处理列表保留搜索词，原条目已不在待处理；切到已处理仍保留同一搜索，显示该条“结果待核对”及已读不等于业务核对的说明。清空搜索恢复7条已处理记录，回到待处理0条的正常空态。类型选择本轮没有成功改变，故不算组合类型筛选验收。仅将上一轮剩余的一条本机示例提醒标为已读，未创建Run、未重放操作、未改凭据或暂停计划。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-attention-actions/`：`figma-attention.png`、`copied-detail.png`、`done-filtered.png`、`build.log`，截图已查看（客户端2880×1920像素）；值、焦点、来源及计数由原生AX核对。pnpm typecheck、pnpm build、单文件Prettier、git diff --check通过；初次格式检查提示已修正，构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。唯一Electron正常退出码0，结束无主进程；用户IDE改动保留。慢请求下主动移焦/跨页、失败刷新、失效请求归档、本轮未重跑的人工回应和全尺寸/整板仍待核对，186画板 / U01–U12尚未完成。
+
+[客户端 PR #54](https://github.com/zhongmiao-org/flow-ark-client/pull/54) 最终 head `36622343df51e36599ae1a3b1e22105a4fe5bc43` 的 [CI 37899891502](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37899891502) Validate / Auto Merge 均成功，实际合并提交 `9c59baa25eeda5c12fb8fc3292b41a9518e31104`；同 head 并发取消的流水线不计为通过。
