@@ -5858,3 +5858,26 @@ Figma 23:3799 实时上下文仍被 Starter 额度阻断；whoami 确认 liuwufa
 最终 `pnpm typecheck`、`pnpm build`、五个变更文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包、保存真实连接或执行 Run/工具。临时预览源码、唯一页签与 Vite 服务已清理，视口已恢复，无关 IDE 改动未提交。
 
 [客户端 PR #70](https://github.com/zhongmiao-org/flow-ark-client/pull/70) 最终 head `cf05cc44001b8d2d8c1c49aed634ef9fd45bf151` 的 [CI 37935110199](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37935110199) Validate / Auto Merge 成功，实际合并提交 `9a48ad7c7de3e676f9a31aebbbafc260550efe5b`；同 head 并发取消的流水线不计为通过。客户端本地 main 已同步实际合并提交。
+
+
+### 2026-10-09 Ant Design MCP 参数核对、步骤提示与调用回执迁移
+
+McpArgumentCheck 五种结果直接使用 Alert + Tag，固定值符合定义使用信息提示，参数错误/不支持定义使用警示，动态引用与缺失结果保留原说明。参数状态和调用回执颜色映射归集中 theme；删除参数面板的手写背景/边框/圆角、状态标签字体，以及 mcp-receipt-status 重复外观 CSS，保留字段列表、长路径滚动与业务布局。McpNodeConfiguration 的只读声明/账号范围和保存不执行说明直接使用 Alert。McpRunReceipts 使用 Tag 和 Alert，保持收到回复/工具错误/未发送/未知与运行中等待的区分，原文本、结构化结果、完整回执、富内容说明及时间/步骤实例仍可查看。
+
+原参数文案、空路径名称、引用计数、工具切换清空参数、已选工具边界、回执按 Run 与固定快照核对、错配转未知和无自动重试规则保持；没有修改参数验证器、mcp-run-presentation、IPC、权限、执行、持久化或脱敏协议。没有新增基础控件包装。
+
+采用实际 RunReviewTools、McpNodeConfiguration、McpRunReceipts 与 ApplicationTheme，唯一临时隐藏 IAB 使用明确标注的虚构样本人工核对：
+
+- 五种参数状态与说明均查看；固定值不等于授权、动态引用两处且未求值、不支持规则不忽略、未取得结果不能开始调用均保留。工具详情在待求值/缺失结果时按原 open 判断收起，重新展开后查看，没有改变原折叠逻辑。
+- 参数错误保留 /scope、整组参数与 771 字符长路径；长路径 DOM 文本完整，区域高度 96px、内容 188px、宽/scrollWidth 均 815px，键盘 PageDown 后未观察到内部滚动变化，不宣称该键盘滚动已验收。不支持定义的空路径显示“整个输入定义”，其余路径和处理建议仍可读。
+- 七条虚构回执按所选 Run 只显示六条；独立循环实例分别呈现收到回复、工具错误、未发送、终止未知和等待。错配 nodeId 的收到回复变为未知、不显示结果。运行停止后等待项转为未知并提示先核对原服务。取消快照后六项均为未知、没有服务文本，未拿原回复冒充成功。
+- 首条回复的结构化结果和完整回执可展开，富内容只说明数量，没有生成图片/链接/媒体元素或自动打开资源；查看没有再次调用。此预览不证明真实脱敏或 4000 字符截断实现。
+- 只读配置、工具用途/声明、保存不执行提示已查看；编辑虚构 scope 后更换工具清空参数为 {}，更换对象采用该对象第一个已选工具并仍为空参数。隐藏已选对象时工具选择禁用、逻辑目标保留，切回只读展示未绑定和原逻辑名。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-mcp-review-receipts/` 保存 `fixed-argument-review.jpg`、`invalid-argument-fields.jpg`、`deferred-argument-review.jpg`、`unsupported-argument-narrow.jpg`、`received-and-tool-error.jpg`、`waiting-and-unknown-receipts.jpg`、`missing-snapshot-receipts.jpg`、`unbound-tool-configuration.jpg` 与最终 typecheck/build 日志。默认约 962×541、宽请求 1480×1100、额外窄请求 1040×1000 后实际约 782×752 的组件布局已查看；窄 main 的 client/scrollWidth 均 782px、配置区均 734px，没有横向溢出。截图为组件滚动片段，不能代表原生全窗或严格三尺寸 1:1 验收。
+
+本轮未取得新的 Figma 实时上下文，沿用已保存页面结构与用户 Ant Design 指令；本机窗口清单复核仍为 Mac 锁屏。未增加 186 画板 / U01–U12 完整验收数量，真实服务/工具调用、脱敏、复杂回执/快照组合、原生窗口及全页面验收仍待完成。其他 AI/网页/脚本的状态反馈继续迁移。
+
+最终 `pnpm typecheck`、`pnpm build`、六个变更文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包、执行真实 Run 或调用工具。临时源码、唯一页签与 Vite 服务已清理，视口恢复，IDE 无关改动未提交。
+
+[客户端 PR #71](https://github.com/zhongmiao-org/flow-ark-client/pull/71) 最终 head `5638f43d88cdf26363690f1e6946ff8f4d4cc6bd` 的 [CI 37936859398](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37936859398) Validate / Auto Merge 成功，实际合并提交 `539b97fc86c03085a7b5ab501c7c1840abf2476f`；同 head 并发取消的流水线不计为通过。客户端本地 main 已同步实际合并提交。
