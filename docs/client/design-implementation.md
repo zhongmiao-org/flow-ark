@@ -6647,3 +6647,19 @@ RunReviewPage 外层摘要/确认、五项摘要/原运行，RunReviewTools 外�
 pnpm typecheck、pnpm build、五文件Prettier --check和git diff --check通过，日志 `/tmp/flowark-review-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、原生应用或访问凭据，未打包安装或执行流程。页签89关闭、视口复位、4240 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实预检/运行/工具调用、原生绑定与保存、完整186体验仍待验收。
 
 [客户端 PR #117](https://github.com/zhongmiao-org/flow-ark-client/pull/117) 最终 head `0193a9ece905df596b0fb1582a7eefa1c56a6215` 的 [CI 37999588989](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37999588989) Validate38秒 / Auto Merge9秒成功，实际合并提交 `9db9463b224a4a849ad7118d7ef5c037c781f0cf`。同head较早 `37999587940` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 工具连接与能力卡片
+
+查看既有 `FlowArk-AI-task-design.zip` 的 tasktools（`23:4867`）、taskcustom（`23:5493`）、taskcustomreview（`23:8773`）、taskcustomsaved（`23:8920`）原导出，提取副本在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-tool-cards/design-*.png`。未取得最新在线Figma上下文，不增加186整板通过数。
+
+ToolConnectionsPage 的预设三卡、保存记录/高级设置、配置/说明、核对/使用规则及身份范围，ToolCapabilityReview 的少量能力卡和选择详情，ToolConnectionUsage 的任务引用共十三处声明直接采用 Card。空连接、搜索无匹配与无匹配工具使用 Empty，清理重复边框/圆角/内边距和空态虚线边框，布局改指向 Card body。保留 section/article/列表语义、双栏比例与最小高度、窄屏单列、定义展开/搜索/焦点、能力对照与原来源/候选/保存/授权逻辑。主卡采用集中主题24px，小卡12px；目录下方原16px调整到24px，不宣称整板像素通过。DesktopAssistantConnection 本轮未迁移，保留共享非Ant卡片的旧样式；未新增基础包装组件、修改IPC或真实连接/工具调用契约。
+
+唯一隐藏IAB页签90载入实际ToolConnectionsPage与能力/引用子组件，八条连接、发现候选、保存和取消均为虚构响应，未接入实际服务。搜索无结果使用Empty，清除恢复8条并聚焦搜索。少量能力与身份来源/任务引用支持Space展开，查看任务仅触发虚构回调，不验证跨页面恢复。夹具最初漏载产品已有runs-system.css辅助文本样式，补齐后Vite重载并重置内存；早期usage-narrow.png不计为最终文本外观证据，usage-narrow-final.png为重载后局部且自动滚动未完整展示引用卡。
+
+从虚构连接2设置显式核对来源后发现：本次7工具、原2工具，对照含新增6/变更1/移除1与服务身份变化。未变化0筛选显示Empty，清除恢复8项；Space展开用途说明原新对照。选择已移除工具展示原定义及未包含提示。保存失败仍保留候选和错误，再显式保存成功后展示7项已保存能力；返回目录聚焦原连接2，读取失败保留8条旧记录并明确当前状态待核对。夹具清空记录再通过产品重新读取显示空连接Empty。保存与记录只在夹具内存变化，不计宿主持久化、真实服务或U07验收。
+
+宽实际1443、文档1443，预设卡443.87px且296px高，下方保存/高级卡673.00/682.61px，计算圆角12px。窄实际782、文档782，主卡717.96px，定义卡668.47px，展开引用卡634.97px；主body24px/小body12px。已查看catalog-wide.png、config-wide.png、usage-narrow.png、usage-narrow-final.png、removed-narrow.png及empty-narrow.png；宽图右/下裁切，窄图是滚动局部，无产品导航栏和完整原生尺寸证据。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、五文件Prettier --check与git diff --check通过，日志 `/tmp/flowark-tool-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、原生助手或访问凭据，未登录/连接服务/调用工具/创建Run、打包安装。页签90关闭、视口复位、4241 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实发现/保存/重开/认证、助手连接、断开/删除、失效/过期及完整186体验仍待验收。
+
+[客户端 PR #118](https://github.com/zhongmiao-org/flow-ark-client/pull/118) 最终 head `4fdffc36ac3257cf61ee58225c868ceeb9dcb554` 的 [CI 38000329502](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38000329502) Validate45秒 / Auto Merge7秒成功，实际合并提交 `44edcf9a97ef113fa9851caee8f0e2dc2d48aa69`。同head较早 `38000329436` 取消，不计为通过。
