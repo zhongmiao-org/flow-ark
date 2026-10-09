@@ -6309,3 +6309,19 @@ pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，�
 控制台无 warn/error。pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示（/tmp/flowark-browser-settings-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 tab 67 关闭、viewport reset、Vite session 43759 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏，真实宿主持久化、会话与原生完整验收待核对，不增加 186 画板 / U01–U12 完整验收数。
 
 客户端 [PR #95](https://github.com/zhongmiao-org/flow-ark-client/pull/95) 已由 CI 自动合并：head f8500b352519c437515830c7f6176cbd45b4b19f，run 37974352936 的 Validate（48 秒）与 Auto Merge（10 秒）成功，合并提交 5aa37c246b280b35934801bf7e3f6a3f0369c06f。旧同 head run 37974351978 为 CANCELLED，不计为通过。
+
+### 2026-10-10 Ant Design 模板身份与只读参数迁移
+
+沿用模板库/安装 1:3125、1:3256、2:812、2:892、实例 2:973/2:1083 与既有参数页，不请求新 Figma 上下文。TemplateManifestOverview 的作者/来源声明、包 ID/摘要/文件与脚本数量使用纵向 Descriptions，包内容与身份使用小尺寸 Collapse、forceRender 和已有 Space 处理；TemplateInstancePage 来源与版本六字段直接使用 Descriptions，TemplateParameters 只读参数使用纵向 Descriptions。删除重复字段表、折叠和字段值底色 CSS；JSON 保留完整序列化、全行宽度、200px 高度限制与内部滚动，硬编码边框/背景/圆角改用集中主题变量，没有新增基础包装库。
+
+没有改入口选择、作者和来源声明不代表签名认证、缺失声明回退、版本/实例/摘要、资源和动作要求或 JSON 含义；没有改来源核对、草稿/保存/离开保护、版本采用和导出逻辑，没有改 IPC、宿主、模板契约或权限。未把安装格式通过当作签名认证、动作授权或运行通过。
+
+唯一隐藏 IAB tab 68 加载实际三个组件、ApplicationTheme 与产品样式；模板身份、来源、版本、资源、动作、依赖、实例及 JSON 均虚构，template.detail 为假请求，不连接真实宿主/文件。人工确认身份 Collapse 的 Space/Enter、切换入口与 checked 状态保留展开，来源长地址和包 ID/摘要换行、作者换行保留；入口显示正确资源、无资源提示、未授权写入与未知能力原声明。只读参数完整保留对象/列表及 0/false/null/换行字符串，空参数保留编辑入口；编辑按钮记录两次假回调，没有实际编辑导航或保存。
+
+实际实例页在共享配置中输入虚构名称草稿，切换来源与版本再返回保留值，返回模板库出现原离开保护，继续编辑保留草稿。来源字段仍是原固定身份、没有跟随名称草稿改变；原版本无替代安装、不能创建新版实例，引用与新旧并存说明保留。来源读取失败通过夹具重新挂载模拟（该重挂载重置夹具草稿，不宣称跨重挂载保留），错误显示时仍展示现有来源记录且导出禁用；取消失败开关并点重新读取恢复，未导出 ZIP、创建实例或执行入口。
+
+截图目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-template-information/，已查看 source-wide、parameters-narrow、parameters-final-narrow。manifest-wide/narrow 与 source-narrow/error-wide 已保存作为补充，未据未查看的图片作完整视觉判定。宽请求 1480×1100 时包卡片 clientWidth/scrollWidth 均 1063，声明表均 1015，身份折叠均 1014；窄请求 1040×1100 时卡片均 732、声明表均 684、身份表均 659。来源窄网格均 670 单列，宽网格均 1001 双栏、来源表均 573；长文本未使卡片水平溢出。最终参数所有 pre 的宽/滚动均 682，长 JSON 高 198、scrollHeight 2073，其他值高 37，没有裁切原始 JSON。
+
+最终参数截图上方夹具导航不在视口内，source-wide 下方字段/版本采用在视口外，完整内容以 DOM 核对为准；工具缩放与夹具不代表完整 App 外壳或原生三尺寸/Figma 1:1。控制台无 warn/error。pnpm typecheck、pnpm build、六文件 Prettier 与 git diff --check 通过，保留大 chunk 提示（/tmp/flowark-template-information-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装；临时 HTML/TSX 删除、tab 68 关闭、viewport reset、Vite session 32314 Ctrl-C exit 130，IDE 文件保持未提交。Mac 仍锁屏，真实模板安装/持久化/来源返回与完整视觉验收待核对，不增加 186 画板 / U01–U12 完整验收数。
+
+客户端 [PR #96](https://github.com/zhongmiao-org/flow-ark-client/pull/96) 已由 CI 自动合并：head 0c6aeb0014422a30e26794b33d5f3984916fa7eb，run 37975313965 的 Validate（43 秒）与 Auto Merge（8 秒）成功，合并提交 008e5bad377ddb879d5efe2e67be1b561be8e82f。旧同 head run 37975312034 为 CANCELLED，不计为通过。
