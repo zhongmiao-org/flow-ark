@@ -31,4 +31,6 @@ AI 供应商接入使用通用 AIRequest/AIResult，不包含求职提示词。�
 - `ai(id,{instructions,input,schema})` 返回 `{provider,model,requestId,output,usage}`。模板脚本不能通过旧 credential SDK 读取 Key。
 - `browser(id,{operation,selector?,value?,timeoutMs?})` 当前公开 url/navigate/read/count/attribute/inputValue/wait/click/fill/select/check/press。监听导航使用有期限的 url 轮询并检查 signal；不得无限占用 Run。通用节点的上传/下载等能力仍由通用 BrowserDriver 契约约束。
 
+人工输入的 `schema` 仍由宿主按完整 JSON Schema 校验。2026-10-09 客户端字段展示在配置表单子集之上支持数组 `minItems`：非负安全整数，且不超过声明的 `maxItems`（未声明时受编辑器1000项上限约束）。不足项在列表分组提示并阻止提交；不为满足数量自动创造条目。展示支持探测不改写原 Schema，宿主始终校验原请求。不支持的格式保留明确的 JSON 输入入口。这不扩展模板配置 Schema 契约，不允许包配置开始使用未声明的关键字。
+
 配置及入口输入使用 configuration-schema.ts 中的可渲染 Schema 子集；状态/结果可使用 JSON Schema 2020-12 的本地引用。能力不足使相关入口不可运行；不能通过配置默认值获得动作授权。每次脚本 RPC 身份来自 Host 签发的 owner，不能由模板参数替换。客户端当前全局 FIFO 串行队列同时保证同实例入口不会并行修改状态。
