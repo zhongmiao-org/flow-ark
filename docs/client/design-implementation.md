@@ -5150,3 +5150,20 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-native-template/`：标准ZIP、`figma-installed.png`、`figma-instance.png`、`installed.png`、`instance-a-result.png`、`instance-b-result.png`、`capability-labels.png`、`instance-reopened.png`及`build.log`。设计、安装、两份输出、能力和重开配置截图已查看；effect标签在当前首屏下方，经AX核对。实际1440×960、设计1440×1080，完整几何及全部状态仍待验收；返回按钮长名称换行仍需继续对齐。此次证明该包的真实安装、普通配置隔离、放弃草稿和离线运行，不能代替复杂Schema、入口输入、实例状态写入、资源授权、AI/网页执行、计划、升级和卸载验收，186画板 / U01–U12保持未完整验收。
 
 客户端`pnpm typecheck`、目标文件Prettier、`pnpm build`与`git diff --check`通过，构建保留大chunk提示。未新增或运行单元、集成、smoke测试。两个客户端严格串行，均退出码0，当前无本轮开发实例。无关IDE改动保留；客户端公开源码推送此前被自动审批拒绝，本轮未重试，仅本地提交，治理记录独立PR交付。
+
+
+### 2026-10-09 模板AI入口绑定、运行与重开
+
+前序治理 [PR #462](https://github.com/zhongmiao-org/flow-ark/pull/462) 最新头 `6d14793b98f4ec712bd913e90720358a08b785c3` 经 [CI 37870850405](https://github.com/zhongmiao-org/flow-ark/actions/runs/37870850405) 成功自动合并为 `8bad0b35b5615996bc9b464eff7afa761ecd1325`。本轮本地Figma查看016 / `2:1199`，沿用入口输入、执行摘要与明确运行布局，复用前轮014设计和导航规范中的长名称省略要求；不声明云端同步已验证。
+
+客户端本地 `95a9bc6` 修复模板实例顶部返回按钮：固定既有按钮尺寸，文字容器单行省略，title及辅助功能名称保留完整返回目的地，原来源导航与离开守卫不变。首次仅在按钮上设置省略会直接裁切文字，原生截图发现后改为内部span；最终1440×960截图明确显示省略号，未挤高顶部栏。未覆盖紧凑尺寸的该项最终原生检查，不宣称全尺寸完成。
+
+实际Electron使用既有隔离目录及原multi-entry@1.0.0实例甲 `7eeecf8b-5cfc-4d95-990f-31680da12a2c`。结构化AI入口起初显示待配置资源、运行禁用；在普通入口页明确选择已配置的DeepSeek / deepseek-flash后，显示“绑定尚未保存”，仍阻止运行。点击保存实例配置后绑定标为已保存、运行可用，没有因选择或保存自动执行。未重新读取或输入Key。
+
+明确运行生成Run `02514fc6-9215-4f9b-832c-fbd033d3fbcf`，一个脚本步骤完成，实际输出execute.name为“实例甲独立资料”，0文件产物。该独立模板的draft脚本只将虚构name字段发送给真实AI适配器，校验返回值一致后调用实例state.set并返回结果；本轮没有浏览器操作、外部文件写入或计划。没有夹具回复或隐藏IPC绕过操作。本轮1次明确Run及脚本中的1次AI调用；实例状态写入虽属于已完成脚本路径，本轮没有独立读取数据库或状态页复核其跨重开持久化，不计为完整状态隔离验收。
+
+重开最终构建后，实例列表显示实例甲保存1项资源、实例乙仍为0项。实例甲AI入口已就绪，展开资源信息确认DeepSeek / deepseek-flash绑定已保存，最近运行仍为02514fc6。点击查看上次入口结果恢复原Run及相同name输出，没有再次启动。全局连接验证徽标仍为“已配置 · 待验证”，本轮未触发独立连接验证，不把一次模板运行冒充该验证记录。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-template-ai/`：`figma-entry.png`、初次裁切的`return-label.png`、最终`return-label-final.png`、`ai-result.png`、`ai-result-reopened.png`与构建日志。设计、最终返回标题和首次AI结果截图已查看，重开绑定及原结果经AX核对。原生1440×960，设计1440×1080；AI失败/取消、复杂输入、其他供应商、状态隔离、网页入口及完整186画板 / U01–U12仍待验收。
+
+最终`pnpm typecheck`、两文件Prettier、`pnpm build`和`git diff --check`通过，构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。两个实例严格串行并均确认退出码0。保留无关IDE改动；客户端公开源码推送此前被自动审批以披露风险拒绝，本轮未重试，客户端仅本地提交，治理记录独立PR交付。
