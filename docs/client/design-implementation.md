@@ -5542,3 +5542,25 @@ pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，�
 本轮是基础控件与主题迁移，不是完整组件迁移或画板验收。仍有 20 个原生 dialog，以及业务表格、页签、提示和布局需要后续按设计逐步采用 Ant Design；保存失败、慢请求禁用、原生 dialog 浮层及全尺寸视觉尚未全面人工核对。186 画板 / U01–U12 的完整目标仍未完成。
 
 [客户端 PR #55](https://github.com/zhongmiao-org/flow-ark-client/pull/55) 最终 head `8c8008e1a43e206ae031e6d686c1169016ec9176` 的 [CI 37904337538](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37904337538) Validate / Auto Merge 均成功，实际合并提交 `08e603e74eb18d7599afe2490b2c7a5d906c216b`；同 head 并发取消的流水线不计为通过。
+
+### 2026-10-09 Ant Design 离开确认与网页浮层迁移
+
+本轮实际读取 Figma 文件 `sVciNUZHG9yx81gCpYzjH9` 节点 `8:20277`“离开确认 · 流程参数”的设计上下文和截图，按其中确认框 640×320、28px 内边距、12px 圆角、16px 内容间距、28/40 标题及三个操作顺序适配 Ant Design。后续子节点请求再次触及连接器限额，不代表所有画板已恢复读取或重新验收。
+
+直接迁移流程参数、脚本、Excel 映射、模板实例、普通/模板计划、AI 设置和工具连接的离开确认；工具连接删除/断开确认也使用 Modal，移除旧 ToolDialog 包装。原生 dialog 定义由 20 处减少到 13 处。已迁移的编排离开确认同步统一布局；ConfigProvider 集中配置 Modal 和 Tag，保留原页面保存、放弃、取消请求、禁用与错误语义，删除对应重复外观样式。修正凭据 Checkbox 被旧 span 规则拉伸的问题，没有修改授权值。
+
+内置网页识别可见 Ant Modal；打开确认框时隐藏 WebContentsView，关闭后恢复原会话，避免原生网页盖住弹窗。
+
+使用既有隔离数据目录，先正常退出再重开，人工核对：
+
+- 流程参数新增临时 `antdReview` 草稿，离开确认显示实际去向；Tab 循环保留在弹窗中，Escape 保留输入并恢复参数控件焦点，放弃后回到编排。最终构建重开确认参数仍为空，Checkbox 尺寸正常，再次临时新增并放弃，没有保存授权或参数。
+- 普通计划草稿间隔 60→61，未选择/确认固定来源时保存禁用；Escape 保留 61 并恢复间隔焦点，放弃后仍只有原有暂停的 90 分钟计划，没有创建计划。
+- 自定义 MCP 连接只填写临时名称，未输入 URL/凭据或发起检查；Escape 保留名称并恢复焦点，放弃后已保存连接仍为 0。
+- AI 设置仅将模型名临时改为 `deepseek-ui-review`，Escape 保留草稿并回到模型输入，放弃返回设置；没有保存 Key、配置或调用模型。
+- 内置面板显示 Example Domain，临时修改流程名称后打开编排离开确认，截图确认原生网页隐藏；Escape 后原网页恢复且焦点回到名称，最后放弃临时名称，列表仍显示原名。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-leaves/` 包含最终 `parameters-leave.png`、普通计划 `schedule-leave.png`、网页遮罩 `browser-modal.png` 和最终类型检查/构建日志。计划与网页截图为最终状态点间距修正前版本；最终参数截图已核对胶囊状态、点间距和软红放弃按钮。`pnpm typecheck`、`pnpm build`、改动 TSX/CSS 的 Prettier 检查、`git diff --check` 通过，构建保留大 chunk 提示；未新增或运行单元、集成、smoke 测试，未打包安装。最后 Electron 正常退出码 0；用户 IDE 改动保留。
+
+脚本、Excel、模板实例、模板计划、工具删除/断开、保存失败/慢请求及全尺寸状态未逐项人工验收。剩余 13 处原生 dialog 与表格、页签、反馈继续迁移；186 画板 / U01–U12 尚未完成，本轮不新增完整画板验收数量。
+
+[客户端 PR #56](https://github.com/zhongmiao-org/flow-ark-client/pull/56) 最终 head `15ebfdb4d08f8cc5603f475f2ba9969d757b8bff` 的 [CI 37908036818](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37908036818) Validate / Auto Merge 成功，实际合并提交 `bfba320e40a157f21a715e53170fe6f961a4919a`；同 head 并发取消的流水线不计为通过。
