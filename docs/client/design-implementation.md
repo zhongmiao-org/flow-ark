@@ -6531,3 +6531,17 @@ RunHistory 筛选表单内直接使用 Card，更多条件使用受控 Collapse�
 最终pnpm typecheck、pnpm build、四文件Prettier与git diff --check通过，构建日志 `/tmp/flowark-template-history-antd-build.log` 保留大chunk提示。最终浏览器warn/error为空。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行节点。页签81关闭、视口复位、4232 Vite回收、临时HTML/TSX删除，IDE改动保留未提交。最新云端设计、真实保存/模型/运行、原生窗口与完整186体验仍待验收。
 
 [客户端 PR #109](https://github.com/zhongmiao-org/flow-ark-client/pull/109) 最终head `5d5040cd1ff167b4d6675e7cab1250fcff766014` 的 [CI 37992510605](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37992510605) Validate34秒 / Auto Merge7秒成功，实际合并提交 `c86a061e41c3ec811dd5fe79687afc2dd3b09e27`。同head较早 `37992509691` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 任务首页与理解卡片
+
+查看保存的 `flowark-ai-task-design/taskhome.png`（090 `23:1941`）和 `taskclarify.png`（095 `23:2766`）。本轮未取得新的在线 Figma 上下文，落实用户直接使用 Ant Design 的组件调整，不增加186画板/U01–U12整板通过数。
+
+AITaskWorkspace 首页的描述、教学进度、待处理和最近任务四处容器直接使用 Card，保留 section 语义、列表状态/重读与原输入高度自适应，描述输入改用 borderless。TaskUnderstandingPage 的双栏、上次理解说明和四个事实容器直接使用 Card；清理相应边框、圆角、内边距、目录按钮重复外观和失效原生单选输入规则，保留比例、间距、710最小高度/窄屏单列及原 IPC、版本、目录与权限逻辑。输出策略 ConfigProvider 使用稳定布尔禁用值，未增加基础包装组件。
+
+唯一隐藏IAB页签82载入实际 AITaskWorkspace 首页和 TaskUnderstandingPage，父壳、列表、学习记录与目录响应均虚构。首页填写两行描述后，刷新失败保留原任务并显示错误，显式重新读取恢复；宽窄切换仍保留描述。理解补问输入保留两行，无效文件名 ../未完成 在 busy 进入/退出后仍保留且 aria-invalid=true；修改按钮聚焦文件名。修正后目录等待、取消回选择按钮、失败聚焦就地反馈，完成选择显示虚构目录；覆盖策略同步修改范围与输出说明，移除目录后保留文件名并回选择按钮。资料和输出设置用 Space 展开。预览父层临时将 ConfigProvider theme 从 undefined 切为 Card 背景/24px圆角配置，六处主/事实卡的 computed style 均实际改变；这一夹具主题切换会重新挂载子树并重置局部折叠，受控输入仍保留，不宣称实现应用动态主题功能或切换后的折叠恢复。
+
+宽实际1443、文档scroll1443；理解双栏约492.84/830.79px，事实卡约781.30px，client/scroll相等。窄实际782、文档782，理解和首页状态卡约685.97px，理解事实卡约636.48px，client/scroll相等。已查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-task-cards/` 中 home-wide.png、home-narrow.png、understanding-theme.png、understanding-wide.png、understanding-narrow.png 与 understanding-narrow-output.png。截图为局部：宽图右/下裁切，窄输出图滚动到四张事实卡；预览控制条和虚构反馈非产品内容，不作完整画板尺寸证据。
+
+最终 pnpm typecheck、pnpm build、三文件 Prettier 和 git diff --check 通过；构建日志 `/tmp/flowark-task-cards-antd-build.log` 保留大chunk提示，最终console warn/error为空。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、读取凭据、打包安装或真实规划/输出。页签82关闭、视口恢复、4233 Vite回收，临时HTML/TSX删除，IDE改动不在提交中。真实保存/目录选择/模型/运行、原生窗口、最新在线设计和完整186体验仍待验收。
+
+[客户端 PR #110](https://github.com/zhongmiao-org/flow-ark-client/pull/110) 最终 head `150ae757541f107996723d139f22fa46707ad8fc` 的 [CI 37993539493](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37993539493) Validate43秒 / Auto Merge10秒成功，实际合并提交 `ccf0cc3143095177ff701c35d0b3b3a96734c1a2`。同head较早 `37993538785` 取消，不计为通过。
