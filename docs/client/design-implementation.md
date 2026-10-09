@@ -5818,3 +5818,21 @@ Figma 导出节点 2:4940 的实时上下文与截图请求仍受 Starter 额度
 Figma 23:4867 实时上下文与截图仍受 Starter 额度限制；whoami 确认正确账号 liuwufangzhou@gmail.com / Ark 65 / Starter View，本机应用清单确认 Mac 锁屏。本轮仅迁移既有基础控件，不增加 186 画板 / U01–U12 完整验收数量。能力变化筛选/变化标签等业务组合及其他反馈继续迁移；真实连接/持久化、账号、OAuth 完整流程、原生助手、慢请求/取消及全页面三尺寸仍待验收。
 
 [客户端 PR #68](https://github.com/zhongmiao-org/flow-ark-client/pull/68) 最终 head `194f27ee1daec93ff3eed8c492f0b93442744c72` 的 [CI 37932265916](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37932265916) Validate / Auto Merge 成功，实际合并提交 `19da0f0026b1c731625b55c824b80aafe4c467cc`；同 head 并发取消的流水线不计为通过。
+
+
+### 2026-10-09 Ant Design 能力变化筛选与标签迁移
+
+ToolCapabilityReview 的全部/新增/已变更/已移除/未变化直接使用 Segmented，组名由 useId 生成，Tab 不额外停在组容器，原生单选项负责方向键操作。变化标记直接使用 Tag，语义色集中在 theme；工具选择使用 Button primary outlined 变体。删除旧筛选按钮尺寸、选中配色及 tool-capability-change 的颜色/背景/圆角/内边距样式，只保留布局与筛选横向滚动。没有新增基础组件包装，也未修改比较算法、IPC、权限或持久化。
+
+实际组件与 ApplicationTheme 使用明确标注“不连接真实宿主”的虚构定义，唯一临时隐藏 IAB 人工核对：
+
+- 本次三项、原有三项形成四个工具身份，新增/变更/移除/未变化各一项。四类筛选计数和详情正确；搜索框 Shift+Tab 直接进入选中的 radio，右方向键从全部切到新增、再到已变更。
+- 在已变更分类搜索旧用途仍找到同一 lookup_record 身份；展开用途变化显示原来/本次文本，搜索新版名称仍显示 1/4。全部分类选择 read_report 显示其详情及中性未变化标签，移除分类搜索原始用途仍显示原保存定义和移除警示。
+- 无匹配显示 0/4 和清除入口；清除恢复全部、空搜索、默认工具，并聚焦搜索框。本次零工具显示原三项均已移除及无执行能力说明；点击新增 0 显示 0/3，无错误详情。
+- 无基线的首次两项清单保留卡片及原参数/行为声明展开方式，没有添加变化筛选。标签成功/警示/中性色从集中主题取得，未被普通辅助文字规则覆盖。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-capability-controls/` 保存 `capability-segmented-tags.jpg`、`changed-definition.jpg`、`removed-tool-narrow.jpg`、`empty-filter.jpg`、`first-small-list.jpg` 和最终 typecheck/build 日志。默认约 962×541、宽请求 1920×1280 后实际约 1443×962、额外窄请求 1040×1000 后实际约 782×752 已查看组件布局。窄 main 的 client/scrollWidth 均 782px，筛选均 734px；宽 main 均 900px，没有横向溢出。截图包含滚动片段，工具列表保留原最大高度滚动，不作为原生整窗或严格三尺寸 1:1 验收。
+
+`pnpm typecheck`、`pnpm build`、三个变更文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或执行真实工具调用。临时源码、Vite 服务、唯一预览页签已清理，视口已恢复，IDE 无关改动未提交。本轮沿用既有布局与用户 Ant Design 指令，未取得新的 Figma 上下文，不增加 186 画板 / U01–U12 完整验收数量；连接身份对照、小清单等业务容器仍保留，真实连接/保存/授权和完整页面验收继续待完成。
+
+[客户端 PR #69](https://github.com/zhongmiao-org/flow-ark-client/pull/69) 最终 head `d1a8fc4a008d2fd009f69edae27ddc187d625299` 的 [CI 37933350761](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37933350761) Validate / Auto Merge 成功，实际合并提交 `8d169110c8e6167e5ded685e24df55a1983c0039`；同 head 并发取消的流水线不计为通过。客户端本地 main 已同步实际合并提交。
