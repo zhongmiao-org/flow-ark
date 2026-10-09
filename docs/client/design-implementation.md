@@ -5368,3 +5368,16 @@ pnpm typecheck、pnpm build、三文件 Prettier 和 git diff --check 通过，�
 证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-template-return/`：`manual-preview.tsx`、`entry-repair.png` 和 `build.log`。截图已查看，错误数字与保留备注可见。预览源码原件位于客户端忽略目录 artifacts，未纳入产品提交，临时网页与服务均已关闭。pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。真实原生保存/重开、紧凑窗口、资源错误组合与整板验收仍待完成；唯一原生客户端继续保留，等待解锁确认上轮安装结果。
 
 [客户端 PR #44](https://github.com/zhongmiao-org/flow-ark-client/pull/44) 最终 head `f4c2943add89b0918690519ae7029a8a1c5f11bf` 经 [CI 37882682306](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37882682306) Validate / Auto Merge 成功，实际合并提交 `b1b93f7b9067a2e905f58eea6c378e930ca681b7`；同 head 并发取消的流水线不计为通过。
+
+
+### 2026-10-09 结构化字段原生保存、返回修正与控件样式
+
+Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entry-constraints-ui@1.0.0-ui.1` 未安装，未盲目重复确认。正常退出旧客户端后，使用本机虚构新版 `entry-constraints-ui@1.0.0-ui.2`，摘要 `5a7ef095f4ad80a69a76df754d109462d3382e04b869a7ff239d84c4051277b1`，正常检查、安装并创建实例 `72546579-b4a6-4067-af1d-2a451b1e4203`；隔离库现为 5 个版本 / 7 个实例。样本源码与 ZIP 仅放本机证据目录，通过模板仓库现有 buildTemplate 构建，未写入客户端产品源码，未执行其中脚本或任何入口。
+
+原生离线入口中，键顺序不同的对象初值仍选中“保留原文”；切换为“附加说明”和数组 `["乙","丙"]`，填写两行备注、启用布尔项、数量 `abc`，共享配置另保留“原生共享草稿”。转到来源与版本后尝试保存并离开，被无效数字阻止；“返回修正”切回操作入口和离线检查，聚焦并滚动到数量字段，其他草稿保留。修正为 `7` 后保存，出现“实例配置已保存”并返回安装完成；正常退出再启动，同一实例的共享配置、对象、数组、多行备注、数量、布尔项及原有列表项全部保留，入口无未保存按钮且无运行记录。此证据补充客户端 PR #43 / #44 的真实保存与重开路径，不扩展为全部值类型或跨入口组合通过。
+
+本地 Figma 查看 `2:1199` 入口输入与执行，沿用共享字段和设计变量。发现 select 以及普通输入、checkbox 仍继承旧版样式；客户端 `5dbcbbab12ed3b058b2bf88a065b86c4fb6459ed` 将模板入口字段统一为 40px 高、灰色边框和蓝色选中态，保留红色无效边框，32px 操作入口选择器不受影响。最终构建的原生截图核对正常与错误状态；临时 `abc` 已恢复为保存值 `7`，准备状态恢复、无保存按钮后正常退出。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-structured-native/`：`figma-entry.png`、`return-to-error.png`、`controls-error-final.png`、`controls-restored-final.png`、`build-final.log`。`selects-final.png` 是中间版本，不作为最终配色证据。本轮 pnpm build、单文件 Prettier、git diff --check 通过，构建保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。原生客户端严格串行，上一实例退出码 0 后才启动下一次，结束无本轮主进程；保留用户 IDE 改动。实际 1440×960，紧凑尺寸、失效选项原生路径、全部输入类型与业务执行仍待验收；186 画板 / U01–U12 仍未完成。
+
+[客户端 PR #45](https://github.com/zhongmiao-org/flow-ark-client/pull/45) 最终 head `5dbcbbab12ed3b058b2bf88a065b86c4fb6459ed` 经 [CI 37889645481](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37889645481) Validate / Auto Merge 成功，实际合并为 `976e9e0ba0e67582ac87acaf5ded2783c02fc33f`。同 head 并发取消的流水线不计为通过。
