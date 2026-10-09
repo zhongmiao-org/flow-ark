@@ -6631,3 +6631,19 @@ TaskExecutionSteps 外层、DesktopTaskRun 面板/对象和 DesktopRunReceipt �
 pnpm typecheck、pnpm build、六文件Prettier与git diff --check通过，日志 `/tmp/flowark-execution-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、原生应用或读取凭据，未打包安装。页签88关闭、视口复位、4239 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实原生执行/回读、保存/导航持久化、控制及完整186体验仍待验收。
 
 [客户端 PR #116](https://github.com/zhongmiao-org/flow-ark-client/pull/116) 最终 head `f7b0bedaab3224551451479500d2328a99cd8c8e` 的 [CI 37998722677](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37998722677) Validate42秒 / Auto Merge8秒成功，实际合并提交 `be44624d79c5ae5a3314d662e1918c99bed57744`。同head较早 `37998720636` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 试运行检查与选区确认卡片
+
+查看既有 `FlowArk-AI-task-design.zip` 中 taskcheck（`23:3799`）和 taskappcheck（`23:8344`）原导出，副本在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-review/design-*.png`。未取得新的在线 Figma 上下文，不增加186整板通过数。
+
+RunReviewPage 外层摘要/确认、五项摘要/原运行，RunReviewTools 外层及 DesktopRunConfirmation 原文/替换稿/范围，共十二处 Card 声明直接使用 Ant Design。清理手写边框、圆角及内边距，普通外卡集中主题24px，小卡12px，保留原文/替换稿底色、section及列表语义、双栏比例/700或720px最低高度和窄屏单列。原任务内部15px/通用16px调整为小Card12px，不宣称整板像素验收通过。未新增基础包装组件，未修改IPC、预检/确认编号、权限、窗口绑定、真实执行或恢复契约。
+
+唯一隐藏IAB页签89载入实际RunReviewPage，预检、确认、详情和释放均为虚构响应。Space展开版本与参数、工具调用及固定方案；任务模式勾选启用确认，切换调试重新检查后清除勾选并聚焦结果标题。虚构过期拒绝显示尚未创建运行及重新检查入口，刷新后仍须勾选。虚构未知回复只留查询入口；改为虚构成功后查询使用同前次编号，3次确认调用累计2个编号。自动详情读取失败保留已创建运行和错误，解除虚构详情失败后再次查看只触发虚构导航回调。
+
+工具参数展示原始引用、服务声明与未核对账号，不连接服务。应用授权切换调试后清除，实际checkbox工具调用在刷新后报告无匹配，随后状态已显示第6次检查和未选授权，按最终状态记录而不以报错计通过；明确再次授权的虚构拒绝载荷保留desktopReviewed。缺失目录阻止勾选/开始，配置按钮仅触发虚构回调，不绑定目录。等待检查禁用相关控件；返回方案后完成迟到虚构回复保持页面不可见，重新进入产生新检查且未勾选。普通模式仍展示关联原运行卡片。未核对真实工具调用、原生窗口重新绑定/过期、实际文件写入或跨启动持久化。
+
+宽实际1443、文档1443，任务外卡826.86/544.76px，摘要因内容自然高726.88px、确认700px，计算圆角12px；窄实际782、文档782，工具/应用内卡684.47px，应用原文/替换稿/范围约120/140/120px且body12px。已查看task-wide.png、tools-narrow.png、app-narrow.png、task-narrow-final.png。宽图右/下裁切，工具图滚动到参数区，窄图为局部视口，任务最终图不含下方确认区；夹具工具条和导航回调不属于产品UI/验收。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、五文件Prettier --check和git diff --check通过，日志 `/tmp/flowark-review-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、原生应用或访问凭据，未打包安装或执行流程。页签89关闭、视口复位、4240 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实预检/运行/工具调用、原生绑定与保存、完整186体验仍待验收。
+
+[客户端 PR #117](https://github.com/zhongmiao-org/flow-ark-client/pull/117) 最终 head `0193a9ece905df596b0fb1582a7eefa1c56a6215` 的 [CI 37999588989](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37999588989) Validate38秒 / Auto Merge9秒成功，实际合并提交 `9db9463b224a4a849ad7118d7ef5c037c781f0cf`。同head较早 `37999587940` 取消，不计为通过。
