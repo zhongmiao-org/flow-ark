@@ -5774,3 +5774,24 @@ TaskExecutionSteps 的普通/紧凑清单、RunDetail 时间线和 DebugRunWorks
 最终 `pnpm typecheck`、`pnpm build`、8 个变更文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或验证真实 Run。临时源码删除、唯一预览页签/4366 服务关闭、视口恢复；IDE 无关改动未提交。Figma 运行详情 1:3539 上下文仍返回 Starter 额度限制，whoami 确认 liuwufangzhou@gmail.com / Ark 65 / Starter View。本轮只迁移既有布局的库控件，不增加 186 画板 / U01–U12 完整验收数量。
 
 [客户端 PR #66](https://github.com/zhongmiao-org/flow-ark-client/pull/66) 最终 head `3a61e0e98dc231c18b3354e99201ca5763c08d23` 的 [CI 37929161794](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37929161794) Validate / Auto Merge 成功，实际合并提交 `2658253bd4b3cfa7c5747c65890e2885d76a9ea7`；同 head 并发取消的流水线不计为通过。本地 main 已同步该合并提交。
+
+### 2026-10-09 Ant Design 导出 ZIP 与产物清理反馈迁移
+
+既有导出核对、取消、错误及定义内容说明直接使用 Alert，来源与已保存状态直接使用 Tag / Badge；产物清理的范围、读取失败、部分失败、完成回执、详情刷新失败及外层未完成提示直接使用 Alert。删除对应手写状态点、颜色、圆角和背景样式及已无消费者的原生勾选样式，保留布局、换行和错误焦点环。没有新增同义基础控件包装，未更改 IPC、宿主权限、文件/持久化或执行协议。
+
+来源快照、模板身份与版本、未保存草稿说明、确认勾选、明确重试、部分失败后重新预览与只读取记录的刷新逻辑保留。导出反馈继续通过原 role/ref 容器获焦，返回恢复来源按钮；清理阶段标题继续获焦。可选清理错误转字符串时使用空值处理，避免呈现 undefined，不推断清理已成功。
+
+使用唯一临时隐藏 IAB、实际组件与 ApplicationTheme 及明确标注的虚构内存返回人工查看，未连接真实宿主、未导出/导入/清理实际文件：
+
+- 清理范围列出虚构文件/链接、保留外部产物数量；未勾选确认时清理禁用。虚构完成回执与详情刷新失败提示同时显示；点击刷新后完成回执保持、错误仍准确提示只读刷新。返回焦点回预览按钮。
+- 虚构部分清理中断显示可能已有文件被清理、要求重新预览且不自动继续；重新预览后确认重置且清理禁用，旧详情刷新错误保留。范围读取失败明确本次未发出清理请求。空范围不提供确认清理；仅缺失索引时显示将标记的数量并仍要求确认。空范围早期虚构 bytes 错为 2048，修正预览数据后仅缺失索引显示 0 字节；没有更改真实范围计算。
+- 未保存草稿保留参数/步骤与不保存本地草稿说明。导出取消后信息容器获焦；导出失败后原来源与已勾选确认保留、错误容器获焦，提供明确重试。初始打开动画期间先显示关闭按钮焦点，稳定后只读 DOM 确认原确认 input 获焦。
+- 虚构模板导出成功显示原版本和“已保存 · 标准 ZIP”，标题获焦；随后导入检查失败显示错误并保留已保存标签、原身份及重选入口。没有选择真实 ZIP。取消返回后焦点回打开草稿导出按钮。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-export-cleanup-feedback/` 保存 `cleanup-refresh-failed.jpg`、`cleanup-partial.jpg`、`cleanup-index.jpg`、`export-failed.jpg`、`export-failed-wide.jpg`、`export-import-failed.jpg`、`export-narrow.jpg` 与最终 typecheck/build 日志，截图已查看。默认实际 962×541、宽请求 1920×1280 后实际 1443×962，额外窄请求 1000×1000 后实际 752×752；宽导出内容两列约 551/409px、窄单列约 680px，内容 client/scrollWidth 分别 984/984 与 680/680。窄尺寸低于原生最小窗口，仅额外观察；窄截图是确认获焦后的滚动片段，宽失败截图未覆盖 footer，不能视为全页/严格三尺寸验收。
+
+最终 `pnpm typecheck`、`pnpm build`、4 个变更文件 Prettier 和 `git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或验证真实文件/Run。临时源文件删除、唯一页签/4366 服务关闭、视口恢复，无关 IDE 文件保留且未提交。
+
+Figma 导出节点 2:4940 的实时上下文与截图请求仍受 Starter 额度限制，whoami 确认 liuwufangzhou@gmail.com / Ark 65 / Starter View；本机界面清单确认 Mac 锁屏。本轮迁移现有基础组件，不新增 186 画板 / U01–U12 完整验收数量。真实文件/持久化、慢请求/忙碌关闭、外层清理记录各状态及全页面三尺寸仍待验收，虚构回执不等于真实删除、导出或安装。
+
+[客户端 PR #67](https://github.com/zhongmiao-org/flow-ark-client/pull/67) 最终 head `ff5d396edb1cc5b0814ed91830b28a37b554a225` 的 [CI 37930791784](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37930791784) Validate / Auto Merge 成功，实际合并提交 `9469b27e79079a5c5b995d67ab3078edaf35090e`；同 head 并发取消的流水线不计为通过。
