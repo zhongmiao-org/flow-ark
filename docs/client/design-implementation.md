@@ -5670,3 +5670,24 @@ Figma 连接器已确认当前 Google 账号，但设计上下文仍受 Starter 
 任务过期重读、慢请求/长错误、真实宿主数据往返、真实窗口/网页权限及全部页面视觉仍需人工验收。虚构内存保存不等于真实持久化、虚构控制不等于执行验收。186 画板 / U01–U12 仍未完成，本轮不增加完整画板验收数量。
 
 [客户端 PR #61](https://github.com/zhongmiao-org/flow-ark-client/pull/61) 最终 head `d1141615e1cb932faea58ad7b7a8919a6baef401` 的 [CI 37920878205](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37920878205) Validate / Auto Merge 成功，实际合并提交 `55a38d95bcd58aed0490ea919426f57d87a9ae5b`；同 head 并发取消的流水线不计为通过。
+
+### 2026-10-09 Ant Design 设置、模板与待办反馈迁移
+
+本地设置的环境/绑定状态、模板安装检查/目录/包说明，以及待办列表/详情的手写状态直接改用 Tag / Badge；错误、刷新、结果提示和停止确认直接采用 Alert。删除这几处重复圆角、颜色和手写状态点 CSS，仅保留布局；没有新增基础组件包装。设置的已保存回执/缺驱动、模板来源/摘要/引用守卫、人工请求状态判断、输入草稿与原焦点容器继续保留。复杂业务组合与原 disclosure 不在本轮替换范围。
+
+人工预览发现既有模板文案矛盾：安装返回成功后列表读取失败，仍显示“安装未完成”。现根据当前安装结果页及成功回执显示“模板已安装，列表刷新失败”，提供只重新读取模板列表的入口；失败保留安装回执与警示，成功清除错误并返回页面标题焦点，不发出重复安装请求。模板通用 notice 使用信息提示，避免将临时资源清理失败等消息一律着成功色。
+
+采用单一临时隐藏 IAB、实际组件和主题、明确标注的虚构内存返回人工核对，未连接真实宿主：
+
+- 本机设置发现失败时错误容器获焦；选择虚构路径、保存虚构 Firefox 回执后仍显示绑定已保存/缺少驱动，列表刷新失败不清除回执且再次保存禁用，重新读取成功清除警示并聚焦回执。没有选择或读取真实应用/驱动、保存实际绑定。
+- 模板同 ID/版本不同摘要显示拒绝安装且核对/安装禁用；同摘要显示无需重复安装并提供打开已安装模板。未安装虚构包勾选来源后才启用安装；虚构安装回执返回后，列表读取失败显示准确警示，再次读取失败仍保留回执，最终读取成功焦点回“模板已安装”标题。没有选择或安装真实 ZIP。
+- 人工请求等待、失效、状态未确认和已回应的标签/提示仍按原判断显示；失效和未确认保持回应禁用，核对内容格式无效时不提供回应入口。停止确认打开时原确认/取消/拒绝入口禁用，继续查看回原取消按钮，没有发出停止命令。
+- 复杂输入 `{invalid` 显示可读错误，原输入保留并获焦，aria-invalid/aria-describedby 仍关联实际提示。已回应提示继续明确以来源运行结果为准；来源读取失败时错误容器获焦，虚构刷新成功显示状态提示并获焦，没有回应/归档真实请求或打开/执行真实 Run。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-management-feedback/` 保留 `binding-refresh-failure.png`、`template-conflict-wide.png`、`template-same.png`、`template-installed-refresh-failure.png`、`attention-stop-confirm.png`、`attention-expired.png`、`attention-invalid-json.png`、`attention-read-failure.png` 和最终检查日志，截图已查看。默认视口与约 1443 CSS px 宽窗口仅为组件预览，早期 `template-conflict.png` 只显示紧凑页面上部，不代表完整冲突提示截图；最终宽窗口截图覆盖提示。最终只读 DOM 观测页面宽度和滚动宽度均为 1443px。最终类型/构建/格式检查前，清理未使用状态 CSS，并将模板通用 notice 改为信息色；该 notice 分支未独立人工预览。
+
+最终 `pnpm typecheck`、`pnpm build`、8 个改动文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未打包安装。临时源文件删除、页签及服务关闭、视口恢复，未启动 Electron，原 IDE 改动保留且未提交。Figma 本地设置 `1:3896` 上下文请求仍返回 Starter 额度上限，账号已确认正确；Mac 仍锁屏，未取得新实时设计或原生视觉证据。
+
+模板版本并存、令牌已使用、实例创建后恢复、卸载引用保护、慢请求/长错误、真实数据往返及全页面三尺寸仍需人工验收。虚构内存回执不等于真实持久化/安装/人工请求验收。其他设置/模板实例等旧反馈继续迁移；186 画板 / U01–U12 未完成，本轮不增加完整画板验收数量。
+
+[客户端 PR #62](https://github.com/zhongmiao-org/flow-ark-client/pull/62) 最终 head `b03d9bc2be7d243523091ff6f63d3d8f4e6400d5` 的 [CI 37922794446](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37922794446) Validate / Auto Merge 成功，实际合并提交 `ea6f8e1c3bf0fcc0cd7d702757feccb63c708af5`；同 head 并发取消的流水线不计为通过。
