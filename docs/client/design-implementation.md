@@ -6455,3 +6455,21 @@ ControlWorkspace 保存错误直接使用 Alert，保留原可聚焦反馈容器
 最终pnpm typecheck、pnpm build、九文件Prettier及git diff --check通过，构建日志 `/tmp/flowark-control-fields-antd-build.log` 保留既有chunk大小提示。未新增或运行单元、集成/smoke测试，未启动Electron或第二客户端、打包安装、调用模型、执行真实节点或读取凭据。页签76关闭、视口复位、4227 Vite回收、临时HTML/TSX删除，原有IDE文件保留未提交。原生保存运行、真实持久化、最新云端全尺寸设计和186画板 / U01–U12完整验收仍待完成，本轮不增加完整画板通过数。
 
 [客户端 PR #104](https://github.com/zhongmiao-org/flow-ark-client/pull/104) 最终head `cd7ebf1c9103b4612604ad3309c13f2d1c304716` 的 [CI 37985879721](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37985879721) Validate43秒 / Auto Merge7秒成功，实际合并提交 `19923911df8d2b71be9c6d247dd4d5f4d472973b`。同head较早 `37985878870` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 步骤位置与编排更多反馈
+
+查看020 `2:1650` 已保存导出 `/Users/mac/.codex/visualizations/2026/09/21/01a0c1fc-76eb-7172-8512-4e4a56416ec0/flowark-design-v2/screens/20-步骤编辑与位置.png`，更多操作沿用121 `23:6890` 的既有高保真上下文实施记录与520×620卡片。本轮再次请求两个节点的get_design_context，均返回Starter额度限制，没有取得新截图或设计代码。当前仅按用户指定迁移既有控件和反馈，不能据此宣称最新稿整板1:1。
+
+StepPositionPage 错误、结构操作回执、失效添加位置和引用保护说明直接用 Alert；保留可聚焦反馈容器和原文案。删除按钮使用 danger颜色 / filled变体，保存显示loading；ConfigProvider稳定传入布尔busy。删除重复提示外观、按钮高度与添加按钮内边距CSS。人工查看发现结构修订和Drawer打开完成会覆盖错误/成功反馈焦点，已让修订优先错误、打开完成优先错误或成功通知，再回标题。结构操作、引用保护、撤销/重做、添加目标、草稿保存和执行接口不变。
+
+EditorMorePage 主菜单说明、副本边界、来源变化警告、创建失败/成功、重新绑定说明、无脚本说明及历史范围直接用Alert；创建按钮显示loading。移除手写提示框与失效原生Checkbox样式，长脚本按钮高度读取主题token，保留换行、原菜单返回位置、内容核对、请求锁与幂等副本身份。不复制资源、凭据、目标和授权的宿主调用保持原样，没有新基础控件包装。
+
+唯一隐藏IAB页签77使用实际完整App与虚构六步内存记录：被引用数据、使用来源数据、带条件的循环、两个脚本。初始夹具使用typescript/javascript语言字面量，类型检查失败，修正为契约ts/js后重载，未将夹具问题当作生产修复。删除被引用source由原引用保护阻止，显示第2步steps.source并最终聚焦Alert；循环子树复制产生两个新步骤，成功通知最终获焦，撤销/重做保持原行为。慢保存禁用操作/返回，Escape不退出；释放失败保留子树并聚焦反馈，显式重试成功聚焦保存。一次查找忽略loading图标的可访问名称而未匹配按钮，没有执行键盘操作；改由标题发送Escape后核对等待保护。
+
+更多操作选择脚本显示两个实际步骤，长名称按钮client/scroll469/469、87px高，第二项46px高；Escape回菜单并聚焦编辑脚本。复制等待保留名称和核对勾选，返回/创建禁用，Escape留页；失败聚焦Alert，重试成功聚焦新流程标题。初阶段虚构保存4次（结构与副本各首个失败）、运行0、未知接口0。补齐剩余提示后，Vite重载仅重置虚构内存；最终单独核对历史0条空态、复制失败/重试、名称保留和成功回执，本次保存2、运行0、未知接口0，控制台无error/warn。来源变化警告、失效添加位置及无脚本条件未重新触发；不作为这些分支的完整验收。
+
+宽视口实际1443：步骤网格1156/1156、两栏；更多卡约520×620、client/scroll518/518。窄视口实际782：步骤网格646/646单列、两卡644/644，文档782/782；稳定后保存/视图按钮计算高度约39.996px。刚保存完成或刚切换视口的截图曾出现按钮压缩/旧双栏投影，待正常动画与布局完成后重新查看稳定截图，不采用瞬时截图支持最终尺寸。截图目录 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-editor-feedback/`：position-final-wide.png、position-stable-narrow.png、scripts-narrow.png、more-wide.png、copy-final-narrow.png均已查看；宽图右侧和窄图下方被裁切，夹具计数/释放按钮不属产品。position-wide、position-narrow、position-final-narrow及copy-narrow仅保留过程追溯，不能替代稳定最终图。没有增加静态图片资源。
+
+页签77关闭、视口复位、4228 Vite回收、临时HTML/TSX删除，原IDE改动未提交。最终pnpm typecheck、pnpm build、四文件Prettier及git diff --check通过；构建日志 `/tmp/flowark-editor-feedback-antd-build.log` 保留既有chunk大小提示。未新增或运行单元、集成/smoke测试，未启动Electron或第二客户端、打包安装、执行节点、读取凭据或写真实持久化。真实副本/结构保存重开、原生窗口、云端最新设计和186画板 / U01–U12完整验收仍未完成，本轮不增加整板通过数。
+
+[客户端 PR #105](https://github.com/zhongmiao-org/flow-ark-client/pull/105) 最终head `f87032183c03ec8182b41b0622189df8308ea56a` 的 [CI 37987349596](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37987349596) Validate47秒 / Auto Merge10秒成功，实际合并提交 `9c0fe68469d7ec1fb16dd9c68e9e2026454271d6`。同head较早 `37987347542` 取消，不计为通过。
