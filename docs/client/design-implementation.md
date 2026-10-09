@@ -5962,3 +5962,22 @@ OAuth 四站点样本包括可选公开客户端、不支持公开客户端、�
 最终 pnpm typecheck、pnpm build、七个变更文件 Prettier、git diff --check 通过，既有大 chunk 提示保留。未新增/运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 47 已关闭，viewport reset，Vite session 22477 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
 
 客户端 [PR #75](https://github.com/zhongmiao-org/flow-ark-client/pull/75) 最新 head `532ce21e5fedbe229b26233287349afbe395abb8` 的 CI run `37944754593` Validate（43 秒）与 Auto Merge（10 秒）成功，实际合并为 `0d8d72e76c4cf8101004115620eb9411f040e66d`。并发替代的 run `37944752169` 为 CANCELLED，不记为通过；CI 合并不代表真实工具/登录或完整画板验收。
+
+
+### 2026-10-09 Ant Design 连接设置、维护与请求记录迁移
+
+延续已有 MCP/能力核对、U07 和生成页映射，按用户直接采用 Ant Design 的要求实施。ToolConnectionsPage 的协议设置、连接来源与发现记录、维护与任务引用直接改为 Collapse，身份/认证、来源、OAuth 和使用规则使用 Descriptions；TaskGenerationPage 的服务、模型、本地请求标识及更新时间也使用 Descriptions。元数据列宽和长文本换行统一归入 antd-layout.css 的 metadata-facts，工具核对、OAuth 检查和助手记录只同步类名；删除旧 details 和手工键值表样式。未添加包装基础组件、主题颜色或新的设计状态。
+
+协议区受控展开，协议字段与维护区保持挂载。人工发现错误展开后原同步焦点过早，已改为 requestAnimationFrame 中聚焦，支持展开后进入协议选择框。原字段错误顺序、配置变化清除来源确认、已保存 OAuth 复用判断、发现/保存确认、操作锁、任务引用和维护弹窗逻辑保留；没有修改宿主、网络、凭据、协议值、执行或持久化。
+
+人工使用实际 ToolConnectionsPage、TaskGenerationPage、ApplicationTheme 与产品 CSS，宿主只返回虚构本地记录、发现和保存结果，其他方法拒绝；服务域为 fixture.invalid，不联网、不登录、不执行工具。来源 Space 展开、维护 Enter/Space 展开收起通过。刷新引用只调用夹具列表；查看引用等待时相关操作禁用，释放夹具返回后恢复。断开确认显示任务引用/正在运行和未知结果说明，取消后焦点返回断开按钮，没有确认实际断开/删除。
+
+配置页协议 Space 展开；改变协议后保持展开并清除来源确认，旧 OAuth 复用入口消失，认证检查禁用。继续编辑保留协议区展开并返回原离开按钮焦点，放弃后回目录。虚构无效协议提交自动展开并聚焦协议框，原错误描述保留；修正协议后必须重新勾选来源，再发现、确认完整能力清单才可保存虚构记录。夹具保存后显示已保存，不能据此证明数据库持久化或真实服务发现。
+
+缺失服务身份、未声明范围、无到期时间继续显示明确占位，尚未重新测试记录保留阻止使用说明。生成请求记录支持 Space 展开/Enter 收起，DeepSeek/模型/请求/有效时间均保留；缺失字段显示未记录，无效更新时间显示时间待核对。证据目录 /Users/mac/.codex/visualizations/2026/10/09/flowark-antd-connection-records/，含 protocol-error-focus、connection-source-records、generation-request-record、generation-missing-narrow。窄 viewport 请求 760×1100，实际 Renderer 宽 571，documentElement scrollWidth 571，内容单元格宽约 279/scrollWidth 279，无横向溢出；宽截图请求 1080×1000，为滚动组件片段，不能证明原生三尺寸/完整资产几何 1:1。
+
+原生入口本轮仍为 Mac 锁屏且无法自动解锁；此前 Figma MCP Starter 额度限制本轮没有再次请求，不声称取得新设计上下文。未增加 186 画板/U01–U12 完整验收数；全页视觉、真实 MCP/OAuth/供应商、持久化、任务完整往返及维护实际效果仍待独立验收。
+
+最终 pnpm typecheck、pnpm build、九个变更文件 Prettier 与 git diff --check 通过，既有大分块提示保留。未新增/运行单元、集成或 smoke 测试，未启动 Electron、实际 Run、打包或安装。临时预览 HTML/TSX 已删除，唯一隐藏 IAB tab 48 已关闭，viewport reset，Vite session 6520 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
+
+客户端 [PR #76](https://github.com/zhongmiao-org/flow-ark-client/pull/76) 最新 head `cf086038716ca9843fc9e59f0b7528068f147d61` 的 CI run `37946949035` Validate（46 秒）与 Auto Merge（10 秒）成功，实际合并为 `0983432276c8736de954b08eb4dfcf2c2561139f`。并发替代的 run `37946948377` 为 CANCELLED，不记为通过；CI 合并不代表真实服务/维护或完整画板验收。
