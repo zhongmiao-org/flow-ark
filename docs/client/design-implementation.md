@@ -5214,3 +5214,20 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 证据`/Users/mac/.codex/visualizations/2026/10/09/flowark-template-schedule-feedback/`：`figma-status.png`、`paused-feedback.png`、`browser-open.png`、初版`invalid-timezone.png`、最终`error-final.png`与两份构建日志。设计、网页面板单列和最终红色错误截图已查看；启停标题/返回焦点经AX核对。打开面板及最终重开为1440×960；初轮收起面板后的截图为1830×960（像素3660×1920），本轮未定位窗口宽度变化来源，不宣称所有窗口尺寸恢复或整板完成。
 
 最终`pnpm typecheck`、`pnpm build`、三文件Prettier、`git diff --check`通过，构建保留大chunk提示。未新增或运行单元、集成、smoke测试。两次客户端严格串行，均退出码0，结束无本轮主进程；第二次退出日志有“本地宿主已停止，请重开应用查看中断记录”的请求拒绝，保留为退出阶段观察，未据此宣称完整退出验收。无关IDE改动保留。客户端公开源码推送此前被自动审批以披露风险拒绝，本轮未重试，代码仅本地提交，治理记录独立PR交付。186画板 / U01–U12仍未完成。
+
+
+### 2026-10-09 原模板导出、导入检查反馈与真实 ZIP 往返
+
+前序治理[PR #466](https://github.com/zhongmiao-org/flow-ark/pull/466)经[CI 37873713765](https://github.com/zhongmiao-org/flow-ark/actions/runs/37873713765) Validate及Auto Merge成功，实际合并`d8b0e087e79d9349cd40d5c295261180ec3ff3fa`。本轮本地Figma查看047 / `2:4837`模板版本与导出、048 / `2:4940`导出ZIP的状态规格，保留原模板身份、实例隔离、失败恢复和导出后导入验证语义。状态目录不作为固定四宫格产品页；完整视觉仍未验收。
+
+客户端本地`220fb5c`修复共享导出核对的反馈：错误保存实际操作类型，导入检查失败不再套用导出的资源/保存位置说明；成功回执继续保留，并明确显示原模板版本。导入重试按钮及处理中提示说明选择与检查阶段。取消保存、取消导入及失败反馈在操作结束后获得焦点，采用已有设计变量显示可见焦点。移除身份字段中重复显示的版本号。未改变模板包、IPC、导出内容或执行授权契约。
+
+原生Electron使用既有隔离数据和file-inspector@1.0.0实例33612978，从来源与版本打开导出，先取消系统保存，再实际保存原模板。Escape返回原实例来源页，焦点恢复导出按钮。代码更新后退出再启动，严格只有一个客户端主实例；从模板详情进入同一导出核对，取消保存后反馈获得焦点，再以新文件名保存最终ZIP。完成页标题获得焦点并展示file-inspector@1.0.0。取消后续导入选择保留成功回执并聚焦提示。
+
+为手动界面查看建立仅含README.txt的无效ZIP（本机自建虚构样本，不含用户资料）；系统选择后宿主以“包根目录资源不允许：README.txt”拒绝，页面显示“ZIP 导入检查未完成”、已导出文件不变及重新选择按钮，错误区域获得焦点。随后重新选择刚导出的有效ZIP，正常进入检查并安装页面，显示“该版本已安装”“无需重复安装”及相同ID/版本/摘要，不提供重复安装动作。点击打开已安装模板，保留原安装时间和1个该版本实例；返回库仍为2个版本、3个实例。本轮未创建实例或请求执行模板。
+
+最终导出包内8个文件（manifest、flow、四个schema、脚本和README）与安装前原包逐项字节一致，manifest内容摘要仍为`77624f9ebd4cf347a57c557a8e7418609b414be511186156053baae496b9c660`；未加入实例文件绑定、配置或运行历史。最终ZIP SHA-256为`f6d49261d7565f76407dc5a5ff9c2434768a8f2133681731d205227d4f34ba2d`。这是本样本的原定义往返证据，不扩展为所有模板或当前草稿导出通过。
+
+证据目录`/Users/mac/.codex/visualizations/2026/10/09/flowark-template-export/`：`figma-version.png`、`figma-export.png`、`exported-original.png`、`cancel-focused.png`、`import-error.png`、`same-version.png`、`file-inspector-final.flowark-template.zip`、`package-comparison.json`和`build.log`。原生1440×960；错误截图已查看，取消、成功、检查与返回由AX核对。紧凑窗口、导出写盘失败、未知回执、其他模板、版本采用、当前草稿导出及整板仍待验收。
+
+`pnpm typecheck`、`pnpm build`、两文件Prettier及`git diff --check`通过；构建保留已有大chunk提示。未新增或运行单元、集成、smoke测试。两次客户端严格串行且退出码均0，结束没有本轮主进程；日志中的README.txt拒绝对应明确的无效包操作。无关IDE文件保留。客户端公开源码推送此前被自动审批以披露风险拒绝，本轮未重试，代码仅本地提交，治理记录独立PR交付。完整186画板 / U01–U12仍未完成。
