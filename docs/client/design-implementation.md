@@ -6201,3 +6201,17 @@ pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，�
 本轮 Mac 仍锁屏，没有新 Figma 上下文请求，不增加完整 186 画板 / U01–U12 验收数量。真实系统选择、任务往返保存及全页视觉仍待核对。pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-task-brief-antd-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 60 关闭、viewport reset，Vite session 3959 Ctrl-C exit 130 停止；IDE 文件未提交。
 
 客户端 [PR #88](https://github.com/zhongmiao-org/flow-ark-client/pull/88) 最新 head `0357acda042d85cca4b75808d32436173497661d` 的 CI run `37965227717` Validate（42 秒）与 Auto Merge（8 秒）成功，实际合并为 `467e2274ceb4a905315b61d59677c98073459c5a`。并发替代 run `37965227195` 为 CANCELLED，不计为通过；CI 类型检查与构建不替代真实附件、保存或完整画板验收。
+
+### 2026-10-10 Ant Design 应用窗口与方案迁移
+
+沿用窗口与能力 `23:2609`、已就绪 `23:8087`、方案 `23:8190`、改动确认 `23:8344` 及 U03/U12。TaskDesktopWindows 两处观察/权限折叠和 DesktopTaskPlan 的原段落/生成区直接使用 Collapse，forceRender 保持内容挂载；集中 Space 激活保留键盘交互。权限变化同步展开，权限已就绪时收起，但同状态手动收起和展开不被普通渲染覆盖；原文默认展开，候选和改动返回时收起，生成区沿用 generationOpen。四步有序清单直接用 Flex、Card 与中性编号 Tag，不展示假执行进度。删除 summary 与编号卡的重复字体、颜色、边框及间距 CSS。初次库 Steps panel 实际忽略纵向并挤成横排，截图发现后改成四张纵向库卡片，最终重新核对。
+
+人工预览实际窗口组件、useDesktopWindows、DesktopTaskPlan、选区/修改条件组件与集中主题/产品 CSS；本地 bridge 是仅响应列出方法的虚构夹具，窗口、配置、段落、候选和能力均虚构。没有实际宿主、系统设置、权限改变、模型/网络、方案保存、文档写入或 Run，未据 UI 文案认为真实操作成功。窗口 Enter 选择后标题获焦，观察 Space/权限 Enter 展开；权限缺失后说明自动打开，手动收起在普通渲染后保持，恢复就绪收起。虚构打开设置使原检查失效，需重新检查选择，不自动授予权限。
+
+原文与生成折叠支持 Space/Enter，原选区的开头两个空格、换行与中间末尾空格保留；pre 高 280/scrollHeight 624，PageDown 后独立复核 scrollTop 约 265.04。模型未配置和配置失败均禁用发送/生成，保留返回配置或重新读取；等待时供应商、读取配置与发送确认禁用，取消后迟到候选不出现，必须重新勾选。虚构不支持与失败保留原文说明；候选完成聚焦查看改动，两个折叠收起，原文仍可手动查看。进入改动保留原文/候选及授权说明，保存入口由夹具显式禁用；返回仍为同候选，原文重新收起。方向键切 OpenAI 后说明更新、确认清除、生成禁用。原取消/校验/IPC 与实际执行规则未修改，浏览器控制台无 error/warn。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-desktop-planning/，已查看 windows-wide、plan-wide-final、plan-narrow-final、generation-narrow-final、permission-narrow-final 和 changes-narrow。plan-wide 是错误横向 Steps 诊断图，changes-narrow 在 resize 生效前仍为双栏，不能据文件名认作最终窄对照；permission-narrow 仅覆盖权限提示上方，不代表完整折叠内容。最终宽请求 1480×1100 时方案网格 clientWidth/scrollWidth 均 1065，窄请求 1040×1100 时均 734、单列，长标题换行无网格横向溢出。截图为组件片段，实际工具 CSS 像素受缩放影响，未证明原生三尺寸或完整画板几何 1:1。夹具补入原 main 的 antd-layout.css 后重取最终方案/发送区证据；一次 generic 角色定位 pre 超时，改为已知 pre 元素读取取得全文，不计超时为成功。
+
+本轮 Mac 仍锁屏，没有新 Figma 上下文请求，不增加完整 186 画板 / U01–U12 验收数；真实桌面权限/选区/模型、方案保存及全页视觉仍待核对。pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-desktop-planning-antd-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 61 关闭、viewport reset，Vite session 96480 Ctrl-C exit 130 停止；IDE 文件保留未提交。
+
+客户端 [PR #89](https://github.com/zhongmiao-org/flow-ark-client/pull/89) 最新 head `4e356fd1cf1902de5333983f1e28f02e3504cfe4` 的 CI run `37966598910` Validate（44 秒）与 Auto Merge（9 秒）成功，实际合并为 `edfb187a4e9e186794f3bba73dffeb7c2e9e021c`。并发替代 run `37966597806` 为 CANCELLED，不计为通过；CI 类型检查与构建不代表真实桌面或完整画板验收。
