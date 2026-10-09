@@ -6343,3 +6343,17 @@ pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，�
 pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，保留大 chunk 提示（/tmp/flowark-script-settings-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、tab 69 关闭、viewport reset、Vite session 13892 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏，真实保存/目录/历史输出与原生完整视觉验收待完成，不增加 186 画板 / U01–U12 完整验收数。
 
 客户端 [PR #97](https://github.com/zhongmiao-org/flow-ark-client/pull/97) 已由 CI 自动合并：head c477772813a4be436b49aa93af7871e66eea7693，run 37976637329 的 Validate（47 秒）与 Auto Merge（9 秒）成功，合并提交 5730de60bd2e3653e8cf740b772a7e8a89b6a918。旧同 head run 37976635973 为 CANCELLED，不计为通过。
+
+### 2026-10-10 Excel 映射设置迁移到 Ant Design
+
+对应既有 Figma `23:6516`「配置 · Excel 映射编辑」与第 119 画板。本轮沿用已有设计记录，只迁移 Renderer 设置控件，执行、文件输出及保存契约不变。客户端 [PR #98](https://github.com/zhongmiao-org/flow-ark-client/pull/98) 将各列表头／类型与来源数据／目录设置改为受控 Ant Design Collapse，使用 Space 排列内容并保持折叠内容挂载。Input/Select 的校验外观改用 `status="error"`，删除重复折叠样式与输入高度覆盖；来源记录的语义校验仍保留主题错误色关联。
+
+校验焦点先展开对应设置，再在下一帧定位控件；离开弹窗关闭后也使用相同路径。删除映射会重排已展开的索引，保留剩余项状态。ConfigProvider 始终传入布尔禁用状态，避免在保存或目录选择期间重建输入子树、丢失尚未应用的 JSON 草稿。
+
+单个后台 IAB 页签 70 使用真实 ExcelMappingPage、ValueField、mappingPreview 与应用主题，记录及保存／目录接口均为虚构值，没有 Main、真实目录选择或文件写入。人工查看确认：预览四条记录显示前三条，null 显示为空、0 与 false 保留；未完成来源 JSON `{` 在目录请求挂起及失败后保持，折叠后保存自动展开并定位来源，保存计数仍为 0；取消后的“保存并离开”校验关闭弹窗并返回同一输入。数字字段改为文本后收起再预览，展开对应列并聚焦类型控件，`aria-invalid=true`；重复目标列定位第二项目标列。删除首项后原第二项保持展开、第三项保持折叠，焦点返回邻项来源；新增项使用空闲 A 列并定位来源。虚构保存挂起期间控件禁用，失败后映射／来源内容和展开状态保留，焦点落在全局错误。空数组显示 0 行及空数据说明。来源 JSON 成功解析后仍按 ValueField 既有行为重新格式化，不声明原始格式保留。
+
+宽窗口实际 CSS 视口 1443，双卡约 670/590×588；来源展开的窄窗口实际视口 782，两卡单栏宽约 622，无页面横向溢出。宽窗口根布局有约 1 CSS px 取整溢出，本轮不宣称完整像素复刻；截图仅展示可见区域，窄截图顶部与底部被裁切。截图保存在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-excel-mapping/`（`wide.png`、`narrow.png`）。控制台未见警告或错误。
+
+`pnpm typecheck`、`pnpm build`、两文件 Prettier 和 `git diff --check` 通过，构建日志 `/tmp/flowark-excel-settings-antd-build.log` 保留既有大 chunk 提示。未新增或运行单元测试、集成／smoke 脚本，未启动 Electron 或第二个 FlowArk 实例、未生成安装包。临时 HTML/TSX、IAB 页签和 4221 Vite 服务已清理、视口复位，原有 IDE 改动保留。以上是第 119 画板局部组件迁移及虚构接口交互证据，不替代真实持久化、输出或整板验收；完整 186 画板 / U01–U12 尚未完成。
+
+客户端 PR #98 已由最新 head `0d736c5584987b31e440331d6c35e9d224b77eee` 的 CI `37977823117` 完成校验并自动合并，合并提交 `0c45562c2b72202b413a859409dfd004146f7a0c`；初始重复运行 `37977823095` 被取消，不作为失败或验收证据。
