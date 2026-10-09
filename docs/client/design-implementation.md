@@ -5394,3 +5394,16 @@ Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entr
 证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-resource-navigation/`：`figma-resources.png`、`resources-focused.png`、`entry-focused.png`、`build.log`。原生 AX 核对焦点与草稿，最终两张截图已查看；实际窗口 1440×960，定位长表单后允许正常纵向滚动。pnpm typecheck、pnpm build、三文件 Prettier、git diff --check 通过，保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。两次客户端严格串行且退出码均 0，结束无本轮主进程；IDE 改动保留，模板仓库未改动。紧凑尺寸、真实授权执行、目录绑定和整板视觉仍待验收，完整 186 画板 / U01–U12 未完成。
 
 [客户端 PR #46](https://github.com/zhongmiao-org/flow-ark-client/pull/46) 最终 head `8e978f69585dec0df01c55e885fb36f5cb95ff15` 经 [CI 37890242245](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37890242245) Validate / Auto Merge 成功，实际合并为 `df3fe2445fd6e999b136932dc03481d6937164fa`；并发取消的另一流水线不计为通过。
+
+
+### 2026-10-09 动作模式持久化与保存后焦点
+
+本地 Figma 查看 `2:7749` 每次确认与 `2:7867` 自动范围，均为 1440×1080；对应现有三模式选中、相关入口待保存与显式保存路径，沿用共享控件，不另行添加未设计的模式说明。当前本地设计仍提示部分修改等待重新联网，本轮不宣称核对最新在线全稿。
+
+原生隔离实例 `72546579-b4a6-4067-af1d-2a451b1e4203` 初始禁止、浏览器与 AI 均未绑定。选择每次确认，相关填写入口转待保存，实际保存后待保存消失，但缺少浏览器仍为尚未就绪；正常退出重开仍为每次确认。自动范围同样完成实际保存与重启保留。最后恢复禁止并实际保存，确认动作仍为禁止和待配置浏览器，无待保存提示，未运行入口、未调用模型、未访问网页。共享配置保留“原生共享草稿”，其保存核对未改字段值。
+
+同时复现授权与共享配置保存后焦点落回 HTML 页面。客户端 `ecb8a7f` 直接记录点击的保存按钮，等待保存和来源重读结束，下一绘制帧恢复按钮焦点与可见位置；状态变化取消待执行的聚焦，隐藏、禁用、离页或用户已将焦点放在其他控件时不抢焦点。初次修复仅同步聚焦，原生核对未通过；最终定位到保存后来源读取再次禁用按钮，改用可取消的绘制帧后，两个保存按钮均保持焦点，Tab 分别到取消更改/取消。失败继续走已有错误定位，不改变 IPC、授权语义或持久化协议。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-grant-save/`：`figma-confirm.png`、`figma-auto.png`、`saved-focus-final.png`、`build-final.log`；最终截图已查看，焦点、模式、未保存状态通过原生 AX 核对。pnpm typecheck、pnpm build、两文件 Prettier、git diff --check 通过，保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。四次客户端严格串行，均退出码 0，结束无本轮主进程；一次退出有 macOS IMKCFRunLoopWakeUpReliable 日志，不列为全程无日志错误。用户操作期间停止点击并经明确回复继续核对，无关 IDE 文件保留。实际 1440×960；紧凑尺寸、慢响应时主动焦点切换、真实授权执行与完整 186 画板 / U01–U12 尚未验收。
+
+[客户端 PR #47](https://github.com/zhongmiao-org/flow-ark-client/pull/47) 最终 head `ecb8a7f273fb23998f0c957c627ab7656e7df962` 经 [CI 37891167713](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37891167713) Validate / Auto Merge 成功，实际合并为 `bea3331eda6b3a3057bf9c6904382bfeea59d1bb`；同 head 并发取消的另一流水线不计为通过。
