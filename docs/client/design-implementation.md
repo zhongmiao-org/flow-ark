@@ -5586,3 +5586,27 @@ pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，�
 任务工具确认（当前无可用连接）、凭据保存/移除、非空清理与失败、导出结果、计划历史带活动运行的往返及全尺寸状态尚未人工验收。186 画板 / U01–U12 仍未完成，本轮不新增完整画板验收数量。
 
 [客户端 PR #57](https://github.com/zhongmiao-org/flow-ark-client/pull/57) 最终 head `6abe0f5b81763568f9a4e841c10a3320e3b95119` 的 [CI 37910329142](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37910329142) Validate / Auto Merge 成功，实际合并提交 `240a1eb1979591d55aecccf8131a0afd78a3bbe3`；同 head 取消或跳过自动合并的早期流水线不计为最终交付通过。
+
+### 2026-10-09 Ant Design 配置工作区与变量选择迁移
+
+已有请求/文件/表格、网页动作、流程控制、脚本依赖、条件循环图、步骤位置和变量选择共 7 处原生 dialog 全部直接改用 Ant Design Drawer；当前 Renderer 已无原生 dialog 定义或 showModal 调用。Drawer 负责浮层、焦点约束与最上层 Escape；没有新增同义组件包装，既有业务配置、返回守卫、保存/禁用规则和状态仍保留。顶部 40px 和导航 224/72px 的既有布局由共享工作区样式处理。
+
+嵌套变量选择不再隐藏外层工作区，避免旧 visibility 规则导致按钮失焦；打开来源先取得焦点，关闭后待 DOM 更新再返回原控件。宽窗口中循环工作区临时采用变量页的 224px 导航宽度，取消后回到原紧凑工作区，避免露出外层内容。ScriptPackages 删除原生 top layer 的 getContainer/Escape 补丁，由 Ant Design 统一堆叠。Select 浮层挂载在 Drawer body 内；删除旧全局 display:block 规则，修正步骤位置 Select 箭头换行。内置网页识别可见 Drawer，打开时隐藏 WebContentsView、关闭后恢复原会话。
+
+本轮对 Figma `sVciNUZHG9yx81gCpYzjH9` 的 `2:1545` 请求仍返回 Starter 额度上限，没有取得新的设计上下文。本轮是既有设计的组件迁移，不能据此声明新增画板或完整尺寸视觉验收。
+
+使用既有隔离目录、单一原生 Electron，人工核对：
+
+- 一步 `界面核对 · 本地草稿` 的流程控制工作区正常显示；Select Escape 只收起选项，不关闭工作区。空变量页初始焦点在搜索，Tab 到固定值，Escape 只关闭变量页并恢复原变量按钮，第二次 Escape 返回原配置入口。
+- 步骤位置页显示已有步骤、添加/移动位置和草稿状态；Escape 返回步骤编辑入口。最终构建重开复核 Select 文字/箭头在同一行，原草稿仍已保存、1 步，没有移动、删除或保存请求。
+- 临时添加 HTTP 步骤，资源工作区显示 GET、地址和空文件/表格分组；变量页只列前序步骤，选中后显示 `steps.n_6ee70171` 完整路径，取消返回地址变量按钮，没有应用引用或发起 HTTP 请求。
+- 临时脚本节点打开脚本工作区，从系统选择器只读选择已安装的 antd 6.6.5；内层确认框显示包名/版本/目录，Escape 只关闭确认，外层工作区仍在、焦点回绑定入口、依赖仍为 0，没有应用绑定、安装或执行脚本。
+- 临时网页节点的工作区显示动作分组和顶层导航的禁用定位字段，Escape 返回原入口；临时循环节点可从流程控制进入循环图工作区。最终全部放弃临时 HTTP/脚本/网页/循环节点，列表仍为原有 1 步。
+- 最终布局构建在已保存的 `本地固定数据分支循环核对流程` 上只读复核循环图与变量页，完整覆盖外层内容、展开导航无残留内容条；Escape 后焦点回到集合来源且未改变原引用。
+- 已有只读网页流程在内置面板显示 Example Domain，打开步骤位置 Drawer 后原生网页隐藏、没有盖住工作区；Escape 后原网页恢复且焦点回到“复制 / 移动 / 删除”。没有执行流程、拾取、提交网页或调用 AI。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-config-workspaces/` 保留逻辑/资源/网页/步骤/循环工作区、空/有来源变量、循环嵌套变量、脚本依赖确认和网页遮挡截图；截图已查看。`step-position.png` 为最终 Select 样式修正后的构建，`control-workspace.png` / `control-variable.png` 为最终宽窗口修正后的构建；早期工作区截图不代表重新验收每个字段。最终 `pnpm typecheck`、`pnpm build`、16 个改动 TSX/CSS 的 Prettier 检查及 `git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未打包安装。最后正常退出码 0 且无 Electron 主进程，IDE 改动保留在本地、未纳入最终提交。
+
+保存失败、慢请求、引用修复提交、真实依赖绑定、1040 紧凑尺寸及全部页面的表格/页签/反馈迁移仍需后续验收。186 画板 / U01–U12 完整目标仍未达成，本轮不增加完整画板验收数量。
+
+[客户端 PR #58](https://github.com/zhongmiao-org/flow-ark-client/pull/58) 最终 head `6f9dd314df8c17b753cfe006d41e4c3c4f928f70` 的 [CI 37913888369](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37913888369) Validate / Auto Merge 成功，实际合并提交 `5d30de070e4b69ead2a1a388716a055adc4439ea`；同 head 并发取消的流水线不计为通过。
