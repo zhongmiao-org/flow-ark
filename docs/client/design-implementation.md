@@ -6215,3 +6215,17 @@ pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，�
 本轮 Mac 仍锁屏，没有新 Figma 上下文请求，不增加完整 186 画板 / U01–U12 验收数；真实桌面权限/选区/模型、方案保存及全页视觉仍待核对。pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-desktop-planning-antd-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 61 关闭、viewport reset，Vite session 96480 Ctrl-C exit 130 停止；IDE 文件保留未提交。
 
 客户端 [PR #89](https://github.com/zhongmiao-org/flow-ark-client/pull/89) 最新 head `4e356fd1cf1902de5333983f1e28f02e3504cfe4` 的 CI run `37966598910` Validate（44 秒）与 Auto Merge（9 秒）成功，实际合并为 `edfb187a4e9e186794f3bba73dffeb7c2e9e021c`。并发替代 run `37966597806` 为 CANCELLED，不计为通过；CI 类型检查与构建不代表真实桌面或完整画板验收。
+
+### 2026-10-10 Ant Design 运行日志与产物证据迁移
+
+本轮依据现有运行详情 1:3539 与结果详情 23:7603 / 23:11195 的信息边界继续替换基础控件，没有新 Figma 上下文请求。RunEventLog 原始记录、RunLogSummary 派生记录与 RunOutputWorkspace 保存位置改用 Collapse；来源/版本/实例数量/阅读范围及步骤进度四组字段改用纵向 Descriptions，产物状态改为 Tag + Badge，宿主状态说明、关联读取与文件定位反馈改为 Alert。删除原生 summary 焦点和折叠样式、手写字段表、状态圆点及颜色规则；保留业务卡片、长文本和路径布局。派生记录长 ID 的按钮高度随内容增长，避免溢出。
+
+原始记录仍只在展开时序列化并挂载，收起卸载，重开从截断预览开始；派生记录默认展开、保存位置默认收起，两者 forceRender 保留原内容生命周期。实例筛选、100 条分页、冻结阅读位置、新记录提示、来源与不可变版本、请求序号防迟到返回、定位防重复锁和可用性禁用不变。查看不执行步骤、不以无日志或不可访问文件判定成功，产物快照和外部当前文件的边界继续显示；没有改 IPC、宿主、产物清理或重新执行能力。
+
+唯一隐藏 IAB tab 62 加载实际组件与 ApplicationTheme/原 main 样式的临时夹具，虚构 105 条日志、长原始数据和五种产物状态，使用假读取/定位回调，未连接宿主。人工确认 Enter 折叠，原始记录初始挂载数 0、展开 4157 字符且焦点转全文、收起归零、重开 1601 字符预览；分页 100→105，查看最新冻结后追加一条显示另有 1 条新记录，筛选无运行级记录时为空且最新按钮禁用，键盘选择步骤显示 101 条。派生读取失败 Alert 与定位失败 Alert 包装节点获得焦点，定位 pending 禁用、成功保留请求提示，缺失/清理/暂不可访问副本不准定位。没有真实运行、定位系统文件、清理、模型调用、保存或持久化核对。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-run-evidence/，已查看 logs-wide、logs-error-wide、logs-narrow、artifact-error-narrow 与 output-wide-final。logs-wide 在长 ID 按钮高度修正前，仅用于字段布局；logs-error-wide 与最终结果截图使用修正后的样式。宽请求 viewport 1480×1100 时日志/结果网格 clientWidth 和 scrollWidth 均 1065，窄请求 1040×1100 时均 734、单列，长版本/ID/路径换行。浏览器 CSS 像素受工具缩放影响，片段没有完整 App 外壳，不证明原生三尺寸或完整画板几何 1:1。Space 没有取得预期变化，两次紧接动作读取未挂载元素超时；重新观察状态后用 Enter/点击完成核对，不把超时和 Space 记作成功。
+
+pnpm typecheck、pnpm build、五文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-run-evidence-antd-build.log），预览控制台无 warn/error。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删、唯一 IAB tab 62 关闭、viewport reset，Vite session 45043 Ctrl-C exit 130；IDE 文件保持未提交。桌面工具仍报告 Mac 锁屏，完整原生界面、真实文件定位/关联阅读往返与 186 画板 / U01–U12 验收仍待完成，不增加完整画板验收数。
+
+客户端 [PR #90](https://github.com/zhongmiao-org/flow-ark-client/pull/90) 已由 CI 自动合并：head 60289702a2ff9f16a33fa14ee830633afc84bd19，run 37967856763 的 Validate（43 秒）/ Auto Merge（8 秒）成功，合并提交 6a13b77a324a7d56473db61ab035e2e0df54a689。旧同 head run 37967856687 被取消，不计作通过。
