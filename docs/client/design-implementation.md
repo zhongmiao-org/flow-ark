@@ -6473,3 +6473,17 @@ EditorMorePage 主菜单说明、副本边界、来源变化警告、创建失�
 页签77关闭、视口复位、4228 Vite回收、临时HTML/TSX删除，原IDE改动未提交。最终pnpm typecheck、pnpm build、四文件Prettier及git diff --check通过；构建日志 `/tmp/flowark-editor-feedback-antd-build.log` 保留既有chunk大小提示。未新增或运行单元、集成/smoke测试，未启动Electron或第二客户端、打包安装、执行节点、读取凭据或写真实持久化。真实副本/结构保存重开、原生窗口、云端最新设计和186画板 / U01–U12完整验收仍未完成，本轮不增加整板通过数。
 
 [客户端 PR #105](https://github.com/zhongmiao-org/flow-ark-client/pull/105) 最终head `f87032183c03ec8182b41b0622189df8308ea56a` 的 [CI 37987349596](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37987349596) Validate47秒 / Auto Merge10秒成功，实际合并提交 `9c0fe68469d7ec1fb16dd9c68e9e2026454271d6`。同head较早 `37987347542` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 动作库搜索、分类与反馈
+
+查看002 `1:394` 已保存导出 `/Users/mac/.codex/visualizations/2026/09/21/01a0c1fc-76eb-7172-8512-4e4a56416ec0/flowark-design-v2/screens/02-流程编排.png`，保留七类动作、流程图、添加目标和窄屏编排入口。此前 Figma MCP 返回Starter额度限制，本轮没有取得新的在线设计上下文，仅落实用户指定的组件库迁移，不作为最新全尺寸设计验收。
+
+ActionLibrary 搜索框直接使用 Input prefix/suffix，清空用 Button；分类用受控 Collapse，成员用 text Button，空结果、添加回执与失效位置用 Alert。保留原 AND 关键词匹配、搜索自动展开/手动收起、清空后恢复常规展开、清空后回输入焦点，以及原动作创建/插入回调。复用现有 Space 处理，Enter由组件处理；错误关联 Select 的 aria-invalid/aria-describedby 并禁止添加。删除两套搜索/按钮/提示边框、颜色、悬停和焦点外观规则，旧全局表单间距规则排除 Ant Input。保留业务内容排版、换行与图标布局；主题仍归 ApplicationTheme，不增加同义基础包装，不改 IPC 或执行契约。
+
+唯一隐藏IAB页签78载入实际完整App，注入虚构三步骤内存记录（数据、条件、循环）。Space展开文件分类；“等待”匹配2项并自动展开，Enter收起单组，清空回搜索且恢复文件组。不存在的关键词显示空结果。Excel添加到条件的否则分支，撤销/重做保持结构；把目标指向新增步骤后撤销，Select显示位置已删除、关联错误Alert，成员按钮禁用。窄屏重新选择主流程末尾后搜索HTTP，添加后自动进入HTTP配置并聚焦标题，应用关闭返回全图及所选新节点。显式保存一次、返回列表重开仍读到4步；虚构save=1/run=0/unexpected=[]。仅内存保存，不证明宿主持久化或HTTP/Excel真实执行。
+
+实际宽约1804、窄782：文档client/scroll宽1805/1805、窄782/782；文件/Excel按钮宽屏164/164，最终窄屏617/617，标题居中、成员靠左换行。清空后的输入框内部上边距为0，宽屏外框约29.5px；带suffix按钮时高度由组件内容决定，不宣称固定Figma尺寸。Collapse动画期间AX/截图曾含已收起内容，最终图在稳定后记录。已查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-action-library/actions-wide-final.png` 与 `actions-narrow-final.png`；截图右侧/下方裁切，窄图仅显示动作面板，不能作为整板1:1证据。
+
+最终三文件Prettier、pnpm typecheck、pnpm build及git diff --check通过；保留构建大chunk提示。最终浏览器warn/error记录为空，但Vite在一次视口切换时记录 `ResizeObserver loop completed with undelivered notifications`，未把该开发期通知宣称已修复。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行节点。页签关闭、视口恢复、Vite4229回收、临时HTML/TSX删除，用户IDE改动未提交。添加回调失败分支、浏览器侧面板模式、原生持久化和186画板/U01–U12完整验收仍待完成，本轮不增加整板通过数。
+
+[客户端 PR #106](https://github.com/zhongmiao-org/flow-ark-client/pull/106) 最终head `949f597732b9d8138719ae5d623cc589aaf0550c` 的 [CI 37988775614](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37988775614) Validate45秒 / Auto Merge7秒成功，实际合并提交 `76f49860189aa414927926e8a74d3d2384956282`。同head较早 `37988774872` 取消，不计为通过。
