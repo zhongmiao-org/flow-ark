@@ -1,5 +1,7 @@
 # Figma v2 客户端实施与验收
 
+2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
+
 2026-09-23 实施顺序按用户新要求调整：先完成全部 186 画板的 UI、UE 与功能交互，再统一补全测试；目前不写、不运行单元测试，仅按需做类型检查、构建及人工界面查看。未实现的宿主能力和未验收状态保持明确，不以占位界面计为整项完成。
 
 2026-09-21。按用户“1:1 实现功能”要求消费[产品设计基线](design-system.md)、[P1 画板索引](design-p1-review.md)及[DeepSeek 增量](design-ai.md)。完整目标保留，分批 PR 不代表整体完成。目标仓库为独立 `flow-ark-client`，不实现服务端或业务模板。
@@ -5250,3 +5252,16 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 证据`/Users/mac/.codex/visualizations/2026/10/09/flowark-template-adoption/`：`figma-version.png`、`adopted.png`、`new-resources.png`、`original-resources.png`、`catalog-adopted-final.png`、`coexisting-instances.png`、本地样本源码/ZIP及两份构建日志。原生1440×960，结果卡截图已查看，配置/绑定/草稿与焦点由AX核对。Schema不兼容时的默认值、真实业务状态隔离、创建/打开失败恢复、紧凑尺寸、计划与运行快照并发以及整板仍待验收，不把此样本等同完整版本采用验收。
 
 最终`pnpm typecheck`、`pnpm build`、三文件Prettier、`git diff --check`通过，保留已有大chunk提示。未新增或运行单元、集成、smoke测试。两次客户端严格串行、均退出码0，结束无本轮主进程。无关IDE文件保留；模板仓库保持干净。客户端公开源码推送此前被自动审批以披露风险拒绝，本轮未重试，代码仅本地提交，治理记录独立PR交付。186画板 / U01–U12仍未完成。
+
+
+### 2026-10-09 私有客户端仓库累积实现交付
+
+用户明确告知已将 flow-ark-client 设为私有并授权提交，本轮通过 GitHub 查询确认 PRIVATE，解除此前公开源码披露阻塞。客户端沿用功能分支 feat/figma-client-ui 与现有 PR #37，将原先仅本地保留的 316 个提交以及本轮两个 CI 提交推送；最终 head 为 `867e054a175605a731ce7c303754c1cb91be8131`。PR 从草稿转为就绪，保留 automerge 标签；这次交付覆盖当前累积实现，不代表 186 张画板或 U01–U12 全部完成。
+
+按当前 UI/UE 优先顺序，CI 将 pnpm check / pnpm test:runtime 改为 pnpm typecheck / pnpm build，保留已有测试文件和命令。私有仓库当前套餐的分支保护查询返回 403，因此复用治理仓库的自动合并检查方式：核对 PR 状态、head/base、MERGEABLE、标签和标题，确认本轮 Validate 成功且其他已报告检查全部通过，才由 CI 合并；没有手工合并或直接推送 main。
+
+本地 pnpm typecheck、pnpm build 与 git diff --check 通过，构建保留既有大 chunk 提示。未新增测试，本地未运行单元、集成或 smoke 测试。更新 PR 描述早于推送新 CI 配置，意外触发旧 head b9d0dff 的 CI 37876269098，pnpm check 已执行，pnpm test:runtime 已启动；发现后取消并确认整轮 cancelled，不计为当前代码的验证。当前最终 head 的工作流仅包含类型检查和构建。此操作顺序问题已在 PR 说明与用户更新中如实记录。
+
+本轮未启动客户端、生成发布安装包或重复界面验收。各 UI、真实 API、模板运行与未验收边界沿用此前逐条证据；无关 IDE 文件保留在本地，未纳入提交。
+
+最终[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)的 [CI 37876400030](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37876400030) Validate 与 Auto Merge 均成功，GitHub 确认实际合并提交为 `98e229c7956a230d66452a30c2f15555ad9787f1`。未将此前取消的流水线记为通过。
