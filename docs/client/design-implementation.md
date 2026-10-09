@@ -6274,4 +6274,4 @@ pnpm typecheck、pnpm build、三个文件 Prettier 与 git diff --check 通过�
 
 预览控制台无 warn/error。pnpm typecheck、pnpm build、五文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-local-resources-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 65 关闭、viewport reset、Vite session 81991 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏；工具 CSS 像素受缩放影响且夹具无完整 App 外壳，真实凭据/目录操作、原生三尺寸和 186 画板 / U01–U12 完整验收仍待完成，不增加完整画板验收数。
 
-客户端 [PR #93](https://github.com/zhongmiao-org/flow-ark-client/pull/93) 已由 CI 自动合并：head c663940520c68f956885534344ed0977e994029b，run 37971969631 的 Validate（42 秒）与 Auto Merge（8 秒）成功，合并提交 b303f277cfacfb914da60f5cc2d21a656cb71b17。旧同 head run 37971965348 为 CANCELLED，不计为通过。
+客户端 [PR #93](https://github.com/zhongmiao-org/flow-ark-client/pull/93) 已由 CI 自动合并：head c663940520c68f956885534344ed0977e994029b，run 37971969631 的 Validate（42 秒）与 Auto Merge（12 秒）成功，合并提交 b303f277cfacfb914da60f5cc2d21a656cb71b17。旧同 head run 37971965348 为 CANCELLED，不计为通过。
