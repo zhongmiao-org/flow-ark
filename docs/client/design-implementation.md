@@ -5102,3 +5102,19 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 证据 `/Users/mac/.codex/visualizations/2026/10/08/flowark-native-target-repair/` 包含 `figma-repair.png`、`repair-before.flowark-template.zip`及最终构建日志；设计截图已查看，真实失败和新入口由AX核对。原生1440×960、设计1440×1080，105/106/107与完整186画板 / U01–U12继续未验收。
 
 最终类型检查、构建、三文件Prettier和差异检查通过；构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。首个实例退出码0，有TASK_SUPPRESSION_POLICY与IMKCFRunLoopWakeUpReliable系统警告；第二个实例保留在修复页等待解锁，已核对只有一个Electron主进程，不启动额外实例。无关IDE改动保留。客户端源码公开推送此前被自动审批以披露风险拒绝，本轮未重试，治理记录独立PR交付。
+
+### 2026-10-09 只读网页目标修复的原生关联重跑
+
+桌面恢复可操作，先复用前轮终端43670的唯一客户端。原失败Run为 `ac580d65-a07d-4322-8880-21628f571050`、修订4。明确打开原公开网页并原生选取英文正文，确认唯一定位 `p:nth-of-type(2)`、主文档；首次提交在调用模型前被“请从网页目标页重新核对当前只读对象，再修改方案”拒绝。根因是规划宿主仍拒绝带webTarget的修复任务。
+
+治理 [PR #459](https://github.com/zhongmiao-org/flow-ark/pull/459) 最新头 `2fef6d99e84bbead7548d23f70af1acb983c194a` 经 [CI 37867049526](https://github.com/zhongmiao-org/flow-ark/actions/runs/37867049526) 成功自动合并为 `3bf2664bc9580ef07810bd8be2f73ff42de87264`，先定义绑定、撤销和执行衔接。客户端本地 `d9cdd77` 采用该基线，公共契约仍0.16.0：修复各阶段复验新拾取；候选完整流程仍受只读范围与指定定位变化约束，单元素任务不扩大为整页；采纳事务同步保存任务/流程绑定及修复依据，撤销恢复旧任务绑定并清除修复授权。确认页沿用106双栏复核卡，明确采纳会更新网页对象并展示标题/地址。
+
+第一份真实DeepSeek / deepseek-flash提案仅改变selector，采纳到修订5，但运行前误报草稿变化。发现采纳使用包含网页对象的planningFlowHash，RunReview却仅计算flow/bindings；同一提交统一为完整摘要，保留并发保护。先从原生页面撤销到修订6，定位恢复h2，运行前明确拒绝失效旧网页，未创建Run。退出并加载最终构建后，重新明确选择网页和正文，第二次真实模型请求仍只产生selector一项差异，采纳到修订7。
+
+起点页确认原运行只有一次未完成的只读动作；完整检查通过后再次明确勾选并启动。关联新Run `9ac4b3bd-ac95-495c-99da-325ffabeacfb` 成功，1次步骤完成、0未确认、0尚未执行、0文件产物；结构化输出read-h2为实际选中的英文正文，不是拾取元数据。名称及说明依有限修复约定保留h2文字，模型限制说明指出了这项差异，没有越界更改其他字段。
+
+“查看原运行”仍显示修订4、网页超时、0完成/1未完成，原启动快照selector仍为h2；返回来源结果恢复新Run和正文输出，未再次执行。本轮2次真实AI请求、1次明确Run，首次被宿主拒绝的提交没有调用模型；没有重读密钥、夹具或隐藏IPC绕过选择器。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/08/flowark-native-target-repair/` 新增 `readonly-binding-block.png`、`readonly-binding-proposal.png`、`readonly-binding-undo.png`、`readonly-binding-result.png`、`readonly-binding-original.png`和`readonly-binding-build.log`。复用并查看前轮本地Figma106截图，提案和结果截图已查看，原快照及返回焦点经AX核对。原生1440×960、设计1440×1080，单元素多步骤冲突、换地址导航限制、跨框架及生成/采纳中的失效并发仍待原生验收；105/106/107及完整186画板 / U01–U12尚未完成。
+
+最终类型检查、构建、六文件Prettier及差异检查通过；run-review初次格式告警已修正并重新通过，构建保留大chunk提示。未新增或运行单元、集成、smoke测试。旧实例及两次重建实例严格串行，三个终端均退出码0，最后退出有IMKCFRunLoopWakeUpReliable警告，当前无开发实例。无关IDE改动保留。客户端公开源码推送此前被自动审批以披露风险拒绝，本轮未重试，仅保存本地提交；治理记录独立PR交付。
