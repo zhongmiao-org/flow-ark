@@ -5795,3 +5795,26 @@ TaskExecutionSteps 的普通/紧凑清单、RunDetail 时间线和 DebugRunWorks
 Figma 导出节点 2:4940 的实时上下文与截图请求仍受 Starter 额度限制，whoami 确认 liuwufangzhou@gmail.com / Ark 65 / Starter View；本机界面清单确认 Mac 锁屏。本轮迁移现有基础组件，不新增 186 画板 / U01–U12 完整验收数量。真实文件/持久化、慢请求/忙碌关闭、外层清理记录各状态及全页面三尺寸仍待验收，虚构回执不等于真实删除、导出或安装。
 
 [客户端 PR #67](https://github.com/zhongmiao-org/flow-ark-client/pull/67) 最终 head `ff5d396edb1cc5b0814ed91830b28a37b554a225` 的 [CI 37930791784](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37930791784) Validate / Auto Merge 成功，实际合并提交 `9469b27e79079a5c5b995d67ab3078edaf35090e`；同 head 并发取消的流水线不计为通过。
+
+### 2026-10-09 Ant Design 应用与工具连接反馈迁移
+
+目录预设、已保存连接行、发现核对/连接详情及应用助手状态直接使用 Tag / Badge。连接状态到语义色的映射归集中 theme；列表说明只为来源/地址设置文字样式，不再以所有 span 覆盖库状态色。列表读取/页面错误、来源变化、工具移除、OAuth 检查提示、任务引用与运行在用说明直接使用 Alert。tool-status / tool-warning / tool-list-error 已无 Renderer 消费者，删除对应手写状态点、颜色、背景、圆角和边距外观规则，保留布局及长内容换行；没有新增基础组件包装。
+
+原保存身份、账号/工作区尚未核对说明、列表失败保留旧记录、发现通过尚未保存、确认勾选、能力移除对照、保存失败、任务引用、重连不自动执行和系统权限/任务授权区分保持。原操作错误 ref/role 容器与助手结果区域及焦点逻辑保留；没有修改 IPC、连接/OAuth/桌面协议、凭据、持久化或宿主权限。
+
+采用实际组件、ApplicationTheme 及明确标注的虚构内存返回，唯一临时隐藏 IAB 人工预览，未保存真实连接、登录账号、调用工具或读取本机窗口：
+
+- 七条虚构记录含已发现通过、尚未重新测试、已断开和需要重新连接。只读 DOM 确认成功标签 rgb(20,125,97)、其余警示 rgb(148,98,0)，来自主题，未被列表辅助文字规则覆盖。刷新失败保留七条旧记录及状态，提供重读；按名称查找失效连接只显示 1/7。
+- 失效详情仍显示已保存、身份尚未核对和相关任务暂不能使用、重连不自动执行。展开任务引用后显示关联流程活动运行数量、虚构引用和断开/删除可能导致结果未知、不自动重试说明；未操作断开/删除。
+- 复核原连接时，虚构空工具清单显示发现通过尚未保存、来源变化、零项本次/一项原定义、已移除工具及原参数/行为声明。移除定义仍可搜索查看。勾选能力核对后虚构保存被拒绝，原核对结果与勾选保留、仍停在发现页，不能据此宣称真实保存验收。原列表刷新错误在发现通过后仍按既有判断保留，未改动读取状态。
+- 独立 OAuth 空认证站点、过期检查预览显示“本次检查已过期，请重新检查”，标题获焦；零认证站点不提供登录入口，本预览不证明完整 OAuth 登录/取消/等待流程。
+- 本机助手等待只读检查、虚构检查通过和窗口不可读分别呈现中性/成功/警示标签。成功状态仍显示尚未选择窗口、未授予读取/修改授权；不可读转恢复页并明确重新检查不恢复/重放/启动任务。结果区域获焦，没有点击系统设置或选择窗口。
+- 原连接刷新后消失时显示操作错误及来源不存在提示和返回目录入口；返回后已保存连接标题获焦。此次成功读取空清单不等于列表读取失败，未推断失败为空。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-tool-connection-feedback/` 保存 `catalog-read-failed.jpg`、`connection-failed.jpg`、`connection-active-use.jpg`、`capabilities-removed.jpg`、`removed-tool-narrow.jpg`、`oauth-expired.jpg`、`assistant-checked.jpg`、`assistant-unavailable.jpg`、`connection-missing.jpg` 和最终 typecheck/build 日志，截图已查看。默认约 962×541 的目录已查看；宽请求 1920×1280 后实际约 1443×962，额外请求 1040×1000 后实际 782×752，为组件双栏/单栏观察，未宣称严格原生三尺寸。窄工具核对主区 client/scrollWidth 均 782px、单列约 718px；宽截图右側截断，运行在用/移除定义与助手截图仅覆盖滚动片段，不作为整窗 1:1 证明。
+
+最终 `pnpm typecheck`、`pnpm build`、8 个变更文件 Prettier、`git diff --check` 通过，构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或验证真实服务/窗口。临时源码删除、唯一页签/4366 服务关闭、视口恢复，无关 IDE 改动保留且未提交。
+
+Figma 23:4867 实时上下文与截图仍受 Starter 额度限制；whoami 确认正确账号 liuwufangzhou@gmail.com / Ark 65 / Starter View，本机应用清单确认 Mac 锁屏。本轮仅迁移既有基础控件，不增加 186 画板 / U01–U12 完整验收数量。能力变化筛选/变化标签等业务组合及其他反馈继续迁移；真实连接/持久化、账号、OAuth 完整流程、原生助手、慢请求/取消及全页面三尺寸仍待验收。
+
+[客户端 PR #68](https://github.com/zhongmiao-org/flow-ark-client/pull/68) 最终 head `194f27ee1daec93ff3eed8c492f0b93442744c72` 的 [CI 37932265916](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37932265916) Validate / Auto Merge 成功，实际合并提交 `19da0f0026b1c731625b55c824b80aafe4c467cc`；同 head 并发取消的流水线不计为通过。
