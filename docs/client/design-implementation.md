@@ -6389,3 +6389,19 @@ App 输入守卫调用 revealDraftInput，从无效容器自身开始向外展�
 最终 `pnpm typecheck`、`pnpm build`、五文件 Prettier、`git diff --check` 通过，日志 `/tmp/flowark-resource-nodes-antd-build.log` 保留既有 chunk 大小提示。未新增或运行单元测试、集成/smoke 脚本，未启动 Electron 或第二个 FlowArk，未发 HTTP 请求、选择真实目录、写文件、执行节点或保存真实流程。临时 HTML/TSX、页签和 4223 Vite 服务已清理，视口复位，原有 IDE 改动保留。完整 186 画板 / U01–U12 尚未完成。
 
 客户端 [PR #100](https://github.com/zhongmiao-org/flow-ark-client/pull/100) 最新 head `cb792743bed0bfabddc01d0721e2b6684cd91428` 经 CI `37979883903` 成功校验并自动合并为 `e91e288900afab6e0a6b1286f0374868d8eee51c`；较早重复运行 `37979883121` 被取消，不作为最新结果。
+
+### 2026-10-10 Ant Design 流程参数与资源设置
+
+实际查看已保存设计导出018 `2:1398`，图片 `/Users/mac/.codex/visualizations/2026/09/21/01a0c1fc-76eb-7172-8512-4e4a56416ec0/flowark-design-v2/screens/18-流程参数与资源.png`。保留名称/类型/值布局、本机资源卡和既有响应式规则；本轮继续按用户要求直接采用 Ant Design，不新增基础控件包装或流程能力。
+
+FlowParametersPage 的本机绑定说明直接使用 Collapse，沿用统一 Space 激活处理；保存错误与引用保护说明直接用 Alert，参数删除/改名使用 Button 类型和尺寸，保存/目录选择显示 loading。删除参数页输入框、按钮、原生说明、提示和已失效 Checkbox 的重复外观 CSS；目录按钮可换行，高度读取统一主题 controlHeight。业务引用提示和焦点容器保留。ConfigProvider 的禁用状态稳定使用布尔值，避免忙碌时切换组件树结构导致未完成名称/JSON 或折叠状态丢失；IPC、持久化、授权和引用校验接口未变。
+
+唯一隐藏 IAB 页签73使用实际 FlowParametersPage、ParameterConfiguration、LiteralValue 和 TemplateParameters，仅注入虚构内存记录与宿主响应。未完成 JSON“{”和待改名 countDraft 在目录等待、取消、失败后仍保留，展开说明保持；取消回到目录按钮，失败聚焦反馈。离开确认选择保存时阻止未完成输入并聚焦参数名。恢复后删除被引用 title 被阻止并标出第1步/params.title；改名 heading 同步1处引用。目录成功只改草稿，凭据仅为虚构标识；凭据第一次勾选紧随异步目录返回未生效，不计为通过，稳定后单独点击核对已选再继续。慢保存禁用字段；失败保留全部值、目录、勾选和折叠状态，聚焦 Alert 外层。重试成功后重开读回 heading、params.heading、0、false、JSON、目录与虚构凭据引用。名称读取失败显示标识；失效浏览器绑定保留提示。受管实例呈现只读0/false，编辑实例配置返回独立入口，没有开放任意改名。
+
+实际宽屏1443/窄屏782，宽屏两卡约875/481px、窄屏单列约718px，卡片 clientWidth/scrollWidth 相等；窄屏文档782/782，宽屏文档1444/1444，未观察到内容横向溢出。截图查看发现目录按钮自动高度偏小，修正为主题40px后重载核对约39.996px，重新查看最终宽窄截图。截图目录 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-flow-parameters/`：`parameters-final-wide.png`、`parameters-final-narrow-top.png`、`parameters-final-narrow.png`均已查看；均为视口裁切，宽屏右侧、窄屏下方不能作为全页面视觉证据。初始截图保留追溯，不代表最终控件高度。
+
+pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，构建日志 `/tmp/flowark-flow-parameters-antd-build.log`，仅既有大 chunk 提示；初始 Collapse onKeyDown 类型错误已改为统一外层键盘处理，临时夹具缺少契约字段亦已修正。未新增或运行单元、集成、smoke 测试，未启动 Electron 或第二个客户端，未打包安装、执行流程、读取真实凭据或访问真实目录。最终控制台无 error/warn。页签73已关闭，视口恢复，Vite 正常回收、临时 HTML/TSX 删除，用户 IDE 文件未提交。
+
+本轮是018局部组件迁移。未验证完整 App、真实目录对话框、真实宿主持久化和全尺寸最新 Figma；不增加完整画板验收数量，186画板 / U01–U12目标仍未完成。
+
+[客户端 PR #101](https://github.com/zhongmiao-org/flow-ark-client/pull/101) 最终 head `44538513a279d89138e3eb3c6fc914a4d061b5a5` 的 [CI 37981123462](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37981123462) Validate 42秒 / Auto Merge 9秒成功，实际合并提交 `2217d5d00cf114ca2cfb7ed1a131137360ef160e`。同 head 较早 `37981123198` 取消，不计为通过。
