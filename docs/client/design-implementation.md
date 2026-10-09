@@ -5632,3 +5632,20 @@ pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，�
 原生宿主数据往返、完整三尺寸、异步 busy/失败恢复、运行详情/网页目标的剩余页签与通用反馈尚需迁移或人工验收。Renderer 当前没有原生 table 定义，但此扫描只证明表格定义迁移，不证明全页面或业务验收。186 画板 / U01–U12 仍未完成，本轮不增加完整画板验收数量。
 
 [客户端 PR #59](https://github.com/zhongmiao-org/flow-ark-client/pull/59) 最终 head `ecb32f55a51410b7620d90dc9afe7a783746325a` 的 [CI 37916493282](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37916493282) Validate / Auto Merge 成功，实际合并提交 `c2a3252344b4f28a9732511710bd002037e364bc`；同 head 并发取消的流水线不计为通过。
+
+### 2026-10-09 Ant Design 运行详情、对象页签与分段导航迁移
+
+运行详情和任务对象选择直接使用 Ant Design Tabs，流程筛选和节点检查器直接使用 Segmented；删除对应手写页签键盘逻辑和外观 CSS，不增加基础组件包装。运行 current/output/logs 与网页/窗口/工具面板持续挂载，保留阅读状态和地址草稿；已有 active/busy 守卫继续控制读取与切换。输出页隐藏当前步骤入口，并以零宽度保留库的布局测量，避免产生多余溢出菜单；“核对后重新运行”作为独立按钮进入原核对页，查看不会执行。日志页仅隐藏页签栏，不隐藏内容。流程搜索采用 Input prefix，删除旧 label 搜索框布局；全局表单样式排除 Segmented 内部标签/输入及 Ant Input 焦点外观，统一由主题提供控件外观。
+
+采用临时隐藏 IAB、实际组件和明确标注的虚构只读内存数据人工核对，未连接真实宿主，其他请求拒绝执行：
+
+- 网页地址输入 `https://example.com/preview`，切到应用窗口权限缺失页、工具空连接页再返回，地址保持；没有打开网页、授权或选择真实窗口/工具。
+- 3 条虚构流程中，最近编辑显示 2 条，来自模板显示 1 条；模板筛选叠加名称搜索正确。最终搜索框文字、图标同排，内部 Input 不再产生第二个焦点框。
+- 运行日志选中 `greeting` 后只显示 1 条，展开原始记录，切到输出再返回，筛选和展开均保留；输出/日志标题按原规则获焦。输出页“核对后重新运行”只打开核对页，预览按钮禁用，取消返回输出，没有创建 Run。
+- 实际 App 打开虚构流程的节点检查器，Segmented 参数入口打开参数与资源页，返回原 `greeting` 节点并恢复参数入口焦点。数据值改成不完整 JSON 后，参数切换被原守卫阻止、提示操作未完成，焦点回数据值输入；最后恢复原值，未保存或运行。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-navigation-controls/` 保留 `output.png`、`logs-retained.png`、`target-draft.png`、`library-template.png`、`inspector-guard.png` 和最终检查日志，截图已查看。默认和不同视口覆盖组件布局，最终搜索预览实际 CSS 宽度约 1443px；截图不代表完整三尺寸或整板验收。最终 `pnpm typecheck`、`pnpm build`、15 个改动 TSX/CSS 的 Prettier 检查与 `git diff --check` 通过，构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未打包安装。两个临时预览页签及各自 4366 服务顺序关闭、始终单实例；临时源码删除、视口恢复。本轮 Mac 持续锁屏，未启动 Electron，原有 IDE 改动保留。
+
+Figma 连接器限额未解除，本轮未取得新设计上下文，限定为用户授权的既有组件库迁移。原生数据往返、busy/失败恢复、真实窗口选中状态和全部页面视觉仍需人工验收；通用反馈与其他组件尚需继续迁移。186 画板 / U01–U12 未完成，本轮不增加完整画板验收数量。
+
+[客户端 PR #60](https://github.com/zhongmiao-org/flow-ark-client/pull/60) 最终 head `44732f4063c5e6c36a9340e54bc2386be1f0ad3f` 的 [CI 37918830406](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37918830406) Validate / Auto Merge 成功，实际合并提交 `a38018c7d47af4c7699ebf031020cf6c595422a3`；同 head 并发取消的流水线不计为通过。
