@@ -5881,3 +5881,25 @@ McpArgumentCheck 五种结果直接使用 Alert + Tag，固定值符合定义使
 最终 `pnpm typecheck`、`pnpm build`、六个变更文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包、执行真实 Run 或调用工具。临时源码、唯一页签与 Vite 服务已清理，视口恢复，IDE 无关改动未提交。
 
 [客户端 PR #71](https://github.com/zhongmiao-org/flow-ark-client/pull/71) 最终 head `5638f43d88cdf26363690f1e6946ff8f4d4cc6bd` 的 [CI 37936859398](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37936859398) Validate / Auto Merge 成功，实际合并提交 `539b97fc86c03085a7b5ab501c7c1840abf2476f`；同 head 并发取消的流水线不计为通过。客户端本地 main 已同步实际合并提交。
+
+
+### 2026-10-09 Ant Design 生成状态、请求记录与附件反馈迁移
+
+按用户直接采用 Ant Design 的要求，既有 `TaskGenerationPage` 生成中/失败/缺能力标签改为 Tag，失败原因与保留草稿改为 Alert，能力限制和本次请求记录改为 Collapse；原生成中图标继续使用 `running.svg` 原资产。`TaskAttachmentFeedback` 的 pending/error/success/cancelled 反馈改为 Alert，保留原焦点容器和四种错误重试入口。`AITaskWorkspace` 的规划状态、待采纳/已保存标签及现有错误、冲突、保留草稿提示改为 Tag/Alert；同一任务的草稿、补问、取消、发送核对、采纳、权限和 Run 行为不改变。
+
+主题增加穷举的 `planningTaskColors`：draft/cancelled 中性，generating/plan 蓝色，clarify/unsupported 警示，failed 错误。方案标签仅表明保存/待确认，不表示运行或业务成功。移除生成页失败框/折叠框和附件反馈按钮的手写外观；保留页面布局、长内容滚动和业务说明。没有新增同义基础组件、宿主方法、数据格式或模型调用。
+
+人工预览使用实际组件、ApplicationTheme 与应用 CSS，全部为虚构任务/附件/记录；真实宿主请求在夹具中明确拒绝。核对了以下组件交互：
+
+- 失败后「重试生成」只展开核对区并聚焦；夹具明确勾选发送内容前确认按钮禁用。取消重试收起核对区、重置核对并返回重试按钮焦点，夹具未调用真实服务。生成中取消入口与 busy 禁用、单步修改要求、缺能力时查看工具/保留草稿入口均查看；没有把夹具事件记作模型取消或真实导航验收。
+- 请求记录保留 provider/model/requestId/更新时间，缺失内容为「未记录」和「时间待核对」，请求身份/状态变化后折叠收起。初次观察发现库标题支持 Enter 而 Space 未展开；在同一 Collapse item 上补回 Space 激活并复核展开/收起，能力限制的 Space 展开及两项原说明也已核对。没有创建另一套折叠控件。
+- 930 字虚构失败原因完整保留在可聚焦的 88 px 滚动区，scrollHeight 682 px；ArrowDown 后 scrollTop 约 30 px。原生成中 SVG 自然宽度 6 px，实际宽高约 6 px 且加载完成，没有重新绘制或改变根尺寸。
+- 附件四状态分别查看：错误有对应的重新选择文件、重新选择图片、重新读取附件、重试移除附件入口，调用的是原 retry 回调；其余状态无重试按钮。busy 时错误按钮禁用、反馈不抢焦点；busy 解除后聚焦原反馈容器。真实文件选择、副本加密/保存/移除与原文件保留尚未重新验收。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-task-generation/`，包括 `retry-review-wide.jpg`、`unsupported-narrow.jpg`、`generating-scope.jpg`、`attachment-success.jpg` 与检查日志。浏览器尺寸请求 1040×1000 时实际 Renderer 为 782×752，main/body 宽度与 scrollWidth 均为 782；请求 1480×1100 时实际为 1112×827，body scrollWidth 为 1112。截图仅为组件片段，不能据此宣布原生 1040×700、1440×1080、1920×1080 三尺寸或完整 Figma 1:1 验收。
+
+本轮 Figma `23:10802` 设计上下文和截图读取均返回 Starter 工具额度上限；whoami 确认 Ark 65 账号未变化。原生桌面因 Mac 锁定且无法自动解锁不可读。此轮只迁移已有页面的基础反馈，不声称取得新 MCP 上下文或新的画板完成数。参考节点映射继续为 `23:10659`、`23:10802`、`23:10940`；新设计/全页视觉复核仍需设计入口恢复。
+
+`pnpm typecheck`、`pnpm build`、六个变更文件 Prettier 检查及 `git diff --check` 通过；已有大分块构建提示保留。没有新增/运行单元、集成或 smoke 测试，也未启动 Electron、真实模型/工具、安装包或实际 Run。预览 HTML/TSX 已删除，唯一 IAB 预览 tab 44 已关闭，viewport 已 reset，Vite session 10099 已停止（Ctrl-C，exit 130）。工作台完整往返、真实供应商请求及其失败恢复、原生窗口、全页资产几何与 U01–U12 / 186 画板验收继续保留。
+
+客户端 [PR #72](https://github.com/zhongmiao-org/flow-ark-client/pull/72) 最新 head `4720f677ecfb84987230d25784bb964736a3e833` 的 CI run `37938791819` Validate（48 秒）与 Auto Merge（8 秒）成功，实际合并为 `4b91208a7b007bcc9e3e76de98ae04ebc5bbe154`。被并发替代的 run `37938791304` 为 CANCELLED，不记为验证通过；自动合并也不代表真实 AI、原生窗口或完整画板验收。
