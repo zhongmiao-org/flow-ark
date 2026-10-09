@@ -6243,3 +6243,19 @@ pnpm typecheck、pnpm build、五文件 Prettier 与 git diff --check 通过，�
 pnpm typecheck、pnpm build、八文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-run-detail-antd-build.log），预览控制台无 warn/error。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 63 关闭、viewport reset，Vite session 83090 Ctrl-C exit 130，IDE 文件保留未提交。桌面工具仍报告 Mac 锁屏；完整原生运行控制/结果核对与 186 画板 / U01–U12 验收待完成，不增加完整画板验收数。
 
 客户端 [PR #91](https://github.com/zhongmiao-org/flow-ark-client/pull/91) 已由 CI 自动合并：head cbeb756d5a10ecfc906a67d896f844e9852e4978，run 37969273881 的 Validate（45 秒）与 Auto Merge（9 秒）成功，合并提交 12f69f7fec3ba0433914c44d8fbcf8972c158fe9。旧同 head run 37969273194 为 CANCELLED，不计为通过。
+
+### 2026-10-10 Ant Design 待办与人工请求详情迁移
+
+沿用待办与提醒 1:3794、人工请求与结果核对 2:4316 和既有 2:2911 内容布局，没有新 Figma 上下文请求。AttentionDetails 的附加字段、人工核对目标/拟执行内容、来源时间和保存状态直接用纵向 Descriptions；格式、技术详情、原始详情和状态/来源证据用 Collapse。删除手写字段表、原生 summary 外观及重复焦点/按钮样式，保留业务卡片、完整内容预览和宽窄布局；没有新增基础包装组件。
+
+折叠 forceRender 保持原内容挂载，使用已有 activateCollapseWithSpace 支持 Space/Enter。原始详情保留完整未过滤 JSON，可聚焦 pre 在 320px 高区域滚动；可读字段仍过滤 schema/answered，并按原参数省略重复运行引用。请求状态、10 分钟失效、核对勾选、取消确认、JSON 校验、草稿 Map、提交锁及回应后防重复提交不变；不改 IPC、宿主或执行规则。
+
+唯一隐藏 IAB tab 64 预览实际 AttentionWorkspace/AttentionDetails、集中主题和产品样式，五种请求/运行/内容均虚构，仅使用假回调，不连接宿主。人工确认未勾选无法提交，取消确认中提交禁用且未调用答复；继续查看恢复并回到取消按钮焦点。无效 JSON 错误聚焦输入且未调用答复；有效草稿返回列表再打开保持。一次假答复成功后假列表刷新失败，错误获焦并提示不要重复提交，表单不再显示提交按钮。过期、来源取消禁用，来源取消清除原核对勾选；无效核对契约不显示提交入口。来源读取失败 Alert 获焦，不进入其他运行。
+
+状态、来源、格式、技术/原始折叠的 Space/Enter 均核对。未知提醒的可读字段省略重复引用，原始 JSON 仍包含 schema/answered/runIds；1132 字符全文保留，pre clientHeight 320 / scrollHeight 660，PageDown 后 scrollTop 304.8872。长拟执行内容保留换行/空白，空内容显式显示；浏览器控制台无 warn/error。截图目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-attention/，已查看 human-wide、json-narrow、unknown-wide、answered-wide-final；human-wide 和 answered-wide-final 捕获状态折叠的动画，不能单独证明最终展开内容，json-narrow 未覆盖下方表单。实际状态字段、提交和焦点以 DOM 核对为准。
+
+宽请求 viewport 1480×1100 时详情网格 clientWidth/scrollWidth 均 1001、双栏；窄请求 1040×1100 时均 670、单列，无网格横向溢出。工具 CSS 像素受缩放影响，夹具无完整 App 外壳，不代表原生三尺寸或全画板 1:1。Mac 仍锁屏，真实请求/运行/持久化和完整原生视觉待核对，不增加 186 画板 / U01–U12 完整验收数。
+
+pnpm typecheck、pnpm build、三个文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-attention-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 64 关闭、viewport reset，Vite session 9533 Ctrl-C exit 130，IDE 文件保持未提交。
+
+客户端 [PR #92](https://github.com/zhongmiao-org/flow-ark-client/pull/92) 已由 CI 自动合并：head 504f95e4e87b6f07afda18770f7b5c2bc34a50bb，run 37970714401 的 Validate（47 秒）与 Auto Merge（8 秒）成功，合并提交 7bc865c785d96a0862b0a50476e58517cd05d2e6。旧同 head run 37970713243 为 CANCELLED，不计为通过。
