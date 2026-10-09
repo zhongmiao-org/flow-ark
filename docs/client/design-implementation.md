@@ -6355,3 +6355,5 @@ pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，�
 宽窗口实际 CSS 视口 1443，双卡约 670/590×588；来源展开的窄窗口实际视口 782，两卡单栏宽约 622，无页面横向溢出。宽窗口根布局有约 1 CSS px 取整溢出，本轮不宣称完整像素复刻；截图仅展示可见区域，窄截图顶部与底部被裁切。截图保存在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-excel-mapping/`（`wide.png`、`narrow.png`）。控制台未见警告或错误。
 
 `pnpm typecheck`、`pnpm build`、两文件 Prettier 和 `git diff --check` 通过，构建日志 `/tmp/flowark-excel-settings-antd-build.log` 保留既有大 chunk 提示。未新增或运行单元测试、集成／smoke 脚本，未启动 Electron 或第二个 FlowArk 实例、未生成安装包。临时 HTML/TSX、IAB 页签和 4221 Vite 服务已清理、视口复位，原有 IDE 改动保留。以上是第 119 画板局部组件迁移及虚构接口交互证据，不替代真实持久化、输出或整板验收；完整 186 画板 / U01–U12 尚未完成。
+
+客户端 PR #98 已由最新 head `0d736c5584987b31e440331d6c35e9d224b77eee` 的 CI `37977823117` 完成校验并自动合并，合并提交 `0c45562c2b72202b413a859409dfd004146f7a0c`；初始重复运行 `37977823095` 被取消，不作为失败或验收证据。
