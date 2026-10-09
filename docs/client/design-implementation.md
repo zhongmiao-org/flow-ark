@@ -5355,3 +5355,16 @@ pnpm typecheck、pnpm build、三文件 Prettier 和 git diff --check 通过，�
 本轮只启动一个原生客户端（隔离数据沿用 flowark-native-flow-workspace/user-data），进程仍在运行；没有因锁屏重启或强制退出，解锁后先核对安装结果，再按需正常退出并启动新构建。结构化选项的真实保存/重开、原生紧凑窗口、完整画板和 186 画板 / U01–U12 验收仍未完成。
 
 [客户端 PR #43](https://github.com/zhongmiao-org/flow-ark-client/pull/43) 最终 head `cfbca848784f4f07d71ec7537c384d4dbf8b761b` 经 [CI 37882161404](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37882161404) Validate / Auto Merge 成功，实际合并提交 `19cd7f70f32235f79eecdeb44098c3fa01e98865`；同 head 并发取消的流水线不计为通过。
+
+
+### 2026-10-09 实例离开失败后返回错误字段
+
+继续落实 Figma `2:3672` 的“返回修正”及实例统一离开保护。本轮开始确认前次原生进程仍在运行；Mac 仍锁屏，未启动第二个客户端，也未重试前次结果未知的模板安装。基于已查看设计和当前源码，在浏览器临时页面直接加载产品 `TemplateInstancePage`，使用显式虚构内存详情与保存回执核对页面，不访问实际实例数据库。
+
+复现原问题：入口乙数量输入 abc、修改备注后切到“来源与版本”，保存并离开被阻止；“继续编辑”仍回到版本页并聚焦返回按钮，错误所在入口不可见。客户端 `f4c2943` 保留本次校验错误字段的位置，在提示中说明对应入口或分类；离开弹窗的“返回修正”打开对应分类、选择正确入口并滚动聚焦字段。新一次离开会清除旧定位；没有字段校验错误时仍为“继续编辑”，恢复原编辑焦点。修正本身不保存、不执行原离开目标，也不创建运行或改变权限。
+
+人工界面核对：共享配置先改为“保留共享配置”，入口乙数量 abc、备注“乙草稿保留”，切到入口甲再切来源页离开；失败提示明确入口乙，返回后自动选中乙且数量框可见并获得焦点，abc 与备注保留。改为 7，再将共享名称清空并从资源页离开，失败后“返回修正”回共享配置空字段；改为“修正后的共享配置”，普通离开/继续编辑恢复该字段焦点。最后保存并离开，内存接口显示仅一次保存，包含修正后的共享值、乙的 7/备注，甲原值保持。此结果仅证明 Renderer 交互与内存请求，不能替代真实宿主原子写入或重开验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-template-return/`：`manual-preview.tsx`、`entry-repair.png` 和 `build.log`。截图已查看，错误数字与保留备注可见。预览源码原件位于客户端忽略目录 artifacts，未纳入产品提交，临时网页与服务均已关闭。pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。真实原生保存/重开、紧凑窗口、资源错误组合与整板验收仍待完成；唯一原生客户端继续保留，等待解锁确认上轮安装结果。
+
+[客户端 PR #44](https://github.com/zhongmiao-org/flow-ark-client/pull/44) 最终 head `f4c2943add89b0918690519ae7029a8a1c5f11bf` 经 [CI 37882682306](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37882682306) Validate / Auto Merge 成功，实际合并提交 `b1b93f7b9067a2e905f58eea6c378e930ca681b7`；同 head 并发取消的流水线不计为通过。
