@@ -5323,3 +5323,20 @@ pnpm typecheck、pnpm build、两文件 Prettier、git diff --check 通过，保
 pnpm typecheck、pnpm build、三文件 Prettier 和 git diff --check 通过，保留既有大 chunk 提示。未新增或运行单元、集成、smoke 测试。唯一客户端正常退出码 0，结束无本轮主进程；无关 IDE 文件保留。
 
 [客户端 PR #41](https://github.com/zhongmiao-org/flow-ark-client/pull/41) 最终 head `111f5277976d54b90b336f82307765fc98936b2a` 经 [CI 37880146261](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37880146261) Validate / Auto Merge 成功，实际合并提交 `c495f3c3661e94e5dc70a293ec8292bc03e539fe`。同 head 因事件并发取消的流水线不计为通过。
+
+
+### 2026-10-09 复杂入口输入与保存反馈
+
+本轮本地 Figma 查看输入与保存状态 `2:3672`：错误输入须保留并可返回修正，保存失败不能覆盖已保存版本。依据该状态与既有入口设计，使用本地虚构 ZIP 在真实客户端核对多行备注、对象列表和数字字段。样本 `entry-input-ui@1.0.0-ui.1` 基于模板仓库 multi-entry 的包与脚本，单独存放本机证据目录；没有把示例源码、业务 Schema 或脚本放入客户端。样本摘要 `d7059e706eeea782d513a8dd8e02418241349f47f6536dbfcb1260ac59a5d2b9`，正常导入并创建实例 `cf72d996-c383-4984-84f5-fdbf21c798e9`，隔离库增加为 4 个版本 / 6 个实例。未执行其中任何脚本或外部动作。
+
+原生查看证实：离线入口填写两行备注和项目甲/乙，在乙的数量输入 abc 后删除甲，乙与错误文本均保留；保存被阻止并聚焦错误数字。切换网页入口可填写并独立保存其他备注和项目，返回离线入口仍保留两行备注、项目乙和 abc。将数字修正为 7 后保存，重开客户端，两入口各自的备注、项目和数值均保留。
+
+同时复现两项缺陷：切换到其他入口后，上一入口的保存错误仍显示在新标题下；保存后来源重新核对重建/禁用操作按钮，使焦点落回页面。客户端 `100035c` 在入口选择或详情切换时清除前次操作错误，来源错误仍独立保留；保存焦点等待忙碌、AI 和来源检查结束，在下一绘制帧指向运行、配置资源或准备情况，状态变化时取消未执行的聚焦，已完成聚焦不因后续刷新重复抢焦点。
+
+首次修复只等待状态值，原生复核仍丢失焦点；加入可取消的帧回调后，就绪入口保存可聚焦运行，缺资源入口保存可聚焦配置。截图又发现长表单目标位于屏幕下方，移除该路径的 preventScroll 后最终核对确认配置按钮滚入可见区域且获得焦点。最终样本离线入口数量为 8，网页入口数量为 3，AI 入口未填写；没有运行、创建计划、授予资源/动作权限、访问网站或调用 AI。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-entry-input/`：`package-source/`、样本 ZIP、`figma-input-states.png`、`saved-focus.png`（中间版目标不在可见区域）、`saved-focus-visible.png`（最终版）与三份构建日志。最终截图已查看，错误归属、字段隔离、重开值与焦点通过原生 AX 核对。样本首次构建从治理目录无法解析 tsx，改在模板仓库运行已有 buildTemplate 后成功；首次选择器粘贴未改变旧路径，重新查看路径栏并显式填写后才导入正确样本，不把工具输入失败计作产品缺陷。
+
+最终 pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示。未新增或运行单元、集成、smoke 测试。四次客户端严格串行，前一实例退出码 0 后才启动下一次，结束无本轮主进程；模板产品仓库未改动，无关 IDE 文件保留。实际 1440×960，完整值类型、来源失效后的焦点后备路径、紧凑尺寸、业务执行与完整 186 画板 / U01–U12 仍未验收。
+
+[客户端 PR #42](https://github.com/zhongmiao-org/flow-ark-client/pull/42) 最终 head `100035cd1c1eace0f2979571c55a04b491f6fd8b` 经 [CI 37881265529](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37881265529) Validate / Auto Merge 成功，实际合并提交 `b95edfa37985f3857f3726478c59af05ac8e3711`。同 head 因事件并发取消的流水线不计为通过。
