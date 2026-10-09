@@ -6517,3 +6517,17 @@ ReadStepInspector 的名称/编号、输出引用直接使用 Collapse、Input�
 最终pnpm typecheck、pnpm build、五文件Prettier及git diff --check通过，构建保留大chunk提示。初始预览漏填 requiredCapabilities 的错误属于夹具，已补齐；无目标崩溃是产品错误，修复并重开核对后未再出现。宽窄切换仍记录一次React Flow隐藏容器尺寸警告，未宣称修复。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行节点。页签80关闭、视口恢复、4231 Vite回收、临时HTML/TSX删除，用户IDE改动未提交。最新云端设计、原生窗口、真实持久化、真实网页读取和186整体验收仍待完成。
 
 [客户端 PR #108](https://github.com/zhongmiao-org/flow-ark-client/pull/108) 最终head `475333315c7d924c8b9d96c0eaa5634da703b8eb` 的 [CI 37991357903](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37991357903) Validate46秒 / Auto Merge8秒成功，实际合并提交 `cbe2cb46706ac0b3f6e8acb121b1e3b9a66de8ea`。同head较早 `37991356513` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 模板入口卡片与运行筛选折叠
+
+查看既有导航导出 `flowark-navigation-design/screens/historyfilters-运行记录筛选.png`（057 `2:8270`）和 `naventryready-模板入口 · AI 已配置.png`，沿用模板入口 `8:18463 / 8:18569` 映射。本轮没有新的在线Figma上下文，落实用户组件库调整，不增加186画板/U01–U12整板通过数。
+
+RunHistory 筛选表单内直接使用 Card，更多条件使用受控 Collapse；打开筛选时按已应用flowId/limit展开，允许手动收起，forceRender保留草稿。清理表单卡片、原输入高度/内边距与summary样式，保留搜索、状态、来源、范围、流程与页容量、游标契约及原取消/应用回调。TemplateEntry 输入和资源卡直接使用 Card；资源、检查范围和连接验证用 Collapse，保留实例/入口/供应商身份、实际配置记录的判定与未就绪阻止启动。稳定资源容器及forceRender保留内层折叠，ConfigProvider布尔禁用值保持未完成Field输入。移除原资源折叠、输入外观和卡片边框规则，保留两列/单列、内容排版与业务主按钮尺寸，不增加基础控件包装或IPC。
+
+唯一隐藏IAB页签81载入实际RunHistory和TemplateEntry组件，父壳、IPC、实例和列表均虚构。运行筛选Space展开后设置flow B、25条和搜索，收起仍发送完整flowId/limit/query并返回列表；清空后取消，再打开恢复已应用条件且更多条件展开，搜索获得焦点。限定不在本地清单的流程显示范围名称并禁用流程选择；清空并应用后仍发送限定flowId。模板连接验证Space展开；数量abc无效，busy进入/退出仍保留abc和错误，修正3后内存保存input一次。入口详情外层Enter收起、Space展开，连接验证仍展开；切换非AI入口可展开资源检查范围，不被AI资源阻止。AI读取失败显示状态未知、隐藏验证、禁用启动，正常响应后显式重读恢复，数量3仍保留。没有点击运行/调试/计划或请求真实供应商，虚构保存不证明持久化；未核对实际App父层导航或Run详情返回。
+
+宽实际1443、文档scroll1444（1px差）；模板两卡874.90/480.72px，各client/scroll873/873、479/479，展开验证后同高1026.26px。窄实际782、文档782/782，单列717.963px、两卡client/scroll716/716；筛选Card约717.96px，更多字段约642.97px。查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-template-history/` 中 filters-wide.png、filters-narrow.png、entry-wide.png、entry-narrow-final.png与offline-narrow.png。筛选宽图内容较完整，窄图下方裁切；模板宽图右/下方裁切，最终窄图为滚动到AI资源的局部，offline图包含刚展开动画，不能作为完整画板或稳定展开尺寸证据。夹具控制条与虚构响应文字不是产品UI，未增加静态图片资源。
+
+最终pnpm typecheck、pnpm build、四文件Prettier与git diff --check通过，构建日志 `/tmp/flowark-template-history-antd-build.log` 保留大chunk提示。最终浏览器warn/error为空。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行节点。页签81关闭、视口复位、4232 Vite回收、临时HTML/TSX删除，IDE改动保留未提交。最新云端设计、真实保存/模型/运行、原生窗口与完整186体验仍待验收。
+
+[客户端 PR #109](https://github.com/zhongmiao-org/flow-ark-client/pull/109) 最终head `5d5040cd1ff167b4d6675e7cab1250fcff766014` 的 [CI 37992510605](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37992510605) Validate34秒 / Auto Merge7秒成功，实际合并提交 `c86a061e41c3ec811dd5fe79687afc2dd3b09e27`。同head较早 `37992509691` 取消，不计为通过。
