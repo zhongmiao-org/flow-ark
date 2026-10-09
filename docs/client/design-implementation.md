@@ -6133,3 +6133,21 @@ pnpm typecheck、pnpm build、七个变更文件 pnpm exec prettier --check 与 
 最终 pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示（/tmp/flowark-task-repair-antd-build.log）。没有新增或运行单元、集成、smoke 测试，没有启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 56 关闭，viewport reset，Vite session 19528 Ctrl-C exit 130 停止；无关 IDE 文件未提交。
 
 客户端 [PR #84](https://github.com/zhongmiao-org/flow-ark-client/pull/84) 最新 head `4c78db23046e23bd8179482fcf370483001c4b69` 的 CI run `37959789162` Validate（46 秒）与 Auto Merge（10 秒）成功，实际合并为 `b53fd63c134d53154d1c6e18d70594c3aeba6944`。并发替代 run `37959787374` 为 CANCELLED，不计为通过；合并不代表真实修复或完整画板验收。
+
+### 2026-10-10 Ant Design 任务工具选择与 MCP 步骤说明迁移
+
+继续任务工具选择、MCP 步骤配置及 U07 已有设计与交互。TaskToolPicker 的全部/已选筛选直接使用 Segmented，工具定义使用受控 Collapse，仍一次只展开一个工具，内部完整定义仍仅在展开时挂载。TaskTargetConnections 的来源、服务身份、核对时间和认证方式使用 Descriptions，连接状态与选中外观采用主题 Tag 和 Button，操作/列表/过期错误使用 Alert。McpNodeConfiguration 的逻辑选择记录、参数说明和完整定义三处折叠直接使用 Collapse，连接/工具、参数描述和实际输入三组字段使用 Descriptions。复用集中主题、metadata-facts 和已有 Space 激活，删除旧 dt/dd、summary、手写定义按钮、状态和选中颜色 CSS，保留业务卡布局与长内容滚动，没有新增基础组件包装。
+
+步骤折叠 forceRender 保留原生 details 子内容挂载。定义内容的 stretch 布局避免字段表随文字收缩。宿主、IPC、权限、预览令牌/过期、修订/摘要失效、保存及执行不变。人工使用真实三个组件、ToolDefinitionDetails 和 ApplicationTheme，响应只允许虚构 tool.connection.list、task.tools.preview/select/cancel/clear，其他调用拒绝；没有真实连接、凭据、工具调用或 Run。
+
+连接通过 Enter 选择后详情标题获焦；单项勾选、完整定义和嵌套定义支持 Enter/Space，展开另一工具会收起前项。点击已选筛选显示 1/3，清除无结果搜索恢复 3/3、保留勾选并聚焦搜索。Segmented 方向键两次尝试均因界面工具无法向库零尺寸 radio 发送按键而超时，未记为通过。返回核对调用取消并恢复核对按钮焦点，重新核对/勾选后虚构保存修订 4，选择和展开状态保留。核对与保存失败分别保留 Alert 和错误焦点；过期提示后勾选/确认禁用。连接版本变化后刷新清除旧勾选、核对禁用；列表读取失败保留旧资料、状态未知并阻止新核对。
+
+只读步骤显示换行文字、params.sample 字段引用及嵌套 JSON，整组 params.arguments 引用保持原说明，编辑仍由 ValueField 管理。更换工具、再更换连接的屏幕草稿分别显示 arguments={}，连接切换选择原已确认的首项工具；移除绑定后工具下拉禁用，逻辑目标保留，只读模式显示尚未绑定本机连接和原工具名称。控制台无 error/warn。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-task-tools/，含 connection-identity-wide/narrow、node-definitions-wide/narrow，均已实际查看。请求 viewport 1480×1100 时连接详情 clientWidth/scrollWidth 均 463；1040×1100 时均 668，步骤卡窄视口均 668。长来源、字段名与描述换行，无所在卡横向溢出；截图为组件滚动片段，窄步骤截图的完整定义仍在展开动画中，不能代表原生三尺寸或完整画板几何 1:1。
+
+本轮确认原生 Mac 仍锁屏，没有新 Figma MCP 上下文请求，不增加 186 画板 / U01–U12 完整验收数量；真实工具选择持久化、连接/账号、实际执行、Segmented 原生键盘和完整视觉比对仍待独立验收。
+
+pnpm typecheck、pnpm build、六文件 Prettier 与 git diff --check 均通过，构建保留既有大 chunk 提示（/tmp/flowark-task-tools-antd-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删除，唯一隐藏 IAB tab 57 关闭，viewport reset，Vite session 43535 Ctrl-C exit 130 停止；IDE 文件未提交。
+
+客户端 [PR #85](https://github.com/zhongmiao-org/flow-ark-client/pull/85) 最新 head `41da0c0cb629b512b09ea2b375f7c6ca6510cc11` 的 CI run `37961478005` Validate（44 秒）与 Auto Merge（10 秒）成功，实际合并为 `0cb87ce36f62f4defc9e66d5c898508a8042a0cb`。并发替代 run `37961477209` 为 CANCELLED，不计为通过；合并不代表真实工具调用或完整画板验收。
