@@ -6715,3 +6715,21 @@ AISettingsPage 来源不可用、移除确认、配置读取、服务配置、Ke
 pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过，日志 `/tmp/flowark-ai-settings-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、读取/填写真实Key或访问凭据、实际供应商请求、打开网页、创建Run、打包安装。页签93关闭、视口复位、4244 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实保存/重开/取消/移除、模板与任务返回、运行在用/来源变化/失败类别、最新设计和完整186体验仍待验收。
 
 [客户端 PR #121](https://github.com/zhongmiao-org/flow-ark-client/pull/121) 最终 head `fb0de308bf46ffd60e7c7547d683d08e3c49b6c1` 的 [CI 38002835142](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38002835142) Validate45秒 / Auto Merge9秒成功，实际合并提交 `a249ab4f02668bebcb3f0ec18486261aacdfe32d`。同head较早 `38002834630` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 模板实例卡片
+
+查看保存的 `flowark-design-v2/screens/14-模板实例.png`（014 `2:973`）、`15-资源与动作授权.png`（015 `2:1083`）与 `47-模板版本与导出.png`（047 `2:4837`），沿用实例编辑、分范围保存与离开保护规范。没有最新在线Figma上下文，不增加186整板通过数；版本状态目录不照搬为固定四宫格。
+
+TemplateInstancePage 共享配置/实例说明、来源与版本/导出说明及 TemplateResources 资源表单/入口检查共六处声明直接用Card，保留section/aside、728/400双栏比例、652px最低高度、窄屏单列、动态Schema、共享字段32px节奏、来源事实与原草稿/版本操作。普通body采用集中主题24px，表单原28px调整为24px；删除资源输入/选择按钮的旧32px外观覆盖，直接用集中40px控件。两个ConfigProvider始终传布尔busy，避免undefined/true切换上下文结构而丢失局部字段状态；已安装antd源码确实按componentDisabled !== undefined添加DisabledContextProvider。移除失效原生checkbox规则、针对Ant Checkbox布局到第一列/第一行，恢复与标题同行。没有新增基础包装组件或更改IPC、宿主权限、保存协议、版本/运行契约。
+
+唯一隐藏IAB页签94载入实际TemplateInstancePage和TemplateResources，模板、路径、入口、配置、来源、保存、选择和创建均为虚构响应。名称草稿和未完成JSON“{”通过共享保存被拒绝，未发送保存；切换资源页后虚构目录选择等待禁用页面，明确完成后选择每次确认。第一次虚构授权保存等待/失败保留目录、权限和隐藏共享页的原名称及JSON，错误获焦；明确成功重试只发送已保存名称/配置与新资源/权限，未提交共享草稿。返回共享页仍保留“{”；返回模板库打开原离开保护，保存并离开拒绝该字段、标题获焦，返回修正仍保留草稿。修正JSON为含0/false的对象后，共享保存等待/失败保留值并聚焦表单错误，明确重试成功。查看其他实例只展开虚构实例列表，没有实际切换实例。
+
+窄屏清除目录显示待保存、焦点回选择目录，按入口检查仍区分无关检查入口和待配置归档入口。第二次虚构选择返回取消，未恢复已清除值；资源取消明确恢复已保存目录和权限。来源故障通过active暂停/恢复触发原读取（没有重挂载），失败时版本选择/创建和导出均禁用，明确重新读取恢复来源。键盘ArrowDown/Enter选择v2.0.0后虚构创建一次，打开失败显示“已创建、无需再次创建”并聚焦错误；解除虚构打开失败、Enter重试只再次调用打开，创建仍为一次。导出Enter只触发虚构核对回调，不生成ZIP。最终计数read4/save4（授权、共享各含1失败）/choose2（含1取消）/create1/open2/export1/run0，均不是系统持久化/真实创建或导出验收。
+
+宽实际1443、文档1443，共享双卡初始721.93px高，修正Checkbox后的最终693.93px，宽度874.90/480.72px；来源最终双卡707.72px。窄实际782、文档782，外卡717.96px，清除资源时表单883.22px/检查406.44px，来源打开失败表单729.71px/说明346.96px；修正前共享表单721.93px/说明265.47px。普通body24px、圆角12px，无横向溢出。Checkbox修正后框与标题中心同高，16px第一列、8px间距；勾选后明确取消恢复已保存false。来源导出按钮最终计算约40px，较早截图的瞬时较矮显示已重新截图，不以其证明稳定尺寸。
+
+已查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-template-instance-cards/` 的configuration-wide.png、resources-error-wide.png、resources-cleared-narrow.png、version-open-error-narrow.png、resources-wide-final.png、configuration-narrow-final.png、checkbox-narrow-final.png、source-wide-final.png和configuration-wide-final.png。前两张共享截图为Checkbox修复前，最终checkbox窄图显示表单完整局部；宽图右/下裁切，窄图上下局部，最终宽配置工具条上缘也裁切。没有真实侧栏/原生1440整板证据，夹具工具条/计数/导航不是产品内容。一次定位旧“保存配置”失败，观察实际已变为“重试保存配置”后操作；恢复夹具页面、版本下拉与重试打开点击各超时，观察确认未发生后分别使用可见文案或键盘，未将超时计为通过证据。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、三文件Prettier --check与git diff --check通过，构建日志 `/tmp/flowark-template-instance-cards-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、真实选择文件/目录、访问凭据、调用AI、创建Run/计划或实际实例、生成ZIP/安装包。页签94关闭、视口复位、4245 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实保存/重开/版本创建、模板/AI返回、来源变化、空资源/动作/实例状态、原生布局、最新设计及完整186体验仍待验收。
+
+[客户端 PR #122](https://github.com/zhongmiao-org/flow-ark-client/pull/122) 最终head `9a26184166393275f70e01635e2945c095eb1efc` 的 [CI 38003635448](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38003635448) Validate38秒 / Auto Merge7秒成功，实际合并提交 `84f943cd391703840a724ae4d895bdd92ad324b2`。同head较早 `38003635578` 取消，不计为通过。
