@@ -5466,3 +5466,16 @@ Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entr
 证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-human-input/`：`answered.png`、`output.png`、`build.log` 及本机样例源码/ZIP；截图已查看，输入错误、草稿、Run ID 和焦点由原生 AX 核对。最终 pnpm typecheck、pnpm build、单文件 Prettier、git diff --check 通过；构建保留既有大 chunk 提示。未新增或运行单元、集成、smoke 测试。仅启动一个原生实例，正常退出码 0；宿主日志中的 Schema 错误为本轮明确触发的范围拒绝。用户 IDE 改动保留。刷新失败并发、用户主动移动焦点的慢请求场景、自然超时、普通字段模式及完整尺寸/视觉仍未验收，186画板 / U01–U12 尚未完成。
 
 [客户端 PR #50](https://github.com/zhongmiao-org/flow-ark-client/pull/50) 最终 head `30dadc1ce5b4cbddce1c3ff2a9766f782a89c900` 的 [CI 37895302492](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37895302492) Validate / Auto Merge 均成功，实际合并提交 `550299bfa8b20ee23ec182c63e0be66a41fe7e4a`。同 head 另一条并发取消流水线不计为通过。
+
+
+### 2026-10-09 人工请求最少列表项的字段编辑
+
+沿用已查看的 Figma `2:2911` 人工确认与输入、`2:3672` 输入错误表达及共用列表控件。上一轮带 minItems 的本机请求只能使用 JSON 文本；本轮新增人工请求专用的展示支持探测，合法的 minItems 不再使整个对象退回 JSON。探测副本仅用于判断现有控件能否展示，原 Schema 原样传给 Field，并由宿主按原请求校验。模板配置规范复制件、包格式、能力、IPC 和持久化未改。非数组、负数/非整数、上下限矛盾或超出既有编辑器范围的声明不进入该字段扩展。
+
+共用列表控件显示至少需要的项数，少于最小值或多于最大值时展示关联错误、标记无效并允许聚焦列表分组。人工表单提交定位该分组；用户仍可删除和补加，不自动补虚构条目。修改条目清除旧核对，保留原行草稿与增删焦点。
+
+最终构建在单一 Electron 复用此前已安装的 `human-ui-review@1.0.0-ui.3` 原包和实例 `cb233283-9c43-4dce-ba70-1ae77afd5973`，不降低样例约束。Run `d1acfb48-c516-48cf-a6f1-bea22593b4e4` 显示备注、数字、布尔和数组字段；备注填写、数量置0、布尔保持false。删除唯一项目后出现“至少添加1项，当前0项”，明确提交被拦截并聚焦核对项目分组；补加一项清除旧确认并聚焦输入，逐项填到3项上限后新增禁用，移除第三项恢复新增。返回待办列表再打开，备注、0、false及前两项保留，核对框未勾选。重新确认提交后标题聚焦，宿主运行成功，真实输出逐项保存 note/count/enabled/items，与字段值一致。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-human-array/`：`fields.png`、`list-fields.png`、`build.log`；已人工查看长表单的上下两段，采用正常纵向滚动，未把单屏容纳所有字段作为目标。AX核对错误、禁用、焦点、值和真实输出。pnpm typecheck、pnpm build、三文件 Prettier、git diff --check 通过。未新增/运行单元、集成、smoke 测试。客户端正常退出码0，关闭时出现宿主已停止的晚到请求日志，不计为运行失败；结束无活动业务运行。用户 IDE 改动保留。本轮无外部网络/资料/写入动作。自然超时、所有嵌套Schema、无效声明降级界面、全尺寸及完整186画板 / U01–U12 仍待验收。
+
+[客户端 PR #51](https://github.com/zhongmiao-org/flow-ark-client/pull/51) 最终 head `a7fc11b1a583371636cd431bf35491684755904e` 的 [CI 37896152151](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37896152151) Validate / Auto Merge 均成功，实际合并提交 `2b5091c95c90c4d1c502ba4e8fb03d14719d2a4f`。同 head 并发取消的流水线不计为通过。
