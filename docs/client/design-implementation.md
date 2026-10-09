@@ -5523,3 +5523,22 @@ pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，�
 证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-attention-actions/`：`figma-attention.png`、`copied-detail.png`、`done-filtered.png`、`build.log`，截图已查看（客户端2880×1920像素）；值、焦点、来源及计数由原生AX核对。pnpm typecheck、pnpm build、单文件Prettier、git diff --check通过；初次格式检查提示已修正，构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。唯一Electron正常退出码0，结束无主进程；用户IDE改动保留。慢请求下主动移焦/跨页、失败刷新、失效请求归档、本轮未重跑的人工回应和全尺寸/整板仍待核对，186画板 / U01–U12尚未完成。
 
 [客户端 PR #54](https://github.com/zhongmiao-org/flow-ark-client/pull/54) 最终 head `36622343df51e36599ae1a3b1e22105a4fe5bc43` 的 [CI 37899891502](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37899891502) Validate / Auto Merge 均成功，实际合并提交 `9c59baa25eeda5c12fb8fc3292b41a9518e31104`；同 head 并发取消的流水线不计为通过。
+
+### 2026-10-09 Ant Design 基础控件与主题迁移
+
+按用户本轮调整，治理 [PR #489](https://github.com/zhongmiao-org/flow-ark/pull/489) 已将 Ant Design 写入架构和设计基线，合并提交 `38adf61cbc875a82abaa9efcd8024208ad203d6e`。客户端采用此基线及 Ant Design 6.6.5，公共契约仍为 0.16.0；Figma 继续决定信息层级、页面布局、文案与交互，基础控件外观通过统一主题适配。
+
+`src/renderer/theme.tsx` 导出 ThemeConfig，以 ConfigProvider 提供中文和统一颜色、字体、40px 控件高度、圆角；原有工作区语义 CSS 颜色由同一 token 派生。直接迁移 931 处基础控件：746 个 Button、79 个 Input、18 个 TextArea、55 个 Select、29 个 Checkbox、4 个 Radio，不另建重复的基础控件包装库。Select 使用 options 并保留既有多选，原生 dialog 内的下拉浮层挂载在该 dialog 内；禁用 fieldset 同时通过 ConfigProvider 传递组件禁用状态。保留表单提交、错误标记、引用及焦点处理，并清理原生控件的重复外观 CSS。编辑器离开确认采用 Modal、Alert、Flex 和 Button；React Flow、Monaco 及业务组件继续保留。
+
+唯一原生 Electron 使用既有隔离数据目录完成以下人工核对：
+
+- 流程名称临时改为“界面核对 · Ant Design”，离开时出现 Ant Modal；Escape 返回并保留草稿，保存并离开后列表显示已保存。重新打开名称正确，再恢复原名“界面核对 · 本地草稿”并保存，正常退出重开后仍保留。
+- 运行状态下拉鼠标选择“等待人工”呈现零记录，方向键和 Enter 恢复“全部状态”；高级筛选选择每页 25 条并应用，结果显示“1–25 条，共 28 条”。
+- 本地固定文本 Run `d71004f3-d24f-4130-a991-aa6db3146a07` 成功，结果页回读 `这是一份隔离的界面核对草稿。`，无外部动作。随后只预览关联重跑：切换快照来源单选、开启逐步调试复选、进入核对页，未确认时创建按钮禁用，勾选后启用；最后取消，没有创建第二个 Run。
+- AI 设置中的既有 DeepSeek 配置和密钥掩码正常展示；未修改凭据、调用模型或发送资料。每次先正常退出再启动，最终进程退出码 0 且无 Electron 主进程残留。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd/` 包含 `home.png`、`filters.png`、`review-controls.png` 以及类型检查、构建、格式检查日志；截图已查看，值和结果由原生 AX 核对。`pnpm typecheck`、`pnpm build`、`pnpm exec prettier --check package.json 'src/renderer/**/*.{tsx,css}'`、`git diff --check` 通过，构建仍有大 chunk 提示。未新增或运行单元、集成和 smoke 测试，未打包安装；用户 IDE 改动未提交。
+
+本轮是基础控件与主题迁移，不是完整组件迁移或画板验收。仍有 20 个原生 dialog，以及业务表格、页签、提示和布局需要后续按设计逐步采用 Ant Design；保存失败、慢请求禁用、原生 dialog 浮层及全尺寸视觉尚未全面人工核对。186 画板 / U01–U12 的完整目标仍未完成。
+
+[客户端 PR #55](https://github.com/zhongmiao-org/flow-ark-client/pull/55) 最终 head `8c8008e1a43e206ae031e6d686c1169016ec9176` 的 [CI 37904337538](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37904337538) Validate / Auto Merge 均成功，实际合并提交 `08e603e74eb18d7599afe2490b2c7a5d906c216b`；同 head 并发取消的流水线不计为通过。
