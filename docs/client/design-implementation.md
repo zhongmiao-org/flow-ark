@@ -5438,3 +5438,18 @@ Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entr
 最终构建原生客户端使用既有隔离数据，今天筛选显示 5 条真实记录，点击查看最新仍为 5 条、第 1 页、下一页禁用、焦点回到运行记录标题。未创建运行、修改历史或调用模型。仅一个原生实例，退出码 0；临时预览页与 Vite 服务均关闭。证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-history-date/`：`current-day.png`、`native-today.png`、`build.log`，截图已查看。预览源码位于客户端忽略目录 `artifacts/manual-history-date/`，未纳入产品提交。pnpm typecheck、pnpm build、单文件 Prettier、git diff --check 通过，构建保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。无关 IDE 改动保留。真实跨午夜长期驻留、时区切换和完整 186 画板 / U01–U12 仍待验收。
 
 [客户端 PR #48](https://github.com/zhongmiao-org/flow-ark-client/pull/48) 最终 head `b2cab0f7f203043be46a7eb3c9ab1f57629b5151` 的 [CI 37892961738](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37892961738) Validate / Auto Merge 均成功，实际合并提交 `7c38d5f5d9f0b0d17f594f7d10cbf2059ac287b9`；同 head 并发取消的另一流水线不计为通过。
+
+
+### 2026-10-09 运行详情直达本次人工请求
+
+本地 Figma 查看 `2:4316` 的请求失效、已处理及来源运行入口，结合 `1:3794` 待办路径。真实单实例核对发现：模板 SDK 正在等待 human 回应时，运行详情仍显示“继续运行”，点击只发送 Worker resume，并持续显示“继续请求已接收，等待执行状态更新”，不会回应模板请求。客户端改为匹配当前 Run 尚未回应的 template-input，显示“查看本次人工请求”，打开对应详情并聚焦标题；新的打开请求清除旧提示与取消确认，普通暂停和通用人工节点仍保留原控制。没有改变 IPC、宿主、持久化或动作授权语义。
+
+本轮在既有隔离库通过原生模板导入创建本机固定文字样例，包与源码留在本机证据目录，未提交产品仓库。第一个样例版本漏声明 human，Run `4b2a7883-da06-4735-8446-3d0e90bf8288` 被宿主明确拒绝；补齐声明后的 `1.0.0-ui.2` 实例为 `ca4b024b-3dd8-470e-a16d-28326b896ad6`。修复前 Run `1066627e-86f6-4785-8715-73db32981d4b` 复现错误入口，通过待办明确回应后成功，重启未产生重复运行。
+
+最终构建手工核对：Run `ec2b32fe-d072-4d9f-b749-40bdadaf86c5` 的运行详情显示新入口，点击直达本次目标和两行内容，标题聚焦、复选框未选、确认禁用。取消确认“继续查看”恢复原按钮焦点；“确认停止”后最终显示请求失效，来源为已取消，旧确认与拒绝均禁用，可归档。再次从原模板入口运行 `8c3f8d07-f49a-4f72-8355-7851215217ca`，打开的是新请求，未停留在上次已归档请求；勾选并确认后显示已回应，提交按钮移除，来源运行成功，真实保存输出为 review.confirmed:true。整个样例不访问网络、不读取用户资料、不执行外部写入动作。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-human-native/`：`run-request-entry.png`、`cancelled-request.png`、`confirmed-output.png`、`answered-before.png` 与 `build.log`。截图已查看，请求时间、Run ID、禁用状态和焦点经原生 AX 核对。pnpm typecheck、pnpm build、三文件 Prettier、git diff --check 通过，构建保留既有大 chunk 提示。全程每次只启动一个 Electron，更新前和结束后均正常退出码 0，结束无主进程。未新增或运行单元、集成、smoke 测试；用户 IDE 改动保留。
+
+当前证据只覆盖本机布尔确认与取消路径。十分钟自然超时、宿主退出中的请求失效、通知故障、复杂输入、全部尺寸及整板视觉仍未验收；回应移除按钮后的焦点改善也留作后续 UI 核对。186 画板 / U01–U12 尚未完成。
+
+[客户端 PR #49](https://github.com/zhongmiao-org/flow-ark-client/pull/49) 最终 head `a4eccd406c0652f75eaea6acfa497d385b748816` 的 [CI 37894340192](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37894340192) Validate / Auto Merge 均成功，实际合并提交 `2b69baf1f874ab2636d68ef4dca5c5287ebe5d75`；同 head 并发取消的流水线不计为通过。
