@@ -5649,3 +5649,24 @@ pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，�
 Figma 连接器限额未解除，本轮未取得新设计上下文，限定为用户授权的既有组件库迁移。原生数据往返、busy/失败恢复、真实窗口选中状态和全部页面视觉仍需人工验收；通用反馈与其他组件尚需继续迁移。186 画板 / U01–U12 未完成，本轮不增加完整画板验收数量。
 
 [客户端 PR #60](https://github.com/zhongmiao-org/flow-ark-client/pull/60) 最终 head `44732f4063c5e6c36a9340e54bc2386be1f0ad3f` 的 [CI 37918830406](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37918830406) Validate / Auto Merge 成功，实际合并提交 `a38018c7d47af4c7699ebf031020cf6c595422a3`；同 head 并发取消的流水线不计为通过。
+
+### 2026-10-09 Ant Design 运行状态与编辑、操作反馈迁移
+
+运行详情、输出、调试、任务运行、桌面任务运行、历史记录、流程卡片及失败页的状态直接采用 Ant Design Tag / Badge，统一映射九种 Run 状态的主题语义色，保留最后保存、待核对与暂停请求中的原文案。主工作区、AI 任务工作区、复制/非法 JSON 反馈和运行控制反馈直接采用 Alert，删除对应重复外观 CSS 与无人调用的 badge helper；仍保留业务组合，没有新增同义基础组件包装。其他设置/模板等旧 badge、alert 仍有使用，不能据此声明通用反馈全部迁移。
+
+原请求、读取、禁用、复制和 JSON 提交守卫保留。工作区/任务操作失败不清空输入，关闭成功或失败提示恢复原操作入口焦点；非法 JSON 的关闭反馈优先返回无效输入。控制请求已接收、读取失败仍保留接收说明；刷新成功只清除读取错误，收到实际暂停状态才切换已暂停标签与按钮。最终检查补充任务运行页 showNote 与读取错误同时出现时的接收说明，已类型/构建检查，未单独再次人工预览该页增量。
+
+Figma 连接器已确认当前 Google 账号，但设计上下文仍受 Starter 调用额度限制；Mac 持续锁屏，未取得新设计上下文或查看原生 Figma。本轮限定为既有设计的组件库迁移，未启动 Electron。
+
+采用一个临时隐藏 IAB，直接加载实际 ApplicationTheme、组件和 App，明确标注虚构组件预览、未连接真实宿主；保存仅更新虚构内存记录，其他宿主请求拒绝执行。人工核对：
+
+- RunHistory 九种状态的标签颜色与文案；RunDetail 暂停请求接收后读取失败，仍显示暂停请求中和原接收说明。刷新成功不虚报已暂停，虚构状态改为 PAUSED 后才显示已暂停/执行下一步/继续运行。
+- App 两步虚构流程复制一步后显示复制数量 1、尚未保存且未运行，复制反馈获焦；查看草稿返回节点检查器。高级 JSON 输入无效时显示可读错误并阻止保存，修正入口返回原输入，恢复节点配置清除错误并恢复有效配置。
+- 虚构保存成功显示保存提示，关闭后焦点回保存入口；保存失败保留临时名称和草稿，关闭后也回保存入口。任务创建失败保留描述，关闭后焦点回开始规划，没有真实 AI 调用。
+- 资源回收未确认显示不可关闭的阻塞 Alert。最终运行标签点/文字间距为 8px、观测高度约 27.5px；紧凑保存失败预览实际 CSS 宽度约 1040px。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-runtime-feedback/` 保留 `run-states.png`、`control-read-failure.png`、`copy-feedback.png`、`advanced-input-error.png`、`save-error.png`、`save-error-compact.png`、`task-error.png`、`runtime-block.png` 和最终类型/构建/格式日志，截图已查看；控制读取失败截图为最终点间距修正前版本，状态列表截图已包含修正。默认及紧凑视口的组件预览不代表全窗三尺寸或整板验收。最终 `pnpm typecheck`、`pnpm build`、18 个改动文件的 Prettier 检查与 `git diff --check` 通过，构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未打包安装。临时源码删除、页签和服务关闭、视口恢复，始终单实例；IDE 改动保留且未提交。
+
+任务过期重读、慢请求/长错误、真实宿主数据往返、真实窗口/网页权限及全部页面视觉仍需人工验收。虚构内存保存不等于真实持久化、虚构控制不等于执行验收。186 画板 / U01–U12 仍未完成，本轮不增加完整画板验收数量。
+
+[客户端 PR #61](https://github.com/zhongmiao-org/flow-ark-client/pull/61) 最终 head `d1141615e1cb932faea58ad7b7a8919a6baef401` 的 [CI 37920878205](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37920878205) Validate / Auto Merge 成功，实际合并提交 `55a38d95bcd58aed0490ea919426f57d87a9ae5b`；同 head 并发取消的流水线不计为通过。
