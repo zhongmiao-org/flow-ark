@@ -6259,3 +6259,19 @@ pnpm typecheck、pnpm build、八文件 Prettier 与 git diff --check 通过，�
 pnpm typecheck、pnpm build、三个文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-attention-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 64 关闭、viewport reset，Vite session 9533 Ctrl-C exit 130，IDE 文件保持未提交。
 
 客户端 [PR #92](https://github.com/zhongmiao-org/flow-ark-client/pull/92) 已由 CI 自动合并：head 504f95e4e87b6f07afda18770f7b5c2bc34a50bb，run 37970714401 的 Validate（47 秒）与 Auto Merge（8 秒）成功，合并提交 7bc865c785d96a0862b0a50476e58517cd05d2e6。旧同 head run 37970713243 为 CANCELLED，不计为通过。
+
+### 2026-10-10 Ant Design 凭据与本机资源详情迁移
+
+沿用凭据与本机资源 2:3227、资源与存储异常 2:4732，没有新 Figma 上下文请求。LocalCredentialsPanel/LocalStoragePanel 的紧凑搜索、引用流程、绑定保护、本地数据目录及资源说明直接使用 Collapse，forceRender 保留内容挂载；Space/Enter 使用已有键盘处理。紧凑搜索和只读名称使用库 small Input，删除页面重复输入高度、边框、背景和字体规则。保留双栏业务卡片、路径/掩码、资源声明及现有错误反馈，不新增基础包装库、不修改 IPC/宿主或凭据契约。
+
+两个搜索由本组件控制开合，清除收起的搜索会展开并在下一帧聚焦输入，修复原隐藏输入不能接收焦点的问题。非紧凑搜索/目录仍直接可见，保护说明默认展开，手动收起在普通渲染后保持；紧凑保护说明默认收起。引用流程各自独立展开，正常读取不重置。长引用流程按钮高度随全文增长，目录按钮保留全宽布局。
+
+唯一隐藏 IAB tab 65 使用实际组件、集中主题和产品样式，虚构三项凭据元数据、两项流程/三项资源、长路径及假读取/保存/导航回调；没有真实宿主、文件、服务或凭据值。人工确认搜索 Space/Enter，收起后清除恢复两处输入焦点；筛选 input 得到 1 流程/1 未绑定资源。引用、目录、资源说明及保护折叠键盘可用，正常刷新后引用仍展开。目录 busy 禁用配置/数据/产物，无数据路径禁用打开；导航仅记录假回调，没有真实打开或授权。
+
+凭据读取等待时新增/编辑/移除禁用；假读取失败保留旧清单，错误获焦并继续禁止编辑，重新读取恢复。在用凭据编辑表单禁用，被流程引用的移除确认/勾选禁用，未调用移除。仅编辑虚构名称：Escape 显示离开保护，继续编辑保留名称；假保存失败错误获焦并保留改名草稿，放弃后仍为原名称，没有输入或回显真实凭据。原在用、绑定、修订校验、读取代次和弹窗保护逻辑未改。
+
+截图目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-local-resources/，已查看 resources-wide、resources-wide-final、list-error-narrow、save-error-narrow、full-help-narrow。最终宽图覆盖总览上方，两栏网格 clientWidth/scrollWidth 均 1065；窄请求时均 734、单列。长引用按钮 clientHeight/scrollHeight 均 61、clientWidth/scrollWidth 均 424。full-help-narrow 捕获重新展开动画、正文尚未出现，完整模式默认与开合以 DOM 核对为准；body 键盘定位一次超时，重新观察后在实际控件上 Control+Home 返回顶部，不计超时为通过。保护说明初次展开中的 AI 入口点击未记录，重新观察后独立点击取得回调，不计首次为通过。
+
+预览控制台无 warn/error。pnpm typecheck、pnpm build、五文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-local-resources-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 65 关闭、viewport reset、Vite session 81991 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏；工具 CSS 像素受缩放影响且夹具无完整 App 外壳，真实凭据/目录操作、原生三尺寸和 186 画板 / U01–U12 完整验收仍待完成，不增加完整画板验收数。
+
+客户端 [PR #93](https://github.com/zhongmiao-org/flow-ark-client/pull/93) 已由 CI 自动合并：head c663940520c68f956885534344ed0977e994029b，run 37971969631 的 Validate（42 秒）与 Auto Merge（12 秒）成功，合并提交 b303f277cfacfb914da60f5cc2d21a656cb71b17。旧同 head run 37971965348 为 CANCELLED，不计为通过。
