@@ -6615,3 +6615,19 @@ TaskRunPage 的重跑容器、详情双栏、成功摘要/结果双栏、停止/
 pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check通过，构建日志 `/tmp/flowark-run-antd-build.log` 保留大 chunk 提示。未新增或运行单元/集成/smoke测试，未启动 Electron/第二客户端、访问凭据、实际文件/网页或执行流程，未打包安装。页签87关闭、视口复位、4238 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、原生客户端、真实文件预览、控制/重跑/修复/保存及完整186体验仍待验收。
 
 [客户端 PR #115](https://github.com/zhongmiao-org/flow-ark-client/pull/115) 最终 head `ca611a42f9451389ac5ddaf2449775998cea07e1` 的 [CI 37997873309](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37997873309) Validate42秒 / Auto Merge10秒成功，实际合并提交 `ae6b118dc4183e2377e3f6b219c9cbd56f2c182c`。同 head 较早 `37997873131` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 执行步骤与应用回执卡片
+
+查看既有 `FlowArk-AI-task-design.zip` 中 taskrunning（`23:3957`）、taskapprun（`23:8492`）与 taskappresult（`23:8631`）原导出，提取副本在 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-execution/design-*.png`。未取得新的在线 Figma 上下文，不增加186整板通过数。
+
+TaskExecutionSteps 外层、DesktopTaskRun 面板/对象和 DesktopRunReceipt 外层共四处声明直接采用 Card；步骤无匹配项或无记录使用 Empty。保留有序列表与实例标识、独立滚动、搜索/状态筛选、展开记录、定位与焦点、所有真实回执判断和只读纯文本区。布局选择器改指向 Ant Card body，删除运行网格中已无消费者的旧卡片选择器、旧 task-run-file 手写外观和失效对象拉伸选择器。应用面板统一用集中主题24px内边距，小对象卡12px；不再覆盖为原先31px，不宣称原应用画板整板像素验收通过。未新增基础包装组件，未修改IPC、单次授权、运行控制、写入/回读/保存、错误或自动重试语义。
+
+唯一隐藏IAB页签88载入实际TaskRunPage（含执行步骤、桌面运行与回执组件），快照、运行、事件、回执和学习状态均虚构。12行列表呈现2次完成、1次已开始未完成与9条未执行，保持520px独立滚动；搜索无匹配显示Empty，清除后聚焦搜索。按未完成筛选剩03号循环实例，Space展开实例记录/只读配置；定位当前步骤清除筛选、恢复12行，焦点在aria-current=step的batch[1]/read，并保留展开。一次界面工具setChecked操作超时，观察仍未选中后通过可见选项标签点击成功，不将超时本身当作筛选通过证据。
+
+应用一致回读展示文本与未自动保存说明，详情中保留修改前后、固定版本、事件、普通模式步骤配置，并可返回应用结果；返回任务只触发虚构plan回调。取消终态仍展示一致回读及整体状态提醒；伪称verified但正文错配被已有校验转换为unknown，概要与详情均提示人工核对，不展示成功回读区。成功状态缺少回执也显示待核对；等待回读和not-written分别保留原提示。普通嵌套步骤同样支持Empty、定位最后记录步骤清除空筛选并聚焦该行。未点击实际暂停/取消/继续，不访问TextEdit、创建Run或保存文档。
+
+宽实际1443、文档1443，步骤双卡571.50/800.12px，长列表右卡可因筛选工具自然增高；应用结果外卡1395.62px、600px高，等待面板560px高、对象卡1346.12×120px。计算圆角12px。窄实际782、文档782，应用外卡733.96px、client/scroll732/732；回执和普通步骤卡684.47px、client/scroll683/683，原文/回读切为单列。已查看 steps-wide.png、result-wide.png、writing-wide.png、result-narrow.png、empty-narrow.png及result-narrow-final.png；宽图右/下裁切，步骤图滚动到当前实例，窄图为局部滚动视口，夹具工具条/导航回调不属于产品内容。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、六文件Prettier与git diff --check通过，日志 `/tmp/flowark-execution-antd-build.log` 保留大chunk提示。未新增或运行单元/集成/smoke测试，未启动Electron/第二客户端、原生应用或读取凭据，未打包安装。页签88关闭、视口复位、4239 Vite回收、临时HTML/TSX删除，IDE改动未提交。最新在线设计、真实原生执行/回读、保存/导航持久化、控制及完整186体验仍待验收。
+
+[客户端 PR #116](https://github.com/zhongmiao-org/flow-ark-client/pull/116) 最终 head `f7b0bedaab3224551451479500d2328a99cd8c8e` 的 [CI 37998722677](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37998722677) Validate42秒 / Auto Merge8秒成功，实际合并提交 `be44624d79c5ae5a3314d662e1918c99bed57744`。同head较早 `37998720636` 取消，不计为通过。
