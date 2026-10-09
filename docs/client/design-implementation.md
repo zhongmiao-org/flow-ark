@@ -6357,3 +6357,21 @@ pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，�
 `pnpm typecheck`、`pnpm build`、两文件 Prettier 和 `git diff --check` 通过，构建日志 `/tmp/flowark-excel-settings-antd-build.log` 保留既有大 chunk 提示。未新增或运行单元测试、集成／smoke 脚本，未启动 Electron 或第二个 FlowArk 实例、未生成安装包。临时 HTML/TSX、IAB 页签和 4221 Vite 服务已清理、视口复位，原有 IDE 改动保留。以上是第 119 画板局部组件迁移及虚构接口交互证据，不替代真实持久化、输出或整板验收；完整 186 画板 / U01–U12 尚未完成。
 
 客户端 PR #98 已由最新 head `0d736c5584987b31e440331d6c35e9d224b77eee` 的 CI `37977823117` 完成校验并自动合并，合并提交 `0c45562c2b72202b413a859409dfd004146f7a0c`；初始重复运行 `37977823095` 被取消，不作为失败或验收证据。
+
+### 2026-10-10 网页节点定位与期限设置迁移到 Ant Design
+
+沿用已有网页动作配置 022 `2:1866` 和节点检查器设计，不请求新 Figma 上下文。BrowserNodeConfiguration 的高级定位直接改用受控 Collapse，Space 排列字段、forceRender 保持挂载；选择器为空时展开，普通输入变化不会覆盖手动展开状态，节点身份改变重新初始化。定位核对失败后的“手动调整定位”先展开，再在下一帧聚焦/滚动选择器。BrowserActionWorkspace 的定位规则和 NodeTiming 的紧凑期限说明直接使用 Collapse，删除 TimingHelp 同义包装及输入 padding/font/background/min-height 覆盖。执行数据、路径解析、期限约束及宿主权限沿用既有契约。
+
+人工查看发现 Ant Design 默认只处理 Enter，空格键不会激活折叠标题。新折叠复用既有 activateCollapseWithSpace；同时修复上一轮 ExcelMappingPage 的列选项和来源设置遗漏该处理。输入框里的空格不触发折叠。
+
+唯一隐藏 IAB 页签 71 使用实际 BrowserNodeConfiguration、BrowserActionWorkspace、NodeTiming、ExcelMappingPage 和集中主题，步骤、路径、数据与失败接口均虚构，未连接 Main。定位假核对失败后点击“手动调整定位”，高级定位展开且焦点为 browser-selector；iframe 文本保留空行/空格显示，应用节点解析为两层去空白路径。高级定位与期限说明通过 Space/Enter 展开/收起，选择器输入空格保持正常输入。默认期限说明在启用后保持展开；99 毫秒显示错误且已应用值仍为 60000，取消自定义恢复默认且清除错误。
+
+工作区的定位/期限说明响应 Space/Enter；九层 iframe 路径阻止返回，恢复已应用路径后输入为旧路径。99 毫秒阻止跨类别切换并聚焦期限，修正为 100 后展示 0.1 秒。切换到顶层打开网页动作后定位控件禁用、路径清空、焦点落在新类别标题。守卫由夹具提供：首次版本错误地优先聚焦选择器，已修正为无效字段优先；打开 Drawer 后立刻触发守卫的早期批次被 afterOpenChange 标题焦点覆盖，不作为最终焦点证据，动画稳定后再次返回确认 textarea 获焦、aria-invalid=true。没有修改 App 守卫或据此声明完整 App/原生焦点验收。
+
+实际宽视口 1443，网格约 1156，三列各约 375，Drawer body clientWidth/scrollWidth 都为 1220；实际窄视口 782，网格约 646 单栏，body 均为 710。截图目录 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-browser-node/`：已查看 workspace-wide（右侧和第二行被截图裁切）、workspace-narrow（只显示当前定位卡可见区域，期限说明底部被裁切），不用于完整六卡或原生 Figma 三尺寸 1:1 验收。同一页签随后切到 Excel 虚构页，确认列选项/来源设置的 Space 展开与收起，未调用保存或选择目录；该页控制台未见警告或错误。
+
+`pnpm typecheck`、`pnpm build`、七文件 Prettier、`git diff --check` 通过，构建日志 `/tmp/flowark-browser-node-antd-build.log` 保留既有 chunk 大小提示。未新增/运行单元测试、集成或 smoke 脚本，未启动 Electron 或第二个 FlowArk，未拾取真实网页目标、执行网页动作、调用 AI、保存真实流程或写文件。临时 HTML/TSX、页签和 4222 Vite 服务已清理，视口复位，IDE 改动保留；完整 186 画板 / U01–U12 尚未完成。
+
+本轮结束前重新读取原生应用状态，工具明确返回 Mac 仍锁定、自动解锁失败，原生应用清单为空；未尝试启动或重启客户端，真实 App 验收继续待人工解锁后的独立核对。
+
+客户端 [PR #99](https://github.com/zhongmiao-org/flow-ark-client/pull/99) 的最新 head `48701aa7d9108feee11c5f7817a85a594b17243b` 经 CI `37978887924` Validate/Auto Merge 成功自动合并为 `678093147437ca7586a9f6d89da4e231800ba3cd`；初始重复 CI `37978887274` 取消，不用其取消状态代替最新校验结果。
