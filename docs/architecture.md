@@ -34,6 +34,10 @@ P1 的招聘业务配置、AI 回复、动作授权和验收详见 [招聘交互
 
 2026-09-22 模板实例编辑采用 [修订校验与原子草稿保存](client/template-instance-editing.md)，统一共享配置、逻辑绑定、动作授权与入口输入的离开保护。替代开发版旧本机写接口，不改变模板包、SDK、公开流程或数据库格式；既有 Run、版本与计划保持不可变，实施状态单独记录。
 
+## 2026-10-09 UI 组件库调整
+
+按用户要求，客户端通用 UI 统一采用 Ant Design，替换手写基础控件及重复外观样式。主题由根 ConfigProvider 和集中 Design Token 管理，Figma 继续约束布局、品牌与业务交互；React Flow、Monaco 和具备业务语义的组合界面保留。直接使用库组件，不另建同义 Button/Input 等包装库。迁移不改变 IPC、宿主权限、流程数据与执行契约；状态、焦点、校验和保存行为需要逐项人工核对。实施与未迁移范围记录在客户端设计实施记录，不能据依赖安装宣布 186 画板完成。
+
 ## 1. 产品目标与阶段边界
 
 2026-09-21 AI 任务体验决策：普通用户通过自然语言、所选上下文和可读步骤完成任务，手动编排继续保留。AI 完整流程规划、内置 MCP 客户端与 macOS 有限桌面操作前移至 P1。本条覆盖早期“AI 生成独立后续推进”和“P1 不含桌面自动化”的范围，属于设计目标，实施状态仍以独立验收证据为准。
@@ -96,7 +100,7 @@ flowchart TB
 
 | 层次 | 选型 | 归属 |
 | --- | --- | --- |
-| 客户端界面 | Electron、React、TypeScript、React Flow、Monaco | 客户端仓库 |
+| 客户端界面 | Electron、React、TypeScript、Ant Design、React Flow、Monaco | 客户端仓库 |
 | 自动化和文件 | 统一 BrowserDriver：playwright-core＋selenium-webdriver；JS/TS、ExcelJS | 客户端仓库的适配器，业务层不依赖库对象 |
 | 自动化浏览器 | macOS Chrome/Firefox/Safari；Windows 三款 360 后续逐款验证 | 用户选择系统已有软件或应用自带 Electron 内核；不额外下载浏览器 |
 | 招聘业务与 AI | BOSS/智联网页适配、动作策略、AIProvider（Codex/DeepSeek）、联系方式提醒 | 业务归模板仓库；AI 供应商适配归客户端，用户自配 API Key |
