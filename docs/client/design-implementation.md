@@ -6112,3 +6112,24 @@ pnpm typecheck、pnpm build、七个变更文件 pnpm exec prettier --check 与 
 最终 pnpm typecheck、pnpm build、三文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示（/tmp/flowark-rerun-review-build.log）。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删除，唯一隐藏 IAB tab 55 关闭，viewport reset，Vite session 94963 Ctrl-C exit 130 停止；IDE 文件未提交。
 
 客户端 [PR #83](https://github.com/zhongmiao-org/flow-ark-client/pull/83) 最新 head `e725bd7145e79f0f7888190a322acec1e6b6c766` 的 CI run `37958369792` Validate（44 秒）与 Auto Merge（9 秒）成功，实际合并为 `83e993ba12f3834e2a0a1a8a19935b94e6fa5cdc`。并发替代 run `37958368263` 为 CANCELLED，不计为通过；合并不等于真实重新运行或完整画板验收。
+
+
+### 2026-10-10 Ant Design 失败修复、定位差异与执行起点迁移
+
+继续修复提议 `23:4575`、修复后起点 `23:4724` 及重新选取目标的已有设计映射。TaskRepairPage 四处目标选择、选择时信息、实际发送内容和完整差异，TaskRepairTarget 原/新目标两处定位，TaskRepairRestart 两处执行历史及此前确认说明，共九处界面折叠直接使用 Collapse。起点/已采纳任务修订/运行前检查使用 Descriptions，操作与已保存生成错误使用 Alert。复用集中主题、metadata-facts 和 Space 激活，不新增基础包装组件，删除旧 summary、字段表及失效内容间距样式，保留专用目标对照与页面网格。
+
+所有折叠 forceRender 保持原生 details 子内容挂载。选择区受控于原 picked 有无：未选目标默认展开、选中后收起、重新选取时展开；布尔状态不变的任务刷新不会覆盖手动展开。原确认焦点、生成来源焦点与失败焦点保留。人工截图发现短元素定位 pre 被 feedback-body 的 flex 对齐缩窄，已限定修复内容的 stretch 布局恢复整列宽度，框架路径亦保留完整文本。宿主、IPC、网页权限、发送范围、采纳/查询、起点身份与运行确认逻辑未修改。
+
+人工使用真实三个组件、ElementPicker、RunReviewPage 与集中主题，临时响应只允许虚构拾取 enable/visibility/start/status/cancel、task.detail/repair.preview/generate/adopt/reject/cancel 和明确失败的 flow.run.preview；其他方法拒绝。全部数据虚构，网页面板/导航仅屏幕记录，没有实际网页点选、模型请求、采纳、文件操作或 Run。初始选择区 Enter/Space 可切换；虚构选中后收起且确认按钮获焦，重新拾取会取消原请求，再次选中仍收起。确认目标后修复页标题获焦，选择时信息、实际发送内容、原/新定位和完整差异均支持键盘展开。改模型清除发送核对并禁用生成；新生成使用所选模型，提议标题获焦。
+
+操作生成失败与 task.error 已保存生成失败分别显示 Alert 并聚焦各自容器。生成等待不提供重复生成入口，重新选择禁用，取消后可重新选取且选择区展开。方案冲突采纳禁用；采纳结果未知后再次查询没有重复提交，屏幕记录仍只一次 task.adopt，取消等待并核对返回选择区。普通虚构采纳后修订 4、起点标题获焦、原结果未勾选且继续禁用；勾选后进入独立检查，夹具明确未通过、启动禁用，返回起点清除勾选并保留已展开历史。未据这些响应证明真实模型、采纳去重或运行安全。
+
+起点长样本保留 40 次已完成执行和一次未确认读取，历史与此前确认说明支持 Space/Enter。列表高约 238/scrollHeight 2091，PageDown 后 scrollTop 223.31、仍获焦，末条 batch[39]/open 保留。修订 3→4 后旧勾选失效、继续禁用；修复依据移除后勾选亦禁用并显示回到任务核对入口。空历史两组均显示“没有此类步骤记录”。控制台无 error/warn。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-task-repair/，含最终 target-differences-wide/narrow、restart-history-wide/narrow、generation-record-error。请求 viewport 1480×1100 时修复网格 clientWidth/scrollWidth 均 1049，定位框宽约 489、父内容宽 490；1040×1100 时网格均 718、新定位宽约 600、父内容宽 601。短定位框已恢复整列，长定位正常换行，实际查看最终四张目标/历史截图。截图为滚动片段，未作原生三尺寸和完整画板几何 1:1 验收。
+
+原生 Figma/应用入口本轮仍因 Mac 锁屏不可读，没有新 MCP 上下文请求，不增加 186 画板 / U01–U12 完整验收数量。真实网页拾取/复验、模型、修复采纳、保存与关联运行及完整视觉比对仍待独立验收。
+
+最终 pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，保留既有大 chunk 提示（/tmp/flowark-task-repair-antd-build.log）。没有新增或运行单元、集成、smoke 测试，没有启动 Electron、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 56 关闭，viewport reset，Vite session 19528 Ctrl-C exit 130 停止；无关 IDE 文件未提交。
+
+客户端 [PR #84](https://github.com/zhongmiao-org/flow-ark-client/pull/84) 最新 head `4c78db23046e23bd8179482fcf370483001c4b69` 的 CI run `37959789162` Validate（46 秒）与 Auto Merge（10 秒）成功，实际合并为 `b53fd63c134d53154d1c6e18d70594c3aeba6944`。并发替代 run `37959787374` 为 CANCELLED，不计为通过；合并不代表真实修复或完整画板验收。
