@@ -5132,3 +5132,21 @@ Run `bf03f766-eb0c-4839-8944-3d29f3272efb` 成功4次步骤，1个未选空标�
 证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-desktop-selection/`：`figma-window.png`、`task-incomplete.png`、`assistant-incomplete.png`及`build.log`。设计与任务页截图已查看，向导状态经原生 AX 核对。实际客户端1440×960，设计1440×1080；真实窗口恢复、读取选区、写入回读及186画板 / U01–U12继续未完整验收。
 
 `pnpm typecheck`、`pnpm build`（含 Swift 编译）、目标文件 Prettier 和 `git diff --check`通过，构建仍有既有大 chunk 提示；未新增或运行单元、集成、smoke测试。旧构建退出后才启动最终构建，两个终端均确认退出码0，最终退出有一次输入法 mach port 警告；未同时启动两个客户端。无关 IDE 改动保留。客户端公开源码推送此前被自动审批拒绝，本轮未重试，仅本地提交；治理记录独立 PR 交付。
+
+### 2026-10-09 标准 ZIP、双实例配置与离线入口实际运行
+
+前序治理 [PR #461](https://github.com/zhongmiao-org/flow-ark/pull/461) 最新头 `685b87a74423af337d0a68af9e00ca2f0cf17f8c` 经 [CI 37870065703](https://github.com/zhongmiao-org/flow-ark/actions/runs/37870065703) 成功自动合并为 `a4df3859ba35915ade82a6f39e54efcd88e28039`。本轮本地 Figma 查看012 / `2:812` 安装完成及014 / `2:973` 模板实例，沿用安装结果卡、配置表单与实例说明双栏；不声明云端同步已验证。
+
+在独立模板仓库调用现有 buildTemplate 构建器生成 `multi-entry@1.0.0` 标准 ZIP，内容摘要 `810978eb0fed46b87c1f32ea269579879678cf30bf480816c9a8426d01f86ecd`，输出到本轮证据目录。未改模板源码，不运行测试命令；客户端只通过原生文件选择器读取 ZIP，没有源码跨仓库依赖。实际 Electron 使用既有隔离目录，从模板库检查来源、三个入口与能力，显式安装，结果页显示已安装和创建实例入口。
+
+创建实例甲 `7eeecf8b-5cfc-4d95-990f-31680da12a2c`，名称“界面核对 · 实例甲”，共享配置name为“实例甲独立资料”。保存后选择无需资源、无授权动作的离线检查，显式启动Run `34cef7a5-c808-4a2c-af12-7f2921eb4740`，实际完成，结构化输出configuration.name与保存值一致，0文件产物。结果面包屑返回原入口，最近记录对应该Run。随后改为“尚未保存的实例甲资料”，返回触发统一离开保护，选择不保存离开。
+
+创建实例乙 `75ff46a8-2f11-43d8-9c8f-dfef359b9981`，初值仍为包默认“示例用户”，没有继承实例甲；保存“界面核对 · 实例乙”及“实例乙独立资料”，该入口原先显示无运行记录。显式Run `e43c856c-836c-4ba5-a9f1-45ae774cc2c6` 完成，输出为实例乙自己的配置，0文件产物。两次均只执行返回配置的脚本，配置中的示例网页地址未被访问；未调用AI、浏览器或写入外部文件，未创建计划。
+
+导入页实际发现能力名state/effect直接显示英文标识。客户端本地 `f6f932c` 在既有能力标签映射补充“实例状态读写”和“动作去重与回执”，复用于模板卡片、筛选和包说明，语义沿用模板SDK的state.get/set、effect.prepare/resolve；保留原协议标识和未知能力的原名，无契约或宿主行为变化。最终构建重开后模板库显示1个版本、2个实例，模板详情正确显示两项中文能力说明。
+
+重开实例甲仍为“实例甲独立资料”，放弃的草稿没有保存；离线入口仍关联原Run。查看其结构化AI入口显示待配置资源、运行禁用；返回入口页说明全局AI已配置但此实例尚未绑定，没有自动沿用凭据授权或请求模型。实例乙重开仍为自己的已保存名称及配置。未查看实例乙重开后的运行详情，不将其持久化输出单独记为重开验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-native-template/`：标准ZIP、`figma-installed.png`、`figma-instance.png`、`installed.png`、`instance-a-result.png`、`instance-b-result.png`、`capability-labels.png`、`instance-reopened.png`及`build.log`。设计、安装、两份输出、能力和重开配置截图已查看；effect标签在当前首屏下方，经AX核对。实际1440×960、设计1440×1080，完整几何及全部状态仍待验收；返回按钮长名称换行仍需继续对齐。此次证明该包的真实安装、普通配置隔离、放弃草稿和离线运行，不能代替复杂Schema、入口输入、实例状态写入、资源授权、AI/网页执行、计划、升级和卸载验收，186画板 / U01–U12保持未完整验收。
+
+客户端`pnpm typecheck`、目标文件Prettier、`pnpm build`与`git diff --check`通过，构建保留大chunk提示。未新增或运行单元、集成、smoke测试。两个客户端严格串行，均退出码0，当前无本轮开发实例。无关IDE改动保留；客户端公开源码推送此前被自动审批拒绝，本轮未重试，仅本地提交，治理记录独立PR交付。
