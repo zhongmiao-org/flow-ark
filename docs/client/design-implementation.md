@@ -5836,3 +5836,25 @@ ToolCapabilityReview 的全部/新增/已变更/已移除/未变化直接使用 
 `pnpm typecheck`、`pnpm build`、三个变更文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包或执行真实工具调用。临时源码、Vite 服务、唯一预览页签已清理，视口已恢复，IDE 无关改动未提交。本轮沿用既有布局与用户 Ant Design 指令，未取得新的 Figma 上下文，不增加 186 画板 / U01–U12 完整验收数量；连接身份对照、小清单等业务容器仍保留，真实连接/保存/授权和完整页面验收继续待完成。
 
 [客户端 PR #69](https://github.com/zhongmiao-org/flow-ark-client/pull/69) 最终 head `d1a8fc4a008d2fd009f69edae27ddc187d625299` 的 [CI 37933350761](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37933350761) Validate / Auto Merge 成功，实际合并提交 `8d169110c8e6167e5ded685e24df55a1983c0039`；同 head 并发取消的流水线不计为通过。客户端本地 main 已同步实际合并提交。
+
+
+### 2026-10-09 Ant Design 试运行确认与恢复反馈迁移
+
+试运行确认的普通检查使用 Alert，紧凑通过检查使用 Badge 并保留可展开原说明；资源/浏览器/依赖阻断及方案/授权过期使用 Alert + Tag，恢复入口仍由原宿主消息匹配决定，不扩大重新检查或配置动作。RunReviewPage 的检查读取说明、确认等待、结果未知、已创建回执和读取错误直接使用 Alert；错误 ref 从段落移到可聚焦外容器，保留原 role、焦点归属与防抢焦点判断。工具调用摘要使用 Badge，调用影响与服务声明说明使用 Alert，原参数核对与完整定义仍可展开。删除手写检查符号、失败颜色、资源问题面板和创建回执的重复外观 CSS，只保留布局、长内容滚动与回执按钮宽度。未修改 RunReviewSession、IPC、宿主准入、权限、持久化或重复确认语义。
+
+采用实际页面、ApplicationTheme 和明确标注“不连接真实宿主”的虚构返回，唯一临时隐藏 IAB 人工核对：
+
+- 普通检查通过前仍需显式勾选才可开始；资源未绑定时确认/开始禁用，重新绑定按钮进入虚构配置入口，没有执行。授权过期提供原重新检查入口，重查后结果标题获焦，仍须通过检查并重新确认。
+- 长通用错误保留摘要、处理建议与完整详情折叠，展开后的原文本可滚动/换行；读取失败显示未取得检查结果和独立错误，重查失败后错误容器获焦。
+- 确认连接中断显示结果未知且隐藏新检查/配置入口；查询使用相同 requestId。虚构返回创建后显示原编号，详情失败保留成功回执与独立读取错误，错误获焦。离开/返回保留该回执，未再发确认。
+- 确认等待期间允许返回但不撤销；离开后完成虚构请求、回到原页面仍显示同一回执，确认次数保持一次。确认被拒绝后提供重新检查，重查清除旧勾选，开始继续禁用；成功详情回调指向同一虚构运行编号。
+- 任务紧凑检查的 Badge 和原说明展开保留；切换逐步调试重新检查、更新执行摘要并清除授权勾选。预览遗漏 runs-system.css 导致读屏前缀显示，补齐实际产品样式后重新查看，前缀恢复隐藏且保留可访问文本；没有修改产品读屏逻辑。
+- 工具说明的连接待处理标记、真实调用影响、服务声明与权限区分及固定值核对均保留。初始展示样本的工具连接缺失却 ready=true，仅用于看说明；补齐虚构阻断检查后再核对开始禁用，没有执行该样本工具。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-run-review-feedback/` 保存 `resource-blocked.jpg`、`long-check-detail.jpg`、`read-failed.jpg`、`confirmation-unknown.jpg`、`confirmation-pending.jpg`、`receipt-detail-failed.jpg`、`compact-passed-check.jpg`、`tool-review-feedback.jpg` 与最终 typecheck/build 日志。普通宽请求 1920×1280 后实际约 1443×962，额外窄请求 1040×1000 后实际约 782×752；窄 main 的 client/scrollWidth 均 782px、确认卡均 668px，未出现横向溢出。截图含滚动片段，宽图右侧有所截断，不作为原生整窗或严格三尺寸 1:1 验收。
+
+Figma 23:3799 实时上下文仍被 Starter 额度阻断；whoami 确认 liuwufangzhou@gmail.com / Ark 65 / Starter View，本机窗口清单仍报告 Mac 锁屏。本轮仅依据既有确认布局与用户 Ant Design 指令迁移反馈，不增加 186 画板 / U01–U12 完整验收数量。真实宿主的资源/授权、慢请求/迟到返回、桌面绑定/选区及全页面验收仍待完成，MCP 参数核对的业务组合与其他 AI 页面反馈继续迁移。
+
+最终 `pnpm typecheck`、`pnpm build`、五个变更文件 Prettier、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、打包、保存真实连接或执行 Run/工具。临时预览源码、唯一页签与 Vite 服务已清理，视口已恢复，无关 IDE 改动未提交。
+
+[客户端 PR #70](https://github.com/zhongmiao-org/flow-ark-client/pull/70) 最终 head `cf05cc44001b8d2d8c1c49aed634ef9fd45bf151` 的 [CI 37935110199](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37935110199) Validate / Auto Merge 成功，实际合并提交 `9a48ad7c7de3e676f9a31aebbbafc260550efe5b`；同 head 并发取消的流水线不计为通过。客户端本地 main 已同步实际合并提交。
