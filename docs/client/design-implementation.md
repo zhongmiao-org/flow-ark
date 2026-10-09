@@ -5490,3 +5490,23 @@ Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entr
 pnpm typecheck、pnpm build、单文件 Prettier 与 git diff --check 通过，构建保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。原生核对使用修改前已构建客户端，新恢复分支本轮仅静态核对与构建检查，没有制造崩溃或提交中的操作，因此不宣称异常重启验收通过。普通运行结束和显式 resolve unknown 的提醒覆盖仍需后续核对。证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-human-array/reopened-output.png`、`recovery-build.log`；结构化值、运行编号、条数与焦点由原生 AX 核对。用户 IDE 改动保留。186画板 / U01–U12 尚未完成。
 
 [客户端 PR #52](https://github.com/zhongmiao-org/flow-ark-client/pull/52) 最终 head `0023afd356cd60dc3e057df64a3d46e0f43e79f0` 的 [CI 37897001351](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37897001351) Validate / Auto Merge 均成功，实际合并提交 `bedb269ae17d7304674c90a2d5c9c37ea55e08f1`；同 head 并发取消流水线不计为通过。
+
+
+### 2026-10-09 模板未知结果提醒与刷新焦点
+
+本地 Figma 查看 `2:9260` 模板运行：结果，保持入口结果/产物双栏和“查看待核对结果”路径。客户端显示本地文件副本；Figma 本轮仍提示离线未同步，不声称已核对云端最新版本。源码确认 effect.resolve unknown 和运行结束的 submitting→unknown 只改内部状态，没有创建结果页可读取的提醒。本轮使状态变更与关联提醒同事务保存；与启动恢复共用操作去重键，携带 effectId/runId 和各路径的固定原因。已确认/失败状态不创建未知提醒；不修改执行授权、重放、外部业务核验、IPC、数据库格式或既有历史提醒。
+
+真实原生刷新还复现按钮暂时禁用后焦点落到整页。现在仅当刷新由该按钮触发、返回成功且焦点仍为 body 时恢复原按钮；关闭面板清除恢复意图，错误区域和用户主动移焦保留优先权。最终构建中刷新后焦点位于“刷新记录”，下一次 Tab 到“返回已保存结果”。慢请求下主动移焦与错误读取仍未实测。
+
+本机自建 `unknown-ui-review@1.0.0-ui.1` 标准ZIP通过原生界面安装并创建实例 `0140929b-38eb-4174-87de-035762ae86ed`。样例没有资源、网络、文件或外部动作，只经模板SDK建立本机操作记录；“本机示例记录”配置为范围内自动。共手动创建四条运行：
+
+- `7d773ad7-c8d4-4362-85ae-b9c28913972b` 主动报告 unknown：结果页显示一条提醒及“模板未能确认操作结果。”；正常退出再重开，原条目及来源编号保留。
+- `cd420604-d530-4dae-a6e7-9e37749cc27d` 结束时未 resolve：结果页显示一条“运行已结束，但操作结果尚未确认。”，没有混入前一运行提醒。
+- `a17646d3-c0be-4c97-ab3f-be19eabc7f34` 已确认对照：即使全局已有两条提醒，本次结果页仍明确为空。
+- `2e142a64-c041-482c-83fa-793296e6ee60` 重复第一入口同一去重键：真实输出 execute:false、preparedState:unknown，待办仍为两条；没有再次授权执行。
+
+从第一条提醒打开来源运行正确；标为已读后回结果页仍显示一条“已读 · 结果仍待核对”，不会把已读当作业务确认。结束时保留第二条未读示例提醒，第一条已读；没有清除既有历史、凭据或暂停计划。标为已读后详情按钮禁用时焦点落到整页，本轮仅记录该独立交互缺口，未扩大修改范围。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-unknown-result/`：`figma-result.png`、`unknown-reopened.png`、`unfinished.png`、`read-still-pending.png`、`build.log` 和自建包源码/ZIP，均未纳入产品仓库。截图已查看，编号、原因、空态、去重输出及焦点由原生AX核对。每次只启动一个Electron，两次均正常退出码0，结束无主进程。最终 pnpm typecheck、pnpm build、三文件Prettier、git diff --check通过，构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试，用户IDE改动保留。强制崩溃、取消分支、通知失败、真实外部回执、紧凑尺寸及全部186画板 / U01–U12仍待验收。
+
+[客户端 PR #53](https://github.com/zhongmiao-org/flow-ark-client/pull/53) 最终 head `650dbbe16c73cf1f57a3bb77096e97240b63f0ce` 的 [CI 37898676882](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37898676882) Validate / Auto Merge 均成功，实际合并提交 `81e3b49ce10b2ff860f0220697308e1f43bd5b85`。
