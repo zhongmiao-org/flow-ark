@@ -6275,3 +6275,21 @@ pnpm typecheck、pnpm build、三个文件 Prettier 与 git diff --check 通过�
 预览控制台无 warn/error。pnpm typecheck、pnpm build、五文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-local-resources-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 65 关闭、viewport reset、Vite session 81991 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏；工具 CSS 像素受缩放影响且夹具无完整 App 外壳，真实凭据/目录操作、原生三尺寸和 186 画板 / U01–U12 完整验收仍待完成，不增加完整画板验收数。
 
 客户端 [PR #93](https://github.com/zhongmiao-org/flow-ark-client/pull/93) 已由 CI 自动合并：head c663940520c68f956885534344ed0977e994029b，run 37971969631 的 Validate（42 秒）与 Auto Merge（12 秒）成功，合并提交 b303f277cfacfb914da60f5cc2d21a656cb71b17。旧同 head run 37971965348 为 CANCELLED，不计为通过。
+
+### 2026-10-10 Ant Design AI 服务连接详情迁移
+
+沿用 AI 服务 2:3118、连接与输出状态 2:4629、DeepSeek 4:10378–11077 和任务来源 23:5795，没有新 Figma 上下文请求。AISettingsPage 的服务地址/模型说明与本次连接详情直接用 Collapse，四组测试字段用纵向 Descriptions；forceRender 保留正文挂载，Space/Enter 使用已有处理。移除配置及确认按钮使用库危险填充样式，删除重复危险色、折叠、字段表、输入高度和错误边框 CSS，Input 仍用 status 显示校验错误。模型按钮采用 small 库外观并自动增高换行；业务卡片、掩码和布局保留，没有新增基础包装库。
+
+未改读取代次、供应商选择、配置修订、保存/移除/测试/取消、在用轮询、离开保护或模板来源核对；没有改 IPC、宿主、凭据保护或模型适配器。本地请求标识仍明确不是服务商回执，模型/时间缺项仍显示未记录/无有效时间；已保存记录与未保存输入继续分开，测试中不显示本次详情，结束后恢复默认收起。
+
+唯一隐藏 IAB tab 66 加载实际 AISettingsPage 和集中主题/产品样式，所有模型、尾号、状态、测试记录与来源均虚构，配置 get/save/remove/test/cancel 和模板核对为假回调，不读取真实 Key 或连接宿主/外部服务。人工确认说明与详情 Space/Enter、长模型/请求标识换行，模型编辑及普通渲染保留原折叠；空模型校验未调用保存，假保存失败错误获焦、原掩码/记录与模型草稿保留。取消编辑显示离开保护，继续保留草稿，放弃恢复原模型和验证记录。替换输入为空，没有输入真实或虚构 Key 值。
+
+假测试等待时供应商/模型/替换/移除禁用；取消后聚焦连接状态，迟到成功响应未覆盖取消记录。取消示例的缺失模型/无效时间回退显示正确，鉴权失败仍保留已配置掩码和来源记录。假移除失败保留配置并显示重试，未真实删除；轮询取得在用状态后修改/替换/移除均禁用，详情展开保持。假配置读取失败不当作未配置，恢复读取显示已保存待验证，未配置无掩码、不提供测试入口。
+
+供应商键盘选择后 OpenAI 服务说明与详情一致；首次 ArrowUp/Enter 仅打开当前选择，重新观察后选择成功，不计首次为切换。任务来源隐藏通用说明/移除，返回仅记录原来源回调；模板来源读取失败保留设置和显式返回选择，恢复核对仅记录原来源回调。恢复后来源错误页面已移除，一次继续定位旧“留在 AI 设置”按钮超时；重新观察正常模板页面后返回设置，不计超时为成功。控制台无 warn/error。
+
+截图目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-ai-settings/，已查看 connection-wide、connection-wide-final、save-error-narrow、failed-detail-narrow、remove-error-narrow、source-error-narrow。宽请求 1480×1100 时网格 clientWidth/scrollWidth 均 1049、双栏；窄请求 1040×1100 时均 718、单列。长模型按钮 clientHeight/scrollHeight 均 41、clientWidth/scrollWidth 均 602，最终宽详情宽/滚动均 312。宽连接图与窄失败图底部有内容在视口外，不能单独证明全页；完整字段/状态以 DOM 核对为准。工具 CSS 像素受缩放影响，夹具没有完整 App 外壳，不代表原生三尺寸或全画板 1:1。
+
+pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-ai-settings-antd-build.log）。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 66 关闭、viewport reset、Vite session 84910 Ctrl-C exit 130；IDE 文件保持未提交。Mac 仍锁屏；真实配置持久化/API/来源往返与原生完整视觉待核对，不增加 186 画板 / U01–U12 完整验收数。
+
+客户端 [PR #94](https://github.com/zhongmiao-org/flow-ark-client/pull/94) 已由 CI 自动合并：head c0313afd1ba92721ffcb04ed9569f624a3358743，run 37973176611 的 Validate（46 秒）与 Auto Merge（10 秒）成功，合并提交 01b88b410e0e2ca20e42e62575dd1e37ad359f93。旧同 head run 37973176363 为 CANCELLED，不计为通过。
