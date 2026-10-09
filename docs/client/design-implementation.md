@@ -5381,3 +5381,16 @@ Mac 解锁后先核对前次结果：库仍为 4 个版本 / 6 个实例，`entr
 证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-structured-native/`：`figma-entry.png`、`return-to-error.png`、`controls-error-final.png`、`controls-restored-final.png`、`build-final.log`。`selects-final.png` 是中间版本，不作为最终配色证据。本轮 pnpm build、单文件 Prettier、git diff --check 通过，构建保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。原生客户端严格串行，上一实例退出码 0 后才启动下一次，结束无本轮主进程；保留用户 IDE 改动。实际 1440×960，紧凑尺寸、失效选项原生路径、全部输入类型与业务执行仍待验收；186 画板 / U01–U12 仍未完成。
 
 [客户端 PR #45](https://github.com/zhongmiao-org/flow-ark-client/pull/45) 最终 head `5dbcbbab12ed3b058b2bf88a065b86c4fb6459ed` 经 [CI 37889645481](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37889645481) Validate / Auto Merge 成功，实际合并为 `976e9e0ba0e67582ac87acaf5ded2783c02fc33f`。同 head 并发取消的流水线不计为通过。
+
+
+### 2026-10-09 资源授权与指定入口往返定位
+
+本地 Figma 查看 `2:1083` 资源与动作授权，1440×1080，按入口展示准备情况并提供继续配置/查看路径。Figma 当前提示连接恢复前部分修改不会同步，本轮只读查看本地稿，不宣称已核对全部在线设计。沿用产品双栏与共享组件，无新增图片或图标资产。
+
+在原生客户端现有隔离实例 `72546579-b4a6-4067-af1d-2a451b1e4203` 复现：从资源页点击“打开 结构化 AI 校验”后内容切换正确，但焦点落回整个 HTML 页面；原代码返回配置只聚焦上方分类按钮并恢复旧滚动位置。客户端 `8e978f6` 为两条快捷路径增加提交后目标内容定位：打开入口聚焦带入口名称的输入标题，返回配置聚焦本机资源绑定；隐藏的其他入口不参与定位，切换或离开页面取消未完成聚焦。普通分类点击继续使用滚动记忆。无 IPC、授权语义、持久化或契约变化。
+
+最终构建人工核对：选择临时“每次确认”后只有相关填写入口显示待保存；打开 AI 入口聚焦“结构化 AI 校验 · 本次输入”，填写临时备注再返回资源页，聚焦“本机资源绑定”，Tab 进入测试浏览器选择，权限草稿仍为每次确认。再次打开原入口备注保持；随后将备注恢复“原始备注”，资源页取消恢复禁止，打开非 AI 的填写入口聚焦“填写并回读 · 选择操作入口”，无未保存提示、无运行记录。未保存授权、未执行入口、未调用模型或访问网页。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-resource-navigation/`：`figma-resources.png`、`resources-focused.png`、`entry-focused.png`、`build.log`。原生 AX 核对焦点与草稿，最终两张截图已查看；实际窗口 1440×960，定位长表单后允许正常纵向滚动。pnpm typecheck、pnpm build、三文件 Prettier、git diff --check 通过，保留既有大 chunk 提示；未新增或运行单元、集成、smoke 测试。两次客户端严格串行且退出码均 0，结束无本轮主进程；IDE 改动保留，模板仓库未改动。紧凑尺寸、真实授权执行、目录绑定和整板视觉仍待验收，完整 186 画板 / U01–U12 未完成。
+
+[客户端 PR #46](https://github.com/zhongmiao-org/flow-ark-client/pull/46) 最终 head `8e978f69585dec0df01c55e885fb36f5cb95ff15` 经 [CI 37890242245](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37890242245) Validate / Auto Merge 成功，实际合并为 `df3fe2445fd6e999b136932dc03481d6937164fa`；并发取消的另一流水线不计为通过。
