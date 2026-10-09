@@ -5310,3 +5310,16 @@ pnpm typecheck、pnpm build、三文件 Prettier 与 git diff --check 通过，�
 pnpm typecheck、pnpm build、两文件 Prettier、git diff --check 通过，保留已有大 chunk 提示。未新增或运行单元、集成、smoke 测试。客户端正常退出码 0，结束无本轮主进程；保留无关 IDE 文件。
 
 [客户端 PR #40](https://github.com/zhongmiao-org/flow-ark-client/pull/40) 最终 head `cf2daeeaf1cef7ff6e72af274ed0889c223b1c97` 经 [CI 37879322000](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37879322000) Validate 成功后自动合并，实际合并提交 `25415eb775dd22bedb427e5e3e99ddb2abfe33fa`。同 head 因事件并发取消的流水线不计为通过。
+
+
+### 2026-10-09 模板缺项详情切换入口
+
+本轮继续核对运行前检查 `2:3884` 的其他入口路径，并在本地 Figma 查看只读入口 `2:1314`。设计要求缺项只阻止依赖对应资源的入口，仍能进入其他入口独立核对。客户端 `111f527` 在缺少资源或动作授权的详情首屏列出同实例其他入口；读取中或读取失败不呈现，忙碌时禁用。按钮使用模板真实名称，不因为无动作声明就声称严格只读或已就绪；切换仅进入详情，保留每个已挂载入口，不保存、不授权、不创建 Run。详情内切换也重新聚焦新入口标题并回到页首，返回实例继续指向当前入口。
+
+真实 Electron 沿用既有隔离数据，仅启动一个客户端。实例乙网页入口显示浏览器与动作授权缺项；直接切换到结构化 AI 校验，仅显示其 AI 资源缺项；再切换离线检查，显示已就绪且运行按钮可用。各次新入口标题获焦点，返回实例选中离线检查并聚焦查看入口详情；最近运行仍为原 e43c856c。再次打开网页详情，缺项仍在，展开网页面板后切换操作和说明完整可见。全过程没有运行、保存配置、授予权限、调用 AI 或访问网页，面板停留 about:blank。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/09/flowark-entry-alternatives/`：`figma-readonly.png`、`entry-switch.png`、`entry-with-browser.png` 与 `build.log`。实际 1440×960 与展开网页后的窄内容区截图已查看；1040×700 极限尺寸、复杂未保存入口输入、读取失败和严格只读业务执行未验收。此处实现入口切换路径，不代表只读入口整板或 186 画板 / U01–U12 完成。
+
+pnpm typecheck、pnpm build、三文件 Prettier 和 git diff --check 通过，保留既有大 chunk 提示。未新增或运行单元、集成、smoke 测试。唯一客户端正常退出码 0，结束无本轮主进程；无关 IDE 文件保留。
+
+[客户端 PR #41](https://github.com/zhongmiao-org/flow-ark-client/pull/41) 最终 head `111f5277976d54b90b336f82307765fc98936b2a` 经 [CI 37880146261](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37880146261) Validate / Auto Merge 成功，实际合并提交 `c495f3c3661e94e5dc70a293ec8292bc03e539fe`。同 head 因事件并发取消的流水线不计为通过。
