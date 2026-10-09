@@ -6375,3 +6375,17 @@ pnpm typecheck、pnpm build、四文件 Prettier 与 git diff --check 通过，�
 本轮结束前重新读取原生应用状态，工具明确返回 Mac 仍锁定、自动解锁失败，原生应用清单为空；未尝试启动或重启客户端，真实 App 验收继续待人工解锁后的独立核对。
 
 客户端 [PR #99](https://github.com/zhongmiao-org/flow-ark-client/pull/99) 的最新 head `48701aa7d9108feee11c5f7817a85a594b17243b` 经 CI `37978887924` Validate/Auto Merge 成功自动合并为 `678093147437ca7586a9f6d89da4e231800ba3cd`；初始重复 CI `37978887274` 取消，不用其取消状态代替最新校验结果。
+
+### 2026-10-10 HTTP、文件与表格节点设置迁移到 Ant Design
+
+沿用保存导出 023 `2:2033` 六卡资源工作页及既有节点检查器，没有请求新的 Figma 上下文。ResourceNodeConfiguration 将请求头、归档文件列表、矩阵与单元格映射直接置于受控 Collapse，forceRender 保持草稿挂载，复用 Space/Enter 处理；配置种类和节点身份改变时重置展开状态，HTTP 方法变化保留展开。删除 ResourceDetails 同义包装，用一个配置投影选择相应业务内容；ResourceWorkspace 非当前步骤的摘要直接使用纵向 Descriptions，长文本可换行，删除手写 dl/dd 与输入字体、背景、高度覆盖。执行、权限、IPC 和保存契约保持原样。
+
+App 输入守卫调用 revealDraftInput，从无效容器自身开始向外展开原生 details 和标记的库折叠区，再在下一帧聚焦输入；紧凑检查器继续先显示节点面板。标记只设置在资源编辑折叠区，未让页面通用点击扩大权限或执行动作。此调整防止收起未完成草稿后失去错误定位。
+
+唯一隐藏 IAB 页签 72 加载实际 ResourceWorkspace、ResourceNodeConfiguration、MappingValues、MatrixValues、ArchiveFileList、集中主题与 revealDraftInput。六类流程节点、路径/绑定/文本全部虚构；守卫选择无效字段与 focus 由夹具提供，不连接 Main、真实文件或网络。未应用请求头名称 X-Draft 收起后返回被拒绝，原 Collapse 自动展开、名称输入获焦、aria-invalid=true；Enter 添加后切到 GET，原请求体仍保留，页面明确 GET 不发送请求体，请求头保持展开。归档路径编辑后经 Enter/Space 收起展开，内存草稿为 nested/virtual.txt。矩阵显示 0/false/null/文本，A1 输入未完成数字 `-` 收起后返回，重新展开并聚焦原 textarea、仍为 `-`；恢复已应用值回到 0。单元格名称 A1 改 B2 未应用时收起并切换被拒绝，展开并聚焦 B2；Enter 应用后重新进入，值仍为虚构值、名称为 B2。以上验证资源折叠与共同 reveal 帮助函数，未将夹具守卫当作完整 App 原生守卫验收。
+
+实际宽视口 1443：网格约 1156，三列各约 375，Drawer body clientWidth/scrollWidth 均 1220，五个摘要 Descriptions 均 333/333。实际窄视口 782：网格约 646 单列，body 均 710，没有页面横向溢出。截图目录 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-resource-nodes/` 的 wide/narrow 均已查看；wide 右侧与第二行被截取范围裁切，narrow 只显示模板映射当前可见区和夹具背景，不能代表完整 App/原生三尺寸/Figma 整板 1:1。控制台未见警告或错误。
+
+最终 `pnpm typecheck`、`pnpm build`、五文件 Prettier、`git diff --check` 通过，日志 `/tmp/flowark-resource-nodes-antd-build.log` 保留既有 chunk 大小提示。未新增或运行单元测试、集成/smoke 脚本，未启动 Electron 或第二个 FlowArk，未发 HTTP 请求、选择真实目录、写文件、执行节点或保存真实流程。临时 HTML/TSX、页签和 4223 Vite 服务已清理，视口复位，原有 IDE 改动保留。完整 186 画板 / U01–U12 尚未完成。
+
+客户端 [PR #100](https://github.com/zhongmiao-org/flow-ark-client/pull/100) 最新 head `cb792743bed0bfabddc01d0721e2b6684cd91428` 经 CI `37979883903` 成功校验并自动合并为 `e91e288900afab6e0a6b1286f0374868d8eee51c`；较早重复运行 `37979883121` 被取消，不作为最新结果。
