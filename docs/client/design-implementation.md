@@ -6487,3 +6487,19 @@ ActionLibrary 搜索框直接使用 Input prefix/suffix，清空用 Button；分
 最终三文件Prettier、pnpm typecheck、pnpm build及git diff --check通过；保留构建大chunk提示。最终浏览器warn/error记录为空，但Vite在一次视口切换时记录 `ResizeObserver loop completed with undelivered notifications`，未把该开发期通知宣称已修复。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行节点。页签关闭、视口恢复、Vite4229回收、临时HTML/TSX删除，用户IDE改动未提交。添加回调失败分支、浏览器侧面板模式、原生持久化和186画板/U01–U12完整验收仍待完成，本轮不增加整板通过数。
 
 [客户端 PR #106](https://github.com/zhongmiao-org/flow-ark-client/pull/106) 最终head `949f597732b9d8138719ae5d623cc589aaf0550c` 的 [CI 37988775614](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37988775614) Validate45秒 / Auto Merge7秒成功，实际合并提交 `76f49860189aa414927926e8a74d3d2384956282`。同head较早 `37988774872` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 脚本本地依赖核对
+
+查看已保存025 `2:2367` 导出 `/Users/mac/.codex/visualizations/2026/09/21/01a0c1fc-76eb-7172-8512-4e4a56416ec0/flowark-design-v2/screens/25-脚本与依赖配置.png`，沿用六卡脚本/依赖配置和原脚本编辑入口。此前Figma MCP有Starter额度限制，本轮未取得新的在线上下文，仅按用户要求迁移已有基础控件，不作为最新设计整板验收。
+
+ScriptPackages 依赖卡直接用 Card、状态用 Tag，目录详情使用 Collapse 与 Descriptions，变更核对字段使用 Descriptions；空态、回执、错误和版本警告直接用 Alert。目录Collapse保留内容挂载，复用现有Space处理，Enter由组件处理。原错误聚焦容器改为div，Modal打开完成仍优先错误后标题，取消和应用保留返回原入口。绑定按钮显示loading，移除使用danger。删除状态色块、手写details/dl、通知边框、卡片外观及固定按钮高度CSS，保留业务布局/换行。ScriptConfigurationWorkspace外层错误也直接用Alert及关闭动作。原目录选择/检查、精确版本、共享版本冲突、草稿签名/迟到保护和移除行为未改；不安装包、不改变宿主、IPC或执行契约。
+
+唯一隐藏IAB页签79载入实际完整App，注入两个虚构脚本：主脚本有已绑定demo-shared@1.0.0与未绑定demo-addon@2.0.0，对照脚本共享demo-shared。Space展开工作区与目录，长路径换行且不横向溢出。目录读取失败显示错误，慢读取禁用所有依赖动作，释放后显示名称/版本已核对；取消选择回绑定按钮，不同包名拒绝重绑定。选择2.0.0弹出版本警告，应用被真实App共享版本守卫拒绝，错误聚焦；窄屏保留冲突，Escape回重新选择按钮。选择同版本1.0.0应用成功，返回原入口并更新目录，目录展开保持、此前核对结果失效。
+
+逐项移除依赖后焦点移到相邻移除按钮或绑定入口，0依赖显示空态；新增慢读取显示loading并禁用，释放后的候选明确显示当前步骤未声明、其他步骤仍保留当前绑定，取消后没有添加。返回编排显式内存保存一次，切换对照脚本仍读到1.0.0及新共享目录。再次核对成功，外层折叠/重开保留目录展开和结果。最终虚构choose=5/inspect=8/save=1/run=0/unexpected=[]；保存不是宿主持久化验收，没有实际访问包目录或执行脚本。
+
+宽实际1443时网格client/scroll1156/1156、三列，初始长路径256/256；窄实际782时文档782/782、网格646/646单列、依赖卡577/577。窄版本核对弹窗640/640，当前/新目录路径583/583与151/151。一次尺寸切换后鼠标定位失败，重新读取并用Enter完成，未以失败点击支持结果；目录核对后截图曾出现瞬时按钮压缩，稳定后三个按钮计算高度39.9965px。已查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-script-packages/` 的 version-conflict-wide.png、version-conflict-narrow.png、packages-wide-final.png与packages-narrow-final.png。宽图右侧依赖部分被截，最终窄图上下被截且按钮在下方，冲突窄图显示错误与操作。夹具控制条不是产品UI，不把局部截图当作全页1:1证据。
+
+最终四文件Prettier、pnpm typecheck、pnpm build及git diff --check通过，构建日志 `/tmp/flowark-script-packages-antd-build.log` 保留大chunk提示。最终浏览器warn/error为空，但Vite两次记录ResizeObserver loop通知，未宣称已修复。未新增或运行单元、集成/smoke测试，未启动Electron/第二客户端、打包安装、读取凭据或执行节点。页签79关闭、视口恢复、Vite4230回收、临时HTML/TSX删除，用户IDE改动保留未提交。工作区外层错误未重新触发，真实目录、原生保存、完整编译与执行，以及186画板/U01–U12整体验收仍待完成；本轮不增加整板通过数。
+
+[客户端 PR #107](https://github.com/zhongmiao-org/flow-ark-client/pull/107) 最终head `365e0ea64b21c60f163de3b6e7473aa6e309361f` 的 [CI 37989884597](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37989884597) Validate38秒 / Auto Merge8秒成功，实际合并提交 `b3c8aa4dec36bd4433144bc0e71e046ca474cf33`。同head较早 `37989883741` 取消，不计为通过。
