@@ -5981,3 +5981,22 @@ OAuth 四站点样本包括可选公开客户端、不支持公开客户端、�
 最终 pnpm typecheck、pnpm build、九个变更文件 Prettier 与 git diff --check 通过，既有大分块提示保留。未新增/运行单元、集成或 smoke 测试，未启动 Electron、实际 Run、打包或安装。临时预览 HTML/TSX 已删除，唯一隐藏 IAB tab 48 已关闭，viewport reset，Vite session 6520 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
 
 客户端 [PR #76](https://github.com/zhongmiao-org/flow-ark-client/pull/76) 最新 head `cf086038716ca9843fc9e59f0b7528068f147d61` 的 CI run `37946949035` Validate（46 秒）与 Auto Merge（10 秒）成功，实际合并为 `0983432276c8736de954b08eb4dfcf2c2561139f`。并发替代的 run `37946948377` 为 CANCELLED，不记为通过；CI 合并不代表真实服务/维护或完整画板验收。
+
+
+### 2026-10-09 Ant Design 补问、方案范围与最近运行迁移
+
+按用户直接采用 Ant Design 的要求，继续已有理解补问/确认方案/采纳方案和结果入口映射 `23:2766`、`23:2928`、`23:3618` 及 U04–U06/U09。PlanningQuestions 的先前补充、TaskPlanConversation 的保存回答和 AI 说明、TaskPlanScope 的操作对象/影响直接改为 Collapse；TaskLatestRun 的最近运行改为受控 Collapse，固定标识/版本用 Descriptions，错误用 Alert。旧回答和最近运行 forceRender 保持字段/内容挂载，所有折叠使用既有 Space 激活函数。删除先前回答/操作范围 summary 外观、最近运行伪折叠按钮和手工边框/背景/圆角，库组件仍消费集中主题；方案业务容器、步骤布局及说明文字保留，没有新增基础包装组件。
+
+原 30 项回答上限、busy/过期控制、删除后焦点、同一方案视图与步骤身份、运行读请求 epoch/任务修订校验、展开后读取、关闭后忽略迟到回复不变；库受控回调以 key 更新 expanded，仍增加 epoch。没有修改宿主、运行状态、数据库、网络、模型或任务授权。
+
+人工核对采用实际四个组件、ApplicationTheme 和应用 CSS，虚构宿主只接受 run.list/run.detail 并返回假记录，其他方法拒绝；没有真实任务/浏览器/文件/提供者。初始关闭查看调用为空；先前回答 Space/Enter 可展开收起。修改及删除第一项后焦点进入原第二项，删除最后一项进入移除说明。busy 时当前/旧回答及移除禁用；30 项时新回答禁用、旧回答仍可编辑。保存回答与 AI 说明可展开；过期时修改/放弃禁用，视图仍可切换；虚构放弃后恢复继续描述入口。
+
+条件/循环样本范围保留 3 项操作，实际扁平编号为 3/5/6，点击网页操作回调返回 read 身份；紧凑模式保留不代表执行/授权、只更新草稿、固定快照和实际次数说明。最近运行未展开且 disabled 时库标题禁用；展开后 disabled 保留收起、结果/刷新禁用。内外层 Space 可分别展开，没有重复冒泡。读取等待时显示状态；收起再释放迟到列表后结果按钮数量为 0，不自动展开。正常记录保留原修订 2/当前 3 警示，打开结果只调用虚构详情。读取失败、任务身份不符、详情身份不符保留错误且 role=alert；空列表显示未关联记录。详情首个鼠标动作在折叠动画中未触发宿主请求，查看夹具调用后用稳定页面的键盘 Enter 核对，成功显示身份错误，不将首个未触发动作记为通过。
+
+证据目录 /Users/mac/.codex/visualizations/2026/10/09/flowark-antd-planning-records/，包含 plan-scope、latest-run-record、latest-run-identity-error、最终 latest-run-narrow/wide。窄 viewport 请求 1040×1100，实际 Renderer 宽 782，documentElement scrollWidth 782，元数据内容格宽约 505/scrollWidth 505；宽请求 1480×1100，实际 Renderer/documentElement scrollWidth 均 1112。长运行与版本标识正常换行，按钮测量高度约 40。截图为组件滚动片段，不证明原生三尺寸/完整页面资产几何。
+
+原生入口本轮复核仍为 Mac 锁屏且无法自动解锁；此前 Figma MCP Starter 限额本轮未再请求，不声称取得新设计上下文。没有增加 186 画板/U01–U12 完整验收数。真实规划/采纳/任务往返、持久化、主窗口最近运行与设计全页复核仍待独立验收。
+
+最终 pnpm typecheck、pnpm build、八个变更文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留。未新增/运行单元、集成、smoke 测试，未启动 Electron、实际 Run、打包或安装。临时 HTML/TSX 删除，唯一隐藏 IAB tab 49 关闭，viewport reset，Vite session 72350 停止（Ctrl-C exit 130）；无关 IDE 文件保留。
+
+客户端 [PR #77](https://github.com/zhongmiao-org/flow-ark-client/pull/77) 最新 head `95a4f1852ab9ed01ac9efc6899948e72f4c900c5` 的 CI run `37948593083` Validate（42 秒）与 Auto Merge（9 秒）成功，实际合并为 `660a71927f0a26db4ce66439e414075da5eb018b`。并发替代的 run `37948592581` 为 CANCELLED，不记为通过；CI 合并不代表真实主窗口、供应商或完整画板验收。
