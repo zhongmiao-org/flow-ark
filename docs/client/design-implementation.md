@@ -5734,3 +5734,23 @@ Renderer 已无 ai-config-status 消费者，删除这组共享手写状态点�
 真实修订冲突、版本并存与引用保护、授权/计划持久化、分钟触发、慢请求/取消、来源恢复和全页面三尺寸仍需验收。虚构回执不等于实际保存/创建/调度验收。186 画板 / U01–U12 未完成，本轮不增加完整画板验收数量。
 
 [客户端 PR #64](https://github.com/zhongmiao-org/flow-ark-client/pull/64) 最终 head `152c425c1df48326c3c4d3b7a5f923f51833be3a` 的 [CI 37925759305](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37925759305) Validate / Auto Merge 成功，实际合并提交 `46d0a1737bbc3ebd026e42aca4d1efcfa2dcdf0f`；同 head 并发取消的流水线不计为通过。
+
+### 2026-10-09 Ant Design 模板实例与 AI 设置分类导航迁移
+
+模板实例四个分类直接使用 Ant Design Tabs，通过 `forceRender` 和 `destroyOnHidden={false}` 持续挂载内容；原 `data-instance-tab` 与 hidden 包装继续用于字段校验、内容定位和入口隔离。实例名称、共享配置、资源绑定与各入口输入保持原草稿模型，分类切换不保存或开始运行。详情页仅隐藏分类栏，返回仍定位原“查看入口详情”按钮。新版实例的资源核对入口通过 tabpanel 的 `aria-labelledby` 找到实际页签并聚焦，未新增基础组件包装或 IPC。
+
+AI 设置的分类属于跨页面导航，直接使用 Ant Design Menu，并沿用原 `go` 离开确认；当前 AI 分类保持选中，来自模板的 AI 设置仍能经确认前往通用配置。删除已无消费者的 `ai-settings-tabs` 外观规则，只保留分类栏与内容间距，颜色、选中样式和控件外观由既有 ApplicationTheme / ConfigProvider 管理。
+
+使用实际页面组件及统一主题、明确标注的虚构内存数据人工核对，未连接真实宿主或实际 API：
+
+- 从共享配置依次切换资源、入口、来源再返回，实例名称、普通配置和本次入口输入均保留；方向键移动页签焦点但不激活，Enter 激活对应内容。
+- 打开入口详情后分类栏隐藏，当前入口内容仍在；返回实例后四个分类恢复，焦点回原详情按钮。
+- 清空实例名称后切到资源分类，离开时保存校验指出共享配置缺项；“返回修正”切回共享配置并聚焦实例名称，其余草稿仍保留。
+- 虚构新版实例的资源核对按钮选择资源分类并聚焦实际 Ant 页签；虚构来源读取失败仍显示重读/放弃重读/返回操作，保存禁用，分类可查看。
+- AI 模型改为 `preview-draft-model` 后选择浏览器分类，弹出离开确认；继续编辑保留模型值并恢复模型输入焦点，AI 分类仍选中。取消草稿经独立离开确认后，浏览器 Menu 调用预览导航回调，显示 `已前往 browser`，没有操作真实设置。
+
+默认实际 CSS 视口约 962×541 查看单列，宽视口请求 1920×1280、实际约 1443×962 查看双列。证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-classification-navigation/` 保存 `template-tabs.png`、`ai-menu-draft.png`；截图已查看，宽截图右侧有所截断，不能单凭截图宣布整窗或三尺寸验收。原分类滚动记录/恢复代码保留；人工观察 PageDown 后滚动约 462px，键盘将焦点移回页签时视口先回到顶部，本轮未证实离屏原非零滚动位置恢复，不计为完成验收。
+
+`pnpm typecheck`、`pnpm build`、四个变更文件的 Prettier 检查、`git diff --check` 通过；构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未启动 Electron、生成安装包或执行实际 Run。只开一个临时预览页签，临时源码已删除、4366 服务/页签关闭、视口恢复，IDE 无关改动未提交。本轮未取得新的 Figma 上下文，迁移依据既有产品布局与用户 Ant Design 指令，不增加 186 画板 / U01–U12 完整验收数量。
+
+[客户端 PR #65](https://github.com/zhongmiao-org/flow-ark-client/pull/65) 最终 head `c08e4703f156dcb34328e46c478d6632ee5fee43` 的 [CI 37927666651](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37927666651) Validate / Auto Merge 成功，实际合并提交 `2bb254c817b4fb51a3c6c44e5beb0ca946fb71d7`；同 head 并发取消的流水线不计为通过。本地 main 已同步该合并提交。
