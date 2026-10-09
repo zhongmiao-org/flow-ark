@@ -6751,3 +6751,23 @@ TaskModificationPage 两处外卡及 DesktopTaskPlan 两处外卡、需求、当
 pnpm typecheck、pnpm build、四个变更文件Prettier --check及git diff --check通过，构建日志 `/tmp/flowark-task-plan-cards-antd-build.log` 保留大chunk提示。未新增或运行单元／集成／smoke测试，未启动Electron／第二客户端、访问凭据／真实窗口、调用AI、保存方案、修改文档或创建Run。页签95关闭、临时视口复位、4246 Vite回收、临时HTML／TSX删除，IDE改动未提交。真实供应商、选择与能力失效、保存重开、授权写入回读、最新设计和完整186体验仍待验收。
 
 [客户端 PR #123](https://github.com/zhongmiao-org/flow-ark-client/pull/123) 最终head `6eb3b0cbf1beee6ec5a0d8bb3f65bdf40af993a4` 的 [CI 38004517014](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38004517014) Validate41秒／Auto Merge7秒成功，实际合并提交 `a13b4f2d5fe9eab7f929f94b0df7b018c7e1f173`。同head较早 `38004515862` 取消，不计为通过。
+
+### 2026-10-10 Ant Design Excel、脚本与长流程编辑卡片
+
+本轮对 Figma 文件 sVciNUZHG9yx81gCpYzjH9 的 `23:6516` 请求设计上下文与截图，两者均返回 Starter 配额限制；这是配额阻塞，不是登录失败。从既有 FlowArk-AI-task-design.zip 提取并实际查看画板118 `tasklong`（23:6333，1920×1080）、119 `taskexcel`（23:6516，1440×1080）、120 `taskscript`（23:6726，1440×1080）的保存导出，只迁移现有组件，未取得最新在线设计，不计为完整整板1:1或186画板验收完成。
+
+ExcelMappingPage、ScriptEditorPage 各两处及 FlowOutlineWorkspace 三处共七个面板直接使用 Ant Design Card。保留外层语义section／aside与aria区域、原字段／数据预览／大纲复合结构，将滚动和布局移到库body；删除重复卡片内边距与说明提示外观。两页各一处错误和说明直接用 Alert，错误仍由可获焦外层承担role=alert，保留错误定位data属性；说明用role=note。普通body用集中主题24px，大纲侧栏原20px调整为24px。未新增基础包装组件、IPC／AI／宿主／持久化契约或执行修改，保留Monaco、React Flow及已有布尔禁用上下文。
+
+唯一隐藏IAB页签96加载真实三页组件、生产样式与ApplicationTheme；所有流程、映射、历史、目录选择和保存结果均虚构，其他IPC拒绝。Excel真实映射预览显示0、false与空值，核对全部4行而仅展示前3行；重复列拒绝预览，旧表清除并定位第二字段。未完成JSON在延后虚构目录选择及取消后仍保留；收起来源再保存时自动展开并获焦，不调用保存回调。延后虚构保存期间控件禁用，失败获焦且保留修订工作表、映射与来源；dirty导航用实际Modal，继续编辑保留，成功虚构回调后才切页。
+
+脚本页真实Monaco经键盘编辑代码，但未执行脚本或语法检查IPC；超时0拒绝保存并定位，恢复90000后保留。未完成输入JSON收起后保存自动展开并定位，合法输入中的count=0／done=false保留。延后保存禁用Monaco及控件，虚构失败后代码、输入和超时仍在；虚构历史读取失败后显式重读为空列表，显示尚无运行记录，预览不执行脚本。未保存离开继续编辑保留状态，虚构成功回调后才离开。最终保存回调4次、关闭回调2次，夹具不回写真实宿主或原始流程；这些计数不证明真实保存、重开或持久化。
+
+四十步大纲收起分支后搜索32并用ArrowDown／Enter选择，自动展开成立分支，选择与焦点为第32步。展开实际React Flow后有44个图形节点（含起止／汇合）、选中第32步，图宽756.63／高521.02px；返回清单保留该选择与焦点。没有Run，运行快照及当前执行入口禁用；未保存草稿AI入口禁用，没有真实运行／AI验收。
+
+申请1920／1040视口、浏览器原缩放133%，实际CSS宽1443／782，页面scrollWidth同值，无横向页面溢出。Excel窄卡约654px宽且上下排列；脚本宽卡824.44／467.19px、随展开内容等高922.56px，Monaco约389px高；大纲宽三卡223.995／807.63／300px、各700px高，窄清单仍双列220／473.97px且详情换到下一行717.96px宽／472.91px高，body均24px。窄视图沿用现有响应布局，没有新增未设计的移动版。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-editor-cards/` 的excel-wide.png、excel-narrow.png、script-error-narrow.png、script-wide.png、outline-wide.png、outline-graph.png、outline-narrow.png。只读CDP按原浏览器缩放捕获完整页面；工具条、计数与末尾回调JSON属于临时夹具，没有产品侧栏或原生整板证据。Monaco初次End组合键未到文末，发现后全选并重新输入完整虚构代码，以最终页面核对为准。控制台没有error，但捕获两条React Flow父容器需要宽高的初始化warn；图形展开后尺寸与所选节点正常，不能称为零警告。
+
+pnpm typecheck、pnpm build、六文件Prettier --check与git diff --check通过，构建日志 `/tmp/flowark-editor-cards-antd-build.log` 保留大chunk提示。未新增或运行单元／集成／smoke测试，未启动Electron／第二客户端、读写凭据、选择真实目录、执行脚本／AI、实际保存或创建Run。页签96关闭、视口复位、4247 Vite回收，临时HTML／TSX删除；IDE改动保留且不提交。真实保存与跨启动恢复、脚本执行、运行快照、原生整板布局、最新设计及完整186体验仍待验收。
+
+[客户端 PR #124](https://github.com/zhongmiao-org/flow-ark-client/pull/124) 最终head `e5050bae2be9602e6af0334bafa14b11b7dd2145` 的 [CI 38005366456](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38005366456) Validate41秒／Auto Merge7秒成功，实际合并提交 `0679fd1925fee08293ef595357ad5945154ce026`。同head较早 `38005366438` 取消，不计为通过。
