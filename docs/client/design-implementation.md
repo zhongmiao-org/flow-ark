@@ -6771,3 +6771,23 @@ ExcelMappingPage、ScriptEditorPage 各两处及 FlowOutlineWorkspace 三处共�
 pnpm typecheck、pnpm build、六文件Prettier --check与git diff --check通过，构建日志 `/tmp/flowark-editor-cards-antd-build.log` 保留大chunk提示。未新增或运行单元／集成／smoke测试，未启动Electron／第二客户端、读写凭据、选择真实目录、执行脚本／AI、实际保存或创建Run。页签96关闭、视口复位、4247 Vite回收，临时HTML／TSX删除；IDE改动保留且不提交。真实保存与跨启动恢复、脚本执行、运行快照、原生整板布局、最新设计及完整186体验仍待验收。
 
 [客户端 PR #124](https://github.com/zhongmiao-org/flow-ark-client/pull/124) 最终head `e5050bae2be9602e6af0334bafa14b11b7dd2145` 的 [CI 38005366456](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38005366456) Validate41秒／Auto Merge7秒成功，实际合并提交 `0679fd1925fee08293ef595357ad5945154ce026`。同head较早 `38005366438` 取消，不计为通过。
+
+### 2026-10-10 Ant Design 模板目录、安装与版本管理容器
+
+本轮 Figma `1:3125` 上下文与截图请求仍返回 Starter 配额限制，未取得最新在线图层；从既有 FlowArk-P1-v2.zip 提取并实际查看004模板库（1:3125）、005导入模板（1:3256）、012安装完成（2:812）、013实例列表（2:892）、035安装校验与版本冲突（2:3565）、047模板版本与导出（2:4837）六张保存导出。035／047是状态规格，未新增独立状态目录页，也不按这次迁移宣布最新设计或整板验收。
+
+TemplateLibrary 和 TemplateManifestOverview 共八处介绍／定义／侧栏／目录／实例／结果／版本引用面板声明直接用 Card，三处目录／实例／版本失效空态用 Card + Empty.PRESENTED_IMAGE_SIMPLE，分隔直接用 Divider。原 article／section／aside、安装结果aria区域、入口明细、Collapse和按钮回调保持；删除重复边框、圆角、背景、内边距及Checkbox尺寸样式。卡片继承集中主题24px，定义原28px、结果／引用原32px、紧凑原20px统一为24px；介绍原下方16px变为主题24px，保留业务浅蓝底色。只清理表现层，无新基础包装组件、IPC、ZIP契约、宿主安装／授权／执行／持久化改变。
+
+唯一隐藏IAB页签97加载实际模板目录组件、生产样式与ApplicationTheme，定义、入口、资源、版本、实例及全部接口均虚构。目录搜索后打开详情，切换写入入口显示必需目录与默认禁止动作，Space展开包身份；返回保留关键词“表格”且焦点回到对应按钮。无匹配模板显示Empty并可清除；实例搜索无结果显示Empty，查看全部恢复两张卡；当前包从虚构列表消失显示版本不可用Empty，返回后显示尚未安装模板。没有真实文件或账号内容。
+
+虚构ZIP检查失败聚焦错误标题，重选恢复。未核对来源禁用确认；勾选后取消选择保留旧包身份与取消提示，并重置核对。延后安装禁用确认、重选、取消及返回；虚构失败后令牌标记已消费、确认仍禁用，重新选包才可核对。虚构安装成功但刷新失败保留结果卡，明确重读只刷新，未重复安装。创建成功后详情读取失败显示已创建恢复入口并禁用重复创建，再次打开只增加详情读取。原安装／宿主行为未执行。
+
+有实例引用的版本不提供确认卸载，进入引用实例列表再返回版本引用／详情路径可见。无引用版本必须勾选后确认，虚构宿主拒绝保留版本与勾选、聚焦错误，显式重试后返回库并显示卸载提示。同版本不同摘要禁用勾选与安装；同版本同摘要只提供打开已安装模板，不增加安装计数。原模板导出仅调用虚构回调，不写ZIP。样式最终清理前计数inspect7／install2／cancel4／create1／detail2／remove2／refresh4／export1；临时夹具改动导致Vite整页重载后计数重置，最终缺失包／空库／确认勾选／取消再看为inspect1／cancel1，不能把两阶段计数当成同一连续会话或真实安装证据。
+
+申请1920／1040视口、浏览器原133%缩放，实际CSS宽1443／782且页面scrollWidth相同。宽目录卡647.81×222px，实例窄卡653.97×180px；宽安装定义833.60×921.03px、确认458.03×646px，内容自然增长；窄双卡纵向排列653.97px宽、921.03／517.58px高。安装结果Card保持384px高，body均24px。最终窄确认、重选和取消按钮实测约40px；Checkbox框与标签对齐。较早取消截图重选按钮呈现瞬时较矮，最终独立测量和截图已核对，未将其当作稳定通过证据。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-catalog-cards/` 的library-wide.png、package-wide.png、empty-filter-narrow.png、instances-narrow.png、import-cancel-narrow.png、import-failed-narrow.png、installed-wide.png、references-wide.png、remove-failed-wide.png、conflict-wide.png及最终package-wide-final.png、missing-version-wide-final.png、empty-library-narrow-final.png、import-narrow-final.png、empty-filter-narrow-final.png、library-narrow-final.png。原package-wide.png在折叠动画后立即捕获、底部不完整，最终同类展开图包含完整身份区；只读CDP按原缩放捕获，未改变页面／浏览器缩放。工具条、计数和虚构定义为夹具，没有产品侧栏或原生整板证据。最终console warn／error为空。
+
+pnpm typecheck、pnpm build、三文件Prettier --check及git diff --check通过，构建日志 `/tmp/flowark-catalog-cards-antd-build.log` 保留大chunk提示。未新增或运行单元／集成／smoke测试，未启动Electron／第二客户端，未选择真实ZIP／目录、安装／卸载真实包、创建真实实例、读取凭据或执行Run。页签97关闭、视口复位、4248 Vite回收、临时HTML／TSX删除，IDE改动保留且不提交。真实ZIP／版本采用／删除及跨启动恢复、最新设计、原生整板和完整186体验仍待验收。
+
+[客户端 PR #125](https://github.com/zhongmiao-org/flow-ark-client/pull/125) 最终head `28980690231422b92eb1e870a1d8a84884b05e6f` 的 [CI 38006040997](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38006040997) Validate45秒／Auto Merge9秒成功，实际合并提交 `2e3958c7bce78866eecb410e41fcce567a4bd951`。同head较早 `38006040001` 取消，不计为通过。
