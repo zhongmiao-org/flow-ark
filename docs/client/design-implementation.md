@@ -5691,3 +5691,24 @@ Figma 连接器已确认当前 Google 账号，但设计上下文仍受 Starter 
 模板版本并存、令牌已使用、实例创建后恢复、卸载引用保护、慢请求/长错误、真实数据往返及全页面三尺寸仍需人工验收。虚构内存回执不等于真实持久化/安装/人工请求验收。其他设置/模板实例等旧反馈继续迁移；186 画板 / U01–U12 未完成，本轮不增加完整画板验收数量。
 
 [客户端 PR #62](https://github.com/zhongmiao-org/flow-ark-client/pull/62) 最终 head `b03d9bc2be7d243523091ff6f63d3d8f4e6400d5` 的 [CI 37922794446](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37922794446) Validate / Auto Merge 成功，实际合并提交 `ea6f8e1c3bf0fcc0cd7d702757feccb63c708af5`；同 head 并发取消的流水线不计为通过。
+
+### 2026-10-09 Ant Design AI 服务与本机凭据反馈迁移
+
+AI 设置的配置、连接、来源不可用、移除与概览状态直接采用 Tag / Badge，读取/保存/操作失败和连接结果采用 Alert；任务缺失 AI 的状态也直接使用主题标签。本机凭据的读取/保存/移除失败和保存回执直接使用 Alert，非紧凑卡片的已保存/运行在用状态采用 Tag / Badge。删除这两页相应重复颜色、圆角、边框 CSS，只保留布局；已有其他模板/计划消费者仍使用 ai-config-status，未删除共享样式或声明全部迁移。没有新增同义基础组件包装或更改 IPC、持久化及供应商协议。
+
+原有脱敏 Key/凭据值、修订身份、连接测试取消、输入与离开守卫、引用和运行在用保护继续保留。配置已保存仍明确显示待验证，连接失败/取消/中断不误报验证通过；AI 输入校验继续通过 aria-invalid/aria-describedby 关联错误，错误焦点容器保留。凭据列表读取失败不推断空列表，新增/编辑受原守卫阻止，系统保护不可用仍拒绝保存、不降级为明文。紧凑卡片的“值 · 已保存/运行正在使用”仍为字段说明。
+
+使用临时隐藏 IAB、实际组件与 ApplicationTheme 和明确标注的虚构内存返回人工查看，未连接真实宿主，未读取/修改真实配置或凭据、未调用真实 AI：
+
+- AI 已保存待验证、验证通过、鉴权失败、取消与中断分别呈现原状态及说明。保存失败显示错误 Alert 并聚焦错误容器；返回确认再继续编辑后模型与遮蔽输入保持。模型填写带空格的无效值时原输入获焦，aria-invalid=true、aria-describedby=ai-settings-error；读取失败不显示未配置。
+- 凭据初次读取失败显示尚未取得清单且新增禁用；编辑虚构名称并输入虚构替换值，保护拒绝保存后名称保持、值继续遮蔽、原错误容器获焦。返回再不保存离开，焦点恢复编辑入口；未修改虚构原记录。运行在用且有引用的移除窗口显示两类限制，确认勾选与确认移除均禁用，未发出移除请求。
+- 仅内存修改虚构名称后保存回执显示需要明确绑定，列表显示新名称与掩码，回执获焦。缺失 AI 配置页保留原描述和资料说明，提供去配置与手动搭建入口。
+- 人工查看发现 AI 卡片中 Tag 被 flex 拉满宽度，最终保留 align-self / fit-content 布局约束；独立实际 TaskMissingAI 预览最终标签宽约 139px、卡片宽约 914px。该修正已人工查看；AI 设置其他标签及 AI 概览分支未逐一重复预览。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-credential-feedback/` 保留 `credential-protection.png`、`credential-saved.png`、`task-missing-ai.png`、`task-missing-ai-final.png` 与最终类型/构建/格式日志，截图已查看。保护失败窗口截图在错误获焦后的内部滚动位置，只覆盖错误和部分输入；不代表整窗口完整视觉验收。默认约 962 CSS px 视口仅为组件预览，未宣称三尺寸整板验收。两个临时预览顺序运行、始终单实例，源文件删除、页签和服务关闭、视口恢复；未启动 Electron，IDE 改动保留且未提交。
+
+最终 `pnpm typecheck`、`pnpm build`、5 个改动 TSX/CSS 的 Prettier 和 `git diff --check` 通过，构建仍有大 chunk 提示。未新增或运行单元、集成、smoke 测试，未打包安装。Figma 本地设置 1:3896 的上下文请求仍受 Starter 额度限制，账号已确认正确；Mac 仍锁屏，未取得新设计上下文或原生 Figma / 客户端验收。
+
+真实系统保护与持久化往返、真实 AI 连接、慢请求/忙碌取消、列表刷新失败保留旧记录与恢复、紧凑卡片、AI 概览、全部页面三尺寸仍需人工验收。虚构内存返回不等于真实存储或供应商验证；其他模板/计划反馈继续迁移。186 画板 / U01–U12 未完成，本轮不增加完整画板验收数量。
+
+[客户端 PR #63](https://github.com/zhongmiao-org/flow-ark-client/pull/63) 最终 head `a30ac7db815fb9f51005d980c71f290f3710b7c0` 的 [CI 37924296276](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/37924296276) Validate / Auto Merge 成功，实际合并提交 `6570ff07b3a8ecb6657885821eb7c8fe8f6182a0`；同 head 并发取消的流水线不计为通过。
