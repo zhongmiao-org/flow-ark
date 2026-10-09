@@ -5903,3 +5903,24 @@ McpArgumentCheck 五种结果直接使用 Alert + Tag，固定值符合定义使
 `pnpm typecheck`、`pnpm build`、六个变更文件 Prettier 检查及 `git diff --check` 通过；已有大分块构建提示保留。没有新增/运行单元、集成或 smoke 测试，也未启动 Electron、真实模型/工具、安装包或实际 Run。预览 HTML/TSX 已删除，唯一 IAB 预览 tab 44 已关闭，viewport 已 reset，Vite session 10099 已停止（Ctrl-C，exit 130）。工作台完整往返、真实供应商请求及其失败恢复、原生窗口、全页资产几何与 U01–U12 / 186 画板验收继续保留。
 
 客户端 [PR #72](https://github.com/zhongmiao-org/flow-ark-client/pull/72) 最新 head `4720f677ecfb84987230d25784bb964736a3e833` 的 CI run `37938791819` Validate（48 秒）与 Auto Merge（8 秒）成功，实际合并为 `4b91208a7b007bcc9e3e76de98ae04ebc5bbe154`。被并发替代的 run `37938791304` 为 CANCELLED，不记为验证通过；自动合并也不代表真实 AI、原生窗口或完整画板验收。
+
+
+### 2026-10-09 Ant Design 桌面方案、修改条件与结果反馈迁移
+
+对应已有 Figma `23:8190`、`23:8344`、`23:8492`、`23:8631` 页面映射，继续执行用户直接采用 Ant Design 的要求。`DesktopTaskPlan` 的生成、候选、缺能力、遮盖、缺需求、配置处理中及取消/失败提示改为 Alert；`DesktopModificationCheck` 的只读能力清单改为 Descriptions/Tag，检查失败、到期、保存结果未知和采纳阻止改为 Alert。`DesktopRunConfirmation` 的重新核对提示、`DesktopRunReceipt` 的回执状态/消息与 `DesktopTaskRun` 的故障/效果说明使用库组件。删除旧能力清单框、警示底色和确认提示框外观 CSS，保留原文/候选/回读内容、页面布局及本机时间说明。
+
+主题集中穷举 `desktopCapabilityColors` 和 `desktopReceiptColors`：系统报告支持为蓝色信息，不代表已写入；unsupported/unavailable 为警示；回执 verified 为已回读状态、not-written 中性、unknown 警示。未修改 ready/complete、生成/检查身份校验、到期清理、取消 epoch、保存确认、固定快照、回执过滤及一致性判定、运行控制或原生能力。没有新增包装控件、IPC、模型调用、授权或数据格式。
+
+人工查看使用实际五个页面组件和原 `taskRunPresentation`，本地夹具只返回虚构配置/候选/检查/回执，其他宿主方法拒绝；无真实 TextEdit、模型、文件或 Worker 操作。确认文字与模型后才生成虚构候选，查看改动进入原文/候选对照并执行夹具只读检查；可写/回读均 available 显示原说明和保存入口。分别查看替换 unsupported、回读 unsupported、两项 unavailable、来源不一致、保存失败、无改动、稳定到期及外部采纳阻止；不支持/失败/到期等保存按钮仍禁用，来源不一致保留返回窗口入口，保存结果未知未自动重试。到期夹具最初每次渲染产生新的时间，已固定为单一过期值后重新查看，未把夹具问题记作产品缺陷。
+
+生成页的已遮盖原文、缺需求及配置处理中提示已查看，遮盖/配置处理中生成按钮禁用；不支持回复显示原 summary/limitations。虚构生成失败保留原文未改提示，等待虚构回复时可取消；人工随后释放迟到回复后没有出现候选按钮，取消说明及重新核对要求保留。此证据只覆盖组件原有保护，不能证明真实供应商取消或系统写入。
+
+回执查看了 verified/unknown、重复 verified、与快照不同的回读、缺最终回执的 not-written、缺快照；另一 Run 的记录过滤，不能核对的记录继续显示 unknown，缺快照时两项 unknown 且原文/回读 pre 数量为 0。运行结果查看了回读一致、取消且回读一致、未知、正在等待、not-written 及宿主 fault：取消与回读分别展示、unknown 保留「文档可能已经改变」和不重试提示；等待页暂停/取消仅调用夹具控制回调。SUCCEEDED 但 not-written/fault 仍显示待核对，未冒充整体成功。真实去重、持久化、原生修改/回读和故障收尾不据此验收。
+
+证据目录 `/Users/mac/.codex/visualizations/2026/10/09/flowark-antd-desktop-feedback/`，包括 `plan-modification-check.jpg`、`unsupported-write.jpg`、`save-unconfirmed.jpg`、`verified-and-unknown-receipts.jpg`、`cancelled-with-verified-readback.jpg`、`unknown-result-narrow.jpg`、`unknown-result-wide.jpg` 及检查日志。窄尺寸请求 1040×1000，实际 Renderer 782×752，body 宽度/scrollWidth 均 782、面板均 732；宽尺寸请求 1480×1100，实际 1112×827，body 宽度/scrollWidth 均 1112。仅为组件片段，不能证明原生三尺寸或全部资产几何 1:1。
+
+本轮原生设计入口再次因 Mac 锁定且无法自动解锁不可读；此前 MCP 新上下文和截图被 Starter 额度拒绝，本轮未再次请求，不声称获得新 Figma 上下文。只迁移既有反馈与能力清单，不新增画板完成数；全页视觉、真实窗口/选区、完整任务往返及 186 画板 / U01–U12 验收继续保留。
+
+`pnpm typecheck`、`pnpm build`、八个变更文件 Prettier 检查与 `git diff --check` 通过，既有大分块构建提示保留。没有新增/运行单元、集成或 smoke 测试；未启动 Electron、实际 Run 或真实服务，未打包/安装。预览 HTML/TSX 已删除，唯一 IAB tab 45 已关闭，viewport reset，Vite session 4484 已停止（Ctrl-C，exit 130）。无关 IDE 文件保留。
+
+客户端 [PR #73](https://github.com/zhongmiao-org/flow-ark-client/pull/73) 最新 head `f0273cdb2545e1a52eb7af6aa439beb712c2687f` 的 CI run `37940994247` Validate（43 秒）与 Auto Merge（8 秒）成功，实际合并提交 `836a453699e35f6fb38281ee6145819511aaf105`。并发替代的 run `37940993512` 为 CANCELLED，不记为通过；CI 合并不代表真实桌面或完整画板验收。
