@@ -6229,3 +6229,17 @@ pnpm typecheck、pnpm build、两文件 Prettier 与 git diff --check 通过，�
 pnpm typecheck、pnpm build、五文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-run-evidence-antd-build.log），预览控制台无 warn/error。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 已删、唯一 IAB tab 62 关闭、viewport reset，Vite session 45043 Ctrl-C exit 130；IDE 文件保持未提交。桌面工具仍报告 Mac 锁屏，完整原生界面、真实文件定位/关联阅读往返与 186 画板 / U01–U12 验收仍待完成，不增加完整画板验收数。
 
 客户端 [PR #90](https://github.com/zhongmiao-org/flow-ark-client/pull/90) 已由 CI 自动合并：head 60289702a2ff9f16a33fa14ee830633afc84bd19，run 37967856763 的 Validate（43 秒）/ Auto Merge（8 秒）成功，合并提交 6a13b77a324a7d56473db61ab035e2e0df54a689。旧同 head run 37967856687 被取消，不计作通过。
+
+### 2026-10-10 Ant Design 运行详情与逐步调试迁移
+
+依据现有运行详情 1:3539、逐步调试 2:2534 的功能边界迁移基础控件，本轮没有新 Figma 上下文请求。普通/调试的保存步骤输出、调试输出/详情入口和固定脚本依赖采用 Collapse，调试运行/固定版本/时长改用纵向 Descriptions，调试横幅、运行控制/观察说明及错误提示改用 Alert，删除手写横幅、原生折叠和展开按钮/字段表样式。保留步骤时间线、原有运行控制、回执区 24px 间距及各业务卡片；没有改控制命令、IPC、宿主、回执或重新执行能力。
+
+既有 RunObservation 模块共用保存步骤输出的 Collapse，普通详情也使用固定快照映射的编号/名称，循环实例继续显式显示。每条输出以 sequence 为 key，初始展开最新条；只有最新身份或 runId 改变时调整默认开合，普通刷新不覆盖手动选择。新输出到达时原最新条收起、新条展开，其他手动展开项保持。forceRender 保留原文本/步骤详情挂载，长输出保留全文、前后空白并以可聚焦 pre 在 280px 高区域键盘滚动。调试输出/详情默认收起，固定脚本依赖默认收起。使用已有 activateCollapseWithSpace 补齐 Enter 以外的空格操作，也修复上一批原始日志、派生记录及文件保存位置的空格操作；处理仅作用于折叠标题，正文空格不会切换折叠。
+
+唯一隐藏 IAB tab 63 加载实际 RunDetail/子组件与统一主题/样式的临时夹具，虚构两条保存输出、第三步暂停记录、长标题/版本/依赖及一个产物；只接假回调、不连接宿主。人工确认调试外层/输出/详情、脚本依赖和日志原始/派生/产物位置的 Space，Enter 同样可切换；初始两项 false/true，手动展开第一项、收起第二项后普通刷新保持 true/false，追加第三条变为 true/false/true。909 字符长输出前后空白保留，pre clientHeight 280 / scrollHeight 986，PageDown 后 scrollTop 265.0376；页签经日志再返回保持第一项展开，正文 Space 不改变开合。原始记录收起后挂载数为 0。调试详情显示真实输入的 Run/固定版本与待核对时长，等待人工只触发假查看回调，收尾状态无执行下一步按钮，失败仍显示错误和外部核对边界；未触发真实控制、重跑、文件定位/清理、持久化或模型。
+
+截图目录 /Users/mac/.codex/visualizations/2026/10/10/flowark-antd-run-detail/，已查看 debug-wide、debug-outputs-wide、debug-failed-narrow、raw-narrow、bundles-narrow-final、debug-wide-final、current-outputs-wide-final。debug-outputs-wide 及失败窄图含折叠动画瞬间，不用于证明最终收起状态；current-outputs-wide-final 覆盖普通页上方和输出区之前，实际输出开合以 DOM 核对为准。热更新重置夹具后一次第三项定位未命中，重新观察两项状态并追加第三项取得最终 true/false/true，不计未命中为通过。宽请求 viewport 1480×1100 时调试/普通网格 clientWidth 和 scrollWidth 均 1065，窄请求 1040×1100 时调试均 734、单列，依赖折叠均 732，长名称/版本/依赖换行。工具 CSS 像素受缩放影响，夹具无完整 App 外壳，仍不证明原生三尺寸或全画板 1:1。
+
+pnpm typecheck、pnpm build、八文件 Prettier 与 git diff --check 通过，既有大 chunk 提示保留（/tmp/flowark-run-detail-antd-build.log），预览控制台无 warn/error。未新增或运行单元/集成/smoke 测试，未启动 Electron、打包或安装。临时 HTML/TSX 删除、唯一 IAB tab 63 关闭、viewport reset，Vite session 83090 Ctrl-C exit 130，IDE 文件保留未提交。桌面工具仍报告 Mac 锁屏；完整原生运行控制/结果核对与 186 画板 / U01–U12 验收待完成，不增加完整画板验收数。
+
+客户端 [PR #91](https://github.com/zhongmiao-org/flow-ark-client/pull/91) 已由 CI 自动合并：head cbeb756d5a10ecfc906a67d896f844e9852e4978，run 37969273881 的 Validate（45 秒）与 Auto Merge（9 秒）成功，合并提交 12f69f7fec3ba0433914c44d8fbcf8972c158fe9。旧同 head run 37969273194 为 CANCELLED，不计为通过。
