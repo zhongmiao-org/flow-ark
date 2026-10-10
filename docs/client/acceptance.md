@@ -1,5 +1,15 @@
 # 开发预览验收记录
 
+## 2026-10-10 最新 UI 候选 0.3.0：打包与安装，原生界面待核对
+
+产品源码为客户端已合并 `46944c5b0d1561cb745bf9f38fbbb1bb49d95345`（[PR #167](https://github.com/zhongmiao-org/flow-ark-client/pull/167)），包含当前 Ant Design 集中主题及本轮已合并 UI 修改。按 UI/UE 优先约定执行 `pnpm package:mac`，构建、arm64 ZIP、DMG 和既有包结构验证成功；本轮未新增或运行单元、集成或 smoke 测试。打包日志 `/tmp/flowark-current-ui-package.log`，保留既有大 chunk、未设置应用图标及未签名提示；这是未签名/未公证的开发候选，不是正式发版。
+
+- 生成客户端忽略目录下 `release/FlowArk-0.3.0-arm64.dmg`，SHA-256 `58ad86d02186f7bbf497c69d60284261eb4f7c36c882c659c04fbb05eac5578f`；ZIP `release/FlowArk-0.3.0-arm64-mac.zip`，SHA-256 `1686b675236355eaf82ae96bf42e66728b7e7db3bc44c8ed1457801f0a483836`。同名0.3.0候选必须以本次源码提交及摘要辨别。
+- 启动前读取安装版为0.2.1，桌面 FlowArk/Electron 主进程为空。只读挂载本次DMG，复制应用后核对 `app.asar` 一致，安装到 `/Users/mac/Applications/FlowArk.app`；安装 Info.plist 确认为0.3.0，`app.asar` SHA-256 `c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`。旧应用移至 `/Users/mac/Library/Application Support/FlowArk Backups/0.2.1-before-ui-0.3.0-20261010T102224Z/FlowArk-0.2.1.app`，备份父目录权限0700；未读取、复制、清理或迁移日常数据。
+- 本次仅用显式 `FLOWARK_DATA_DIR=/private/tmp/flowark-current-ui-install-qa5i977e/ui-records` 启动安装路径，核对资料与日常资料分开。首次启动PID9595随后已退出且未取得窗口，核实无桌面主进程后改为前台会话；当前一次核对主进程PID9637存在，只保留一个桌面主实例，未因窗口读取失败重复启动存活实例。
+- 只读 CoreGraphics `CGSSessionScreenIsLocked` 为1；System Events报告当前进程可见但窗口数0，未取得原生UI画面，启动状态的最终原因尚未验证。已请求用户本机解锁；当前唯一实例保留供后续检查，元数据 `/private/tmp/flowark-current-ui-install-qa5i977e/delivery.json`。窗口、主题/字体/资源、真实保存重开、内置网页以及完整186画板/U01–U12仍待验收，安装摘要不能代替这些证据。
+
+
 2026-09-21 当前阶段：0.2.0 通用客户端与独立模板包已完成本轮实现并安装到日常路径。162 项单元、75 项宿主检查通过；安装版导入、配置、文件／内置网页、多入口、完整表单服务端回执及重开验证通过，DeepSeek 虚构输入实接通过。旧兼容路径已删除，开发工作记录已按授权清理，凭据、通用设置及浏览器登录态保留。完整证据、PR／CI、清理范围和未完成的真实招聘业务见[模板解耦验收](../templates/acceptance.md)。以下旧版本记录仅作历史追溯。
 
 ## 2026-09-20 日常安装升级：0.1.28 → 0.1.35
