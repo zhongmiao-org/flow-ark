@@ -7598,3 +7598,22 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 pnpm typecheck、单文件Prettier --check、pnpm build、git diff --check通过；/tmp/flowark-full-name-search-check.log和/tmp/flowark-full-name-search-build.log保留结果，构建仍有既有大chunk提示。未新增或运行单元、集成、smoke测试。真实长流程执行、全部分支结构、整板及186画板/U01–U12仍待完成。
 
 客户端[PR #173](https://github.com/zhongmiao-org/flow-ark-client/pull/173)最新head `1496ce7200e859a4ad87ce5e4c640a742ba0d127`经[CI 38050468778](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38050468778) Validate38秒/Auto Merge8秒通过，已实际自动合并为`7a1a25728e6a1a0ae1031dd2369a1dd25be84caf`。此前38050415100的Auto Merge取消，不计通过。线程附件超过100，保留直接PR链接，未重复附加或删除旧附件。
+
+
+## 2026-10-10 · 任务工具数量、核对恢复与连接来源往返
+
+本轮客户端为已合并main `7a1a25728e6a1a0ae1031dd2369a1dd25be84caf`，未改产品代码；保留IDE改动。对照已保存设计导出中的tasktarget（23:2440），已查看design-tasktarget.png；目标板093及连接来源往返138保持局部记录，缓存截图不证明全部在线设计最新。
+
+实际App Renderer通过4298及单个IAB页签打开。虚构宿主提供已核对的32工具连接、另一个failed连接、已有30工具任务、首次工具对象保存失败/第二次成功，以及独立过期模式。没有真实MCP服务、凭据、模型请求、工具调用或运行，不计第三方账号与宿主持久化验收。
+
+30项已选时31/32未选项禁用；查询tool_31仍保留已选30项，切到已选筛选显示0/32且不取消勾选。清除筛选、取消15后计数29，31可以选择，再选31恢复30。完整用途在1440/1040/676展开，段落高约197.99/153.99/263.98，scrollHeight等于clientHeight，文档宽度与视口一致。初次通过radio定位点击/按键超时，只读DOM确认Ant Design Segmented原生输入尺寸为0且状态未变；后续点击可见标签成功，不因工具定位限制修改组件或重启页签。
+
+核对来源后首次确认触发虚构保存失败：核对框关闭，task-tools-error获焦，原查询tool_31和新勾选保留，已保存摘要仍是原30项。选择failed连接后0选中、全部禁用、核对按钮禁用；返回原连接恢复临时30项，15未选/31已选。重新打开核对时来源确认未勾选，返回重新选择聚焦核对按钮。再次明确勾选与确认后返回理解页；重进工具页模拟保存的30项仍含31、不含15。明确移除后理解页撤下工具对象。虚构detail未提供toolTargetStates，理解页显示需重新核对连接，未作为真实状态检查通过。
+
+独立expired模式直接返回已过期的预览，676核对框显示过期说明并禁用来源确认和保存。查找tool_01只改变核对展示；键盘定位返回按钮后操作top/bottom约623.81/663.81，可见且确认仍禁用。返回恢复核对按钮焦点及原30项选择；本轮没有以等待时间或取消连接冒充真实服务过期。
+
+随后为独立虚构连接补入单任务引用及0活动运行，预览重载到首页，不复用前一场景的模拟保存结果。连接详情展开任务引用后打开tools-task，来源条指向资料整理工具；重新描述追加“补充：保留资料来源。”后返回连接详情，原引用按钮获焦且top/bottom约350.17/390.17在676视口内。再次从引用打开任务时，现有任务打开逻辑先模拟保存未完成草稿，再读取同一任务；理解摘要与描述框均保留补充。该往返不等于显示离开确认框、真实保存、连接重查或调用工具。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-task-tool-selection/ 下 design-tasktarget.png、selected-1440.png、selected-1040.png、selected-676.png、expired-676.png、expired-controls-676.png、reference-task-676.png、reference-return-676.png。截图支持局部内容与返回位置，部分画面裁剪右侧/下方，未计整板视觉验收。页签关闭、viewport复位，4298结束exit130，临时HTML/JS删除。本轮仅文档变更，不重复运行客户端类型检查/构建；未新增或运行单元、集成、smoke测试。原生AX窗口数0、CoreGraphics锁屏标志1、PID9637仍存在，保留唯一旧安装版0.3.0，未重开或打包。
+
+五连接上限、能力摘要变化、真实OAuth/MCP调用与读回、安装版、整板及186画板/U01–U12仍待完成。
