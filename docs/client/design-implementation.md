@@ -7339,3 +7339,19 @@ pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过
 最终预览warn/error为空；唯一页签关闭、视口复位、4280 Vite回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、两文件Prettier --check和git diff --check通过，日志/tmp/flowark-navigation-visible-return-build.log保留既有大chunk提示。两处仅改Renderer焦点滚动，沿用Ant Design、既有守卫及来源，不改IPC、资源绑定、保存或执行契约。未新增/运行单元、集成、smoke测试，未启动第二FlowArk/Electron，未读取凭据或访问真实文件、AI、宿主；IDE改动保留未提交。
 
 客户端 [PR #157](https://github.com/zhongmiao-org/flow-ark-client/pull/157) 最新head `43d15a9c2bfba7e10ad4cb4e3642f5a81038a65e` 经 [CI 38032783743](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38032783743) Validate46秒/Auto Merge9秒通过，实际自动合并为 `2885e1897f5160820b2d0688717d80c4e16d1957`。较早38032783104取消，不计通过；附件工具仍返回线程附件超过100，未重试或删除附件，保留直接PR链接。
+
+### 2026-10-10 紧凑编排配置关闭与步骤焦点
+
+沿用002 `1:394`流程编排和紧凑互斥配置的既有映射，实际查看缓存editor-流程编排.png、compactdrawer-紧凑配置抽屉.png；沿用Ant Design集中主题、React Flow和现有配置，不新增基础组件包装。已知在线Starter额度受限，本轮未取得最新云端整板。网页展开时的摘要返回代码保留，但本轮没有核对原生网页或将普通配置核对计作051完整通过。
+
+唯一IAB页签18配合4281 Vite加载实际App/main与生产CSS；虚构内存接口提供1流程、4步骤（含空条件与单数据循环体），task.list和运行列表为空，无凭据、真实宿主和执行。1040×700下指针选择准备资料进入配置，点应用并关闭，修复前activeElement为BODY。现在指针与Enter均聚焦配置标题，返回按当前选中ID聚焦实际React Flow节点；无选中步骤则聚焦显示完整流程。避免沿用上次键盘选中ID，结构添加及读取检查器视图操作共用新的focusStep记录。网页展开时继续使用现有当前步骤摘要按钮。
+
+修复后准备资料节点返回范围x478.31–634.67/y268.12–321.74；Enter进入后修改数据值为本轮配置保留，关闭回原步骤且图中摘要与未保存状态保留。动作库搜索数据、选择成立分支末尾，新增并命名分支内新资料，配置标题获焦；关闭后节点03获焦且x417.46–556.49/y396.86–444.53可见。重新打开动作库，搜索数据与02按结果分支/成立分支/末尾保留。第一次连续工具点击后的读取尚未稳定，重新读取实际页面并在独立调用中添加后确认仅新增1步骤；没有将瞬时观察改为产品失败。
+
+新增步骤期限输入1时应用并关闭被阻止，仍在node面板，aria-invalid输入获焦并保留1，y553.81–593.29可见；改10000后关闭回节点03。保存为虚构内存记录后返回流程列表再打开，无选中情况下关闭动作库，焦点为显示完整流程，y616.26–642.26。1920×1079下动作库flex、画布block、检查器block均可见，名称分支内新资料保留。仅为此会话内存保存，不代表磁盘持久化。
+
+类型检查首次发现读取检查器视图回调中的旧keyboardStep变量名，改为focusStep后pnpm typecheck通过。构建生成schema触发同一Vite页签刷新至任务首页，旧配置按钮定位无匹配；重新读取同一页签并从已有流程进入，不重启服务或新增页签。最终代码核对原4步骤循环体数据，关闭配置后同ID节点04获焦，x467.14–623.51/y528.36–581.97可见。最终warn/error为空。实际查看截图/Users/mac/.codex/visualizations/2026/10/10/flowark-compact-editor-focus/branch-step-return-1040.png及loop-step-return-1040-final.png，分别为添加会话和最终刷新后会话，不合计为磁盘保存或完整视觉证据。
+
+最终pnpm typecheck、pnpm build、单文件Prettier --check及git diff --check通过；/tmp/flowark-compact-editor-focus-build.log保留既有大chunk提示。没有新增/运行单元、集成或smoke测试，没有启动第二FlowArk/Electron或调用真实文件、AI、凭据和宿主。页签关闭、视口复位、4281服务回收exit130、临时HTML/JS删除，无关IDE改动保留。真实网页遮挡、全部配置/结构组合、安装版保存重开及完整186画板/U01–U12继续待完成。
+
+客户端 [PR #158](https://github.com/zhongmiao-org/flow-ark-client/pull/158) 最新head `e4d99d0c752893854d5707b39faccfa74c316b13` 经 [CI 38035215083](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38035215083) Validate41秒/Auto Merge10秒通过，实际自动合并为 `acfac0768abaff5282fbcfc77d20d408aa725f82`。较早38035213810取消，不计通过；PR附件工具仍返回线程附件超过100，未重试或删除附件，保留直接链接。
