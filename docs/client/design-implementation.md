@@ -7479,3 +7479,16 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-excel-source-editing/下fixed-focus-676.png和fixed-focus-1440.png，只支持局部输入焦点与布局查看。最终warn/error为空，页签关闭、视口复位、4289服务回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-excel-fixed-focus-build.log保留既有大chunk提示。未新增或运行单元、集成或smoke测试，没有启动第二FlowArk/Electron，无关IDE改动保留。真实系统保存重开、Excel写入/并发、不覆盖、安装版、整板视觉和完整186画板/U01–U12仍待验收。
 
 客户端 [PR #166](https://github.com/zhongmiao-org/flow-ark-client/pull/166) 最新head `fe83b3c6d9d52b9b8e2eafb3968e222adb88e468` 经 [CI 38043413924](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38043413924) Validate43秒/Auto Merge8秒通过，实际自动合并为 `863c823961ce7939c56999c87ff8befdb9384b79`，本地main已同步。较早38043378836取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
+
+
+### 2026-10-10 描述与附件预览返回
+
+沿用092 `23:2280`、U02和既有导航规格；先补充附件子任务返回及空正文反馈说明，不增加独立产品菜单或权限。在线Starter额度仍受限，本轮未取得最新云端Figma整板，不当整板视觉对齐证据。唯一IAB页签27与4290 Vite加载实际App/main和生产CSS。临时虚构接口提供一份带两份文本附件及手填资料的任务、120行正文/空正文、一次读取与移除失败、明确重试、内存保存及取消选择；未访问真实宿主、文件、图片或AI。
+
+1040×700修改需求但不保存，先读取普通附件失败，需求与附件保留并聚焦原位反馈；读取空文件成功却仅显示空白正文框。再次读取长文本并在标题按⌘[，修复前直接回首页，列表描述变成此前未保存需求，证明触发了任务保存。现将打开预览时的共用顶部/键盘/面包屑返回绑定到关闭预览，与已有Escape一致；当前位置标为附件预览，父来源为描述与附件。空正文使用Ant Design信息提示“附件已读取，内容为空”，非空正文仍完整保留。
+
+修复后1040空文件⌘[关闭预览、恢复“预览 空白资料.txt”按钮焦点，需求及“有未保存修改”保留；长文本读取先失败，经明确重读恢复，父来源面包屑同样仅关闭预览并聚焦原长文本按钮。Escape与1440顶部返回分别核对。移除空附件第一次失败保留原副本和预览，明确重试成功后撤下旧预览及该附件，其他未保存需求仍保留。676长文本正文120行、clientHeight360/scrollHeight2416；首次PageDown后立即读取仍为0，随后在同一页签稳定读取scrollTop345.11，未重启或新增页签。正文内⌘[只关闭预览，原按钮top359.39/bottom381.20在700高视口内，需求与未保存状态保留。最后明确保存草稿并模拟取消选择文件，原需求与剩余附件保持，状态为草稿已保存。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-task-attachment-preview/下empty-1040-before.png、empty-1040-after.png、empty-1440-after.png和text-676-after.png；仅支持局部反馈/正文和返回查看，不当整板视觉对照。1440稳定DOM核对两栏469.995/657.871、右边1407.85，document.scrollWidth为1440。最终warn/error为空，页签关闭、viewport复位、4290服务回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过；/tmp/flowark-attachment-preview-return-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，没有启动第二FlowArk/Electron，无关IDE改动保留。真实选择器/存储、图像、慢请求、安装版、整板视觉及完整186画板/U01–U12仍待验收。
+
+客户端 [PR #167](https://github.com/zhongmiao-org/flow-ark-client/pull/167) 最新head `9a1128b313069a07e7bbc9d3f19b768bdbed975e` 经 [CI 38044186239](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38044186239) Validate48秒/Auto Merge7秒通过，实际自动合并为 `46944c5b0d1561cb745bf9f38fbbb1bb49d95345`。较早38044147402取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
