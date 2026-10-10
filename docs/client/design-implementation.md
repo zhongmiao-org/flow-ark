@@ -7492,3 +7492,10 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-task-attachment-preview/下empty-1040-before.png、empty-1040-after.png、empty-1440-after.png和text-676-after.png；仅支持局部反馈/正文和返回查看，不当整板视觉对照。1440稳定DOM核对两栏469.995/657.871、右边1407.85，document.scrollWidth为1440。最终warn/error为空，页签关闭、viewport复位、4290服务回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过；/tmp/flowark-attachment-preview-return-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，没有启动第二FlowArk/Electron，无关IDE改动保留。真实选择器/存储、图像、慢请求、安装版、整板视觉及完整186画板/U01–U12仍待验收。
 
 客户端 [PR #167](https://github.com/zhongmiao-org/flow-ark-client/pull/167) 最新head `9a1128b313069a07e7bbc9d3f19b768bdbed975e` 经 [CI 38044186239](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38044186239) Validate48秒/Auto Merge7秒通过，实际自动合并为 `46944c5b0d1561cb745bf9f38fbbb1bb49d95345`。较早38044147402取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
+
+
+### 2026-10-10 当前 UI 的开发包与安装路径
+
+将当前已合并客户端 `46944c5b0d1561cb745bf9f38fbbb1bb49d95345` 经 `pnpm package:mac` 生成0.3.0 arm64 ZIP/DMG，实际只读挂载并安装到 `/Users/mac/Applications/FlowArk.app`，安装版和DMG中的app.asar摘要一致。旧0.2.1应用移到持久恢复备份，日常数据未访问或迁移；完整路径与摘要见[本轮打包安装记录](acceptance.md)。未签名/公证、默认应用图标、既有大chunk提示仍保留。
+
+首次启动进程已退出、未取得窗口，核实无实例后改用前台启动；当前只保留一个安装路径主进程PID9637，显式采用独立资料 `/private/tmp/flowark-current-ui-install-qa5i977e/ui-records`。系统只读状态确认Mac锁屏，窗口数0；已请求解锁，继续复用该实例，不用重开替代窗口读取失败。本轮只证明打包与安装，不标记任何整板或原生UI通过；安装版主题/字体/资源、保存重开、内置网页及完整186画板/U01–U12继续待验收。未新增/运行单元、集成或smoke测试，无关IDE改动保留。
