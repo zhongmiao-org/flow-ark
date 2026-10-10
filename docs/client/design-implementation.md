@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #196](https://github.com/zhongmiao-org/flow-ark-client/pull/196)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #194，包含PR #189–#194但尚未包含PR #195–#196，DMG/ZIP内容核对通过但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #197](https://github.com/zhongmiao-org/flow-ark-client/pull/197)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #194，包含PR #189–#194但尚未包含PR #195–#197，DMG/ZIP内容核对通过但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8141,3 +8141,14 @@ ioreg重新确认Mac屏幕锁定，原生主进程仍唯一PID9637/PR #167；未
 ioreg确认Mac仍锁屏，原生主进程唯一PID9637/PR #167未退出或替换。候选仍PR #194，未包含本轮及PR #195；真实第三方服务、最新版保存重开、整板及186画板/U01–U12仍待验收，178局部覆盖/6复核/2缺口不变。无关IDE改动保留。
 
 客户端[PR #196](https://github.com/zhongmiao-org/flow-ark-client/pull/196) head `af4429d06d4b302925941c81c36a988e43129af2` 经[CI38080903035](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38080903035)最新Validate及Auto Merge SUCCESS，实际自动合并为 `c7f9dec712cb9ee70718c25403bd7691e88a9d5b`。较早38080886923由标签事件替代并取消，不作为通过证据；附件一次返回100上限，保留直接链接。候选及原生验收状态不变。
+
+
+## 2026-10-11 · 结构参数未完成输入保留
+
+沿用023 `2:2033` HTTP文件与表格配置映射，没有重新请求实时Figma或改变视觉设计。直接Ant Design的MatrixValues在输入未完成JSON时，切换单元格/翻页/增删会卸载编辑器并丢失文本；MappingValues切换条目会丢失未完成值或待应用名称。现保留当前输入，阻止这些局部操作并聚焦待修正字段；修正/恢复值、应用/放弃名称后可继续。矩阵选择或新增行列后聚焦编辑器，窄窗口滚动显示输入。没有新增基础组件、IPC或宿主契约。
+
+临时人工入口挂载实际MatrixValues/MappingValues和虚构12×2矩阵/两个请求头，复现修复前丢失；修复后核对切换、分页、增删保护、JSON修正/恢复、名称应用/放弃，1040/676窗口查看。676矩阵输入最终frame y约329–449、位于700高视口内；中途发现仅focus仍部分落窗外，补充nearest滚动后再核对。应用矩阵值及映射原值未被未完成输入改写。证据与fixture在 `/Users/mac/.codex/visualizations/2026/10/11/flowark-structured-draft-workbench/`，包含before、guards-after、mapping-name-after、matrix-narrow-final.json/png。仅实际领域组件人工查看，未完整App保存、调用宿主/AI/MCP或创建Run，局部截图不计整板通过。
+
+`pnpm typecheck`、`pnpm build`、修改文件Prettier及git diff --check通过；日志 `/tmp/flowark-structured-drafts-typecheck.log`、`/tmp/flowark-structured-drafts-build.log`。未新增或运行单元/集成/smoke测试。Vite4326/session8924已停止，临时入口删除、页签关闭、viewport复位，无关IDE保留。ioreg确认Mac仍锁屏，唯一原生主进程PID9637/PR #167保留；候选PR #194尚未包含PR #195–#197。186索引仍178局部覆盖/6复核/2缺口，083/087字段、最新版原生保存重开、真实功能与U01–U12仍未完成。
+
+客户端[PR #197](https://github.com/zhongmiao-org/flow-ark-client/pull/197) head `f6e8f84cacf2633c134cdca548d739fa0aeb6950` 经[CI38081758748](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38081758748)最新Validate与Auto Merge SUCCESS，实际自动合并为 `f3b7410d3b056c21ae2828da91f75138e055b290`。较早38081748309被标签事件替代并取消，不作为通过证据；附件一次返回100上限，保留直接链接。候选与原生验收状态不变。
