@@ -6807,3 +6807,27 @@ Figma 2:4940 在线上下文与截图仍受Starter配额限制，实际查看保
 pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过；构建日志 `/tmp/flowark-export-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成或smoke测试，未启动Electron/第二客户端、选择真实文件、生成ZIP、访问凭据或执行Run。页签98关闭、视口复位、4249 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实导出/导入/跨启动恢复、最新设计和完整186体验仍待验收。
 
 [客户端 PR #126](https://github.com/zhongmiao-org/flow-ark-client/pull/126) 最终head `da572ec8ce16c034bdfc658728ba3a588622fa55` 的 [CI 38006602576](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38006602576) Validate37秒/Auto Merge8秒成功，已实际合并为 `78d2610cd7f318ba082a417f8dfa05cce042e984`；同head较早38006601445取消，不计为通过。
+
+### 2026-10-10 Ant Design 流程参数、步骤位置与更多操作卡片
+
+实际查看保存导出018流程参数与资源（2:1398）、020步骤编辑与位置（2:1650），从既有FlowArk-AI-task-design.zip提取并查看121更多操作（taskmore，23:6890）。没有本轮最新在线Figma上下文，沿用最近接口配额限制与既有实施基线；组件迁移不计最新整板1:1或186画板完成。
+
+FlowParametersPage两卡、StepPositionPage两卡和EditorMorePage菜单/脚本/复制三卡共七处声明直接使用Card。保留section/fieldset/form、参数与结构语义、按钮和原响应断点，将布局移至Card body；删除重复卡片外观、菜单两像素补偿和复制Checkbox外观。普通body继承主题24px，参数区原28px/更多页窄原20px统一24px，宽卡最低680/682/620px保留。没有新增基础控件包装或IPC/宿主/授权/持久化变更。
+
+人工查看发现并修复两个既有UE问题：参数JSON未完成点击保存时原查询会聚焦Ant Select内部输入，现优先聚焦aria-invalid=true的实际input/textarea，再使用原后备；最终焦点为“参数 items”文本框、内容为“{”。步骤复制/删除成功会更新修订，原修订effect立即清空新成功通知；现保留本次结构操作通知并聚焦，外部修订/撤销仍清除旧通知，保存错误仍优先。确认App真实结构回调成功后会提交草稿修订；没有修改结构算法或实际执行。
+
+唯一隐藏IAB页签99加载实际三页组件、ApplicationTheme及生产样式，流程、引用、目录、凭据标识和接口均虚构。初始夹具把引用误写为ref，删除未受阻；改为契约$ref后删除title被阻止，提示第1步/params.title且字段保留，不以初始错误夹具证明保护。未完成JSON在虚构目录等待/取消后保留、Collapse保持展开；未保存离开弹出原Modal。焦点修复后JSON未完成不调用保存回调并定位实际文本框；虚构延后保存禁用字段，失败聚焦错误并保留新标题、0、false、[0,false]，明确重试成功仅回写虚构父组件。受管参数只读0/false，编辑实例配置只触发虚构导航。
+
+更多页选择第二脚本触发对应ID回调，返回菜单恢复“编辑脚本”焦点；来源改动使复制勾选失效、创建禁用，重新核对后虚构创建等待禁用控件，失败聚焦且保留名称/勾选。明确重试成功聚焦回执，“打开新流程”仅虚构导航，返回菜单恢复复制入口；两次复制回调使用同一个请求身份。没有真实复制或历史查询。
+
+位置页失效添加目标禁用“选择动作”，ArrowDown/Enter重新选择恢复；虚构修订回调暴露旧通知清除问题，修复后复制成功反馈保留并获焦。延后保存禁用返回/操作/视图，失败错误获焦、步骤与草稿保留，重试成功回到保存按钮并显示已保存。虚构删除显示未选步骤、聚焦选中禁用且通知保留，撤销恢复标题、清除旧通知；再次复制后反馈仍保留获焦。结构回调仅模拟修订，不证明真实流程树或Run行为。
+
+夹具改引用、参数焦点修复、步骤反馈修复各触发Vite整页重载，状态/计数复位；参数/更多阶段计数save2/copy2且两个复制身份相同，步骤最终阶段structure4/stepSave2。不能把各阶段计数拼为单次连续会话。尝试点击旧“继续编辑”时发现修复触发重载已无Modal，观察后改为重新输入，不把定位超时计为通过。
+
+浏览器原133%缩放，宽申请1920实际CSS1443、页面文档1443；参数双卡约874.90/480.72px且初始等高708.89px，位置最终674.15/457.46px且高682px。申请1040实际782时参数与位置按原容器断点纵向排列，参数错误态两卡717.96px宽，较早有引用错误/展开说明时高1264.75/578.63px；更多页申请936实际703，小卡520px宽、失败自然高455.03px。body均24px，无页面横向溢出。最终位置宽图含两卡和通知；窄Drawer因内部滚动为局部，不能宣称整板同时可见。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-editor-utility-cards/` 的parameters-wide.png、parameters-invalid-narrow.png、parameters-invalid-narrow-final.png、parameters-save-error-narrow.png、more-wide.png、copy-error-narrow.png、copy-done-narrow.png、position-wide.png、position-notice-narrow-final.png、position-save-error-narrow-final.png与position-wide-final.png。参数invalid非final、位置wide非final分别为两项UE修复前。只读CDP按原缩放捕获，不更改浏览器缩放；工具条/计数均是夹具、没有产品侧栏或原生整板证据，最终console warn/error为空。
+
+pnpm typecheck、pnpm build、六文件Prettier --check、git diff --check通过；构建日志 `/tmp/flowark-editor-utility-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二客户端、访问凭据/实际目录、创建副本/Run或保存真实草稿。页签99关闭、视口复位、4250 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实保存重开/复制幂等/结构操作、最新设计和完整186体验仍待验收。
+
+[客户端 PR #127](https://github.com/zhongmiao-org/flow-ark-client/pull/127) 最终head `14bd473ae788353f5738bc0c9bd51a1f4c63c0af` 的 [CI 38007338660](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38007338660) Validate44秒/Auto Merge7秒成功，实际合并为 `b36fdbaf1f58232aa5c1ede83249fa72bab20f5c`；同head较早38007337270及其两项job均取消，不计为通过。
