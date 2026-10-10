@@ -7371,3 +7371,17 @@ pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过
 最终warn/error为空；唯一页签关闭、视口复位、4282服务回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-plan-card-wrapping-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，无关IDE改动保留。真实模型、原生网页/宿主、安装版持久化、复杂结构/全部状态以及完整186画板/U01–U12继续待完成。
 
 客户端 [PR #159](https://github.com/zhongmiao-org/flow-ark-client/pull/159) 最新head `c52d64d9fd407ab5e3e551e63b786c98e1a81e66` 经 [CI 38036838026](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38036838026) Validate49秒/Auto Merge7秒通过，实际自动合并为 `52973076afa12de894dd9cd892445b10639a7495`。较早38036837808取消，不计通过；线程PR附件达到100上限，未重试或删除附件，保留直接链接。
+
+### 2026-10-10 试运行确认拒绝后的执行版本说明
+
+沿用101 `23:3799`试运行前检查映射，实际查看已保存flowark-native-run-review/figma-review.png：设计680/448双栏、五项检查内容与版本卡。在线Starter额度仍受限，本轮未读取最新云端整板。沿用Ant Design与集中主题，本次仅修改通用执行版本说明，不改检查/确认状态机、IPC、授权或运行创建逻辑。桌面专用确认面板不在本轮范围内。
+
+唯一IAB页签20与4283 Vite加载实际App/main及生产CSS，虚构内存接口提供修订4的两步骤任务和虚构目录，不访问真实资料或模型。1440×1079下左右栏679.917/447.950，改变逐步调试会重新检查并清除旧勾选；第二次预览明确失败，开始按钮禁用、错误提示获焦。显式重新检查成功后，勾选并开始试运行，虚构确认回执明确拒绝“试运行检查已过期”。右侧已经说明本次确认未创建运行，左侧却仍称采用已检查的固定方案。
+
+执行版本卡现说明保留上次检查的方案并要求重新核对，展开版本明细标为“上次检查版本”。源文件HMR在同一页签重置虚构状态后，重新走实际任务入口、检查与确认拒绝；1040×700查看新说明及virtual-v4版本。再次明确重新检查时虚构预览失败，旧摘要撤下、确认禁用且错误获焦；第二次明确重读成功后恢复正常版本说明，确认勾选为false、开始仍禁用，不自动执行。返回1440并“回去修改”后仍为原本周资料核对任务、修订4，确认方案入口获焦。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-review-rejected-version/下rejected-version-1040-before.png与rejected-version-1040-after.png。后图展开版本明细，前图为折叠状态，两张仅支持局部文案与布局查看，不当作同几何整板对比或真实执行证据。最终warn/error为空；唯一页签关闭、视口复位、4283服务回收exit130、临时HTML/JS删除，没有启动第二FlowArk/Electron。
+
+pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过；构建日志/tmp/flowark-review-rejected-version-build.log保留既有大chunk提示。未新增或运行单元、集成及smoke测试，无关IDE改动保留。真实宿主确认失效、原生资源与安装版持久化、桌面专用面板、完整视觉及186画板/U01–U12继续待完成。
+
+客户端 [PR #160](https://github.com/zhongmiao-org/flow-ark-client/pull/160) 最新head `325ad2e50f0feec09be79399b9ee9014aecbe9a2` 经 [CI 38037993524](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38037993524) Validate39秒/Auto Merge8秒通过，实际自动合并为 `7032d52922759a72090b62f424219ac87f46db0c`。较早38037993361取消，不计通过；线程PR附件超过100，未重试或删除附件，保留直接链接。
