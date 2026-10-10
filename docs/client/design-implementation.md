@@ -7035,3 +7035,15 @@ TaskTargetConnections、TaskToolPicker 和 TaskDesktopWindows 共八处容器直
 pnpm typecheck、pnpm build、四文件Prettier --check、git diff --check通过，构建仍有大chunk提示。未新增或运行单元、集成、smoke测试，未启动Electron或第二FlowArk、未访问真实AI/文件/工具/宿主或保存任务。页签112关闭、视口复位、4263 Vite回收、临时HTML/TSX删除，无关IDE改动保留未提交。真实保存重开、系统权限与窗口操作、186画板/U01—U12完整验收仍待完成，不按组件数量计算百分比。
 
 [客户端 PR #140](https://github.com/zhongmiao-org/flow-ark-client/pull/140) 最新head `ffa8063f97fd05025574b27c332228a0824a777d` 的 [CI 38015622217](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38015622217) Validate42秒/Auto Merge8秒成功，实际合并为 `968cb92516c142448c58387dc0a0063b7908d7d0`；同head较早38015621352取消，不计为通过。
+
+### 2026-10-10 Ant Design 存储故障提示
+
+StorageFaultNotice 三处 Card、状态 Tag/Badge、无记录 Empty 与成功/失败 Alert 直接采用 Ant Design，删除手写边框、圆角和胶囊/圆点外观。外层body0以保留摘要/详情分区，两内卡body由原20统一主题24px；保留语义section、原按钮refs、只读刷新和详情/历史回调，Alert原生元素设tabIndex后接收反馈焦点。当前活动与最后保存、收尾与缺失记录的区别，以及6项/200条/完整历史提示保持；不改变IPC、宿主、存储恢复、权限或执行契约。Figma2:4732上下文和截图仍受Starter配额限制，沿用既有状态映射；旧本地导出已不存在，本轮不宣称最新整板1:1。
+
+唯一隐藏IAB页签113、4264 Vite加载实际组件/ApplicationTheme及虚构内存数据。8条记录显示前6项并保留完整历史入口；详情读取失败聚焦Alert，切虚构成功后只读刷新聚焦“不代表存储已恢复”，再详情/历史仅记录导航回调，收起焦点回查看故障说明。缺失活动保存记录显示正在收尾与读取入口，无活动保留未知资源说明，无观察明确无法判断执行；窄刷新失败聚焦Alert且记录仍在。切虚构页面收起旧详情并清除反馈，再打开标题获焦。累计虚构详情2/刷新2/历史1/打开1，真实执行0；没有真实进入运行页。迟到回复、错配标识、宿主持久化及真实存储故障本轮未独立核对。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-storage-fault/` 的 records-failure-wide、missing-record-wide、empty-refresh-failure-narrow，均png；unknown-observation-narrow只保存未目视。宽申请1920实际CSS视口1443/文档1432，两内卡宽653.11/593.74px、body24，故障pre可视180/内容359px；窄申请900实际视口676/文档665，两卡宽503.94px、单列/body24，无页面横向溢出。全页窄截图刷新按钮有捕获裁切表现，实际DOM按钮高40px、内部文本20.30px/居中，不据全页捕获判断原生按钮可见性。保留原133%缩放，无产品侧栏的隔离预览和全页图不证明原生整板同时可见。最终console warn/error为空。
+
+初次类型检查拒绝Alert的tabIndex属性，改用已有Alert原生ref方式后通过。最终pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过，构建仍有大chunk提示；去除重复摘要CSS后再次构建通过。未新增/运行单元、集成、smoke测试，未启动Electron或第二FlowArk，未访问真实磁盘/宿主/AI/网页。页签113关闭、视口复位、4264 Vite回收、临时HTML/TSX删除，无关IDE改动保留未提交。真实故障恢复、保存重开、186画板/U01—U12完整验收仍待完成，不按组件数量计算百分比。
+
+[客户端 PR #141](https://github.com/zhongmiao-org/flow-ark-client/pull/141) 最新head `7b00f1c79a9c430a35c77ce700e36a1b5c966e61` 的 [CI 38016148365](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38016148365) Validate41秒/Auto Merge7秒成功，实际合并为 `20c51bd2d21e98f540fbdddec66305ad9a610ad1`；同head较早38016142987取消，不计为通过。
