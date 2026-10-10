@@ -6943,3 +6943,15 @@ Figma 在线23:3290上下文与截图均返回 Starter 配额限制，沿用已�
 pnpm typecheck、pnpm build、十文件 Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron或第二FlowArk。页签105关闭、视口复位、4256 Vite回收、临时HTML/TSX删除；用户IDE改动保留且未提交。真实AI、文件/桌面读写、保存重开及186画板/U01—U12完整验收仍待完成，不依据Card数量计算完成百分比。
 
 [客户端 PR #133](https://github.com/zhongmiao-org/flow-ark-client/pull/133) 最新head `ce537b714c27f127bb6550eba45e25f43d2919e2` 的 [CI 38011917286](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38011917286) Validate43秒/Auto Merge7秒成功，实际合并为 `ec239cd04f415efa61e4844cfe0958a7a62456c2`；同head较早38011916941取消，不计为通过。
+
+### 2026-10-10 Ant Design 逐步调试卡片与空态
+
+DebugRunWorkspace 两处 Card、两处 Empty 直接采用 Ant Design，保留语义 aside/section、步骤实例、refs、原控制/导航回调与折叠。删除基础卡片重复外观；控制区原28px内边距统一为主题24px。宽400:728比例和592px最小高度保留，窄容器单列且取消最小高度。Figma 2:2534上下文/截图均返回 Starter 配额限制，沿用已映射结构，不宣称新整板1:1；无新增静态资产或执行契约变化。
+
+唯一隐藏IAB页签106、4257 Vite、实际组件/ApplicationTheme加虚构数据人工查看暂停、失败、收尾与无记录。空格展开外层输出、保存输出和详情，循环实例显式显示；0/false/null与长文本前后空白保留，长pre高280/内容439px。日志和重新核对仅触发虚构入口并保留按钮焦点，执行控制按钮为夹具，未点击真实运行。首轮夹具误用output而非outputPreview，输出为空；修正夹具并重载后重新核对，不把初次空输出当作功能证据。最终console warn/error为空。
+
+宽申请1920实际CSS1432、文档1432，卡宽约482.39/877.95px、body24，步骤卡高592px。窄申请1040实际CSS771、文档771，两卡单列宽约722.69px、body24；失败详情展开时自然增高，无横向溢出。实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-debug-cards/` 的 paused-wide、empty-narrow、failed-narrow，均png；outputs-wide和empty-wide只保存未目视。不含产品侧栏，全页截图不证明原生整板同时可见，保留原133%缩放。
+
+pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试。未启动Electron或第二FlowArk，未调用宿主/AI/文件或真实控制；页签106关闭、视口复位、4257 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实执行控制、保存重开及186画板/U01—U12完整验收仍未完成。
+
+[客户端 PR #134](https://github.com/zhongmiao-org/flow-ark-client/pull/134) 最新head `d9c79edadf0e8c0f1f97322b24cbb6d8167bbc0e` 的 [CI 38012319150](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38012319150) Validate45秒/Auto Merge8秒成功，实际合并为 `1ca2f91a025dc2f9e62112aada31dd7a479d10fc`；同head较早38012318919取消，不计为通过。
