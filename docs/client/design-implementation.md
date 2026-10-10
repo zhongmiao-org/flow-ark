@@ -7143,3 +7143,23 @@ Figma23:10659的get_design_context与get_screenshot均返回Starter额度限制�
 最终控制台warn/error为空，页签关闭、视口复位、4270 Vite回收、临时HTML/TSX删除。首次Vite命令不支持--root，进程已退出，改用位置参数后仅一个预览进程；没有启动第二客户端。pnpm typecheck、pnpm build、三文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成或smoke测试。无关IDE改动保留未提交。真实HTTP/stdio/OAuth、真实账号/工作区、活动工具调用/任务引用、慢请求、原生安装版与保存重开及186画板/U01–U12仍待验收。
 
 客户端 [PR #147](https://github.com/zhongmiao-org/flow-ark-client/pull/147) 最新头 `5f9f6b6b00575fbe0eaed0acaf85d4e748f2bd7c` 经 [CI 38022782751](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38022782751) Validate 41s / Auto Merge 8s 成功，已实际自动合并为 `f600fbcc254a5935ac7901e5e796b09d111370dc`；另一轮38022782690取消，不计通过。附件工具返回线程附件数量超过100，未重复或移除已有附件，保留直接PR链接。
+
+### 2026-10-10 我的流程与编排保存返回的 App 页面核对
+
+继续核对首页1:198与编排1:394。两次Figma调用（get_design_context、get_screenshot）均返回Starter额度限制，没有取得最新设计或新资产；实际查看已保存的原首页导出home-我的流程.png，沿用搜索框344px、筛选左/搜索右的既有映射。本次直接保留Ant Design输入、Alert、按钮、主题及业务组合，不新增基础控件，不改变IPC、宿主、快照、运行或持久化。
+
+实际App加载唯一隐藏IAB页签和4271 Vite，接口为30条内存流程及受控创建/保存回复。复现搜索框x528.65px靠在筛选旁；补margin-inline-start:auto后，1440 CSS宽度下x1052.58/宽344/right1396.58，与筛选行right1396.58一致。1040 CSS宽度下宽280/right997.33，同样对齐右端，无文档横向溢出。搜索图标保留原调用与20×20根尺寸，实际约19.995×19.995px；未改导航或资源文件，其他资产/整板一致性不计本轮通过。
+
+主动创建/保存失败原先焦点留在按钮。现在只为action捕获的主动失败记录来源，操作结束后来源仍可见且焦点仍在来源或body时聚焦Ant Design Alert原生元素；连续相同失败也处理。FlowLibrary恢复入口焦点时尊重用户或反馈已移开的焦点。无效字段仍由原校验定位，轮询bootstrap错误不进入此处理。连续两次虚构创建失败与两次保存失败均Alert获焦，关闭回原按钮；明确重试创建与保存成功。
+
+宽屏保存错误出现后，固定高度编辑页bottom1200.30超出1079 CSS高度；编辑主区改为纵向flex、编辑页使用剩余空间，顶部和错误不压缩，长错误限高可滚动。修正后宽屏编辑页bottom1079.70（原生几何存在小数/整数窗口差异），画布区域bottom1047.70；1040×700下编辑页bottom700、画布bottom684，Alert在95.99–192.61可见。未以此证明1920画板或真实安装版尺寸完成。
+
+人工往返核对：创建并改名→连续保存失败→明确成功→返回；查询30→编辑改名→继续编辑→紧凑保存失败→保存并离开失败留在确认框并聚焦标题→明确重试成功，返回仍查询30并聚焦改名后的原行。长列表打开29后返回scrollTop3405.64、原行top602.93且获焦；未保存改名后明确放弃，原记录/查询/滚动保留，没有写入放弃的名称。无匹配清除恢复全部与搜索输入焦点。等待保存时按钮禁用，输入继续编辑保留；释放虚构失败时焦点已移到预览控制按钮，未被Alert抢走，此例只证明移开到另一控件，不计真实慢宿主或产品字段焦点验收。
+
+添加数据步骤后，把期限填为“-”再保存，原错误字段获焦并保留aria-invalid=true，没有发flow.save或被全局Alert抢焦点；修正60000并明确保存，返回显示1步骤。重开后在图中选择同一步，再打开配置，内容“你好，序舟”和timeoutMs60000仍在内存记录。最终这一段独立累计虚构flow.create3（失败2/成功1）、flow.save8（失败5/成功3）；无真实执行、AI、文件或凭据访问，不作为磁盘持久化/退出重启证明。
+
+缩小视口后的部分指针点击未命中实际控件，重读同一页签发现保存失败后的按钮已变为“重试保存并离开”；改用实际按钮的Enter完成后续链路，未新建实例或重启预览。早期HMR重新挂载前的数据不与最终累计相加。实际查看flowark-flow-library-path目录中的library-before.jpg、save-failure-compact-final.jpg、library-compact-final.jpg、return-list-compact-final.jpg、library-wide-final.jpg，目录位于/Users/mac/.codex/visualizations/2026/10/10/；宽屏图存在页头裁切、紧凑列表图受滚动位置影响，均不作为整板截图。final-layout.json记录宽屏DOM尺寸。
+
+控制台warn/error为空。页签关闭、视口复位、4271 Vite回收、临时HTML/TS删除。首次类型检查揭示新增ref缺少初值/undefined类型，修正声明后pnpm typecheck通过；最终pnpm build、四文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，无关IDE文件保留未提交。当前安装版完整路径、背景错误/全部动作、整板视觉及186画板/U01–U12完整验收继续待完成。
+
+客户端 [PR #148](https://github.com/zhongmiao-org/flow-ark-client/pull/148) 最新head `e110fbecee4ba1eac64a6ee29b49476a669f5410` 经 [CI 38023835722](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38023835722) Validate49秒/Auto Merge7秒成功，实际自动合并为 `c282e15bada7cb7fe955de1dcdb3d0964faa96e6`。同head较早38023835186取消，不计通过；附件工具仍返回线程附件超过100，未重试或移除附件，保留直接PR链接。
