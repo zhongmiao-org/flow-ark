@@ -7181,3 +7181,24 @@ Figma23:10659的get_design_context与get_screenshot均返回Starter额度限制�
 最终console warn/error为空。页签关闭、视口复位、4272 Vite回收、临时HTML/TS删除；pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过，构建保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，无关IDE改动保留未提交。参数页引用消费字段尚待明确，受管参数/复杂作用域、当前安装版保存重开、最新设计整板与186画板/U01–U12完整验收仍待完成。
 
 客户端 [PR #149](https://github.com/zhongmiao-org/flow-ark-client/pull/149) 最新head `a8664bb6f19c96c9f3e04403c06290a94e3f0d94` 经 [CI 38024514792](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38024514792) Validate44秒/Auto Merge7秒成功，实际自动合并为 `d3e81bd606671015670de4909b199c43b18c1adb`。同head较早38024514575取消，不计通过；附件工具仍返回线程附件超过100，未重试或移除附件，保留直接PR链接。
+
+
+### 2026-10-10 变量选择长列表与实际 App 完整路径
+
+沿用019 `2:1545`既有设计映射，实际查看已保存原始19-变量选择.png的400/728两栏与670px卡片。本轮没有重复请求已知Starter额度受限的在线入口，未取得最新云端上下文或资产；复用既有Ant Design Drawer/Card/Input/Button/Collapse，不改变引用语义、IPC或宿主。参数页083/087引用消费字段仍未明确，本轮没有猜测入口或写入位置。
+
+唯一隐藏IAB页签与4273 Vite加载实际App/main和完整生产CSS，虚构流程包含24个参数、对象数组、同名数据步骤、条件两分支、循环前序与循环引用及循环外后续步骤。原宽屏来源列表2223.67px，两栏2438.62px；紧凑选中rows后应用按钮仍在894.95–934.95，超出700高窗口。现在宽屏来源区域max-height450、内部滚动，两栏669.995高；紧凑明确选源后滚动详情并聚焦标题，宽屏保留来源按钮焦点。当前670最小高及紧凑240列表上限保留。
+
+1440×1079、1040×700及676×700 CSS窗口人工核对：循环内可选params、01/02同名步骤和08循环前序、item/index；条件成立分支仅列主流程前序01/02/03，不包含条件自身、另一分支、后续或循环；循环外后续仅列主流程前序及条件/循环整体，不出现分支/循环内部输出或item/index。没有用历史运行值冒充当前结果，完整嵌套组合仍待验收。
+
+紧凑rows选中后详情119.54–668.16、操作401.72–441.72，标题获焦。非法__proto__子路径禁用应用；取消保留item.name并回选择按钮。无匹配搜索保留item.name，清除后搜索获焦。index子路径禁用，应用回写index，改用固定值恢复空文本；重新采用params.rows与0.count回写params.rows.0.count。虚构保存失败聚焦现有App错误且引用保留，显式重试成功，返回流程库后重开仍为params.rows.0.count。
+
+宽屏选择08循环前序/text时来源列表scrollTop1781.58，引用steps.inside-before.text、操作512.16–552.16可见，焦点留来源按钮；取消不改原字段。窄窗口选择02同名读取文字/text回写steps.read-again.text；重开后选择01/meta/title，标题获焦、操作495.91–587.89可见、文档宽676，没有横向溢出；取消保留steps.read-again.text。保存该引用后再改为params.title，由变量面包屑返回我的流程触发真实App未保存确认，明确不保存离开，重开恢复steps.read-again.text，无额外保存。最终虚构flow.save尝试3次（失败1、成功2），真实执行0；本轮重开仅指内存接口编辑页重开，不能计安装版磁盘/退出重启验收。
+
+实际查看flowark-variable-app-path目录sources-wide.jpg、subpath-compact.jpg与selection-narrow-final.jpg，位于/Users/mac/.codex/visualizations/2026/10/10/。浏览器原133%缩放；宽图出现捕获的侧栏/底层编排条带，DOM量测两栏位置和高度稳定，不能用此图宣称整板1:1。紧凑和窄图为滚动位置的局部，带产品外预览控制。静态资产/原生窗控未改动，不计本轮一致性通过。
+
+初始夹具误用loop.steps/collection而遗漏body/items，触发flatten错误；按生成契约修正后重载同一页签并重走最终路径，未作为产品缺陷修复。HMR之前的会话不计最终累计。一次关闭后立即切换步骤的工具press超时，重读同一页签发现仍是原分支选择页，关闭、逐步读取后进入循环外步骤；没有新建实例。工具同调用内缩放再选源的早期记录未证明焦点衔接，稳定窄窗重开/选源的最终标题焦点为证。日志保留初始夹具error/warn及窗口缩放时React Flow容器尺寸warn（12:45:48），因此不宣称全程控制台为空；后续完整路径未再记录产品error。
+
+预览页签关闭、视口复位、4273 Vite回收、临时HTML/JS删除。pnpm typecheck、pnpm build、两文件Prettier --check及git diff --check通过，构建保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未调用真实文件、AI、浏览器执行或宿主；无关IDE改动保留未提交。当前安装版持久化、全部选择变量入口、复杂嵌套/原生网页遮挡及186画板/U01–U12完整验收仍待完成。
+
+客户端 [PR #150](https://github.com/zhongmiao-org/flow-ark-client/pull/150) 最新head `1c7aa2d5cae50fd3803b60552455b7f1d53cab1f` 经 [CI 38025300115](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38025300115) Validate44秒/Auto Merge7秒通过，实际自动合并为 `222a1851a34e9141c46268c840629144622b75af`。同head较早38025299751取消，不计通过；附件工具返回线程附件超过100，未重试或删除附件，保留直接PR链接。
