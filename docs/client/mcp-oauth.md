@@ -36,6 +36,8 @@
 
 检查返回宿主签发、五分钟有效的一次性 inspectionToken。授权请求 `tool.connection.oauth.authorize` 携带 requestId、inspectionToken、完整 OAuth ConnectionConfig（http/auth=oauth，oauth 含 issuer/clientId/callbackPort）、reviewedAuthorization:true，以及修改连接时的 connectionId/revision。宿主绑定检查对应的 URL/协议、所选 issuer、资源、全部展示范围、完整配置和原 revision；不接收 Renderer 提供的端点、授权 URL、state 或令牌。使用一次性 inspectionToken 后重试须重新检查。来源或范围变化须重新核对，不以第一次自动选中的站点代替用户选择。
 
+2026-10-10 登录区键盘衔接：公开客户端 ID 与回调端口输入中的 Enter 使用“登录并核对能力”的同一条件判断，不隐式提交外层认证配置检查。尚未核对、客户端为空、端口无效、检查过期或操作忙时不提交，保留选站和输入；确认框中的 Enter 不触发登录或重新检查。普通连接配置与明确“检查认证站点与范围”入口保持原行为。实际App虚构接口局部核对见实施记录，真实提供者、IME与完整原生路径另行验收。
+
 授权最多十分钟，与发现共用单一在途槽。先独占绑定 IPv4 127.0.0.1 的声明端口，再生成随机 state 和 S256 verifier/challenge，通过仅 Main 可用的内部接口打开系统浏览器。禁止 Renderer 任意打开网址；只打开宿主已绑定的授权地址，携带 client_id、redirect_uri、response_type=code、state、code_challenge、scope 和 resource。重复点击不重复打开，不因打开结果未知自动重试。取消/离开/退出/休眠关闭回调监听，旧回调和迟到令牌不能恢复候选或保存连接。浏览器窗口由用户管理，不关闭已有浏览器。
 
 回调只接受 GET、准确 Host/路径和有界 URL；state 使用常量时间比较，重复的 state/code/iss/error 参数拒绝，错误回调也先校验 issuer。按 RFC 9207 及 MCP 规则：声明支持 iss 时缺失拒绝；任何存在的 iss 都须与已验证 issuer 精确相等。正确回调只消费一次；无效 state 不终止另一会话。页面仅返回固定说明、不反射外部文本，no-store / no-referrer，不记录查询串。
