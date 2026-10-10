@@ -6849,3 +6849,21 @@ BrowserActionWorkspace六卡、ResourceWorkspace六卡、LogicConfigurationWorks
 pnpm typecheck、pnpm build、十文件Prettier --check、git diff --check通过；日志 `/tmp/flowark-configuration-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk、访问凭据或真实目录、发HTTP请求/脚本/Run、保存真实草稿。页签100关闭、视口复位、4251 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实保存重开/资源执行、最新设计与完整186体验仍待验收。
 
 [客户端 PR #128](https://github.com/zhongmiao-org/flow-ark-client/pull/128) 最终head `8a59117a80d964ab488435af8a80a742d9da5b66` 的 [CI 38008150736](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38008150736) Validate43秒/Auto Merge8秒成功，实际合并为 `59eaa4ae8efe7b2b1578bda276874658f94b5da7`；同head较早38008149605取消，不计为通过。
+
+### 2026-10-10 Ant Design 本地设置与资源卡片
+
+沿用并实际查看已保存的本地设置1:3896、本机浏览器绑定2:3333、凭据与本机资源2:3227、资源异常2:4732设计导出，本轮没有新在线Figma上下文，不宣称最新整板1:1或186画板完成。
+
+LocalSettingsPage六处、LocalCredentialsPanel三处、LocalStoragePanel两处Card声明直接采用组件库；设置分隔与紧凑凭据条目使用Divider，三类搜索空态使用Empty。保留section/article/aria-busy、列表引用、掩码、原字段与IPC回调。普通body继承主题24px，紧凑资源外层Card管理24px、内部borderless Card body为0；清理重复边框、圆角、背景、留白及旧Checkbox尺寸，业务路径行和浏览器选择布局仍保留。
+
+单个隐藏IAB页签101以实际组件、ApplicationTheme及虚构资源/API人工查看：取消第一次浏览器路径选择保留原路径，等待选择/绑定时相关操作禁用；虚构绑定回执后摘要刷新失败仍保留路径、驱动和回执，明确重读后返回浏览器设置。夹具重读仅更新修订、没有把回执写入browsers列表，因此不能证明绑定列表或跨启动持久化。初次截图发现旧CSS造成Card外层28px及body24px双重留白，清理后CSS HMR保留当前虚构状态，最终外层0/body24；没有把修复前截图当作最终布局证据。
+
+紧凑凭据搜索用Space展开，无匹配显示Empty，清除后恢复三个条目并聚焦搜索；列表读取失败保留旧条目且禁用新增/编辑/移除，明确重读恢复。被引用凭据的移除确认禁用，运行中凭据编辑禁用。修改虚构名称后取消出现离开提醒，继续编辑聚焦名称；保存等待禁用，虚构安全存储失败提示获焦并保留输入，明确重试显示保存回执和掩码。空闲条目移除须勾选确认，失败保留条目，明确重试后列表剩两项、回执获焦。最终虚构调用计数保存2/移除2/绑定1，不是实际存储操作。
+
+资源搜索无匹配/清除恢复、Space展开本地目录说明、虚构目录打开失败聚焦Alert、返回设置以及脚本包搜索Empty均已查看。独立凭据面板两栏、独立存储面板窄屏单列；申请1920宽实际CSS1443，独立凭据主卡约645.81px/内部条目596.32px，body均24px；申请1040实际782，独立存储两卡宽约653.97px、外层0/body24，文档宽等于视口。紧凑资源宽屏双栏、窄屏单列，四处内部body为0，长路径保留换行。最终console warn/error为空。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-settings-cards/` 的settings-wide.png、settings-wide-final.png、binding-refresh-error-narrow.png、resources-wide.png、resources-empty-narrow.png、credentials-list-error-narrow.png、credential-save-error-narrow.png、credentials-full-wide.png、storage-full-narrow.png。settings-wide非final为双重留白修复前；工具条/计数是夹具，无产品侧栏或原生整板证据，弹窗全页图的遮罩只覆盖当时视口，不表示整页同时可见。原133%缩放保留，CDP只读捕获。
+
+pnpm typecheck、pnpm build、六文件Prettier --check和git diff --check通过；日志 `/tmp/flowark-settings-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk、访问真实凭据/目录/文件选择、绑定浏览器或实际保存/删除。页签101关闭、视口复位、4252 Vite回收、临时HTML/TSX删除，IDE改动未提交。实际系统保护、保存重开、原生资源与完整186体验仍待验收。
+
+[客户端 PR #129](https://github.com/zhongmiao-org/flow-ark-client/pull/129) 最终head `026b9eae8d4b1104bc5a6c5360edb82035e1d086` 的 [CI 38009002856](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38009002856) Validate38秒/Auto Merge7秒成功，实际合并为 `cf0f9cf92e9993c9df336bcfec7cb191a90dafbf`；同head较早38009002509取消，不计为通过。
