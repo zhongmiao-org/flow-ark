@@ -7553,3 +7553,18 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 已查看/Users/mac/.codex/visualizations/2026/10/10/flowark-window-capability-readability/中的before-1440.png、after-1440.png、after-1040.png、after-676.png、expired-676.png。最终warn/error为空，页签关闭、viewport复位、4294服务回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check和git diff --check通过；日志/tmp/flowark-window-capability-readability-build.log保留既有大chunk提示。未新增或运行单元、集成或smoke测试。本轮未重新打包，安装版仍为此前46944c5来源的0.3.0，真实权限撤销/选区、最新安装版、完整186画板/U01–U12仍待验收。
 
 客户端[PR #171](https://github.com/zhongmiao-org/flow-ark-client/pull/171)最新head `faa2b5765e2e77f8286e5185db608ef499dafc7f` 经[CI 38048223142](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38048223142) Validate40秒/Auto Merge8秒通过，实际自动合并为`a98dc867615bebf45152ce7975318eb6276f0ef0`。此前38048184260取消，不计通过。线程附件超过100，未重复附加或删除既有附件，保留直接PR链接。
+
+
+### 2026-10-10 首次教学：连续重读失败焦点与跳过继续
+
+对应090（23:1941）、091（23:2106），沿用第一次实操规范。本轮从已保存FlowArk-AI-task-design.zip取出并查看taskguide-AI · 第一次实操.png，未取得最新云端整板，不计整板视觉验收。独立客户端main a98dc867615bebf45152ce7975318eb6276f0ef0，IDE改动保留；唯一安装版PID9637存在，未重启或新增FlowArk/Electron。
+
+实际App Renderer由4295预览及唯一IAB页签打开，虚构宿主提供已有教学任务、target一项学习证据（1/4）、350ms学习读取、教学打开失败后持续同错，以及独立正常模式的跳过失败/明确重试/继续同一任务响应。没有真实AI、网页或文件读写，不证明学习持久化、CAS或真实执行成功。
+
+首页输入需求后打开介绍、继续教学失败，后台读取失败将已完成标签改为上次记录已完成，原1/4保留且继续/重启/跳过禁用。明确重读同一错误时，按钮等待期间禁用，原逻辑仅在readError文字变化时聚焦，结束后document.activeElement为BODY。FirstTaskGuide现仅在明确重读结束时将失败焦点返回feedback；成功仍聚焦可用教学入口，不改变后台轮询/状态或学习契约。
+
+修复后676/1040/1440连续同错重读均聚焦learning-read-error；反馈top/bottom分别372.721/535.344、468.768/587.394、840.690/981.315，在各自700/700/1079视口内。返回首页保留原需求文字。正常模式下跳过保存首次失败留在介绍、进度1/4；明确重试返回首页且首页需求保留，显示已跳过 · 1/4。继续教学进入原learning-task的需求页，虚构原需求保留、AI未配置阻止理解。未点击重新学习或生成，没有建立新Run；以上仅为虚构宿主下的页面交互。
+
+已查看/Users/mac/.codex/visualizations/2026/10/10/flowark-learning-return/中的design-taskguide.png、retry-before-676.png、retry-after-676.png、retry-after-1040.png、retry-after-1440.png、continued-task-676.png，支持局部焦点/布局与继续入口查看。676修复后截图在稳定画面重存并查看，不用瞬时截图代替最终画面。页面值读取使用只读DOM；工具不支持inputValue的调用未重放已完成返回动作，不作为产品失败。最终warn/error为空，页签关闭、viewport复位、4295回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check及git diff --check通过，/tmp/flowark-learning-retry-focus-build.log保留既有大chunk提示。未新增或运行单元、集成或smoke测试。本轮未重新打包，安装版仍为此前46944c5来源的0.3.0；真实失败/跳过恢复、安装版、整板及完整186画板/U01–U12仍待验收。
+
+客户端[PR #172](https://github.com/zhongmiao-org/flow-ark-client/pull/172)最新head `20d7c9fd7107d8a8d191b0fbd26aa7bb90c8348f` 经[CI 38048855846](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38048855846) Validate34秒/Auto Merge8秒通过，实际自动合并为`a09a533eb712182e02a445c719f706f131f6899f`。此前38048810288取消，不计通过。线程附件超过100，未重复附加或删除既有附件，保留直接PR链接。
