@@ -7305,3 +7305,19 @@ pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过
 最终pnpm typecheck、pnpm build、单文件Prettier --check及git diff --check通过，/tmp/flowark-parameter-leave-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未读取凭据或调用真实文件、AI、宿主保存和执行。当前安装版持久化、复杂受管表单/全部离开组合、最新整板与完整186画板/U01–U12仍待完成。
 
 客户端 [PR #155](https://github.com/zhongmiao-org/flow-ark-client/pull/155) 最新head `ae0e2e933ae9609622d0bb69a7c65d0621031ad7` 经 [CI 38029552437](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38029552437) Validate46秒/Auto Merge9秒通过，实际自动合并为 `c2cc471c6d767f802a190e3a030010281fa84ef7`。同head较早38029552350取消，不计通过；附件工具返回线程附件超过100，未重试或删除附件，保留直接PR链接。
+
+### 2026-10-10 本地设置脚本包返回与浏览器留白
+
+复核010 `1:3896`与032 `2:3227`，查看已保存的settings-本地设置.png。继续直接使用Ant Design；浏览器选择卡片的内容留白由默认24px改为现有`--fa-space-32`。1440 CSS宽窗读取左卡padding32、右卡padding24，左卡标题x288.74，左卡仍约582高；主区域稳定滚动条占宽，当前双栏756.59/360，不据局部间距修复宣称已达到稿中768/360的完整几何。实际环境说明比旧稿更长，旧稿分类、示意Key及虚构保存按钮不作为新产品入口。在线Starter额度限制已知，沿用获准缓存，最新整板仍未核对。
+
+实际App/main及生产CSS配合12个虚构流程，使用4279 Vite和唯一隐藏IAB查看。修复前脚本包搜索archive-package、末行打开流程后返回，搜索虽保留，但main.scrollTop由1861.65归零、焦点落本地设置标题、原按钮top2336.17在700高视口外。脚本包原先未记录来源，现在与凭据/文件资源共用来源记录；脚本包继续进编辑器，资源继续进参数页。返回先恢复主区域滚动，再聚焦仍存在的原按钮，默认滚动使窗口缩窄后原按钮保持可见；原元素消失时落页面标题。未变更宿主、IPC、绑定保存或执行语义。
+
+修复后1040×700脚本包返回第12行，搜索保留，main.scrollTop1845.49、原按钮512.53–534.33可见；不宣称滚动像素完全相同。1440宽窗从末行进入编辑器，期间缩为676×700再返回：查询archive-package仍保留，原行archive-package-12 · 1.2.3获焦，按钮495.58–535.58可见，文档宽等于676。另从凭据与本机资源搜索虚构目录、打开第12行参数页并返回，main.scrollTop1908.65、原配置按钮502.32–542.32获焦，查询保留；返回本地设置后浏览器标签获焦。凭据为空，本轮未覆盖真实凭据引用。
+
+676窄窗浏览器卡片padding32、两个入口均100高、宽463.93，无文档横向溢出。实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-settings-return-app-path/下scripts-return-compact.jpg、settings-wide-before.jpg、settings-wide-after.jpg、resources-return-wide.jpg、scripts-return-resized-narrow.jpg与settings-narrow-final.jpg。截图均为当前滚动位置局部，宽图右侧有裁切，不作为整板通过证据。一次过大观测被截断后缩小输出，继续同一页签；首次宽图CSS即时观测仍为24，等待同页HMR后读取32，没有另开实例。
+
+最终预览console warn/error中保留一次缩窄时React Flow容器尺寸警告（06:23:59Z），不宣称全程日志为空。唯一页签关闭、视口复位、4279 Vite回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、两文件Prettier --check及git diff --check通过，日志/tmp/flowark-settings-flow-return-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未读取凭据或调用真实文件、AI、宿主保存/执行；IDE改动保留未提交。
+
+当前索引186项中182项已有局部推进或重新核对记录，052操作路径总览和068导航演示仍待核对，083/087参数来源的变量选择仍缺消费字段与入口。182/186约97.8%仅为记录覆盖率，不是完成率；没有全186最终验收证据。实际宿主持久化、全状态组合、最新整板视觉和完整U01–U12目标保持待完成。
+
+客户端 [PR #156](https://github.com/zhongmiao-org/flow-ark-client/pull/156) 最新head `7ad6d3943607be0cf8d91a1858b3b9938e3bc998` 经 [CI 38031010546](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38031010546) Validate42秒/Auto Merge9秒通过，实际自动合并为 `8cd8ea642af145d2095e9690f732050418e9df63`，本地main已快进。较早38031009615取消，不计通过；checks观察命令曾TLS超时，另查PR实际MERGED及最终workflow success后才记录交付。附件工具仍返回线程附件超过100，未重试或删除附件，保留直接PR链接。
