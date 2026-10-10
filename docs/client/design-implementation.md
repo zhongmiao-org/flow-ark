@@ -7355,3 +7355,19 @@ pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过
 最终pnpm typecheck、pnpm build、单文件Prettier --check及git diff --check通过；/tmp/flowark-compact-editor-focus-build.log保留既有大chunk提示。没有新增/运行单元、集成或smoke测试，没有启动第二FlowArk/Electron或调用真实文件、AI、凭据和宿主。页签关闭、视口复位、4281服务回收exit130、临时HTML/JS删除，无关IDE改动保留。真实网页遮挡、全部配置/结构组合、安装版保存重开及完整186画板/U01–U12继续待完成。
 
 客户端 [PR #158](https://github.com/zhongmiao-org/flow-ark-client/pull/158) 最新head `e4d99d0c752893854d5707b39faccfa74c316b13` 经 [CI 38035215083](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38035215083) Validate41秒/Auto Merge10秒通过，实际自动合并为 `acfac0768abaff5282fbcfc77d20d408aa725f82`。较早38035213810取消，不计通过；PR附件工具仍返回线程附件超过100，未重试或删除附件，保留直接链接。
+
+### 2026-10-10 确认方案与继续修改的长步骤卡片
+
+沿用096 `23:2928`、097 `23:3109`与146 `27:13212`已有设计映射，实际查看已保存taskplan.png的408/720双栏、88高步骤卡片与16间距。沿用Ant Design及集中主题，不新建按钮包装、修改摘要/引用/执行语义。已知在线Starter额度受限，本轮没有获取最新云端整板。
+
+唯一IAB页签19与4282 Vite加载实际App/main及生产CSS，虚构内存接口提供两个修订3任务，各含数据/HTTP/断言/文件四步骤。无资源绑定、凭据、运行记录或真实网络/文件操作。长方案使用重复文字的步骤名称、URL及文件名检视布局。修复前1440×1079下步骤卡片宽670.38、高88，但HTTP/文件卡scrollWidth1495/1640，继承Ant Button white-space:nowrap，文字越过卡片边界；文档宽1440不能据此当内容无溢出。
+
+共享.ai-task-step现height:auto、white-space:normal，编号不压缩、文字栏flex:1。修复后同宽会话因内容变高出现稳定滚动留白，卡宽659.10，长HTTP/文件卡高177.49/121.49，scrollWidth均658，不再越出自身卡片；短数据/断言仍88高。1040×700单列中卡宽843.84，长HTTP/文件卡高131.49/121.49，clientWidth/scrollWidth均842，文档宽1040。
+
+1040下打开HTTP步骤参数，配置标题获焦；返回步骤清单恢复long-plan-1，卡片y93.34–224.83可见。切流程图再回清单，同ID仍选中。进入继续修改页，长卡高度129.49/119.48、clientWidth/scrollWidth均842；输入仅调整资料归档名称，保留当前读取步骤，再打开参数并返回当前方案步骤，原ID获焦且y186.44–315.92可见，临时要求原文保留。没有发送修改、调用模型或运行。原有摘要省略保留，本轮仅核对参数入口与返回，未将摘要读数当作原始完整URL核对。
+
+最终打开短方案1440×1079，双栏407.995/719.872，四卡均87.999高，起点358.71/462.71/566.70/670.69，对应16间距；卡clientWidth/scrollWidth均669、文档宽1440。实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-plan-layout/下long-plan-1440-before.png、long-plan-1440-after.png、short-plan-1440-after.png及modification-return-1040.png。截图与虚构资料仅为局部布局/交互证据，不代表该设计静态示例的真实执行或整板1:1验收。
+
+最终warn/error为空；唯一页签关闭、视口复位、4282服务回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-plan-card-wrapping-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，无关IDE改动保留。真实模型、原生网页/宿主、安装版持久化、复杂结构/全部状态以及完整186画板/U01–U12继续待完成。
+
+客户端 [PR #159](https://github.com/zhongmiao-org/flow-ark-client/pull/159) 最新head `c52d64d9fd407ab5e3e551e63b786c98e1a81e66` 经 [CI 38036838026](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38036838026) Validate49秒/Auto Merge7秒通过，实际自动合并为 `52973076afa12de894dd9cd892445b10639a7495`。较早38036837808取消，不计通过；线程PR附件达到100上限，未重试或删除附件，保留直接链接。
