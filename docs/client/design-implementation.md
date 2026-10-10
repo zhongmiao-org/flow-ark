@@ -7466,3 +7466,16 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 最终warn/error为空，唯一页签关闭、viewport复位、4288服务回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check和git diff --check通过；/tmp/flowark-script-diagnostics-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，没有启动第二FlowArk/Electron，无关IDE改动保留。更多诊断/长列表、真实脚本执行/依赖与安装版、整板视觉及完整186画板/U01–U12仍待验收。
 
 客户端 [PR #165](https://github.com/zhongmiao-org/flow-ark-client/pull/165) 最新head `ad488b58bddf4c24845933dd4d9502efd107390b` 经 [CI 38042565765](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38042565765) Validate43秒/Auto Merge10秒通过，实际自动合并为 `2a06658b82a97923b3856a872d96bb0670a4406f`。较早38042565158取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
+
+
+### 2026-10-10 Excel 映射来源编辑与固定值焦点
+
+沿用119 `23:6516`、既有Excel映射规范和U11。本轮没有取得最新云端Figma整板，不作为整板视觉对齐证据。实际App/main与生产CSS在唯一IAB页签26及4289 Vite打开；临时虚构bootstrap/flow.save仅提供一份映射流程及内存保存，不访问真实宿主、凭据或文件。
+
+实际预览保留三行中的null/0/false；重复列A定位映射2目标列，数字字段改文本时定位对应类型，固定来源第四行amount为字符串阻止保存，即使只预览前三行也校验全来源；未完成JSON输入阻止预览并定位来源正文。发现直接Enter或点击“改为固定值”后按钮卸载、焦点落页面根部。ValueField现在只在该明确操作切换后聚焦实际值控件；数组来源进入正文，工作簿自定义Ant Input进入输出工作簿并采用mapped.xlsx默认值。既有变量弹窗取消/采纳的返回规则不变，其他类型及原生键盘仍待核对。
+
+1440×1079指针切换后正文top589.29/bottom709.28；1040×700与676×700 Enter切换后正文top321.39/bottom441.39，均在视口内。固定来源→选择params.records→固定来源的往返同样获焦。新增第4映射自动使用空闲B列，填写标题并展开后删除第1映射，焦点回新映射1来源amount，原副本标题折叠状态仍归原映射；预览按B/C/D排序。模拟保存并返回后重开保留amount/enabled/title及C/D/B配置。临时工作簿和空来源修改经取消→继续编辑保留，再不保存离开及重开恢复summary.xlsx和此前三行来源。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-excel-source-editing/下fixed-focus-676.png和fixed-focus-1440.png，只支持局部输入焦点与布局查看。最终warn/error为空，页签关闭、视口复位、4289服务回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-excel-fixed-focus-build.log保留既有大chunk提示。未新增或运行单元、集成或smoke测试，没有启动第二FlowArk/Electron，无关IDE改动保留。真实系统保存重开、Excel写入/并发、不覆盖、安装版、整板视觉和完整186画板/U01–U12仍待验收。
+
+客户端 [PR #166](https://github.com/zhongmiao-org/flow-ark-client/pull/166) 最新head `fe83b3c6d9d52b9b8e2eafb3968e222adb88e468` 经 [CI 38043413924](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38043413924) Validate43秒/Auto Merge8秒通过，实际自动合并为 `863c823961ce7939c56999c87ff8befdb9384b79`，本地main已同步。较早38043378836取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
