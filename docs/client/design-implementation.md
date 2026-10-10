@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #192](https://github.com/zhongmiao-org/flow-ark-client/pull/192)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选仍对应PR #188（未包含PR #189–#192），已生成但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #192](https://github.com/zhongmiao-org/flow-ark-client/pull/192)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选已更新至PR #192，包含PR #189–#192，DMG/ZIP内容核对通过但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8041,3 +8041,15 @@ pnpm typecheck、pnpm build、两文件prettier --check及git diff --check通过
 本轮ioreg确认Mac locked=true/onConsole=true，完整进程核对唯一原生PID9637仍为PR #167安装版；未退出、安装、重开或启动第二实例。最新候选仍PR #188。真实宿主/最新版保存重开、全部差异/冲突/撤销组合、整板视觉及186画板/U01–U12仍待完成，178局部/6复核/2缺口不变。
 
 客户端[PR #192](https://github.com/zhongmiao-org/flow-ark-client/pull/192) head `522d3dfcc89c9e1bd81b5bae364d34c89e627bba` 经[CI38075408044](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38075408044)最新Validate与Auto Merge SUCCESS，实际自动合并为 `fc2e005cfdbb27087b742f7f138cc6ce661e8cac`。较早38075346601的Validate成功/Auto Merge跳过，不作为自动合并证据。线程附件一次返回100上限，保留直接链接。客户端main已快进至合并提交，无关IDE改动保留；候选仍PR #188，未包含本轮改动。
+
+## 2026-10-11 · PR #192 最新候选打包与导航复核
+
+本轮未修改客户端产品源码；基于已合并的 `fc2e005cfdbb27087b742f7f138cc6ce661e8cac`（PR #192）执行 `pnpm typecheck`、`pnpm package:mac`，分别通过并生成0.3.0 arm64 DMG/ZIP。打包复用现有 `node_modules/electron/dist`，未下载浏览器、运行单元/集成/smoke测试或启动原生应用。日志 `/tmp/flowark-ui-pr192-typecheck.log`、`/tmp/flowark-ui-pr192-package.log`；已有默认Electron图标、未签名及构建体积提示仍保留，不作为正式发版。
+
+候选保存在 `flow-ark-client/release/candidates/pr192-fc2e005/`，包含 `FlowArk-0.3.0-arm64.dmg`（241830223字节，SHA256 `e8e0a184125fb0b509a54d5291322b00ed24f506583a7cf4e9fbb00e759452df`）、`FlowArk-0.3.0-arm64-mac.zip`（210739149字节，SHA256 `28678ae2eafce75a2d5b19c758a8a58e8515fd0e2290d9788e2b85fb3233a172`）及 `package-receipt.json`。旧候选目录保留；本轮候选包含重跑、首次教学、附件页及方案条件卡修复。
+
+包内容核对：全部236个当前dist文件与asar逐字节一致，14个本地SVG、105个woff2及2份非空OFL许可保留；应用内符号链接通过现有verifyBundle检查。ZIP内与只读挂载DMG中的asar均匹配构建asar SHA256 `4eda8241f087ff1397e3634ae6d2cd9bc007130e2712fabeb2138036d528b04a`，本任务挂载已卸载。首次核对完成后的临时目录清理使用rm遇EISDIR，改为rmdir后清理并完成回执，没有修改产品代码。
+
+打包前另用实际App配虚构只读bootstrap核对导航：1440时侧栏224px、导航176×40px，1040紧凑侧栏72px、导航40×40px及图标20×20px；布局稳定后未发现宽度问题。此前截图中较窄的选中背景可能来自Ant Button的0.2秒过渡，不作为确认缺陷，未改导航代码。本机记录 `/Users/mac/.codex/visualizations/2026/10/11/flowark-ui-pr192-delivery/navigation-wide.json`、`navigation-narrow.json`。临时预览4319已停止、夹具删除、页签关闭及viewport复位；仅为局部界面查看，不算整板验收。
+
+ioreg再次确认Mac locked=true/onConsole=true；原生主进程仍唯一PID9637，安装版PR #167的asar仍为 `c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`。未退出、替换安装、重开或启动第二实例。PR #192候选状态为已打包未安装，真实新版保存重开及186画板/U01–U12仍未完成；178局部覆盖/6复核/2缺口计数不变，无关IDE改动保留。
