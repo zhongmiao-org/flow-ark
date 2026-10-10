@@ -7267,3 +7267,22 @@ pnpm typecheck、pnpm build、单文件Prettier --check、git diff --check通过
 pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过，构建日志/tmp/flowark-catalog-recovery-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron、访问凭据、真实文件/AI/宿主或执行模板。实际卸载失败后的刷新恢复、真实安装版持久化、最新整板视觉及186画板/U01–U12完整验收仍待完成。
 
 客户端 [PR #153](https://github.com/zhongmiao-org/flow-ark-client/pull/153) 最新head `af52c0029db60d9fdb8496fe1e64c47020a752e3` 经 [CI 38027674779](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38027674779) Validate41秒/Auto Merge7秒通过，实际自动合并为 `61898397f19ebe66d507964b3eb83296f255d365`。同head较早38027674635取消，不计通过；附件工具返回线程附件超过100，未重试或移除附件，保留直接PR链接。
+
+
+### 2026-10-10 模板卸载结果与列表恢复实际 App 路径
+
+沿用004 `1:3125`、047 `2:4837`映射，查看保存的47-模板版本与导出.png中“不能卸载／该版本仍被引用／查看实例”状态规格，保持实际版本路径与Ant Design Card/Alert/Button/Checkbox。Starter额度限制已知，本轮未重复读取最新上下文或新增资产，不把规格六宫格作为独立产品入口，不计最新整板1:1。
+
+此前实际App中template.remove成功后，refresh失败仍留在卸载确认页、旧模板和已勾选确认，再次确认产生第二次请求并得到模板不存在。现在先保存确认完成的版本、返回模板库，并从旧bootstrap列表中排除这些版本；只读重读失败保留版本身份，不重复卸载。连续卸载可保留多个结果；明确重新安装同版本只撤销该key的排除状态。IPC/宿主、物理卸载、引用检查及安装语义不变。
+
+唯一隐藏IAB页签与4277 Vite加载实际App/main和生产CSS，3个虚构包、1个固定v1.0.0实例及1个绑定流程。引用版本显示不能卸载、1实例/1流程，没有确认控件；打开引用实例保留备注“原版本甲”，返回版本引用恢复view-package-references焦点。v2宿主虚构历史引用拒绝保留未卸载状态；显式重试等待回执时复选框、确认和返回禁用，侧栏模板导航未绕过锁。确认成功后列表读取虚构失败，模板库显示卸载结果并撤下v2，反复只读重读不增加卸载次数。
+
+676×700下再卸载未引用的归档v1，warning列出两个已卸载版本、焦点到标题，区域337.14–505.76可见；只剩原资料v1卡片、文档宽676且无横向溢出。再次重读失败保持请求3/成功2。未先恢复列表即重新导入资料v2，检查页提供明确来源确认和安装按钮，没有误报已安装；安装成功但列表失败保留安装回执。关闭虚构故障后只读重读、返回库显示资料v1/v2而归档版本不再出现；打开原实例仍固定v1及备注“原版本甲”。最终虚构卸载请求3次（拒绝1、成功2）、安装1次，真实卸载/执行0。热更新前复现的重复卸载计数与最终会话分开，不相加。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-removal-app-path/下removed-refresh-before.jpg、referenced-wide-final.jpg、removed-refresh-narrow-final.jpg及reinstalled-library-narrow.jpg。截图均为局部/滚动位置并带产品外预览控制；最初referenced-wide.jpg因捕获延迟显示此前详情，不计引用态视觉证据，后续稳定图另存。宽图有右侧裁切，窄图预览控制遮挡部分底部，不以图宣称整板视觉或原生窗控通过。
+
+一次缩放后点击归档入口再操作的工具press无匹配，重读同一页签仍是库；随后按已见按钮Enter逐步进入并完成，未重启或新建实例。一次过大的观测输出被截断，缩小输出继续同一页签；不是页签或服务失效。最终console warn/error为空。页签关闭、视口复位、4277 Vite回收exit130、临时HTML/JS删除。最后代码复核增加view===library条件，避免后续卸载拒绝误显示此前完成版本的刷新标题；该条件后未重跑GUI，前述人工证据与最终静态检查分别记录。
+
+最终pnpm typecheck、pnpm build、单文件Prettier --check及git diff --check通过，日志/tmp/flowark-removal-receipt-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未访问凭据或真实文件/AI/宿主。IDE改动保留未提交；真实物理卸载/重装、历史版本/计划/Run引用、安装版重启持久化及完整186画板/U01–U12仍待完成。
+
+客户端 [PR #154](https://github.com/zhongmiao-org/flow-ark-client/pull/154) 最新head `1c2e1657f0da8ea1d505effe0e1580833dfab873` 经 [CI 38028596783](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38028596783) Validate41秒/Auto Merge7秒通过，实际自动合并为 `bc5795a484fbf58755c6dab16066c74f9cefdbfd`。同head较早38028596170取消，不计通过；附件工具仍返回线程附件超过100，未重试或删除附件，保留直接PR链接。
