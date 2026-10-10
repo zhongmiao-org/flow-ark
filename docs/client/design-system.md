@@ -95,4 +95,6 @@ AI 服务入口设在「本地设置 → AI 服务」，优先展示 DeepSeek。
 
 根 ConfigProvider 统一中文 locale、主题和控件密度；集中 ThemeConfig 对应上述 Figma 色彩、字号、40 px 控件高度和 8 px 圆角。页面布局消费同一主题派生的 CSS 变量，避免两套独立色值。业务 CSS 仅描述布局和专用状态，不以全局 button/input/label 规则覆盖组件库内部结构。浮层须保留焦点返回、离开保护和原生网页遮挡协调，不能仅替换标签。后续主题定制以 token / algorithm 为入口。
 
+2026-10-11 边界实施补齐：Ant Design Card消费标准token `colorBorderSecondary`，主/次边界统一对应 `#DFE4ED`；页面专用说明区仍消费主题派生的语义变量。后续主题定制在集中ThemeConfig设置相应主/次边界和主色，人工参数联动记录见[实施记录](design-implementation.md)。
+
 实施顺序为主题入口与通用控件、复杂选择与弹窗、逐页清理重复样式和人工验收。新开发直接使用 Ant Design；未迁移或未复核部分明确记录。遵循当前 UI/UE 阶段约定，不新增或运行单元测试，采用类型检查、构建、格式检查和单实例人工界面核对。

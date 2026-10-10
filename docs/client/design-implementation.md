@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #193](https://github.com/zhongmiao-org/flow-ark-client/pull/193)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #192，包含PR #189–#192但尚未包含PR #193，DMG/ZIP内容核对通过但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #194](https://github.com/zhongmiao-org/flow-ark-client/pull/194)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #192，包含PR #189–#192但尚未包含PR #193–#194，DMG/ZIP内容核对通过但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8069,3 +8069,19 @@ ioreg再次确认Mac locked=true/onConsole=true；原生主进程仍唯一PID963
 本轮ioreg再次确认Mac locked=true/onConsole=true，完整主进程列表仅原生PID9637仍为PR #167安装版。未退出、替换安装、重开或启动第二实例；最新候选仍PR #192，不包含本轮修改。真实副本与当前安装版保存重开、整板及186画板/U01–U12未完成，178局部覆盖/6复核/2缺口不变。
 
 客户端[PR #193](https://github.com/zhongmiao-org/flow-ark-client/pull/193) head `86435f930d7abea20242141a3ff12fdd11f95a77` 经[CI38077120349](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38077120349)最新Validate与Auto Merge SUCCESS，实际自动合并为 `526a5adcb16f5b80096b1ce8e7fd5a7a74ab4ca4`。较早38077097360被标签事件触发的新运行取消，不作为通过证据。附件一次返回100上限，保留直接链接。客户端main已快进至实际合并提交；最新候选与安装版保持上述状态。
+
+## 2026-10-11 · 集中主题边界与结果说明区
+
+依据现有设计系统边界#DFE4ED及缓存taskresult `23:4127`、taskdetails `23:4283`，实际App配虚构只读IPC发现Ant Design Card仍消费默认colorBorderSecondary=#F0F0F0；结果底部说明区y798、高55.9px、灰色#637089，与缓存稿72px蓝色说明不一致。集中ThemeConfig补齐colorBorderSecondary=#DFE4ED，现有.task-run-page说明区采用72px最小高度、14/22字号行高及主题派生--fa-action-primary，没有新增基础组件或逐页写入独立颜色。
+
+1440结果页的成功摘要、左右700/428×330卡片及652×112文件卡边界均为#DFE4ED；底部说明区y798、高72、文字#315EF5，原卡片尺寸保持。1040/676主区分别969/969、605/605，无横向溢出；1040详情卡片共享边界，文件预览及可读结果返回仍定位同一result-run与原文件按钮。Space展开/Enter收起修改说明正常，未更改折叠行为、额外折叠区的既有布局或圆角。
+
+临时预览通过参数将集中主题的colorBorder/colorBorderSecondary/colorPrimary改为虚构紫色#7A3FC0，实际Card边框与结果说明文字同步变色且几何不变，仅作为主题接线人工证据；未新增产品配色、主题切换入口或修改生产默认颜色。首页共享Card同样使用设计边界，源导航7个SVG均非空、实际7个图像调用仍20×20px且来源与既有槽位匹配，未修改资产。
+
+本机证据 `/Users/mac/.codex/visualizations/2026/10/11/flowark-result-theme-workbench/`：result-before/final-1440.json、result-final-1440.png、result-final-1040/676.json、details-final-1040.json、home-shared-card-borders.json、return-and-assets-final-1040.json、alternate-palette-manual-1440.json及manual-preview-fixture.js。截图仍有右/下裁切，仅为局部视觉；详情JSON中0尺寸说明对应隐藏执行步骤区域，不作为可见详情说明区证据。数据、运行及主题参数均虚构，未创建/控制Run、保存任务或调用真实模型。
+
+`pnpm typecheck`、`pnpm build`、两个修改文件Prettier和git diff --check通过；日志 `/tmp/flowark-result-theme-typecheck.log`、`/tmp/flowark-result-theme-build.log`，构建已有大chunk提示保留。仅改theme.tsx与task-run.css共6行，无IPC、宿主、数据库或契约变化；未新增/运行单元、集成及smoke测试。4321预览已停止、入口删除、页签关闭与viewport复位，无关IDE保留。
+
+ioreg确认Mac locked=true/onConsole=true，原生主进程仍唯一PID9637、PR #167安装版；未退出、替换安装、重开或启动第二实例。候选仍PR #192，真实副本/当前原生、全部主题消费组件和整板/186画板/U01–U12仍未验收，178局部覆盖/6复核/2缺口不变。
+
+客户端[PR #194](https://github.com/zhongmiao-org/flow-ark-client/pull/194) head `ba6befb7bad99fd17cc4a9a707aa87da4adb72ef` 经[CI38077960917](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38077960917)最新Validate与Auto Merge SUCCESS，实际自动合并为 `873f266a7855de7a26edcac4ed3265e14c063e0b`。较早38077933933被标签事件触发的新运行取消，不作为通过证据。附件一次返回100上限，保留直接链接。安装版asar重新计算仍为 `c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`，与PR #167一致；候选及真实验收状态不变。
