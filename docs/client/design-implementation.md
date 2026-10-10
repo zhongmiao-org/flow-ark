@@ -6911,3 +6911,19 @@ RunEventLog四处、RunLogSummary三处、DesktopRunBinding一处Card声明直�
 pnpm typecheck、pnpm build、五文件Prettier --check、git diff --check通过，构建日志 `/tmp/flowark-logs-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk、原生助手、真实TextEdit或业务API。页签103关闭、视口复位、4254 Vite回收、临时HTML/TSX删除，用户IDE改动未提交。实际历史读取、绑定/保存重开、系统权限与完整186画板仍待验收。
 
 [客户端 PR #131](https://github.com/zhongmiao-org/flow-ark-client/pull/131) 最新head `fde2565a3179f701e23286c5747a687cb256afc2` 的 [CI 38010543983](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38010543983) Validate44秒/Auto Merge9秒成功，实际合并为 `03b4c13acc954cb70903b6c07ad7485ce046c936`；同head另一次38010544144取消，不计为通过。
+
+### 2026-10-10 Ant Design 任务对话、附件与选区卡片
+
+AITaskWorkspace 五处 Card 声明、TaskDesktopWindows 两处小 Card、DesktopSelectionPreview 一处小 Card 直接采用 Ant Design。清除 ai-task-card/选区卡片重复外观，将布局与响应式规则接到 ant-card-body；窗口身份及账号区域原来仍是 div，现已接上既有 Card 内部布局。保留 section、data-task-conversation、附件 Escape/焦点、选区标题与读取按钮 refs、原 IPC/校验/授权边界。完整流程图使用 borderless Card，body0/gap24，其余普通 body24/gap16、小卡 body12。两处旧 brief 条件内说明卡只是代码迁移，当前 TaskBriefPage 独立渲染，本轮不把旧分支算为独立人工验收。
+
+沿用 Figma 实施规范。在线23:8087上下文与截图均返回 Starter MCP 配额限制，不是登录故障；实际查看已保存 ZIP 的 taskbrief、taskappready 设计导出，不新增设计、静态资产或宣称最新整板1:1。
+
+单个隐藏 IAB 页签104、4255 Vite、实际组件/ApplicationTheme 加虚构 API 人工查看。附件完整文本预览标题获焦，Escape 关闭恢复原预览按钮；方案清单双栏、完整流程图整宽，回到对话聚焦原语义 section。单步提案采纳/不采纳/继续描述最小宽168/144/192仍生效；完整提案保持400:728列比例，窄屏单列。未点击真实采纳、执行或写入。
+
+实际 useDesktopWindows 配合虚构响应，选择窗口标题获焦；首次无选区提示获焦，再次 ready 标题获焦，清除回到读取按钮；第三次显示遮盖内容提示。第四次等待可停止，停止后焦点回到读取按钮，迟到结果未重现。没有调用本机助手、TextEdit、权限设置或 AI。宽申请1920实际CSS1432—1443、文档同宽，普通方案卡407.99/872.36px、body24、min-height730；完整提案454.02/826.33px、min-height700。窄申请1040实际770—782，窗口小卡668.47px/body12、身份gap8/账号及选区gap12，完整提案两卡642.69px/min-height0，无横向溢出。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-task-cards/` 的 attachment-wide、plan-wide、graph-wide、selection-redacted-wide、selection-narrow、proposal-wide、proposal-narrow，均 png；另有 plan-narrow、scoped-wide/narrow 仅保存未目视，不充作目视证据。截图为无产品侧栏的隔离预览，全页捕获不代表同时可见；保留原133%缩放。夹具初次不存在的CSS导入已去除；虚构提案缺少 limitations/requiredCapabilities 造成两次渲染错误，补齐数据重载后实际查看成功；流程图首次挂载出现两条尺寸提示，实际可显示，但不宣称最终控制台完全无警告。
+
+pnpm typecheck、pnpm build、七文件 Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成或smoke测试，未启动Electron/第二FlowArk。页签104关闭、视口复位、4255 Vite回收、临时HTML/TSX删除，IDE改动保留且不提交。真实AI、桌面读写、保存重开及186画板/U01—U12完整验收仍未完成，不据Card数量计算完成百分比。
+
+[客户端 PR #132](https://github.com/zhongmiao-org/flow-ark-client/pull/132) 最新head `c17cbf6ba63ec51fa23bdef1140adcfd1223bdbe` 的 [CI 38011283611](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38011283611) Validate47秒/Auto Merge7秒成功，实际合并为 `97b3e235c2d8ad8ef7a39dced55e9d849c8a4336`；同head较早38011282854取消，不计为通过。
