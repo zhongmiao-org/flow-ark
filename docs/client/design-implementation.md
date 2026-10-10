@@ -7225,3 +7225,24 @@ VariablePicker最后一次热更新后重走最终会话，复制条件子树、
 pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过，构建保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未访问真实文件/AI/网页执行或本地宿主。当前安装版持久化、其他插入/移动位置、复杂结构组合、最新整板与186画板/U01–U12完整验收仍待完成。
 
 客户端 [PR #151](https://github.com/zhongmiao-org/flow-ark-client/pull/151) 最新head `9b793ee6000e38933333ad57d3242a2141683041` 经 [CI 38026074606](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38026074606) Validate39秒/Auto Merge9秒通过，实际自动合并为 `f784bf18d1570edc9ddee588b39c07ad0f638112`。同head较早38026073650取消，不计通过；附件工具仍返回线程附件超过100，未重试或移除附件，保留直接PR链接。
+
+
+### 2026-10-10 本机计划创建定位与实际 App 往返路径
+
+消费008 `1:3673`、034 `2:3431`和044 `2:4526`的已有映射。本轮查看保存的34-创建计划.png（672/456双栏、固定版本确认），沿用此前已读本机计划设计及Ant Design Select/Input/Button/Modal/Alert。在线Starter额度限制已知，没有重复取得最新上下文或资产；不新增静态资产，不计最新整板1:1通过。
+
+修复ScheduleWorkbench创建自动聚焦仍查找原生select的问题。此前1040×700、12条计划时创建表单top2543.40、流程选择框top2644.88，main.scrollTop0，焦点停在页头创建按钮。现在按role=combobox和aria-label=计划流程定位实际Ant Design控件，使入口进入视口；编辑仍聚焦间隔输入。未修改IPC、调度、保存/更新或快照语义。
+
+恢复时原IAB页签10明确不属于当前会话、tabs.list为空；原4275 Vite通过session72604确认仍运行。仅新建一个替代隐藏页签，复用该Vite，未重启服务或启动第二客户端。实际App/main与生产CSS加载3流程/12计划、活动Run及只读记录，均为内存接口，真实执行0。新会话创建后962×541下流程框279.85–301.84，scrollTop2365.04、焦点计划流程；无效Bad/Zone保留95分钟并聚焦错误，保存次数0。有效Asia/Shanghai下虚构保存失败保留来源、95分钟和确认，紧凑1040×700错误486.75–583.38可见；显式重试成功创建95分钟计划并聚焦完成标题，返回计划恢复页头创建按钮。
+
+暂停plan-1由70分钟/Asia/Shanghai改为105/Asia/Tokyo；取消触发三选保护，继续编辑保留值并恢复计划时区焦点。保存重开仍暂停、暂无下次执行、fixed-v1不变。明确勾选采用当前版本显示当前保存时间，保存重开versionId为current-v1且仍暂停；夹具inspect.savedAt仍固定旧日期，该日期不计真实版本保存时间验收。启用再暂停分别完成卡/返回原入口，真实触发0。
+
+plan-0草稿改90分钟后打开计划记录，读取更早记录从2条到3条。刷新虚构失败保留三条已读内容、聚焦记录错误并禁用活动运行；显式刷新后重新读更早记录，再打开关联运行，实际App显示fixed-v0和宿主未持有、执行结果待核对。返回本机计划恢复同一记录窗三条内容/分页终点、90分钟草稿、scrollTop2662.03及查看活动运行按钮焦点；没有创建新Run。随后明确不保存离开放弃草稿。
+
+676×700、13条计划下创建框358.82–380.81可见、main宽与scrollWidth同为593，焦点计划流程；选择flow-0并确认，再改flow-1会清空确认、禁用创建，取消保护的保存并离开亦禁用。1440×1079宽屏创建焦点正确、两栏呈现，main宽/scrollWidth均1205；长列表使两栏拉伸，完整长列表整板不计通过。最终虚构创建2次（失败1/成功1）、更新2次、启停2次、保存成功3次、真实触发0。页面编辑重开仅为内存接口，不代表安装版退出重启持久化。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-schedule-app-path/的create-failure-compact.jpg、history-return-compact.jpg、create-entry-narrow.jpg、create-entry-wide.jpg。截图带产品外预览控制，为滚动位置局部；宽图捕获右侧裁切，记录图仅显示部分已读行，完整内容和几何另由DOM核对，不以图宣称整板/原生窗控通过。最终console warn/error为空。唯一页签关闭、视口复位、4275 Vite回收exit130、临时HTML/JS删除，IDE改动保留未提交。
+
+pnpm typecheck、pnpm build、单文件Prettier --check、git diff --check通过，构建日志/tmp/flowark-schedule-entry-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未读取凭据或调用真实文件、AI、本地调度。当前安装版持久化、并发预检、真实占用/错过/触发和最新整板及186画板/U01–U12完整验收仍待完成。
+
+客户端 [PR #152](https://github.com/zhongmiao-org/flow-ark-client/pull/152) 最新head `f0b4d07077cbceb0d0fa5d65dab0887156b44b84` 经 [CI 38026976417](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38026976417) Validate43秒/Auto Merge10秒通过，实际自动合并为 `b36b2b43f50fe05ee2aa88f5e2156e458c81aeea`。同head较早38026976259取消，不计通过；附件工具仍返回线程附件超过100，未重试或移除附件，保留直接PR链接。
