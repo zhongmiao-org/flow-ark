@@ -7719,3 +7719,22 @@ pnpm typecheck、pnpm build、task-graph.css的Prettier --check及git diff --che
 pnpm typecheck、pnpm build、RunReviewCheck.tsx的Prettier --check及git diff --check通过，日志/tmp/flowark-run-check-typecheck.log及/tmp/flowark-run-check-build.log；既有大chunk提示保留。未新增或运行单元、集成、smoke测试。4303退出130、查看页签关闭、viewport复位、两份临时HTML/JS删除；唯一原生PID9637仍存在、安装版未更新。完整186画板/U01–U12与真实主路径仍待完成。
 
 客户端[PR #177](https://github.com/zhongmiao-org/flow-ark-client/pull/177) latest head `a4274ff5822d9f130faec60a2a6ba0d51a57b531`经[CI38056849798](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38056849798) Validate32秒/Auto Merge9秒通过，实际自动合并为`1450012391a118f3a13cbeab6b666e59267b7882`。此前38056794586只通过Validate且Auto Merge跳过，不据此声称交付完成。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。PR #177没有重新打包；上轮PR #176候选与已安装PR #167分别保留原交付状态。
+
+
+## 2026-10-10 · 清理旧配色并恢复 Ant Design 模板字段
+
+依据产品设计基线的语义配色、40px标准操作及8px控件圆角，在客户端PR #177合并后的main实施共享样式清理。本轮未取得新在线Figma内容，不改变设计方向，不计186整板通过。
+
+实际Field组件的文本/数组输入原被style.css的通用template-field input覆盖为绿色边框rgb(216,227,223)、6px圆角、10px内边距，高约43.49px；移除外观覆盖，仅保留Ant输入和affix容器的宽度布局。修复后边框rgb(223,228,237)、8px圆角、8px/11px内边距，高约39.49px，遵循Ant主题controlHeight40与浏览器小数边框舍入。数字及多行输入同用Ant，未完成数字“-”和文本不足3字符分别显示原错误说明，稳定错误边框rgb(184,59,72)。一次即时读取处于颜色过渡中，最终结论取自稳定DOM与截图。
+
+style.css中剩余旧固定配色改为现有Figma语义变量，状态外观统一由design-system.css承担，保留badge单行布局；废弃原生复选框规则移除。遮罩及浮层阴影分别接入token.colorBgMask和token.boxShadowSecondary，生命周期沿既有变量设置/还原。保留原mini-flow等布局、节点尺寸与资产，没有新增基础组件或改变IPC、权限、保存和执行逻辑。RunObservation与RunOutput旧绿色底色改为rgb(239,242,247)的语义subtle。
+
+4304仅查看实际Renderer组件和App，虚构宿主提供一个暂停的value步骤及包含0/false/null的结构化输出，不接模型、执行引擎、文件或凭据。初始夹具误用RunObservation默认导入，改为现行命名导出；运行查询缺少elapsed/计数字段导致夹具列表崩溃，补齐现行响应后沿同一页签重载，不记作产品缺陷。必需字段的可访问名称包含“（必需）”，使用实际名称继续查看，没有为定位工具改产品文案。
+
+1440默认主题核对文本/数字错误、最少数组数量反馈及明确恢复；1040保留未完成输入并修正数字6、两行说明、关闭布尔值，通过方向键/Enter选two；676仍保留主题核对标题、恢复项、false、two、数字6及换行说明，文档宽度等于视口，错误已清。以上仅本地组件state，不计真实保存。
+
+临时紫色配置仅位于本轮查看夹具，未写入产品默认主题或提供新主题菜单。1040字段表面rgb(255,253,248)、边框rgb(216,198,239)、正文rgb(46,23,72)，焦点边框rgb(124,58,237)，运行概览左边线同为紫色；遮罩读回rgba(46,23,72,0.5)，浮层阴影来自Ant token。实际App普通/调试详情、输出页、返回详情/原列表已查看；676输出仍显示0、false、null，原记录按钮重新获焦。未点击执行下一步/继续运行/取消运行/重新运行，不以虚构输出证明实际执行。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-theme-cleanup/ 下fields-before.png、fields-after-1440.png、errors-1440.png、fields-after-676.png、purple-fields-1040.png、purple-run-detail-1040.png、purple-ordinary-run-1040.png与purple-output-676.png。部分截图只覆盖当前滚动区域，不用于整板1:1结论。
+
+pnpm typecheck、pnpm build、三个改动文件的Prettier --check与git diff --check通过；日志/tmp/flowark-theme-cleanup-typecheck.log和/tmp/flowark-theme-cleanup-build.log，保留既有大chunk提示。style.css已无固定十六进制色值，不表示其他样式或全部画板已完整核对。未新增或运行单元、集成、smoke测试。4304退出130，页签关闭、viewport复位、两份临时HTML/JS删除；唯一原生PID9637仍在运行，安装版PR #167及PR #176候选未改。本轮未打包，真实持久化、AI/MCP/网页/桌面及186画板/U01–U12仍待验收。
