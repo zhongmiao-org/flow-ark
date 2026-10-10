@@ -7581,3 +7581,20 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 失败页操作按钮保持约184宽、40高。核对区在1440的top/bottom约585.69/978.13，在1040约233.44/625.87；676中首次打开或重复点击重试后约285.43/699.86，焦点在核对区且确认未勾选。宽窗已打开核对区直接缩窄不自动滚动，重复重试可以定位原核对区，不新增模型请求。部分截图捕获点击波纹或被预览裁剪，按钮尺寸以只读DOM测量为证；截图不计整板视觉通过。
 
 已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-planning-questions/ 下 answers-1440.png、answers-1040.png、answers-676.png、long-option-676.png、retry-1440.png、retry-1040.png、retry-676.png。预览页签关闭、viewport复位，4296进程结束exit130，临时HTML/JS已删除。唯一安装版PID9637仍存在，未重启、重新打包或新增Electron实例；安装版仍为此前46944c5来源的0.3.0，不含后续源码修复。未新增或运行单元、集成、smoke测试；本轮仅文档变更，不重复运行客户端类型检查和构建。真实宿主、完整补问类型、全部失败原因、整板及186画板/U01–U12仍待完成。
+
+
+## 2026-10-10 · 嵌套方案完整名称查找与双视图核对
+
+本轮从客户端已合并main a09a533eb712182e02a445c719f706f131f6899f开始，IDE改动保留；对照保存设计导出的taskplan（23:2928）及taskgraph（23:3290），已查看两张设计PNG。095/142此前证据不替代本轮096/097/098，也不证明全部在线设计最新。
+
+实际 App Renderer 的4297预览使用虚构40步方案：六步数据准备、外层条件成立内循环、循环内条件的5/3步分支、循环尾部一步，以及22步后续数据。外层不成立分支为空；清单明确显示继续后续流程。没有真实模型、宿主存储、采纳、执行或外部读写。
+
+第14步名称166字符、末尾“费用核对标记”在原始配置中存在。旧TaskStepList只使用最多80字符的taskStepTitle进行名称查找，查询末尾文字为0/40。修复将完整step.name加入查找文本，保留现有显示标题、编号和配置摘要；相同查询变为1/40且ID为yes-5。1440/1040/676文档宽度均等于视口宽度；1040/676结果卡高度约113.49/169.50，scrollHeight与clientHeight一致。编号加名称的多词查询命中同一步，无匹配为0，Escape清除后恢复40步；未扩展到完整配置文本搜索或改变方案内容。
+
+折叠外层成立分支后仍能搜索其内部第14步。选择后展开原配置，完整值保留两处前导空格、换行、制表符和末尾空格；清单切图保持yes-5，图中下一步进入第15步no-1并聚焦标题，返回上一步恢复yes-5。切回清单查询仍保留；参数“返回步骤清单”清除查询、展开三层祖先并聚焦yes-5，显示40步。676图中详情仍对应第14步，1440“回到图中此步”聚焦原节点。待采纳方案中的单步AI修改保持禁用。本轮未进入修改/采纳/试运行，不计这些路径通过。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-nested-plan-review/ 下 design-taskplan.png、design-taskgraph.png、search-before-1440.png、search-after-1440.png、search-after-1040.png、search-after-676.png、graph-selected-1440.png。修复前截图在稳定0/40状态重存并查看；局部截图可能裁剪右侧或捕获点击波纹，不能替代整板验收。页面关闭、viewport复位，4297结束exit130，临时HTML/JS删除；唯一安装版PID9637保持，未重启或重新打包，安装版仍为46944c5来源的0.3.0。
+
+pnpm typecheck、单文件Prettier --check、pnpm build、git diff --check通过；/tmp/flowark-full-name-search-check.log和/tmp/flowark-full-name-search-build.log保留结果，构建仍有既有大chunk提示。未新增或运行单元、集成、smoke测试。真实长流程执行、全部分支结构、整板及186画板/U01–U12仍待完成。
+
+客户端[PR #173](https://github.com/zhongmiao-org/flow-ark-client/pull/173)最新head `1496ce7200e859a4ad87ce5e4c640a742ba0d127`经[CI 38050468778](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38050468778) Validate38秒/Auto Merge8秒通过，已实际自动合并为`7a1a25728e6a1a0ae1031dd2369a1dd25be84caf`。此前38050415100的Auto Merge取消，不计通过。线程附件超过100，保留直接PR链接，未重复附加或删除旧附件。
