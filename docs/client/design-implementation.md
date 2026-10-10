@@ -7653,3 +7653,20 @@ pnpm typecheck、LocalCredentialsPanel.tsx的Prettier --check、pnpm build、git
 4300已退出130，查看页签关闭、viewport复位，两份临时HTML/JS删除，保留无关IDE改动和唯一原生PID9637。系统只读锁屏标志本轮为1，未重开或打包安装版；真实凭据保护存储、并发依赖变化、安装版、完整186画板/U01–U12仍待完成。
 
 客户端[PR #174](https://github.com/zhongmiao-org/flow-ark-client/pull/174) latest head `d3d92bdb62090659de7d1cc1bf0b725e04adf323`经[CI38053230435](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38053230435) Validate45秒/Auto Merge10秒通过，已实际自动合并为`78ee651cab2b81ff2eca3619cacac1de698fd7d5`。此前38053210626的Validate/Auto Merge被新轮取消，不计通过；未据旧轮watch显示fail重启或绕过CI。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
+
+
+## 2026-10-10 · 混合节点呈现与脚本文字留白
+
+依据已保存AI任务导出的taskgraph2（23:7158）及流程图语义规范查看实际App Renderer，已查看design-taskgraph.png。本稿只覆盖处理、条件、文件、汇合等图形，其他语义沿用现有形状；缓存不证明全部在线设计最新。画板002/098/123仅补局部证据。
+
+4301虚构宿主提供修订3的13步混合方案，含数据、人工确认、脚本、Excel、条件、文件、HTTP、循环、断言、MCP与网页读取；不接真实服务、模型或执行引擎。初始夹具缺少脚本dependencies造成读取length错误，补齐后重新打开；引用最初误写ref而被正常呈现为数据对象，改为现行$ref后重载，循环摘要显示前序数据步骤输出、循环体显示当前循环项，不把夹具错误记作产品缺陷。上一turn页签已不存在，tabs.list为空后新建一个查看页签，未启动第二个原生应用。
+
+脚本图形的内侧竖线位于x=16/w-16，原文字区left/right同为16，标题和摘要贴线；修复共享task-node-copy的subprocess范围为left/right32，保留双竖线、编号、完整提示、节点尺寸及详情。1440宽窗节点280×96、文字区216×43，左右留白32；1040/676同为32且文档宽度等于视口。已展开脚本完整参数，语言JavaScript、输入空对象、未声明依赖可读取。构建生成schema文件使页面返回首页，沿同一页签重新进入，没有重启原生应用。
+
+最终正确引用方案在676全图显示18个节点（含5个辅助节点）、20条边，全部节点边界位于画布内。Enter选择循环聚焦第8步详情，显示三项循环体；从详情选择第11步空条件显示成立/不成立均0步，切步骤清单保留empty-condition选中ID。图中保留成立/否则与下一项/完成，不创建虚假的空执行步骤。进入普通编排后Enter选择脚本、应用并关闭与聚焦，实际可见节点280×96、左右32；另一个隐藏任务视图节点边界为0，不用于可见性判断。未改变配置或点击保存/生成/运行，MCP对象仍显示未匹配，普通编排运行/调试禁用。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-mixed-shapes/ 下design-taskgraph.png、script-before.png、script-after-1440.png、script-after-1040.png、empty-condition-676.png、full-676.png、editor-script-676.png。一次快速聚焦后截图仍显示空条件，按实际内容命名empty-condition-676，不作为脚本像素证据；676脚本留白由稳定DOM与普通编排截图核对。部分画面仅为当前滚动区域或裁剪右侧，不计整板视觉通过。原有四种SVG文件非空且图中正常加载，根尺寸process262×66、decision224.833×102.197、document242×74、join8×8；实际CSS尺寸保持原尺寸，仅有浏览器小数舍入，未改绘或覆盖资产尺寸。
+
+pnpm typecheck、pnpm build、task-graph.css的Prettier --check及git diff --check通过；类型/构建日志在/tmp/flowark-mixed-shapes-typecheck.log和/tmp/flowark-mixed-shapes-build.log，构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。4301退出130，查看页签关闭、viewport复位，两份临时HTML/JS删除；保留无关IDE改动及唯一原生PID9637，未重开或打包安装版。真实执行、当前安装版、186画板/U01–U12及完整视觉仍待完成。
+
+客户端[PR #175](https://github.com/zhongmiao-org/flow-ark-client/pull/175) latest head `b8896e149270fc10e4a3b4ac84e5d7015ca93970`经[CI38054204436](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38054204436) Validate41秒/Auto Merge8秒通过，实际自动合并为`cad7a6a847c5834ca019720636c99e6f95c9cacd`。此前38054186617已取消，不计检查失败或通过；未重启CI或绕过检查。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
