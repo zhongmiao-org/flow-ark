@@ -7778,3 +7778,20 @@ pnpm typecheck、pnpm build、两个文件Prettier --check及git diff --check通
 pnpm typecheck、pnpm build、两个改动文件Prettier --check和git diff --check通过；布局修正后再次完成上述检查，日志/tmp/flowark-resource-picker-typecheck.log、/tmp/flowark-resource-picker-build.log，保留既有大chunk提示。没有新增或运行单元/集成/smoke测试。4306监听PID30278已核对为本轮Vite并发送SIGINT，页签关闭、viewport复位、两份临时HTML/JS删除；原生PID9637保持运行，未启动第二实例、未打包或替换PR #167安装版。原生文件/目录选择、真实持久化与授权执行、整板视觉及完整186画板/U01–U12仍待验收。
 
 客户端[PR #180](https://github.com/zhongmiao-org/flow-ark-client/pull/180)最新head `51dcec287366ef8468cc06cd01339b2fb10ca799`经[CI38060336278](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38060336278) Validate及Auto Merge成功，实际自动合并为`e673d632991157c3f2713629a07f300f768c341b`。首次38060312989被同PR新事件取消，不作为失败或交付成功证据。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
+
+
+## 2026-10-10 · 新版实例资源内容定位
+
+从客户端已合并PR #180继续，保留无关IDE改动。查看缓存47-模板版本与导出.png（2:4837）及当前实例导航约束，核对采用新版/原定义导出/引用保护/新旧并存状态在现有生产路径中的行为；不将四种状态示例新建为产品菜单。本轮未取得新在线Figma上下文。
+
+实际App + 虚构宿主4307人工核对：首次template.create失败，原实例与选定2.0.0保留且操作错误获焦；明确第二次创建成功，但首次新实例detail失败，页面显示已创建回执、禁止换版本并提供打开已创建实例；明确打开只增加detail读取，create计数保持2（一次失败、一次成功），新版成功提示标题获焦。虚构原实例1.0.0含已保存普通title/旧字段、资源路径及confirm；虚构新版2.0.0展示title和新字段、资源空及deny，原对象保持不变。该Schema/资源隔离是本轮虚构响应展示，不作为真实宿主迁移证据。
+
+长名称样本使用90个中文字符模板名与96个中文字符新版实例名。676窗口成功提示标题约y603仍在视口，但点击核对资源后原实现将焦点交给标签并preventScroll，焦点top855.10/bottom877.10、资源标题top942.84，main.scrollTop仍0，均超700高视口。改为既有switchTab('resources',true)内容导航，移除寻找tabpanel/aria-labelledby及手工RAF标签焦点代码。构建后重走同一页签的创建失败、创建成功但读取失败、明确读取成功和资源核对，676标题“本机资源绑定”top39.83/bottom67.83，1040重新由共享配置进入后top40.16/bottom68.16，均H2获焦且文档宽等于窗口。导航不追加创建、保存、绑定或执行。
+
+返回原实例仍显示1.0.0及原保存字段；从来源与版本打开原定义导出，核对弹窗明确version-review@1.0.0。未核对前导出禁用；明确核对后首次虚构false显示取消保存并聚焦反馈，第二次明确导出失败聚焦原因，第三次点击重新确认并导出取得虚构true、成功标题获焦；返回来源页原导出ZIP按钮获焦、1440上下界约494.71/534.70。所有导出请求使用原包key，未创建真实ZIP、未调用系统保存选择器。version-evidence-final.json记录两次create、三次export、0次save，两个实例仍revision1；没有运行、调度或模板代码执行。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-template-versions/ 下design-versions.png、source-selected-1440.png、open-failure-676.png、long-adoption-before-676.png、long-resource-before-676.png、long-resource-after-676.png、long-resource-after-1040.png、source-return-1440.png。source-selected图为选择后即时截图，仍含弹出层旧帧，不作最终整板视觉证据；其他截图亦仅当前视口，部分右侧裁剪，焦点位置以DOM为准，不计完整1:1通过。编辑虚构脚本和构建时开发页重载，重新进入同一页签核对最终代码，未新增Electron实例。
+
+pnpm typecheck、pnpm build、目标文件Prettier --check和git diff --check通过，日志/tmp/flowark-version-navigation-typecheck.log、/tmp/flowark-version-navigation-build.log，保留既有大chunk提示。未新增或运行单元/集成/smoke测试。临时HTML/JS已删除，页签关闭、viewport复位，4307本轮Vite PID31848核对后SIGINT退出；唯一原生PID9637保留，未打包或更换PR #167安装版。真实新版创建/迁移、ZIP导出、当前安装版与完整186画板/U01–U12仍待验收。
+
+客户端[PR #181](https://github.com/zhongmiao-org/flow-ark-client/pull/181)最新head `bc2178149c9fc7b3fe3e8c32d84085a87375a760`经[CI38061119653](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38061119653) Validate39秒及Auto Merge成功，实际自动合并为`0540a8beab7dcb0f000f2b086e4638bef3057a9a`。此前38061062004仅Validate通过、Auto Merge跳过，不计交付。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
