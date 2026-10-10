@@ -6955,3 +6955,17 @@ DebugRunWorkspace 两处 Card、两处 Empty 直接采用 Ant Design，保留语
 pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试。未启动Electron或第二FlowArk，未调用宿主/AI/文件或真实控制；页签106关闭、视口复位、4257 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实执行控制、保存重开及186画板/U01—U12完整验收仍未完成。
 
 [客户端 PR #134](https://github.com/zhongmiao-org/flow-ark-client/pull/134) 最新head `d9c79edadf0e8c0f1f97322b24cbb6d8167bbc0e` 的 [CI 38012319150](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38012319150) Validate45秒/Auto Merge8秒成功，实际合并为 `1ca2f91a025dc2f9e62112aada31dd7a479d10fc`；同head较早38012318919取消，不计为通过。
+
+### 2026-10-10 Ant Design 网页选取与会话卡片
+
+ElementPicker 反馈和 BrowserSidebar 拾取说明/会话状态共三处 Card 声明直接采用 Ant Design，反馈使用 Tag/Badge，会话字段使用 Descriptions；颜色集中到 theme.elementPickerColors。删除手写卡片、标签色块/圆点与字段表外观。普通反馈body24/gap12、小卡body12；任务待确认区仍为borderless/透明/body0。保留语义反馈region、alert/status、refs、原取消/确认、来源变化保护、运行互斥及原生视口回调，不改变IPC/宿主契约。Figma1:2229上下文/截图仍受Starter配额限制，沿用既有页面映射，无新增静态资产或最新整板1:1证据。
+
+唯一隐藏IAB页签107、4258 Vite加载实际组件/ApplicationTheme与虚构IPC：待确认显示长目标名称、2层框架和结构提示；放弃/虚构应用后回到拾取按钮，反馈定位聚焦原section。确认等待禁用拾取/验证/应用，网页来源变化清除旧目标，迟到确认未应用；任务确认区自动聚焦“使用这个目标”，边框0/body0/透明。互斥显示警告Tag，虚构详情读取失败保留错误；唯一验证与多匹配拒绝均显示对应Tag。正在拾取显示processing，取消恢复验证入口；会话描述与定位入口可用，运行展示禁用导航和拾取并更新说明。这些均为虚构响应，不证明真实网页定位、原生视口或执行成功。
+
+初始夹具两栏中右侧既有固定宽度造成截图截边；只调整临时夹具布局和局部宽度，重载后重新核对，不修改产品布局。切换任务/步骤导致旧索引失效，观察后选择新按钮；虚拟列表某次点击未选中，后改用可见选项/键盘明确选择，多匹配最终以错误反馈为证。宽申请1920实际CSS1432，窄1040实际771、文档同宽；最终窄普通卡宽722.69px/body24，无横向溢出。早期宽反馈body24、小卡body12、会话body高200/内容227px；早期宽度来自未修正夹具，不计产品布局证据。最终console warn/error为空，保留原133%缩放。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-browser-cards/` 中 candidate-wide（截边，不用作完整证据）、candidate-wide-final、busy-narrow、task-candidate-narrow，均png。multiple-narrow首次实际是唯一验证，文件名不代表多匹配；multiple-narrow-final只保存未目视，多匹配以最终DOM反馈确认。原生网页区域在隔离预览为空，不能作为页面内容/坐标或原生全画板证据。
+
+pnpm typecheck、pnpm build、五文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk或访问真实网页/AI/文件。页签107关闭、视口复位、4258 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实拾取与保存重开、原生观察/聚焦及186画板/U01—U12完整验收仍待完成。
+
+[客户端 PR #135](https://github.com/zhongmiao-org/flow-ark-client/pull/135) 最新head `6affa9b3f50a572c4033b6bffca2ea33e6067afe` 的 [CI 38012870683](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38012870683) Validate39秒/Auto Merge8秒成功，实际合并为 `b0f1394c01868a0623028477e867926797236e3b`；同head较早38012870649取消，不计为通过。
