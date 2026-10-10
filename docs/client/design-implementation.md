@@ -6969,3 +6969,15 @@ ElementPicker 反馈和 BrowserSidebar 拾取说明/会话状态共三处 Card �
 pnpm typecheck、pnpm build、五文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk或访问真实网页/AI/文件。页签107关闭、视口复位、4258 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实拾取与保存重开、原生观察/聚焦及186画板/U01—U12完整验收仍待完成。
 
 [客户端 PR #135](https://github.com/zhongmiao-org/flow-ark-client/pull/135) 最新head `6affa9b3f50a572c4033b6bffca2ea33e6067afe` 的 [CI 38012870683](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38012870683) Validate39秒/Auto Merge8秒成功，实际合并为 `b0f1394c01868a0623028477e867926797236e3b`；同head较早38012870649取消，不计为通过。
+
+### 2026-10-10 Ant Design 复杂输入与变量卡片
+
+VariablePicker 双栏、StructuredValues 映射/矩阵当前项及 StructureReferenceRecovery 受影响引用字段共五处 Card 声明直接采用 Ant Design；四处 Empty 声明替代基础空态。保留语义 section、引用作用域、refs、原输入/分页/应用回调及未完成输入保护。移除重复边框、圆角和内边距，普通卡片 body24、小卡 body12；变量详情原28px统一为主题24px，两栏最小高度670px在窄容器取消。业务行列布局及底色保留，不改变 IPC、宿主或契约。沿用 Figma2:1545、2:2033 既有映射，本轮未重新请求在线设计，不宣称最新整板1:1。
+
+唯一隐藏IAB页签108、4259 Vite加载实际组件/ApplicationTheme及虚构内存数据：重复改名拒绝覆盖，成功改为 Content-Type-Updated 后 application/json、0、false 和嵌套0保留，焦点回到名称。嵌套JSON输入“{”后打开并取消变量选择，未完成输入仍在，原内存值未变，焦点回到选择按钮。矩阵B1显示布尔false，翻到11行/G列保留11×7数据，末页禁用按钮时焦点回到分页区。搜索无结果保留 params.title，虚构应用失败保留来源和错误；__proto__子路径禁用应用，清除后成功关闭并返回打开按钮焦点。无来源及 steps.missing 分别显示 Empty；受影响引用改为 params.zero，仅更新虚构内存字段，明确未重试结构操作。映射/矩阵无数据 Empty 本轮未独立人工核对。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-structured-cards/` 的 variable-search-failure、variable-empty-narrow、reference-recovery，均png。窄申请900实际CSS676、文档677，两卡宽529.42px且单列；1px文档差异未作零溢出声明。窄截图保留抽屉实际滚动区域，下方内容需滚动，不能据全页捕获声明整板同时可见。保留原133%缩放；最终console warn/error为空。截图是无产品侧栏的隔离预览，不证明原生整板布局。
+
+pnpm typecheck、pnpm build、六文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk或调用真实宿主/AI/文件/网页操作。页签108关闭、视口复位、4259 Vite回收、临时HTML/TSX删除，IDE改动保留且未提交。真实保存重开、引用执行与186画板/U01—U12完整验收仍待完成，不按Card数量计算完成百分比。
+
+[客户端 PR #136](https://github.com/zhongmiao-org/flow-ark-client/pull/136) 最新head `fe9c20e6a6ccf718fbe5fe512b73da38fa3136c9` 的 [CI 38013399135](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38013399135) Validate43秒/Auto Merge8秒成功，实际合并为 `9fa5584f20e47eaf84128e20bbdf06e217d1c6df`；同head较早38013398812取消，不计为通过。
