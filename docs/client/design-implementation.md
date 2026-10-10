@@ -7540,3 +7540,16 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 已查看/Users/mac/.codex/visualizations/2026/10/10/flowark-task-window-selection/中的same-name-after-1440.png、same-name-after-676.png、long-title-1440.png、long-title-1040.png、long-title-676.png，只支持局部身份与长标题布局，不计完整整板视觉通过。最终warn/error为空，页签关闭、viewport复位、4293服务回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过；/tmp/flowark-window-selection-identity-build.log保留既有大chunk提示。未新增或运行单元、集成或smoke测试。唯一安装版PID9637仍在运行，未启动第二FlowArk/Electron，IDE改动保留；本轮未重新打包，安装版仍为此前46944c5来源的0.3.0。真实窗口/选区读写、真实AI、完整186画板/U01–U12继续待验收。
 
 客户端[PR #170](https://github.com/zhongmiao-org/flow-ark-client/pull/170)最新head `c6cfca6ffdf16d323be38f9df168f9c1e0f1ac11` 经[CI 38047760831](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38047760831) Validate42秒/Auto Merge7秒通过，实际自动合并为`f4869160e871a422c0f2a7640549dc696a7375a2`。此前38047747106取消，不计通过。线程附件超过100，未重复附加或删除既有附件，保留直接PR链接。
+
+
+### 2026-10-10 应用窗口能力说明的主题正文色
+
+对应094（23:2609）、132（23:8087）。本轮查看此前保存的design-taskappready.png，设计中能力说明使用正常正文色；未读取最新云端整板，不计整板验收通过。当前独立客户端main f4869160e871a422c0f2a7640549dc696a7375a2，IDE改动保留；唯一安装版PID9637存在，未重启或新增FlowArk/Electron实例。
+
+实际App Renderer及生产CSS在4294预览、唯一IAB页签使用虚构窗口与选区响应，不访问真实宿主或日常资料。四项能力说明原先使用Ant Design禁用色rgb(185,195,211)，过浅且与设计的正文层级不符。通过Checkbox原有styles.label接入var(--fa-text-primary)，实际颜色rgb(23,32,51)，与集中主题#172033一致；保留四项disabled=true及原勾选/授权行为，不改变图标、其他禁用控件、主题或宿主，不新建包装组件。
+
+1440/1040/676下四项文字14px；后两种宽度每项clientHeight/scrollHeight均22，document.scrollWidth等于窗口宽度。读取得到虚构段落后前两项勾选，清除预览后仅窗口信息勾选、正文0且焦点回读取按钮。再次明确读取后模拟权限失效：四项均撤下勾选、正文0、错误反馈获焦；重新检查显示尚需辅助功能权限，不能继续读取。明确打开虚构系统设置入口再检查，2500ms观察暂时就绪后到期，四项未勾选且均禁用，旧正文0，显示检查失效和重新检查窗口入口；文字始终为主题正文色。原虚构资料按全局请求次数切换权限状态，在开发StrictMode重复观察时提前返回缺权限；已改为明确读取及设置动作切换，重载后以上记录不依赖请求次数。
+
+已查看/Users/mac/.codex/visualizations/2026/10/10/flowark-window-capability-readability/中的before-1440.png、after-1440.png、after-1040.png、after-676.png、expired-676.png。最终warn/error为空，页签关闭、viewport复位、4294服务回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check和git diff --check通过；日志/tmp/flowark-window-capability-readability-build.log保留既有大chunk提示。未新增或运行单元、集成或smoke测试。本轮未重新打包，安装版仍为此前46944c5来源的0.3.0，真实权限撤销/选区、最新安装版、完整186画板/U01–U12仍待验收。
+
+客户端[PR #171](https://github.com/zhongmiao-org/flow-ark-client/pull/171)最新head `faa2b5765e2e77f8286e5185db608ef499dafc7f` 经[CI 38048223142](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38048223142) Validate40秒/Auto Merge8秒通过，实际自动合并为`a98dc867615bebf45152ce7975318eb6276f0ef0`。此前38048184260取消，不计通过。线程附件超过100，未重复附加或删除既有附件，保留直接PR链接。
