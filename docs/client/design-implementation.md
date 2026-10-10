@@ -7738,3 +7738,24 @@ style.css中剩余旧固定配色改为现有Figma语义变量，状态外观统
 已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-theme-cleanup/ 下fields-before.png、fields-after-1440.png、errors-1440.png、fields-after-676.png、purple-fields-1040.png、purple-run-detail-1040.png、purple-ordinary-run-1040.png与purple-output-676.png。部分截图只覆盖当前滚动区域，不用于整板1:1结论。
 
 pnpm typecheck、pnpm build、三个改动文件的Prettier --check与git diff --check通过；日志/tmp/flowark-theme-cleanup-typecheck.log和/tmp/flowark-theme-cleanup-build.log，保留既有大chunk提示。style.css已无固定十六进制色值，不表示其他样式或全部画板已完整核对。未新增或运行单元、集成、smoke测试。4304退出130，页签关闭、viewport复位、两份临时HTML/JS删除；唯一原生PID9637仍在运行，安装版PR #167及PR #176候选未改。本轮未打包，真实持久化、AI/MCP/网页/桌面及186画板/U01–U12仍待验收。
+
+
+## 2026-10-10 · 模板实例整页布局与错误可见性
+
+从客户端已合并PR #178的main继续实施，保留无关IDE改动。查看保存导出14-模板实例.png（2:973），参考当前统一导航与模板实例编辑规范；本轮没有新在线Figma上下文，缓存不证明全部画板最新。稿件右侧的输入错误/保存失败入口是状态演示，不新增生产菜单。
+
+实际App沿本轮4305虚构宿主从模板库→本地实例→共享配置进入，加载当前main.tsx及全部生产样式。模板名称、网址/标题定位/布尔标签来自虚构包Schema，不硬编码到客户端，不接真实文件/模型/执行引擎。StrictMode可能增加只读bootstrap/详情读取，不是两个原生实例。本轮未新增或运行单元、集成、smoke测试。
+
+修复前两卡x约256/1008、728/400宽、652高正确，但y约308；Ant标签栏高45.98px且底距32。使用Tabs原有语义styles.item的paddingBlock5，使栏高约31.99，卡片y293.97。左配置Card通过原有styles.body设28px留白，字段x284.74、宽670.42；右指南仍24px。移除实例页遗留输入line-height20，使三项输入从37.49恢复39.49px、line-height22、8px圆角，遵循Ant主题40及浏览器小数边框舍入。实例主标题显示模板名 · 实例名，入口详情仍沿用入口名，不改变草稿、保存、权限或模板业务语义。
+
+人工链路发现保存失败后的配置Alert仍获焦，1440缩至1040时top911.74/bottom1042.36，超出700高视口。补充共享配置错误的ResizeObserver：仅active、非busy、非离开弹窗、当前配置页且错误仍拥有焦点时，将超出main可视区的错误滚至中部；观察main、实例根和错误，状态变化时断开，不覆盖用户已移至其他控件的焦点，不追加保存/执行请求。最终构建后重走同一页签链路，1040/676错误top304.59/bottom435.21并继续获焦，文档宽度等于视口。
+
+最终虚构场景：必需网址清空后保存被阻止，首个错误字段获焦、template.save为0；修正网址、改名归档副本并勾选保存空结果，首次明确保存固定失败，草稿保留且实例基线未变。缩窄不自动重发；明确重试成功后同一修订发起第二次保存，虚构实例甲revision由1到2，实例乙保持1及原other/h2配置。此回执仅夹具，不计真实宿主原子保存或持久化。
+
+取消临时名称恢复已保存副本名；临时标题定位离开触发三选项，继续编辑返回该输入且top593.66/bottom633.15可见，再明确不保存返回原列表、打开实例按钮获焦且保存仍2次。重开甲显示已保存updated/h1，其他实例入口打开乙仍other/h2，四标签共享导航正常，操作入口只读取空历史，未运行。676临时长实例名使标题自然增长160px、文档仍676宽，取消恢复原名；没有保存乙。instance-evidence.json仅含虚构template.detail/template.save/run.list及最终两个实例，不含真实资料。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-instance-layout/ 下design-instance.png、instance-before-1440.png、instance-after-1440.png、save-failure-1040.png、save-failure-after-1040.png、save-failure-after-676.png、long-name-676.png。最终1440截图是在原虚构保存链路完成后重开甲，显示副本名/updated/勾选态；最初一次即时截图为空，稳定DOM后重拍同文件，不使用空白图作证。截图可能只覆盖当前滚动区或裁剪右侧，几何以DOM为准，不计整板1:1通过。
+
+pnpm typecheck、pnpm build、两个文件Prettier --check及git diff --check通过；发现错误可见性问题后追加修复并重新完成上述检查与人工链路，日志/tmp/flowark-instance-layout-typecheck.log和/tmp/flowark-instance-layout-build.log，保留既有大chunk提示。4305退出130，页签关闭、viewport复位、两份临时HTML/JS删除；唯一原生PID9637仍运行，本轮未重开或打包，安装版仍PR #167。当前安装版、真实保存/重开、真实故障及全部186画板/U01–U12仍待验收。
+
+客户端[PR #179](https://github.com/zhongmiao-org/flow-ark-client/pull/179) latest head `3a91a8283f3a84003c006c1d363a4aa159c08aa8`经[CI38059086129](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38059086129) Validate30秒/Auto Merge8秒成功，实际自动合并为`77f44701fa12328dea97f06ddd30f259d1171bb4`；此前38059026532仅Validate通过、Auto Merge跳过，不计交付完成。线程附件超过100，保留直接PR链接，不重复附加或移除旧附件。
