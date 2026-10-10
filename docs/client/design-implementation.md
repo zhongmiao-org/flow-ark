@@ -7385,3 +7385,19 @@ pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过
 pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过；构建日志/tmp/flowark-review-rejected-version-build.log保留既有大chunk提示。未新增或运行单元、集成及smoke测试，无关IDE改动保留。真实宿主确认失效、原生资源与安装版持久化、桌面专用面板、完整视觉及186画板/U01–U12继续待完成。
 
 客户端 [PR #160](https://github.com/zhongmiao-org/flow-ark-client/pull/160) 最新head `325ad2e50f0feec09be79399b9ee9014aecbe9a2` 经 [CI 38037993524](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38037993524) Validate39秒/Auto Merge8秒通过，实际自动合并为 `7032d52922759a72090b62f424219ac87f46db0c`。较早38037993361取消，不计通过；线程PR附件超过100，未重试或删除附件，保留直接链接。
+
+### 2026-10-10 执行清单长步骤名称与循环记录
+
+沿用102 `23:3957`及104 `23:4283`的任务运行/详情映射，实际查看已保存flowark-antd-execution/design-taskrunning.png的运行双栏、88高步骤卡及16间距。在线Starter额度仍受限，本轮未获取最新云端整板。沿用实际Ant Design组件与集中主题，仅约束共享TaskExecutionSteps名称布局；不改运行控制、回执、步骤身份、事件或起点。
+
+唯一IAB页签21与4284 Vite加载实际App/main和生产CSS，虚构接口提供修订3任务、12普通步骤与1循环/1子步骤、暂停运行及14行清单，其中5条完成、9条未执行，下一步为长名HTTP步骤。只提供虚构对象和回执，没有资源绑定、模型、凭据或真实网络/文件操作，也没有启动或控制真实Run。最初夹具model写成对象触发model.trim错误，改为契约中的字符串后，同一页签重读并通过任务方案/最近运行入口走查；不把夹具形状错误归为产品修复。
+
+1440×1079修复前，循环/HTTP文字按钮宽1134/1440且高28，所在行仅592.57宽，出现横向滚动。文字栏flex:1同时适用于概览和详情，名称按钮max-width:100%、height:auto、white-space:normal后，两按钮均517宽/scrollWidth517、高84；循环/HTTP行自然增至193.48/171.49，清单clientWidth与scrollWidth均593。未放宽原有标题摘要限制。
+
+1040×700单列概览中，两长按钮均775宽/scrollWidth775、高56，清单clientWidth/scrollWidth均851、文档宽1040。已展开下一步重新定位仍保持展开和当前行；查询archiveLoop[0]后通过Enter展开05循环行，查看开始/完成回执和节点实例archiveLoop[0]/loopValue的只读快照。详情页共享名称按钮350宽/scrollWidth350、高66；搜索/展开状态保留，空查询结果显示0/14与明确无匹配提示，定位下一步清除过滤并聚焦当前行。详情回概览仍保留循环查询及展开；首次Playwright radio.setChecked观察未生效，随后实际AX点击“已完成·5”成功显示5/14，并保留循环行。
+
+回1440并清筛后，四条未展开短步骤均87.999高，起点相差103.994，对应16间距；短名称按钮28高。实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-execution-layout/下long-steps-1440-before.png、long-steps-1440-after.png、loop-filter-1040.png及short-step-record-1440.png。截图属于虚构暂停/循环局部布局，不代表完整Figma静态示例、真实长运行或完成/失败路径验收。
+
+最终warn/error仅保留08:34:58Z夹具形状错误及对应React告警，修正后未出现新日志。唯一页签关闭、viewport复位、4284服务回收exit130、临时HTML/JS删除，未启动第二FlowArk/Electron。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-execution-title-wrapping-build.log保留既有大chunk提示。未新增或运行单元、集成及smoke测试，无关IDE改动保留。真实宿主/长运行、完成与失败全路径、原生网页/资源、安装版持久化及完整186画板/U01–U12继续待完成。
+
+客户端 [PR #161](https://github.com/zhongmiao-org/flow-ark-client/pull/161) 最新head `3dcb6fee47f5ec37044e695d478c6308b4b60b16` 经 [CI 38039090763](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38039090763) Validate38秒/Auto Merge7秒通过，实际自动合并为 `dd323bf49fcd4dfc9311f1fb7d503e7a9fb844cd`。较早38039090698取消，不计通过；线程附件达到100上限，未重试或删除附件，保留直接PR链接。
