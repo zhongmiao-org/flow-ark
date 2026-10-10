@@ -6889,3 +6889,25 @@ FlowLibrary七处、RunOutputWorkspace三处、RunResultReview和McpRunReceipts�
 最终typecheck指出Empty不支持role属性，改为外层状态容器后重新通过pnpm typecheck、pnpm build、八文件Prettier --check及git diff --check；最终该语义包装没有另做浏览器查看。构建日志 `/tmp/flowark-results-cards-antd-build.log` 保留大chunk提示。未新增或运行单元、集成、smoke测试，未启动Electron/第二FlowArk，未访问凭据、真实文件或真实业务API。页签102关闭、视口复位、Vite回收、临时HTML/TSX删除，IDE改动未提交；真实保存重开、文件/MCP执行及完整186画板仍待验收。
 
 [客户端 PR #130](https://github.com/zhongmiao-org/flow-ark-client/pull/130) 最终head `3e1b5a52b7fd4e34e38b038658df163d6c9b184c` 的 [CI 38009879907](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38009879907) Validate43秒/Auto Merge8秒成功，实际合并为 `278dd22d52d84e9c59513d4c5fc6eb3a0dc3e578`；同head较早38009879147取消，不计为通过。
+
+### 2026-10-10 Ant Design 运行日志与窗口绑定卡片
+
+沿用Figma实施规范，在线2:2744上下文和截图均返回Starter MCP调用配额限制。实际查看已保存的28-日志与步骤输出导出；桌面绑定沿用既有23:8087/23:8344设计与原组合界面，本轮未取得新桌面设计上下文、不新增设计或静态资产，也不宣称最新整板1:1。
+
+RunEventLog四处、RunLogSummary三处、DesktopRunBinding一处Card声明直接采用Ant Design；事件分隔使用Divider、无日志使用Empty。六个摘要保持三列/窄屏单列，普通body统一主题24px，绑定body业务间距16px；保留section/ol/li、不可变快照、当前Run过滤、日志内容pre、所有字段与原IPC回调。移除重复容器背景/边框/圆角/留白，关联运行、日志阅读位置、窗口绑定校验和取消逻辑未改动。TaskDesktopWindows内部尚有旧task-web-object容器，这轮只迁移绑定外层，不将内部也记为已迁移。
+
+单个隐藏IAB页签103、4254 Vite及真实组件/ApplicationTheme配合虚构回调人工查看。初始105条当前Run记录只展示100条，其他Run记录排除；显示后续5条后共105，查看最新固定#6—#105。追加第106条只提示另有1条新记录、原显示范围保留；明确查看最新后到#106且运行日志标题获焦。空范围/空全部分别显示不同Empty文案，失效原选择missing保留并显示无法从固定快照确认，不自动切到其他步骤。
+
+键盘ArrowDown/Enter实际选中仅运行级记录；后续误按循环展开按钮因当前筛选无此按钮而超时，观察菜单后重新点击打开、选择可见循环标签。最终loop[2]/text只显示一条且命名为第3项；不将循环筛选记为完整键盘通过。2500字符日志与2400字符步骤预览明确从1600字符节选展开，日志pre获焦；Space展开原始记录，4940字符仍显示节选。0/false/null及普通输出10064字符节选可见，不重新执行脚本。
+
+虚构关联读取等待禁用来源/派生按钮、首次失败聚焦run-log-error，明确重试仅导航虚构已有记录，返回原日志恢复来源按钮焦点。虚构读取计数2、导航1；页头计数仅在夹具重渲染时更新，不能作为存储证据。
+
+绑定页选择虚构窗口后读取等待、预览标题获焦；绑定期间更换/重读/清除/绑定禁用且取消可用。首次虚构返回错误flowId，显示来源不一致、取消1次并保留预览；再次绑定中取消关闭，迟到回复后仍关闭且下一次夹具渲染可见取消共2次。遮盖原文禁用绑定并显示两种提示；权限缺失显示说明和设置入口，未点击真实系统设置。本轮绑定调用2次均为虚构，未验收真实绑定成功或写入；绑定失败Alert沿用原行为，没有新增自动聚焦。
+
+宽申请1920实际CSS1443、文档1443，六卡宽约449.21px/body24，前三高约362px，输出约440.45px、来源/派生约503.25px，内容自然增高。窄申请1040实际782、文档782，六卡单列约717.96px/body24；绑定body24/gap16。最终console warn/error为空。固定133%缩放保留，早期截图混用CSS/设备坐标造成裁切或多余空白；最后使用cssContentSize乘原zoom只读捕获，未修改页面缩放或图像像素。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-logs-cards/` 中logs-related-error-wide、logs-instance-narrow、desktop-redacted-narrow-final等过程图，以及最终logs-empty-wide-aligned.png、desktop-permission-narrow-aligned.png；其余早期wide/empty/bind-error/stale-selection已发现截边，不用作完整布局证据。logs-instance-narrow仅是当前长日志视口；redacted-final有多余空白。最终宽空态完整图可见六卡与Empty，但无产品侧栏/原生窗口，不能据此宣称原生整板同时可见。
+
+pnpm typecheck、pnpm build、五文件Prettier --check、git diff --check通过，构建日志 `/tmp/flowark-logs-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk、原生助手、真实TextEdit或业务API。页签103关闭、视口复位、4254 Vite回收、临时HTML/TSX删除，用户IDE改动未提交。实际历史读取、绑定/保存重开、系统权限与完整186画板仍待验收。
+
+[客户端 PR #131](https://github.com/zhongmiao-org/flow-ark-client/pull/131) 最新head `fde2565a3179f701e23286c5747a687cb256afc2` 的 [CI 38010543983](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38010543983) Validate44秒/Auto Merge9秒成功，实际合并为 `03b4c13acc954cb70903b6c07ad7485ce046c936`；同head另一次38010544144取消，不计为通过。
