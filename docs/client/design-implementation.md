@@ -7617,3 +7617,20 @@ pnpm typecheck、单文件Prettier --check、pnpm build、git diff --check通过
 已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-task-tool-selection/ 下 design-tasktarget.png、selected-1440.png、selected-1040.png、selected-676.png、expired-676.png、expired-controls-676.png、reference-task-676.png、reference-return-676.png。截图支持局部内容与返回位置，部分画面裁剪右侧/下方，未计整板视觉验收。页签关闭、viewport复位，4298结束exit130，临时HTML/JS删除。本轮仅文档变更，不重复运行客户端类型检查/构建；未新增或运行单元、集成、smoke测试。原生AX窗口数0、CoreGraphics锁屏标志1、PID9637仍存在，保留唯一旧安装版0.3.0，未重开或打包。
 
 五连接上限、能力摘要变化、真实OAuth/MCP调用与读回、安装版、整板及186画板/U01–U12仍待完成。
+
+
+## 2026-10-10 · 混合副本状态、部分失败与继续修改
+
+客户端保持已合并main `7a1a25728e6a1a0ae1031dd2369a1dd25be84caf`，本轮未发现需要修改产品代码的问题，保留IDE改动。依据已保存设计导出中taskresult2（23:7501）、taskfailure（23:4425）及结果规范查看实际App Renderer；已查看两份设计PNG。缓存不代表全部在线设计最新，画板103/104/105/126/127只补局部证据。
+
+4299单个IAB页签通过现有教学结果入口进入任务运行页。临时虚构宿主提供固定修订7的四步流程、独立成功/断言失败场景、四类同Run产物及一个其他Run产物。四类产物仅用于查看记录投影，未据此验证真实创建次数或文件系统。初始夹具缺少runOverview.latest、回执completed、run.list.runs等字段，导致加载失败或未完成计数；补齐夹具后重载核对，不将夹具错误记作产品缺陷。最终失败输出不含尚未执行的finish，状态事件使用state，失败教学进度为active且无找结果记录。
+
+成功摘要显示4步已完成、4个登记文件/1个已核对副本。四个预览按钮仅已核对副本可用，变动/缺失/清理禁用；其他Run产物既不出现在卡片中，也不进入选择列表。详情先显示选择提示；打开已核对副本返回两行文本，随后选变动/缺失/清理分别清空旧正文并显示对应状态，不请求不可用副本预览。完整成功JSON11897字符，展开后保留末尾count=3、enabled=false、empty=null，焦点进入已保存输出。
+
+断言失败显示停在第3步、2次完成/1次未确认/1个未执行；创建文件影响仍保留。详情固定run=result-failed-run、version=result-version-7、任务修订7，已登记副本仍可只读预览。最终失败JSON11823字符包含passed=false且没有finish；2400字符的步骤输出从1600预览展开为完整已保存文本，焦点进入输出预览。读取与显示不构成真实断言、文件副本或业务结果验收。
+
+成功页输入“只保留来源、日期与金额，补充说明另存为新副本。”，返回方案再打开同一最近运行，原4产物与运行身份保留；再次进入修改仍保留要求。失败页输入“先核对资料完整性，保留已生成的副本，并说明缺失的来源。”，同样从最近运行返回result-failed-run并再次修改，要求保留、失败状态不变。最终失败场景的临时DOM请求计数只含bootstrap/task.list/learning.status/learning.start/run.detail/artifact.preview/run.list/task.detail，无task.save/task.generate/run.start；成功清理副本场景artifact.preview仍为1。查看/修改没有模拟发起模型、创建Run或保存要求，不能据此称持久化完成。
+
+DOM在1440/1040/676文档宽度与视口一致；失败页1040双栏约492.82/403.80、676单栏约556.70；成功1040双栏约556.41/340.21。已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-result-recovery/ 下design-taskresult2.png、design-taskfailure.png、mixed-result-1440/1040/676.png、partial-failure-1440/1040/676.png、partial-details-676.png、partial-log-676.png。部分截图裁剪右侧/下方或只显示滚动位置，尺寸切换后另读DOM并重新保存部分画面，仍不计整板视觉验收。
+
+仅治理文档变更，不重复运行客户端类型检查/构建；未新增或运行单元、集成、smoke测试。4299退出130，页签关闭、viewport复位、两份临时HTML/JS删除；唯一原生安装版PID9637仍存在，未重开或重新打包。真实多种文件预览、外部状态变化、当前安装版、完整186画板/U01–U12仍待完成。
