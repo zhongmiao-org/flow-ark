@@ -6995,3 +6995,17 @@ ArchiveFileList 每项采用小 Card，归档空态采用 Empty，移除按钮�
 初始夹具误导入不存在的fonts.css，改为既有字体包后重载并重新核对。空预览夹具最初遗漏bytes归零，修正后自动重载撤下弹窗；观察实际页面后重走空预览，最终0字节为证。两处均为夹具修正，不算产品修复。pnpm typecheck、pnpm build、六文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk、未读取或删除真实文件、未保存真实草稿或调用真实宿主。页签109关闭、视口复位、4260 Vite回收、临时HTML/TSX删除，IDE改动保留未提交。真实保存重开、磁盘清理及186画板/U01—U12完整验收仍待完成。
 
 [客户端 PR #137](https://github.com/zhongmiao-org/flow-ark-client/pull/137) 最新head `6772b4640822d07a778e2805c2994301c1a3a83f` 的 [CI 38013931487](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38013931487) Validate46秒/Auto Merge7秒成功，实际合并为 `95dc689d7c7605073feaa1ec1e28190bf5ace229`；同head较早38013931203取消，不计为通过。
+
+### 2026-10-10 Ant Design 待办与人工请求卡片
+
+AttentionWorkspace 的列表、详情、上下文、来源运行、核对内容及旧请求内容共七处 Card 声明直接采用 Ant Design，筛选/列表空态采用 Empty。保留 article/aside/li 语义、来源 refs、筛选与返回焦点、请求有效期判断、确认勾选、原输入及回应逻辑。删除基础边框、圆角与内边距；普通 body24、小卡 body12，详情原28px统一为主题24px。728/400双栏和676px最小高度保留，窄容器单列且取消最小高度；警告边框与预览底色保留。未修改IPC、宿主、权限或契约。Figma2:2911上下文与截图均仍受Starter配额限制，沿用1:3794、2:2911/2:4316既有映射，不宣称最新整板1:1，无新增静态资产。
+
+唯一隐藏IAB页签110、4261 Vite加载实际组件/ApplicationTheme和虚构内存响应。搜索无结果显示Empty，清除筛选回到搜索框；未知结果详情保留0、false及完整原始JSON。虚构来源读取失败聚焦错误，刷新后另一来源可进入虚构运行页，返回聚焦原来源按钮且原始详情仍展开。标已读一次后待处理3→2、已处理1→2，原项移出当前列表时焦点回标题。均无真实运行或宿主调用。
+
+初始人工核对夹具遗漏review.version，实际组件正确拒绝无效格式；补齐契约version=1后重载，重新核对长内容。15行正文及前后空白在DOM保留，未勾选禁用确认；打开停止确认聚焦确认区，继续查看回取消按钮焦点且未调用run.control。勾选启用确认，键盘展开请求状态保持折叠按钮焦点。仅内存回应一次后显示已回应且撤下回应入口，标题获焦，虚构计数answer1/refresh1；列表待处理2、已处理2。夹具重载后的计数与重载前读提醒/来源计数分别记录，不合并为一次真实生命周期。失效旧请求保留内容，禁用确认/拒绝；未实际归档。真实回应、持久化、重复进入后的宿主幂等性及输入schema全分支本轮未核对。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-attention-cards/` 中 empty-wide、unknown-detail-wide、human-review-wide、expired-request-narrow，均png。宽申请1920实际CSS1443/文档1432，未知结果两卡宽815.78/448.23px、高735.13/694.38px，body24，来源小卡body12；高度因内容超过最小值，不作为精确整板尺寸。窄申请900实际CSS676/文档665，失效请求两卡宽553.43px、上下排列、min-height0，无页面横向溢出；内容小卡body12/white-space:pre-wrap。保留原133%缩放，全页图不代表全部内容同时可见，无产品侧栏的隔离预览不能证明原生整板布局。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过，构建仍有大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk或访问真实AI、文件、网页与宿主。页签110关闭、视口复位、4261 Vite回收、临时HTML/TSX删除，IDE改动保留未提交。真实保存重开与186画板/U01—U12完整验收仍待完成，不按组件数量计算完成百分比。
+
+[客户端 PR #138](https://github.com/zhongmiao-org/flow-ark-client/pull/138) 最新head `79f20e2e6e66665196c66e97b9fc290502db9536` 的 [CI 38014456859](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38014456859) Validate45秒/Auto Merge8秒成功，实际合并为 `6356aef07f91df91d4ce47ec164e1b3f8f60e6b7`；同head较早38014456249取消，不计为通过。
