@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #186](https://github.com/zhongmiao-org/flow-ark-client/pull/186)，类型检查/构建及最新 CI 通过；0.3.0 arm64 候选对应PR #182，已生成但未安装，PR #183–#186尚未打包，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #186](https://github.com/zhongmiao-org/flow-ark-client/pull/186)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #186，已生成但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -7892,3 +7892,14 @@ pnpm typecheck、pnpm build、两文件Prettier --check及git diff --check通过
 pnpm typecheck、pnpm build、六文件Prettier --check及git diff --check通过；日志/tmp/flowark-run-workbench-typecheck.log、/tmp/flowark-run-workbench-build.log，既有大chunk提示保留。未新增或运行单元、集成、smoke测试。核对4312 Vite PID39617后SIGINT退出（pnpm exit1），临时HTML/JS删除、页签关闭、viewport复位。现有唯一原生PID9637保留；PR #167安装版与PR #182候选不变，本次未打包安装。完整186画板/U01–U12及真实宿主/全部状态/最新版保存重开仍未完成，178局部/6复核/2缺口不变。
 
 客户端[PR #186](https://github.com/zhongmiao-org/flow-ark-client/pull/186) head `0dff07eee66584bef9dcf24a080048a6f9a8f2e7` 经[CI38067322188](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38067322188)最新Validate通过，实际自动合并为`dd0734b9723388fc41d8c3c5429e607fd6b80c1f`。较早38067307506被concurrency取消，不计交付。线程附件达到100上限，附加一次返回限制，保留直接PR链接。
+
+
+## 2026-10-11 · PR #186 累积界面候选包
+
+核对客户端main为`dd0734b9723388fc41d8c3c5429e607fd6b80c1f`、PR #186实际MERGED。相对PR #182旧候选，纳入PR #183的AI配置继续编辑可见焦点、PR #184的AI卡片/反馈布局、PR #185的本地设置字段留白和PR #186的运行表格/筛选/输出/日志布局；客户端源码及依赖无新增修改，无关IDE内容保留。186画板覆盖与验收状态不因打包增加。
+
+执行现有`pnpm typecheck`及`pnpm package:mac`，均退出0，日志`/tmp/flowark-ui-pr186-typecheck.log`、`/tmp/flowark-ui-pr186-package.log`。当前0.3.0 macOS arm64 DMG及ZIP保留在客户端忽略目录`release/candidates/pr186-dd0734b/`；PR #182及更早候选不覆盖。本轮不运行单元、集成、smoke测试，不启动打包程序。默认图标、未签名及既有大chunk提示仍在，打包不是正式发布。
+
+DMG SHA-256为`e3a0b5348365eab68adc303aa839831eadda2f3b4cadace09658cfa4e1b22cfa`，ZIP为`018e58055e7fec1b1bbd73cf917102534fc45fed38b21fc29874a1c118a01e42`；两者app.asar均为`841dcc2e033f703317207643670c3a5742ae9a60f125b6378947e5832f5cc82d`。用现有verifyBundle检查.app链接完整性，236个dist文件逐项与asar一致；14个源SVG按内容摘要匹配构建资产，105个woff2及两份OFL许可非空。ZIP仅解出asar，DMG只读/nobrowse挂载比对，随后卸载及清理临时目录，没有运行其中应用。`package-receipt.json`保存来源、清单、摘要及packaged-not-installed状态，不提交本机回执或二进制。
+
+本轮ioreg/plist确认Mac locked=true且onConsole=true；现有唯一原生PID9637仍为`/Users/mac/Applications/FlowArk.app`，安装asar仍`c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`，对应PR #167源码`46944c5b0d1561cb745bf9f38fbbb1bb49d95345`；未退出、替换、重开或启动第二实例。最新候选尚未安装、保存重开或真实运行验收；真实第三方MCP、指定TextEdit窗口写入回读、整板视觉及U01–U12仍待完成，178局部/6复核/2缺口不变。
