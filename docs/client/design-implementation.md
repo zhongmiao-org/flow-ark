@@ -7105,3 +7105,21 @@ PlanningQuestions 当前问题与先前补充两处 Card 声明直接采用 Ant 
 最终console warn/error为空。页签关闭、视口复位、4268 Vite回收、临时HTML/TSX删除，无关IDE改动未提交。pnpm typecheck、pnpm build、单文件Prettier --check、git diff --check通过，构建保留大chunk提示；未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron。真实撤销/重选、安装版保存重开、完整186画板/U01—U12仍待验收。
 
 [客户端 PR #145](https://github.com/zhongmiao-org/flow-ark-client/pull/145) 最新head `2640db012ec20a113e209ddab56625c2a955ab73` 的 [CI 38020030317](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38020030317) Validate41秒/Auto Merge8秒成功，实际合并为 `07197bd61bbb8223a3ebdae72a8943bc22e09917`；同head较早38020030259取消，不计为通过。
+
+### 2026-10-10 生成、重试与取消的工作台往返
+
+本轮在实际AITaskWorkspace中核对TaskGenerationPage，补齐三处UI/UE：重试区已展开时再次点击/Space激活“重试生成”，现在重新滚动聚焦核对区，保留模型与输入，不清除同一核对区内容或发起模型请求；按钮aria-controls关联唯一核对区。没有当前流程的能力不足结果返回描述页，原按钮误写“生成修改方案”，现显示“理解我的任务”；首次待审方案为“重新生成方案”，已有流程/单步保留原修改文案。窄容器原规则因样式优先级未覆盖生成/能力不足，现三类状态统一420px最小高度，内容可自然增高。未修改IPC、模型请求、取消、存储或执行行为。
+
+Figma23:10659的get_design_context与get_screenshot均返回Starter额度限制；读取此前保存的23:10802原生截图和原设计生成页导出，仅作既有映射核对，没有最新云端设计或新资产。生成Tag原有running.svg有效加载，DOM尺寸5.997×5.997px，与原SVG6×6及状态圆点位置相符；未改资源文件、静态槽位或使用设计截图作产品资产。
+
+唯一隐藏IAB页签4、4269 Vite加载实际工作台/主题与虚构内存任务。首次失败进入重试区未发请求；模型编辑清除发送确认，再次进入已展开区原先焦点留在按钮、核对区top455.98px，修复后聚焦核对区并保留模型。取消重试回原按钮，再展开未勾选；发送披露包含描述、文本资料、逻辑输出元数据与先前回答，不包含虚构目录路径。显式勾选后才进入虚构generating。
+
+取消等待禁用取消按钮，顶部再次取消不追加请求；虚构取消失败聚焦操作Alert，关闭回取消按钮。第二次等待期间虚构生成先失败，取消返回采纳failed状态，不显示取消成功；失败标题获焦，Space展开本次请求记录。下一次明确重试后取消成功返回理解页，标题获焦、发送确认清除，需求/文本/输出保留。第三次虚构请求返回unsupported，限制可Space展开，返回修改需求聚焦输入并保留资料。此阶段累计虚构generate3/cancel3（失败1、结束先于返回1、成功1）/save0，真实执行0；没有配置页或工具连接往返、真实附件、已采纳方案/单步恢复、原生取消或持久化证据。
+
+后续修正窄高度与文案时预览重载，计数重新归零，不与此前累计相加；虚构能力说明也改为不暗示已选工具。最终676×700 CSS视口重新查看键盘进入重试区、aria关联、未确认禁用、generate1/取消0/保存0；生成卡min-height420/实际419.995px，unsupported由原min-height520/实际519.995改为min-height420/收起419.995px，展开两项限制实际437.189px，内容未截断，无文档横向溢出。返回描述页按钮“理解我的任务”、输入获焦且scrollTop0。首次待审方案/已有流程/单步按钮分支本轮仅代码核对，未独立人工查看。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-generation-workspace/` 中 generating-compact.jpg、cancel-failure-compact.jpg、cancelled-understanding-narrow.jpg、retry-review-narrow-final.jpg、unsupported-narrow-final.jpg；早期unsupported-narrow.jpg在折叠动画前捕获，不能证明限制展开可见，最终图与DOM两项限制重新核对。原133%缩放下1040×700与676×700为CSS预览尺寸，无产品侧栏/原生窗口，不作为1440×1080整板1:1或支持尺寸验收。
+
+最终console warn/error为空。页签关闭、视口复位、4269 Vite回收、临时HTML/TSX删除。一次重载观察提示目标导航中，重新读取同一页签4恢复，没有新建预览或重启进程。pnpm typecheck、pnpm build、三文件Prettier --check、git diff --check通过，构建保留大chunk提示；未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron或调用真实AI/宿主/文件。无关IDE改动保留未提交；安装版完整生成/取消/重开、最新设计与186画板/U01—U12仍待验收。
+
+客户端 [PR #146](https://github.com/zhongmiao-org/flow-ark-client/pull/146) 最新头 `113e1a4b004e5f09742772cb65c3570545d1876a` 经 [CI 38021634555](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38021634555) Validate 46s / Auto Merge 8s 成功，已实际自动合并为 `c90f3632d9e04a9d08fa27af35420cc817f43d5f`；另一轮38021634060取消，不计通过。附件工具返回线程附件数量超过100，未重试或移除既有附件，保留直接PR链接。
