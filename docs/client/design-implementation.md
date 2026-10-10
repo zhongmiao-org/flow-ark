@@ -7321,3 +7321,21 @@ pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过
 当前索引186项中182项已有局部推进或重新核对记录，052操作路径总览和068导航演示仍待核对，083/087参数来源的变量选择仍缺消费字段与入口。182/186约97.8%仅为记录覆盖率，不是完成率；没有全186最终验收证据。实际宿主持久化、全状态组合、最新整板视觉和完整U01–U12目标保持待完成。
 
 客户端 [PR #156](https://github.com/zhongmiao-org/flow-ark-client/pull/156) 最新head `7ad6d3943607be0cf8d91a1858b3b9938e3bc998` 经 [CI 38031010546](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38031010546) Validate42秒/Auto Merge9秒通过，实际自动合并为 `8cd8ea642af145d2095e9690f732050418e9df63`，本地main已快进。较早38031009615取消，不计通过；checks观察命令曾TLS超时，另查PR实际MERGED及最终workflow success后才记录交付。附件工具仍返回线程附件超过100，未重试或删除附件，保留直接PR链接。
+
+### 2026-10-10 操作路径索引与导航可见焦点
+
+实际查看已保存的052 `2:6948` P1操作路径总览、068 `8:18364`导航与返回演示PNG，并核对design-navigation及既有实施边界。两张均是设计路径/状态规格索引，继续映射到编辑、模板、运行和设置的生产页面，不新增目录或演示菜单。索引更新为重新核对而非完整验收；本轮只推进下述真实产品组件路径，原生窗口、全部来源/失效组合及完整186/U01–U12目标保持待完成。沿用获准缓存，未重复请求已知受限的Starter上下文，未取得最新整板。
+
+4280 Vite和唯一隐藏IAB加载实际App/main、生产CSS及虚构内存接口：8流程、18条只读运行记录、1模板和1实例。1440×960从运行第2页末行NAV-RUN-007进入输出，期间缩窄为676×700，通过第2页面包屑返回。修复前页码7–12/18和原按钮焦点保留，但按钮x734.81–774.81、y767.34–807.34，主滚动及表格横滚均0，按钮纵横都在视口外。RunHistory现先恢复原主滚动，再正常聚焦同ID按钮，使当前尺寸下原行进入可见范围；不存在时继续落筛选摘要/列表标题，不换成另一条记录。修复后原按钮x520.15–560.14、y489.52–529.52，main.scrollTop277.82、表格scrollLeft214.66，文档宽676。返回像素可因尺寸改变调整，不宣称绝对滚动不变。
+
+从当前详情Cmd+[回第2页也恢复同按钮。最终正确Flow快照的虚构响应下，搜索NAV-RUN-后第2页→运行日志→两次Cmd+[分别回当前详情和原第2页，搜索摘要与7–12/18仍保留，按钮x601.35–641.35/y489.63–529.63可见。1040×700顶部返回同记录，原按钮x855.99/y489.47–529.47，搜索及页码不变；无文档横向溢出。本轮不验证真实Run状态、并发游标、跨日或执行回执。
+
+676下已有模板实例甲共享资料改为本次未保存共享资料，整理资料入口主题/备注另改，进入DeepSeek后只改虚构模型ID，不填写Key。输入框Cmd+[保持设置页；非输入区同快捷键进入三选项，弹窗内重复快捷键不离开，Escape关闭确认。明确不保存AI更改后返回原实例/入口，主题与备注保留，去配置DeepSeek获焦且top389.54可见；共享配置仍保留草稿。侧栏我的流程继续触发独立模板守卫，明确放弃后到原目的地。不据该样本宣称AI保存/连接、源对象失效或真实系统凭据通过。
+
+参数页补核此前长列表证据未覆盖的资源区滚动：将maxItems改40、备注改键盘返回保留备注，聚焦顶部返回后End滚至资源区，Cmd+[进入同一守卫，虚构保存拒绝后继续编辑。修复前原备注获焦但top-30.43，在视口上方；FlowParametersPage继续编辑改为正常聚焦最近字段，修复后备注350.40–390.40可见，40与备注均保留。明确不保存仍回原编排，参数按钮获焦；本轮未重开核对参数基线，不计磁盘保存证据。最终HMR后会话虚构flow.save尝试1次并失败，未启动任何运行；修复前会话尝试与后续分开，不合计为一次真实保存。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-navigation-index-app-path/下history-return-narrow-before.jpg、history-return-narrow-after.jpg、template-ai-return-narrow.jpg、parameters-keyboard-return-narrow.jpg、parameters-keyboard-return-narrow-after.jpg与history-filtered-return-narrow-final.jpg。截图是当前滚动位置和表格横滚的局部，不能当整板视觉通过。夹具最初snapshot误传FlowRecord，详情显示快照缺失，改传Flow后才重核最终筛选/日志路径；没有因此修改生产运行代码。HMR刷新回任务首页后，旧原行定位无匹配，重读同一页签并重新建立来源；首次键盘工具参数错误也按已读取接口修正，没有重启服务或新建实例。
+
+最终预览warn/error为空；唯一页签关闭、视口复位、4280 Vite回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、两文件Prettier --check和git diff --check通过，日志/tmp/flowark-navigation-visible-return-build.log保留既有大chunk提示。两处仅改Renderer焦点滚动，沿用Ant Design、既有守卫及来源，不改IPC、资源绑定、保存或执行契约。未新增/运行单元、集成、smoke测试，未启动第二FlowArk/Electron，未读取凭据或访问真实文件、AI、宿主；IDE改动保留未提交。
+
+客户端 [PR #157](https://github.com/zhongmiao-org/flow-ark-client/pull/157) 最新head `43d15a9c2bfba7e10ad4cb4e3642f5a81038a65e` 经 [CI 38032783743](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38032783743) Validate46秒/Auto Merge9秒通过，实际自动合并为 `2885e1897f5160820b2d0688717d80c4e16d1957`。较早38032783104取消，不计通过；附件工具仍返回线程附件超过100，未重试或删除附件，保留直接PR链接。
