@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #199](https://github.com/zhongmiao-org/flow-ark-client/pull/199)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #198，已纳入PR #195–#198的近期UI修复，DMG/ZIP内容核对通过但未安装，尚未包含PR #199依赖反馈修复；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #200](https://github.com/zhongmiao-org/flow-ark-client/pull/200)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #198，已纳入PR #195–#198的近期UI修复，DMG/ZIP内容核对通过但未安装，尚未包含PR #199依赖反馈与#200编辑器主题修复；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8190,3 +8190,17 @@ ioreg确认Mac仍锁屏，原生主进程唯一PID9637/PR #167未退出或替换
 `pnpm typecheck`、`pnpm build`、两文件Prettier及git diff --check通过，日志 `/tmp/flowark-script-feedback-typecheck.log`、`/tmp/flowark-script-feedback-build.log`。未新增或运行单元/集成/smoke测试。Vite4328/session68411已停止exit130，两份临时入口删除、页签85关闭及viewport复位，无关IDE保留。ioreg确认仍锁屏，唯一原生主进程PID9637/PR #167保留；候选仍PR #198，未包含本轮修复。178局部覆盖/6复核/2缺口不变，083/087引用字段、完整整板和U01–U12及最新版真实保存重开待验收。
 
 客户端[PR #199](https://github.com/zhongmiao-org/flow-ark-client/pull/199) head `cf429ed79279989ddc5b2fadc8680594ea1d90be` 经[CI38083447491](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38083447491)最新Validate与Auto Merge SUCCESS，实际自动合并为 `d7e287fe093ef071d2adcd31ad83b406b3b3ee39`。较早38083439496被标签事件替代并取消，不作为通过证据；附件一次返回100上限，保留直接链接。候选及原生验收状态不变。
+
+## 2026-10-11 · 脚本编辑器集中主题与长代码交互
+
+从客户端PR #199合并main继续，实际查看120 `23:6726`保存导出（2026-09-21的57图ZIP），未重新请求受限连接器或锁屏桌面。当前宽窗双栏及编辑区域尺寸基本对应保存稿，但Monaco默认背景为rgb(30,30,30)，稿件代码区为rgb(18,26,42)。在现有集中theme.tsx映射Ant token到Monaco背景、行号栏、正文、光标与当前行，CodeEditor初始化和token改变时采用此主题；继承语法着色，只作用于既有深色脚本页，保留浅色检查器。未新增基础包装组件、IPC或契约。
+
+完整App虚构资料中实际Monaco加载68行代码，真实worker识别第66行17列错误；点击诊断及缩窄676后再次点击，代码区获焦，错误行显示，676活动编辑输入frame y约250–271可见，main与scrollWidth同为605。真实输入修正末尾表达式后语法通过。收起的未完成JSON保存前展开并聚焦原片段，超时99毫秒同样阻止保存/聚焦期限，二者保存请求数0。修正输入及45000期限后第一次虚构保存失败，错误y约40–106获焦；明确重试成功，流程库再打开保留修正后的68行、输入标题及45000期限。最终该次加载只收到两次flow.save（一失败/一成功），unsupported为空，没有真实脚本执行、目录读取、模型/MCP或宿主持久化。
+
+重新打开预览分别显示当前输入与旧manual-version-1历史输出，并明确历史配置不同、不是本次编辑结果；1040历史输出frame y约404–584位于700高视口内，main/scrollWidth同为969。浅色检查器实际背景仍rgb(255,255,254)。替换虚构主题的深色表面/亮色正文后，编辑区与行号栏变为rgb(32,51,77)，正文rgb(242,230,204)；重新加载默认主题恢复稿件深蓝。默认1440卡片x约256/1000、y230，宽720.4/408.2、基础高708；Monaco约x281/y311、670×389。7份本地导航SVG非空且root20×20，NavigationIcon调用及实际20×20呈现保留，未修改图像资产。实际语法着色、内容及右侧真实配置与静态稿示例不同；截图右下裁切，只作局部证据，不计整板验收。
+
+证据 `/Users/mac/.codex/visualizations/2026/10/11/flowark-script-editor-workbench/`：保存设计120、人工fixture、editor-before、diagnostic-1440/676-after、input-incomplete-676、timeout-invalid-676、save-failure-676、reopen-saved、reopen-preview-676、preview-1040、editor-alternate-theme及editor-final-1440。`pnpm typecheck`、`pnpm build`、两文件Prettier及git diff --check通过，日志 `/tmp/flowark-script-editor-theme-typecheck.log`、`/tmp/flowark-script-editor-theme-build.log`。未新增或运行单元/集成/smoke测试；Vite4329/session58232停止exit130，临时入口删除、页签关闭和viewport复位，无关IDE保留。
+
+ioreg再次确认Mac仍锁屏，唯一原生主进程PID9637/PR #167保留，未安装、重开或启动第二实例；候选仍PR #198，未包含#199及本轮代码。178局部覆盖/6复核/2缺口不变，最新版原生保存重开、真实目录/脚本、完整186画板与U01–U12仍待验收。
+
+客户端[PR #200](https://github.com/zhongmiao-org/flow-ark-client/pull/200) head `769863c4c4c35074871e68bde7fc3993ce5de841` 经[CI38084119561](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38084119561)最新Validate及Auto Merge SUCCESS，实际自动合并为 `e33d1a7e93f175ef83b506c6b7744502b2a2adc4`。较早38084107518由标签事件替代，未沿用其结果；附件一次返回100上限，保留直接链接。候选与原生验收状态不变。
