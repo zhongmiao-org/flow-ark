@@ -7047,3 +7047,17 @@ StorageFaultNotice 三处 Card、状态 Tag/Badge、无记录 Empty 与成功/�
 初次类型检查拒绝Alert的tabIndex属性，改用已有Alert原生ref方式后通过。最终pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过，构建仍有大chunk提示；去除重复摘要CSS后再次构建通过。未新增/运行单元、集成、smoke测试，未启动Electron或第二FlowArk，未访问真实磁盘/宿主/AI/网页。页签113关闭、视口复位、4264 Vite回收、临时HTML/TSX删除，无关IDE改动保留未提交。真实故障恢复、保存重开、186画板/U01—U12完整验收仍待完成，不按组件数量计算百分比。
 
 [客户端 PR #141](https://github.com/zhongmiao-org/flow-ark-client/pull/141) 最新head `7b00f1c79a9c430a35c77ce700e36a1b5c966e61` 的 [CI 38016148365](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38016148365) Validate41秒/Auto Merge7秒成功，实际合并为 `20c51bd2d21e98f540fbdddec66305ad9a610ad1`；同head较早38016142987取消，不计为通过。
+
+### 2026-10-10 Ant Design 网页观察与目标聚焦
+
+BrowserSidebar 的网页槽位直接采用 Card，五类错误与页脚说明采用 Alert，会话标记采用 Tag/Badge；删除基础边框、圆角、内边距和颜色规则。普通/总览槽位 borderless、透明/body0，目标卡 body24，保留原固定高度约束与布局。状态/操作反馈经 Alert 原生 ref 保留焦点，非法网址继续关联 aria-describedby；目标确认、返回总览/来源、会话重读、原网页槽位及视口回调保留，不修改 IPC、宿主、原生助手或观察/执行协议。
+
+本轮本地 Figma 可读，实际查看原文件“AI · 紧凑目标聚焦”1040×700画板、93%缩放，保存并目视 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-browser-observation/figma-target-focus-native.png`。对应117既有映射，保持白色目标卡及蓝色说明区，未修改设计或新增资产；本地可见状态不证明服务器已同步最新版本。本轮未重新调用配额受限的在线连接器。
+
+唯一隐藏IAB页签114、4265 Vite加载实际 BrowserSidebar/BrowserFocusProvider/ApplicationTheme及虚构内存响应。总览和聚焦的网页槽位DOM nodeId均27，切换未重建；宽聚焦发送{x:265,y:265,width:1111,height:168}，对应实际{x:264.74,y:264.72,width:1110.85,height:167.80}，body24。返回总览后摘要获焦，再聚焦/虚构确认一次后返回入口并恢复焦点；匹配失败禁用确认、保留返回，错误出现后视口请求继续对应实际矩形。会话读取失败/只读重读聚焦Alert，会话停止禁用手动入口；比例未确认及切换失败保留错误，关闭后焦点回网址。非法javascript:virtual地址拒绝导航，aria-invalid=true，错误关联内容正确。原生区域为空，不提供网页像素，未真实调用浏览器/拾取/提交/执行；虚构确认不等于真实唯一匹配或保存。
+
+初始临时预览缺少row方向及真实with-browser/has-browser父类，出现零高或半宽槽位；仅修正夹具，Vite重载后重新核对，不算产品修复或累计生命周期。实际查看截图目录的 focus-wide-final、focus-compact、focus-failure-compact、status-failure-compact；早期focus-wide只保存，不计完整布局证据。宽申请1920实际CSS视口1443/文档1432；紧凑申请1384×931、实际CSS1040×700/文档1029，槽位859.84×57.77px，发送{x:113,y:265,width:860,height:58}，footer底边557.96px。匹配失败后槽位y338.20、发送338；全页错误图标题有局部捕获遮挡，不据此宣布原生整板完全可见。保留原133%缩放，无产品侧栏/原生网页的隔离预览不证明整板1:1。最终console warn/error为空；非编辑面板的Tag分支、真实运行互斥和原生观察/确认本轮未独立人工核对。
+
+最终pnpm typecheck、pnpm build、四文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron或第二FlowArk。页签114关闭、视口复位、4265 Vite回收、临时HTML/TSX删除，无关IDE改动保留未提交。真实保存重开、原生目标确认及186画板/U01—U12完整验收仍待完成，不按基础组件迁移数量计算百分比。
+
+[客户端 PR #142](https://github.com/zhongmiao-org/flow-ark-client/pull/142) 最新head `fc5c74fb8204a50648a8369d6974e236614a98a4` 的 [CI 38017664612](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38017664612) Validate44秒/Auto Merge7秒成功，实际合并为 `d771069e1727bf91c79ff5779771fb31233d881a`；同head较早38017664468取消，不计为通过。
