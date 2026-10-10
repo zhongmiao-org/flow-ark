@@ -7514,3 +7514,16 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 已查看`/Users/mac/.codex/visualizations/2026/10/10/flowark-tool-reference-return/`中middle-before-676.png、final-676.png、final-1040.png、final-1440.png；仅证明本轮局部布局/可见入口，不计整板1:1完成。页签关闭、viewport复位、4291预览回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier检查和git diff --check通过，日志`/tmp/flowark-tool-reference-return-build.log`保留既有大chunk提示。未新增/运行单元、集成或smoke测试，无关IDE改动保留；此修复尚未重新打包，当前安装版仍为此前46944c5来源的0.3.0。真实MCP连接、安装版、整板视觉及完整186画板/U01–U12继续待验收。
 
 客户端[PR #168](https://github.com/zhongmiao-org/flow-ark-client/pull/168)最新head `d09e94f12b72d740999bacc52749d095fbd8f7bf` 经[CI 38046211686](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38046211686) Validate36秒/Auto Merge10秒通过，实际自动合并为`9904ed2f8e0ee60da0cce09de8b05685b1085af9`。此前38046168215取消，不计通过。线程附件超过100，未重复附加或删除既有附件，保留直接PR链接。
+
+
+## 2026-10-10 本机应用助手能力卡：标题与留白对齐
+
+对应画板110（23:5195），并核对109/111的相关状态。读取当前独立客户端main `9904ed2f8e0ee60da0cce09de8b05685b1085af9`，IDE改动保留。原生唯一安装版FlowArk主进程PID9637仍存在，系统screenLocked为1；未重复启动、重开或请求解锁。继续采用已保存`flowark-antd-assistant/design-taskconnect.png`、design-taskconnected.png及design-taskexpired.png原导出与现行桌面契约；本轮查看前两张，失效状态按已有来源及规范核对，未请求已知额度受限的在线Figma，不宣称全部云端画板未变化。
+
+已连接能力卡标题原为14px、Ant Design小卡片内边距12px、标题/正文间距4px。原设计能力卡标题为18px、内边距16px、间距8px，111px基础高度。仅对managed能力卡增加七行局部CSS，对齐标题和卡体；不新建控件或改变宿主/任务能力。1440实际卡片x280.739–891.165，标题左边297.486，对应16px内边距加边框；三个标题18px/28px行高、正文22px行高，gap8px，卡高110.996。修复前相同卡片标题14px、内边距12px、gap4px，位置及高度一致。
+
+实际App Renderer由4292预览、IAB页签29使用虚构桌面发现v2响应，严格回显requestId并生成观察/窗口UUID，不访问原生窗口或日常资料。依次核对权限缺失不显示选窗、重新检查取得一个TextEdit窗口、系统设置打开失败后撤下选窗入口且焦点到错误、权限已授予但窗口清单不完整时提示而不误报无文档、1500ms虚构观察到期后失效提示和撤下选窗入口。1440/1040/676稳定查看三个能力标题与正文完整，卡高110.996、clientHeight/scrollHeight均109；676最终复核正文22px行高，document.scrollWidth为676。初次viewport复位后的默认宽度962未计入三尺寸证据，修复前截图已明确设置1440后重存；窗口尺寸调整后的瞬时读数不代替最终画面。
+
+实际查看`/Users/mac/.codex/visualizations/2026/10/10/flowark-assistant-capability-typography/`中before-1440.png、after-1440.png、after-1040.png、after-676.png、third-card-676.png、recovery-676.png。截图只支持该能力卡和状态查看，其他整板位置/真实权限/实际TextEdit读写未通过。最终warn/error为空，页签关闭、viewport复位、4292回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier检查及git diff --check通过；`/tmp/flowark-assistant-capability-build.log`保留既有大chunk提示。未新增/运行单元、集成或smoke测试，本轮未重新打包，当前安装版仍为先前46944c5来源的0.3.0。完整186画板/U01–U12仍待验收。
+
+客户端[PR #169](https://github.com/zhongmiao-org/flow-ark-client/pull/169)最新head `7a42dbc351bf6f017d33bb4b9456800db5bfb368` 经[CI 38046757163](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38046757163) Validate46秒/Auto Merge7秒通过，实际自动合并为`2c3813686af5b74e6fde94bf7542c2f5a0c429f0`。此前38046746651取消，不计通过；线程附件超过100，未重试或删除既有附件，保留直接PR链接。
