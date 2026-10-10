@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #194](https://github.com/zhongmiao-org/flow-ark-client/pull/194)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #194，包含PR #189–#194，DMG/ZIP内容核对通过但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #195](https://github.com/zhongmiao-org/flow-ark-client/pull/195)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #194，包含PR #189–#194但尚未包含PR #195，DMG/ZIP内容核对通过但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8102,3 +8102,18 @@ ioreg确认Mac locked=true/onConsole=true，原生主进程仍唯一PID9637、PR
 候选位于 `flow-ark-client/release/candidates/pr194-873f266/`，旧候选保留。`FlowArk-0.3.0-arm64.dmg`（241829623字节，SHA256 `a9446e73b0649113cf0f3e1d5dfd7a2a16e6cc8353d828181a0188420d543763`）；`FlowArk-0.3.0-arm64-mac.zip`（210741901字节，SHA256 `6584b6952be21e2c56431af190795cadf1c1a48822b8ff9a7721fa5e802fe04e`）；asar SHA256 `1f4aaa3bb15883ff3293ed204e5242855e295c8bcd11a03789c4556e1b10b8e6`。逐一核对236份当前dist文件与asar字节一致、14份本地SVG、105份字体及2份非空OFL；包内链接与ZIP/只读DMG中asar核对通过，临时DMG挂载已卸载。`package-receipt.json`标记packaged-not-installed、nativeUIValidated=false、unitTestsRun=false。
 
 本轮ioreg确认locked=true/onConsole=true，原生主进程仍唯一PID9637；重新计算安装版asar仍为 `c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`，与PR #167一致，未退出、替换或重开。客户端main无产品改动，无关IDE保留；186索引仍178局部覆盖/6复核/2缺口，最新版真实保存重开、修改生成/执行与U01–U12仍未完成。
+
+
+## 2026-10-11 · 变量改用固定值的编辑焦点
+
+Figma MCP本轮对8:24218再次返回Starter额度限制，沿用已授权缓存导航变量稿和既有节点取证。实际App配虚构IPC在步骤数据值中打开变量选择，1440卡片约400/728×670、x256/680、y230，与缓存布局一致。确认“改用固定值”后引用已经变成空文本，但焦点仍回到“选择变量 · 数据值”按钮，不能直接键入新固定值。
+
+现有VariablePicker只在ValueField固定值操作成功时将返回焦点交给消费组件，取消/正常应用仍恢复原按钮；操作抛错继续留在选择页。ValueField复用现有固定值定位，关闭选择页后聚焦对应输入；已经为固定值时保留内容。无输入框的结构值退到第一个可用编辑按钮，实际MatrixValues空行列数据聚焦“添加数据行”。没有新增基础组件、资产或颜色，没有IPC、宿主、数据库、引用求值及执行契约变更；StructureReferenceRecovery默认返回行为未改变。
+
+实际App人工核对1440改用固定值焦点为数据值textarea，已有“新的固定内容，尚未保存”往返保留；1040明确取消回原变量按钮，正常应用params.title回原消费字段；676从变量引用改为空文本后输入框位于y517–578并获焦，不再点击即可键入“可以直接输入新的固定值”。实际MatrixValues组件单独人工查看空值[]及添加数据行焦点。均虚构数据，API记录仅bootstrap/task.list/learning.status、无未支持接口，没有保存、执行、调模型或改变真实宿主数据。
+
+本机证据 `/Users/mac/.codex/visualizations/2026/10/11/flowark-variable-return-workbench/`：fixed-before/final-1440.json、picker-final-1440.json/png、fixed-existing-value-final.json、cancel-final-1040.json、apply-final-1040.json、fixed-final/typed-final-676.json、fixed-final-676.png、matrix-fixed-final.json及两份临时人工夹具。初始夹具缺少requiredCapabilities导致的错误已补齐必需字段后重核，不是产品缺陷；一处抽屉动画期间点击失败后读取稳定界面再操作，缩窄后的取消以明确按钮操作记录为准。截图仍局部裁切，不作整板或所有来源验收。
+
+`pnpm typecheck`、`pnpm build`、两个修改文件Prettier、git diff --check通过；日志 `/tmp/flowark-variable-fixed-typecheck.log`、`/tmp/flowark-variable-fixed-build.log`。两文件13增5删，仍直接复用Ant Design；未新增或运行单元/集成/smoke测试。4323两次人工预览都已停止，临时入口删除、页签关闭、viewport复位，无关IDE保留。Mac locked=true/onConsole=true，原生唯一PID9637/PR #167安装版未退出或更换；候选仍PR #194，尚未包含本轮修改。186索引仍178局部覆盖/6复核/2缺口，083/087消费字段、最新版真实持久化/运行与U01–U12仍未完成。
+
+客户端[PR #195](https://github.com/zhongmiao-org/flow-ark-client/pull/195) head `8d92aa3ad07cc66872b962569f6fcb79f269e564` 经[CI38079496737](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38079496737)最新Validate与Auto Merge SUCCESS，实际自动合并为 `9d7bff6f5a7ebb4fff927e36b0e3d5da9c33e436`。较早38079486109被标签事件的新运行替代，不作为通过证据。附件一次返回100上限，保留直接链接。客户端main已快进至实际合并提交；候选PR #194未包含本轮，原生安装版及真实验收状态不变。
