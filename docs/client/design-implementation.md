@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #208](https://github.com/zhongmiao-org/flow-ark-client/pull/208)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #203，已纳入PR #199–#203的依赖反馈、编辑器主题、更多操作、大纲与方案清单返回修复，DMG/ZIP内容核对通过但未安装，尚未纳入PR #204–#208的模板AI返回焦点、宽窗方案、流程图参数滚动、失败摘要布局及应用任务卡片修复；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #209](https://github.com/zhongmiao-org/flow-ark-client/pull/209)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #203，已纳入PR #199–#203的依赖反馈、编辑器主题、更多操作、大纲与方案清单返回修复，DMG/ZIP内容核对通过但未安装，尚未纳入PR #204–#209的模板AI返回焦点、宽窗方案、流程图参数滚动、失败摘要布局、应用任务卡片与窗口绑定反馈修复；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8359,3 +8359,22 @@ Mac仍锁屏，唯一原生PID9637/安装PR #167保留，未退出、安装、�
 pnpm typecheck、pnpm build、两文件Prettier及git diff --check通过，日志`/tmp/flowark-desktop-card-typecheck.log`和`/tmp/flowark-desktop-card-build.log`；构建保留既有大chunk提示。未新增或运行单元/集成/smoke测试。4338 Vite/session15980停止exit130，临时入口撤下、页签关闭及viewport复位，无关IDE保留。Mac仍锁屏，唯一原生PID9637/安装PR #167未退出或更换；候选仍#203。178局部/6复核/2缺口统计不变，083/087、最新版原生保存重开、真实第三方MCP/绑定窗口写入回读及完整186画板/U01–U12仍待完成。
 
 客户端[PR #208](https://github.com/zhongmiao-org/flow-ark-client/pull/208) head `45f94c47fd196f21632f0dcae96b0770de88b21a` 经最新[CI38092348014](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38092348014) Validate与Auto Merge均SUCCESS，实际MERGED为`dd6a711c5c1113afcce89ca7c61e578c213afa25`。旧38092338240被标签事件替代取消，不计通过；PR附件一次返回100上限，保留直接链接。未重新打包或安装。
+
+
+## 2026-10-11 · 应用窗口重新绑定失败与原文保留
+
+从客户端PR #208已合并main继续，核对保存设计134 `23:8344` 的重新绑定及136 `23:8631` 的取消回执路径。本轮未取得新在线Figma上下文；完整生产App Renderer仅注入临时虚构白名单IPC，没有原生发现/读取、模型、宿主运行或文档写入。
+
+原文框样式只作用于.task-web-columns，DesktopRunBinding中的80行8470字符原文在676窗口展开4148.97px，失败提示y4913，焦点留在原文h3。扩展既有280px滚动样式至绑定页，直接复用Ant Card/Alert。新增失败Alert焦点及其保持焦点时的窗口缩放可见恢复。初期仅调整焦点时机仍被子预览覆盖；查明已安装Ant ConfigProvider在componentDisabled为undefined时移除DisabledContextProvider，旧busy||undefined切换造成子预览重挂载。现使用稳定的布尔busy，保留原文内层位置，不使用延时反复抢焦点。
+
+- 最终676失败Alert获焦，y451.71–491.19；1040缩放后仍获焦且y430.73–470.22，主内容width/scrollWidth分别605/605与969/969。1440重复同一失败原文scrollTop811.65保留、框280高、8470字符全文不变，错误y902.80–942.29仍在1079高CSS窗口内；早期binding-after/binding-before记录为修复过程，不计最终通过。
+- 新绑定虚构回执返回不同bindingId后，flow.run.preview从1增至2，回到确认页、勾选框可用但未勾选、确认按钮禁用；任务修订仍3，没有flow.run.confirm。初期虚构成功沿用旧bindingId未触发刷新，不作为产品缺陷或通过记录，最终样本已按新绑定身份修正。
+- 绑定等待期间取消后，desktop.run.cancel与selection.clear各记录一次，windows.release累计两次（包括前序观察释放）。继续打开窗口绑定选项，再释放迟到的虚构错误，焦点仍在该选项、主滚动281.20不变，无新错误或绑定页重开；没有真实进程/系统取消。
+- 补核未知确认：返回方案再进入后，同requestId/token/revision/desktopReviewed的查询打开同一result-run，可见DOM标题为一致回读，新增确认资料只有2份。上一轮没有计自动打开通过；本轮用可见DOM快照和具有尺寸的h1核对，避免把仍挂载但隐藏的任务h1误当当前结果标题。
+- 676虚构取消且一致回读样本：主标题为“本次试运行已取消”，记录标签已取消，原选区修改及一致回读仍分别保留，明确未自动保存与整体状态分开核对。没有发出真实取消指令，不能据此宣布真实取消边界通过。
+
+证据`/Users/mac/.codex/visualizations/2026/10/11/flowark-desktop-recovery-review/`保留前后原文/错误几何、重复失败完整窗口图、绑定返回/取消迟到/未知查询与取消回执记录，以及最终临时资料。pnpm typecheck、pnpm build、两文件Prettier及git diff --check通过，日志`/tmp/flowark-desktop-binding-typecheck.log`、`/tmp/flowark-desktop-binding-build.log`；既有大chunk提示保留，未新增或运行单元/集成/smoke测试。4339 Vite/session57654停止exit130，临时文件撤下、页签关闭、viewport复位，无关IDE保留。
+
+Mac仍锁屏，唯一原生PID9637/安装PR #167保留，候选仍#203，没有打包/安装/重开或第二实例。178局部/6复核/2缺口统计不变；083/087、真实第三方MCP/窗口写入回读、最新版原生保存重开及完整186画板/U01–U12仍待完成。
+
+客户端[PR #209](https://github.com/zhongmiao-org/flow-ark-client/pull/209) head `2e2948daf62900dd1926712d365b0896a152f1c0` 经最新[CI38093055102](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38093055102) Validate与Auto Merge均SUCCESS，实际MERGED为`88131f46ee59800d7494665ead0a3ab687f58e3b`。旧38093042221被标签事件替代取消，不计通过；附件一次返回100上限，保留直接链接。
