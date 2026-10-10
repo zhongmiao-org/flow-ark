@@ -7023,3 +7023,15 @@ RunRerunPanel 外层、主内容、来源上下文与 RunDetail 重新运行入�
 pnpm typecheck、pnpm build、四文件Prettier --check、git diff --check通过，构建仍有大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk或调用真实宿主、AI、文件/网页、创建真实Run。页签111关闭、视口复位、4262 Vite回收、临时HTML/TSX删除，无关IDE改动保留未提交。真实保存重开、重新运行及186画板/U01—U12完整验收仍待完成，不按Card数量计算完成百分比。
 
 [客户端 PR #139](https://github.com/zhongmiao-org/flow-ark-client/pull/139) 最新head `4c36d3175399086ac7d382a5ee60356c444ea856` 的 [CI 38014925809](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38014925809) Validate43秒/Auto Merge9秒成功，实际合并为 `d9b48575539c9ea145179f4fea505c9dd4e824f0`；同head较早38014922713取消，不计为通过。
+
+### 2026-10-10 Ant Design 对象选择空态
+
+TaskTargetConnections、TaskToolPicker 和 TaskDesktopWindows 共八处容器直接采用 Ant Design Card，五处空态采用 Empty。删除手写基础边框、圆角和内边距，普通 body 使用主题24px；保留业务底色、说明、搜索/筛选回调、工具勾选、管理入口、窗口标题 refs 及重新检查焦点。权限缺失、系统不支持和暂不可用继续显示各自具体状态，未修改 IPC、宿主或权限。沿用既有工具与应用窗口页面映射，Figma23:2609上下文/截图受Starter配额限制，无新资产或最新整板1:1证据。
+
+唯一隐藏IAB页签112、4263 Vite加载实际组件/ApplicationTheme和虚构内存响应。连接搜索无结果显示Empty，清除后焦点回搜索框；工具筛选无结果时已选1项保留，查看全部工具后焦点回搜索框且原项仍勾选。无连接管理按钮仅调用虚构入口一次。窗口完整空清单、不完整空清单、权限缺失、系统不支持和暂不可用均保留说明，重新检查后对应标题获焦；权限缺失时能力禁用、权限说明展开，未打开设置。重检查之前累计虚构连接读取3/窗口检查6/观察释放3/管理入口1/真实执行0，不代表真实宿主生命周期。窗口失败、工具本身无能力和仅已选但未勾选的空态分支本轮未独立人工核对。
+
+早期虚构连接响应的选项点击未改变值，重新观察后用键盘选择，再刷新确认两项工具；不计为产品缺陷。最终移除无用 JSX 空白后 Vite 重载夹具，计数归零，重新查看最终无连接窄布局；不与重载前计数合并。最终console warn/error为空。实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-target-empty/` 的 connections-empty-wide、tool-filter-empty-wide、window-permission-narrow、connections-empty-narrow-final，均png；window-truncated-wide仅保存未目视。窄申请900，最终CSS视口676/文档665px，两空态卡宽567.93px/body24，单列且无页面横向溢出。保留原133%缩放；无产品侧栏的隔离预览和全页截图不能证明原生整板同时可见。
+
+pnpm typecheck、pnpm build、四文件Prettier --check、git diff --check通过，构建仍有大chunk提示。未新增或运行单元、集成、smoke测试，未启动Electron或第二FlowArk、未访问真实AI/文件/工具/宿主或保存任务。页签112关闭、视口复位、4263 Vite回收、临时HTML/TSX删除，无关IDE改动保留未提交。真实保存重开、系统权限与窗口操作、186画板/U01—U12完整验收仍待完成，不按组件数量计算百分比。
+
+[客户端 PR #140](https://github.com/zhongmiao-org/flow-ark-client/pull/140) 最新head `ffa8063f97fd05025574b27c332228a0824a777d` 的 [CI 38015622217](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38015622217) Validate42秒/Auto Merge8秒成功，实际合并为 `968cb92516c142448c58387dc0a0063b7908d7d0`；同head较早38015621352取消，不计为通过。
