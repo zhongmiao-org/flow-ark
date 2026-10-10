@@ -68,12 +68,12 @@
 | 058 | [2:9120 · 模板运行：写入中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9120) | 1440 × 960 | 局部推进：通用文件/表格步骤状态及目标配置，暂停/取消/缺回执区分；运行详情内存查看，真实模板写入与整板待验收 |
 | 059 | [2:9260 · 模板运行：结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9260) | 1440 × 1080 | 局部推进：结果/产物双栏、当前运行待核对提醒及刷新恢复；2026-10-09原生重开保留结构化输出，主动未知/结束未确认各显示来源提醒，已确认对照为空、重复同键不重放且不重复提醒；已读仍待核对、刷新焦点及Tab衔接已核对；异常重启分支、真实业务回执/文件与整板待验收 |
 | 060 | [4:10378 · DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10378) | 1440 × 1080 | 局部推进：配置表单/状态双栏及字段层级；已有默认模型保留，读取失败不作未配置，真实初次配置和整板待验收 |
-| 061 | [4:10487 · DeepSeek · 首次填写](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10487) | 1440 × 1080 | 局部推进：遮蔽输入、表单内失败原因与焦点、失败保留后显式保存；内存查看，真实受保护写入及整板待验收 |
-| 062 | [4:10599 · DeepSeek · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10599) | 1440 × 1080 | 局部推进：空新 Key、原配置掩码及取消守卫，字段焦点恢复；内存修改/放弃查看，真实替换与整板待验收 |
+| 061 | [4:10487 · DeepSeek · 首次填写](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10487) | 1440 × 1080 | 局部推进：遮蔽输入、表单内失败原因与焦点、失败保留后显式保存；内存查看，真实受保护写入及整板待验收；10月10日生产AISettingsPage与窗口容器虚构配置核对首次填写的继续编辑、1440提示打开后缩窄676草稿保留，放弃不保存、重开未配置；全App来源与真实存储仍待验收 |
+| 062 | [4:10599 · DeepSeek · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10599) | 1440 × 1080 | 局部推进：空新 Key、原配置掩码及取消守卫，字段焦点恢复；内存修改/放弃查看，真实替换与整板待验收；10月10日修复底部离开提示继续编辑后Key输入在视口外，676/1040输入可见；保存失败留页、明确重试后返回及重开待验证已虚构核对；全App来源、真实替换与安装版仍待验收 |
 | 063 | [4:10715 · DeepSeek · 测试中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10715) | 1440 × 1080 | 局部推进：测试中状态/取消，当前和宿主测试状态禁用编辑；内存取消与紧凑布局查看，真实 API/收尾待验收 |
 | 064 | [4:10835 · DeepSeek · 已验证](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10835) | 1440 × 1080 | 局部推进：验证摘要、模型与时间、重新测试及窄窗纵排；虚构响应查看，真实供应商验证及整板待验收 |
 | 065 | [4:10955 · DeepSeek · 连接失败](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10955) | 1440 × 1080 | 局部推进：鉴权/模型错误标题与对应修改入口，保留已配置掩码；内存失败恢复查看，真实错误分类及整板待验收 |
-| 066 | [4:11077 · DeepSeek · 移除确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11077) | 1440 × 1080 | 局部推进：页面内 728×440 确认卡、取消/返回焦点、在用和处理中限制、失败保留；三尺寸内存交互查看，真实凭据移除及整板待验收 |
+| 066 | [4:11077 · DeepSeek · 移除确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11077) | 1440 × 1080 | 局部推进：页面内 728×440 确认卡、取消/返回焦点、在用和处理中限制、失败保留；三尺寸内存交互查看，真实凭据移除及整板待验收；10月10日生产组件虚构配置核对676取消确认回原移除按钮并保持可见；未调用移除，真实删除与全App仍待验收 |
 | 067 | [4:11164 · 模板 AI 资源配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11164) | 1440 × 1080 | 局部推进：当前入口绑定、供应商切换清除旧模型、验证修订/模型匹配与详情；配置往返及错误状态内存查看，真实供应商与整板待验收 |
 | 068 | [8:18364 · 导航与返回演示](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18364) | 1440 × 1080 | 重新核对：导航规格索引，不新建演示菜单；10月10日实际App内存核对参数Cmd+[离开/保存失败/继续与放弃、模板AI返回保留实例/入口/共享草稿、运行第二页输出面包屑和日志键盘返回；修复缩窄后原行及继续编辑焦点不可见，全部来源/失效组合、原生快捷键及整板仍待验收 |
 | 069 | [8:18463 · 模板入口 · 待配置 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18463) | 1440 × 1080 | 局部推进：实际模板入口往返保留第二入口和草稿，配置按钮焦点恢复；虚构内存查看，完整视觉与真实宿主待验收 |
@@ -194,7 +194,7 @@
 | 179 | [8:30508 · 离开 DeepSeek · 替换 Key → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30508) | aireplace → runs | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
 | 180 | [8:30632 · 离开 DeepSeek · 替换 Key → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30632) | aireplace → schedules | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
 | 181 | [8:30756 · 离开 DeepSeek · 替换 Key → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30756) | aireplace → inbox | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
-| 182 | [8:30880 · 离开 DeepSeek · 替换 Key → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30880) | aireplace → settings | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收 |
+| 182 | [8:30880 · 离开 DeepSeek · 替换 Key → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30880) | aireplace → settings | 局部推进：实际目的地提示、继续编辑与焦点恢复；内存配置查看，逐目标真实保存与完整跳转待验收；10月10日生产组件和窗口容器虚构核对替换页保存失败、继续编辑、明确重试后返回回调，修复676/1040原输入不可见；本轮未运行完整App，真实设置目的地与存储仍待验收 |
 | 183 | [8:31007 · 离开 DeepSeek · 替换 Key → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31007) | aireplace → browser | 部分实现：AI 服务显示网页、未保存提示、保存失败重试与放弃后恢复、总览返回及焦点已人工核对；完整网页操作与拾取、真实宿主及整板视觉待验收 |
 | 184 | [8:31133 · 离开 DeepSeek · 替换 Key → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31133) | aireplace → resources | 局部推进：替换页凭据与文件按钮接入相同目的地守卫；该组合未逐项人工查看，真实保存及整板待验收 |
 | 185 | [8:31257 · 离开 DeepSeek · 替换 Key → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31257) | aireplace → scriptform | 局部推进：替换页脚本目的地提示、放弃后到达脚本包且不保存新 Key；820 内存查看，真实保存与整板待验收 |
