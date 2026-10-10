@@ -7246,3 +7246,24 @@ plan-0草稿改90分钟后打开计划记录，读取更早记录从2条到3条�
 pnpm typecheck、pnpm build、单文件Prettier --check、git diff --check通过，构建日志/tmp/flowark-schedule-entry-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未读取凭据或调用真实文件、AI、本地调度。当前安装版持久化、并发预检、真实占用/错过/触发和最新整板及186画板/U01–U12完整验收仍待完成。
 
 客户端 [PR #152](https://github.com/zhongmiao-org/flow-ark-client/pull/152) 最新head `f0b4d07077cbceb0d0fa5d65dab0887156b44b84` 经 [CI 38026976417](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38026976417) Validate43秒/Auto Merge10秒通过，实际自动合并为 `b36b2b43f50fe05ee2aa88f5e2156e458c81aeea`。同head较早38026976259取消，不计通过；附件工具仍返回线程附件超过100，未重试或移除附件，保留直接PR链接。
+
+
+### 2026-10-10 模板库安装恢复与实例实际 App 路径
+
+沿用004 `1:3125`、012 `2:812`、013 `2:892`、014 `2:973`及035 `2:3565`已有映射；查看保存的04-模板库.png双列卡片、介绍区与模板/实例入口。在线Starter额度限制已知，本轮未重新取得最新上下文或资产，未改静态资产或布局，不计最新整板1:1。
+
+实际App复现安装成功后的列表刷新错误被App.refresh捕获，TemplateLibrary.await refresh无法收到失败，只有全局工作区错误与安装成功卡，缺少本已实现的重新读取入口。改为向模板库传入reloadSettingsData，使局部work处理失败：保留安装回执、聚焦“模板已安装，列表刷新失败”，可显式重读；实例创建后刷新失败保留resumeInstance并停止打开。背景轮询仍使用原refresh处理全局错误，未修改IPC、包/SDK、Schema、权限或执行语义。模板和实例空搜索清筛后原按钮卸载使焦点落body；现在复用Ant Design InputRef恢复对应搜索框。
+
+唯一隐藏IAB页签与4276 Vite加载实际App/main及全部生产CSS，8个虚构模板、18个实例、配置Schema和接口均为内存夹具。初始遗漏runOverview.latest及manifest.files导致两轮加载/清单异常；按实际类型补齐并重载同一页签、未重启Vite，此前不计产品缺陷或通过证据。日志保留05:21:34/05:22:04/05:22:10的夹具error/warn，不宣称全程控制台为空；补齐后最终路径未再记录产品error。App和TemplateLibrary热更新各导致页面重载，最终累计仅从两文件修复后的会话计，不与前面安装/创建次数相加。
+
+最终1440×1079下，模板空搜索清筛回搜索输入并恢复8卡；能力选网页操作剩1卡，名称排序按本地内容核对/表格数据处理/目录清单/输出归档/网页文字归档/网页资料填写/文件整理/资料摘要显示。零实例版本查看全部恢复18实例并聚焦搜索。由第8张资料摘要进入详情再返回，恢复package-preview-template-6@1.0.0按钮与main.scrollTop401.13，按钮982.53–1022.53可见。main.clientWidth/scrollWidth同为1205；筛选及排序保持。
+
+1040×700下安装2.0.0后虚构列表读取失败，局部warning与重新读取入口出现，安装计数1；连续重读仍失败不增加安装，关闭故障后重读清空提示并聚焦安装标题。创建实例后虚构列表读取失败保留created-1，创建按钮禁用，提供打开已创建实例；显式打开虚构详情失败后仍同一id，关闭故障再打开成功，创建计数始终1。保存甲实例名称/配置甲；随后模板详情虚构创建失败为第2次尝试，留原版本并聚焦错误，显式重试第3次尝试成功创建乙，默认备注仍本地说明。保存配置乙后，实例列表重开甲回显配置甲；改临时值、明确不保存离开，返回原instance-created-1按钮，再重开仍配置甲；乙仍配置乙。
+
+676×700下实例空搜索清筛回搜索框253.97–293.46，恢复20实例；模板清筛回搜索215.65–255.13，恢复9版本，两个页面main宽/scrollWidth均593。随后重新检查同版本同摘要显示已安装，直接打开模板而不再次安装。最终虚构安装1次、创建尝试3次（失败1/成功2）、保存2次、真实执行0。内存编辑重开不是安装版磁盘/退出重启验收；真实标准ZIP检查/写盘和Schema复制兼容沿用此前各自证据，不由本轮夹具代替。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-catalog-app-path/的installed-refresh-before.jpg、installed-refresh-after.jpg、library-return-wide.jpg、created-refresh-failure-compact.jpg、instances-clear-narrow.jpg、library-clear-narrow.jpg。图片为滚动位置局部并带产品外预览控制；宽图右侧裁切，窄模板卡操作受预览控制遮挡，DOM另行核对尺寸/焦点，不以图宣称整板或原生窗控通过。唯一页签关闭、视口复位、4276 Vite回收exit130、临时HTML/JS删除；IDE改动保留未提交。
+
+pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过，构建日志/tmp/flowark-catalog-recovery-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron、访问凭据、真实文件/AI/宿主或执行模板。实际卸载失败后的刷新恢复、真实安装版持久化、最新整板视觉及186画板/U01–U12完整验收仍待完成。
+
+客户端 [PR #153](https://github.com/zhongmiao-org/flow-ark-client/pull/153) 最新head `af52c0029db60d9fdb8496fe1e64c47020a752e3` 经 [CI 38027674779](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38027674779) Validate41秒/Auto Merge7秒通过，实际自动合并为 `61898397f19ebe66d507964b3eb83296f255d365`。同head较早38027674635取消，不计通过；附件工具返回线程附件超过100，未重试或移除附件，保留直接PR链接。
