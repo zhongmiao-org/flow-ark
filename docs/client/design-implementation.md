@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #186](https://github.com/zhongmiao-org/flow-ark-client/pull/186)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #186，已生成但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #187](https://github.com/zhongmiao-org/flow-ark-client/pull/187)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #186，已生成但未安装；PR #187尚未打包；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -7903,3 +7903,20 @@ pnpm typecheck、pnpm build、六文件Prettier --check及git diff --check通过
 DMG SHA-256为`e3a0b5348365eab68adc303aa839831eadda2f3b4cadace09658cfa4e1b22cfa`，ZIP为`018e58055e7fec1b1bbd73cf917102534fc45fed38b21fc29874a1c118a01e42`；两者app.asar均为`841dcc2e033f703317207643670c3a5742ae9a60f125b6378947e5832f5cc82d`。用现有verifyBundle检查.app链接完整性，236个dist文件逐项与asar一致；14个源SVG按内容摘要匹配构建资产，105个woff2及两份OFL许可非空。ZIP仅解出asar，DMG只读/nobrowse挂载比对，随后卸载及清理临时目录，没有运行其中应用。`package-receipt.json`保存来源、清单、摘要及packaged-not-installed状态，不提交本机回执或二进制。
 
 本轮ioreg/plist确认Mac locked=true且onConsole=true；现有唯一原生PID9637仍为`/Users/mac/Applications/FlowArk.app`，安装asar仍`c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`，对应PR #167源码`46944c5b0d1561cb745bf9f38fbbb1bb49d95345`；未退出、替换、重开或启动第二实例。最新候选尚未安装、保存重开或真实运行验收；真实第三方MCP、指定TextEdit窗口写入回读、整板视觉及U01–U12仍待完成，178局部/6复核/2缺口不变。
+
+
+## 2026-10-11 · 本机计划可见返回与卡片对齐
+
+依据已保存08本机计划（1:3673）、34创建（2:3431）、44状态冲突（2:4526）稿件，在完整生产App/main.tsx及集中主题中核对三条虚构计划、固定版本及三类记录。无新在线Figma内容，不建立状态切换演示页，也不把44的示例状态同时伪造成真实系统状态。临时4313只注入虚构白名单IPC，没有读取或改写真实计划、执行运行、文件或AI。
+
+原1440编辑间隔90分钟后打开离开提示，缩窄1040再继续编辑：输入获焦但top1020.18，超过700视口；记录窗口宽转窄关闭后按钮top1384.55。单次nearest滚动的中间版本又暴露按钮从21.8自然恢复40高后bottom718.17。改为局部useLayoutEffect恢复目标，ResizeObserver观察目标和主内容，仅当前焦点仍属于目标时确保完整可见，离开/忙碌/隐藏时清理；创建保存失败重绘后的旧输入节点按aria-label重新定位，checkbox保留类型入口，不恢复失效DOM。保留现有Ant控件及权限/调度契约。
+
+计划直接Ant Card的body内距由默认small12改为20px 20px 12px；最终三卡top254.73/442.72/630.72、高171.998，标题x301.49，外栏仍672/456、gap24、676最小高。输入31.996高，版本标签12/18行高，实际64字符版本继续自然换行，不裁切或替换真实保存时间。更多计划和内容允许自然增高。
+
+最终构建后，创建首次保存失败、打开离开提示及1440转1040继续编辑：创建间隔45保留、top667.83/bottom699.83，之后Tab到创建时区并恢复1440仍停在Asia/Shanghai，不抢回分钟输入。编辑90分钟的同路径bottom699.95；记录宽转窄关闭后原查看错过按钮top660.13/高39.996/bottom700.13（小数为浏览器滚动舍入，文本和操作可见），90草稿仍在，根scrollWidth与视口均1040。记录更早页第一次虚构失败保留原两条，明确再读取得三条。最终审计创建/更新/启用各2次（一失败、一明确重试成功），更新adoptLatest:false、创建关联review-flow-2及45分钟、unsupported为空、无run.create/执行或AI；console error为空。关联运行往返保留记录/草稿为本轮前一版已有核对，不扩大为真实活动运行或计时证明。
+
+查看flowark-schedule-workbench目录中的三张缓存稿、edit-before/after-1440、continue-before/after-1040、history-return-after-1040、create-after-1440及create-continue-after-1040。浏览器截图存在右侧/底部裁剪与旧帧，创建继续图只显示列表尾部，不能据它声称已截图展示恢复输入；字段可见性采用稳定DOM，完整整板视觉不计通过。静态7个导航SVG非空/根20×20，当前自然及渲染均20，资源未替换。operations-evidence.json保存最终虚构操作计数，不提交本机资料。
+
+最终两文件Prettier --check、git diff --check、pnpm typecheck及pnpm build通过，日志/tmp/flowark-schedule-visible-typecheck.log与/tmp/flowark-schedule-visible-build.log。未新增或运行单元、集成、smoke测试。4313 Vite PID42269核对后SIGINT退出（pnpm exit1），临时HTML/JS删除、页签关闭、viewport复位。唯一原生PID9637、PR #167安装版及PR #186候选保留，本轮未打包安装。真实计划宿主/调度/并发/重开、全部来源状态及完整186画板/U01–U12仍待完成，178局部/6复核/2缺口不变。
+
+客户端[PR #187](https://github.com/zhongmiao-org/flow-ark-client/pull/187) head `3948b247ea6de77390dac06077b36881d4ee466e`经[CI38068884770](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38068884770)最新Validate36秒及Auto Merge9秒SUCCESS，实际自动合并为`d8f3c3e288545b32469fe3d57994057b171fe8a1`。较早38068825469的Auto Merge跳过，不计自动交付。线程附件达到100上限，附加一次返回限制，保留直接链接。
