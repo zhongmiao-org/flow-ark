@@ -7061,3 +7061,17 @@ BrowserSidebar 的网页槽位直接采用 Card，五类错误与页脚说明采
 最终pnpm typecheck、pnpm build、四文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron或第二FlowArk。页签114关闭、视口复位、4265 Vite回收、临时HTML/TSX删除，无关IDE改动保留未提交。真实保存重开、原生目标确认及186画板/U01—U12完整验收仍待完成，不按基础组件迁移数量计算百分比。
 
 [客户端 PR #142](https://github.com/zhongmiao-org/flow-ark-client/pull/142) 最新head `fc5c74fb8204a50648a8369d6974e236614a98a4` 的 [CI 38017664612](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38017664612) Validate44秒/Auto Merge7秒成功，实际合并为 `d771069e1727bf91c79ff5779771fb31233d881a`；同head较早38017664468取消，不计为通过。
+
+### 2026-10-10 Ant Design 理解补问卡片与回答反馈
+
+PlanningQuestions 当前问题与先前补充两处 Card 声明直接采用 Ant Design，body24，保留内部 fieldset/legend、禁用边界、输入 refs、3000字符限制、30项上限与明确清除。回答状态采用 Tag，上限与末项移除采用 Alert；Alert 原生元素继续接收原有移除焦点。选项直接使用 Button color/variant，删除手写选中颜色规则；保留 aria-pressed 和原回答回调。长选项原本可能超出卡片并被裁切，增加最大宽度、自适应高度和集中8px垂直间距，保留库组件的颜色、边框及焦点。不改变答案协议、宿主、存储或发送/执行逻辑。
+
+沿用理解补问既有映射23:2766及U04；本轮 get_design_context 与 get_screenshot 均返回Starter配额限制，未取得新资产或最新画板截图，本地Figma本轮未读取，不宣称最新整板1:1。唯一隐藏IAB页签1与4266 Vite加载实际 PlanningQuestions/ApplicationTheme 和虚构内存回答，没有IPC或真实AI/保存调用。选项切换、多行0/false回答、清除后输入获焦、Space展开先前补充、等待时当前/历史输入和操作禁用均已核对。满30项时已有回答可编辑、新问题禁用且关联上限说明；明确清除后29项允许新问题，再补充回30项时已存在的新问题仍可编辑。仅有历史回答时，移除第一项后相邻输入获焦，末项移除后Alert获焦、tabindex=-1；没有把虚构清除视作存储证据。
+
+夹具初次跨场景复用了移除提示，改为按场景重挂载并刷新后重新核对，不算产品修复，也不累计刷新前后计数。长选项尺寸核对发现原按钮宽1164px超出卡片；修正后紧凑实际CSS1040×700/文档1029，卡宽981.33px/body24，长按钮931.84×58.09px；更窄申请900、实际CSS676/文档665，卡宽617.42px，长按钮567.93×78.40px，三行文本60.90px。两种尺寸文档scrollWidth等于clientWidth；窄卡片Space选中长选项，完整81字符同步到输入。保留原133%缩放，无产品侧栏的组件预览不作为原生整板支持尺寸证据。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-planning-questions/` 的 questions-compact-final.jpg、questions-narrow-final.jpg、previous-removed-compact.jpg。较早answer-limit-compact.png已查看但全页捕获右侧裁切，不能据其证明完整可见；紧凑最终图已覆盖长选项修正。最终产品控制台warn/error为空。页签关闭、视口复位、4266 Vite回收、临时HTML/TSX删除；未启动Electron或第二FlowArk，未新增/运行单元、集成或smoke测试，无关IDE改动保留未提交。真实发送、保存重开及186画板/U01—U12完整验收仍待完成，不按迁移数量计算百分比。
+
+清理夹具后最终pnpm typecheck、pnpm build、三文件Prettier --check、git diff --check通过，构建保留大chunk提示。
+
+[客户端 PR #143](https://github.com/zhongmiao-org/flow-ark-client/pull/143) 最新head `9744f768411818f9c7c88d1a4adae0e67d313649` 的 [CI 38018481905](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38018481905) Validate47秒/Auto Merge8秒成功，实际合并为 `4a27183d8a4968b607d8103e2f1355831e1057bc`；同head较早38018480466取消，不计为通过。
