@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #188](https://github.com/zhongmiao-org/flow-ark-client/pull/188)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #188，已生成但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #189](https://github.com/zhongmiao-org/flow-ark-client/pull/189)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选仍对应PR #188（未包含PR #189），已生成但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -7955,3 +7955,22 @@ DMG SHA-256为`e3a0b5348365eab68adc303aa839831eadda2f3b4cadace09658cfa4e1b22cfa`
 - 打包app.asar：`6b4ba8214271716c0aad5dd14f79c060bf47538439ba856f2de23eb93ee22647`。
 
 本轮ioreg/plist确认Mac locked=true、onConsole=true；全进程核对仍仅PID9637为 `/Users/mac/Applications/FlowArk.app`，安装asar摘要仍 `c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`，对应PR #167源码 `46944c5b0d1561cb745bf9f38fbbb1bb49d95345`。未退出、替换、重开或启动第二实例。候选保持packaged-not-installed、nativeUIValidated=false；最新版保存重开、真实第三方MCP、绑定TextEdit窗口写入回读、整板视觉与U01–U12仍待完成，178局部/6复核/2缺口不变。
+
+
+## 2026-10-11 · 重跑核对布局与关联返回，试运行检查状态核对
+
+基于客户端PR #188，使用此前获授权保存的30-核对后重新运行（2:3014）与38-运行前检查（2:3884）导出。38是四种状态规格，本轮核对生产页面相应状态，不另建同时显示全部状态的演示入口。在线Figma上次仍受Starter额度限制，本轮未获取新在线稿；缓存不代表全部186画板最新。
+
+完整App接虚构IPC，复现宽屏查看第8条派生记录、缩窄至1040返回后，焦点按钮仍位于y1691.92，窗高700；来源saved、debug及关联展开已保留。现在恢复焦点后检查主内容可视范围，下一帧及目标/主内容/右卡布局变化时校正；用户转移焦点后停止调整，卸载时清理。最终1040返回按钮y546.11–586.10，随后676为653.93–693.93；选择与展开保留，查看关联时旧预览和核对勾选撤下，不沿用旧确认。首次关联读取失败留原页，明确重试后成功。
+
+继续直接用Ant Design Card、Descriptions、Radio、Checkbox和Collapse：1440页面主卡约727.91、右卡399.95宽、y229.98、最小高656，左28px/右24px留白；来源标签/值约y440.70/466.69，摘要y518.69/544.68，标签12/18、内容14/22，选项24px间距；警示72px、右侧展开入口40px且采用集中surface色。完整版本/绑定明细仍可展开，额外明细入口使警示及确认低于旧静态图，不能据此称整板1:1验收完成；确认220、取消130、均40px高，长内容自然增长。
+
+最终源代码人工核对：重跑预览首次失败、明确重试、来源/调试选择与完整64位版本明细；run.rerun.confirm两次载荷（含requestId/token）相同，只返回一条虚构created-rerun。创建后首次详情读取失败保留回执，查看新运行仅重读详情。任务flow.run.preview先返回内置网页尚未就绪，重新检查通过；第一次确认明确rejected，重新检查后核对勾选清空且开始按钮仍禁用；再次勾选确认的未知回执查询复用同一次载荷，只返回created-trial，首次详情失败后只读查看成功。最终虚构审计5次confirm调用，分别3次trial（1次拒绝、2次同请求查询）及2次同请求rerun，2条内存记录；没有真实Run、浏览器导航、文件写入或运行控制。
+
+独立缺目录场景阻止勾选和开始；重新绑定入口回所属流程，打开参数后显示workspace资源，零confirm/零Run。该虚构接口未提供credential.local.list，参数页按真实错误处理显示凭据名称暂未读取，不声称凭据读取通过。主要任务/重跑审计unsupported为空，浏览器error日志为空。证据在本机flowark-run-confirmation目录的PNG与final-audit.json/trial-audit.json/resource-audit.json；截图仍有右侧/底部裁切，实际几何与焦点使用DOM核对，不把裁切图计作整板通过。
+
+pnpm typecheck、pnpm build、两文件prettier --check及git diff --check通过，日志/tmp/flowark-run-confirmation-typecheck.log及/tmp/flowark-run-confirmation-build.log；未新增或运行单元、集成、smoke测试。4315 Vite PID46786核对后SIGINT退出，临时HTML/JS删除，核对页签关闭、viewport复位。Mac locked=true/onConsole=true，唯一原生PID9637及PR #167安装版保留，PR #188候选未覆盖。本轮未打包、替换、退出或启动第二原生实例。
+
+真实宿主确认去重/恢复、当前安装版保存重开、浏览器/脚本缺失全部阻止组合、整板视觉及186画板/U01–U12仍待验收。178局部/6复核/2缺口不变。
+
+客户端[PR #189](https://github.com/zhongmiao-org/flow-ark-client/pull/189) head `7c007ed9ce63ff5893cae15e086fa2199af508fb` 经[CI38072369238](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38072369238)最新Validate和Auto Merge SUCCESS，实际自动合并为 `615ceb015d98690fe59223fc8e169cda156becd8`。较早38072349839被concurrency取消，不计通过。线程附件一次返回100上限，保留直接链接。客户端main已快进至合并提交，无关IDE改动保留；最新候选仍PR #188，未包含本轮改动。
