@@ -7568,3 +7568,16 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 已查看/Users/mac/.codex/visualizations/2026/10/10/flowark-learning-return/中的design-taskguide.png、retry-before-676.png、retry-after-676.png、retry-after-1040.png、retry-after-1440.png、continued-task-676.png，支持局部焦点/布局与继续入口查看。676修复后截图在稳定画面重存并查看，不用瞬时截图代替最终画面。页面值读取使用只读DOM；工具不支持inputValue的调用未重放已完成返回动作，不作为产品失败。最终warn/error为空，页签关闭、viewport复位、4295回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check及git diff --check通过，/tmp/flowark-learning-retry-focus-build.log保留既有大chunk提示。未新增或运行单元、集成或smoke测试。本轮未重新打包，安装版仍为此前46944c5来源的0.3.0；真实失败/跳过恢复、安装版、整板及完整186画板/U01–U12仍待验收。
 
 客户端[PR #172](https://github.com/zhongmiao-org/flow-ark-client/pull/172)最新head `20d7c9fd7107d8a8d191b0fbd26aa7bb90c8348f` 经[CI 38048855846](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38048855846) Validate34秒/Auto Merge8秒通过，实际自动合并为`a09a533eb712182e02a445c719f706f131f6899f`。此前38048810288取消，不计通过。线程附件超过100，未重复附加或删除既有附件，保留直接PR链接。
+
+
+## 2026-10-10 · 多项补问与生成失败恢复局部核对
+
+本轮客户端为已合并的 main `a09a533eb712182e02a445c719f706f131f6899f`，未修改产品代码。继续依据保存的 AI 任务设计导出核对 095（23:2766）和 142（23:10802），已查看 design-taskclarify.png 与 design-taskgenerateerror.png；此前保存的设计快照不证明全部在线节点最新。
+
+实际 App Renderer 由仍在运行的 4296 预览打开；原 IAB 页签 34 已由当前 tabs.list 确认为不存在，重新打开一个预览页签，未重启服务器或 FlowArk。虚构宿主提供三项补问、两项已有回答、28项先前回答、首次保存失败及模型生成失败，没有真实凭据、模型请求或执行。30项上限时当前已有回答仍能修改，新问题禁用；移除先前补充14后焦点落在下一项（原15），第三问可以填写，最终3/3与27项旧补充保留。长选项126字符与文本框值一致，在1440/1040/676中按钮高度约159.60/78.40/119.00，内容scrollHeight等于clientHeight，文档宽度等于视口宽度。
+
+点击重新描述时首次保存失败，原三项回答保留且错误提示获焦；明确重试保存后返回原描述。重新进入理解页保持长选项、第二项及第三项回答和27项旧补充；修改第二项撤销发送确认。重新勾选并生成后呈现失败页；重试按钮只打开未确认的核对区，取消重试恢复原按钮焦点，返回修改需求保留原需求。未查看请求记录、未完成采纳方案，不计真实模型失败恢复或完整任务链路验收。理解页顶部返回按既有来源先进入对象页；虚构宿主未开放 task.web.preview，该提示属于夹具边界，未当作真实网页失败或修改产品逻辑。
+
+失败页操作按钮保持约184宽、40高。核对区在1440的top/bottom约585.69/978.13，在1040约233.44/625.87；676中首次打开或重复点击重试后约285.43/699.86，焦点在核对区且确认未勾选。宽窗已打开核对区直接缩窄不自动滚动，重复重试可以定位原核对区，不新增模型请求。部分截图捕获点击波纹或被预览裁剪，按钮尺寸以只读DOM测量为证；截图不计整板视觉通过。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-planning-questions/ 下 answers-1440.png、answers-1040.png、answers-676.png、long-option-676.png、retry-1440.png、retry-1040.png、retry-676.png。预览页签关闭、viewport复位，4296进程结束exit130，临时HTML/JS已删除。唯一安装版PID9637仍存在，未重启、重新打包或新增Electron实例；安装版仍为此前46944c5来源的0.3.0，不含后续源码修复。未新增或运行单元、集成、smoke测试；本轮仅文档变更，不重复运行客户端类型检查和构建。真实宿主、完整补问类型、全部失败原因、整板及186画板/U01–U12仍待完成。
