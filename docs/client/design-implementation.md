@@ -7499,3 +7499,18 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 将当前已合并客户端 `46944c5b0d1561cb745bf9f38fbbb1bb49d95345` 经 `pnpm package:mac` 生成0.3.0 arm64 ZIP/DMG，实际只读挂载并安装到 `/Users/mac/Applications/FlowArk.app`，安装版和DMG中的app.asar摘要一致。旧0.2.1应用移到持久恢复备份，日常数据未访问或迁移；完整路径与摘要见[本轮打包安装记录](acceptance.md)。未签名/公证、默认应用图标、既有大chunk提示仍保留。
 
 首次启动进程已退出、未取得窗口，核实无实例后改用前台启动；当前只保留一个安装路径主进程PID9637，显式采用独立资料 `/private/tmp/flowark-current-ui-install-qa5i977e/ui-records`。系统只读状态确认Mac锁屏，窗口数0；已请求解锁，继续复用该实例，不用重开替代窗口读取失败。本轮只证明打包与安装，不标记任何整板或原生UI通过；安装版主题/字体/资源、保存重开、内置网页及完整186画板/U01–U12继续待验收。未新增/运行单元、集成或smoke测试，无关IDE改动保留。
+
+
+## 2026-10-10 连接详情任务引用往返：恢复可见原入口
+
+对应画板138（23:8920）及U07。先由治理[PR #604](https://github.com/zhongmiao-org/flow-ark/pull/604)明确任务引用往返约束，经CI38045738305 Validate5秒/Auto Merge7秒通过，实际合并为`f72be47210def896602e2c8c1484c26e441407d3`；此前38045732915取消，不计通过。使用既有设计来源`flowark-antd-tool-cards/design-taskcustomsaved.png`核对详情的双栏、使用规则及维护区域，未请求已知额度不足的在线Figma；此来源不证明全部云端画板未变化。
+
+当前唯一安装版FlowArk主进程PID9637仍存在，系统screenLocked为1。未重开该进程或启动第二Electron。实际App Renderer经4291预览、IAB页签28使用一条虚构已保存连接和14个工具引用任务，所有接口仅虚构内存响应。首次虚构任务绑定漏填tools，造成页面报错；补齐TaskMcpTarget后重读同一页签，后续无新增warn/error。该准备错误不是产品接口失败，不改宿主校验或密钥处理。
+
+在宽窗从第8个任务进入后缩到676返回，修复前已稳定复核焦点虽为原按钮，其top1070.125/bottom1110.121，窗口高700，按钮完全在视口外；页面scrollTop543.609、内层列表scrollTop842.857。首次任务读取虚构失败时保留原连接并聚焦失败提示，明确再次点击才打开任务。现在记录内层列表位置，等待本机列表读取结束后恢复焦点；取消帧保留待恢复信息，引用入口不存在时回详情标题。恢复后仅在按钮被页面或内层列表裁切时滚动使其可见，ResizeObserver处理随后控件尺寸变化；用户主动改变焦点时不再调整位置，离开/列表变化撤销观察。
+
+最终14条虚构引用下，1440末行按钮top712.383/bottom752.379，在列表404.858–764.855内完整可见；宽窗第8条进入后676键盘返回按钮349.824–389.820，列表189.703–549.700；1040重复Enter往返按钮305.839–345.835，列表145.718–505.715。虚构本机列表读取延迟250ms后仍回正确入口、维护区展开保留。第13条打开后下次读取移除该引用，返回焦点为可见H1（127.990–167.992）、引用数13；主动点击维护折叠再扩宽，焦点保持折叠按钮且aria-expanded=false。未调用发现/授权/工具执行，也未访问日常资料或真实服务。
+
+已查看`/Users/mac/.codex/visualizations/2026/10/10/flowark-tool-reference-return/`中middle-before-676.png、final-676.png、final-1040.png、final-1440.png；仅证明本轮局部布局/可见入口，不计整板1:1完成。页签关闭、viewport复位、4291预览回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier检查和git diff --check通过，日志`/tmp/flowark-tool-reference-return-build.log`保留既有大chunk提示。未新增/运行单元、集成或smoke测试，无关IDE改动保留；此修复尚未重新打包，当前安装版仍为此前46944c5来源的0.3.0。真实MCP连接、安装版、整板视觉及完整186画板/U01–U12继续待验收。
+
+客户端[PR #168](https://github.com/zhongmiao-org/flow-ark-client/pull/168)最新head `d09e94f12b72d740999bacc52749d095fbd8f7bf` 经[CI 38046211686](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38046211686) Validate36秒/Auto Merge10秒通过，实际自动合并为`9904ed2f8e0ee60da0cce09de8b05685b1085af9`。此前38046168215取消，不计通过。线程附件超过100，未重复附加或删除既有附件，保留直接PR链接。
