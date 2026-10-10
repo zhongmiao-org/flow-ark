@@ -7795,3 +7795,22 @@ pnpm typecheck、pnpm build、两个改动文件Prettier --check和git diff --ch
 pnpm typecheck、pnpm build、目标文件Prettier --check和git diff --check通过，日志/tmp/flowark-version-navigation-typecheck.log、/tmp/flowark-version-navigation-build.log，保留既有大chunk提示。未新增或运行单元/集成/smoke测试。临时HTML/JS已删除，页签关闭、viewport复位，4307本轮Vite PID31848核对后SIGINT退出；唯一原生PID9637保留，未打包或更换PR #167安装版。真实新版创建/迁移、ZIP导出、当前安装版与完整186画板/U01–U12仍待验收。
 
 客户端[PR #181](https://github.com/zhongmiao-org/flow-ark-client/pull/181)最新head `bc2178149c9fc7b3fe3e8c32d84085a87375a760`经[CI38061119653](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38061119653) Validate39秒及Auto Merge成功，实际自动合并为`0540a8beab7dcb0f000f2b086e4638bef3057a9a`。此前38061062004仅Validate通过、Auto Merge跳过，不计交付。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
+
+
+## 2026-10-10 · 只读入口主卡与返回可见性
+
+从已合并客户端PR #181继续，保留IDE改动。查看本地缓存17-只读入口.png（2:1314）及实例编辑规范，本轮未取得新在线Figma上下文；稿件例子是网页检查，客户端没有依据名称/actions为空推断安全只读，也未硬编码示例网页业务文案。共享配置只读展示与真实执行授权分开。
+
+实际App + 虚构宿主4308核对卡片：原主卡x约256/y230、1152宽/444高已正确，但body24px，字段x280.74、状态y254.73，说明和标签间距偏离稿件。通过Ant Card原有styles将inspection卡body设32px；状态底距20、只读字段标签gap4、配置组底距36、说明底距12，新增字段/回执/其他入口反馈保留自然间隔。DOM发现共享.ai-task-page标签gap8和p margin0覆盖旧局部规则，限定只读选择器后字段x288.74/y334.22、720宽/约39.49高，状态y262.73、说明y409.70、主按钮y443.70。输入与按钮沿用Ant主题，普通入口body/间距保留。
+
+虚构共享网址从已保存records改为未保存unsaved后，入口详情仍显示records且readOnly，运行禁用；返回共享配置仍unsaved，明确取消恢复records，未保存任何实例。另一归档入口因目录未绑定与写入deny被阻止，检查入口不受这些无关资源/授权影响。复杂已保存值0、false、null、数组[甲,乙]及对象owner/index以只读值显示；在数量输入按x不改变0，详情无共享配置保存按钮。676文档宽676、复杂卡自然增长约683.84高，不用固定444裁剪多字段。
+
+运行UI核对只用虚构响应：第一次明确flow.run失败，错误获焦；第二次明确重试返回readonly-created-run，随后run.detail虚构失败。保留创建回执及查看已创建运行按钮；再点查看只增加同一run.detail读取，flow.run保持2（一次失败、一次成功）、reads2，1040聚焦错误top350.59/bottom447.22可见。readonly-evidence-final.json记录该链路，未执行真实网页/脚本/文件，回执不计运行成功或跨重开去重。
+
+复杂详情返回另发现原按钮仍获焦，但资源卡重新展开后top1036.13/bottom1076.12超700高视口；原焦点动作本身不足以覆盖后续布局变化。最终仅对当前非inspection、活动且读取完成的入口面板/main/原详情按钮设ResizeObserver：只有该按钮仍为document.activeElement且启用时，越界才scrollIntoView nearest；状态变更清理观察，用户改焦点不调整。早期保存旧DOM按钮的尝试因详情隐藏/返回时元素重建未解决问题，已撤掉该临时状态及相关改动，最终保留原导航/AI返回/运行返回逻辑。最终构建后再走676底部返回，按钮top660.19/bottom700.18；1040顶部返回top660.07/bottom700.07，小数边界来自浏览器舍入。随后将焦点移到运行此入口再缩窄676，仍是运行按钮，未抢回详情按钮。complex-evidence-final.json为最后重开虚构场景，0次执行/保存、原revision1。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-readonly-entry/ 下design-readonly.png、readonly-before-1440.png、readonly-after-1440.png、created-run-1040.png、complex-readonly-676.png、return-after-676.png、return-after-1040.png。return-after-676.png在最后构建后稳定DOM重新捕获，未使用第一次失败返回作为通过证据；截图只覆盖当前滚动区域、部分右侧裁剪，几何以DOM为准，不计整板1:1通过。
+
+布局与返回修正后pnpm typecheck、pnpm build、两文件Prettier --check和git diff --check通过，日志/tmp/flowark-readonly-entry-typecheck.log、/tmp/flowark-readonly-entry-build.log，保留既有大chunk提示。没有新增或运行单元/集成/smoke测试。4308本轮Vite PID33092核对后SIGINT退出（pnpm返回1），页签关闭、viewport复位、临时HTML/JS删除；唯一原生PID9637保留，未新启第二实例、未打包或替换PR #167安装版。真实执行/持久化、当前安装版、严格只读语义与完整186画板/U01–U12仍待验收。
+
+客户端[PR #182](https://github.com/zhongmiao-org/flow-ark-client/pull/182)最新head `0fc7ccd1a2998bc0c9f115109b3e50ce7a6f479e`经[CI38062496739](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38062496739) Validate41秒/Auto Merge8秒成功，实际自动合并为`d0417eb9fb5e9e8d6e09cbe138a9a4aa3452354c`。首次38062470841被同PR新事件取消，不作为交付成功或代码失败证据。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
