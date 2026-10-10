@@ -7089,3 +7089,19 @@ PlanningQuestions 当前问题与先前补充两处 Card 声明直接采用 Ant 
 最终产品console warn/error为空。预览页签关闭、视口复位、4267 Vite回收、临时HTML/TSX删除。pnpm typecheck、pnpm build、单文件Prettier --check、git diff --check通过；构建保留大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk或Electron，未访问真实AI、磁盘、工具或本地宿主，无关IDE改动未提交。安装版保存重开、整板视觉与186画板/U01—U12完整验收继续保留待办，不以页面组件或PR数量计算完成百分比。
 
 [客户端 PR #144](https://github.com/zhongmiao-org/flow-ark-client/pull/144) 最新head `75ff1c6c7355a471be4a1875bad2faf969d1636b` 的 [CI 38019415324](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38019415324) Validate45秒/Auto Merge8秒成功，实际合并为 `c2a888ab73c2758ff721c76e11dabc67a273d09c`；同head较早38019415273取消，不计为通过。
+
+### 2026-10-10 输出目录撤销、重选与部分保存
+
+完整AITaskWorkspace核对复现：修改文件名为“按日期的活动摘要.txt”、选择overwrite，再点击移除目录，原实现会恢复“结果.txt”和number。现在采用宿主撤销后的新任务修订时保留本次文件名与同名规则，仍保留未保存回答并清除发送确认；输出结果显示未选择目录，发送预览不再含输出绑定。反馈明确保留的是当前编辑偏好，重新选目录成功后才保存采用。未更改目录授权、IPC、宿主、方案、Run、计划或文件，也不承诺未绑定偏好的跨任务/重开持久化。
+
+唯一隐藏IAB页签与4268 Vite加载实际 AITaskWorkspace/TaskUnderstandingPage/ApplicationTheme及虚构内存IPC。本轮按读取的host实现模拟task.save/输出变更：成功递增revision、置draft并清除proposal，因此原补问回答转到“先前补充”；此前局部夹具保留虚构提案的显示不能证明宿主保存后的题目原文仍存在。本轮也不证明题目原文持久化。
+
+实际核对撤销失败保留旧目录与修改输入，成功撤销保留文件名/overwrite/回答并清除确认；重新选择取消和失败继续显示未绑定且偏好保留。目录等待期间输出输入、规则、回答与写操作禁用，顶部返回未产生额外请求或离页；释放虚构选择后采用相同偏好并返回目录按钮焦点。回答和输出同时修改后，task.save成功而configure失败：保留新回答、文件名/number与待保存提示；显式重试只增加configure，不重复保存回答，修订校验通过。发送预览含最终文件名、number和先前回答，不含虚构目录路径。
+
+1040×700 CSS宽核对上述链路；676×700下再次撤销与取消，文件名/number保留、确认清除、发送预览移除输出元数据。经重新描述往返后仍可修改未绑定文件名，未产生额外保存。最后累计虚构save2/clear3（其中1失败）/choose4（取消2、失败1、等待后成功1）/configure2（其中1失败），generate0、真实执行0；没有实际目录选择器、宿主持久化、AI或文件操作。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-output-preferences/` 中 configure-failure-compact.jpg、directory-cleared-narrow.jpg、unbound-preferences-narrow.jpg。窄页单列，无文档横向溢出；截图覆盖各滚动位置，不代表内容同时可见。沿用23:2766及U04映射，读取10月8日原生Figma理解页保存截图，没有取得最新服务端设计或新资产，无产品侧栏的预览不作为原生整板1:1证据。
+
+最终console warn/error为空。页签关闭、视口复位、4268 Vite回收、临时HTML/TSX删除，无关IDE改动未提交。pnpm typecheck、pnpm build、单文件Prettier --check、git diff --check通过，构建保留大chunk提示；未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron。真实撤销/重选、安装版保存重开、完整186画板/U01—U12仍待验收。
+
+[客户端 PR #145](https://github.com/zhongmiao-org/flow-ark-client/pull/145) 最新head `2640db012ec20a113e209ddab56625c2a955ab73` 的 [CI 38020030317](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38020030317) Validate41秒/Auto Merge8秒成功，实际合并为 `07197bd61bbb8223a3ebdae72a8943bc22e09917`；同head较早38020030259取消，不计为通过。
