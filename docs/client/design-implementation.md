@@ -7449,3 +7449,20 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-oauth-enter-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，没有启动第二FlowArk/Electron，无关IDE改动保留。真实提供者/系统浏览器、检查过期与更多失败、IME/原生键盘、保存重开和完整186画板/U01–U12仍待验收。
 
 客户端 [PR #164](https://github.com/zhongmiao-org/flow-ark-client/pull/164) 最新head `f8bb68f1ec3a945f68c48e17bb9d2710a591ded7` 经 [CI 38041874212](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38041874212) Validate42秒/Auto Merge8秒通过，实际自动合并为 `c5dcabfcb81d249942be7f2bcc2e6d68c0d56674`。较早38041873249取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
+
+
+### 2026-10-10 脚本编辑器多行语法诊断
+
+沿用120 `23:6726`及既有720/408脚本工作页映射。基础控件扫描未发现原生button/input/select/textarea，继续直接采用Ant Design并保留Monaco；本轮不新增包装控件或主题。在线Starter额度仍受限，未读取最新云端整板。已查看此前实际实现参考flowark-antd-script-settings/editor-final-wide.png，不将该历史实现截图冒充Figma原图。本轮仅修复诊断按钮换行高度，布局与诊断语义不变。
+
+唯一IAB页签25与4288 Vite加载实际App/main及生产CSS。临时虚构bootstrap提供一份JavaScript脚本流程，含泛型声明与字符串类型注解；通过我的流程→编辑→选脚本步骤→打开完整编辑器→检查语法，真实Monaco语言worker返回两条TypeScript语法仅可用于TypeScript文件的诊断。没有伪造诊断回执、执行脚本、调用AI或访问真实宿主文件。
+
+1440×1079下两条单行诊断为39.996高。缩至676×700，按钮宽467.21、高39.996、clientHeight38而scrollHeight49，文字span高40.60；第一条文字底399.22超出按钮底389.87，第二条同样越界。Tab从第一条移第二条并查看截图，确认两行文字挤到下一条边界。本轮增加height:auto/min-height:40px；首次CSS更新读取仍是旧高度，等待同一页签更新后重新读取并覆盖后图，没有重启或新增页签。
+
+修复后676两条按钮高58.094、clientHeight/scrollHeight均57，文字分别落在按钮底内；Tab顺序保留。第二条Enter聚焦真实脚本代码，DOM光标top33px与第2行一致；1040第一条指针点击聚焦编辑器，光标top12px与第1行一致。1040两条为单行39.996高；1440代码/设置列719.913/407.953、诊断同为39.996高，文字边界位于按钮内。
+
+切TypeScript并检查，同样代码语法通过且旧诊断清除；切回JavaScript并检查恢复两条，取消返回原脚本资料核对流程，不保存或执行。实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-script-diagnostics/下diagnostics-676-before.png、diagnostics-676-after.png及diagnostics-1440-after.png。676前后图滚动位置有少量变化，仅支持诊断局部边界/文字查看，不当整板视觉对照。
+
+最终warn/error为空，唯一页签关闭、viewport复位、4288服务回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check和git diff --check通过；/tmp/flowark-script-diagnostics-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，没有启动第二FlowArk/Electron，无关IDE改动保留。更多诊断/长列表、真实脚本执行/依赖与安装版、整板视觉及完整186画板/U01–U12仍待验收。
+
+客户端 [PR #165](https://github.com/zhongmiao-org/flow-ark-client/pull/165) 最新head `ad488b58bddf4c24845933dd4d9502efd107390b` 经 [CI 38042565765](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38042565765) Validate43秒/Auto Merge10秒通过，实际自动合并为 `2a06658b82a97923b3856a872d96bb0670a4406f`。较早38042565158取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
