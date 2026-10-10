@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-10 最新交付与剩余项：客户端已合并至[PR #183](https://github.com/zhongmiao-org/flow-ark-client/pull/183)，类型检查/构建及最新 CI 通过；0.3.0 arm64 候选对应PR #182，已生成但未安装，PR #183尚未打包，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-10 最新交付与剩余项：客户端已合并至[PR #184](https://github.com/zhongmiao-org/flow-ark-client/pull/184)，类型检查/构建及最新 CI 通过；0.3.0 arm64 候选对应PR #182，已生成但未安装，PR #183–#184尚未打包，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -7842,3 +7842,19 @@ pnpm typecheck、pnpm build、目标文件Prettier --check和git diff --check通
 pnpm typecheck、pnpm build、AISettingsPage.tsx的Prettier --check及git diff --check通过，日志/tmp/flowark-ai-visible-return-typecheck.log、/tmp/flowark-ai-visible-return-build.log；未新增或运行单元/集成/smoke测试。本轮Vite监听PID35499核对后SIGINT退出、pnpm返回1；临时HTML/JS删除、页签关闭、viewport复位。现有PR #182候选、PR #167安装版不变，未打包本次更改。真实凭据保存/替换/移除、全App来源返回、原生最新版及完整186画板/U01–U12仍待完成，覆盖计数仍178局部/6复核/2缺口。
 
 客户端[PR #183](https://github.com/zhongmiao-org/flow-ark-client/pull/183) head ef1153e18c3a346a80424d4f923654af25820a0f 经[CI38063735012](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38063735012) Validate41秒/Auto Merge8秒SUCCESS，实际自动合并为17694a1d76369d59f10be8f7d6210bfef50988cd。此前38063709897被同PR事件取消，不计为代码失败或交付成功。线程附件超过100，直接保留PR链接，不重复附加或删除旧附件。
+
+## 2026-10-10 · DeepSeek 配置组卡片与连接层级
+
+对照flowark-deepseek-design缓存内4:10487首次填写、4:10599替换、4:10835已验证、4:10955连接失败、4:11077移除确认等稿件，在客户端PR #183基础上校正共用布局。本轮未取得新在线设计。4310查看页加载生产AISettingsPage、ApplicationTheme、CSS和application-shell/window-titlebar/app/main；侧栏/来源目的地仅回调，配置、移除和模板来源读取均虚构，不访问真实凭据、模板、AI或运行。
+
+原1440模板来源主卡约728/400宽、688高，但顶部319.23；Ant Menu实际57.25高/57.5行高。限定分类行高32后主卡顶部293.73，宽/高保持，菜单31.76高。左卡body28，Key摘要body20，确认body32，右卡仍24。首次填写模型/Key输入约y480.46/578.45、高39.49；已保存模型按钮先前variant filled但未指定color，实际class outlined/白底/21.80高，明确color default后为Ant filled、32高，摘要卡约y526.45/136高，符合对应缓存布局。连接Alert保留实际状态角色，semantic styles采用透明无框、18px/28px标题及16px标题底距；标题/说明引用集中正文/次要色，避免额外色块改变稿件层级。服务商选择、实际详情、来源返回与原来的提示/权限规则保留。
+
+人工核对：替换页只改虚构模型，首次save失败聚焦表单错误，明确第二次保存成功后回原模板回调，save2/returns1/test0/remove0。模型失败保留已配置掩码，Space展开连接详情，1040对应修改模型入口及离开继续编辑保留demo-changed-model，输入约y40–79；鉴权失败显示对应原因/替换入口，不改为未配置。首次未配置空Key保存仅触发字段错误，676字段y242–281、aria-invalid true，save0；最终构建后稳定画面两按钮均约40高。中间即时截图主按钮出现21.8高过渡帧，后续稳定DOM为40、无transform，未据即时帧修改按钮样式。临时查看页曾因audit effect返回字符串报destroy错误，修正该临时脚本后重开核对；不作为产品缺陷或通过证据。
+
+虚构移除第一次失败保留确认与标题焦点，1440卡约728宽、y294，加入错误后自然增高约477.57；明确第二次移除后未配置且模型输入获焦，remove2/save0/test0/returns0，不删除真实凭据。676临时主题使卡面为rgb(255,246,239)、连接标题rgb(68,34,68)、说明rgb(119,85,119)；完整96字符模型加修改文本显示，按钮自然62.41高、clientHeight/scrollHeight均61，文档宽676，无截断或横向溢出。
+
+已查看/Users/mac/.codex/visualizations/2026/10/10/flowark-ai-settings-layout/中首次填写/替换/已验证/连接失败/移除缓存图及source-before-1440.png、source-after-1440.png、replace-failure-1440.png、model-failure-1040.png、first-after-1440.png、first-invalid-676.png、remove-failure-1440.png、authentication-failure-1440.png、theme-long-model-676.png。first-invalid最后构建后以稳定错误态覆盖重拍；model-failure-1040图只含上部左卡，右卡状态由DOM核对，不称已截图展示；部分图受视口与旧帧裁剪，几何以稳定DOM为准，不计整板1:1通过。
+
+格式修正后pnpm typecheck、pnpm build、两文件Prettier --check及git diff --check通过，日志/tmp/flowark-ai-settings-layout-typecheck.log与/tmp/flowark-ai-settings-layout-build.log。未新增或运行单元/集成/smoke测试；4310 Vite PID36668核对后SIGINT退出、pnpm返回1，临时HTML/JS删除，页签关闭与viewport复位。原生PID9637、PR #167安装版及PR #182候选保留；本次未打包或安装。真实存储/供应商/全App来源、完整视觉与186画板/U01–U12仍待完成，计数不变。
+
+客户端[PR #184](https://github.com/zhongmiao-org/flow-ark-client/pull/184) head 5f191be43ef244fdbac74e1600ee61458d54afb9 经[CI38064841270](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38064841270) Validate37秒/Auto Merge8秒SUCCESS，实际自动合并为49220540571ac71759d821cfb9b319bbeb1a7bfc。此前38064774168只有Validate通过、Auto Merge跳过，不计交付。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
