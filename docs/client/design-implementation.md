@@ -7432,3 +7432,20 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过；/tmp/flowark-repair-confirmation-build.log保留既有大chunk提示。未新增或运行单元、集成及smoke测试，未启动第二FlowArk/Electron，无关IDE改动保留。其余主动操作/背景失败、原生网页变化与唯一性、真实AI/采纳/关联重跑、安装版和完整186画板/U01–U12继续待验收。
 
 客户端 [PR #163](https://github.com/zhongmiao-org/flow-ark-client/pull/163) 最新head `2ad7b9a8b500c35ad4468c2ffeb69eb4a5e1ea1a` 经 [CI 38040989489](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38040989489) Validate37秒/Auto Merge8秒通过，实际自动合并为 `4fab1feba6f48fcda1956f73f28ffc7801824fa2`。较早38040988687取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
+
+
+### 2026-10-10 自定义MCP的OAuth登录字段键盘衔接
+
+沿用112 `23:5493`及U07，实际查看已保存flowark-antd-tool-cards/design-taskcustom.png的自定义连接双栏、配置字段与能力核对入口。在线Starter额度仍受限，本轮没有获取最新云端整板。直接沿用Ant Design与集中主题，只修复已存在OAuth检查组件的登录键盘衔接，不新增页面或变更宿主认证、凭据、协议及权限。
+
+唯一IAB页签24与4287 Vite加载实际App/main及生产CSS。临时虚构接口仅提供bootstrap/任务空列表/教学状态/连接空列表、OAuth配置检查、1600ms延迟候选与取消；未打开系统登录浏览器、访问真实服务/凭据或调用工具。1040×700下填写虚构服务/来源，选OAuth并核对来源，读取一个ready认证站点。选择站点并输入virtual-public-client、尚未勾选登录确认时按Enter，修复前隐式提交外层tool-config表单，再次检查并使选站false、登录字段消失，焦点返回认证检查标题。
+
+登录区现共用登录按钮的确认/输入/期限/忙状态条件，输入Enter阻止外层提交，满足时才请求一次登录核对；确认框Enter只阻止隐式提交。源文件更新在同一页签回首页，重新从实际应用入口走查。未确认Enter后客户端原值、站点勾选和输入焦点保留，登录仍禁用。端口1023、勾选后Enter同样保留输入且禁用。改48185并重新勾选后在端口按Enter进入登录等待，取消后迟到候选不回页，配置保留且没有OAuth检查或能力核对区。
+
+再次明确检查、选站、填写并勾选，在客户端输入按Enter成功进入能力核对页，标题获焦、显示OAuth浏览器登录和1项虚构工具，保存确认未选中且保存禁用。1440×1079展开连接来源/发现记录，文档clientWidth/scrollWidth均1440；取消回设置后重新检查，空客户端Enter保留站点和登录区，端口65536阻止提交。改48185会清除旧勾选；确认框自身Enter没有勾选、登录或外层检查，客户端和登录区保留。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-oauth-keyboard/下enter-before-1040.png、enter-unreviewed-1040-after.png及enter-review-1440.png。前后截图为不同滚动位置，仅支持状态变化与局部查看，不当整板视觉对照。最终warn/error为空，唯一页签关闭、视口复位、4287服务回收exit130，临时HTML/JS删除后构建。
+
+pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-oauth-enter-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，没有启动第二FlowArk/Electron，无关IDE改动保留。真实提供者/系统浏览器、检查过期与更多失败、IME/原生键盘、保存重开和完整186画板/U01–U12仍待验收。
+
+客户端 [PR #164](https://github.com/zhongmiao-org/flow-ark-client/pull/164) 最新head `f8bb68f1ec3a945f68c48e17bb9d2710a591ded7` 经 [CI 38041874212](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38041874212) Validate42秒/Auto Merge8秒通过，实际自动合并为 `c5dcabfcb81d249942be7f2bcc2e6d68c0d56674`。较早38041873249取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
