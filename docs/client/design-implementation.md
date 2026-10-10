@@ -7700,3 +7700,22 @@ pnpm typecheck、pnpm build、task-graph.css的Prettier --check及git diff --che
 对候选 app.asar 逐个比较236个dist文件；14个源SVG具有原样构建副本，105个WOFF2及两份OFL许可非空；既有verifyBundle通过，主程序为arm64。ZIP及只读挂载DMG的app.asar与候选一致，版本为0.3.0，挂载已解除。候选保存于客户端忽略目录release/candidates/pr176-ce9ef71，产品摘要和证据见[验收记录](acceptance.md)。一次直接resolve @electron/asar因pnpm非顶层依赖失败，定位现有依赖实际目录后读取；未安装新依赖或运行应用。
 
 当前安装回执仍指向PR #167，安装app.asar摘要未改变，唯一原生PID9637仍存在；本轮只读确认Mac仍锁屏。候选未安装，不以包核对代替当前UI的原生保存/重开、真实模型、MCP、网页、桌面或186画板/U01–U12验收。没有重复启动存活实例，保留无关IDE改动。
+
+
+## 2026-10-10 · 试运行检查清单与确认回执主路径
+
+请求实时Figma节点23:7281仍返回Starter额度限制，沿用用户授权的已保存AI任务导出taskcheck2，不声称在线设计已更新。已查看design-run-check.png。实际App Renderer以4303及一个IAB页签核对方案→检查→回执→结果→修改，不接真实宿主/模型/网页/目录/执行引擎；没有启动第二个原生应用。
+
+通过项原有灰底rgb(239,242,247)、约0.75px边框和header左右16px，与该稿清单外观不同；RunReviewCheck的compact passed分支使用Ant Collapse ghost及语义header/body的paddingInline0，保留原详情、通过文案与Enter/Space开合。DOM确认三项背景透明、边框0、header12px 0；其他警告/错误仍沿用原Alert。没有新基础组件/CSS/资产或IPC变更，桌面专用授权选项的共享通过项尚无本轮原生证据。
+
+最终演示方案为网页navigate/read、assert及file create v4 number共4步；页面显示虚构网页/目录和影响摘要。初始夹具误用了data节点、数组参数导致标题读取错误，改为现行value/对象后读取，再补匹配摘要的4步方案；初始node-end缺少completed导致0完成显示，补齐夹具后重新走最终链路，不将夹具错误记作产品缺陷。HMR/构建使同一页签返回首页，最终证据取自构建完成后的重载。
+
+1440检查双栏约680/448、24间距，左内容因完整资源与版本说明自然长于700；1040/676单栏文档宽度等于视口。首个确认虚构回执未知，返回方案再进入保持preview1/confirm1；明确查询时第2次flow.run.confirm沿用同一requestId b7aeadbd-aee4-4d16-b439-1eca5d73a564，任务main-path-task修订6与token不变。创建main-path-run后首次详情读取失败仍保留已创建回执，返回方案再进入不增加preview/confirm；明确查看打开同一运行，结果为4次完成且无登记文件产物，不编造文件预览。main-path-evidence.json记录confirm2/preview1及7次同Run详情读取（含只读轮询）；没有run.start/生成/保存请求，不表示真实去重或执行通过。
+
+独立失败场景以notEquals空文本断言、空读取值和completed=false展示第3步标题非空检查失败，前2步完成、1步未确认、文件步骤未执行；只生成一条虚构确认。修改输入“先核对标题是否为空；为空时说明原因，保留原文件。”，返回当前方案再继续修改保留原文并聚焦task-modification-instruction。failure-path-evidence.json记录confirm1/preview1及只读调用，无task.save/task.generate/run.start，不计持久化或真实文件结果。独立首次检查读取失败场景禁用勾选/运行，明确重读后preview2/confirm0、确认仍未勾选，恢复的三项仍透明无边框。
+
+已查看本地flowark-run-main-path目录中的design-run-check、check-1440（最初两步夹具，仅作原外观）、check-after-1440、unknown-1040、created-detail-error-676、result-676、check-expanded-1040、failed-result-1040、modify-from-failure-676与check-recovered-676。unknown首次缩窄截图仅显示上半页，使用Tab将查询入口自然滚入视口后重拍；其他截图也可能只呈现当前滚动区域，不作为整板1:1证明。目录位于/Users/mac/.codex/visualizations/2026/10/10/flowark-run-main-path/。
+
+pnpm typecheck、pnpm build、RunReviewCheck.tsx的Prettier --check及git diff --check通过，日志/tmp/flowark-run-check-typecheck.log及/tmp/flowark-run-check-build.log；既有大chunk提示保留。未新增或运行单元、集成、smoke测试。4303退出130、查看页签关闭、viewport复位、两份临时HTML/JS删除；唯一原生PID9637仍存在、安装版未更新。完整186画板/U01–U12与真实主路径仍待完成。
+
+客户端[PR #177](https://github.com/zhongmiao-org/flow-ark-client/pull/177) latest head `a4274ff5822d9f130faec60a2a6ba0d51a57b531`经[CI38056849798](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38056849798) Validate32秒/Auto Merge9秒通过，实际自动合并为`1450012391a118f3a13cbeab6b666e59267b7882`。此前38056794586只通过Validate且Auto Merge跳过，不据此声称交付完成。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。PR #177没有重新打包；上轮PR #176候选与已安装PR #167分别保留原交付状态。
