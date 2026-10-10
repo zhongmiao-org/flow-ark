@@ -8117,3 +8117,14 @@ Figma MCP本轮对8:24218再次返回Starter额度限制，沿用已授权缓存
 `pnpm typecheck`、`pnpm build`、两个修改文件Prettier、git diff --check通过；日志 `/tmp/flowark-variable-fixed-typecheck.log`、`/tmp/flowark-variable-fixed-build.log`。两文件13增5删，仍直接复用Ant Design；未新增或运行单元/集成/smoke测试。4323两次人工预览都已停止，临时入口删除、页签关闭、viewport复位，无关IDE保留。Mac locked=true/onConsole=true，原生唯一PID9637/PR #167安装版未退出或更换；候选仍PR #194，尚未包含本轮修改。186索引仍178局部覆盖/6复核/2缺口，083/087消费字段、最新版真实持久化/运行与U01–U12仍未完成。
 
 客户端[PR #195](https://github.com/zhongmiao-org/flow-ark-client/pull/195) head `8d92aa3ad07cc66872b962569f6fcb79f269e564` 经[CI38079496737](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38079496737)最新Validate与Auto Merge SUCCESS，实际自动合并为 `9d7bff6f5a7ebb4fff927e36b0e3d5da9c33e436`。较早38079486109被标签事件的新运行替代，不作为通过证据。附件一次返回100上限，保留直接链接。客户端main已快进至实际合并提交；候选PR #194未包含本轮，原生安装版及真实验收状态不变。
+
+
+## 2026-10-11 · 已连接工具选择与返回任务核对
+
+基于客户端main/PR #195（`9d7bff6f5a7ebb4fff927e36b0e3d5da9c33e436`）的完整App，通过临时Vite入口提供三项虚构能力，人工走完描述 → 已连接工具 → 能力定义 → 确认选择 → 理解 → 重新描述。连续两次立即返回同文案核对错误，均聚焦错误提示并保留已选读取能力，没有复现重复错误的焦点问题，故未修改产品实现。第一次确认保存失败后，任务仍为revision 1、候选取消、选择保留；明确重新核对时确认勾选恢复为空，676窗口确认按钮处于禁用状态。再次核对并确认后，任务revision 2进入理解页，只保存一项工具定义。
+
+描述页增加“只要记录标题”后，进入工具选择前保存至revision 3；筛选read仍保留原能力，取消确认返回“核对所选工具”按钮并保留筛选。最终返回描述页，需求输入获焦、全文与已保存工具资料保留；虚构接口未遇到未支持方法，也未调用模型、真实MCP服务或创建Run。676确认窗口约661宽、位于可视区内，无根横向溢出；1440对象列宽约420/708、间隔24，动态工具定义增加内容高度，截图为滚动中的局部视口，不作为整板视觉通过。临时入口最初缺少网页预览返回，已补充明确的未选择状态后重载再开始有效核对；该初始缺失属于人工资料问题。
+
+证据保存在 `/Users/mac/.codex/visualizations/2026/10/11/flowark-task-tools-workbench/`：`failure-first-before.json`、`failure-second-before.json`、`save-failure-1440.json`、`confirm-676.json`、`selected-676.json`、`cancel-filter-676.json`、`return-description-1440.json`、`target-tools-1440.png`与`manual-preview-fixture.js`。使用已保存Figma选择对象导出核对共同布局，未重新取得全部在线画板。Vite4324/session80007已停止（exit130），两份临时入口删除，页签关闭及viewport复位。未新增或运行单元/集成/smoke测试；没有产品源码改动，不重复打包或运行同一源码的构建。
+
+ioreg重新确认Mac屏幕锁定，原生主进程仍唯一PID9637/PR #167；未退出、替换安装或重开。最新源码仍PR #195、候选仍PR #194；真实第三方工具调用、最新版原生保存重开及完整186画板/U01–U12仍待验收。178局部覆盖/6复核/2缺口计数不变，本轮证据补入093，不计作整板完成。客户端无关IDE改动保留。
