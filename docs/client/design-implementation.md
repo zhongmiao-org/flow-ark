@@ -7670,3 +7670,24 @@ pnpm typecheck、LocalCredentialsPanel.tsx的Prettier --check、pnpm build、git
 pnpm typecheck、pnpm build、task-graph.css的Prettier --check及git diff --check通过；类型/构建日志在/tmp/flowark-mixed-shapes-typecheck.log和/tmp/flowark-mixed-shapes-build.log，构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试。4301退出130，查看页签关闭、viewport复位，两份临时HTML/JS删除；保留无关IDE改动及唯一原生PID9637，未重开或打包安装版。真实执行、当前安装版、186画板/U01–U12及完整视觉仍待完成。
 
 客户端[PR #175](https://github.com/zhongmiao-org/flow-ark-client/pull/175) latest head `b8896e149270fc10e4a3b4ac84e5d7015ca93970`经[CI38054204436](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38054204436) Validate41秒/Auto Merge8秒通过，实际自动合并为`cad7a6a847c5834ca019720636c99e6f95c9cacd`。此前38054186617已取消，不计检查失败或通过；未重启CI或绕过检查。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
+
+
+## 2026-10-10 · AI主路径页面进入与返回
+
+本轮沿客户端main `cad7a6a847c5834ca019720636c99e6f95c9cacd`，保留无关IDE改动。查看已保存AI任务导出tasktarget（23:2440）、taskclarify（23:2766）、taskplan（23:2928）的原图；没有取得新的在线设计，不计186整板通过。实际App Renderer以4302和一个IAB页签查看，虚构宿主提供同一任务、所选网页身份、输出选择、两项补问及四步演示方案；没有真实目录选择器、网页会话、模型、文件操作或Run。
+
+1040窗口从对象页确认网页后，原理解页main scrollTop712.03、标题top−584.04，焦点BODY；从理解卡再进入对象页scrollTop816.92、标题top−688.93，焦点BODY。修复成功进入对象/理解/模型回复/新任务时在下一帧回到顶部并聚焦标题，指定目的地的回调同时校验活动状态和当前页面；对象页按原有顺序返回描述时回顶部并聚焦task-description，不更改返回目的地、保存先后或执行权限。已有任务返回计划与正常采纳沿用原规则。直接创建网页/应用目标、从运行返回桌面对象及保存桌面方案也复用此定位，后两项本轮没有原生证据。
+
+修复后1440对象页两栏约419.95/707.92、左x255.99/右x699.94、top229.98、高700；理解页同列宽、高710.39，符合420/708、24间距的布局规范。1040/676成功进入对象/理解时scrollTop0、相应h1获焦，标题top约127.99，文档宽度等于视口。截图因显示缩放或裁剪不用于整板1:1结论，数据测量以DOM为准。
+
+虚构任务从描述进入对象，明确使用整个网页后选择输出，将文件名由结果.txt改为页面标题.txt，保留number。第一次明确生成返回两项补问且定位理解页；选择“告诉我原因并结束”和“保留网页地址”，发送范围显示原描述/16字符处理说明、所选网页的标题/地址/账号未核对、输出逻辑绑定/文件名/规则及两项回答，未夹带虚构目录路径。再次勾选确认并生成进入待采纳四步方案，标题获焦、scrollTop0。切图选择check再回清单保持ID；明确采纳后保存状态修订6、两项补充仍可展开，并显示尚未执行。演示方案只用于界面投影，没有验证模型是否落实空字符串或来源回答，不据此声称任务语义/运行成功。
+
+1040从已采纳方案返回理解，再键盘进入对象页定位标题；返回描述聚焦task-description、scrollTop0，需求/原资料/网页/输出保留。重新进入理解后676更换并确认网页，标题获焦、两项先前补充仍为原回答，输出页面标题.txt/number保持。该主场景虚构写入计数为task.output.choose1/configure1、task.save1（两项回答）、task.generate2、task.adopt1、task.web.select2；有后台只读轮询，未出现run.start。选择/返回未自动追加模型请求。
+
+独立failSave=1夹具中，描述追加“补充：文件中保留日期。”后进入对象的首次保存失败，停留原描述、完整输入保留、role=alert获焦；当时仅1次save且没有task.web.preview。关闭提示并明确Enter重试后才进入对象，标题获焦、scrollTop0；返回原需求输入包含补充，最终2次save、无generate/adopt/run.start。另两个独立创建场景分别从首页“＋网页”和“开始规划”进入新任务；各仅create1/save1，保留各自首页文字，网页路径进入对象标题、返回需求输入，普通路径进入描述标题；均无模型/运行请求。
+
+本轮pnpm typecheck、pnpm build、AITaskWorkspace.tsx的Prettier --check与git diff --check通过，日志/tmp/flowark-task-main-path-typecheck.log和/tmp/flowark-task-main-path-build.log；既有大chunk提示保留。未新增或运行单元、集成、smoke测试。HMR及构建曾使夹具返回首页，最终整条链路从重载后的初始状态重新走查，没有重启原生应用。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-task-main-path/ 下design-target.png/design-clarify.png/design-plan.png、target-before-1440.png、understand-before-1040.png、target-reentry-before-1040.png、target-reentry-after-1040.png、target-after-1440.png、understand-after-1440/1040/676.png、plan-after-1440.png、describe-return-1040.png、save-failure-676.png、create-after-676.png。焦点以稳定DOM读取为依据，截图只支持对应滚动区域，部分画面裁剪右侧/下方。查看页签关闭、viewport复位，4302退出130，两份临时HTML/JS删除；唯一原生PID9637仍存在，未重开或重新打包。真实AI/MCP/桌面/网页/目录及当前安装版、186画板/U01–U12完整验收仍待完成。
+
+客户端[PR #176](https://github.com/zhongmiao-org/flow-ark-client/pull/176) latest head `a730e8ba8e137adab73315bcbb3d77d6f4a1421b`经[CI38055284208](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38055284208) Validate34秒/Auto Merge8秒通过，实际自动合并为`ce9ef7169c20a96634d2d88dbcfab8d7a407ac04`；此前38055224319只通过Validate、Auto Merge跳过，不据此宣称交付完成。线程附件超过100，保留直接PR链接，不重复附加或移除旧附件。
