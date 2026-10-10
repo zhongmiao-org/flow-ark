@@ -7163,3 +7163,21 @@ Figma23:10659的get_design_context与get_screenshot均返回Starter额度限制�
 控制台warn/error为空。页签关闭、视口复位、4271 Vite回收、临时HTML/TS删除。首次类型检查揭示新增ref缺少初值/undefined类型，修正声明后pnpm typecheck通过；最终pnpm build、四文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，无关IDE文件保留未提交。当前安装版完整路径、背景错误/全部动作、整板视觉及186画板/U01–U12完整验收继续待完成。
 
 客户端 [PR #148](https://github.com/zhongmiao-org/flow-ark-client/pull/148) 最新head `e110fbecee4ba1eac64a6ee29b49476a669f5410` 经 [CI 38023835722](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38023835722) Validate49秒/Auto Merge7秒成功，实际自动合并为 `c282e15bada7cb7fe955de1dcdb3d0964faa96e6`。同head较早38023835186取消，不计通过；附件工具仍返回线程附件超过100，未重试或移除附件，保留直接PR链接。
+
+### 2026-10-10 流程参数长列表与 App 保存返回
+
+沿用018 `2:1398`与071 `8:18679`现有设计映射，实际读取10月8日保存的2:1398高保真设计上下文，查看原导出18-流程参数与资源.png。在线入口的Starter额度限制已知，本轮未重复调用或取得新设计/资产。布局、三列字段与资源卡保留，参数删除的已有失败反馈直接采用Ant Design Alert；未新增基础控件或改变引用校验、IPC、宿主、快照和持久化。
+
+唯一隐藏IAB页签、4272 Vite加载实际App及ParameterConfiguration/FlowParametersPage，一条虚构流程含24参数、数据步骤精确引用params.title，接口仅内存记录/虚构资源。实际删除被引用title时，原错误段落top3353.68/bottom3419.68位于1079高视口之外，焦点留在删除按钮；删除普通parameter01后焦点变BODY。现在主动删除失败聚焦Alert并保留完整步骤/路径，连续相同失败可再次获焦；删除成功定位下一参数，末行定位上一参数，没有相邻参数时回到添加入口。已移开焦点时不强行恢复。无相邻参数及非columns分支本轮仅代码核对，当前唯一调用来自统一参数页。
+
+最终24参数会话：items输入未完成“{”、maxItems待改名countDraft时，两次删除title均被阻止且Alert获焦，宽屏错误806.41–947.02可见，草稿均保留。删除parameter01后聚焦parameter02名称，JSON与待确认名称不被重置；保存被阻止并定位maxItems名称，未调用flow.save。Escape取消待改名、修正[0,false]后，将title改为heading，真实产品回调显示同步1处引用。1040×700下删除heading仍标出params.heading，Alert299.63–440.24可见、文档宽1040；删除parameter20后聚焦parameter19名称。
+
+实际App资源与导航往返：虚构目录取消保留原目录/草稿和按钮焦点；选择失败聚焦说明且保留原目录；明确重选采用新目录仅更新草稿。勾选虚构凭据、选择虚构内置浏览器、Space展开范围说明后，顶部返回触发实际目的地离开保护；继续编辑后保存失败保留heading、0、false、[0,false]、浏览器/目录/凭据，页面错误229.98–269.47获焦。明确重试保存成功返回编排并聚焦参数按钮，图中数据步骤显示参数heading；重开参数页保留22个参数及资源。再改heading值并明确不保存离开，重新打开恢复“参数原标题”，没有追加flow.save。检查器参数标签的可见label也能进入统一参数页并聚焦标题；隐藏radio的Space工具操作未成功，重读同一页签后使用可见label完成，不计失败尝试为通过。
+
+最终累计虚构file.choose3（取消1/失败1/选择1）、flow.save2（失败1/成功1），凭据名称均来自虚构credential.local.list；无真实目录选择、凭据读取、模型、浏览器执行或磁盘写入。热更新前的原始缺陷会话不与最终累计合并。编排步骤引用的回显证明内存回写，仍不作为安装版保存/退出重启证据。
+
+实际查看flowark-parameters-app-path目录的delete-reference-wide-final.jpg、delete-reference-compact-final.jpg、save-failure-compact.jpg，位于/Users/mac/.codex/visualizations/2026/10/10/。浏览器原133%缩放，CSS视口1440×1079与1040×700；截图是滚动位置的局部、带产品外预览控制，不计整板视觉或原生窗口验收。未修改静态资产或设计槽位，导航资产与系统窗口控件不在本轮一致性通过范围。
+
+最终console warn/error为空。页签关闭、视口复位、4272 Vite回收、临时HTML/TS删除；pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过，构建保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，无关IDE改动保留未提交。参数页引用消费字段尚待明确，受管参数/复杂作用域、当前安装版保存重开、最新设计整板与186画板/U01–U12完整验收仍待完成。
+
+客户端 [PR #149](https://github.com/zhongmiao-org/flow-ark-client/pull/149) 最新head `a8664bb6f19c96c9f3e04403c06290a94e3f0d94` 经 [CI 38024514792](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38024514792) Validate44秒/Auto Merge7秒成功，实际自动合并为 `d3e81bd606671015670de4909b199c43b18c1adb`。同head较早38024514575取消，不计通过；附件工具仍返回线程附件超过100，未重试或移除附件，保留直接PR链接。
