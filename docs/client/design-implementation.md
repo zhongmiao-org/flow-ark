@@ -7009,3 +7009,17 @@ AttentionWorkspace 的列表、详情、上下文、来源运行、核对内容�
 pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过，构建仍有大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk或访问真实AI、文件、网页与宿主。页签110关闭、视口复位、4261 Vite回收、临时HTML/TSX删除，IDE改动保留未提交。真实保存重开与186画板/U01—U12完整验收仍待完成，不按组件数量计算完成百分比。
 
 [客户端 PR #138](https://github.com/zhongmiao-org/flow-ark-client/pull/138) 最新head `79f20e2e6e66665196c66e97b9fc290502db9536` 的 [CI 38014456859](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38014456859) Validate45秒/Auto Merge8秒成功，实际合并为 `6356aef07f91df91d4ce47ec164e1b3f8f60e6b7`；同head较早38014456249取消，不计为通过。
+
+### 2026-10-10 Ant Design 重新运行核对卡片
+
+RunRerunPanel 外层、主内容、来源上下文与 RunDetail 重新运行入口共四处 Card 声明直接采用 Ant Design。保留语义 section/aside、原隐藏逻辑、refs、预览/选择/勾选/确认/取消及来源导航，删除手写基础边框、圆角和内边距。普通body24；独立页外层与内嵌主内容borderless/body0且透明，内嵌上下文保留canvas底色。独立主卡原28px、窄卡和内嵌上下文原20px统一为主题24px，1.82:1比例/656px最小高度保留，窄容器单列且取消最小高度。未修改IPC、宿主、执行权限或契约。Figma2:3014上下文与截图仍受Starter配额限制，沿用030既有映射，不宣称新整板1:1，无新增静态资产。
+
+唯一隐藏IAB页签111、4262 Vite加载实际 RunDetail/RunRerunPanel/ApplicationTheme及虚构内存响应。入口到独立核对标题获焦，快照预览聚焦form、未勾选禁用确认；勾选后切当前已保存流程清除旧预览和核对，开启逐步调试重新预览仍未勾选。Space展开版本/绑定明细，完整原版本和采用版本可读且折叠按钮保持焦点。虚构确认返回新Run后详情读取失败，错误区获焦、保留新运行入口；再次查看只读取已创建记录，最终preview2/confirm1/detail2，确认未重复。返回原运行焦点回当前步骤页签。虚构导航仅记录目标标识，没有真实进入新Run或宿主。
+
+切内嵌模式后资源未绑定禁用预览，Space展开阻止原因聚焦标题；切回独立模式并将虚构记录置运行中，显示当前不可重新运行且没有预览入口。资源阻止和运行中为夹具组合，不用该文案组合代替真实生命周期。真实队列、结果未知确认的同请求重试、详情标识错配、派生返回链、真实来源授权或文件操作本轮未核对。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-rerun-cards/` 中 entry-wide、saved-preview-wide、inline-blocked-narrow、unavailable-page-narrow，均png。宽申请1920实际CSS1443/文档1432，预览两卡宽857.08/470.92px、高897.27/656.00px，body24，外层border0/body0；内容超高不计为整板固定尺寸。窄申请900实际CSS676，内嵌文档665、外层宽617.42px/body24、主卡宽567.93px/border0/body0、上下文宽567.93px/body24。独立不可用页文档676，两卡宽628.70px/上下堆叠/min-height0/body24，无页面横向溢出。保留原133%缩放；全页图不代表全部内容同时可见，无产品侧栏的隔离预览不证明原生整板。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、四文件Prettier --check、git diff --check通过，构建仍有大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk或调用真实宿主、AI、文件/网页、创建真实Run。页签111关闭、视口复位、4262 Vite回收、临时HTML/TSX删除，无关IDE改动保留未提交。真实保存重开、重新运行及186画板/U01—U12完整验收仍待完成，不按Card数量计算完成百分比。
+
+[客户端 PR #139](https://github.com/zhongmiao-org/flow-ark-client/pull/139) 最新head `4c36d3175399086ac7d382a5ee60356c444ea856` 的 [CI 38014925809](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38014925809) Validate43秒/Auto Merge9秒成功，实际合并为 `d9b48575539c9ea145179f4fea505c9dd4e824f0`；同head较早38014922713取消，不计为通过。
