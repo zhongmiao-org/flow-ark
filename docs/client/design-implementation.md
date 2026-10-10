@@ -6831,3 +6831,21 @@ FlowParametersPage两卡、StepPositionPage两卡和EditorMorePage菜单/脚本/
 pnpm typecheck、pnpm build、六文件Prettier --check、git diff --check通过；构建日志 `/tmp/flowark-editor-utility-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二客户端、访问凭据/实际目录、创建副本/Run或保存真实草稿。页签99关闭、视口复位、4250 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实保存重开/复制幂等/结构操作、最新设计和完整186体验仍待验收。
 
 [客户端 PR #127](https://github.com/zhongmiao-org/flow-ark-client/pull/127) 最终head `14bd473ae788353f5738bc0c9bd51a1f4c63c0af` 的 [CI 38007338660](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38007338660) Validate44秒/Auto Merge7秒成功，实际合并为 `b36fdbaf1f58232aa5c1ede83249fa72bab20f5c`；同head较早38007337270及其两项job均取消，不计为通过。
+
+### 2026-10-10 Ant Design 编辑器配置卡片
+
+沿用并实际查看已保存的021条件与串行循环、022网页动作、023HTTP文件与表格、024流程控制、025脚本与依赖设计导出；本轮没有新的在线Figma上下文，不能据此宣布最新整板1:1或186画板完成。
+
+BrowserActionWorkspace六卡、ResourceWorkspace六卡、LogicConfigurationWorkspace六卡、ScriptConfigurationWorkspace六卡、ControlWorkspace配置卡共25个渲染容器直接使用Card（12处声明）；网页和资源错误提示直接使用Alert，网页保留错误聚焦包装。保留section、data-current、data-value-invalid、fieldset/ConfigProvider禁用、原字段组件与导航、React Flow画布；布局移至Card body，删除重复边框/背景/圆角/20px内边距以及脚本/逻辑50px底部留白。普通body继承主题24px，保留宽卡最低362px/循环790px与原响应断点，窄屏解除最低高度。没有基础控件包装、IPC、执行或持久化语义变更。
+
+唯一隐藏IAB页签100使用实际五页组件、ApplicationTheme、虚构流程与导航/保存回调，禁止真实IPC。网页9层iframe路径阻止返回、聚焦文本框并保留输入；恢复已应用路径后可返回。资源未应用X-Draft请求头折叠后尝试返回会重新展开、聚焦并保留名称，放弃后可返回。逻辑数组JSON“[”和脚本输入“{”阻止返回/编辑器导航、聚焦真实文本框，恢复后继续；脚本依赖Collapse用Space展开/收起，末尾参数操作Enter仅触发虚构导航，没有真正绑定目录或执行脚本。
+
+循环配置延后虚构保存时返回、字段、引用选择和操作按钮禁用，失败提示获焦、保留[0,false,甲]，明确重试后显示草稿已保存并聚焦保存按钮。初次预览缺task-graph/editor-feedback及字体导入，流程图文字被形状遮挡；补齐夹具导入触发一次整页重载并复位计数，最终图文字正常。最终阶段仅两次保存回调（先失败、后成功），与重载前单次失败不可合并为连续会话证据。
+
+申请1920宽实际CSS1443且文档1443，资源六卡为三列；网页卡宽约374.54px，普通body24px。申请1040实际782，配置六卡按720px容器断点单列，循环按1250px断点上下排列，文档无横向溢出；最终窄脚本直接按钮实测约40px高，Card body24px。宽循环表单内容自然撑高约850.87px，不裁切表单。页面截图是内部Drawer滚动位置，窄循环错误图仅展示提示/画布/配置上部，不宣称整板同时可见。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-configuration-cards/` 的browser-wide.png、browser-invalid-narrow.png、resource-wide.png、logic-wide.png、logic-invalid-narrow.png、script-wide.png、script-narrow-bottom.png、control-wide.png、control-wide-final.png、control-error-narrow.png、script-narrow-bottom-final.png、resource-wide-final.png；control-wide非final为夹具缺样式时，不作生产流程图证据。原133%浏览器缩放保留，CDP只读捕获；背景工具条与计数是夹具，无产品侧栏/原生整板证据。最终console warn/error为空。
+
+pnpm typecheck、pnpm build、十文件Prettier --check、git diff --check通过；日志 `/tmp/flowark-configuration-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk、访问凭据或真实目录、发HTTP请求/脚本/Run、保存真实草稿。页签100关闭、视口复位、4251 Vite回收、临时HTML/TSX删除，IDE改动未提交。真实保存重开/资源执行、最新设计与完整186体验仍待验收。
+
+[客户端 PR #128](https://github.com/zhongmiao-org/flow-ark-client/pull/128) 最终head `8a59117a80d964ab488435af8a80a742d9da5b66` 的 [CI 38008150736](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38008150736) Validate43秒/Auto Merge8秒成功，实际合并为 `59eaa4ae8efe7b2b1578bda276874658f94b5da7`；同head较早38008149605取消，不计为通过。
