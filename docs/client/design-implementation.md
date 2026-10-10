@@ -7634,3 +7634,22 @@ pnpm typecheck、单文件Prettier --check、pnpm build、git diff --check通过
 DOM在1440/1040/676文档宽度与视口一致；失败页1040双栏约492.82/403.80、676单栏约556.70；成功1040双栏约556.41/340.21。已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-result-recovery/ 下design-taskresult2.png、design-taskfailure.png、mixed-result-1440/1040/676.png、partial-failure-1440/1040/676.png、partial-details-676.png、partial-log-676.png。部分截图裁剪右侧/下方或只显示滚动位置，尺寸切换后另读DOM并重新保存部分画面，仍不计整板视觉验收。
 
 仅治理文档变更，不重复运行客户端类型检查/构建；未新增或运行单元、集成、smoke测试。4299退出130，页签关闭、viewport复位、两份临时HTML/JS删除；唯一原生安装版PID9637仍存在，未重开或重新打包。真实多种文件预览、外部状态变化、当前安装版、完整186画板/U01–U12仍待完成。
+
+
+## 2026-10-10 · 凭据弹窗返回原入口可见
+
+对照已保存P1-v2导出中“32-凭据与本机资源.png”（2:3227）及现有导航/凭据规范，已查看design-resources.png；只补画板032的凭据弹窗局部交互，缓存不证明在线设计最新或整板视觉完成。治理[PR #615](https://github.com/zhongmiao-org/flow-ark/pull/615) latest head `303227f22e9132d148d563f786e14b129a74a27a`经CI38052955053 Validate5秒/Auto Merge8秒通过，自动合并为`eba1f6994f32b7b14e625f8038236825746ff3e3`，先明确缩窄返回时原入口须可见。
+
+客户端原基线main `7a1a25728e6a1a0ae1031dd2369a1dd25be84caf`；4300单个IAB页签加载实际App Renderer，从本地设置进入凭据与本机资源。临时虚构宿主提供24条仅有名称/掩码/引用状态的记录，保存与移除都固定失败，无真实凭据值、系统保护存储或外部请求。
+
+原逻辑在CredentialDialog卸载时origin.focus({preventScroll:true})。1440宽窗打开第24条编辑弹窗，缩至676×700后取消，焦点虽然为“编辑凭据”，top/bottom约838.03/878.03，超出main底部700；scroll约6330.45。修复为标准focus()，保留原身份且允许浏览器将入口滚入视口。相同路径返回后top/bottom约350.06/390.06、scroll约6818.42；文档宽度676，没有额外基础组件、主题覆盖或保存/移除/IPC变更。
+
+宽窗编辑第24条名称为“末条资源名称草稿”，缩窄后Escape进入同一未保存检查；继续编辑保留名称并聚焦名称框，再明确不保存离开回到可见原编辑按钮，尚无credential.local.save/remove请求。宽窗移除第24条、缩到1040取消后，移除按钮top/bottom约458.34/498.33且未发出remove。1040明确保存名称时虚构失败保留输入；稳定复读焦点为local-resource-feedback，返回凭据设置进入离开检查，明确放弃后编辑按钮仍可见。1440不改变尺寸的取消后按钮top/bottom约838.03/878.03，在1079高视口内。
+
+一次保存失败后尝试仍以“取消”定位，当前按钮实际已改为“返回凭据设置”，只据快照改用当前标签；未重复保存。构建生成node-schema.generated.js触发当前Vite页面重载到首页，原弹窗不再存在；构建完成后使用同一页签重新走宽窄场景并取得修复后位置，没有重启原生应用。最终临时DOM请求计数仅有2次明确的虚构save、0次remove；未输入凭据值，未做真实写入、移除、模型调用或运行。
+
+pnpm typecheck、LocalCredentialsPanel.tsx的Prettier --check、pnpm build、git diff --check通过；/tmp/flowark-credential-return-typecheck.log和/tmp/flowark-credential-return-build.log保留结果，构建仍有既有大chunk提示。未新增或运行单元、集成、smoke测试。已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-credential-return/ 下design-resources.png、return-before-676.png、return-after-676.png、remove-return-1040.png和save-failure-1040.png；部分截图只显示滚动位置/裁剪内容，不计整板通过。
+
+4300已退出130，查看页签关闭、viewport复位，两份临时HTML/JS删除，保留无关IDE改动和唯一原生PID9637。系统只读锁屏标志本轮为1，未重开或打包安装版；真实凭据保护存储、并发依赖变化、安装版、完整186画板/U01–U12仍待完成。
+
+客户端[PR #174](https://github.com/zhongmiao-org/flow-ark-client/pull/174) latest head `d3d92bdb62090659de7d1cc1bf0b725e04adf323`经[CI38053230435](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38053230435) Validate45秒/Auto Merge10秒通过，已实际自动合并为`78ee651cab2b81ff2eca3619cacac1de698fd7d5`。此前38053210626的Validate/Auto Merge被新轮取消，不计通过；未据旧轮watch显示fail重启或绕过CI。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
