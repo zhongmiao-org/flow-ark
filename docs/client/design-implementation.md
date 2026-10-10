@@ -7202,3 +7202,26 @@ Figma23:10659的get_design_context与get_screenshot均返回Starter额度限制�
 预览页签关闭、视口复位、4273 Vite回收、临时HTML/JS删除。pnpm typecheck、pnpm build、两文件Prettier --check及git diff --check通过，构建保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未调用真实文件、AI、浏览器执行或宿主；无关IDE改动保留未提交。当前安装版持久化、全部选择变量入口、复杂嵌套/原生网页遮挡及186画板/U01–U12完整验收仍待完成。
 
 客户端 [PR #150](https://github.com/zhongmiao-org/flow-ark-client/pull/150) 最新head `1c7aa2d5cae50fd3803b60552455b7f1d53cab1f` 经 [CI 38025300115](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38025300115) Validate44秒/Auto Merge7秒通过，实际自动合并为 `222a1851a34e9141c46268c840629144622b75af`。同head较早38025299751取消，不计通过；附件工具返回线程附件超过100，未重试或删除附件，保留直接PR链接。
+
+
+### 2026-10-10 步骤位置与引用恢复实际 App 路径
+
+沿用020 `2:1650`和085 `8:24062`已有映射，查看原始20-步骤编辑与位置.png的672/456列与682高卡片。在线Starter额度受限已知，本轮没有重复请求或取得最新上下文/资产。保留现有Ant Design Drawer/Card/Select/Button/Alert及位置布局，仅修正反馈：保存失败独立显示“草稿保存未完成”与实际原因，结构阻断与受影响字段保留，最近保存/结构操作的错误分别获焦；重复相同操作也更新反馈。成功结构回执不会被旧保存错误屏蔽。VariablePicker重复相同应用失败重新获焦，没有改变引用、结构操作、历史或IPC/宿主契约。
+
+唯一隐藏IAB页签与4274 Vite加载实际App/main及生产CSS，虚构10步骤流程包含同名数据步骤、条件成立两步内部引用与另一分支、循环及末尾消费字段。最初删除read-title被steps.read-title.text消费阻止；随后虚构保存失败，原位置页仍只展示旧结构阻断，保存原因藏在底层App。引用恢复页第一次拒绝未改变的来源会聚焦错误，第二次仍拒绝却留在“使用此变量”；这两处实际缺陷为本轮修复依据。
+
+步骤页修复后人工核对条件4步子树：复制使10步变14，副本的内部消费字段指向自己的数据步骤；撤销回10，重做回14。选择“主流程末尾”移动完整副本，位置由08变11；撤销恢复08。删除副本回10并显示当前未选步骤、聚焦所选禁用及删除成功回执，撤销恢复14。上述结构/历史由实际产品回调执行，没有启动运行。全部嵌套组合、失效位置以及文件/表格副本不计本轮已验收。
+
+1440×1079宽屏下保存错误与结构错误分别116.82–213.45、245.44–284.93可见，保存错误获焦；随后重复删除，焦点到结构错误，保存原因保留。1040×700下重复保存仍聚焦保存错误，两块分别229.98–326.60与358.60–398.09，文档宽1040。第一次工具选择重试按钮的精确accessible name未匹配，重读DOM发现按钮可用、加载图标仍出现在角色名称；用已观察到的实际保存按钮继续，没有新建页签或重启。产品按钮不是忙状态，该工具失败不计人工通过。
+
+VariablePicker最后一次热更新后重走最终会话，复制条件子树、选择原来源、删除阻断并保存失败。受影响字段显示第14步归档内容的数据值。两次应用原steps.read-title.text均拒绝，第二次仍聚焦同一错误；改选params.title应用，返回消费步骤并显示“原删除或移动尚未执行”。回全图确认原来源仍在，明确再删除才使14变13。两次撤销分别恢复来源步骤和原引用，实际消费字段回显steps.read-title.text；两次重做后消费字段params.title、原read-title不在画布，连续编号13步。
+
+676×700下保存失败错误281.96–378.58可见、文档宽676；明确关闭虚构失败开关重试成功，错误清空、保存按钮获焦、草稿已保存。再由位置页“前方插入”进入动作库，目标13归档内容/前面、搜索获焦；选择数据动作自动进入新步骤配置并聚焦标题。填写“插入的数据”/“插入内容”后保存，返回库重开14步骤，插入的数据是第13步、归档内容第14步且params.title保留；第9步副本内部引用仍指向第8步副本来源。最终内存flow.save4次（失败2、成功2），真实执行0。前一轮仅StepPositionPage变更时的移动/删除历史与最后一次VariablePicker热更新会话分开，保存计数不相加。编辑页重开不代表安装版磁盘或退出重启。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-position-app-path/的separate-errors-compact-final.jpg、unchanged-reference-compact-final.jpg、save-failure-narrow-final.jpg、inserted-reopened-narrow.jpg。截图为滚动位置局部、带产品外预览控制，插入页图仅显示顶部而内容回显以实际DOM为证；不计最新整板视觉/原生窗控验收。未修改任何静态资产或布局尺寸。
+
+初次生成夹具的python3编码错误，按明确UTF-8与/usr/bin/python3写入后使用同一个已启动Vite；此前没有成功夹具，不计产品错误。模态焦点陷阱下预览控制checkbox的Space未生效，重读仍未选后用可见checkbox点击。紧凑图隐藏时选择节点工具无匹配，重读当前步骤配置面板后经“全图”选择；没有绕过DOM或修改隐藏状态。最终console warn/error为空。页签关闭、视口复位、4274 Vite回收、临时HTML/JS删除，IDE改动保留未提交。
+
+pnpm typecheck、pnpm build、两文件Prettier --check、git diff --check通过，构建保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未访问真实文件/AI/网页执行或本地宿主。当前安装版持久化、其他插入/移动位置、复杂结构组合、最新整板与186画板/U01–U12完整验收仍待完成。
+
+客户端 [PR #151](https://github.com/zhongmiao-org/flow-ark-client/pull/151) 最新head `9b793ee6000e38933333ad57d3242a2141683041` 经 [CI 38026074606](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38026074606) Validate39秒/Auto Merge9秒通过，实际自动合并为 `f784bf18d1570edc9ddee588b39c07ad0f638112`。同head较早38026073650取消，不计通过；附件工具仍返回线程附件超过100，未重试或移除附件，保留直接PR链接。
