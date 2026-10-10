@@ -7417,3 +7417,18 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 最终warn/error为空；唯一页签关闭、视口复位、4285服务回收exit130、临时HTML/JS删除，没有启动第二FlowArk/Electron。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-result-file-return-build.log保留既有大chunk提示。未新增或运行单元、集成与smoke测试，无关IDE改动保留。真实产物变化、丢失/清理、宿主副本、安装版保存重开与完整186画板/U01–U12继续待验收。
 
 客户端 [PR #162](https://github.com/zhongmiao-org/flow-ark-client/pull/162) 最新head `f968d2156ab110322115ca64b7193905b802ef72` 经 [CI 38039937218](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38039937218) Validate34秒/Auto Merge8秒通过，实际自动合并为 `8448cd8dc7e8f4d357956f40bd98e61975ecf927`。较早38039936726取消，不计通过；线程附件超过100，未重试或删除附件，保留直接PR链接。
+
+
+### 2026-10-10 修复目标确认失败的操作反馈
+
+沿用128 `23:7691`与目标修复映射，实际查看已保存flowark-antd-repair/design-taskfocusrepair.png的紧凑标题、确认/取消/返回与目标卡。在线Starter额度仍受限，本轮未读取最新云端整板。直接使用既有Ant Design Alert与集中主题，仅补主动操作失败的焦点衔接，不修改目标校验、权限、IPC或运行语义。
+
+唯一IAB页签23与4286 Vite加载实际App/main及生产CSS，临时虚构内存接口提供修订3任务、h2只读步骤和超时失败Run，以及p:nth-of-type(2)候选。未打开真实网页宿主、读取凭据或调用模型/创建Run。1040×700确认失败前后页面均保留同一目标，修复前按钮处理中禁用使activeElement落到BODY。处理完成后现在聚焦task-repair-error，y191.99可见；连续第二次同文案错误同样聚焦，第三次明确重试成功进入检查修复提议并聚焦标题，发送勾选仍未选中且生成按钮禁用。
+
+1440×1079展开原新目标定位，分别显示h2与p:nth-of-type(2)，文档clientWidth/scrollWidth均1440；重新选择及取消返回原失败Run，仍修订3、0完成和1个已开始未确认步骤。截图recovered-review-1440.png为展开后局部滚动视图，不能当整板视觉对照。将虚构确认延迟增至1800ms并重新进入后，等待期间展开“重新选择其他目标”；失败到达仍保留该折叠入口焦点。下一次确认等待中返回失败页，旧请求结束后仍停在原失败标题、焦点详细信息，无可见修复错误；重新进入pick，无旧候选且确认禁用。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-repair-confirmation/下confirmation-error-1040-before.png、confirmation-error-1040-after.png与recovered-review-1440.png。构建更新生成Schema导致同一页签回首页，一次旧入口观察无匹配；读取当前页并重走返回路径后完成核对，没有重启服务或增加页签。最终warn/error为空，唯一页签关闭、视口复位、4286服务回收exit130，临时HTML/JS删除。
+
+pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过；/tmp/flowark-repair-confirmation-build.log保留既有大chunk提示。未新增或运行单元、集成及smoke测试，未启动第二FlowArk/Electron，无关IDE改动保留。其余主动操作/背景失败、原生网页变化与唯一性、真实AI/采纳/关联重跑、安装版和完整186画板/U01–U12继续待验收。
+
+客户端 [PR #163](https://github.com/zhongmiao-org/flow-ark-client/pull/163) 最新head `2ad7b9a8b500c35ad4468c2ffeb69eb4a5e1ea1a` 经 [CI 38040989489](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38040989489) Validate37秒/Auto Merge8秒通过，实际自动合并为 `4fab1feba6f48fcda1956f73f28ffc7801824fa2`。较早38040988687取消，不计通过；线程附件仍超过100，未重试或删除附件，保留直接PR链接。
