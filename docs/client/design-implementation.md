@@ -6927,3 +6927,19 @@ AITaskWorkspace 五处 Card 声明、TaskDesktopWindows 两处小 Card、Desktop
 pnpm typecheck、pnpm build、七文件 Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成或smoke测试，未启动Electron/第二FlowArk。页签104关闭、视口复位、4255 Vite回收、临时HTML/TSX删除，IDE改动保留且不提交。真实AI、桌面读写、保存重开及186画板/U01—U12完整验收仍未完成，不据Card数量计算完成百分比。
 
 [客户端 PR #132](https://github.com/zhongmiao-org/flow-ark-client/pull/132) 最新head `c17cbf6ba63ec51fa23bdef1140adcfd1223bdbe` 的 [CI 38011283611](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38011283611) Validate47秒/Auto Merge7秒成功，实际合并为 `97b3e235c2d8ad8ef7a39dced55e9d849c8a4336`；同head较早38011282854取消，不计为通过。
+
+### 2026-10-10 Ant Design 差异与步骤详情卡片
+
+PlanningChanges、TaskProposalReview、ScopedChanges、TaskPlanScope 与 TaskStepInspector 共六处 Card 声明直接采用 Ant Design，PlanningChanges 两种空态采用 Empty。删除基础容器重复的边框、圆角和内边距，普通卡片 body24、小卡 body12；保留原值/新值颜色、业务布局、语义 section/aside、refs、筛选、条件分支与循环导航。图模式详情卡仍保持710px最小高度，窄容器取消该最小高度；不改变 IPC、状态或授权契约。
+
+Figma 在线23:3290上下文与截图均返回 Starter 配额限制，沿用已保存 ZIP 中 taskgraph2、taskdiff 设计导出。未新增设计或静态资产，不据此宣称最新整板1:1。
+
+单个隐藏 IAB 页签105、4256 Vite、实际组件/ApplicationTheme 加虚构 API 人工查看：原值234字符/新值0完整显示；新增值false显示“否”；搜索无匹配和无变化分别显示 Empty，清除恢复搜索焦点，选择差异聚焦详情标题，空格展开原始差异。条件提案原/新卡和逐项差异可展开；步骤详情可进入条件分支、循环体，上一/下一步聚焦目标标题，完整配置与长文本保留。操作范围选择会更新详情，焦点留在原按钮。22步图模式保留选择入口，清空选择后卡片仍保留原高度。“回到图中”仅调用虚构计数器，未验收真实图中定位；单步提案使用实际 AITaskWorkspace，不点击采纳或执行。
+
+宽申请1920实际CSS1432—1443、文档同宽；操作范围body12，详情body24/gap16，长流程未选卡高约710px。窄申请1040实际CSS770、文档770，单步原/新卡宽约593.20px、body12，无横向溢出。最终console warn/error为空，保留原133%缩放。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-step-details/` 中 changes-wide、changes-empty-wide、condition-wide、condition-narrow-expanded、inspector-long-empty-wide、inspector-long-empty-narrow、scoped-wide，均 png。condition-wide 顶部夹具导航部分裁切，仅证明条件卡内容；inspector-text-wide/narrow 与 scoped-narrow 只保存未目视，不作为目视证据。所有截图为无产品侧栏的隔离组件预览，全页捕获不代表原生整板同时可见。
+
+pnpm typecheck、pnpm build、十文件 Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron或第二FlowArk。页签105关闭、视口复位、4256 Vite回收、临时HTML/TSX删除；用户IDE改动保留且未提交。真实AI、文件/桌面读写、保存重开及186画板/U01—U12完整验收仍待完成，不依据Card数量计算完成百分比。
+
+[客户端 PR #133](https://github.com/zhongmiao-org/flow-ark-client/pull/133) 最新head `ce537b714c27f127bb6550eba45e25f43d2919e2` 的 [CI 38011917286](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38011917286) Validate43秒/Auto Merge7秒成功，实际合并为 `ec239cd04f415efa61e4844cfe0958a7a62456c2`；同head较早38011916941取消，不计为通过。
