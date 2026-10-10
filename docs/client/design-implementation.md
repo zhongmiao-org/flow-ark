@@ -6867,3 +6867,25 @@ LocalSettingsPage六处、LocalCredentialsPanel三处、LocalStoragePanel两处C
 pnpm typecheck、pnpm build、六文件Prettier --check和git diff --check通过；日志 `/tmp/flowark-settings-cards-antd-build.log` 保留大chunk提示。未新增/运行单元、集成、smoke测试，未启动Electron/第二FlowArk、访问真实凭据/目录/文件选择、绑定浏览器或实际保存/删除。页签101关闭、视口复位、4252 Vite回收、临时HTML/TSX删除，IDE改动未提交。实际系统保护、保存重开、原生资源与完整186体验仍待验收。
 
 [客户端 PR #129](https://github.com/zhongmiao-org/flow-ark-client/pull/129) 最终head `026b9eae8d4b1104bc5a6c5360edb82035e1d086` 的 [CI 38009002856](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38009002856) Validate38秒/Auto Merge7秒成功，实际合并为 `cf0f9cf92e9993c9df336bcfec7cb191a90dafbf`；同head较早38009002509取消，不计为通过。
+
+### 2026-10-10 Ant Design 流程列表、产物与工具回执
+
+沿用 Figma 规范并查看已保存的我的流程1:198、输出与运行产物2:2640、日志与步骤输出2:2744、产物状态与清理2:4421导出。在线2:2640上下文与截图本轮均返回Starter MCP配额限制，并非账号登录故障；没有新设计写入或最新整板1:1证据。
+
+FlowLibrary七处、RunOutputWorkspace三处、RunResultReview和McpRunReceipts各一处Card声明直接采用Ant Design；两处Empty、一处Divider及入口/结果读取Alert继承ApplicationTheme。清除重复边框、背景、圆角和按钮外观，保留语义article/section/aside、搜索与筛选、当前Run过滤、完整性区别、执行快照与原IPC。已有流程页的创建按钮改走原startEntry锁和错误处理，补等待禁用、错误聚焦；首次入口共用同一反馈。Card正常body24px、小卡12px，待办点击卡片body0、按钮12px以保留整卡点击区。
+
+单个隐藏IAB页签102配合4253 Vite、实际组件与虚构回调人工查看。初始夹具两项样式导入错误在交互前修复；初宽图发现状态标签未居右，补业务布局margin-left:auto。创建失败发现外层role与Ant Alert重复，移除外层role；重载后重新开始连续核对，不合并前一阶段计数。最终阶段创建2/导入1/定位2/结果读取3均为虚构回调次数，无真实流程、文件或Run写入。
+
+创建等待禁用、失败聚焦并允许明确重试；筛选模板后无匹配显示Empty，清除恢复六项并聚焦搜索。模板选择通过可见标签点击完成，radio的自动化check/Space尝试超时，不计为键盘筛选通过。窄屏统计与流程卡各两列，长名称/描述省略；首次空工作空间导入失败保留入口，读取中状态和创建禁用已查看。
+
+仅列当前Run的五种虚构产物完整性记录，其他Run记录排除、四种不可用文件定位禁用。Space展开位置，定位等待禁用、失败聚焦、明确重试后显示请求回执；未打开真实文件管理器。输出保留0/false/null，8864字符提示节选8192，展开后pre获焦。待核对读取失败聚焦、明确重读仅显示关联的一条已读但结果未知记录；刷新中关闭恢复入口焦点，迟到回复不重开。重跑只触发虚构入口回调，无新Run。
+
+空产物状态区分运行输出与文件。工具回执保留固定快照、当前Run筛选、收到回复/等待回复/结果未知区别；Space展开和关闭结构化/完整回执，0/false/null及富媒体仅保留说明，未调用真实MCP、自动重试或打开媒体。最终console warn/error为空。
+
+原133%浏览器缩放保留。申请1920实际CSS1443、文档1443，输出主卡约807.60/548.02px、body24，结果条目约758.11px/产物498.52px、body12；多条记录自然增高，不能宣称最终双卡等高646px。申请1040实际782、文档782，流程卡/统计约318.99px；窄输出纵向排列，展开输出pre约420px，工具主卡外层0/body24。
+
+实际查看 `/Users/mac/.codex/visualizations/2026/10/10/flowark-antd-results-cards/` 的12张图：flows-wide、flows-create-error-wide、flows-empty-narrow、flows-narrow-final、first-flow-import-error-narrow、output-narrow、artifact-reveal-error-narrow、output-wide-review、output-empty-wide、receipts-unknown-wide、receipts-waiting-narrow、receipts-unknown-wide-final，扩展名均png。flows-wide为标签修复前；receipts-unknown-wide展开图底部受内部滚动截断，最终宽图折叠后可见两条回执。夹具工具条、无产品侧栏和原生窗口，不能视为整板同时可见。
+
+最终typecheck指出Empty不支持role属性，改为外层状态容器后重新通过pnpm typecheck、pnpm build、八文件Prettier --check及git diff --check；最终该语义包装没有另做浏览器查看。构建日志 `/tmp/flowark-results-cards-antd-build.log` 保留大chunk提示。未新增或运行单元、集成、smoke测试，未启动Electron/第二FlowArk，未访问凭据、真实文件或真实业务API。页签102关闭、视口复位、Vite回收、临时HTML/TSX删除，IDE改动未提交；真实保存重开、文件/MCP执行及完整186画板仍待验收。
+
+[客户端 PR #130](https://github.com/zhongmiao-org/flow-ark-client/pull/130) 最终head `3e1b5a52b7fd4e34e38b038658df163d6c9b184c` 的 [CI 38009879907](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38009879907) Validate43秒/Auto Merge8秒成功，实际合并为 `278dd22d52d84e9c59513d4c5fc6eb3a0dc3e578`；同head较早38009879147取消，不计为通过。
