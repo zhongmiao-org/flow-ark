@@ -7759,3 +7759,22 @@ pnpm typecheck、pnpm build、三个改动文件的Prettier --check与git diff -
 pnpm typecheck、pnpm build、两个文件Prettier --check及git diff --check通过；发现错误可见性问题后追加修复并重新完成上述检查与人工链路，日志/tmp/flowark-instance-layout-typecheck.log和/tmp/flowark-instance-layout-build.log，保留既有大chunk提示。4305退出130，页签关闭、viewport复位、两份临时HTML/JS删除；唯一原生PID9637仍运行，本轮未重开或打包，安装版仍PR #167。当前安装版、真实保存/重开、真实故障及全部186画板/U01–U12仍待验收。
 
 客户端[PR #179](https://github.com/zhongmiao-org/flow-ark-client/pull/179) latest head `3a91a8283f3a84003c006c1d363a4aa159c08aa8`经[CI38059086129](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38059086129) Validate30秒/Auto Merge8秒成功，实际自动合并为`77f44701fa12328dea97f06ddd30f259d1171bb4`；此前38059026532仅Validate通过、Auto Merge跳过，不计交付完成。线程附件超过100，保留直接PR链接，不重复附加或移除旧附件。
+
+
+## 2026-10-10 · 资源选择焦点与绑定控件同行
+
+从已合并客户端PR #179继续，保留IDE改动。读取资源页当前实现及实例编辑规范，查看本地保存15-资源与动作授权.png（2:1083）；Figma Starter额度未获得新上下文，本轮使用获授权缓存，不证明186在线画板全部最新。稿件保留允许范围Select与三项授权按钮，未增加状态演示菜单；输入/按钮遵循当前集中Ant40px基线。
+
+实际App + 虚构window.flowark接口（4306，同一浏览器页签）复现：目录选择取消或成功时busy禁用按钮导致焦点丢到BODY，失败时原操作错误正确获焦。以组件状态保存正常返回的原按钮，在busy结束后仅对仍连接、可见、启用且当前焦点仍为BODY/该按钮时恢复focus并scrollIntoView nearest；失败不设置返回目标，不夺取错误焦点。未新增IPC、宿主文件能力或自动重试。
+
+基线左右卡约x256/1008、728/400宽、652高、y294，左body原24px而缓存稿28px；通过Ant Card styles.body调整左卡28px，右侧保持24px。人工截图还发现选择/清除按钮在标签高度、路径框在下行；只读CSS匹配确认.ai-task-page label共享规则将资源标签的display:contents覆盖为flex。限定资源字段选择器恢复自身网格，最终目录及可选文件的输入/按钮top完全相同；不改Ant内部外观或增加自制组件。
+
+虚构目录链路：首次取消保留/界面核对/输出目录及deny、0次保存，焦点回选择目录；第二次明确选择抛错，错误获焦且原路径保留；第三次成功改为/界面核对/新输出目录，原按钮获焦，授权仍deny，仅相关归档入口待保存，只读入口不受影响。三授权按钮与Select同步，Select明确选择auto后按钮状态同步；取消恢复原路径及deny。最末构建后重新走目录取消/失败/成功链路，再以confirm草稿明确保存；第一次虚构失败保持已保存deny、1次保存且操作错误获焦，1040错误top414.58/bottom511.20在700高视口内、文档宽1040；明确重试第二次成功，revision1到2、已保存confirm，两次请求均引用原revision1。清除后焦点回选择目录、草稿提示可见；取消恢复新已保存路径。改为deny未保存后打开归档入口明确被阻止运行，返回配置仍deny草稿、资源标题获焦，再取消恢复confirm。未启动运行。
+
+可选文件单独虚构场景：取消保持空值，失败聚焦同一操作错误，成功绑定/界面核对/资料.txt并返回文件选择按钮，0次保存、revision1及deny不变。构建引起开发页重载后重新进入同一页签，最终代码再走取消/失败/成功；676输入/按钮分别同top261.88、349.87，成功选择按钮top349.87/bottom389.87可见，文档宽676无横向溢出。该可选文件没有进入两个入口的必需清单。
+
+已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-resource-authorization/ 下design-resources.png、resources-before-1440.png、resources-after-1440.png、save-failure-1040.png、save-failure-final-1040.png、resources-after-676.png、file-after-676.png。部分图为当前滚动区及截图裁剪，布局以DOM测量为准；resources-after-676.png属于最后布局修正前的焦点核对，不将其按钮排列计最终呈现。resource-evidence-final.json记录目录3次选择、save2次、revision2及confirm；file-evidence-final.json记录file3次选择、save0、revision1及deny。虚构路径不访问文件系统，回执不代表真实保存。
+
+pnpm typecheck、pnpm build、两个改动文件Prettier --check和git diff --check通过；布局修正后再次完成上述检查，日志/tmp/flowark-resource-picker-typecheck.log、/tmp/flowark-resource-picker-build.log，保留既有大chunk提示。没有新增或运行单元/集成/smoke测试。4306监听PID30278已核对为本轮Vite并发送SIGINT，页签关闭、viewport复位、两份临时HTML/JS删除；原生PID9637保持运行，未启动第二实例、未打包或替换PR #167安装版。原生文件/目录选择、真实持久化与授权执行、整板视觉及完整186画板/U01–U12仍待验收。
+
+客户端[PR #180](https://github.com/zhongmiao-org/flow-ark-client/pull/180)最新head `51dcec287366ef8468cc06cd01339b2fb10ca799`经[CI38060336278](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38060336278) Validate及Auto Merge成功，实际自动合并为`e673d632991157c3f2713629a07f300f768c341b`。首次38060312989被同PR新事件取消，不作为失败或交付成功证据。线程附件超过100，保留直接PR链接，不重复附加或删除旧附件。
