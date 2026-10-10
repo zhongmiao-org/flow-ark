@@ -7401,3 +7401,19 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 最终warn/error仅保留08:34:58Z夹具形状错误及对应React告警，修正后未出现新日志。唯一页签关闭、viewport复位、4284服务回收exit130、临时HTML/JS删除，未启动第二FlowArk/Electron。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-execution-title-wrapping-build.log保留既有大chunk提示。未新增或运行单元、集成及smoke测试，无关IDE改动保留。真实宿主/长运行、完成与失败全路径、原生网页/资源、安装版持久化及完整186画板/U01–U12继续待完成。
 
 客户端 [PR #161](https://github.com/zhongmiao-org/flow-ark-client/pull/161) 最新head `3dcb6fee47f5ec37044e695d478c6308b4b60b16` 经 [CI 38039090763](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38039090763) Validate38秒/Auto Merge7秒通过，实际自动合并为 `dd323bf49fcd4dfc9311f1fb7d503e7a9fb844cd`。较早38039090698取消，不计通过；线程附件达到100上限，未重试或删除附件，保留直接PR链接。
+
+### 2026-10-10 文件预览返回与多产物查看
+
+沿用103 `23:4127`与104 `23:4283`的结果/详情映射，实际查看已保存flowark-antd-run/design-taskresult.png的结果摘要、700/428双栏、文件卡及两个返回入口。在线Starter额度仍受限，本轮未读取最新云端整板。仅调整通用TaskRunPage结果返回的焦点可见性，沿用Ant Design及主题；不改预览IPC、文件权限、运行状态或创建行为。
+
+唯一IAB页签22与4285 Vite加载实际App/main及生产CSS，虚构内存接口提供两份修订5任务/成功运行，各含数据及文件两步骤回执，分别登记1/12个虚构产物。仅用于界面投影，没有读取真实资料或启动Run。通过任务方案/最近运行打开12文件结果，1440×1079下末尾预览按钮y709.84–749.84可见，main滚动2206.39。打开12号文件，第一次预览虚构读取失败；明确“重新读取预览”后返回空文本，内容显示（空文件）且获得预览焦点。
+
+缩至1040×700再点证据区“返回结果摘要”，修复前原12号按钮虽获焦，仍在y813.85–853.85，超出700高窗口；main保留原2206.39滚动。返回布局现在先恢复原scroll，再正常focus原入口，使浏览器同步恢复可见性。源文件HMR重置了同页签虚构状态，重新从任务入口走上述失败/重读路径后，1040原按钮y349.94–389.94、main滚动2670.30，文件身份仍artifact-1-12，文档宽1040。
+
+再次打开12号预览，通过Ant Select键盘上移/Enter选择11号，标题和已核对预览均来自artifact-1-11。组合框有焦点时Cmd+[按现有可编辑输入保护没有返回；点击页面正文标题后同一快捷键返回摘要，原12号按钮仍可见获焦，不把选择11号改为新的返回来源。没有在读取途中构造迟到响应，本轮不扩展为竞态验收。
+
+回原任务/开始入口，再打开单文件结果，1440双栏699.912/427.955、文件卡高111.995。预览返回顶部“←返回结果摘要”聚焦页面标题.txt入口y576.71–616.71；经“详细信息”进入并从证据返回，焦点回详细信息按钮同一可见位置。实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-result-preview-return/下return-file-1040-before.png、return-file-1040-after.png及single-result-1440.png，仅为局部虚构结果证据，不能替代真实副本、安装版或整板验收。
+
+最终warn/error为空；唯一页签关闭、视口复位、4285服务回收exit130、临时HTML/JS删除，没有启动第二FlowArk/Electron。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过，/tmp/flowark-result-file-return-build.log保留既有大chunk提示。未新增或运行单元、集成与smoke测试，无关IDE改动保留。真实产物变化、丢失/清理、宿主副本、安装版保存重开与完整186画板/U01–U12继续待验收。
+
+客户端 [PR #162](https://github.com/zhongmiao-org/flow-ark-client/pull/162) 最新head `f968d2156ab110322115ca64b7193905b802ef72` 经 [CI 38039937218](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38039937218) Validate34秒/Auto Merge8秒通过，实际自动合并为 `8448cd8dc7e8f4d357956f40bd98e61975ecf927`。较早38039936726取消，不计通过；线程附件超过100，未重试或删除附件，保留直接PR链接。
