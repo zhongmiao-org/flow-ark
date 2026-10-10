@@ -1,6 +1,17 @@
 # 开发预览验收记录
 
-## 2026-10-10 最新 UI 候选 0.3.0：打包与安装，原生界面待核对
+## 2026-10-10 最新 UI 候选：PR #176 已打包，尚未替换安装版
+
+最新候选来自客户端已合并 `ce9ef7169c20a96634d2d88dbcfab8d7a407ac04`（[PR #176](https://github.com/zhongmiao-org/flow-ark-client/pull/176)），纳入 #168–#176 的工具/凭据返回、窗口选择身份、教学反馈、步骤名称检索、混合节点及 AI 主路径页面定位改动。执行现有 `pnpm package:mac` 成功，版本仍为未发布的 0.3.0；用源码提交和 SHA-256 区分同版本候选，不以版本号声称安装版已更新。
+
+- 独立保存于客户端忽略目录 `release/candidates/pr176-ce9ef71/`：DMG 的 SHA-256 为 `d6f807875689bf4a8c19a50f2d115fcae1fbe040ab43962668b48f85ab67dd77`，ZIP 为 `fe00f0a5edfca1e2fc22411fa322f6bb4b67ae490dbc31a658442818763edd97`；本地 `package-receipt.json` 记录来源和文件摘要。打包日志为 `/tmp/flowark-ui-pr176-package.log`。
+- 候选主程序为 Mach-O arm64，`app.asar` SHA-256 为 `20942f34eea3ac3502125e7420091cfb1710e511246ffd138d8e87bd29e4b378`。236 个 dist 文件逐个与包内字节摘要一致；14 个源 SVG 在构建资产中找到原样副本，105 个 WOFF2 和 Inter/Noto Sans SC 两份 OFL 许可非空。包内 package.json 的 Ant Design 为 6.6.5，版本为 0.3.0。既有 verifyBundle 确认包内相对符号链接不逃出应用目录；这些是静态包核对，不能证明目标机字体渲染或图标有效几何。
+- ZIP 内和只读挂载 DMG 内的 app.asar 均与候选相同，Info.plist 均为 0.3.0；DMG 核对后已卸载。没有执行候选应用，没有新增或运行单元、集成或 smoke 测试。
+- 本轮只读确认当前 Mac 锁屏；原生主实例 PID9637 仍存在。安装路径仍为下节 PR #167 的应用，其 app.asar 摘要与原安装回执一致。没有覆盖正在运行的应用，也没有启动第二个实例、重开或改动日常资料。解锁后需先在唯一实例核对当前状态并正常退出，才替换候选，继续真实保存/重开、网页与完整主路径核对。
+
+打包保留既有大 chunk、默认图标、未签名及其他平台可选依赖未打包提示。本候选未签名/未公证；当前安装版、真实执行、完整186画板/U01–U12仍未验收，不提升画板完成状态。
+
+## 2026-10-10 已安装 UI 候选 0.3.0（PR #167）：原生界面待核对
 
 产品源码为客户端已合并 `46944c5b0d1561cb745bf9f38fbbb1bb49d95345`（[PR #167](https://github.com/zhongmiao-org/flow-ark-client/pull/167)），包含当前 Ant Design 集中主题及本轮已合并 UI 修改。按 UI/UE 优先约定执行 `pnpm package:mac`，构建、arm64 ZIP、DMG 和既有包结构验证成功；本轮未新增或运行单元、集成或 smoke 测试。打包日志 `/tmp/flowark-current-ui-package.log`，保留既有大 chunk、未设置应用图标及未签名提示；这是未签名/未公证的开发候选，不是正式发版。
 

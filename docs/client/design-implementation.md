@@ -7691,3 +7691,12 @@ pnpm typecheck、pnpm build、task-graph.css的Prettier --check及git diff --che
 已查看 /Users/mac/.codex/visualizations/2026/10/10/flowark-task-main-path/ 下design-target.png/design-clarify.png/design-plan.png、target-before-1440.png、understand-before-1040.png、target-reentry-before-1040.png、target-reentry-after-1040.png、target-after-1440.png、understand-after-1440/1040/676.png、plan-after-1440.png、describe-return-1040.png、save-failure-676.png、create-after-676.png。焦点以稳定DOM读取为依据，截图只支持对应滚动区域，部分画面裁剪右侧/下方。查看页签关闭、viewport复位，4302退出130，两份临时HTML/JS删除；唯一原生PID9637仍存在，未重开或重新打包。真实AI/MCP/桌面/网页/目录及当前安装版、186画板/U01–U12完整验收仍待完成。
 
 客户端[PR #176](https://github.com/zhongmiao-org/flow-ark-client/pull/176) latest head `a730e8ba8e137adab73315bcbb3d77d6f4a1421b`经[CI38055284208](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38055284208) Validate34秒/Auto Merge8秒通过，实际自动合并为`ce9ef7169c20a96634d2d88dbcfab8d7a407ac04`；此前38055224319只通过Validate、Auto Merge跳过，不据此宣称交付完成。线程附件超过100，保留直接PR链接，不重复附加或移除旧附件。
+
+
+## 2026-10-10 · 最新主路径 UI 纳入可核对安装候选
+
+依据已合并客户端 PR #176（ce9ef7169c20a96634d2d88dbcfab8d7a407ac04）执行现有 pnpm package:mac，构建/arm64 ZIP/DMG 成功。本轮没有改产品代码，没有新增或运行单元、集成、smoke测试。源 SVG 和字体等均来自现有设计实现，没有新 Figma 下载或替换资产。
+
+对候选 app.asar 逐个比较236个dist文件；14个源SVG具有原样构建副本，105个WOFF2及两份OFL许可非空；既有verifyBundle通过，主程序为arm64。ZIP及只读挂载DMG的app.asar与候选一致，版本为0.3.0，挂载已解除。候选保存于客户端忽略目录release/candidates/pr176-ce9ef71，产品摘要和证据见[验收记录](acceptance.md)。一次直接resolve @electron/asar因pnpm非顶层依赖失败，定位现有依赖实际目录后读取；未安装新依赖或运行应用。
+
+当前安装回执仍指向PR #167，安装app.asar摘要未改变，唯一原生PID9637仍存在；本轮只读确认Mac仍锁屏。候选未安装，不以包核对代替当前UI的原生保存/重开、真实模型、MCP、网页、桌面或186画板/U01–U12验收。没有重复启动存活实例，保留无关IDE改动。
