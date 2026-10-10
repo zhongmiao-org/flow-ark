@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #189](https://github.com/zhongmiao-org/flow-ark-client/pull/189)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选仍对应PR #188（未包含PR #189），已生成但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #190](https://github.com/zhongmiao-org/flow-ark-client/pull/190)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选仍对应PR #188（未包含PR #189/#190），已生成但未安装；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -7974,3 +7974,24 @@ pnpm typecheck、pnpm build、两文件prettier --check及git diff --check通过
 真实宿主确认去重/恢复、当前安装版保存重开、浏览器/脚本缺失全部阻止组合、整板视觉及186画板/U01–U12仍待验收。178局部/6复核/2缺口不变。
 
 客户端[PR #189](https://github.com/zhongmiao-org/flow-ark-client/pull/189) head `7c007ed9ce63ff5893cae15e086fa2199af508fb` 经[CI38072369238](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38072369238)最新Validate和Auto Merge SUCCESS，实际自动合并为 `615ceb015d98690fe59223fc8e169cda156becd8`。较早38072349839被concurrency取消，不计通过。线程附件一次返回100上限，保留直接链接。客户端main已快进至合并提交，无关IDE改动保留；最新候选仍PR #188，未包含本轮改动。
+
+
+## 2026-10-11 首次教学工作台与同一任务恢复
+
+基于客户端已合并PR #189，查看此前获授权保存的AI · 第一次实操（23:2106）导出；本轮未取得新的在线Figma稿，缓存不代表全部186画板最新。教学主题/步骤继续直接使用Ant Card，body留白16px，说明Alert留白16px。1440下外卡400/728、间距24、主题90高、步骤88高及说明72高已按DOM核对；截图右侧/底部存在裁切，不计整板视觉通过。
+
+开始、继续及明确重启教学后，按实际目的地恢复任务标题焦点；返回首页和跳过成功后恢复需求输入焦点与顶部滚动，保留已有首页需求。原先进入任务/回首页落BODY已复现并修复。学习任务启动返回后显式使用新教学taskId初始化输出选项，修复旧React学习状态导致默认名显示“结果.txt”；首次/重启默认“页面标题.txt”，已保存自定义名仍优先。
+
+教学结果恢复要求run.id及run.task.id与当前教学关联一致，缺少task或身份不符均拒绝打开，恢复当前任务并聚焦错误。虚构完成教学首次返回无task的Run被拒绝，明确重读正确关联Run后打开原记录；旧Run快照修订2与当前任务修订3可以合法不同，不以修订差异拒绝历史快照。
+
+使用临时预览入口加载生产App及虚构IPC，在1440/1040/676人工查看开始/跳过首次失败、明确重试、继续同一任务、任务缺失禁用继续/明确重启、结果关联失败/正确重读。首页需求保留，缩窄错误可见且获焦，教学原进度保留到明确重启；虚构重启不作为真实历史隔离证据。
+
+网页选择首次保存失败后明确重试，仅建立一个虚构教学任务；理解页输出目录选择取消/保存、页面标题.txt与number策略、显式自定义“我的标题归档.txt”保存及返回首页继续原任务已查看。最终audit记录单一learning-fresh-1、进度1/4、无未支持IPC；没有调用真实AI、打开原生网页、创建真实文件或生成Run。其他历史真实DeepSeek/教学到文件证据保留，不扩展为本次虚构检查已验证真实宿主。
+
+证据保存在本机 `/Users/mac/.codex/visualizations/2026/10/11/flowark-learning-workbench/`，包括guide-final-1440.png、unlinked-rejected-1040.png与new-final-audit.json、unlinked-final-audit.json、missing-final-audit.json、restart-output-name-final.json、target-output-final-audit.json。早期output-final-audit.json因虚构接口尚缺task.web.preview显示不支持，随后仅扩展虚构接口并以target-output-final-audit.json最终无不支持记录核对，不隐藏早期限制。
+
+`pnpm typecheck`、`pnpm build`、三修改文件的Prettier及git diff --check退出0，日志 `/tmp/flowark-learning-workbench-typecheck.log`、`/tmp/flowark-learning-workbench-build.log`。未新增或运行单元、集成及smoke测试；无IPC/宿主/数据库/契约变化。预览4316已停止、临时入口删除、页签关闭及viewport复位。唯一原生PID9637仍为安装版PR #167，本轮未退出、安装、重开或启动第二实例，最新候选仍PR #188。
+
+真实宿主教学状态与结果关联、当前安装版保存重开、全部错误/导航组合、整板视觉及完整186画板/U01–U12仍待验收；178局部/6复核/2缺口不变。
+
+客户端[PR #190](https://github.com/zhongmiao-org/flow-ark-client/pull/190) head `7f1036ec23effa6ad6f4c7f536c7e3bdfd80319b` 经[CI38073536519](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38073536519)最新Validate与Auto Merge SUCCESS，实际自动合并为 `095d307877a1b9300ad1e4015a4c9fa904a89d0b`。较早38073525561被concurrency取消，不计通过。线程附件一次返回100上限，保留直接链接。客户端main快进至合并提交，无关IDE改动保留；最新候选仍PR #188，未包含本轮改动。
