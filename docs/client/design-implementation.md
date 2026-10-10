@@ -7075,3 +7075,17 @@ PlanningQuestions 当前问题与先前补充两处 Card 声明直接采用 Ant 
 清理夹具后最终pnpm typecheck、pnpm build、三文件Prettier --check、git diff --check通过，构建保留大chunk提示。
 
 [客户端 PR #143](https://github.com/zhongmiao-org/flow-ark-client/pull/143) 最新head `9744f768411818f9c7c88d1a4adae0e67d313649` 的 [CI 38018481905](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38018481905) Validate47秒/Auto Merge8秒成功，实际合并为 `4a27183d8a4968b607d8103e2f1355831e1057bc`；同head较早38018480466取消，不计为通过。
+
+### 2026-10-10 理解补问与重新描述的完整页面往返
+
+实际 AITaskWorkspace 整页人工核对发现：在理解页滚动后点击“理解不对，重新描述”，保存完成会进入描述页，但沿用旧滚动位置且焦点落在body；1040×700 CSS视口下描述标题top为−347.59px、main scrollTop519.55px。现保留原保存顺序和页面语义，成功进入brief后滚到顶部并聚焦需求输入；失活或已离开brief时不执行该焦点回调。
+
+同一路径保存失败时，原错误提示位于页顶而按钮仍在下方。本次只对主动操作失败设置待处理焦点，操作结束后聚焦Ant Design Alert原生元素并滚入可见范围；后台任务/教学轮询错误不触发主动操作焦点。失败计数保证连续相同错误也能获得焦点，关闭仍返回原操作按钮。本轮未改IPC、答案/输出契约、宿主保存或执行行为。
+
+唯一隐藏IAB页签与4267 Vite加载实际 AITaskWorkspace、TaskUnderstandingPage、TaskBriefPage、ApplicationTheme及虚构内存IPC。成功保存补问后需求输入获焦、scrollTop0、发送勾选清除；回到理解页标题获焦、两项回答保留。最终刷新后单独核对连续两次虚构保存失败：留在理解页、输入保留、Alert获焦且可见，关闭回“理解不对，重新描述”。修改输出文件名与overwrite规则清除发送确认，发送预览含新元数据和回答、不含虚构目录路径；重新描述共虚构save3（其中2失败）/configure1，无修改往返不追加保存。没有点击生成或真实目录选择。
+
+查看了 `flowark-understanding-page-return/` 中 describe-return-compact.jpg、save-failure-compact.jpg、describe-return-narrow.jpg，目录位于 `/Users/mac/.codex/visualizations/2026/10/10/`。实际CSS视口1040×700与676×700，窄页单列，无文档横向溢出，返回输入可见。沿用既有23:2766映射，并查看10月8日保存的原生Figma理解页截图；未取得最新服务端设计，不宣称新整板1:1。预览未渲染产品侧栏，不作为原生安装窗口证据。
+
+最终产品console warn/error为空。预览页签关闭、视口复位、4267 Vite回收、临时HTML/TSX删除。pnpm typecheck、pnpm build、单文件Prettier --check、git diff --check通过；构建保留大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk或Electron，未访问真实AI、磁盘、工具或本地宿主，无关IDE改动未提交。安装版保存重开、整板视觉与186画板/U01—U12完整验收继续保留待办，不以页面组件或PR数量计算完成百分比。
+
+[客户端 PR #144](https://github.com/zhongmiao-org/flow-ark-client/pull/144) 最新head `75ff1c6c7355a471be4a1875bad2faf969d1636b` 的 [CI 38019415324](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38019415324) Validate45秒/Auto Merge8秒成功，实际合并为 `c2a888ab73c2758ff721c76e11dabc67a273d09c`；同head较早38019415273取消，不计为通过。
