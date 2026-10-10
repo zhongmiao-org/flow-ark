@@ -7286,3 +7286,22 @@ pnpm typecheck、pnpm build、两文件Prettier --check与git diff --check通过
 最终pnpm typecheck、pnpm build、单文件Prettier --check及git diff --check通过，日志/tmp/flowark-removal-receipt-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron，未访问凭据或真实文件/AI/宿主。IDE改动保留未提交；真实物理卸载/重装、历史版本/计划/Run引用、安装版重启持久化及完整186画板/U01–U12仍待完成。
 
 客户端 [PR #154](https://github.com/zhongmiao-org/flow-ark-client/pull/154) 最新head `1c2e1657f0da8ea1d505effe0e1580833dfab873` 经 [CI 38028596783](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38028596783) Validate41秒/Auto Merge7秒通过，实际自动合并为 `bc5795a484fbf58755c6dab16066c74f9cefdbfd`。同head较早38028596170取消，不计通过；附件工具仍返回线程附件超过100，未重试或删除附件，保留直接PR链接。
+
+
+### 2026-10-10 参数离开失败与输入恢复实际 App 路径
+
+复核018 `2:1398`、036 `2:3672`与154 `8:27477`。读取保存的formstates-输入与保存状态.png及navigation-audit的navdirty→formstates，确认后者目的地是状态规格；生产路径继续落实到参数表单的校验/保存反馈与离开守卫，不重建六宫格目录菜单。在线Starter额度限制已知，沿用已批准缓存与现有Ant Design Modal/Alert/Button，不新增或改静态资产；最新整板1:1仍未验收。
+
+实际App复现长参数表单末行修改后选择运行记录、保存虚构失败、继续编辑：焦点为参数note11，但main.scrollTop0，输入top2029.90/bottom2069.90，已在700高窗口外。原因是离开弹窗已处理错误焦点，回页又聚焦错误区滚到顶部，而恢复输入使用preventScroll。现在弹窗保存失败不再设置页面错误聚焦请求；直接保存失败仍聚焦可读错误。页内Alert区分参数输入未完成与保存未完成，保留原因/输入并提供返回编辑，先定位aria-invalid值，再恢复最近字段；首次尚未聚焦字段则落首个输入。未修改保存、草稿、执行或IPC契约。
+
+4278 Vite和唯一隐藏IAB加载实际App/main、生产CSS与虚构14参数流程。1040×700核对继续编辑后末行350.20–390.20可见，备注保留；676×700最终主会话两次虚构保存失败分别经离开确认、直接重试，继续编辑恢复末行349.95起的原值，直接错误区229.98–376.60获焦、文档宽676无横向溢出。返回编辑回末行；数字abc离开保存被阻止，次数仍2，返回编辑优先聚焦maxItems值而非类型下拉，原abc保留。首次实现使用合并querySelector导致类型框先匹配，已改为分别查询错误值与后备输入并在最后主会话重核，前一轮不计最终通过。
+
+修正35后慢保存禁用三选项及字段，Escape和侧栏模板库未改换原运行记录目的地，也未增加保存。虚构回执后运行记录导航获焦；重开参数显示35和末行待保存备注。1440×1079下修改末行、离开到模板库，Modal宽640/top379.85，三选项完整；Escape继续编辑恢复907.30–947.29输入，明确不保存后模板库获焦，重开恢复已保存备注。该主会话保存请求3次（失败2/成功1）、真实执行0；页面重开为内存接口，不代表安装版磁盘或退出重启。
+
+早期夹具误将run.list的runs写成items，进入原目的地后RunHistory报length异常（05:53:32/05:55:09）；修正后在同一页签重载，代码路径重新核对，计数与前面分开。第一轮仍遗漏记录统计字段，错误添加total没有修正totalCount，因此该轮仅确认目的地与焦点，不计统计通过。末尾加入首次默认输入后，先关闭主预览再单独启动同端口与一个页签，用完整totalCount/newerCount/matchedCount/elapsed响应核对：没有点输入就保存虚构失败，返回编辑聚焦title名称513.34–552.83；进入记录显示共0/0–0且console warn/error为空。此独立会话不与主会话合计，不宣称前面全程日志为空；主Vite另保留缩放时ResizeObserver通知。
+
+实际查看/Users/mac/.codex/visualizations/2026/10/10/flowark-parameter-leave-app-path/下continued-last-input-compact.jpg、save-error-narrow-final.jpg、input-error-narrow-final.jpg与leave-confirm-wide-final.jpg。截图为滚动位置局部，部分带外置虚构控制/裁切，宽屏首次捕获缺少浮层，重读后稳定截图才计Modal局部证据。一次窄图捕获空白后另存稳定图，不能用旧帧宣称整板通过。两次预览串行，唯一页签关闭、视口复位、各自4278 Vite回收exit130，临时HTML/JS删除；未启动第二FlowArk/Electron，IDE改动保留。
+
+最终pnpm typecheck、pnpm build、单文件Prettier --check及git diff --check通过，/tmp/flowark-parameter-leave-build.log保留既有大chunk提示。未新增/运行单元、集成或smoke测试，未读取凭据或调用真实文件、AI、宿主保存和执行。当前安装版持久化、复杂受管表单/全部离开组合、最新整板与完整186画板/U01–U12仍待完成。
+
+客户端 [PR #155](https://github.com/zhongmiao-org/flow-ark-client/pull/155) 最新head `ae0e2e933ae9609622d0bb69a7c65d0621031ad7` 经 [CI 38029552437](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38029552437) Validate46秒/Auto Merge9秒通过，实际自动合并为 `c2cc471c6d767f802a190e3a030010281fa84ef7`。同head较早38029552350取消，不计通过；附件工具返回线程附件超过100，未重试或删除附件，保留直接PR链接。
