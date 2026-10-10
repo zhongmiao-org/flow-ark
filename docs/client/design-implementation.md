@@ -7123,3 +7123,23 @@ Figma23:10659的get_design_context与get_screenshot均返回Starter额度限制�
 最终console warn/error为空。页签关闭、视口复位、4269 Vite回收、临时HTML/TSX删除。一次重载观察提示目标导航中，重新读取同一页签4恢复，没有新建预览或重启进程。pnpm typecheck、pnpm build、三文件Prettier --check、git diff --check通过，构建保留大chunk提示；未新增/运行单元、集成或smoke测试，未启动第二FlowArk/Electron或调用真实AI/宿主/文件。无关IDE改动保留未提交；安装版完整生成/取消/重开、最新设计与186画板/U01—U12仍待验收。
 
 客户端 [PR #146](https://github.com/zhongmiao-org/flow-ark-client/pull/146) 最新头 `113e1a4b004e5f09742772cb65c3570545d1876a` 经 [CI 38021634555](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38021634555) Validate 46s / Auto Merge 8s 成功，已实际自动合并为 `c90f3632d9e04a9d08fa27af35420cc817f43d5f`；另一轮38021634060取消，不计通过。附件工具返回线程附件数量超过100，未重试或移除既有附件，保留直接PR链接。
+
+### 2026-10-10 应用与工具的 App 页面往返与 Ant Design 收尾
+
+继续核对画板108/112/137/138（23:4867、23:5493、23:8773、23:8920）。本轮get_design_context和get_screenshot再次返回Starter额度限制，实际查看已保存的原导出design-tasktools.png与design-taskcustomreview.png；没有新的云端上下文。沿用现有页面布局与主题，不新建基础控件或颜色。实际App/共享导航/ToolConnectionsPage载入唯一隐藏IAB页签、4270 Vite，接口仅为虚构内存记录，未启动FlowArk/Electron或调用真实宿主。
+
+修正三处问题：长工具名称在宽屏双栏列表中继承Ant Design按钮nowrap，固有最小宽度把列表撑出横向滚动（scrollWidth659/clientWidth583，按钮655.50px）。限定列表按钮按列宽换行、min-width0/width100%、自然增高；最终列表scrollWidth/clientWidth均583，长行578.65×88.09px，标题两行。1040×700 CSS预览中列表scroll/client均833，无文档横向溢出，长行67.79px；64px仍为最小高度。未改变清单数量、筛选、选择或调用语义。
+
+保存失败时原焦点停在“保存这个连接”，错误位于视口上方top−468.52px。将既有配置发现错误的操作来源记录扩展到保存、维护读取、任务引用打开和断开/删除；操作结束后仅当焦点仍在原控件或body才聚焦错误，成功/已离开页面不聚焦错误。人工确认保存失败后错误top229.98px、main.scrollTop0、焦点在反馈，候选仍“发现通过·尚未保存”且核对勾选保留；维护读取失败也保留原连接并聚焦top261.98px反馈。任务引用打开、断开/删除失败、慢回复及用户主动移开焦点分支仅代码核对，未作独立人工验收。
+
+字段状态交给Ant Design的status，删除aria-invalid边框覆盖，保留错误文本、aria-invalid/aria-describedby和首错定位。空名称/地址/来源后提交在界面中标出三项，聚焦tool-config-name，输入带ant-input-status-error；修正字段后可重新确认来源并发现能力。此处只变更表现和焦点，不改配置Schema、IPC、权限或连接生命周期。
+
+人工走查：十条虚构记录按地址搜索并打开详情；配置→首次两项能力核对→虚构保存失败→明确重试成功，成功标题获焦。重新检查同一八项工具产生新增1/变更1/移除1/未变6，服务身份也变更；可见Segmented选项切到已移除，明确展示原定义，Space展开完整声明；无结果清除恢复全部筛选与搜索焦点，变更说明可Space展开。再次明确核对后保存成功。维护区读取失败→恢复→断开确认→取消回原“断开连接”按钮→明确断开，状态更新且断开按钮禁用；回目录保留records/1与原行焦点。再次进入→明确删除，返回保留查询并聚焦列表标题，不误聚焦另一条匹配记录。新配置未保存时经导航打开离开保护，Escape保留草稿并回原导航按钮，再明确放弃后进入“我的流程”。
+
+预览初段的未受控错误模式在折叠重挂载后回显不一致，导致额外虚构保存失败；校正为受控回显并重载，不计为产品缺陷或真实保存失败。校正后独立完整往返累计虚构discover2/save3（失败1、成功2）/list11/disconnect1/remove1；真实工具执行0，无凭据或账号。最终为截图再次重载，计数不与前段相加。Segmented隐藏radio为0尺寸，直接setChecked未生效，重新读取同一页面后点击其可见label完成筛选；没有重启页面或绕过界面修改状态。
+
+实际查看本机留档flowark-tools-workspace中的save-failure-compact.jpg、disconnect-dialog-compact.jpg、long-tools-wide.jpg、long-tools-compact.jpg，宽屏DOM尺寸存于long-tools-wide-layout.json。滚动视口截图存在页头裁切，初始catalog-before.jpg有IAB合成/裁切现象，仅作观察，不作整板证明。当前CSS宽屏1440×1079、紧凑1040×700（原133%缩放），预览控制浮在产品外，不代表安装版原生尺寸或整板1:1。导航SVG本地非空，根20×20与当前图像约20.001×20.001相符，来源与NavigationIcon调用位置核对，未修改资源、槽位或使用设计截图作资产；本机计划Clock为既有图标，不作为本轮Figma资源一致性通过声明。
+
+最终控制台warn/error为空，页签关闭、视口复位、4270 Vite回收、临时HTML/TSX删除。首次Vite命令不支持--root，进程已退出，改用位置参数后仅一个预览进程；没有启动第二客户端。pnpm typecheck、pnpm build、三文件Prettier --check、git diff --check通过，构建保留大chunk提示。未新增/运行单元、集成或smoke测试。无关IDE改动保留未提交。真实HTTP/stdio/OAuth、真实账号/工作区、活动工具调用/任务引用、慢请求、原生安装版与保存重开及186画板/U01–U12仍待验收。
+
+客户端 [PR #147](https://github.com/zhongmiao-org/flow-ark-client/pull/147) 最新头 `5f9f6b6b00575fbe0eaed0acaf85d4e748f2bd7c` 经 [CI 38022782751](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38022782751) Validate 41s / Auto Merge 8s 成功，已实际自动合并为 `f600fbcc254a5935ac7901e5e796b09d111370dc`；另一轮38022782690取消，不计通过。附件工具返回线程附件数量超过100，未重复或移除已有附件，保留直接PR链接。
