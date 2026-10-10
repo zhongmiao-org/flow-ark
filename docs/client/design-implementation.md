@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #204](https://github.com/zhongmiao-org/flow-ark-client/pull/204)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #203，已纳入PR #199–#203的依赖反馈、编辑器主题、更多操作、大纲与方案清单返回修复，DMG/ZIP内容核对通过但未安装，尚未纳入PR #204的模板AI返回焦点修复；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #205](https://github.com/zhongmiao-org/flow-ark-client/pull/205)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #203，已纳入PR #199–#203的依赖反馈、编辑器主题、更多操作、大纲与方案清单返回修复，DMG/ZIP内容核对通过但未安装，尚未纳入PR #204–#205的模板AI返回焦点与宽窗方案滚动修复；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8279,3 +8279,18 @@ ioreg再次确认Mac仍锁屏，唯一原生主进程PID9637/PR #167保留，未
 `pnpm typecheck`、`pnpm build`、修改文件Prettier及diff检查通过；日志 `/tmp/flowark-template-ai-return-typecheck.log`、`/tmp/flowark-template-ai-return-build.log`，构建保留既有大chunk提示。未新增或运行单元/集成/smoke测试。Vite4333已停止exit130，临时文件/页签撤下、viewport复位，无关IDE保留。本轮调用均由虚构IPC承接，未接触真实Key、调用AI/MCP、保存真实模板/凭据、创建Run或改动宿主数据。Mac仍锁屏，唯一原生PID9637/PR #167保留；候选PR #203尚未含本轮修复，最新版保存重开、真实闭环、完整186画板与U01–U12仍待验收，178局部/6复核/2缺口计数不变。
 
 客户端[PR #204](https://github.com/zhongmiao-org/flow-ark-client/pull/204)已实际自动合并：head `49a9a2ed418587025f8ff70bcdaab62257ccd7cd`，最新[CI38088218022](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38088218022)的Validate与Auto Merge均SUCCESS，实际MERGED提交 `ff780aa0368153217a38b7a93eb23db938d59198`。早期38088205289被标签触发替代并取消，不计为通过；候选仍PR #203、原生仍PR #167，本轮未重新打包/安装。PR附件绑定一次返回thread attachment identity count exceeds 100，保留直接链接。
+
+
+## 2026-10-11 · 完整截图与宽窗方案清单滚动
+
+依据获授权保存导出中的122（23:7031）和123（23:7158），继续使用完整生产App、直接Ant Design与集中主题，临时4334入口仅注入虚构白名单IPC。没有取得新的在线Figma稿，也未调用模型/MCP/网页执行、宿主保存、真实文件或创建Run。
+
+确认此前普通截图受页面缩放影响而裁切。只读Page.getLayoutMetrics取得zoom，Page.captureScreenshot使用物理viewport尺寸clip及1/zoom比例，得到1441×1080完整窗口图；没有图像拼接或编辑。完整截图并不等于整板全状态验收。流程图截图另有选中步骤平移和主页面滚动，不能把隐藏上方节点误报为截图裁切或全图通过。
+
+宽窗分支展开时右方案卡原高约864，修改仅限ai-task.css的宽容器：步骤区max-height404、独立滚动、2px焦点留白和参数标题scroll-margin-bottom200。1440下两卡约730，主页面1040/1040无额外滚动；标题稳定定位在532–560，首批字段可见。24步末项查找/完整参数可访问，676返回保留查询24和原行可见焦点（378–466）；1040/676计算max-height均none，没有根横向溢出。1040最后一次返回取样遇构建引发预览重载，未计为该返回的通过证据。
+
+证据在 /Users/mac/.codex/visualizations/2026/10/11/flowark-full-board-review/，包含修复前后完整图、参数/长清单/紧凑只读几何、虚构资料和14个既有SVG元数据。早期错误clip图和流程图平移/滚动图明确不是整板通过证据。未改SVG或新增组件封装。
+
+pnpm typecheck、pnpm build、修改文件Prettier及diff检查通过，日志 /tmp/flowark-plan-viewport-typecheck.log 与 /tmp/flowark-plan-viewport-build.log；未新增或运行单元、集成、smoke测试。4334 Vite停止exit130、临时入口删除、页签关闭及viewport复位，无关IDE保留。Mac仍锁屏，原生唯一PID9637/PR #167保留；候选#203未含#204和本轮修复。178局部/6复核/2缺口不变，083/087、真实工具/窗口闭环、最新版保存重开及U01–U12仍待完成。
+
+客户端[PR #205](https://github.com/zhongmiao-org/flow-ark-client/pull/205) head `2974d1c6b736b3b8a704d0fe1c64c11bfe8fbb39` 经最新[CI38089256909](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38089256909)的Validate和Auto Merge均SUCCESS，实际MERGED为 `983bd47eae6bfe8c818172b5421ba2b6cf8d6c4d`；较早38089248785被标签事件替代取消，不计通过。附件一次返回100上限，保留直接链接。
