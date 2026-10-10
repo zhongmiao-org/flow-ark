@@ -7527,3 +7527,16 @@ pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过
 实际查看`/Users/mac/.codex/visualizations/2026/10/10/flowark-assistant-capability-typography/`中before-1440.png、after-1440.png、after-1040.png、after-676.png、third-card-676.png、recovery-676.png。截图只支持该能力卡和状态查看，其他整板位置/真实权限/实际TextEdit读写未通过。最终warn/error为空，页签关闭、viewport复位、4292回收exit130，临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier检查及git diff --check通过；`/tmp/flowark-assistant-capability-build.log`保留既有大chunk提示。未新增/运行单元、集成或smoke测试，本轮未重新打包，当前安装版仍为先前46944c5来源的0.3.0。完整186画板/U01–U12仍待验收。
 
 客户端[PR #169](https://github.com/zhongmiao-org/flow-ark-client/pull/169)最新head `7a42dbc351bf6f017d33bb4b9456800db5bfb368` 经[CI 38046757163](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38046757163) Validate46秒/Auto Merge7秒通过，实际自动合并为`2c3813686af5b74e6fde94bf7542c2f5a0c429f0`。此前38046746651取消，不计通过；线程附件超过100，未重试或删除既有附件，保留直接PR链接。
+
+
+### 2026-10-10 应用窗口选择：同名身份与需求往返
+
+对应094（23:2609）、132（23:8087），并核对133（23:8190）衔接；治理PR #607已先行自动合并为7063180927234351554d69494e95c27661217ad4，最新CI 38047264088的Validate6秒/Auto Merge11秒通过。沿用已保存的FlowArk-AI-task-design.zip及task-design-audit.json，本轮查看design-taskappready.png；未取得最新云端整板，不计全部在线设计已重新核实。
+
+实际App Renderer与生产CSS在4293预览使用虚构15窗口发现v2响应，同名窗口8/9分别使用独立UUID。原详情两者完全相同，现保留本次检查的窗口序号，与清单对应；序号只为界面辨认，不作为持久绑定或执行凭证，未改宿主/IPC。原页签30已从browser.tabs.list消失，工具明确返回不属于当前会话；确认预览进程仍监听4293后，仅新建一个IAB页签31，未重启预览进程或原生App。
+
+第8窗口读取第一次返回虚构空选区，错误获焦且正文数0；明确重读返回1037字符、81行（标题加80正文行）。方案页空需求提供填写入口且生成禁用；返回窗口页保留原选区和窗口8，更换到同名9撤下旧正文。长标题窗口15在1440/1040/676下身份卡高度309.492/197.486/253.489，标题18px、内容高度224/112/168，标题和卡体scrollHeight与clientHeight一致，document.scrollWidth分别为1440/1040/676。填写需求并明确保存，重新进应用窗口时无旧选择/正文，选择9后方案显示已保存需求及原文，AI未配置继续禁用生成。返回后刷新撤下身份与正文，15项清单聚焦首个按钮，没有自动恢复同名窗口。
+
+已查看/Users/mac/.codex/visualizations/2026/10/10/flowark-task-window-selection/中的same-name-after-1440.png、same-name-after-676.png、long-title-1440.png、long-title-1040.png、long-title-676.png，只支持局部身份与长标题布局，不计完整整板视觉通过。最终warn/error为空，页签关闭、viewport复位、4293服务回收exit130、临时HTML/JS删除。pnpm typecheck、pnpm build、单文件Prettier --check与git diff --check通过；/tmp/flowark-window-selection-identity-build.log保留既有大chunk提示。未新增或运行单元、集成或smoke测试。唯一安装版PID9637仍在运行，未启动第二FlowArk/Electron，IDE改动保留；本轮未重新打包，安装版仍为此前46944c5来源的0.3.0。真实窗口/选区读写、真实AI、完整186画板/U01–U12继续待验收。
+
+客户端[PR #170](https://github.com/zhongmiao-org/flow-ark-client/pull/170)最新head `c6cfca6ffdf16d323be38f9df168f9c1e0f1ac11` 经[CI 38047760831](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38047760831) Validate42秒/Auto Merge7秒通过，实际自动合并为`f4869160e871a422c0f2a7640549dc696a7375a2`。此前38047747106取消，不计通过。线程附件超过100，未重复附加或删除既有附件，保留直接PR链接。
