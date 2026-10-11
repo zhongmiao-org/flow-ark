@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #225](https://github.com/zhongmiao-org/flow-ark-client/pull/225)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选已同步PR #220（源 `6a9e52af02adfecdf87c75aa8123f959d990fe0c`），包含PR #216–#220教学长错误阅读、控制卡片/抽屉、脚本依赖核对、调试来源与布局修复。DMG/ZIP与打包构建静态内容核对通过，尚未安装；候选尚不含PR #221产物定位错误/派生日志返回焦点、PR #222人工请求首错/处理反馈、PR #223存储故障来源反馈/键盘阅读、PR #224清理原范围/记录来源及PR #225 MCP回执完整实例/等待状态修复；旧候选PR #215的DMG/ZIP已按原摘要归档。现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #225](https://github.com/zhongmiao-org/flow-ark-client/pull/225)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选已同步PR #225（源 `4a514298b520c4872dc857552c1169ce35385978`），包含#221–#225产物返回、人工请求长表单、存储故障、清理原范围和MCP回执实例核对修复。App/ZIP/DMG静态内容核对通过，独立保留于客户端`release/candidates/pr225-4a51429/`，尚未安装；旧#220候选已按原摘要归档。现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8681,3 +8681,21 @@ pnpm typecheck、pnpm build、修改文件Prettier与git diff --check通过，�
 pnpm typecheck、pnpm build、两文件Prettier及git diff --check通过；构建保留既有大chunk提示。未新增或运行单元、集成、smoke测试，没有真实MCP调用、文件删除或业务读回。临时入口已归档撤下，浏览器标签为空并复位viewport，Vite4355/session1046停止exit130；无关IDE改动保留。ioreg确认Mac仍锁屏，唯一原生PID9637/安装PR #167未退出或替换，候选仍#220且不含#221起后续源码。178局部/6复核/2缺口不变；083/087、最新版原生保存重开、真实第三方MCP及绑定窗口读写回读、186画板/U01–U12完整验收仍待完成。
 
 客户端[PR #225](https://github.com/zhongmiao-org/flow-ark-client/pull/225) head `3ab9c8d0b174ad43c5a8d9c3571dc27e338b3ab8` 经最新[CI38104789612](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38104789612) Validate41秒与Auto Merge7秒均SUCCESS，实际MERGED为`4a514298b520c4872dc857552c1169ce35385978`。旧38104781803被标签事件替代取消，不计通过；附件一次返回100上限，保留直接链接。
+
+
+### 2026-10-11 · PR #225 macOS 候选包与原生核对准备
+
+从客户端已合并PR #225 / `4a514298b520c4872dc857552c1169ce35385978`执行现有`pnpm package:mac`，exit0。生成未发布0.3.0 arm64 App、ZIP、DMG，补入PR #221–#225的产物定位/派生日志返回、人工请求首错和反馈、存储来源反馈、清理原范围及MCP完整实例/等待状态修复。没有修改客户端源码或新增客户端提交，未执行浏览器下载或安装。
+
+原PR #220的两个旧包先按既有SHA256核对，归档到`/Users/mac/.codex/visualizations/2026/10/11/flowark-candidate225-review/previous-pr220/`；previous220-archive.json保留原路径、归档映射、字节与来源提交。release同名路径现为#225，不能继续当作旧#220证据。新包另保留在客户端忽略目录`release/candidates/pr225-4a51429/`，package-receipt.json记录来源及摘要。
+
+逐一核对251个dist/contracts文件与App内ASAR字节一致；ASAR SHA256为`7da884f38a6a72c3776e7f3f29b68097e31f1f109125759596ad67d82b3378f3`。ZIP解包与DMG只读挂载均确认0.3.0、Mach-O arm64、内部相对链接以及同一ASAR与unpacked内容。DMG已卸载，临时解包目录移除。窗口发现程序、esbuild均为Mach-O arm64。现有默认Electron图标、大chunk及其他平台可选esbuild依赖提示保留；开发者签名/公证未执行，codesign只读显示adhoc、无TeamIdentifier/Info.plist绑定/sealed resources，不计正式签名发布。
+
+| 独立保留文件（release/candidates/pr225-4a51429/） | 字节 | SHA256 |
+| --- | --- | --- |
+| FlowArk-0.3.0-arm64-mac.zip | 210742455 | `0949fa3b3685fee5562ba16ce5b456d068edf1dd7f24c7711de7e7cc3ef1b226` |
+| FlowArk-0.3.0-arm64.dmg | 241833205 | `4a9eb2ffef468b981acb8aec9cd9b13974981c5f3045926c7c71169bc11c1ac1` |
+
+证据位于`/Users/mac/.codex/visualizations/2026/10/11/flowark-candidate225-review/`，含candidate225.json、candidate225-inspect.mjs、candidate225-package.log及旧包归档。仅静态包核对，没有启动新App、调用AI/MCP/网页或执行文件流程，未新增或运行单元、集成、smoke测试，无关IDE改动保留。
+
+ioreg本轮确认Mac仍锁定，唯一PID9637继续来自安装PR #167，安装ASAR摘要仍为`c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`，未退出、替换或重开。#225候选可用于桌面可操作后的保存重开核对，但当前未取得最新版原生证据。178局部/6复核/2缺口不变；083/087、真实第三方MCP、绑定窗口写入回读及完整186画板/U01–U12验收继续未完成。
