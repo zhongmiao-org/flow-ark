@@ -1,6 +1,6 @@
 # FlowArk Roadmap
 
-2026-10-10 当前进度口径：通用AI任务主路径已有页面与基础交互，Ant Design已接入集中主题，仍在补齐完整页面、异常状态与导航。10月8日已有真实DeepSeek补问、生成方案、无需账号的网页标题到文件首次教学及只读目标修复证据，详见[实施记录](docs/client/design-implementation.md)与[首次教学](docs/client/first-task-learning.md)；这些历史单项证据不代表当前UI改造后的安装版完整路径或全部186画板/U01–U12已通过。整板视觉、真实MCP/桌面操作、当前安装版保存重开及非技术用户全路径仍待验收。按用户安排，186画板UI/UE与交互完整后再统一补测试；此阶段不新增或运行单元测试。下方2026-09-23新增P1表保留当时进度，最新局部覆盖以[画板记录](docs/client/design-board-coverage.md)为准，不以组件或PR数量计算完成百分比。
+2026-10-10 当前进度口径：通用AI任务主路径已有页面与基础交互，Ant Design已接入集中主题，仍在补齐完整页面、异常状态与导航。10月8日已有真实DeepSeek补问、生成方案、无需账号的网页标题到文件首次教学及只读目标修复证据，详见[实施记录](docs/client/design-implementation.md)与[首次教学](docs/client/first-task-learning.md)；这些历史单项证据不代表当前UI改造后的安装版完整路径或全部186画板/U01–U12已通过。整板视觉、真实MCP/桌面操作、当前安装版保存重开及非技术用户全路径仍待验收。按用户安排，186画板UI/UE与交互完整后再统一补测试；此阶段不新增或运行单元测试。2026-10-11最新macOS候选已同步客户端PR #220，DMG/ZIP与构建静态一致，保留#215旧包；当前桌面锁屏、唯一安装版仍#167，最新版安装/保存重开未验收，详见[打包记录](docs/client/design-implementation.md)。下方2026-09-23新增P1表保留当时进度，最新局部覆盖以[画板记录](docs/client/design-board-coverage.md)为准，不以组件或PR数量计算完成百分比。
 
 2026-09-23 工具检查 UI/UE 增量：客户端本地提交 `efca77d` 接入工具固定参数核对、字段问题、动态引用待求值与不支持定义反馈；类型、构建、格式及实际只读函数驱动的虚构界面查看通过，未新增或运行单元测试。真实工具调用、固定 Run 绑定及完整 186 画板 / U01–U12 未完成，见[参数核对](docs/client/mcp-argument-review.md)与[实施记录](docs/client/design-implementation.md)。
 
