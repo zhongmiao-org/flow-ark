@@ -21,6 +21,8 @@
 - 新增白名单 `run.artifacts.preview`，参数 `{id}`。返回 runId、token、count、bytes、files（name/size/link，最多 100 条）、omitted、externalCount、indexedCount、previousCleanup。token 覆盖 Run 状态、索引元数据和目录项身份、大小、修改时间等签名。
 - 新增白名单 `run.artifacts.clear`，参数 `{id,token,reviewed:true}`，token 为 64 位小写十六进制。成功返回已完成的清理记录；活动、收尾、并发、预览过期或存储故障均拒绝。
 - `run.detail` 增加 artifactCleanup；产物增加可选 clearedAt，integrity 增加 cleared，available 为 false。界面显示“已清理”，定位被拒绝，其他 integrity 沿用[产物副本](artifact-snapshots.md)。旧外部记录继续显示未保存副本并保留当前路径。
+- 清理记录的 `count` / `bytes` 是确认时的计划范围，在删除前保存。失败或中断时，不能将它们呈现为实际已删除数量；界面保留上次原因和“上次确认范围”，新预览的 `count` / `bytes` 才表示本次剩余范围。现行回执不提供逐文件删除结果，不能编造已删除/失败文件列表。
+- 外层 `artifactCleanup` 和预览 `previousCleanup` 的 `runId` 必须对应当前运行。外层错配不采用其状态或完成统计；新预览仍有错配记录时阻止确认并提示重新读取。
 - SQLite 增加既有文档存储中的 artifact-cleanup 类型，无表结构迁移；公共契约 0.7.0、ArtifactRef、流程、版本与计划不变。旧客户端忽略清理记录，已不存在的文件仍不可定位。运行事件使用既有 artifact 类型的清理数据，不改写旧事件。
 
 ## 验收

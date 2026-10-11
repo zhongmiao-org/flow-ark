@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #223](https://github.com/zhongmiao-org/flow-ark-client/pull/223)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选已同步PR #220（源 `6a9e52af02adfecdf87c75aa8123f959d990fe0c`），包含PR #216–#220教学长错误阅读、控制卡片/抽屉、脚本依赖核对、调试来源与布局修复。DMG/ZIP与打包构建静态内容核对通过，尚未安装；候选尚不含PR #221产物定位错误/派生日志返回焦点、PR #222人工请求首错/处理反馈及PR #223存储故障来源反馈/键盘阅读修复；旧候选PR #215的DMG/ZIP已按原摘要归档。现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #224](https://github.com/zhongmiao-org/flow-ark-client/pull/224)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选已同步PR #220（源 `6a9e52af02adfecdf87c75aa8123f959d990fe0c`），包含PR #216–#220教学长错误阅读、控制卡片/抽屉、脚本依赖核对、调试来源与布局修复。DMG/ZIP与打包构建静态内容核对通过，尚未安装；候选尚不含PR #221产物定位错误/派生日志返回焦点、PR #222人工请求首错/处理反馈、PR #223存储故障来源反馈/键盘阅读及PR #224清理原范围/记录来源修复；旧候选PR #215的DMG/ZIP已按原摘要归档。现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8652,3 +8652,19 @@ pnpm typecheck、pnpm build、修改文件Prettier及git diff --check通过，�
 pnpm typecheck、pnpm build、两文件Prettier及git diff --check通过，构建保留既有大chunk提示；未新增或运行单元/集成/smoke测试。临时入口撤下、页签关闭、viewport复位，4353/session3472停止exit130；为正文修复重新开的session82080同样已停止exit130。无关IDE保留；Mac当前仍锁屏、唯一原生#167/PID9637未退出/替换/重开或启动第二实例。候选仍#220，不包含#221/#222和本轮源码；178局部/6复核/2缺口不变。真实存储恢复、最新版保存重开、083/087、真实第三方MCP/绑定窗口读写、完整186画板/U01–U12仍未完成。
 
 客户端[PR #223](https://github.com/zhongmiao-org/flow-ark-client/pull/223)最新head `7336795740c2fdfde22d877c1756922fc56330b4` 经[CI38103773808](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38103773808) Validate42秒与Auto Merge8秒均SUCCESS，实际MERGED为`3da0179964724d9c3e6a851da753cc6c39880e5c`。旧38103762749被标签事件替代取消，不计通过；附件一次返回100上限，保留直接链接。
+
+### 2026-10-11 · 产物清理原范围与记录来源
+
+从客户端已合并PR #223继续，对应043 `2:4421`。实际查看已保存43-产物状态与清理.png的四类状态，沿用既有生产产物入口和清理核对Modal，不新增四卡产品目录；原设计“已清理与失败项保留、重开不自动继续”的语义落实到现有回执。没有新在线Figma高保真上下文，不升级整板视觉通过。继续直接使用Ant Alert/Modal/Button/Checkbox及集中主题，没有基础组件包装、静态资产或新布局。
+
+检查共享类型、宿主ArtifactCleanup与治理按运行清理规范：previousCleanup已有来源、状态、count/bytes及error；count/bytes在持久化意图时取原预览范围，不是部分删除后实际已删除数量。失败时宿主保留记录并抛出，不返回逐文件删除结果。因此界面只说明“上次确认范围”，不能把其数量标成已清理或编造逐文件完成列表。
+
+实际组件配虚构回执复现：外层失败提示有原因，打开预览后上次记录完全不呈现；另一Run的pending记录使当前Run显示正在清理并禁用入口。现有预览warning描述补充上次失败/中断原因、原确认范围及其非已删除数量说明；外层失败/中断同样保留原范围。外层仅采用同Run的cleanup，错配提示来源不一致并允许明确重新读取；预览previousCleanup仍错配时进入范围不可用，撤下确认清理，不能把错误来源用于删除。没有改IPC、令牌、目录清理、存储或权限契约。
+
+最终1440/1040/676人工查看：上次5文件/5KiB范围与当前2文件/1KiB剩余范围同时可读；首次未勾选不能清理。等待期间勾选/取消/确认禁用，Escape未关闭Modal；虚构部分失败同时保留详情刷新失败说明，无自动继续删除。明确重新预览显示上次2文件/1KiB范围和当前1文件/512字节，勾选重置；再次明确确认后虚构完成回执1文件/512字节，详情刷新成功撤下旧warning，返回原预览按钮获焦。其他Run的pending不再显示为本Run正在清理；进一步错配previousCleanup阻断且清理次数不增加。中断记录与原范围继续保留，不等同完成。
+
+最终会话preview4/clear2/refresh2、unsupported=[]；两次clear都是用户明确勾选/点击，均为虚构受控承诺，无真实文件删除或真实持久化。虚构预览使用固定b令牌，不能据此计真实摘要过期/令牌更新验证。另选中断资料时预览数量受该虚构会话剩余计数影响，为1项；只是组件状态核对，不当作真实宿主计算。console error/warn为空。证据`/Users/mac/.codex/visualizations/2026/10/11/flowark-cleanup-record-review/`含before-previous-record、before-foreign-record、final-review-1440、final-partial-error-676、final-repreview-676、final-completed-1040、final-foreign-record-1040、final-interrupted-676、final-record及入口/检查日志。实际查看final-interrupted-676.png，676×700；有虚构控制条覆盖Modal顶部，不能计完整Figma视觉验收。DOM Modal宽640、约y34–666，body宽/scrollWidth584、height/scrollHeight576，根scrollWidth676，无根横向溢出。
+
+pnpm typecheck、pnpm build、修改文件Prettier与git diff --check通过，构建保留既有大chunk提示。未新增或运行单元/集成/smoke测试；临时入口归档撤下、页签关闭、viewport复位，4354/session51454停止exit130。无关IDE保留，未安装、重开或启动第二原生实例，候选仍#220，安装版仍#167。178局部/6复核/2缺口统计不变；真实删除/失败恢复/持久化、最新版保存重开、083/087、真实第三方MCP/绑定窗口读写及完整186画板/U01–U12仍待完成。
+
+客户端[PR #224](https://github.com/zhongmiao-org/flow-ark-client/pull/224)最新head `7f494091c9bc1ee65c783217b41ca8faede02363` 经[CI38104201166](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38104201166) Validate46秒与Auto Merge8秒均SUCCESS，实际MERGED为`a41ecf9dd0c98385b3a1124ae99777d4dbbfc5ab`。旧38104188148被标签事件替代取消，不计通过；附件一次返回100上限，保留直接链接。
