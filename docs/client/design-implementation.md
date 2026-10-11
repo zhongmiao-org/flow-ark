@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新状态：客户端[PR #226](https://github.com/zhongmiao-org/flow-ark-client/pull/226)已合并、打包并安装到既有路径，源`6f3e4d05e87bb7df1a4aa3ea7e407164b3d01c56`，0.3.0 arm64；独立候选保留于`flow-ark-client/release/candidates/pr226-6f3e4d0/`。用独立核对资料，真实DeepSeek生成所选网页title读取/非空分支/新建文件方案，采纳修订6并显式试运行成功；预览14字节Example Domain后教学完成4/4，正常退出重开保留同一Run/产物且没有重复执行。重开未打开网页时再次运行检查阻止执行；学习记录不恢复授权。当前唯一原生#226/PID19561，日常资料未使用。Ant Design与集中主题已采用；186项仍178局部覆盖、6重新核对、2明确缺口，95.7%仅是局部覆盖。剩余整板视觉、全部异常/返回状态、083/087消费字段、真实第三方MCP与绑定窗口写入回读、复杂保存失败/并发和U01–U12完整用户验收；单元测试后置。
+2026-10-11 最新状态：最新代码已合并[PR #227](https://github.com/zhongmiao-org/flow-ark-client/pull/227)，新增人工等待/停止规划说明，新候选已打包并保留于`flow-ark-client/release/candidates/pr227-2f301f6/`，尚未安装，新提示真实效果待核对。安装版仍为客户端[PR #226](https://github.com/zhongmiao-org/flow-ark-client/pull/226)已合并、打包并安装到既有路径，源`6f3e4d05e87bb7df1a4aa3ea7e407164b3d01c56`，0.3.0 arm64；独立候选保留于`flow-ark-client/release/candidates/pr226-6f3e4d0/`。用独立核对资料，真实DeepSeek生成所选网页title读取/非空分支/新建文件方案，采纳修订6并显式试运行成功；预览14字节Example Domain后教学完成4/4，正常退出重开保留同一Run/产物且没有重复执行。重开未打开网页时再次运行检查阻止执行；学习记录不恢复授权。当前唯一原生#226/PID19561，日常资料未使用。Ant Design与集中主题已采用；186项仍178局部覆盖、6重新核对、2明确缺口，95.7%仅是局部覆盖。剩余整板视觉、全部异常/返回状态、083/087消费字段、真实第三方MCP与绑定窗口写入回读、复杂保存失败/并发和U01–U12完整用户验收；单元测试后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8757,3 +8757,17 @@ ioreg本轮确认Mac仍锁定，唯一PID9637继续来自安装PR #167，安装A
 实例18734正常exit0、确认无主进程后以相同目录重开；当前唯一PID19561/session7015。首页4/4保留，查看教学结果及再次预览打开同一Run/产物；运行列表恰好2条（原纯数据Run加本次教学），没有因重开/查看自动再运行。重开后明确进入再次检查，网页未打开使确认与开始按钮禁用，提示先打开网页再检查；没有创建第2次教学Run。随后返回已保存方案与同一结果摘要。
 
 本地Figma23:2106仍可读、1440×1080且提示重连，不声明云端最新或全部资产/整板几何通过。原生默认1440×960窗口；截图在会话实际查看，未保存本地PNG。证据`/Users/mac/.codex/visualizations/2026/10/11/flowark-native226-learning-review/`含receipt.json、安装/包摘要和实际文本副本；凭据不进入记录。未改客户端源码，未新增/运行单元、集成、smoke测试，无关IDE保留。此轮补齐新版教学正常闭环和重开证据；空标题、失败/取消、同名冲突实际执行、全尺寸及整板/第三方MCP/绑定窗口/U01–U12仍待验收，178局部/6复核/2缺口不变。
+
+### 2026-10-11 · PR #227 停止与人工等待规划说明
+
+前一轮真实#226教学方案在空标题分支使用human。该分支未运行，不能倒推运行状态；现行core/engine.ts明确await ctx.human，run-review-effects.ts显示等待人工处理后继续，与原需求“为空时结束并提醒”不一致。暂停桌面核对期间处理这一已观察的规划语义问题，不放宽权限、不增加节点或通知能力。
+
+治理[PR #683](https://github.com/zhongmiao-org/flow-ark/pull/683) head`73baf762e49e9599fdec38c205964851df653f1b`由最新CI38113655729 Validate5秒/Auto Merge7秒SUCCESS自动合并，merge`97bbe5bc74cd957a58660e66f8b3879d757ee383`；旧38113641555 Auto Merge跳过不计交付。客户端[PR #227](https://github.com/zhongmiao-org/flow-ark-client/pull/227)仅在src/ai/planning.ts补充两项通用说明：human确需人工输入/决定/确认才使用；必要条件不满足可用assert停止并明确失败终态和应用内结果提示，缺少其他通知或正常结束能力时unsupported/补问。不会自动改写既有教学方案或运行，也不改变assert/human语义、Schema、IPC、状态或授权。
+
+客户端head`4cd384631ebc7ea02209ae3c6a84b4868fd13fd8`的最新CI38113740661 Validate42秒/Auto Merge8秒SUCCESS，实际MERGED为`2f301f603c0364dab3930cc9648846c27c9f6418`。初始38113723300由标签事件替代取消，不计通过。本地pnpm typecheck、pnpm build、pnpm exec prettier --check src/ai/planning.ts及git diff --check通过；构建保留既有大chunk提示，CI仅类型/构建。未新增/运行单元、集成、smoke测试。两PR附件各一次返回100上限，保留直接链接，IDE改动保留。
+
+原生工具两次确认Mac锁定且自动解锁失败，已向用户请求解锁；CLI确认唯一#226/PID19561仍存活，未退出/替换/重开或启动第二实例。专用桌面练习txt已建立于`/Users/mac/.codex/visualizations/2026/10/11/flowark-native226-desktop-review/`，但没有打开TextEdit或读取/修改任何原生文档。新提示真实生成/条件失败及TextEdit绑定写入回读仍待解锁核对，不将规划说明或绿CI算作该分支或桌面验收。178局部/6复核/2缺口和完整186画板/U01–U12目标不变。
+
+从已合并#227源执行现有pnpm package:mac，exit0；0.3.0 arm64 App的251个dist/contracts文件与构建内容一致，包内链接核对通过。新候选保留于`flow-ark-client/release/candidates/pr227-2f301f6/`，ASAR SHA256 `ae3aafb534022dede3341b24de772a914602316d7b1c0f174e069d6d4b25689a`；ZIP 210745528字节/`037d356e1804691b4884dca05e25276b6741c95cfaf049f84bc083d562452baa`，DMG 241837075字节/`ae30a01b8a171154a76d6a321d96a7cd637da4fd5f00403291e031a4dec4b973`。两归档未单独展开验收，保留摘要而不扩大App内容核对结论。仍为默认图标、未开发者签名/公证的开发候选，无浏览器下载。
+
+证据`/Users/mac/.codex/visualizations/2026/10/11/flowark-candidate227-review/`含package-receipt.json及构建日志。安装目录仍#226 ASAR `c0ed473211a2de6a92d338620a8a202df02874cf7031e870b80d1f293070c2b7`，唯一PID19561/session7015仍存活；没有因工具无法观察锁屏而认定进程终止或重启。包生成不代表新提示/桌面路径通过。
