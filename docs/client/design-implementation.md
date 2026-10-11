@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #218](https://github.com/zhongmiao-org/flow-ark-client/pull/218)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #215，已包含此前PR #204–#212及PR #213首次流程卡片留白、PR #214导出核对焦点/缩窗返回、PR #215模板重选反馈/缩窗确认和定义卡片28px留白修复，DMG/ZIP静态内容核对通过但未安装，尚未包含PR #216教学长错误阅读与缩窗重读入口、PR #217控制卡片摘要/抽屉小数宽度及PR #218脚本依赖核对摘要/卡片修复；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #219](https://github.com/zhongmiao-org/flow-ark-client/pull/219)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选对应PR #215，已包含此前PR #204–#212及PR #213首次流程卡片留白、PR #214导出核对焦点/缩窗返回、PR #215模板重选反馈/缩窗确认和定义卡片28px留白修复，DMG/ZIP静态内容核对通过但未安装，尚未包含PR #216教学长错误阅读与缩窗重读入口、PR #217控制卡片摘要/抽屉小数宽度、PR #218脚本依赖核对摘要/卡片修复及PR #219调试记录来源/完整步骤路径修复；现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8549,3 +8549,23 @@ Ant Card迁移后正文默认24px内距，主卡仍约(256,230)/1152×470，但�
 pnpm typecheck、pnpm build、三文件Prettier与git diff --check通过，日志`/tmp/flowark-script-review-typecheck.log`和`/tmp/flowark-script-review-build.log`，构建保留既有大chunk提示；未新增或运行单元/集成/smoke测试，无关IDE保留。本轮Mac仍锁屏，原生唯一#167/PID9637未退出/安装/重开，候选仍#215。178局部/6复核/2缺口统计不变；083/087消费字段、真实第三方MCP/绑定窗口写入回读、最新版原生保存重开、025整板及全部186画板/U01–U12仍待完成。
 
 客户端[PR #218](https://github.com/zhongmiao-org/flow-ark-client/pull/218) head `0b5b1aceb9364370bf2b6e0c4b654a97ae967911` 经最新[CI38099859497](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38099859497) Validate与Auto Merge均SUCCESS，实际MERGED为`f526acfba714aea50bab5900cead57134cb571ca`。旧38099827672被标签事件替代取消，不计通过；附件一次返回100上限，保留直接链接。
+
+### 2026-10-11 · 调试记录归属与完整步骤路径
+
+从客户端已合并PR #218继续，对应026 `2:2534`、共享007运行详情和089日志摘要。沿用既有高保真设计上下文，并实际查看已保存的`26-逐步调试.png`；本轮没有新在线Figma上下文，不代表全部186画板已核对当前线上稿。继续直接使用Ant Card/Tag/Collapse/Descriptions和集中主题，没有新基础组件包装或图片资产。保留既有双栏比例与592px最小卡片高度；循环来源用主题次级文本自然换行。折叠区等既有整板视觉差异未在此轮修正，026不升级整板通过。
+
+完整App虚构记录实际复现：`unknown-container/tail`、`loop[3]/tail`被旧列表套为“05 完成核对 · 已完成”，过大循环项`loop[9007199254740992]/choice/saved`套为“03 保存标题 · 已完成”；另一Run的完成记录抹掉当前未执行尾步骤，并将“另一运行独有输出”加入当前三条输出。现在运行列表与输出按Run ID过滤，复用既有runInstancePresenter完整跟随快照父容器、循环索引与条件分支。无法匹配的当前记录保留原路径及完成事实，标明位置待核对；不赋已知编号、动作名或配置。未执行快照步骤独立保留，裸嵌套ID `skipped`的无效记录和“04 其他处理 · 尚未执行”同时存在，不相互覆盖或共用React key。列表、普通/调试标题、运行概览、只读配置和日志进度摘要共同核对完整路径。
+
+合法两轮记录保留第一项完成、第二项条件暂停未完成及下一步保存未执行，显示第1/2项与成立分支的可读来源。展开仅显示本Run两条输出，第一项与当前未知路径输出保留，外来输出撤下；日志只读13条当前Run记录、9个实例，返回仍为fictional-debug-run及固定fictional-fixed-v1，没有调用执行、暂停、继续、取消或重跑。未知当前过大索引时，调试标题/概览/日志摘要显示原路径与位置待核对，展开配置明确“未取得此步骤的固定配置”；快照缺失时不编造任何编号/动作名或快照占位行。普通详情同样保留未知当前位置。
+
+普通SUCCEEDED记录与迟到活动观察组合曾显示父容器和未结束条件“运行中”。现timeline的活动呈现同时要求非终态；相同虚构资料改为“未完成 · 待核对”，完成的合法子步骤仍完成，未走分支仍尚未执行。未改变终态保存、执行宿主、IPC、权限或公共契约。
+
+人工查看1440/1040/676：宽图两栏实测约400.217/728.395px，1040根宽与scroll均1040，676均676且单栏，长原路径/来源可换行。最终完整物理窗口截图1916×1437对应1440×1080 CSS视口；左侧长实例列表需滚动，截图不能作为所有行在单屏可见或整板验收。证据归档`/Users/mac/.codex/visualizations/2026/10/11/flowark-debug-record-origin/`，含before-debug-origin、before-mixed-outputs、before-foreign-output、after-outputs、after-return、after-log-source、after-1040、after-676、after-unknown-current、after-missing-snapshot、after-normal-terminal、after-normal-unknown及final-debug-wide的文本/几何/图片。
+
+初始虚构run.list遗漏elapsed字段造成夹具页报错，修正为现行RunListPage后重新进入；normal-unknown组合一度重复虚构sequence15，修正为唯一sequence17并用新页签核对，未把这些夹具错误称为产品修复。修正后normal-unknown及最终独立会话console error/warn均空，最终虚构请求bootstrap=6、task.list=2、learning.status=10、run.list=2、run.detail=1、unsupported=[]，无运行控制、真实文件/网页、AI/MCP或凭据访问。重载前后或各独立会话计数没有合并。新页签使窗口恢复默认962×541，default-window证据保留而不冒称1440；已明确结束原Vite后，仅为补存1440窗口重开同一端口并重新设置viewport，不因观察超时重启。
+
+pnpm typecheck、pnpm build、七文件Prettier与git diff --check通过，日志`/tmp/flowark-debug-origin-typecheck.log`及`/tmp/flowark-debug-origin-build.log`已归档；构建仍有既有大chunk提示。未新增或运行单元/集成/smoke测试。4349 Vite原session80717及补图session28920均已明确停止exit130，临时HTML/JS归档后撤下、页签关闭、viewport复位，无关IDE保留。
+
+ioreg当前确认CGSSessionScreenIsLocked=Yes，原生PID9637/已安装PR #167保留，未退出、安装、重开或启动第二原生实例；候选仍PR #215，不包含本批修复。178局部/6复核/2缺口统计不变；083/087参数变量消费字段、最新版保存重开、真实第三方MCP/绑定窗口写入回读、真实调试完整路径与186画板/U01–U12仍待完成。
+
+客户端[PR #219](https://github.com/zhongmiao-org/flow-ark-client/pull/219) head `2dc433c9b53ff5c8aaac5404f51c848a0c917cfa` 经最新[CI38100823678](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38100823678) Validate及Auto Merge均SUCCESS，实际MERGED为`b3c10ced8ac33aba6c877e39df088e5c456f26d9`。旧38100815644被标签事件替代取消，不计通过；PR附件一次返回100上限，保留直接链接。
