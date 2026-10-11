@@ -1,6 +1,6 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新交付与剩余项：客户端已合并至[PR #220](https://github.com/zhongmiao-org/flow-ark-client/pull/220)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选已同步PR #220（源 `6a9e52af02adfecdf87c75aa8123f959d990fe0c`），包含PR #216–#220教学长错误阅读、控制卡片/抽屉、脚本依赖核对、调试来源与布局修复。DMG/ZIP与本轮构建静态内容核对通过，尚未安装；旧候选PR #215的DMG/ZIP已按原摘要归档。现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
+2026-10-11 最新交付与剩余项：客户端已合并至[PR #221](https://github.com/zhongmiao-org/flow-ark-client/pull/221)，类型检查/构建及最新 CI 通过；0.3.0 arm64 最新候选已同步PR #220（源 `6a9e52af02adfecdf87c75aa8123f959d990fe0c`），包含PR #216–#220教学长错误阅读、控制卡片/抽屉、脚本依赖核对、调试来源与布局修复。DMG/ZIP与打包构建静态内容核对通过，尚未安装；候选尚不含PR #221产物定位错误/派生日志返回焦点修复；旧候选PR #215的DMG/ZIP已按原摘要归档。现有唯一原生安装版仍对应PR #167，见本文打包记录。逐板索引共186项：178项局部覆盖、6项导航/规格重新核对、2项明确缺口；178/186约95.7%仅表示局部覆盖，不能作为完整完成率。剩余包括整板视觉与异常/离开/返回状态核对、083/087参数页变量入口的引用消费字段确定、真实第三方MCP及macOS绑定窗口写入回读、最新版保存重开和U01–U12用户全路径验收。现有真实DeepSeek、教学网页到文件和修复单项证据保留，不扩大为最新版完整路径通过。下一步优先完成最新版原生核对与真实功能闭环，逐板记录证据；单元测试仍统一后置。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
@@ -8602,3 +8602,21 @@ pnpm typecheck、pnpm build、三文件Prettier与git diff --check通过，日�
 证据为`/Users/mac/.codex/visualizations/2026/10/11/flowark-candidate220-review/`中的candidate220.json、candidate220-inspect.mjs、candidate220-package.log和旧包归档。静态核对不启动App，不调用AI/MCP/网页/文件执行，不访问日常凭据或用户数据；未新增或运行单元、集成或smoke测试，无关IDE改动保留。
 
 本轮ioreg确认CGSSessionScreenIsLocked=Yes，原生唯一PID9637仍来自`/Users/mac/Applications/FlowArk.app/Contents/MacOS/FlowArk`，已安装PR #167 ASAR摘要前后均为`c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`。没有退出、替换、重开或启动第二实例；#220仅为候选。桌面可操作后沿用既有保存重开授权核对最新版，不将打包或静态一致性计作真实功能、整板或U01–U12验收。178局部/6复核/2缺口不变，完整186画板目标仍未完成。
+
+### 2026-10-11 · 运行产物错误阅读与派生日志返回
+
+从客户端已合并PR #220继续，对应027 `2:2640`与028 `2:2744`的既有返回/焦点要求。本轮027 get_design_context单次仍返回Starter工具额度限制，没有取得新的线上高保真上下文；实际查看已保存27-输出与运行产物.png并核对既有组件/迁移前源码，没有改页面布局、颜色、图标或新增资产。范围为已有交互缺陷修复，不能宣称已核对当前线上整板。
+
+完整实际App配虚构IPC复现：24条长名称派生列表末项读取失败后，错误已获焦但在宽窗top约-3060，676缩窗top约-1524；宽窗打开派生24后缩至676返回，原按钮top约1352、bottom1439，而main可见底700。8条长名称产物的末项定位失败后缩窄，错误top约1200、bottom1349，同样不可见。初次资料按总run.detail计数决定关联失败，被既有只读轮询错过，改为该关联ID自己的首次读取失败后重新进入核对；早期成功路径不计失败复现，最终资料计数独立。
+
+为既有日志来源返回和产物错误使用只在目标仍获焦时保持可见的滚动辅助函数；观察目标与main尺寸，补一帧处理父页恢复旧scroll的先后顺序，离开/切页清理观察。派生按钮的恢复仅执行一次，普通标签返回不会再次跳到旧关联位置。既有焦点环周围滚动留白直接采用`--fa-space-8`；没有新增基础控件包装、IPC或执行行为。
+
+最终人工查看1440/1040/676：关联错误宽窗top约48，676约543–692；676关联返回原按钮约606–692，1040约565–692。原步骤`loop[0]/choice/saved`筛选保持2条，Enter打开与原运行/版本、回到日志均保留；Tab移到派生折叠入口后缩至1040，焦点仍在该入口，不被拉回错误。产物定位错误1040约432–692、676约389–538；明确第二次定位成功，界面保留原文件名/记录，不自动重试。根scrollWidth分别1040/676，无根横向溢出。
+
+最终独立资料会话bootstrap35、task.list2、learning.status8、run.list2、run.detail42、artifact.reveal2、unsupported=[]，包含App只读轮询，不当作用户点击次数。定位为虚构接口回执，没有打开真实文件管理器；无运行控制、AI、MCP或网页执行。控制台error/warn为空，0/false/null结果继续显示。初步核对记录与最终会话分开，不合并计数。
+
+证据`/Users/mac/.codex/visualizations/2026/10/11/flowark-run-return-focus/`含before-log-error-676、before-log-return-676、before-artifact-error-676、final-log-error-wide/676、final-log-return-676/1040、final-artifact-error-676、final-log-tab-return和final-record，以及虚构入口与日志。实际查看final-artifact-error-676.png，它是676×455的页签滚动截图；不是完整676×700窗口/整板截图，尺寸和可见性以DOM记录为准。
+
+pnpm typecheck、pnpm build、修改文件Prettier及git diff --check通过；最终滚动留白由同值8px改为已有主题变量后重新构建。既有大chunk提示保留，未新增或运行单元/集成/smoke测试。临时入口归档后撤下、页签关闭、viewport复位，4351/session97203停止exit130，无关IDE改动保留。Mac仍锁屏，唯一原生#167/PID9637与安装ASAR摘要`c6c2f2b06dc0ff356bf2b925f9fe323faf02e976ad9637f87573570d8910b05e`不变；候选#220未包含本轮修复，未打包/退出/安装/重开/启动第二实例。178局部/6复核/2缺口不变；083/087、原生保存重开、真实文件/派生/MCP/桌面及整板186画板/U01–U12仍待完成。
+
+客户端[PR #221](https://github.com/zhongmiao-org/flow-ark-client/pull/221)最新head `8c5233d227a32c2873f5cf07f7fb403a304be85e` 经[CI38102646344](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38102646344) Validate与Auto Merge均SUCCESS，实际MERGED为`c1658d26989d9a02f9ca2d19f8c8c3e3c9f6fe1c`。旧38102640984被标签事件替代取消，不计通过；初始894383c的38102573120不能代表最终主题变量提交。附件一次返回100上限，保留直接链接。
