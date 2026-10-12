@@ -1,6 +1,27 @@
 # Figma v2 客户端实施与验收
 
-2026-10-11 最新状态：最新代码已合并[PR #227](https://github.com/zhongmiao-org/flow-ark-client/pull/227)，新增人工等待/停止规划说明，新候选已打包并保留于`flow-ark-client/release/candidates/pr227-2f301f6/`，尚未安装，新提示真实效果待核对。安装版仍为客户端[PR #226](https://github.com/zhongmiao-org/flow-ark-client/pull/226)已合并、打包并安装到既有路径，源`6f3e4d05e87bb7df1a4aa3ea7e407164b3d01c56`，0.3.0 arm64；独立候选保留于`flow-ark-client/release/candidates/pr226-6f3e4d0/`。用独立核对资料，真实DeepSeek生成所选网页title读取/非空分支/新建文件方案，采纳修订6并显式试运行成功；预览14字节Example Domain后教学完成4/4，正常退出重开保留同一Run/产物且没有重复执行。重开未打开网页时再次运行检查阻止执行；学习记录不恢复授权。当前唯一原生#226/PID19561，日常资料未使用。Ant Design与集中主题已采用；186项仍178局部覆盖、6重新核对、2明确缺口，95.7%仅是局部覆盖。剩余整板视觉、全部异常/返回状态、083/087消费字段、真实第三方MCP与绑定窗口写入回读、复杂保存失败/并发和U01–U12完整用户验收；单元测试后置。
+2026-10-12 最新状态：客户端[PR #229](https://github.com/zhongmiao-org/flow-ark-client/pull/229)已由最新 CI 自动合并、打包并安装，源`5531675d79b0a1e230fd94265d987b4eec4ee0a2`，0.3.0 arm64。原生 #229 已实际完成专用 TextEdit 文档的选窗、明确读取25字选区、真实 DeepSeek 改写、采纳修订4、重新绑定原文、单次授权替换和一致回读；独立查看文档确认首尾不变，FlowArk 未保存文件，随后明确在 TextEdit 保存。正常退出并确认无主实例后重开，同一 Run/修订/回读保留，3条历史中仅1条桌面运行，没有重复执行；教学4/4与3个任务保留。当前唯一主实例PID73774，使用独立核对资料。186项仍178局部覆盖、6重新核对、2明确缺口，95.7%仅为局部覆盖；整板视觉、083/087消费字段、真实第三方MCP、窗口/选区失效与写入未知等异常、复杂保存失败/并发、U01–U12独立用户验收仍未完成。单元测试后置。
+
+## 2026-10-12 原生 TextEdit 改写、回读与重开
+
+客户端 #227、#228、#229 顺序安装并保留独立候选。#228 改用内核启动身份，#229 在现有 Ant Design 不完整清单提示中显示本次遗漏原因；编译和打包本身未计为桌面验收。原生 #229 在11:35:32返回0窗口/truncated，并明确提示启动身份未核对；只读系统进程查询成功，但NSRunningApplication应用记录的processIdentifier为-1。Apple SDK明确该属性可无有效PID。仅正常退出并重开专用TextEdit窗口后，应用记录恢复有效PID，11:40:25发现1个真实窗口，未绕过身份校验或采用同名窗口回退。
+
+明确读取25字原文后，使用既有DeepSeek/deepseek-flash配置实际生成22字候选“本练习仅核对明确选中的文字，不改动其他内容。”。核对窗口/原文/替换与按范围读取能力后保存修订4，试运行前重新选择窗口、读取相同原文并建立新绑定，再明确授权单次修改。Run `7479269c-dee1-476f-bc65-0b9e6294cd78` 于11:44:35尝试、11:44:36取得verified回执，1步骤完成、7条保存事件；固定快照`352620275a042a24d1ab219b239e41d31ec2c20e398504e41754ca421a22c32d`。原生TextEdit独立查看确认选区已改、文档开头与TAIL-PR227-UNCHANGED末尾完整。回执只证明当时缓冲区：明确保存前磁盘仍是202字节原文；随后在TextEdit明确保存为193字节，SHA-256 `44392abfa6a6a8d1fc6a8b11a0fc5eee3639f6e54e17d6bf02b4301cd5edf055`。
+
+FlowArk PID67005/session75725正常退出exit0，确认无主实例后以相同独立资料重开为PID73774/session33043；首页教学4/4、3任务保留，原任务修订4与同一Run/回读可再次查看。运行记录共3条，另两条为原数据步骤与教学Run；没有第二次桌面执行。重开不恢复窗口绑定或单次授权。本轮未实际执行窗口关闭/同名/选区变化/权限撤销/休眠/取消/写入未知场景，也未完成U12非技术用户独立操作或整板视觉验收。
+
+本地Figma查看了`23:8087`应用窗口就绪画板；桌面仍有重连提示，Starter MCP额度提示也实际出现，未购买升级、未取得新的云端设计上下文。原生工具文字/截图一度不一致，用户确认真实页面标题，通过现有“窗口→显示工作台”后观察恢复；未据工具表现修改渲染代码。
+
+| 交付 | 实际合并 | 最新CI |
+| --- | --- | --- |
+| [治理#685](https://github.com/zhongmiao-org/flow-ark/pull/685)：启动身份来源 | `fa29e9df62b73c9677b245176f74e27d23fa84c9` | [38196119192](https://github.com/zhongmiao-org/flow-ark/actions/runs/38196119192)：Validate 5s / Auto Merge 8s成功 |
+| [客户端#228](https://github.com/zhongmiao-org/flow-ark-client/pull/228)：内核启动身份 | `453b5f6dad76d72b7c85f5a75c7111383c570615` | [38196365357](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38196365357)：Validate 36s / Auto Merge 9s成功 |
+| [治理#686](https://github.com/zhongmiao-org/flow-ark/pull/686)：遗漏反馈边界 | `c2b9b7f2e9ddb42130ebbab8081d1d5c9bd8dcae` | [38198445415](https://github.com/zhongmiao-org/flow-ark/actions/runs/38198445415)：Validate 5s / Auto Merge 8s成功 |
+| [客户端#229](https://github.com/zhongmiao-org/flow-ark-client/pull/229)：现有提示展示原因 | `5531675d79b0a1e230fd94265d987b4eec4ee0a2` | [38198831458](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38198831458)：Validate 39s / Auto Merge 7s成功 |
+
+#228/#229本地`pnpm typecheck`、`pnpm build`（含Swift编译）、相关Prettier和`git diff --check`通过；`pnpm package:mac`分别exit0。#229构建App的251个dist/contracts文件与来源比较、arm64/链接及ASAR/native helper核对通过，ZIP/DMG仅保留并核对摘要，未另行解包验收；未签名/公证，开发默认图标。#229 ASAR为`d5408b73ab5f550f8b0ae00ce271ee765fd057805e4884c1f5ce61ef6d2dd4a7`，原生助手为`cb3d0e56579319f8eccd23a97909e448702de6e83f432d6341dd683380ed980b`。候选位于`flow-ark-client/release/candidates/pr229-5531675/`，本机证据位于`/Users/mac/.codex/visualizations/2026/10/12/flowark-native229-discovery-review/{package-receipt,installation,native-review}.json`。
+
+所有FlowArk主实例串行使用。#228最初实例退出原因未捕获；后续工具重绑定时短暂观察到默认资料实例，未修改该资料的任务/配置，正常退出后明确重开独立资料。因此不能声称整个10月12日从未观察日常资料。安装未清库、未复制凭据或浏览器资料。四个新PR均尝试附加一次，工具返回100项附件上限，不删旧附件、不重复尝试。本轮未新增或运行单元/集成/smoke测试。
 
 2026-10-09 交付更新：用户将客户端仓库设为私有后，累积实现已通过[客户端 PR #37](https://github.com/zhongmiao-org/flow-ark-client/pull/37)交付，最终 CI 类型检查与构建通过并自动合并为 `98e229c7956a230d66452a30c2f15555ad9787f1`。此前各条“仅本地提交 / 未推送 / PR 草稿”的记载保留为当时状态；当前完整 186 画板和 U01–U12 仍未完成。
 
