@@ -18,6 +18,10 @@ API依据：本机Apple SDK的NSRunningApplication.h对launchDate的可空/Launc
 
 `desktop.windows.release` 严格输入 `{observationId}`，只释放相同的当前会话，旧页面的迟到释放不得停止新会话。离开页签/任务时释放并清除预览；请求未返回时离开，迟到成功回复也需释放自己的 observationId。
 
+2026-10-12 不完整清单反馈：#228安装后实际核对仍为0窗口/truncated，启动身份来源修正未证明解决本次发现问题。随包同步的未发布原生发现回复增加可选metadataIssue封闭代码：process-identity-unavailable、process-identity-changed、window-limit、time-limit、window-title-unavailable、window-state-unavailable、window-title-shortened；只保留首个遗漏原因且必须同时truncated，不包含PID、时间戳、窗口标题、路径、原生错误正文或额外应用资料。Main严格校验代码并转换为中文原因，移除私有字段后使用既有发现v2的可选reason返回；不变更公开IPC结构、版本或能力范围。原生辅助程序与消费者同包同步，无旧回复兼容实现。
+
+现有不完整清单warning优先展示该次reason；没有特定原因时继续显示通用提示。清单中的合法窗口仍按原身份选择，遗漏窗口不会以默认字段伪造成功；刷新清空选择、读取和授权规则不变。该反馈用于用户理解本次未完成的核对，不替代实际窗口发现、原选区读取、写入和回读证据。
+
 ## 明确读取所选段落
 
 `desktop.selection.preview` 严格输入 `{observationId,windowId}`，两者均为 UUID。Main 只接受当前未过期观察中的窗口映射，不以标题或窗口列表下标查找另一个窗口。输出为：
