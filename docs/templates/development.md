@@ -1,5 +1,15 @@
 # 模板开发
 
+## 后续 Agent 闭环与 BOSS 投递验收
+
+2026-10-12 用户安排：当前先完成现有186画板对应的UI、UE与功能逻辑；随后补齐Agent自动创建流程，按“描述诉求 → 自动匹配skill、模板或MCP → 生成完整可用流程 → 人工review或微调 → 运行”验收，首个业务验收采用BOSS直聘投递流程。完整顺序见[ROADMAP](../../ROADMAP.md)，通用Agent要求见[客户端目标](../client/agent-flow-generation.md)。
+
+该后续阶段的BOSS业务技能/规程、模板入口、参数Schema、提示词、站点定位、筛选与投递、去重和业务结果核对归flow-ark-templates；客户端负责通用能力发现/匹配、规划调用、流程生成、版本和执行宿主，不写入BOSS专属逻辑。需先具备真实可用的模板或工具能力，再核对Agent是否根据业务诉求自动选用、配置并生成完整流程；人工主要提供业务条件、登录/授权、review及少量微调，不逐节点配置RPA。
+
+验收须核对真实账号与简历、目标职位/筛选和数量范围、明确投递授权、实际投递回执及未知结果不重放。现有recruiting-boss仅适配检查，仍未完成投递；虚构网站、AI补问、占位流程或格式校验不能作为通过。此前前程无忧“下一模板阶段”的记载保留为历史安排，后续优先级以最新ROADMAP为准。
+
+## 仓库与开发约定
+
 模板仓库为独立的 flow-ark-templates，远程 git@github.com:zhongmiao-org/flow-ark-templates.git。不使用 submodule、父目录依赖或符号链接。机器契约固定复制已发布版本；共同约束只维护在治理根 AGENTS.md。
 
 templates/ 管理业务模板及可独立打包的 demo，examples/scenarios/ 管理联调说明，fixtures/ 管理虚构网站，tooling/ 管理校验、打包及联调。每个模板独立版本，包格式见 [规范](package-format.md)。测试与真实业务必须分开，不提交个人简历、Key、登录态或输出。
