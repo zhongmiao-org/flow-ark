@@ -8,7 +8,7 @@
 
 客户端[PR #241](https://github.com/zhongmiao-org/flow-ark-client/pull/241)源`c0e0e1305dbdeb5950ae69b0f858b9812c361f7c`，最新[CI 38250392387](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38250392387)的Validate/Auto Merge成功，实际合并`5e4f2d10585dcdda9eaad231d512f59996ba8a64`，main已同步。类型、构建、两文件Prettier、git diff及package:mac通过；ZIP SHA256 `3e663a9bff0ca48d1fff15fdd43d95d91cb74491fe02a37c9e2ef292de6229ac`，DMG `4d3901989d18d61d47f629c239e0b29c4d1e2af5e380f5fca023206de9438b85`，候选在忽略目录release/candidates/pr241-c0e0e13。未新增/运行单元、集成或smoke套件，未签名/默认图标和已有构建提示保留。
 
-原生串行更新：旧#240列表无活动或未保存编辑，Cmd+Q正常退出，exec exit0并保留一次IMK日志；确认零主进程后暂存校验、备份旧应用并替换原安装路径，再确认零后用原隔离资料启动唯一主PID77136/session22703。安装ASAR SHA256 `921e5b5b686d359d069008c2e3344b3e646f9960beff616ed28ee301b6feeea9`与候选一致。首页4任务、教学4/4、DeepSeek已配置，列表4流程/今日2完成/0失败/0中断/0活动保留；已有PR237参数页的sourceText、固定值与`params.sourceText`来源保留。原生树与截图确认本次字段对齐/来源列样式，未编辑、保存或发起新运行。旧应用、安装回执和截图在`/private/tmp/flowark-native241-install/`。本次两参数原生查看不代替四参数完整板、全部状态或真实异常验收。
+原生串行更新：旧#240列表无活动或未保存编辑，Cmd+Q正常退出，exec exit0并保留一次IMK日志；确认零主进程后暂存校验、备份旧应用并替换原安装路径，再确认零后用原隔离资料启动唯一主PID77136/session22703。安装ASAR SHA256 `921e5b5b686d359d069008c2e3344b3e646f9960beff616ed28ee301b6feeea9`与候选一致。首页4任务、教学4/4、DeepSeek已配置，列表4流程/今日2完成/0失败/0中断/0活动保留；已有PR237参数页的sourceText、固定值与`params.sourceText`来源保留。原生树与截图确认本次字段对齐/来源列样式；只读打开变量弹窗定位原params.sourceText，取消后来源不变且回原选择按钮，再未改动返回编排显示草稿已保存、焦点回参数入口。未编辑、保存或发起新运行。旧应用、安装回执和截图在`/private/tmp/flowark-native241-install/`。本次两参数原生查看不代替四参数完整板、全部状态或真实异常验收。
 
 186项180局部覆盖/6重新核对保持不变，整板与U01–U12仍未完成；待明确授权的新持久流程和周期计划未执行，后续Agent/BOSS闭环仍按既有路线后置。
 
