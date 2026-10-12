@@ -1,5 +1,13 @@
 # 开发预览验收记录
 
+## 2026-10-12 PR #234：凭据字段定位与编辑位置保留
+
+沿用Figma资源页2:3227与输入/保存状态的既有交互映射，仅修复凭据表单：取消后继续编辑由固定名称框改为原字段和选区；使用现有localCredentialName/Value Schema，首次/重复无效保存显示中文字段原因、Ant错误状态与aria关联，修正输入不抢焦点。没有新增布局/资产、基础组件包装、宿主/IPC或公共契约。
+
+人工预览加载真实Renderer构建、虚构内存宿主；修复前确认凭据值编辑后继续编辑实际聚焦名称。修复后首次缺值、重复提交和空白名称均零请求，错误字段获焦；修改字段保留输入焦点。凭据值光标21在取消/继续及保存失败后返回仍21，676紧凑窗口原字段可见；1040已有凭据只改名称，首次虚构失败和明确重试成功共2次请求，两次valueSupplied均false，回列表仍仅掩码。回执与截图在本地 `/private/tmp/flowark-credential-ui-review/`，不含真实凭据；内存回执不是系统保护存储证据。
+
+客户端[PR #234](https://github.com/zhongmiao-org/flow-ark-client/pull/234)源 `453761f4cb67ebd1ead9c65522f8036f10600d2a` 经最新 [CI 38219256289](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38219256289) Validate/Auto Merge成功，实际合并 `b5cec1c5420f09d29592e6ecaa473727aff5eadb`，main已同步；旧38219207022被标签更新取消，不计通过。本地pnpm typecheck、pnpm build、显式单文件Prettier、git diff --check与pnpm package:mac通过。源453761f开发包独立保留于客户端忽略目录release/candidates/pr234-453761f；DMG SHA256 `4ce3f9a10fb18467571831c060ccca5107bdb7d0f9168f08241d1f143b7f62fc`，ZIP `c1904171ce1ec3a9f169ba5d8fa75c5ee788dd0d2230e90303178674a2e40563`；未安装或启动该候选，保留默认图标/未签名/已有大chunk提示。本轮未启动新主实例，只读进程核对仍为原PID7890。未新增/运行单元、集成或smoke套件；安装版、真实保护存储与完整032画板仍未验收，不增加整板完成数。
+
 ## 2026-10-12 PR #232/#233：计划字段校验与焦点修复
 
 创建计划时输入0，原生安装版曾显示英文浏览器提示“Value must be greater than or equal to 1.”并覆盖时区，未创建计划。#232 对创建、编辑和模板入口创建使用共享 scheduleTiming 校验与中文内联提示，取消浏览器默认表单提示；保存无效输入保留草稿。#233 修正首次错误保存被结果定位抢走焦点的问题：字段提示与返回定位共享目标；重复保存仍定位首个错误，离开弹窗内不聚焦后方表单。没有改变宿主、分钟计时、版本固定、权限、IPC或公共契约0.17.1。
