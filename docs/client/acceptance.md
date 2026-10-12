@@ -1,5 +1,15 @@
 # 开发预览验收记录
 
+## 2026-10-12 PR #232/#233：计划字段校验与焦点修复
+
+创建计划时输入0，原生安装版曾显示英文浏览器提示“Value must be greater than or equal to 1.”并覆盖时区，未创建计划。#232 对创建、编辑和模板入口创建使用共享 scheduleTiming 校验与中文内联提示，取消浏览器默认表单提示；保存无效输入保留草稿。#233 修正首次错误保存被结果定位抢走焦点的问题：字段提示与返回定位共享目标；重复保存仍定位首个错误，离开弹窗内不聚焦后方表单。没有改变宿主、分钟计时、版本固定、权限、IPC或公共契约0.17.1。
+
+人工页面预览使用虚构内存宿主和当前构建：0、1.5、525601、空白间隔及 Invalid/Zone 均保留输入、不发写请求；首次/重复保存聚焦间隔，修正30后聚焦时区；保存离开失败留在弹窗，继续编辑保留输入；修正UTC后仅1次创建。暂停计划由120改15分钟，只有1次更新且仍暂停、原version-2保留。预览真实调度数始终0；截图与回执保留于本地 flowark-schedule-native-review/ui-preview，不将内存保存算真实宿主证据。模板入口共享代码已更新，但本次未独立人工验证该入口。
+
+#232 最新 [CI 38212297475](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38212297475) 成功并实际合并 `3a3ab8b744b8c47cb935c29293ef10d4f1bdb21f`；其候选源 `8530506a9c986dcda744abf72ffe400f5e1fc8e2` 通过 typecheck/build/显式Prettier/git diff检查及package:mac。旧唯一PID1877正常退出exit0，确认零主实例后替换原安装路径并以原隔离资料启动唯一PID7890。当前原生工具的输入没有送达字段，控件树与截图曾矛盾；用户确认当前实际标题“本机计划”。没有因此重启或另开主实例。修复后原生字段、真实创建/分钟触发、固定旧来源及明确采用新保存版本尚未完成验收；#233 的安装与原生核对另行推进。
+
+客户端 [PR #232](https://github.com/zhongmiao-org/flow-ark-client/pull/232)、[PR #233](https://github.com/zhongmiao-org/flow-ark-client/pull/233) 分别交付；#233 源 `be00da6c309b7106e34f42656923e0b43a93572e` 经最新 [CI 38215295976](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38215295976) Validate/Auto Merge成功，实际合并 `1c914488e5dafaa255e129cb937353b83932b470`；旧38215259812因标签更新被取消，不计通过。`pnpm typecheck`、`pnpm build`、三个受影响文件的显式Prettier检查、`git diff --check`及`pnpm package:mac`通过，main已同步。#233候选DMG SHA256 `4763f12a1fc2b21ff8de258602901e0c5c1531755d8cc0751e3b3e66f9f0748b`，ZIP `4615cb8e27d50b4ae7e4729da79190e1eb92e6127aae60164a9b07522b814f25`；保留既有大chunk/默认图标/未签名提示。本轮未新增或运行单元、集成或smoke套件。008/034仍是局部证据，186画板/U01–U12与Agent/BOSS闭环均未完成。
+
 ## 2026-10-12 PR #231：参数来源字段与真实运行
 
 按用户明确答复，083/087 选择变量写入新增参数来源表达式。采用治理 [PR #690](https://github.com/zhongmiao-org/flow-ark/pull/690) 与修正 [PR #691](https://github.com/zhongmiao-org/flow-ark/pull/691) 的不可变契约 `contracts-v0.17.1`（tag/采用基线 `71905606d1aeae5c4f567aceecfa7a3a474c0665`），13个固定文件摘要一致。新增共享求值只解析其他 params 路径，运行前拒绝缺失/循环/越界，宿主准入、授权核对、Worker 与 SDK 使用有效参数；版本/快照保留表达式与固定值，ZIP 导出清实际值并保留中性结构。
