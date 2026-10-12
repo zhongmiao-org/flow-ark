@@ -1,5 +1,19 @@
 # 开发预览验收记录
 
+## 2026-10-12 PR #239：实例配置操作区与错误可见性
+
+真实Renderer人工测量确认既有长表单弹窗裁切底部：界面工具请求676×700，DOM实际508×526；原弹窗底部500、保存按钮底部509、底部操作底部529，overflow:hidden导致裁切。现在弹窗、表单按可用高度共同收缩，标题与底部操作保持，表单改由独立div滚动而仍以fieldset禁用；字段定位包含原位具体原因，长保存错误独立滚动。窄窗说明单独一行，说明样式只作用于直接子span，恢复Ant按钮文字主题。保留原宽度、颜色、资产与组件，不增加宿主、IPC或契约。
+
+最终Renderer＋独立内存宿主核对25字段：首错获焦，字段约y278–317、具体原因约325–343，均在内容区131–344内；底部约380–496与保存按钮约445–467均在弹窗30–496内。长错误约105高/528内容，不挤掉底部；宽窗PageDown滚动约164，内容高308/可见144，已到末尾。请求1040×700、1440×960的DOM实际分别782×526、1082×722，保存与底部均完整处于弹窗内。工具请求尺寸与DOM尺寸不同，本轮不据此声称1440设计整板匹配。
+
+无效参数校验零保存请求，修正数量后1次虚构保存失败保留输入，指针明确重试成功；重开数量2和其余文字保留，总计2次虚构保存（1失败/1成功）、真实执行0次。一次缩窗后取消的即时计数仍为1，独立新预览重新查看DOM确认指针取消关闭且零请求，没有盲点重复保存。回执/截图在 `/private/tmp/flowark-config-layout-review/`，不代表原生持久化或整板验收。
+
+客户端[PR #239](https://github.com/zhongmiao-org/flow-ark-client/pull/239)源`637db7160c05e3762682ee6a19c210a62f909a1b`，最新[CI 38239084765](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38239084765)的Validate与Auto Merge均成功，实际合并`2d7c334fbd4b83ad23f5717beffa49a52587bddb`，main已同步。`pnpm typecheck`、`pnpm build`、两文件Prettier、git diff及package:mac通过；ZIP SHA256 `04eb4f3c7fa6a081627d8d5918cb5052113f755b4a5d0b3fe88798c5ebc71683`，DMG SHA256 `6464caf6f071a35b118b3ad5432752d59d0fedca883af48ed16ff5bc4793bbd2`，候选在忽略目录release/candidates/pr239-637db71。未新增或运行单元、集成或smoke套件。
+
+原生串行更新：先读取#237仍4流程/今日2完成/0活动且无未保存编辑，Cmd+Q正常退出（exec exit0，保留一次IMK日志），PS确认零主实例；暂存新应用并校验ASAR后备份旧应用，再替换原安装路径，保留原隔离资料。安装ASAR SHA256 `d4c08b077c098bef7310df6ee3a5c61e03209adfe332068dabe0717d98270713`；继续使用原隔离资料启动唯一新主PID70472/session63130。首页4任务、教学4/4、DeepSeek配置及列表4流程/今日2完成/0活动保留；重开原练习名称、sourceText“原生保存核对 · PR237”、固定值和params.sourceText来源均保留，没有新增Run。旧应用、安装回执和截图在 `/private/tmp/flowark-native239-install/`。本次正常重开证明更新/资料保留，不代替配置弹窗的原生验收。
+
+新增练习流程与一分钟计划的明确授权仍待答，本轮未执行或尝试绕过。186项180局部覆盖/6重新核对保持不变；原生配置、全部状态、整板与U01–U12仍待验收。
+
 ## 2026-10-12 持续推进：#237 原生安装与保存、#238 配置错误定位
 
 用户授权离开后继续操作电脑。先复用#236唯一PID51784，原生树与截图恢复一致：修改练习流程sourceText为“原生保存核对 · PR236”，保存参数回编排显示已保存并聚焦原参数按钮；返回列表再打开保留新值、固定值及params.sourceText来源。原4流程/今日2完成不变，没有新增Run。随后Cmd+Q正常退出（exec exit0，保留一次helper资源sandbox日志），只读PS确认零主实例；暂存/校验#237后备份旧应用并串行替换，继续使用原隔离资料 `/private/tmp/flowark-current-ui-install-qa5i977e/ui-records`。安装ASAR SHA256 `d656cc9f13877dda107d09226f34de29f804838af75df9d84a7079ccf0a92913`，唯一新主PID66839/session71058。旧应用、截图及回执在 `/private/tmp/flowark-native237-review/`，原任务4条、教学4/4与DeepSeek配置保留，正常重启后参数新值及原4流程/今日2完成保留。
