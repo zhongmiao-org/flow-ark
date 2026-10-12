@@ -1,5 +1,20 @@
 # 开发预览验收记录
 
+## 2026-10-12 PR #231：参数来源字段与真实运行
+
+按用户明确答复，083/087 选择变量写入新增参数来源表达式。采用治理 [PR #690](https://github.com/zhongmiao-org/flow-ark/pull/690) 与修正 [PR #691](https://github.com/zhongmiao-org/flow-ark/pull/691) 的不可变契约 `contracts-v0.17.1`（tag/采用基线 `71905606d1aeae5c4f567aceecfa7a3a474c0665`），13个固定文件摘要一致。新增共享求值只解析其他 params 路径，运行前拒绝缺失/循环/越界，宿主准入、授权核对、Worker 与 SDK 使用有效参数；版本/快照保留表达式与固定值，ZIP 导出清实际值并保留中性结构。
+
+页面人工预览：选择 profile.title 写入独立字段、取消不变；手写自身引用与 profile→title→profile 间接循环保留错误输入，保存未发生；缺失子路径内联错误可修复；删除依赖参数阻止并显示引用者；改名同步1处结构引用；继续编辑、保存返回/重开已核对。1040×700 参数卡顺序排列，无横向挤压；这部分是虚构内存宿主，仅作页面证据。
+
+唯一原生安装版：旧 PID73774 正常退出exit0、确认没有主实例后替换应用（旧包备份保留）；候选 PID99780 启动在既有隔离资料。界面手工创建1个数据步骤、sourceText 固定文本与 title 固定文本，变量选择将 params.sourceText 写入 title 来源，固定值“固定值应继续保留”未丢失；真实保存后步骤读取 params.title。Run `548cdee3-238f-4884-a2a1-90b3abc0a0a9`（节点 n_29e3d54d，2026-10-12 13:57:11）完成，结构输出为“来自来源表达式的实际运行值”，0产物，无网页/AI/外发动作。
+
+正常退出候选exit0后确认没有主实例再重开，PID1877；原来源、两个固定值和同一 Run 保留，全部4条记录未重复。清空来源显示固定值模式；原生未保存离开提示后选择不保存，保留已存来源。4任务、教学4/4、DeepSeek已配置状态仍在；未修改此前外部文档或招聘任务。
+
+客户端 [PR #231](https://github.com/zhongmiao-org/flow-ark-client/pull/231) 实际合并 `984c6522ed6503f001ef726be0f982cc4796c3ae`，当前head的 [CI 38209993391](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38209993391) Validate/Auto Merge成功；main已同步。候选源 `92bd75e5e1b7e628d7c617220105594cfbfda014` 与合并内容相同；`pnpm typecheck`、`pnpm build`、显式 Prettier检查、`git diff --check`、`pnpm package:mac`通过。DMG SHA256 `595a759e98cd9764953e0877f4a6e15ea5faf9d46f041a9676df33f017fdefe4`，ZIP `86cffb2c2f1507537b1b8bc8514086cc7f37c9fde9e4e381ea110e45d2d4d6da`；unsigned/default icon/已有大包提示保留。未新增/运行单元或集成套件。
+
+Figma MCP连接器明确额度耗尽；本地参数板2:1398新增来源标签/输入示例（101:2381/2382/2383）并核对排版，本地提示待同步，不能报告云端设计发布。两项消费字段缺口补齐，仅转局部记录；所有异常、ZIP真实导出/输入配置/重新导入、固定计划与活动运行中的草稿修改、完整186视觉与U01–U12仍待后续验收。此增量不代表Agent目录/工具规划循环或BOSS闭环完成。
+
+
 ## 2026-10-12 PR #229：原生窗口选区真实改写与回读
 
 #229已安装。先前0窗口/truncated实际对应应用记录的无效PID；正常重开专用TextEdit后恢复1窗口。明确读取25字选区、实际DeepSeek生成22字候选、保存修订4、重新绑定原文并确认单次试运行，Run `7479269c-dee1-476f-bc65-0b9e6294cd78`完成1步，原生写入回执verified。TextEdit独立核对新文字及首尾保留；明确保存前磁盘仍是原文，随后仅在TextEdit保存练习文件。
