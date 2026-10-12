@@ -10,6 +10,12 @@
 
 一次发现启动一个固定本机程序，由 Main 通过有大小/超时限制的管道维持。相同 requestId 的并发发现合并；不同请求立即作废并回收旧会话，不共享同名窗口身份。辅助程序只接受固定发现和选区读取命令；原生窗口引用与应用启动身份仅在程序内存，不交给 Renderer，不接受 PID、路径、AX 属性名或可执行命令。到期、进程异常、系统休眠、退出及刷新均回收会话；超时不自动重新发起读取。
 
+2026-10-12 启动身份来源调整：原生安装版#227在实际TextEdit练习文档可读、已有选区时两次返回0窗口且truncated。源码将可空的NSRunningApplication.launchDate作为必须条件；Apple SDK说明未经LaunchServices启动的应用可能没有该属性，因此此检查可能排除真实窗口，本次具体失败原因仍需消费者修正后的原生结果核对。
+
+启动身份改为只读查询内核proc_pidinfo(PROC_PIDTBSDINFO)中的进程启动秒/微秒，与本机PID一同在辅助程序内持有；发现时在读取窗口元数据前后核对同一身份，后续每次选区读取、能力检查、绑定与写入前继续核对。进程查询失败、长度/PID/启动时间无效或身份变化仍拒绝；不以仅PID、同名窗口、列表序号或可空启动日期放行。TextEdit应用标识、同一原生窗口对象、完整窗口标题和唯一编辑区校验继续生效。内核记录只在本机内存参与核对，不进入Renderer、模型、日志、任务或导出；既有IPC/公共契约、五分钟会话、权限和单次写入范围不变，无旧身份兼容路径。
+
+API依据：本机Apple SDK的NSRunningApplication.h对launchDate的可空/LaunchServices说明，以及libproc.h/sys/proc_info.h定义的proc_pidinfo、PROC_PIDTBSDINFO、pbi_start_tvsec/pbi_start_tvusec；[Apple应用信息](https://developer.apple.com/documentation/appkit/nsrunningapplication/launchdate)。治理先交付，消费者随后采用；不能将此来源修正或编译通过计作真实窗口写入回读验收。
+
 `desktop.windows.release` 严格输入 `{observationId}`，只释放相同的当前会话，旧页面的迟到释放不得停止新会话。离开页签/任务时释放并清除预览；请求未返回时离开，迟到成功回复也需释放自己的 observationId。
 
 ## 明确读取所选段落
