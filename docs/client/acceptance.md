@@ -1,5 +1,17 @@
 # 开发预览验收记录
 
+## 2026-10-13 模板参数入口归属与返回焦点
+
+客户端[#244](https://github.com/zhongmiao-org/flow-ark-client/pull/244)最新CI`38341854848`的Validate/Auto Merge成功，已合并`5cb794f223c7fe6aca2fad10b901e3d32d3efb85`；#243正常退出后以零主进程门槛串行备份/安装，ASAR`658e75a7f44ed10b6f06998061136f2fdd7fbf1aba3ea99d45d50fa355509939`。原生从模板甲编排工具栏进入精确实例`57d2930c`的run入口，修改sourceText为“往返甲 · 配置回读E”，返回触发实例三选守卫，保存并离开回原编排；侧栏参数入口再开读到E，没有进入普通参数表单。实例侧栏直接转本地设置正常，无误跳回编排。
+
+该轮发现返回焦点停在页面根部。客户端[#245](https://github.com/zhongmiao-org/flow-ark-client/pull/245)改为页面渲染及busy结束后恢复可见入口，最终类型/构建/格式通过，最新CI`38342662285`成功并合并`db8f4e4c705f5bc62faf14a6ca16bec96ad8e9c5`。首次类型检查缺少useLayoutEffect导入，已修正并重跑，不将失败候选当通过。再次正常退出/零主进程后串行安装，ASAR`75ddc2cc00e86cf88c0ae1b328f291fe3021a43ae8a526001227a9acdb145392`。原生重开E保留，无改动返回焦点为参数按钮；随后把甲恢复为B并“保存并离开”，焦点同样准确回参数按钮。旧计划在重启后原生仍暂停、无下次执行。
+
+设置中的已有普通文件流程经“配置资源”打开参数页，未修改返回后回原设置资源按钮并恢复焦点；本次两个模板没有资源绑定，因此没有出现在设置资源列表，不把普通路径计为带资源模板路径通过。原生未再次执行流程、脚本、网页或计划。
+
+继续点击模板编排保存，发现绑定内容不变仍误报修改资源。源码确认IPC Schema重排字段，而宿主采用JSON.stringify顺序比较；未丢失已保存参数。客户端[#246](https://github.com/zhongmiao-org/flow-ark-client/pull/246)改用现有canonical按内容比较绑定、参数和来源；返回目标按实例、包、入口和摘要逐项核对，不受键顺序影响。真实字段变更仍由宿主拒绝，未放宽模板配置入口。源`2f90b9fb04f2da1d2ef40202a3e5efcdc3766b6e`，最新CI`38343264952`的Validate/Auto Merge成功，已合并`3f9f764f21bd6d7674a39e0eea8a776da831b93b`；类型、构建、指定格式及diff检查通过。正常退出#245、原exec退出0并确认零主进程后串行安装，ASAR`4f0e57da4d636fbf53121c1d7ffe7dcfac1ec31381b1412b1ef566029327f0b5`。安装版再次点击同一模板编排保存，明确显示“已保存本地草稿”；重开精确实例参数页仍为B、原固定值及来源说明。只核对未修改编排的保存，不将其扩大为所有图修改或恶意绑定变更的负向验收。
+
+最终只读计数与更新前一致：7flow/8run/1schedule/1trigger/1artifact/2template-instance/1template-package；唯一主PID20992。回执`counts-final.json`、`comparison-install-receipt.json`与实际截图`template-entry-final.png`保存在`/private/tmp/flowark-parameter-roundtrip-20261013/`。截图保存首次审批超时，允许的一次重试成功；不是权限拒绝或界面功能失败。带资源模板的设置入口、多入口复杂Schema与并发仍待独立核对。上述PR均保留原IDE本地改动，未新增/运行单元、集成或smoke套件，186整板与后续Agent/BOSS闭环状态不变。
+
 ## 2026-10-13 #243 来源说明安装与配置入口缺口
 
 客户端[#243](https://github.com/zhongmiao-org/flow-ark-client/pull/243)已自动合并为`8ce69c81ea5edb85dbf4cd94b6209d4960c6ab71`，源码`89ea8ffe89faa944c760b88647701e9188c89f71`；类型、构建、指定文件格式及diff检查通过，最新Validate运行`38340517382`成功。正常退出旧PID96612、原exec退出0且零主进程后备份/替换，使用原隔离资料启动唯一PID13938。安装ASAR为`d916616f6849fc8fd55256b15e39946d8918c1cec30a311bf6005f45a1853cf5`，本地回执及旧应用备份在`/private/tmp/flowark-parameter-roundtrip-20261013/`。
