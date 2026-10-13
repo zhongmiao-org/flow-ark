@@ -1,0 +1,578 @@
+{
+  "version": "2026-10-13",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "status": "design-target-not-client-implementation",
+  "antdInstalled": "6.6.5",
+  "collections": {
+    "light": "VariableCollectionId:1:5",
+    "dark": "VariableCollectionId:136:2"
+  },
+  "tokens": [
+    {
+      "role": "bg/canvas",
+      "css": "--fa-bg-canvas",
+      "light": "#F6F7FB",
+      "dark": "#0F141F",
+      "antDesign": "colorBgLayout",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "bg/surface",
+      "css": "--fa-bg-surface",
+      "light": "#FFFFFF",
+      "dark": "#172033",
+      "antDesign": "colorBgContainer",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "bg/subtle",
+      "css": "--fa-bg-subtle",
+      "light": "#EFF2F7",
+      "dark": "#202B40",
+      "antDesign": "colorFillQuaternary",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "bg/nav",
+      "css": "--fa-bg-nav",
+      "light": "#121A2A",
+      "dark": "#0B1220",
+      "antDesign": "Menu.darkItemBg / 导航 CSS",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "text/primary",
+      "css": "--fa-text-primary",
+      "light": "#172033",
+      "dark": "#E9EDF5",
+      "antDesign": "colorText",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "text/secondary",
+      "css": "--fa-text-secondary",
+      "light": "#637089",
+      "dark": "#A8B4CA",
+      "antDesign": "colorTextSecondary / colorTextPlaceholder",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "text/inverse",
+      "css": "--fa-text-inverse",
+      "light": "#FFFFFF",
+      "dark": "#FFFFFF",
+      "antDesign": "colorTextLightSolid",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "text/nav",
+      "css": "--fa-text-nav",
+      "light": "#A8B4CA",
+      "dark": "#A8B4CA",
+      "antDesign": "Menu.darkItemColor",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "border/default",
+      "css": "--fa-border-default",
+      "light": "#DFE4ED",
+      "dark": "#344057",
+      "antDesign": "colorBorderSecondary（卡片 / 分隔）",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "action/primary",
+      "css": "--fa-action-primary",
+      "light": "#315EF5",
+      "dark": "#2D53D3",
+      "antDesign": "colorPrimary（解析后的 Alias）",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "action/hover",
+      "css": "--fa-action-hover",
+      "light": "#244BDC",
+      "dark": "#3C64DF",
+      "antDesign": "colorPrimaryHover",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "action/subtle",
+      "css": "--fa-action-subtle",
+      "light": "#EDF2FF",
+      "dark": "#1D2A58",
+      "antDesign": "colorPrimaryBg",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/success",
+      "css": "--fa-status-success",
+      "light": "#147D61",
+      "dark": "#52B68D",
+      "antDesign": "colorSuccessText",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/success-bg",
+      "css": "--fa-status-success-bg",
+      "light": "#E8F6EF",
+      "dark": "#14392F",
+      "antDesign": "colorSuccessBg",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/warning",
+      "css": "--fa-status-warning",
+      "light": "#946200",
+      "dark": "#D8A93C",
+      "antDesign": "colorWarningText",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/warning-bg",
+      "css": "--fa-status-warning-bg",
+      "light": "#FFF5DB",
+      "dark": "#3A2E16",
+      "antDesign": "colorWarningBg",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/error",
+      "css": "--fa-status-error",
+      "light": "#B83B48",
+      "dark": "#E87986",
+      "antDesign": "colorErrorText",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/error-bg",
+      "css": "--fa-status-error-bg",
+      "light": "#FDEDF0",
+      "dark": "#44232C",
+      "antDesign": "colorErrorBg",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "action/disabled",
+      "css": "--fa-action-disabled",
+      "light": "#B9C3D3",
+      "dark": "#6B7890",
+      "antDesign": "colorTextDisabled",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "bg/elevated",
+      "css": "--fa-bg-elevated",
+      "light": "#FFFFFF",
+      "dark": "#202B40",
+      "antDesign": "colorBgElevated",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "text/link",
+      "css": "--fa-text-link",
+      "light": "#315EF5",
+      "dark": "#8EA8FF",
+      "antDesign": "colorLink / colorLinkHover",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "border/control",
+      "css": "--fa-border-control",
+      "light": "#8390A6",
+      "dark": "#74839C",
+      "antDesign": "colorBorder（输入边界）",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "action/active",
+      "css": "--fa-action-active",
+      "light": "#1F42CF",
+      "dark": "#2744A6",
+      "antDesign": "colorPrimaryActive",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "action/focus",
+      "css": "--fa-action-focus",
+      "light": "#315EF5",
+      "dark": "#8EA8FF",
+      "antDesign": "Input.activeBorderColor / Select.activeBorderColor / controlOutline",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/info",
+      "css": "--fa-status-info",
+      "light": "#315EF5",
+      "dark": "#8EA8FF",
+      "antDesign": "colorInfoText",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/info-bg",
+      "css": "--fa-status-info-bg",
+      "light": "#EDF2FF",
+      "dark": "#1D2A58",
+      "antDesign": "colorInfoBg",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "bg/mask",
+      "css": "--fa-bg-mask",
+      "light": "rgba(18,26,42,0.42)",
+      "dark": "rgba(0,0,0,0.60)",
+      "antDesign": "colorBgMask",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/success-solid",
+      "css": "--fa-status-success-solid",
+      "light": "#147D61",
+      "dark": "#146D55",
+      "antDesign": "自有白字状态底",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/warning-solid",
+      "css": "--fa-status-warning-solid",
+      "light": "#946200",
+      "dark": "#815603",
+      "antDesign": "自有白字状态底",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "status/error-solid",
+      "css": "--fa-status-error-solid",
+      "light": "#B83B48",
+      "dark": "#9F3540",
+      "antDesign": "自有白字状态底",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "action/danger",
+      "css": "--fa-action-danger",
+      "light": "#B83B48",
+      "dark": "#9F3540",
+      "antDesign": "Button.colorError + dangerColor 反白",
+      "source": "FlowArk 语义目标"
+    },
+    {
+      "role": "chart/category/01",
+      "css": "--fa-chart-category-01",
+      "light": "#5B8FF9",
+      "dark": "#5B8FF9",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/02",
+      "css": "--fa-chart-category-02",
+      "light": "#61DDAA",
+      "dark": "#61DDAA",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/03",
+      "css": "--fa-chart-category-03",
+      "light": "#65789B",
+      "dark": "#65789B",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/04",
+      "css": "--fa-chart-category-04",
+      "light": "#F6BD16",
+      "dark": "#F6BD16",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/05",
+      "css": "--fa-chart-category-05",
+      "light": "#7262FD",
+      "dark": "#7262FD",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/06",
+      "css": "--fa-chart-category-06",
+      "light": "#78D3F8",
+      "dark": "#78D3F8",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/07",
+      "css": "--fa-chart-category-07",
+      "light": "#9661BC",
+      "dark": "#9661BC",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/08",
+      "css": "--fa-chart-category-08",
+      "light": "#F6903D",
+      "dark": "#F6903D",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/09",
+      "css": "--fa-chart-category-09",
+      "light": "#008685",
+      "dark": "#008685",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/category/10",
+      "css": "--fa-chart-category-10",
+      "light": "#F08BB4",
+      "dark": "#F08BB4",
+      "antDesign": "图表专用色板",
+      "source": "AntV 基础 10 色"
+    },
+    {
+      "role": "chart/sequential/1",
+      "css": "--fa-chart-sequential-1",
+      "light": "#B8E1FF",
+      "dark": "#1D2A58",
+      "antDesign": "图表专用色板",
+      "source": "AntV Geek Blue 选色 / FlowArk Dark 适配"
+    },
+    {
+      "role": "chart/sequential/2",
+      "css": "--fa-chart-sequential-2",
+      "light": "#7DAAFF",
+      "dark": "#2D53D3",
+      "antDesign": "图表专用色板",
+      "source": "AntV Geek Blue 选色 / FlowArk Dark 适配"
+    },
+    {
+      "role": "chart/sequential/3",
+      "css": "--fa-chart-sequential-3",
+      "light": "#5B8FF9",
+      "dark": "#5B8FF9",
+      "antDesign": "图表专用色板",
+      "source": "AntV Geek Blue 选色 / FlowArk Dark 适配"
+    },
+    {
+      "role": "chart/sequential/4",
+      "css": "--fa-chart-sequential-4",
+      "light": "#085EC0",
+      "dark": "#9AC5FF",
+      "antDesign": "图表专用色板",
+      "source": "AntV Geek Blue 选色 / FlowArk Dark 适配"
+    },
+    {
+      "role": "chart/sequential/5",
+      "css": "--fa-chart-sequential-5",
+      "light": "#0047A5",
+      "dark": "#B8E1FF",
+      "antDesign": "图表专用色板",
+      "source": "AntV Geek Blue 选色 / FlowArk Dark 适配"
+    }
+  ],
+  "contrast": [
+    {
+      "mode": "Light",
+      "fg": "text/primary",
+      "bg": "bg/surface",
+      "ratio": 16.27,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "text/secondary",
+      "bg": "bg/surface",
+      "ratio": 4.99,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "text/link",
+      "bg": "bg/surface",
+      "ratio": 5.18,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "status/success",
+      "bg": "status/success-bg",
+      "ratio": 4.56,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "status/warning",
+      "bg": "status/warning-bg",
+      "ratio": 4.83,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "status/error",
+      "bg": "status/error-bg",
+      "ratio": 4.94,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "text/inverse",
+      "bg": "action/primary",
+      "ratio": 5.18,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "text/inverse",
+      "bg": "action/hover",
+      "ratio": 6.74,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "text/inverse",
+      "bg": "action/danger",
+      "ratio": 5.59,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "text/inverse",
+      "bg": "status/success-solid",
+      "ratio": 5.08,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "text/inverse",
+      "bg": "status/warning-solid",
+      "ratio": 5.24,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "text/inverse",
+      "bg": "status/error-solid",
+      "ratio": 5.59,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Light",
+      "fg": "border/control",
+      "bg": "bg/surface",
+      "ratio": 3.23,
+      "minimum": 3
+    },
+    {
+      "mode": "Light",
+      "fg": "action/focus",
+      "bg": "bg/surface",
+      "ratio": 5.18,
+      "minimum": 3
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/primary",
+      "bg": "bg/surface",
+      "ratio": 13.86,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/secondary",
+      "bg": "bg/surface",
+      "ratio": 7.78,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/link",
+      "bg": "bg/surface",
+      "ratio": 7.12,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "status/success",
+      "bg": "status/success-bg",
+      "ratio": 5.09,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "status/warning",
+      "bg": "status/warning-bg",
+      "ratio": 6.11,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "status/error",
+      "bg": "status/error-bg",
+      "ratio": 4.93,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/inverse",
+      "bg": "action/primary",
+      "ratio": 6.38,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/inverse",
+      "bg": "action/hover",
+      "ratio": 5.15,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/inverse",
+      "bg": "action/danger",
+      "ratio": 6.87,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/inverse",
+      "bg": "status/success-solid",
+      "ratio": 6.27,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/inverse",
+      "bg": "status/warning-solid",
+      "ratio": 6.43,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "text/inverse",
+      "bg": "status/error-solid",
+      "ratio": 6.87,
+      "minimum": 4.5
+    },
+    {
+      "mode": "Dark",
+      "fg": "border/control",
+      "bg": "bg/surface",
+      "ratio": 4.24,
+      "minimum": 3
+    },
+    {
+      "mode": "Dark",
+      "fg": "action/focus",
+      "bg": "bg/surface",
+      "ratio": 7.12,
+      "minimum": 3
+    }
+  ]
+}

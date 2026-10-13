@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-13",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "originalCount": 186,
+  "originalPresent": 186,
+  "pairCount": 227,
+  "missing": [],
+  "imageNodes": [],
+  "fontFamilies": [
+    "Noto Sans SC",
+    "Inter"
+  ],
+  "reactionCount": 6074,
+  "visibleReactionCount": 5354,
+  "variableCount": 146,
+  "tokenMismatches": [],
+  "productBoardFrames": 456,
+  "visibleBoards": 454,
+  "badTargets": [],
+  "hiddenTargets": [],
+  "selfTargets": [],
+  "extraAppearanceStates": [
+    "178:8062",
+    "178:8234"
+  ],
+  "foundations": [
+    {
+      "id": "177:2",
+      "mode": "Light",
+      "width": 1440,
+      "height": 2350
+    },
+    {
+      "id": "177:201",
+      "mode": "Dark",
+      "width": 1440,
+      "height": 2350
+    }
+  ],
+  "visualSampleIds": [
+    "145:2378",
+    "162:3876",
+    "167:7949",
+    "162:11570",
+    "162:11258",
+    "162:11990",
+    "162:13002",
+    "177:2",
+    "177:201",
+    "178:8234"
+  ],
+  "scope": "structure-and-representative-visual-checks",
+  "excluded": "complete-186-board-visual-UE-and-runtime-acceptance"
+}
