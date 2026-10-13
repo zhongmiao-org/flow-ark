@@ -1,5 +1,19 @@
 # 开发预览验收记录
 
+## 2026-10-13 带文件资源的设置入口往返
+
+复用原隔离资料，原生导入独立模板仓库已有file-inspector 1.0.0并创建实例`499fb643-647c-49f1-ae8a-e0dee4e04a11`，名称“资源入口核对 · 20261013”。ZIP SHA256为`f6d49261d7565f76407dc5a5ff9c2434768a8f2133681731d205227d4f34ba2d`，包摘要`77624f9ebd4cf347a57c557a8e7418609b414be511186156053baae496b9c660`；一个只读文件资源source、一个inspect入口。安装/打开表单未执行包内脚本。未绑定时设置已有资源条目，模板入口明确缺少输入文本，运行/调试/计划禁用；文件选择器取消后仍未绑定，最终焦点回选择按钮。
+
+旧#246的设置“配置资源”先打开操作入口，多一次分类跳转。治理[#709](https://github.com/zhongmiao-org/flow-ark/pull/709)先明确归属，客户端[#247](https://github.com/zhongmiao-org/flow-ark-client/pull/247)保留精确实例/入口，按来源选择初始分类：设置直接资源页、编排仍入口输入。源`e6ed5d2ef63784dbe6f97377a75b66b85c303862`，最新CI`38351597320`成功并合并`f2a8133c499653187b8f3ec3fd215467d277e782`；类型、构建、指定格式和diff通过。旧实例菜单正常退出且原exec退出0，零主进程后备份串行安装，ASAR`7eeed295aa27e19336b86b7e9ea3b4fd6d5fe12599c0e8e3cfc11234bcbbd216`。原生从设置直接进入同一实例的资源分类，真实截图`settings-resource-direct.png`已保存。
+
+通过原生选择器仅选择本轮新建的虚构文件`/private/tmp/flowark-resource-routing-20261013/fictional-resource.txt`；选择后提示资源修改未保存。返回弹出三选保护，继续编辑保留路径并回返回按钮；再次返回选择保存并离开，设置回读路径且聚焦原实例配置按钮。重开资源页路径保留；清除绑定后返回并明确不保存，设置仍显示原绑定且恢复原按钮焦点。一次操作被工具提示用户切换而中止，重新取得窗口后才明确放弃，未把中止动作算成功。只保存绑定，不执行模板脚本或读取/写入用户文件，不启用计划。
+
+绑定保存暴露清单重复显示：同一source同时列为目录和文件。原因是模板逻辑资源与bindings.files内部映射同时进入列表。治理[#710](https://github.com/zhongmiao-org/flow-ark/pull/710)限定只过滤声明可确认且同名同路径的映射；客户端[#248](https://github.com/zhongmiao-org/flow-ark-client/pull/248)仅过滤这种内部投影，源`5186eaaa4d56fe1b82920a73ce96ae844e2b1088`，最新CI`38352597435`成功并合并`68f1e6273f8f0d16d694be596ee0140f7ed21329`；类型、构建、指定格式及diff通过。#247再次菜单正常退出、exec退出0且零主进程后串行安装，ASAR`e83b822b6cabdf774e4d4d817bb6e47e33931e91e9dba893c94f439c20235e70`。原生重启后设置只显示一条source文件/声明读取及原虚构路径，原普通task_output目录仍独立显示，清单合计2项；真实截图`resource-inventory-final.png`已保存。
+
+最终只读计数与两次更新前一致：8flow/8run/1schedule/1trigger/1artifact/3template-instance/2template-package，唯一主PID27812。新增仅一个模板包、一个实例及其流程/空状态，没有新Run或触发。安装回执、两次应用备份、截图和`counts-final.json`位于`/private/tmp/flowark-resource-routing-20261013/`；未将资料、路径文件或凭据提交Git。该证据补齐单文件模板的设置直达、原生选择/取消、资源草稿三选、保存/重开及正常退出重启；多资源类型、跨入口/复杂Schema及并发仍待核对。
+
+Figma资源板2:1083的新上下文请求仍被Starter MCP额度拒绝，本轮只修复已有页面导航/展示逻辑，不声明新的实时视觉对齐。旧窗口出现控件树/截图滞后与elementHasNoFrame时重新取得窗口或使用应用已有返回入口，未另开实例。未新增/运行单元、集成或smoke套件；多入口复杂Schema、并发、完整186整板及Agent/BOSS闭环保持待完成。
+
 ## 2026-10-13 模板参数入口归属与返回焦点
 
 客户端[#244](https://github.com/zhongmiao-org/flow-ark-client/pull/244)最新CI`38341854848`的Validate/Auto Merge成功，已合并`5cb794f223c7fe6aca2fad10b901e3d32d3efb85`；#243正常退出后以零主进程门槛串行备份/安装，ASAR`658e75a7f44ed10b6f06998061136f2fdd7fbf1aba3ea99d45d50fa355509939`。原生从模板甲编排工具栏进入精确实例`57d2930c`的run入口，修改sourceText为“往返甲 · 配置回读E”，返回触发实例三选守卫，保存并离开回原编排；侧栏参数入口再开读到E，没有进入普通参数表单。实例侧栏直接转本地设置正常，无误跳回编排。
