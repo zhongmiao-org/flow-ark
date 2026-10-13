@@ -1,5 +1,13 @@
 # 开发预览验收记录
 
+## 2026-10-13 #243 来源说明安装与配置入口缺口
+
+客户端[#243](https://github.com/zhongmiao-org/flow-ark-client/pull/243)已自动合并为`8ce69c81ea5edb85dbf4cd94b6209d4960c6ab71`，源码`89ea8ffe89faa944c760b88647701e9188c89f71`；类型、构建、指定文件格式及diff检查通过，最新Validate运行`38340517382`成功。正常退出旧PID96612、原exec退出0且零主进程后备份/替换，使用原隔离资料启动唯一PID13938。安装ASAR为`d916616f6849fc8fd55256b15e39946d8918c1cec30a311bf6005f45a1853cf5`，本地回执及旧应用备份在`/private/tmp/flowark-parameter-roundtrip-20261013/`。
+
+重开后模板仍为1包/2实例，甲参数B和固定值保留，入口及详情的现有说明区显示title←params.sourceText。原生截图`source-help-native.png`实际保存，文字与输入无重叠。临时草稿D经详情返回、离开继续编辑后保留且回输入焦点；不保存离开、重开后恢复B。原流程参数页回读仍为“原生保存核对 · PR237”、固定值“固定值应继续保留”及params.sourceText。旧分钟计划重启前原生回读为暂停、无下次执行、固定版本`ce07e35193d1585e60484aca94f17579bedc36f5870dea9071da811eb5e813fe`，未保存或启用。重开前后只读计数一致：7flow/8run/1schedule/1trigger/1artifact/2template-instance/1template-package，无额外执行。
+
+继续从“我的流程”进入模板甲编排后，发现工具栏参数入口错误打开普通参数页，提供参数改名、删除、来源编辑和本机绑定。源码确认该页仅识别历史flow-parameters-v1，现有template-instance-v1未路由至绑定实例；没有在错误页保存或修改。该缺口尚未修复，不计各配置入口全部往返通过；边界已补入[实例编辑](template-instance-editing.md)，继续优先处理。未新增/运行单元、集成或smoke套件，186整板状态不变。
+
 ## 2026-10-13 参数 ZIP 往返与活动版本隔离
 
 复用#242唯一安装实例和原隔离资料，经原生界面把“参数来源 · 原生核对 PR237”导出为ZIP，系统保存对话框落盘后，再从导入文件选择器选回同一文件。摘要检查通过、明确安装成功，随后创建两个独立实例。ZIP保存在`/private/tmp/flowark-parameter-roundtrip-20261013/`，SHA256为`d5ffe944055e672ad1f6445726e3bc139127ebe1a60b9af2ca12ee3e53ced5a3`；只读检查确认sourceText/title均为空文本，title来源仍为params.sourceText，只有单步value、零资源及动作声明。未运行脚本、网页、AI或文件写入节点。
