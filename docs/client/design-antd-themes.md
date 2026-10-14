@@ -1,24 +1,26 @@
-# Ant Design 双主题与参数闭环设计
+# Ant Design 单套主题与交互闭环设计
 
-2026-10-13。本轮更新原 Figma 文件及治理说明，不修改客户端代码。Ark 65 的 Education 席位已由 View 调整为 Full；连接器重新查询得到 Full，原文件的临时 16×16 空画板经创建、读取、移除完成实际写入验证，未保留测试内容。
+2026-10-14。本轮更新原 Figma 文件及治理说明，不修改客户端代码。Ark 65 的 Education 席位已由 View 调整为 Full；连接器重新查询得到 Full，原文件的临时 16×16 空画板经创建、读取、移除完成实际写入验证，未保留测试内容。
 
 ## 设计入口与采用顺序
 
-- 参数与来源：[Light 145:2378](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=145-2378)、[Dark 162:3876](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-3876)。
-- 配色和实施说明：[Light 177:2](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=177-2)、[Dark 177:201](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=177-201)。
-- [完整双主题画板对照](design-theme-board-map.md)、[机器可读色值](design-antd-tokens.json)、[本轮结构核对](design-antd-audit.json)。
+- 参数与来源：[原 018 · 同一画板切换主题](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398)。
+- 配色和实施说明：[同一说明稿切换主题](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=177-2)；外观偏好 [149:4362](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362)。
+- [单套主题画板索引](design-theme-board-map.md)、[机器可读色值](design-antd-tokens.json)、[本轮结构核对](design-antd-audit.json)。
 
 继续采用“雾白工作区、石墨导航、电光蓝主要操作”，品牌主色保持 #315EF5。参考用户指定的 [Ant Design 色彩规范](https://ant.design/docs/spec/colors-cn#data-visualization-color-palette)：产品色彩按品牌、功能和中性颜色组织，图表另用数据可视化色板。该页的旧 AntV 跳转缺少语言路径，本轮使用有效的 [AntV 色板规范](https://antv.antgroup.com/zh/specification/language/palette/)。
 
-设计先行：参数主入口由旧 2:1398 修订为 145:2378，旧画板和资源入口保留追溯，原有指向参数页的 11 处跳转更新；083 / 087 保留原节点并修正为其他流程参数候选。先实施参数状态及基础控件，再迁移全局双主题，逐板 UI / UE / 功能验收仍按 [186 项索引](design-board-coverage.md)推进。
+设计先行：新版参数内容已并入原 `2:1398`，重跑核对已并入原 `2:3014`，原 186 个节点 ID 保持。083 / 087 的参数候选、数字来源确认及保存回显已补齐；后续客户端实施应采用这些原节点及共享语义变量。设计复核见 [186 项记录](design-board-review-20261014.md)，真实产品验收仍按 [原索引](design-board-coverage.md)推进。
 
 ## 外观偏好与保存
 
-默认 `system`，手动选项为 `light` / `dark`，仅本机偏好。使用系统有效外观解析当前主题；system 响应系统变化，手动选择维持用户偏好。启动时先读取偏好及有效主题再绘制，避免闪烁。三种偏好与两种系统外观的六种有效组合见画板对照中的专门表，原型切换保留当前系统上下文。
+默认 `system`，手动选项为 `light` / `dark`，仅本机偏好。使用系统有效外观解析当前主题；system 响应系统变化，手动选择维持用户偏好。启动时先读取偏好及有效主题再绘制，避免闪烁。三个偏好在同一外观页表达，原型浅色 / 深色按钮直接设置变量模式，并用变量保存选中按钮状态和说明。跟随系统用浅色系统示例表达；真实操作系统监听由客户端实现。
 
 切换仅更新外观，保留参数原始草稿、未完成文本、入口选择、焦点、选区、滚动和活动 Run，不触发保存流程或运行。应用页面、浮层、通知、工具提示、表格、滚动条、代码编辑器和网页宿主边界均需适配。网页内容自身遵循站点；本地深色偏好不改写站点 CSS。偏好读写失败保留当前有效外观，并提示显式重试；这项运行行为仍需客户端实施取证。
 
-按已有约定在同一个文件维护两套语义集合，保留 Light 变量 ID；Dark 采用同名变量，间距 / 圆角引用共享值。当前总计 146 个变量：18 个原始色值，加两组各 46 个颜色与 18 个间距 / 圆角。全局 Dark 稿从原生节点投影，未以图片替代可编辑设计。
+按本轮用户调整，合并为一个 Semantic 集合、两种模式、64 个变量（46 个界面 / 图表颜色、11 个间距、7 个圆角）。保留原 Light 变量 ID，新增 Dark mode `199:0`；Light 原有 18 个基础颜色别名继续解析到共享 Primitives。Dark 模式值集中维护在同一变量。旧 Dark 集合仅保留 64 个隐藏归档别名，活动产品颜色检查只引用 Semantic 集合。另有 18 个共享 Primitives，以及独立隐藏的 Prototype 状态变量；Prototype 不是第二套主题。原生节点和文字保留。
+
+**切换方式**：编辑器选中页面 / 画板，设置 `FlowArk / Semantic` 的 Light 或 Dark 模式，子节点自动继承；原型在 [外观页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362)点击浅色 / 深色。仅网页自身示例固定浅色，以表达站点外观不跟随应用。依据 [Figma 变量模式](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables)和 [原型模式切换](https://help.figma.com/hc/en-us/articles/15253268379799-Variable-modes-in-prototypes)。
 
 ## 已解析的界面颜色
 
@@ -62,9 +64,9 @@
 
 `border/default` 服务于卡片和分隔；输入 / 选择的可辨边界消费 `border/control`。Input / Select 的 activeBorderColor 和 hoverBorderColor 单独核对。Button 危险实心底消费 `action/danger`，dangerColor 为反白；提示错误文字仍消费 `status/error`。导航选中项的文字和图标都反白。不能把深色成功、警告、错误的明亮文字色直接作为白字实心标签底色。
 
-正文 14/22，操作高度 40 px，控件 / 卡片 / 浮层圆角 8 / 12 / 16 px；中文 Noto Sans SC，英文和数字 Inter。复用 Button、Field、Status，并补 AntInput、AntSelect、AntCheckbox、AntAlert 和组合 ParameterRow；Light / Dark 各 8 组、36 个变体。ParameterRow 的“固定值类型”与来源的有效类型区分；名称、值、提示用组件属性覆盖，不为每个参数创建基础组件。
+正文 14/22，操作高度 40 px，控件 / 卡片 / 浮层圆角 8 / 12 / 16 px；中文 Noto Sans SC，英文和数字 Inter。复用 Button、Field、Status，并补 AntInput、AntSelect、AntCheckbox、AntAlert 和组合 ParameterRow；单套 8 组、36 个变体，共用 Light / Dark 模式。ParameterRow 的“固定值类型”与来源的有效类型区分；名称、值、提示用组件属性覆盖，不为每个参数创建基础组件。
 
-本轮计算了 28 组界面文字与控件对比度：普通文字目标 4.5:1，控件边界 / 焦点目标 3:1，列出的组合均达到目标。Dark 成功提示已调整为 #52B68D；危险 / 实心状态采用独立底色。这只证明列出的目标值组合，不代表所有历史画板、透明叠加、禁用状态和图表都已通过无障碍验收。
+2026-10-13 配色校验计算了 28 组界面文字与控件对比度：普通文字目标 4.5:1，控件边界 / 焦点目标 3:1，列出的组合均达到目标。Dark 成功提示已调整为 #52B68D；危险 / 实心状态采用独立底色。这只证明列出的目标值组合，不代表所有历史画板、透明叠加、禁用状态和图表都已通过无障碍验收。
 
 ## 数据可视化配色
 
@@ -115,8 +117,12 @@
 
 ## 本轮证据与后续验收
 
-原 186 个索引节点均在线存在，全部有 Dark 对照；另补 41 组参数 / 外观 / 重跑修订稿（包含两个隐藏的外观母版），再补 2 张有效外观组合稿。共 227 组结构对照、456 张产品页 FRAME（含原 40 项 SECTION 辅助状态），其中 2 张母版隐藏；设计系统另有 2 张配色说明稿。
+原 186 个索引节点全部保留且可见，已逐张导出按画板比例截图（最长边 1440 px）并查看，读取按钮、字段、状态文本与原型去向。首轮 Light 看图覆盖 186 张；同节点 Dark 人工复看覆盖参数、重跑、移除确认、Excel、脚本、MCP 六项及配色说明。不是 186 张 Dark 的逐像素或无障碍完整验收。
 
-结构检查发现零 IMAGE 填充，文本字体为 Noto Sans SC / Inter；可见原型节点没有缺失、隐藏目标或 NAVIGATE 自跳转。人工看图覆盖主参数 Light / Dark、紧凑来源详情、未完成类型输入、保存离开失败、重跑核对、排队详情和 Dark 配色说明；修正了 Dark 组件替换后值覆盖丢失、紧凑导航裁切、选中导航对比度及详情当前页按钮。
+本轮修订包括 410 个单行控件复用、危险按钮反白、参数数字来源保存、数组集合候选、输出引用只读、安装 / 人工核对复选门槛、暂停 / 取消 / 恢复 / 单步结果、条件不成立零产物、清理后的列表、已有计划精确编辑、创建计划初始暂停、模板 / 实例身份与资源浮层、Excel 第五映射、脚本签名与结构预览、连接测试与重试、撤销采纳确认和分页加载。共享显示网页改用保留来源页的观察浮层。产品画板中的模拟结果按钮移至外部审稿导航。
 
-其余原 186 稿是结构 / 变量投影，未逐张完成最终视觉与 UE 核对。原型按固定示例切换画板，不模拟任意文字输入、真实保存、系统事件或 Worker。客户端代码、安装包、运行和业务验收未因本次设计更新而通过；完整逐板状态保持原索引记录。当前阶段不新增 / 运行单元测试。
+最终结构及色值结果见 [审计 JSON](design-antd-audit.json)：原节点没有缺失，可见原型没有缺失 / 隐藏 / 自导航 / 内层画板目标，零 IMAGE 填充，Noto Sans SC / Inter；解析基础别名后，46 个颜色的 Light / Dark 值与 token 清单一致。未绑定的三个色值仅为 macOS 红黄绿窗口控制标记，保持平台外观。
+
+逐板修订和本轮新增节点见 [设计复核](design-board-review-20261014.md)及 [单套画板索引](design-theme-board-map.md)。隐藏归档不作为开发入口。状态目录、配置规格和外部审稿导航是设计资料，不能把规格目录当成产品同时展示的编辑器。
+
+原型采用固定的输入、文件绑定和服务响应示例；本轮读取 / 配置原型连线，没有逐项在交互预览实际点击，也没有执行任意文字输入、真实保存、OS 事件、API、浏览器、Worker、脚本或工作簿操作。单行 Default → Focus 的组件反应、复选门槛及变量模式已配置；键盘、焦点、读屏及异步服务行为需在客户端单独核对。设计稿、客户端代码、安装包和真实业务验收分别记录；原索引的产品验收状态保持不变。当前阶段不新增 / 运行单元测试。

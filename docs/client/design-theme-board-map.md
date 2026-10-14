@@ -1,264 +1,302 @@
-# Light / Dark 画板对照
+# 单套主题画板索引
 
-2026-10-13。原文件 sVciNUZHG9yx81gCpYzjH9 的在线结构对照；配色与参数规定见 [Ant Design 双主题规范](design-antd-themes.md)。此表只表示节点、主题投影和修订去向，**不是客户端实现或整板验收通过表**。原 [186 项逐板状态](design-board-coverage.md)保持独立。
+2026-10-14。原文件保留一套原生画板与组件，`FlowArk / Semantic`（`VariableCollectionId:1:5`）含 Light `1:1` / Dark `199:0` 两个模式。切换同一节点的模式即可改变外观；旧深色副本隐藏归档。
+
+参数主入口 [2:1398](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398)，重跑 [2:3014](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014)，外观 [149:4362](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362)，配色说明 [177:2](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=177-2)。Figma 编辑器选中页面或画板后选择变量模式；原型外观页的浅色 / 深色按钮使用 `SET_VARIABLE_MODE`。没有第二套 Dark 开发入口。
 
 ## 原 186 项
 
-原节点保留，146 个顶层画板与 40 个 SECTION 辅助状态均在线核对。参数旧页 2:1398 保留，当前实施改用 145:2378；原索引编号不因新增状态改变。
+编号与节点保持。Light / Dark 共用下列同一节点，详细设计复核见 [逐板记录](design-board-review-20261014.md)；客户端验收仍见 [原索引](design-board-coverage.md)。
 
-| 原画板 | Light 节点 | Dark 节点 | 设计尺寸 |
-| --- | --- | --- | --- |
-| 我的流程 | [1:198](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-198) | [164:5374](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-5374) | 1440 × 960 |
-| 流程编排 | [1:394](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-394) | [164:5592](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-5592) | 1920 × 1080 |
-| 网页操作与拾取 | [1:2229](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-2229) | [164:5777](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-5777) | 1920 × 1080 |
-| 模板库 | [1:3125](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3125) | [164:5965](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-5965) | 1440 × 960 |
-| 导入模板 | [1:3256](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | [164:6104](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-6104) | 1440 × 1080 |
-| 运行记录 | [1:3376](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3376) | [164:6223](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-6223) | 1440 × 960 |
-| 运行详情 | [1:3539](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3539) | [164:6414](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-6414) | 1440 × 960 |
-| 本机计划 | [1:3673](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | [164:6570](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-6570) | 1440 × 1080 |
-| 待办与提醒 | [1:3794](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3794) | [164:6723](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-6723) | 1440 × 960 |
-| 本地设置 | [1:3896](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3896) | [164:6838](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-6838) | 1440 × 960 |
-| 首次使用 | [1:4023](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-4023) | [164:6977](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-6977) | 1440 × 960 |
-| 安装完成 | [2:812](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-812) | [164:7070](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-7070) | 1440 × 1080 |
-| 实例列表 | [2:892](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-892) | [164:7163](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-7163) | 1440 × 1080 |
-| 模板实例 | [2:973](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973) | [164:7256](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-7256) | 1440 × 1080 |
-| 资源与动作授权 | [2:1083](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | [164:7394](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-7394) | 1440 × 1080 |
-| 入口输入与执行 | [2:1199](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1199) | [164:7535](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-7535) | 1440 × 1080 |
-| 只读入口 | [2:1314](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1314) | [164:7680](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-7680) | 1440 × 1080 |
-| 流程参数与资源 | [2:1398](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398) | [164:7787](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-7787) | 1440 × 1080 |
-| 变量选择 | [2:1545](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1545) | [164:7955](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-7955) | 1440 × 1080 |
-| 步骤编辑与位置 | [2:1650](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1650) | [164:8081](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-8081) | 1440 × 1080 |
-| 条件与串行循环 | [2:1758](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1758) | [164:8211](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-8211) | 1920 × 1080 |
-| 网页动作配置 | [2:1866](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1866) | [164:8334](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-8334) | 1440 × 1080 |
-| HTTP文件与表格配置 | [2:2033](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2033) | [164:8519](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-8519) | 1440 × 1080 |
-| 流程控制配置 | [2:2200](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2200) | [164:8704](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-8704) | 1440 × 1080 |
-| 脚本与依赖配置 | [2:2367](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2367) | [164:8889](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-8889) | 1440 × 1080 |
-| 逐步调试 | [2:2534](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2534) | [164:9074](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-9074) | 1440 × 1080 |
-| 输出与运行产物 | [2:2640](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2640) | [164:9207](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-9207) | 1440 × 1080 |
-| 日志与步骤输出 | [2:2744](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2744) | [164:9331](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-9331) | 1440 × 1080 |
-| 人工确认与输入 | [2:2911](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2911) | [164:9516](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-9516) | 1440 × 1080 |
-| 核对后重新运行 | [2:3014](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014) | [164:9638](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-9638) | 1440 × 1080 |
-| AI 服务配置 | [2:3118](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3118) | [164:9758](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-9758) | 1440 × 1080 |
-| 凭据与本机资源 | [2:3227](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3227) | [164:9897](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-9897) | 1440 × 1080 |
-| 本机浏览器绑定 | [2:3333](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3333) | [164:10017](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-10017) | 1440 × 1080 |
-| 创建计划 | [2:3431](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3431) | [164:10140](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-10140) | 1440 × 1080 |
-| 安装校验与版本冲突 | [2:3565](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | [164:10299](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-10299) | 1440 × 1080 |
-| 输入与保存状态 | [2:3672](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | [164:10432](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-10432) | 1440 × 1080 |
-| 保存与离开确认 | [2:3779](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779) | [164:10566](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-10566) | 1440 × 1080 |
-| 运行前检查 | [2:3884](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | [164:10696](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-10696) | 1440 × 1080 |
-| 拾取与会话状态 | [2:3991](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3991) | [164:10829](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-10829) | 1440 × 1080 |
-| 浏览器故障与恢复 | [2:4104](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4104) | [164:10972](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-10972) | 1440 × 1080 |
-| 运行控制状态 | [2:4209](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4209) | [164:11099](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-11099) | 1440 × 1080 |
-| 人工请求与结果核对 | [2:4316](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4316) | [164:11232](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-11232) | 1440 × 1080 |
-| 产物状态与清理 | [2:4421](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | [164:11359](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-11359) | 1440 × 1080 |
-| 计划状态与冲突 | [2:4526](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | [164:11489](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-11489) | 1440 × 1080 |
-| AI连接与输出状态 | [2:4629](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | [164:11613](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-11613) | 1440 × 1080 |
-| 资源与存储异常 | [2:4732](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | [164:11763](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-11763) | 1440 × 1080 |
-| 模板版本与导出 | [2:4837](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | [164:11890](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-11890) | 1440 × 1080 |
-| 导出 ZIP | [2:4940](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | [164:12020](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-12020) | 1440 × 1080 |
-| 退出与运行环境 | [2:5045](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5045) | [164:12150](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-12150) | 1440 × 1080 |
-| 紧凑窗口与网页 | [2:5152](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5152) | [164:12280](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-12280) | 1040 × 700 |
-| 紧凑配置抽屉 | [2:5253](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5253) | [164:12398](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-12398) | 1040 × 700 |
-| P1 操作路径总览 | [2:6948](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-6948) | [164:12525](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-12525) | 1440 × 1080 |
-| 动作授权：每次确认 | [2:7749](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7749) | [164:12686](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-12686) | 1440 × 1080 |
-| 动作授权：自动范围 | [2:7867](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7867) | [164:12827](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-12827) | 1440 × 1080 |
-| 入口输入：自动范围 | [2:7985](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7985) | [164:12968](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-12968) | 1440 × 1080 |
-| 运行记录：第2页 | [2:8100](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8100) | [164:13113](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-13113) | 1440 × 960 |
-| 运行记录筛选 | [2:8270](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | [164:13310](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-13310) | 1440 × 1080 |
-| 模板运行：写入中 | [2:9120](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9120) | [164:13432](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-13432) | 1440 × 960 |
-| 模板运行：结果 | [2:9260](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9260) | [164:13588](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-13588) | 1440 × 1080 |
-| DeepSeek · 未配置 | [4:10378](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10378) | [164:13712](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-13712) | 1440 × 1080 |
-| DeepSeek · 首次填写 | [4:10487](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10487) | [164:13847](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-13847) | 1440 × 1080 |
-| DeepSeek · 替换 Key | [4:10599](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10599) | [164:13986](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-13986) | 1440 × 1080 |
-| DeepSeek · 测试中 | [4:10715](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10715) | [164:14129](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-14129) | 1440 × 1080 |
-| DeepSeek · 已验证 | [4:10835](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10835) | [164:14271](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-14271) | 1440 × 1080 |
-| DeepSeek · 连接失败 | [4:10955](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10955) | [164:14413](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-14413) | 1440 × 1080 |
-| DeepSeek · 移除确认 | [4:11077](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11077) | [164:14558](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-14558) | 1440 × 1080 |
-| 模板 AI 资源配置 | [4:11164](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11164) | [164:14661](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-14661) | 1440 × 1080 |
-| 导航与返回演示 | [8:18364](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18364) | [164:14784](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-14784) | 1440 × 1080 |
-| 模板入口 · 待配置 AI | [8:18463](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18463) | [164:14895](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-14895) | 1440 × 1080 |
-| 模板入口 · AI 已配置 | [8:18569](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18569) | [164:15018](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-15018) | 1440 × 1080 |
-| 流程参数 · 未保存 | [8:18679](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18679) | [164:15145](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-15145) | 1440 × 1080 |
-| DeepSeek · 来自模板配置 | [8:18826](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18826) | [164:15307](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-15307) | 1440 × 1080 |
-| DeepSeek · 返回模板前 | [8:18938](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18938) | [164:15443](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-15443) | 1440 × 1080 |
-| DeepSeek · 模板来源已验证 | [8:19057](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19057) | [164:15580](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-15580) | 1440 × 1080 |
-| 运行详情 · 来源第2页 | [8:19176](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19176) | [164:15717](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-15717) | 1440 × 960 |
-| 返回来源已失效 | [8:19310](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19310) | [164:15876](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-15876) | 1440 × 1080 |
-| 离开确认 · 流程参数 | [8:20277](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20277) | [164:15969](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-15969) | 1440 × 1080 |
-| 离开确认 · 模板 AI | [8:20443](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20443) | [164:16150](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-16150) | 1440 × 1080 |
-| 离开确认 · 首次配置 | [8:20559](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20559) | [164:16305](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-16305) | 1440 × 1080 |
-| 离开确认 · 替换 Key | [8:20678](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20678) | [164:16463](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-16463) | 1440 × 1080 |
-| 保存失败 · 保留参数 | [8:20801](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20801) | [164:16625](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-16625) | 1440 × 1080 |
-| 选择变量 · 来源 网页操作与拾取 | [8:23606](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23606) | [164:16806](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-16806) | 1440 × 1080 |
-| 选择变量 · 来源 流程参数与资源 | [8:23758](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23758) | [164:16935](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-16935) | 1440 × 1080 |
-| 选择变量 · 来源 条件与串行循环 | [8:23910](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23910) | [164:17064](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-17064) | 1440 × 1080 |
-| 选择变量 · 来源 输入与保存状态 | [8:24062](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24062) | [164:17193](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-17193) | 1440 × 1080 |
-| 选择变量 · 来源 紧凑配置抽屉 | [8:24218](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24218) | [164:17325](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-17325) | 1440 × 1080 |
-| 选择变量 · 来源 流程参数 · 未保存 | [8:24374](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24374) | [164:17457](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-17457) | 1440 × 1080 |
-| RUN-0921-018 · 输出与产物 | [8:24539](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | [164:17586](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-17586) | 1440 × 1080 |
-| RUN-0921-018 · 日志与步骤 | [8:24669](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | [164:17713](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-17713) | 1440 × 1080 |
-| AI · 开始任务 | [23:1941](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) | [164:17901](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=164-17901) | 1440 × 1080 |
-| AI · 第一次实操 | [23:2106](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | [165:6540](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-6540) | 1440 × 1080 |
-| AI · 描述与附件 | [23:2280](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2280) | [165:6663](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-6663) | 1440 × 1080 |
-| AI · 选择操作对象 | [23:2440](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2440) | [165:6775](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-6775) | 1440 × 1080 |
-| AI · 应用窗口与能力 | [23:2609](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | [165:6898](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-6898) | 1440 × 1080 |
-| AI · 理解与补问 | [23:2766](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2766) | [165:7005](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7005) | 1440 × 1080 |
-| AI · 确认任务方案 | [23:2928](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2928) | [165:7120](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7120) | 1440 × 1080 |
-| AI · 步骤清单 | [23:3109](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3109) | [165:7257](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7257) | 1440 × 1080 |
-| AI · 同一流程图 | [23:3290](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3290) | [165:7394](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7394) | 1440 × 1080 |
-| AI · 修改差异 | [23:3467](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3467) | [165:7528](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7528) | 1440 × 1080 |
-| AI · 采纳后的方案 | [23:3618](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3618) | [165:7629](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7629) | 1440 × 1080 |
-| AI · 试运行前检查 | [23:3799](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3799) | [165:7769](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7769) | 1440 × 1080 |
-| AI · 试运行中 | [23:3957](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3957) | [165:7876](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7876) | 1440 × 1080 |
-| AI · 可读结果 | [23:4127](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4127) | [165:7998](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-7998) | 1440 × 1080 |
-| AI · 结果详细信息 | [23:4283](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4283) | [165:8108](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8108) | 1440 × 1080 |
-| AI · 失败与引导 | [23:4425](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4425) | [165:8198](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8198) | 1440 × 1080 |
-| AI · 修复提议 | [23:4575](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4575) | [165:8300](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8300) | 1440 × 1080 |
-| AI · 修复后运行起点 | [23:4724](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4724) | [165:8398](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8398) | 1440 × 1080 |
-| 应用与工具 · 连接目录 | [23:4867](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4867) | [165:8490](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8490) | 1440 × 1080 |
-| 应用与工具 · 连接向导 | [23:5033](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5033) | [165:8615](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8615) | 1440 × 1080 |
-| 应用与工具 · 已连接 | [23:5195](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5195) | [165:8732](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8732) | 1440 × 1080 |
-| 应用与工具 · 失效重连 | [23:5348](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5348) | [165:8838](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8838) | 1440 × 1080 |
-| 应用与工具 · 高级 MCP | [23:5493](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5493) | [165:8932](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-8932) | 1440 × 1080 |
-| AI · 模型未配置 | [23:5656](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5656) | [165:9064](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-9064) | 1440 × 1080 |
-| AI · 模型配置后返回 | [23:5795](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5795) | [165:9154](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-9154) | 1440 × 1080 |
-| AI · 全宽网页查看 | [23:5921](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5921) | [165:9274](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-9274) | 1440 × 1080 |
-| AI · 紧凑网页总览 | [23:6084](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6084) | [165:9388](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-9388) | 1040 × 700 |
-| AI · 紧凑目标聚焦 | [23:6221](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6221) | [165:9491](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-9491) | 1040 × 700 |
-| 编排 · 四十步任务 | [23:6333](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6333) | [165:9569](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-9569) | 1920 × 1080 |
-| 配置 · Excel 映射编辑 | [23:6516](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516) | [165:9708](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-9708) | 1440 × 1080 |
-| 配置 · 脚本编辑 | [23:6726](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6726) | [165:9913](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-9913) | 1440 × 1080 |
-| 编排 · 更多操作 | [23:6890](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6890) | [165:10038](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10038) | 1440 × 1080 |
-| AI · v2 步骤清单 | [23:7031](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7031) | [165:10132](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10132) | 1440 × 1080 |
-| AI · v2 流程图 | [23:7158](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7158) | [165:10269](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10269) | 1440 × 1080 |
-| AI · v2 运行检查 | [23:7281](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | [165:10403](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10403) | 1440 × 1080 |
-| AI · v2 试运行 | [23:7385](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7385) | [165:10510](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10510) | 1440 × 1080 |
-| AI · v2 结果 | [23:7501](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7501) | [165:10632](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10632) | 1440 × 1080 |
-| AI · v2 结果详情 | [23:7603](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7603) | [165:10742](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10742) | 1440 × 1080 |
-| AI · 修复时重新拾取 | [23:7691](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7691) | [165:10832](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10832) | 1040 × 700 |
-| AI · 修复版运行检查 | [23:7765](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7765) | [165:10910](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-10910) | 1440 × 1080 |
-| AI · 修复版运行 | [23:7869](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7869) | [165:11017](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11017) | 1440 × 1080 |
-| AI · 修复版结果 | [23:7985](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7985) | [165:11139](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11139) | 1440 × 1080 |
-| AI · 应用窗口已就绪 | [23:8087](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8087) | [165:11249](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11249) | 1440 × 1080 |
-| AI · 应用任务方案 | [23:8190](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8190) | [165:11356](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11356) | 1440 × 1080 |
-| AI · 应用任务确认 | [23:8344](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8344) | [165:11459](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11459) | 1440 × 1080 |
-| AI · 应用任务执行 | [23:8492](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8492) | [165:11556](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11556) | 1440 × 1080 |
-| AI · 应用任务结果 | [23:8631](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8631) | [165:11646](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11646) | 1440 × 1080 |
-| 应用与工具 · 自定义能力检查 | [23:8773](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8773) | [165:11740](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11740) | 1440 × 1080 |
-| 应用与工具 · 自定义已连接 | [23:8920](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8920) | [165:11838](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11838) | 1440 × 1080 |
-| AI · 任务中填写模型 | [23:9067](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9067) | [165:11936](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-11936) | 1440 × 1080 |
-| AI · 任务中验证模型 | [23:9182](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9182) | [165:12056](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-12056) | 1440 × 1080 |
-| AI · 正在生成方案 | [23:10659](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10659) | [165:12176](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-12176) | 1440 × 1080 |
-| AI · 生成失败与重试 | [23:10802](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10802) | [165:12272](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-12272) | 1440 × 1080 |
-| AI · 当前能力不支持 | [23:10940](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10940) | [165:12362](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-12362) | 1440 × 1080 |
-| AI · 任务中替换 Key | [23:11076](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11076) | [165:12449](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-12449) | 1440 × 1080 |
-| AI · 修复版结果详情 | [23:11195](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11195) | [165:12573](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-12573) | 1440 × 1080 |
-| AI · 继续修改当前版本 | [27:13212](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=27-13212) | [165:12663](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=165-12663) | 1440 × 1080 |
-| 离开 流程参数 · 未保存 → 我的流程 | [8:26305](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26305) | [166:6967](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-6967) | 1440 × 1080 |
-| 离开 流程参数 · 未保存 → 模板库 | [8:26472](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26472) | [166:7128](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-7128) | 1440 × 1080 |
-| 离开 流程参数 · 未保存 → 运行记录 | [8:26639](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26639) | [166:7289](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-7289) | 1440 × 1080 |
-| 离开 流程参数 · 未保存 → 本机计划 | [8:26806](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26806) | [166:7450](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-7450) | 1440 × 1080 |
-| 离开 流程参数 · 未保存 → 待办与提醒 | [8:26973](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26973) | [166:7611](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-7611) | 1440 × 1080 |
-| 离开 流程参数 · 未保存 → 本地设置 | [8:27140](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27140) | [166:7772](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-7772) | 1440 × 1080 |
-| 离开 流程参数 · 未保存 → 网页操作与拾取 | [8:27310](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27310) | [166:7933](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-7933) | 1440 × 1080 |
-| 离开 流程参数 · 未保存 → 输入与保存状态 | [8:27477](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27477) | [166:8094](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-8094) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 我的流程 | [8:27644](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27644) | [166:8255](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-8255) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 模板库 | [8:27761](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27761) | [166:8366](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-8366) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 运行记录 | [8:27878](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27878) | [166:8477](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-8477) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 本机计划 | [8:27995](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27995) | [166:8588](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-8588) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 待办与提醒 | [8:28112](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28112) | [166:8699](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-8699) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 本地设置 | [8:28229](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28229) | [166:8810](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-8810) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 网页操作与拾取 | [8:28348](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28348) | [166:8921](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-8921) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → AI 服务配置 | [8:28466](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28466) | [166:9032](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9032) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 凭据与本机资源 | [8:28583](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28583) | [166:9143](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9143) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → 脚本与依赖配置 | [8:28700](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28700) | [166:9254](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9254) | 1440 × 1080 |
-| 离开 DeepSeek · 来自模板配置 → AI连接与输出状态 | [8:28818](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28818) | [166:9365](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9365) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 我的流程 | [8:28935](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28935) | [166:9476](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9476) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 模板库 | [8:29055](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29055) | [166:9590](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9590) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 运行记录 | [8:29175](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29175) | [166:9704](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9704) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 本机计划 | [8:29295](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29295) | [166:9818](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9818) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 待办与提醒 | [8:29415](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29415) | [166:9932](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-9932) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 本地设置 | [8:29535](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29535) | [166:10046](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10046) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 网页操作与拾取 | [8:29658](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29658) | [166:10160](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10160) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 凭据与本机资源 | [8:29780](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29780) | [166:10274](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10274) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → 脚本与依赖配置 | [8:29900](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29900) | [166:10388](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10388) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → DeepSeek · 未配置 | [8:30020](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30020) | [166:10502](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10502) | 1440 × 1080 |
-| 离开 DeepSeek · 首次填写 → AI连接与输出状态 | [8:30140](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30140) | [166:10616](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10616) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 我的流程 | [8:30260](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30260) | [166:10730](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10730) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 模板库 | [8:30384](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30384) | [166:10848](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10848) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 运行记录 | [8:30508](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30508) | [166:10966](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-10966) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 本机计划 | [8:30632](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30632) | [166:11084](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-11084) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 待办与提醒 | [8:30756](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30756) | [166:11202](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-11202) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 本地设置 | [8:30880](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30880) | [166:11320](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-11320) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 网页操作与拾取 | [8:31007](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31007) | [166:11438](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-11438) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 凭据与本机资源 | [8:31133](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31133) | [166:11556](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-11556) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → 脚本与依赖配置 | [8:31257](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31257) | [166:11674](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-11674) | 1440 × 1080 |
-| 离开 DeepSeek · 替换 Key → AI连接与输出状态 | [8:31382](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31382) | [166:11792](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=166-11792) | 1440 × 1080 |
+| 编号 | 原画板节点 | 主题模式 |
+| --- | --- | --- |
+| 001 | [我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-198) | Light / Dark |
+| 002 | [流程编排](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-394) | Light / Dark |
+| 003 | [网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-2229) | Light / Dark |
+| 004 | [模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3125) | Light / Dark |
+| 005 | [导入模板](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3256) | Light / Dark |
+| 006 | [运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3376) | Light / Dark |
+| 007 | [运行详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3539) | Light / Dark |
+| 008 | [本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3673) | Light / Dark |
+| 009 | [待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3794) | Light / Dark |
+| 010 | [本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3896) | Light / Dark |
+| 011 | [首次使用](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-4023) | Light / Dark |
+| 012 | [安装完成](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-812) | Light / Dark |
+| 013 | [实例列表](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-892) | Light / Dark |
+| 014 | [模板实例](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973) | Light / Dark |
+| 015 | [资源与动作授权](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1083) | Light / Dark |
+| 016 | [入口输入与执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1199) | Light / Dark |
+| 017 | [只读入口](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1314) | Light / Dark |
+| 018 | [流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398) | Light / Dark |
+| 019 | [变量选择](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1545) | Light / Dark |
+| 020 | [步骤编辑与位置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1650) | Light / Dark |
+| 021 | [条件与串行循环](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1758) | Light / Dark |
+| 022 | [网页动作配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1866) | Light / Dark |
+| 023 | [HTTP文件与表格配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2033) | Light / Dark |
+| 024 | [流程控制配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2200) | Light / Dark |
+| 025 | [脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2367) | Light / Dark |
+| 026 | [逐步调试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2534) | Light / Dark |
+| 027 | [输出与运行产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2640) | Light / Dark |
+| 028 | [日志与步骤输出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2744) | Light / Dark |
+| 029 | [人工确认与输入](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-2911) | Light / Dark |
+| 030 | [核对后重新运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014) | Light / Dark |
+| 031 | [AI 服务配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3118) | Light / Dark |
+| 032 | [凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3227) | Light / Dark |
+| 033 | [本机浏览器绑定](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3333) | Light / Dark |
+| 034 | [创建计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3431) | Light / Dark |
+| 035 | [安装校验与版本冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3565) | Light / Dark |
+| 036 | [输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3672) | Light / Dark |
+| 037 | [保存与离开确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779) | Light / Dark |
+| 038 | [运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3884) | Light / Dark |
+| 039 | [拾取与会话状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3991) | Light / Dark |
+| 040 | [浏览器故障与恢复](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4104) | Light / Dark |
+| 041 | [运行控制状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4209) | Light / Dark |
+| 042 | [人工请求与结果核对](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4316) | Light / Dark |
+| 043 | [产物状态与清理](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4421) | Light / Dark |
+| 044 | [计划状态与冲突](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4526) | Light / Dark |
+| 045 | [AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4629) | Light / Dark |
+| 046 | [资源与存储异常](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4732) | Light / Dark |
+| 047 | [模板版本与导出](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) | Light / Dark |
+| 048 | [导出 ZIP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4940) | Light / Dark |
+| 049 | [退出与运行环境](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5045) | Light / Dark |
+| 050 | [紧凑窗口与网页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5152) | Light / Dark |
+| 051 | [紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-5253) | Light / Dark |
+| 052 | [P1 操作路径总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-6948) | Light / Dark |
+| 053 | [动作授权：每次确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7749) | Light / Dark |
+| 054 | [动作授权：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7867) | Light / Dark |
+| 055 | [入口输入：自动范围](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-7985) | Light / Dark |
+| 056 | [运行记录：第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8100) | Light / Dark |
+| 057 | [运行记录筛选](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-8270) | Light / Dark |
+| 058 | [模板运行：写入中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9120) | Light / Dark |
+| 059 | [模板运行：结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-9260) | Light / Dark |
+| 060 | [DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10378) | Light / Dark |
+| 061 | [DeepSeek · 首次填写](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10487) | Light / Dark |
+| 062 | [DeepSeek · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10599) | Light / Dark |
+| 063 | [DeepSeek · 测试中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10715) | Light / Dark |
+| 064 | [DeepSeek · 已验证](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10835) | Light / Dark |
+| 065 | [DeepSeek · 连接失败](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-10955) | Light / Dark |
+| 066 | [DeepSeek · 移除确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11077) | Light / Dark |
+| 067 | [模板 AI 资源配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=4-11164) | Light / Dark |
+| 068 | [导航与返回演示](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18364) | Light / Dark |
+| 069 | [模板入口 · 待配置 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18463) | Light / Dark |
+| 070 | [模板入口 · AI 已配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18569) | Light / Dark |
+| 071 | [流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18679) | Light / Dark |
+| 072 | [DeepSeek · 来自模板配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18826) | Light / Dark |
+| 073 | [DeepSeek · 返回模板前](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-18938) | Light / Dark |
+| 074 | [DeepSeek · 模板来源已验证](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19057) | Light / Dark |
+| 075 | [运行详情 · 来源第2页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19176) | Light / Dark |
+| 076 | [返回来源已失效](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-19310) | Light / Dark |
+| 077 | [离开确认 · 流程参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20277) | Light / Dark |
+| 078 | [离开确认 · 模板 AI](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20443) | Light / Dark |
+| 079 | [离开确认 · 首次配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20559) | Light / Dark |
+| 080 | [离开确认 · 替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20678) | Light / Dark |
+| 081 | [保存失败 · 保留参数](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-20801) | Light / Dark |
+| 082 | [选择变量 · 来源 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23606) | Light / Dark |
+| 083 | [选择变量 · 来源 流程参数与资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23758) | Light / Dark |
+| 084 | [选择变量 · 来源 条件与串行循环](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-23910) | Light / Dark |
+| 085 | [选择变量 · 来源 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24062) | Light / Dark |
+| 086 | [选择变量 · 来源 紧凑配置抽屉](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24218) | Light / Dark |
+| 087 | [选择变量 · 来源 流程参数 · 未保存](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24374) | Light / Dark |
+| 088 | [RUN-0921-018 · 输出与产物](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24539) | Light / Dark |
+| 089 | [RUN-0921-018 · 日志与步骤](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-24669) | Light / Dark |
+| 090 | [AI · 开始任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-1941) | Light / Dark |
+| 091 | [AI · 第一次实操](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2106) | Light / Dark |
+| 092 | [AI · 描述与附件](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2280) | Light / Dark |
+| 093 | [AI · 选择操作对象](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2440) | Light / Dark |
+| 094 | [AI · 应用窗口与能力](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2609) | Light / Dark |
+| 095 | [AI · 理解与补问](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2766) | Light / Dark |
+| 096 | [AI · 确认任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-2928) | Light / Dark |
+| 097 | [AI · 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3109) | Light / Dark |
+| 098 | [AI · 同一流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3290) | Light / Dark |
+| 099 | [AI · 修改差异](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3467) | Light / Dark |
+| 100 | [AI · 采纳后的方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3618) | Light / Dark |
+| 101 | [AI · 试运行前检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3799) | Light / Dark |
+| 102 | [AI · 试运行中](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3957) | Light / Dark |
+| 103 | [AI · 可读结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4127) | Light / Dark |
+| 104 | [AI · 结果详细信息](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4283) | Light / Dark |
+| 105 | [AI · 失败与引导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4425) | Light / Dark |
+| 106 | [AI · 修复提议](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4575) | Light / Dark |
+| 107 | [AI · 修复后运行起点](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4724) | Light / Dark |
+| 108 | [应用与工具 · 连接目录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-4867) | Light / Dark |
+| 109 | [应用与工具 · 连接向导](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5033) | Light / Dark |
+| 110 | [应用与工具 · 已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5195) | Light / Dark |
+| 111 | [应用与工具 · 失效重连](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5348) | Light / Dark |
+| 112 | [应用与工具 · 高级 MCP](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5493) | Light / Dark |
+| 113 | [AI · 模型未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5656) | Light / Dark |
+| 114 | [AI · 模型配置后返回](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5795) | Light / Dark |
+| 115 | [AI · 全宽网页查看](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-5921) | Light / Dark |
+| 116 | [AI · 紧凑网页总览](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6084) | Light / Dark |
+| 117 | [AI · 紧凑目标聚焦](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6221) | Light / Dark |
+| 118 | [编排 · 四十步任务](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6333) | Light / Dark |
+| 119 | [配置 · Excel 映射编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6516) | Light / Dark |
+| 120 | [配置 · 脚本编辑](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6726) | Light / Dark |
+| 121 | [编排 · 更多操作](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-6890) | Light / Dark |
+| 122 | [AI · v2 步骤清单](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7031) | Light / Dark |
+| 123 | [AI · v2 流程图](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7158) | Light / Dark |
+| 124 | [AI · v2 运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7281) | Light / Dark |
+| 125 | [AI · v2 试运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7385) | Light / Dark |
+| 126 | [AI · v2 结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7501) | Light / Dark |
+| 127 | [AI · v2 结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7603) | Light / Dark |
+| 128 | [AI · 修复时重新拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7691) | Light / Dark |
+| 129 | [AI · 修复版运行检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7765) | Light / Dark |
+| 130 | [AI · 修复版运行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7869) | Light / Dark |
+| 131 | [AI · 修复版结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-7985) | Light / Dark |
+| 132 | [AI · 应用窗口已就绪](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8087) | Light / Dark |
+| 133 | [AI · 应用任务方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8190) | Light / Dark |
+| 134 | [AI · 应用任务确认](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8344) | Light / Dark |
+| 135 | [AI · 应用任务执行](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8492) | Light / Dark |
+| 136 | [AI · 应用任务结果](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8631) | Light / Dark |
+| 137 | [应用与工具 · 自定义能力检查](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8773) | Light / Dark |
+| 138 | [应用与工具 · 自定义已连接](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-8920) | Light / Dark |
+| 139 | [AI · 任务中填写模型](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9067) | Light / Dark |
+| 140 | [AI · 任务中验证模型](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-9182) | Light / Dark |
+| 141 | [AI · 正在生成方案](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10659) | Light / Dark |
+| 142 | [AI · 生成失败与重试](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10802) | Light / Dark |
+| 143 | [AI · 当前能力不支持](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-10940) | Light / Dark |
+| 144 | [AI · 任务中替换 Key](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11076) | Light / Dark |
+| 145 | [AI · 修复版结果详情](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-11195) | Light / Dark |
+| 146 | [AI · 继续修改当前版本](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=27-13212) | Light / Dark |
+| 147 | [离开 流程参数 · 未保存 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26305) | Light / Dark |
+| 148 | [离开 流程参数 · 未保存 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26472) | Light / Dark |
+| 149 | [离开 流程参数 · 未保存 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26639) | Light / Dark |
+| 150 | [离开 流程参数 · 未保存 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26806) | Light / Dark |
+| 151 | [离开 流程参数 · 未保存 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-26973) | Light / Dark |
+| 152 | [离开 流程参数 · 未保存 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27140) | Light / Dark |
+| 153 | [离开 流程参数 · 未保存 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27310) | Light / Dark |
+| 154 | [离开 流程参数 · 未保存 → 输入与保存状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27477) | Light / Dark |
+| 155 | [离开 DeepSeek · 来自模板配置 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27644) | Light / Dark |
+| 156 | [离开 DeepSeek · 来自模板配置 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27761) | Light / Dark |
+| 157 | [离开 DeepSeek · 来自模板配置 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27878) | Light / Dark |
+| 158 | [离开 DeepSeek · 来自模板配置 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-27995) | Light / Dark |
+| 159 | [离开 DeepSeek · 来自模板配置 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28112) | Light / Dark |
+| 160 | [离开 DeepSeek · 来自模板配置 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28229) | Light / Dark |
+| 161 | [离开 DeepSeek · 来自模板配置 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28348) | Light / Dark |
+| 162 | [离开 DeepSeek · 来自模板配置 → AI 服务配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28466) | Light / Dark |
+| 163 | [离开 DeepSeek · 来自模板配置 → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28583) | Light / Dark |
+| 164 | [离开 DeepSeek · 来自模板配置 → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28700) | Light / Dark |
+| 165 | [离开 DeepSeek · 来自模板配置 → AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28818) | Light / Dark |
+| 166 | [离开 DeepSeek · 首次填写 → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-28935) | Light / Dark |
+| 167 | [离开 DeepSeek · 首次填写 → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29055) | Light / Dark |
+| 168 | [离开 DeepSeek · 首次填写 → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29175) | Light / Dark |
+| 169 | [离开 DeepSeek · 首次填写 → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29295) | Light / Dark |
+| 170 | [离开 DeepSeek · 首次填写 → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29415) | Light / Dark |
+| 171 | [离开 DeepSeek · 首次填写 → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29535) | Light / Dark |
+| 172 | [离开 DeepSeek · 首次填写 → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29658) | Light / Dark |
+| 173 | [离开 DeepSeek · 首次填写 → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29780) | Light / Dark |
+| 174 | [离开 DeepSeek · 首次填写 → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-29900) | Light / Dark |
+| 175 | [离开 DeepSeek · 首次填写 → DeepSeek · 未配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30020) | Light / Dark |
+| 176 | [离开 DeepSeek · 首次填写 → AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30140) | Light / Dark |
+| 177 | [离开 DeepSeek · 替换 Key → 我的流程](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30260) | Light / Dark |
+| 178 | [离开 DeepSeek · 替换 Key → 模板库](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30384) | Light / Dark |
+| 179 | [离开 DeepSeek · 替换 Key → 运行记录](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30508) | Light / Dark |
+| 180 | [离开 DeepSeek · 替换 Key → 本机计划](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30632) | Light / Dark |
+| 181 | [离开 DeepSeek · 替换 Key → 待办与提醒](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30756) | Light / Dark |
+| 182 | [离开 DeepSeek · 替换 Key → 本地设置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-30880) | Light / Dark |
+| 183 | [离开 DeepSeek · 替换 Key → 网页操作与拾取](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31007) | Light / Dark |
+| 184 | [离开 DeepSeek · 替换 Key → 凭据与本机资源](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31133) | Light / Dark |
+| 185 | [离开 DeepSeek · 替换 Key → 脚本与依赖配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31257) | Light / Dark |
+| 186 | [离开 DeepSeek · 替换 Key → AI连接与输出状态](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=8-31382) | Light / Dark |
 
-## 参数、外观与重跑增量
+## 已保留的参数、来源及重跑补充状态
 
-以下 41 组为结构镜像；149:4726 的 Light 外观母版和 162:9894 的 Dark 外观母版隐藏，不作为有效产品外观入口。实际三种偏好 / 两种系统外观按下一节六状态采用。
+以下 38 个既有补充状态也共用 Light / Dark 模式。主参数与主重跑仍采用原 018 / 030；这张表包含固定示例状态。
 
-| 修订画板 | Light 节点 | Dark 节点 | 设计尺寸 |
-| --- | --- | --- | --- |
-| 参数闭环 / 01 · 参数与来源 | [145:2378](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=145-2378) | [162:3876](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-3876) | 1440 × 1080 |
-| 参数闭环 / 02 · 参数已保存 | [147:2457](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-2457) | [162:4211](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-4211) | 1440 × 1080 |
-| 参数闭环 / 03 · 清空来源恢复固定值 | [147:2713](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-2713) | [162:4530](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-4530) | 1440 × 1080 |
-| 参数闭环 / 04 · 来源路径缺失 | [147:2958](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-2958) | [162:4832](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-4832) | 1440 × 1080 |
-| 参数闭环 / 05 · 参数依赖循环 | [147:3221](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-3221) | [162:5159](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-5159) | 1440 × 1080 |
-| 参数闭环 / 06 · 参数改名待确认 | [147:3502](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-3502) | [162:5499](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-5499) | 1440 × 1080 |
-| 参数闭环 / 07 · 删除参数被引用 | [147:3760](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-3760) | [162:5817](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-5817) | 1440 × 1080 |
-| 参数闭环 / 08 · 保存失败保留草稿 | [147:4015](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4015) | [162:6136](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-6136) | 1440 × 1080 |
-| 参数闭环 / 09 · 保存成功刷新失败 | [147:4270](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4270) | [162:6455](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-6455) | 1440 × 1080 |
-| 参数闭环 / 10 · 模板参数只读 | [147:4526](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4526) | [162:6777](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-6777) | 1440 × 1080 |
-| 参数闭环 / 11 · 参数类型与未完成输入 | [147:4791](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4791) | [162:7109](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-7109) | 1440 × 1080 |
-| 参数闭环 / 12 · 参数来源选择 | [147:4984](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4984) | [162:7313](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-7313) | 1440 × 1080 |
-| 参数闭环 / 12b · 来源选择紧凑 | [147:5182](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-5182) | [162:7522](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-7522) | 1040 × 700 |
-| 参数闭环 / 13 · 参数紧凑 · 正常 | [147:5380](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-5380) | [162:7731](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-7731) | 1040 × 700 |
-| 参数闭环 / 13 · 参数紧凑 · 来源错误 | [147:5634](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-5634) | [162:8049](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-8049) | 1040 × 700 |
-| 参数闭环 / 14 · 添加参数 | [149:3237](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-3237) | [162:8367](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-8367) | 1440 × 1080 |
-| 参数闭环 / 15 · 新参数已添加 | [149:3424](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-3424) | [162:8561](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-8561) | 1440 × 1080 |
-| 参数闭环 / 16 · 快照参数回看 | [149:3674](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-3674) | [162:8885](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-8885) | 1440 × 1080 |
-| 参数闭环 / 17 · 未保存离开 | [149:3866](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-3866) | [162:9082](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-9082) | 1440 × 1080 |
-| 参数闭环 / 17b · 未保存离开紧凑 | [149:4114](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4114) | [162:9394](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-9394) | 1040 × 700 |
-| 参数闭环 / 18 · 外观 · 跟随系统 | [149:4362](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362) | [162:9706](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-9706) | 1440 × 1080 |
-| 参数闭环 / 18 · 外观 · 浅色 | [149:4544](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4544) | [162:9894](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-9894) | 1440 × 1080 |
-| 参数闭环 / 18 · 外观 · 深色 | [149:4726](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4726) | [162:10082](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-10082) | 1440 × 1080 |
-| 参数闭环 / 19 · 新参数已保存 | [152:3482](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-3482) | [162:10270](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-10270) | 1440 × 1080 |
-| 参数闭环 / 20 · 参数改名已确认 | [152:3754](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-3754) | [162:10620](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-10620) | 1440 × 1080 |
-| 参数闭环 / 21 · 参数保存中 | [152:4009](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-4009) | [162:10939](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-10939) | 1440 × 1080 |
-| 参数闭环 / 22 · 保存离开失败 | [152:4267](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-4267) | [162:11258](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-11258) | 1440 × 1080 |
-| 参数闭环 / 23 · 布尔参数已切换 | [152:4519](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-4519) | [162:11570](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-11570) | 1440 × 1080 |
-| 参数闭环 / 24 · 重跑核对 · 原快照 | [155:3773](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-3773) | [162:11778](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-11778) | 1440 × 1080 |
-| 参数闭环 / 24 · 重跑核对 · 原快照 · 已确认 | [155:3974](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-3974) | [162:11990](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-11990) | 1440 × 1080 |
-| 参数闭环 / 24 · 重跑核对 · 当前已保存 | [155:4177](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-4177) | [162:12206](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-12206) | 1440 × 1080 |
-| 参数闭环 / 24 · 重跑核对 · 当前已保存 · 已确认 | [155:4378](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-4378) | [162:12418](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-12418) | 1440 × 1080 |
-| 参数闭环 / 25 · 新运行已创建 · 原快照 | [155:4581](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-4581) | [162:12634](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-12634) | 1440 × 1080 |
-| 参数闭环 / 25 · 新运行已创建 · 当前已保存 | [155:4763](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-4763) | [162:12818](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-12818) | 1440 × 1080 |
-| 参数闭环 / 26 · 新运行详情 · 原快照 | [160:3848](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=160-3848) | [162:13002](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-13002) | 1440 × 1080 |
-| 参数闭环 / 26 · 新运行详情 · 当前已保存 | [160:4046](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=160-4046) | [162:13217](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-13217) | 1440 × 1080 |
-| 参数闭环 / 27 · 紧凑来源详情 | [167:7750](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=167-7750) | [167:7949](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=167-7949) | 1040 × 700 |
-| 参数闭环 / 28 · 紧凑数字来源详情 | [168:7768](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=168-7768) | [168:8220](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=168-8220) | 1040 × 700 |
-| 参数闭环 / 29b · 宽屏数字来源已回填 | [168:7959](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=168-7959) | [168:8424](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=168-8424) | 1440 × 1080 |
-| 参数闭环 / 29 · 数字来源已回填 | [169:7920](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=169-7920) | [169:8372](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=169-8372) | 1040 × 700 |
-| 参数闭环 / 28b · 宽屏数字来源详情 | [169:8133](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=169-8133) | [169:8690](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=169-8690) | 1440 × 1080 |
+| 状态 | 同一节点 |
+| --- | --- |
+| 参数闭环 / 02 · 参数已保存 | [147:2457](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-2457) |
+| 参数闭环 / 03 · 清空来源恢复固定值 | [147:2713](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-2713) |
+| 参数闭环 / 04 · 来源路径缺失 | [147:2958](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-2958) |
+| 参数闭环 / 05 · 参数依赖循环 | [147:3221](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-3221) |
+| 参数闭环 / 06 · 参数改名待确认 | [147:3502](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-3502) |
+| 参数闭环 / 07 · 删除参数被引用 | [147:3760](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-3760) |
+| 参数闭环 / 08 · 保存失败保留草稿 | [147:4015](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4015) |
+| 参数闭环 / 09 · 保存成功刷新失败 | [147:4270](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4270) |
+| 参数闭环 / 10 · 模板参数只读 | [147:4526](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4526) |
+| 参数闭环 / 11 · 参数类型与未完成输入 | [147:4791](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4791) |
+| 参数闭环 / 12 · 参数来源选择 | [147:4984](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-4984) |
+| 参数闭环 / 12b · 来源选择紧凑 | [147:5182](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-5182) |
+| 参数闭环 / 13 · 参数紧凑 · 正常 | [147:5380](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-5380) |
+| 参数闭环 / 13 · 参数紧凑 · 来源错误 | [147:5634](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=147-5634) |
+| 参数闭环 / 14 · 添加参数 | [149:3237](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-3237) |
+| 参数闭环 / 15 · 新参数已添加 | [149:3424](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-3424) |
+| 参数闭环 / 16 · 快照参数回看 | [149:3674](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-3674) |
+| 参数闭环 / 17 · 未保存离开 | [149:3866](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-3866) |
+| 参数闭环 / 17b · 未保存离开紧凑 | [149:4114](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4114) |
+| 参数闭环 / 18 · 外观 · 跟随系统 | [149:4362](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362) |
+| 参数闭环 / 19 · 新参数已保存 | [152:3482](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-3482) |
+| 参数闭环 / 20 · 参数改名已确认 | [152:3754](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-3754) |
+| 参数闭环 / 21 · 参数保存中 | [152:4009](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-4009) |
+| 参数闭环 / 22 · 保存离开失败 | [152:4267](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-4267) |
+| 参数闭环 / 23 · 布尔参数已切换 | [152:4519](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=152-4519) |
+| 参数闭环 / 24 · 重跑核对 · 原快照 | [155:3773](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-3773) |
+| 参数闭环 / 24 · 重跑核对 · 原快照 · 已确认 | [155:3974](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-3974) |
+| 参数闭环 / 24 · 重跑核对 · 当前已保存 | [155:4177](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-4177) |
+| 参数闭环 / 24 · 重跑核对 · 当前已保存 · 已确认 | [155:4378](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-4378) |
+| 参数闭环 / 25 · 新运行已创建 · 原快照 | [155:4581](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-4581) |
+| 参数闭环 / 25 · 新运行已创建 · 当前已保存 | [155:4763](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=155-4763) |
+| 参数闭环 / 26 · 新运行详情 · 原快照 | [160:3848](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=160-3848) |
+| 参数闭环 / 26 · 新运行详情 · 当前已保存 | [160:4046](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=160-4046) |
+| 参数闭环 / 27 · 紧凑来源详情 | [167:7750](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=167-7750) |
+| 参数闭环 / 28 · 紧凑数字来源详情 | [168:7768](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=168-7768) |
+| 参数闭环 / 29b · 宽屏数字来源已回填 | [168:7959](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=168-7959) |
+| 参数闭环 / 29 · 数字来源已回填 | [169:7920](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=169-7920) |
+| 参数闭环 / 28b · 宽屏数字来源详情 | [169:8133](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=169-8133) |
 
-## 六种有效外观组合
+## 本轮补充交互状态
 
-原型选择改变偏好并保留系统上下文；系统变化行为在实际客户端另外验证。
+不同参数、确认、失败、运行阶段仍使用独立状态稿；每个状态稿共享两种主题模式。状态数量不等于功能数。
 
-| 偏好 | 系统外观 | 生效主题 | 节点 |
-| --- | --- | --- | --- |
-| 跟随系统 | 浅色 | Light | [149:4362](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362) |
-| 跟随系统 | 深色 | Dark | [162:9706](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-9706) |
-| 浅色 | 浅色 | Light | [178:8062](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=178-8062) |
-| 浅色 | 深色 | Light | [149:4544](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4544) |
-| 深色 | 浅色 | Dark | [162:10082](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-10082) |
-| 深色 | 深色 | Dark | [178:8234](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=178-8234) |
+| 状态 | 同一节点 |
+| --- | --- |
+| 闭环 / 输出引用详情 | [229:4485](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=229-4485) |
+| 闭环 / 附件核对 | [229:4772](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=229-4772) |
+| 闭环 / 连接重新测试 | [229:5059](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=229-5059) |
+| 闭环 / Excel 新映射 | [233:4514](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=233-4514) |
+| 闭环 / Excel 预览 | [233:4798](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=233-4798) |
+| 闭环 / 脚本语法检查 | [233:5082](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=233-5082) |
+| 闭环 / 脚本输入预览 | [233:5366](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=233-5366) |
+| 闭环 / 请求暂停 | [235:4531](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-4531) |
+| 闭环 / 已暂停 | [235:4815](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-4815) |
+| 闭环 / 恢复运行 | [235:5099](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-5099) |
+| 闭环 / 请求取消 | [235:5383](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-5383) |
+| 闭环 / 已取消 | [235:5667](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-5667) |
+| 闭环 / 单步完成打开 | [235:5951](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-5951) |
+| 闭环 / 单步完成读取 | [235:6235](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-6235) |
+| 闭环 / 单步完成条件 | [235:6519](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-6519) |
+| 闭环 / 条件不成立 | [235:6803](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=235-6803) |
+| 闭环 / 写入文本配置 | [242:4582](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=242-4582) |
+| 闭环 / HTTP 配置 | [244:4589](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=244-4589) |
+| 闭环 / 产物已清理 | [244:4877](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=244-4877) |
+| 闭环 / 编辑计划 | [246:4600](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=246-4600) |
+| 闭环 / 计划已创建 | [246:4895](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=246-4895) |
+| 闭环 / 任务内测试中 | [248:4614](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=248-4614) |
+| 闭环 / 任务内测试失败 | [248:4901](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=248-4901) |
+| 闭环 / 撤销本次采纳 | [248:5188](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=248-5188) |
+| 闭环 / 条件跳过结果 | [261:4647](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=261-4647) |
+| 闭环 / 已清理产物列表 | [261:4927](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=261-4927) |
+| 闭环 / Excel 五条映射 | [263:4658](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=263-4658) |
+| 参数闭环 / 数字来源已保存 | [265:4710](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=265-4710) |
+| 闭环 / 模板详情 / 文件整理 | [269:4780](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=269-4780) |
+| 闭环 / 模板实例 / 文件整理 | [269:5060](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=269-5060) |
+| 闭环 / 模板详情 / 表格数据处理 | [269:5353](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=269-5353) |
+| 闭环 / 模板实例 / 表格数据处理 | [269:5633](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=269-5633) |
+| 闭环 / 模板详情 / 网页资料填写 | [269:5926](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=269-5926) |
+| 闭环 / 模板实例 / 网页资料填写 | [269:6206](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=269-6206) |
+| 闭环 / 网页归档项目记录实例 | [275:4817](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=275-4817) |
+| 闭环 / 实例资源 / 文件整理 | [278:4827](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=278-4827) |
+| 闭环 / 实例资源 / 表格数据处理 | [278:4851](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=278-4851) |
+| 闭环 / 实例资源 / 网页资料填写 | [278:4875](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=278-4875) |
+| 闭环 / 实例资源 / 项目记录 | [278:4899](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=278-4899) |
+| 闭环 / 分页加载中 | [285:5020](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=285-5020) |
+| 闭环 / 运行记录第 3 页 | [285:4843](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=285-4843) |
+| 每日文件归档 | [250:4632](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=250-4632) |
+| 表格清洗与导出 | [250:4930](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=250-4930) |
+| 资料填写助手 | [250:5222](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=250-5222) |
+| 接口数据同步 | [250:5541](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=250-5541) |
+| 每周资料汇总 | [250:5830](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=250-5830) |
 
-## 配色说明与机器证据
+## 历史归档
 
-- 设计系统页：[Light 177:2](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=177-2)、[Dark 177:201](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=177-201)。
-- [语义与图表 token 值](design-antd-tokens.json)、[结构 / 对比度核对边界](design-antd-audit.json)。
+产品页隐藏归档 SECTION `211:8135` 收纳 232 张旧深色副本及重复外观 / 参数母稿；组件归档 `200:70` 收纳 8 组旧深色组件；基础页归档 `213:2` 收纳旧深色说明 `177:201`。旧 Dark 集合为 64 个隐藏别名，均指向活动 Semantic 集合，不维护独立色值。原参数修订母稿 `145:2378` 已归档，其可见内容已并入原节点 `2:1398`。旧重跑母稿保留示例追溯，开发采用原节点 `2:3014`。
 
-41 组增量采用原生文本、矢量、自动布局及组件实例。图表色板只是基础资产，不表示新图表功能已实现。
+跟随系统在原型中使用系统浅色示例；Figma 原型没有操作系统事件监听。客户端仍须实现 system / light / dark 偏好解析及系统变化响应。

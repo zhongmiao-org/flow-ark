@@ -4,7 +4,7 @@
 
 ## 设计补充
 
-2026-10-13 当前实施入口已修订为 [145:2378 · 参数与来源 Light](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=145-2378) / [162:3876 · Dark](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=162-3876)，详细状态与类型边界见 [Ant Design 参数闭环](design-antd-themes.md)。以下 10 月 12 日的本地修改记录保留追溯；本次云端原生修订已写入，旧 2:1398 保留并提供新版入口，不再以旧三列稿作为新增来源状态的唯一依据。
+2026-10-14 当前实施入口为 [原 018 · 单套主题参数稿](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398)。新版内容已并入原节点，母稿 145:2378 及其深色副本归档。数字来源保存 [265:4710](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=265-4710)、083 / 087 和循环集合范围已修订，详见 [Ant Design 参数闭环](design-antd-themes.md)与 [逐板复核](design-board-review-20261014.md)。以下历史本地记录保留追溯；客户端功能与本轮设计证据分开。
 
 沿用 Figma 文件 sVciNUZHG9yx81gCpYzjH9 的流程参数与资源页 2:1398，以及变量选择器 8:23758/8:24374。2026-10-12 连接器额度耗尽；本地 Figma 客户端实际打开 2:1398 核对运行参数三列、参数卡、本机资源卡、选择变量按钮和语义变量。新增字段复用既有输入框、标签与按钮，不另造基础组件、配色或主题。本地随后复用现有标签/输入容器，在 title 固定值下新增来源表达式示例 params.profile.title（101:2381、101:2382、101:2383），参数行调整为160高。截图已核对字段无重叠；本地客户端明确提示待同步，因此云端发布仍未确认。
 
