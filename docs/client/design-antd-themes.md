@@ -18,7 +18,7 @@
 
 切换仅更新外观，保留参数原始草稿、未完成文本、入口选择、焦点、选区、滚动和活动 Run，不触发保存流程或运行。应用页面、浮层、通知、工具提示、表格、滚动条、代码编辑器和网页宿主边界均需适配。网页内容自身遵循站点；本地深色偏好不改写站点 CSS。偏好读写失败保留当前有效外观，并提示显式重试；这项运行行为仍需客户端实施取证。 同一外观页的失败提示与“重试保存外观”通过 `appearance/save-error` 条件显示，默认隐藏；失败示例从产品画板外审稿导航进入。重试成功示例恢复正常页，实际服务仍由客户端核对。
 
-按本轮用户调整，合并为一个 Semantic 集合、两种模式、64 个变量（46 个界面 / 图表颜色、11 个间距、7 个圆角）。保留原 Light 变量 ID，新增 Dark mode `199:0`；Light 原有 18 个基础颜色别名继续解析到共享 Primitives。Dark 模式值集中维护在同一变量。旧 Dark 集合仅保留 64 个隐藏归档别名，活动产品颜色检查只引用 Semantic 集合。另有 18 个共享 Primitives，以及独立隐藏的 Prototype 状态变量；Prototype 不是第二套主题。原生节点和文字保留。
+按本轮用户调整，合并为一个 Semantic 集合、两种模式、65 个变量（46 个界面 / 图表颜色、11 个间距、7 个圆角、1 个遮罩透明度）。保留原 Light 变量 ID，新增 Dark mode `199:0`；Light 原有 18 个基础颜色别名继续解析到共享 Primitives。Dark 模式值集中维护在同一变量。旧 Dark 集合仅保留 64 个隐藏归档别名，活动产品颜色检查只引用 Semantic 集合。另有 18 个共享 Primitives，以及独立隐藏的 Prototype 状态变量；Prototype 不是第二套主题。原生节点和文字保留。
 
 **切换方式**：编辑器选中页面 / 画板，设置 `FlowArk / Semantic` 的 Light 或 Dark 模式，子节点自动继承；原型在 [外观页](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362)点击浅色 / 深色。仅网页自身示例固定浅色，以表达站点外观不跟随应用。依据 [Figma 变量模式](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables)和 [原型模式切换](https://help.figma.com/hc/en-us/articles/15253268379799-Variable-modes-in-prototypes)。
 
@@ -54,7 +54,8 @@
 | `action/focus` | `#315EF5` | `#8EA8FF` | Input.activeBorderColor / Select.activeBorderColor / controlOutline |
 | `status/info` | `#315EF5` | `#8EA8FF` | colorInfoText |
 | `status/info-bg` | `#EDF2FF` | `#1D2A58` | colorInfoBg |
-| `bg/mask` | `rgba(18,26,42,0.42)` | `rgba(0,0,0,0.60)` | colorBgMask |
+| `bg/mask` + `opacity/mask` | `rgba(18,26,42,0.42)` | `rgba(0,0,0,0.60)` | colorBgMask；RGB 与透明度合成 |
+| `opacity/mask` | Figma 42% / CSS 0.42 | Figma 60% / CSS 0.60 | 浮层遮罩节点 opacity |
 | `status/success-solid` | `#147D61` | `#146D55` | 自有白字状态底 |
 | `status/warning-solid` | `#946200` | `#815603` | 自有白字状态底 |
 | `status/error-solid` | `#B83B48` | `#9F3540` | 自有白字状态底 |
@@ -126,3 +127,10 @@
 逐板修订和本轮新增节点见 [设计复核](design-board-review-20261014.md)及 [单套画板索引](design-theme-board-map.md)。隐藏归档不作为开发入口。状态目录、配置规格和外部审稿导航是设计资料，不能把规格目录当成产品同时展示的编辑器。
 
 原型采用固定的输入、文件绑定和服务响应示例；本轮读取 / 配置原型连线，没有逐项在交互预览实际点击，也没有执行任意文字输入、真实保存、OS 事件、API、浏览器、Worker、脚本或工作簿操作。单行 Default → Focus 的组件反应、复选门槛及变量模式已配置；键盘、焦点、读屏及异步服务行为需在客户端单独核对。设计稿、客户端代码、安装包和真实业务验收分别记录；原索引的产品验收状态保持不变。当前阶段不新增 / 运行单元测试。
+
+
+## 2026-10-14 最终逻辑闭环增量
+
+本轮补齐参数来源/取消/清空、精确实例与 Run 返回、Excel 五列映射保存、当前计划更新、确认对象隔离、分页与异步恢复及详情后的操作。原 186 ID 保留，新增 36 个缺失状态共用 Light/Dark。最终看图范围为原 186 × 2，关键实际点击与未复验组合见[最终闭环记录](design-final-closure-20261014.md)；六项交接字段及证据层次见[逐板矩阵](design-final-closure-board-matrix.md)和[审计 JSON](design-final-closure-audit.json)。前文为首轮记录；当前语义变量数为 65（新增遮罩透明度），旧 Dark 别名仍为 64。此增量不改变客户端验收状态。
+
+遮罩颜色变量保存 RGB（alpha=1），FLOAT opacity/mask 显式绑定节点透明度。Figma OPACITY 变量使用百分比，不能把 0.42 当 42%。原型新预览实际核对 Light 遮罩覆盖完整背景，弹窗内容保持不透明；切换模式不重建画板或清空草稿。客户端消费 colorBgMask 使用合成 RGBA，不叠乘两次透明度。

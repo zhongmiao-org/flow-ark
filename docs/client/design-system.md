@@ -1,6 +1,8 @@
-# FlowArk 产品设计基线 v4（Ant Design 单套主题与交互闭环）
+# FlowArk 产品设计基线 v4.1（Ant Design 单套主题与交互闭环）
 
 2026-10-14 最新修订：同一 Semantic 集合包含 Light / Dark 两个模式，单套组件与画板继承主题。参数主入口 [原 018](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398)，重跑 [原 030](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014)；外观 [149:4362](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362)，配色 [177:2](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=177-2)。旧深色副本隐藏归档；本轮仅更新设计与治理资料，详见 [单套主题规范](design-antd-themes.md)与 [186 项设计复核](design-board-review-20261014.md)。
+
+2026-10-14 最终增量：原参数声明数组 items、原本机计划并入当前列表、补充 36 个缺失状态。最新[逻辑闭环记录](design-final-closure-20261014.md)、[186 项矩阵](design-final-closure-board-matrix.md)与[结构证据](design-final-closure-audit.json)分别记录设计及实际点击范围。Semantic 新增 opacity/mask（Figma 百分比 42 / 60），仍为一个 Light / Dark 集合；本轮客户端代码未改变。
 
 2026-09-21 最新主线：[AI 任务体验与验收](design-ai-task.md) 补齐首次教学、目标与能力、生成修改、可读结果、应用与工具和紧凑网页观察。原手动编排及辅助状态保留；后续按最新主线实施，设计完成与客户端验收分开。
 
@@ -50,7 +52,7 @@
 | 待处理 | `#946200` | `--fa-status-warning` |
 | 失败 | `#B83B48` | `--fa-status-error` |
 
-设计文件活动 Semantic 集合含 64 个变量，两种模式共享 46 个颜色及 18 个间距 / 圆角；另保留 18 个共享 Primitives。旧 Dark 集合为隐藏别名归档，Prototype 状态独立隐藏，不作为产品配色源。中文为 Noto Sans SC，英文品牌与数字为 Inter。文字样式为 Display、Title、Heading、Body、Label、Caption、Metric、Logo；正文 14/22，标签 13/20，辅助文字 12/18。字体资源的打包、许可和目标机渲染由客户端实施时验证，设计完成不代表应用已经内置字体。
+设计文件活动 Semantic 集合含 65 个变量，两种模式共享 46 个颜色、18 个间距 / 圆角及 1 个遮罩透明度；另保留 18 个共享 Primitives。旧 Dark 集合为隐藏别名归档，Prototype 状态独立隐藏，不作为产品配色源。中文为 Noto Sans SC，英文品牌与数字为 Inter。文字样式为 Display、Title、Heading、Body、Label、Caption、Metric、Logo；正文 14/22，标签 13/20，辅助文字 12/18。字体资源的打包、许可和目标机渲染由客户端实施时验证，设计完成不代表应用已经内置字体。
 
 标准操作高度 40 px；控件、卡片、浮层圆角分别为 8、12、16 px。Button、Field、Status 为首批可复用组件，支持主要/次要/危险操作、加载/禁用/焦点、输入错误和运行状态。组件实例中的文案可以覆盖；状态必须保留文字，不能只依赖颜色。键盘焦点采用 2 px 蓝色环、2 px 外偏移；此交互要求须在实际客户端验证。
 
