@@ -1,11 +1,17 @@
 {
-  "version": "2026-10-13",
+  "version": "2026-10-14",
   "fileKey": "sVciNUZHG9yx81gCpYzjH9",
   "status": "design-target-not-client-implementation",
   "antdInstalled": "6.6.5",
   "collections": {
-    "light": "VariableCollectionId:1:5",
-    "dark": "VariableCollectionId:136:2"
+    "semantic": "VariableCollectionId:1:5",
+    "modes": {
+      "light": "1:1",
+      "dark": "199:0"
+    },
+    "primitives": "VariableCollectionId:1:4",
+    "archivedAliases": "VariableCollectionId:136:2",
+    "prototype": "VariableCollectionId:209:8074"
   },
   "tokens": [
     {
@@ -574,5 +580,11 @@
       "ratio": 7.12,
       "minimum": 3
     }
-  ]
+  ],
+  "canonicalBoards": {
+    "parameters": "2:1398",
+    "rerun": "2:3014",
+    "appearance": "149:4362",
+    "foundations": "177:2"
+  }
 }
