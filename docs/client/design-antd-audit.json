@@ -5,8 +5,8 @@
   "originalPresent": 186,
   "originalVisible": 186,
   "originalVisualReviewed": 186,
-  "visibleNodeCount": 32314,
-  "reactionActionCount": 3865,
+  "visibleNodeCount": 32313,
+  "reactionActionCount": 3870,
   "badTargets": [],
   "innerTargets": [],
   "imageNodes": [],
@@ -82,7 +82,7 @@
           "modeId": "209:0"
         }
       ],
-      "count": 57,
+      "count": 58,
       "hidden": true
     }
   ],
@@ -2702,5 +2702,13 @@
     "seat": "Full",
     "tier": "student",
     "role": "admin"
+  },
+  "appearanceSaveFailure": {
+    "board": "149:4362",
+    "visibilityVariable": "VariableID:290:4860",
+    "failureNode": "149:4541",
+    "retryNode": "290:4861",
+    "defaultVisible": false,
+    "prototypeScenario": "external-review-entry-and-fixed-success-retry"
   }
 }
