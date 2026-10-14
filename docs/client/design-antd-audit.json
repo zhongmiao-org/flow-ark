@@ -2710,5 +2710,239 @@
     "retryNode": "290:4861",
     "defaultVisible": false,
     "prototypeScenario": "external-review-entry-and-fixed-success-retry"
+  },
+  "auditPass": "first-theme-pass-preserved",
+  "finalLogicClosure": {
+    "date": "2026-10-14",
+    "originalCount": 186,
+    "originalPresent": 186,
+    "originalVisible": 186,
+    "visibleNodes": 34414,
+    "leafActions": 6387,
+    "destinationCount": 290,
+    "badTargets": [],
+    "badVariableActions": [],
+    "conditionalIssues": [],
+    "collections": [
+      {
+        "id": "VariableCollectionId:1:4",
+        "name": "FlowArk / Primitives",
+        "count": 18,
+        "modes": [
+          {
+            "name": "Base",
+            "modeId": "1:0"
+          }
+        ],
+        "hidden": false
+      },
+      {
+        "id": "VariableCollectionId:1:5",
+        "name": "FlowArk / Semantic",
+        "count": 65,
+        "modes": [
+          {
+            "name": "Light",
+            "modeId": "1:1"
+          },
+          {
+            "name": "Dark",
+            "modeId": "199:0"
+          }
+        ],
+        "hidden": false
+      },
+      {
+        "id": "VariableCollectionId:136:2",
+        "name": "归档 / 旧 Dark 别名（不再维护）",
+        "count": 64,
+        "modes": [
+          {
+            "name": "Dark",
+            "modeId": "136:0"
+          }
+        ],
+        "hidden": true
+      },
+      {
+        "id": "VariableCollectionId:209:8074",
+        "name": "FlowArk / Prototype",
+        "count": 248,
+        "modes": [
+          {
+            "name": "Mode 1",
+            "modeId": "209:0"
+          }
+        ],
+        "hidden": true
+      }
+    ],
+    "extras": [
+      {
+        "id": "305:4954",
+        "name": "最终闭环 / 参数保存失败"
+      },
+      {
+        "id": "305:4967",
+        "name": "最终闭环 / 参数删除完成"
+      },
+      {
+        "id": "305:4975",
+        "name": "最终闭环 / 参数删除保护"
+      },
+      {
+        "id": "305:4983",
+        "name": "最终闭环 / 参数重命名"
+      },
+      {
+        "id": "307:4871",
+        "name": "最终闭环 / Excel 五列预览"
+      },
+      {
+        "id": "307:5088",
+        "name": "最终闭环 / Excel 映射已保存返回"
+      },
+      {
+        "id": "307:5175",
+        "name": "最终闭环 / Excel 保存失败"
+      },
+      {
+        "id": "307:5204",
+        "name": "最终闭环 / 计划间隔错误"
+      },
+      {
+        "id": "307:5212",
+        "name": "最终闭环 / 计划保存失败"
+      },
+      {
+        "id": "309:4888",
+        "name": "最终闭环 / 我的资料只读检查结果"
+      },
+      {
+        "id": "309:4973",
+        "name": "最终闭环 / 项目记录只读入口"
+      },
+      {
+        "id": "309:5083",
+        "name": "最终闭环 / 项目记录只读检查结果"
+      },
+      {
+        "id": "309:5176",
+        "name": "最终闭环 / 新 Run 独立详情"
+      },
+      {
+        "id": "310:5069",
+        "name": "最终闭环 / 新 Run 暂停请求"
+      },
+      {
+        "id": "310:5144",
+        "name": "最终闭环 / 新 Run 取消收尾"
+      },
+      {
+        "id": "310:5255",
+        "name": "最终闭环 / 模型测试通过"
+      },
+      {
+        "id": "311:5063",
+        "name": "最终闭环 / 历史记录精确对象详情"
+      },
+      {
+        "id": "311:5176",
+        "name": "最终闭环 / 分页加载失败"
+      },
+      {
+        "id": "312:4970",
+        "name": "最终闭环 / 精确对象流程编辑"
+      },
+      {
+        "id": "312:5057",
+        "name": "最终闭环 / 当前对象资源绑定"
+      },
+      {
+        "id": "312:5075",
+        "name": "最终闭环 / 当前对象动作授权"
+      },
+      {
+        "id": "312:5091",
+        "name": "最终闭环 / 精确对象运行前核对"
+      },
+      {
+        "id": "312:5186",
+        "name": "最终闭环 / 运行前检查未通过"
+      },
+      {
+        "id": "312:5194",
+        "name": "最终闭环 / 精确对象本次运行"
+      },
+      {
+        "id": "312:5287",
+        "name": "最终闭环 / 精确对象结果"
+      },
+      {
+        "id": "315:5008",
+        "name": "最终闭环 / 模板实例入口输入"
+      },
+      {
+        "id": "315:5098",
+        "name": "最终闭环 / 模板编排只读查看"
+      },
+      {
+        "id": "319:5050",
+        "name": "最终闭环 / 模板入口输入错误"
+      },
+      {
+        "id": "319:5077",
+        "name": "最终闭环 / 连接测试中"
+      },
+      {
+        "id": "319:5155",
+        "name": "最终闭环 / 连接测试失败"
+      },
+      {
+        "id": "319:5243",
+        "name": "最终闭环 / 迟到测试结果已丢弃"
+      },
+      {
+        "id": "350:5039",
+        "name": "最终闭环 / 参数保存中"
+      },
+      {
+        "id": "350:5047",
+        "name": "最终闭环 / 参数来源错误"
+      },
+      {
+        "id": "350:5072",
+        "name": "最终闭环 / 当前 Run 阶段输出"
+      },
+      {
+        "id": "352:5096",
+        "name": "最终闭环 / 数组来源详情"
+      },
+      {
+        "id": "357:5102",
+        "name": "最终闭环 / 参数离开确认"
+      }
+    ],
+    "navigationTargets": 290,
+    "innerTargets": [],
+    "semanticOpacity": {
+      "id": "VariableID:394:5100",
+      "role": "opacity/mask",
+      "figmaUnit": "percent",
+      "light": 42,
+      "dark": 60,
+      "cssLight": 0.42,
+      "cssDark": 0.6
+    },
+    "visual": {
+      "originalLightReviewed": 186,
+      "originalDarkReviewed": 186,
+      "method": "每板单独导出 PNG，按每组 6 板联系表查看；关键修改板和补充状态放大复核。不是逐文本像素或全量 WCAG 验证。",
+      "qaDirectory": "本机 final-closure-20261014，截图不纳入 Git"
+    },
+    "scope": "Figma 与治理设计说明；没有新增客户端、模板或公共 API，没有新增或运行单元测试",
+    "recordFile": "design-final-closure-audit.json",
+    "matrixFile": "design-final-closure-board-matrix.md",
+    "modalRootCount": 18
   }
 }

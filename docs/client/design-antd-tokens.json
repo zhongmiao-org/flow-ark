@@ -228,7 +228,13 @@
       "light": "rgba(18,26,42,0.42)",
       "dark": "rgba(0,0,0,0.60)",
       "antDesign": "colorBgMask",
-      "source": "FlowArk 语义目标"
+      "source": "Figma RGB 与 opacity/mask 合成；CSS 使用本条 RGBA，避免叠乘",
+      "figmaColor": {
+        "light": "#121A2A",
+        "dark": "#000000",
+        "alpha": 1
+      },
+      "figmaOpacityRole": "opacity/mask"
     },
     {
       "role": "status/success-solid",
@@ -586,5 +592,20 @@
     "rerun": "2:3014",
     "appearance": "149:4362",
     "foundations": "177:2"
-  }
+  },
+  "semanticVariableCount": 65,
+  "figmaOpacityTokens": [
+    {
+      "role": "opacity/mask",
+      "id": "VariableID:394:5100",
+      "type": "FLOAT",
+      "scope": "OPACITY",
+      "unit": "percent",
+      "light": 42,
+      "dark": 60,
+      "cssLight": 0.42,
+      "cssDark": 0.6
+    }
+  ],
+  "closureReview": "design-final-closure-20261014.md"
 }

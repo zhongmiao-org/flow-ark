@@ -300,3 +300,47 @@
 产品页隐藏归档 SECTION `211:8135` 收纳 232 张旧深色副本及重复外观 / 参数母稿；组件归档 `200:70` 收纳 8 组旧深色组件；基础页归档 `213:2` 收纳旧深色说明 `177:201`。旧 Dark 集合为 64 个隐藏别名，均指向活动 Semantic 集合，不维护独立色值。原参数修订母稿 `145:2378` 已归档，其可见内容已并入原节点 `2:1398`。旧重跑母稿保留示例追溯，开发采用原节点 `2:3014`。
 
 跟随系统在原型中使用系统浅色示例；Figma 原型没有操作系统事件监听。客户端仍须实现 system / light / dark 偏好解析及系统变化响应。
+
+
+## 2026-10-14 最终闭环补充状态
+
+以下 36 个分支共用同一 Semantic Light / Dark 模式，没有另一套深色副本。原 186 ID 不变。具体对象、输入/返回约束与证据见[最终闭环记录](design-final-closure-20261014.md)。
+
+| 状态 | 同节点 Light / Dark |
+| --- | --- |
+| 最终闭环 / 参数保存失败 | [305:4954](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=305-4954) |
+| 最终闭环 / 参数删除完成 | [305:4967](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=305-4967) |
+| 最终闭环 / 参数删除保护 | [305:4975](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=305-4975) |
+| 最终闭环 / 参数重命名 | [305:4983](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=305-4983) |
+| 最终闭环 / Excel 五列预览 | [307:4871](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=307-4871) |
+| 最终闭环 / Excel 映射已保存返回 | [307:5088](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=307-5088) |
+| 最终闭环 / Excel 保存失败 | [307:5175](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=307-5175) |
+| 最终闭环 / 计划间隔错误 | [307:5204](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=307-5204) |
+| 最终闭环 / 计划保存失败 | [307:5212](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=307-5212) |
+| 最终闭环 / 我的资料只读检查结果 | [309:4888](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=309-4888) |
+| 最终闭环 / 项目记录只读入口 | [309:4973](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=309-4973) |
+| 最终闭环 / 项目记录只读检查结果 | [309:5083](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=309-5083) |
+| 最终闭环 / 新 Run 独立详情 | [309:5176](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=309-5176) |
+| 最终闭环 / 新 Run 暂停请求 | [310:5069](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=310-5069) |
+| 最终闭环 / 新 Run 取消收尾 | [310:5144](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=310-5144) |
+| 最终闭环 / 模型测试通过 | [310:5255](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=310-5255) |
+| 最终闭环 / 历史记录精确对象详情 | [311:5063](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=311-5063) |
+| 最终闭环 / 分页加载失败 | [311:5176](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=311-5176) |
+| 最终闭环 / 精确对象流程编辑 | [312:4970](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=312-4970) |
+| 最终闭环 / 当前对象资源绑定 | [312:5057](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=312-5057) |
+| 最终闭环 / 当前对象动作授权 | [312:5075](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=312-5075) |
+| 最终闭环 / 精确对象运行前核对 | [312:5091](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=312-5091) |
+| 最终闭环 / 运行前检查未通过 | [312:5186](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=312-5186) |
+| 最终闭环 / 精确对象本次运行 | [312:5194](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=312-5194) |
+| 最终闭环 / 精确对象结果 | [312:5287](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=312-5287) |
+| 最终闭环 / 模板实例入口输入 | [315:5008](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=315-5008) |
+| 最终闭环 / 模板编排只读查看 | [315:5098](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=315-5098) |
+| 最终闭环 / 模板入口输入错误 | [319:5050](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=319-5050) |
+| 最终闭环 / 连接测试中 | [319:5077](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=319-5077) |
+| 最终闭环 / 连接测试失败 | [319:5155](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=319-5155) |
+| 最终闭环 / 迟到测试结果已丢弃 | [319:5243](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=319-5243) |
+| 最终闭环 / 参数保存中 | [350:5039](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=350-5039) |
+| 最终闭环 / 参数来源错误 | [350:5047](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=350-5047) |
+| 最终闭环 / 当前 Run 阶段输出 | [350:5072](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=350-5072) |
+| 最终闭环 / 数组来源详情 | [352:5096](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=352-5096) |
+| 最终闭环 / 参数离开确认 | [357:5102](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=357-5102) |

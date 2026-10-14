@@ -1,0 +1,6464 @@
+{
+  "date": "2026-10-14",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "evidenceLevels": [
+    "截图查看",
+    "结构可达",
+    "实际原型点击",
+    "客户端真实验收"
+  ],
+  "audit": {
+    "date": "2026-10-14",
+    "originalCount": 186,
+    "originalPresent": 186,
+    "originalVisible": 186,
+    "visibleNodes": 34414,
+    "leafActions": 6387,
+    "destinationCount": 290,
+    "badTargets": [],
+    "badVariableActions": [],
+    "conditionalIssues": [],
+    "collections": [
+      {
+        "id": "VariableCollectionId:1:4",
+        "name": "FlowArk / Primitives",
+        "count": 18,
+        "modes": [
+          {
+            "name": "Base",
+            "modeId": "1:0"
+          }
+        ],
+        "hidden": false
+      },
+      {
+        "id": "VariableCollectionId:1:5",
+        "name": "FlowArk / Semantic",
+        "count": 65,
+        "modes": [
+          {
+            "name": "Light",
+            "modeId": "1:1"
+          },
+          {
+            "name": "Dark",
+            "modeId": "199:0"
+          }
+        ],
+        "hidden": false
+      },
+      {
+        "id": "VariableCollectionId:136:2",
+        "name": "归档 / 旧 Dark 别名（不再维护）",
+        "count": 64,
+        "modes": [
+          {
+            "name": "Dark",
+            "modeId": "136:0"
+          }
+        ],
+        "hidden": true
+      },
+      {
+        "id": "VariableCollectionId:209:8074",
+        "name": "FlowArk / Prototype",
+        "count": 248,
+        "modes": [
+          {
+            "name": "Mode 1",
+            "modeId": "209:0"
+          }
+        ],
+        "hidden": true
+      }
+    ],
+    "extras": [
+      {
+        "id": "305:4954",
+        "name": "最终闭环 / 参数保存失败"
+      },
+      {
+        "id": "305:4967",
+        "name": "最终闭环 / 参数删除完成"
+      },
+      {
+        "id": "305:4975",
+        "name": "最终闭环 / 参数删除保护"
+      },
+      {
+        "id": "305:4983",
+        "name": "最终闭环 / 参数重命名"
+      },
+      {
+        "id": "307:4871",
+        "name": "最终闭环 / Excel 五列预览"
+      },
+      {
+        "id": "307:5088",
+        "name": "最终闭环 / Excel 映射已保存返回"
+      },
+      {
+        "id": "307:5175",
+        "name": "最终闭环 / Excel 保存失败"
+      },
+      {
+        "id": "307:5204",
+        "name": "最终闭环 / 计划间隔错误"
+      },
+      {
+        "id": "307:5212",
+        "name": "最终闭环 / 计划保存失败"
+      },
+      {
+        "id": "309:4888",
+        "name": "最终闭环 / 我的资料只读检查结果"
+      },
+      {
+        "id": "309:4973",
+        "name": "最终闭环 / 项目记录只读入口"
+      },
+      {
+        "id": "309:5083",
+        "name": "最终闭环 / 项目记录只读检查结果"
+      },
+      {
+        "id": "309:5176",
+        "name": "最终闭环 / 新 Run 独立详情"
+      },
+      {
+        "id": "310:5069",
+        "name": "最终闭环 / 新 Run 暂停请求"
+      },
+      {
+        "id": "310:5144",
+        "name": "最终闭环 / 新 Run 取消收尾"
+      },
+      {
+        "id": "310:5255",
+        "name": "最终闭环 / 模型测试通过"
+      },
+      {
+        "id": "311:5063",
+        "name": "最终闭环 / 历史记录精确对象详情"
+      },
+      {
+        "id": "311:5176",
+        "name": "最终闭环 / 分页加载失败"
+      },
+      {
+        "id": "312:4970",
+        "name": "最终闭环 / 精确对象流程编辑"
+      },
+      {
+        "id": "312:5057",
+        "name": "最终闭环 / 当前对象资源绑定"
+      },
+      {
+        "id": "312:5075",
+        "name": "最终闭环 / 当前对象动作授权"
+      },
+      {
+        "id": "312:5091",
+        "name": "最终闭环 / 精确对象运行前核对"
+      },
+      {
+        "id": "312:5186",
+        "name": "最终闭环 / 运行前检查未通过"
+      },
+      {
+        "id": "312:5194",
+        "name": "最终闭环 / 精确对象本次运行"
+      },
+      {
+        "id": "312:5287",
+        "name": "最终闭环 / 精确对象结果"
+      },
+      {
+        "id": "315:5008",
+        "name": "最终闭环 / 模板实例入口输入"
+      },
+      {
+        "id": "315:5098",
+        "name": "最终闭环 / 模板编排只读查看"
+      },
+      {
+        "id": "319:5050",
+        "name": "最终闭环 / 模板入口输入错误"
+      },
+      {
+        "id": "319:5077",
+        "name": "最终闭环 / 连接测试中"
+      },
+      {
+        "id": "319:5155",
+        "name": "最终闭环 / 连接测试失败"
+      },
+      {
+        "id": "319:5243",
+        "name": "最终闭环 / 迟到测试结果已丢弃"
+      },
+      {
+        "id": "350:5039",
+        "name": "最终闭环 / 参数保存中"
+      },
+      {
+        "id": "350:5047",
+        "name": "最终闭环 / 参数来源错误"
+      },
+      {
+        "id": "350:5072",
+        "name": "最终闭环 / 当前 Run 阶段输出"
+      },
+      {
+        "id": "352:5096",
+        "name": "最终闭环 / 数组来源详情"
+      },
+      {
+        "id": "357:5102",
+        "name": "最终闭环 / 参数离开确认"
+      }
+    ],
+    "navigationTargets": 290,
+    "innerTargets": [],
+    "semanticOpacity": {
+      "id": "VariableID:394:5100",
+      "role": "opacity/mask",
+      "figmaUnit": "percent",
+      "light": 42,
+      "dark": 60,
+      "cssLight": 0.42,
+      "cssDark": 0.6
+    },
+    "visual": {
+      "originalLightReviewed": 186,
+      "originalDarkReviewed": 186,
+      "method": "每板单独导出 PNG，按每组 6 板联系表查看；关键修改板和补充状态放大复核。不是逐文本像素或全量 WCAG 验证。",
+      "qaDirectory": "本机 final-closure-20261014，截图不纳入 Git"
+    },
+    "scope": "Figma 与治理设计说明；没有新增客户端、模板或公共 API，没有新增或运行单元测试",
+    "modalRootCount": 18,
+    "destinationCountDefinition": "NAVIGATE/OVERLAY/SWAP 根节点目标；组件 CHANGE_TO 单独核对"
+  },
+  "boards": [
+    {
+      "number": "001",
+      "nodeId": "1:198",
+      "name": "我的流程",
+      "object": "网页文字归档；网页文字归档",
+      "entry": "我的流程",
+      "beforeState": "我的流程 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "1:267",
+          "label": "新建流程",
+          "targets": [
+            "2:1650"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 16,
+      "variableWrites": 3,
+      "operationResult": "今日计数补齐状态构成；五个非网页流程卡片转向各自步骤概览",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "002",
+      "nodeId": "1:394",
+      "name": "流程编排",
+      "object": "网页文字归档；网页文字归档",
+      "entry": "流程编排",
+      "beforeState": "流程编排 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:285",
+          "label": "运行",
+          "targets": [
+            "2:3884"
+          ]
+        },
+        {
+          "id": "2:367",
+          "label": "应用配置",
+          "targets": [
+            "228:4479"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:198"
+      ],
+      "actionCount": 40,
+      "variableWrites": 8,
+      "operationResult": "普通保存与应用反馈保持编辑来源；输出只作为生产者只读引用",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "003",
+      "nodeId": "1:2229",
+      "name": "网页操作与拾取",
+      "object": "网页文字归档；网页文字归档",
+      "entry": "网页操作与拾取",
+      "beforeState": "网页操作与拾取 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:438",
+          "label": "运行",
+          "targets": [
+            "2:3884"
+          ]
+        },
+        {
+          "id": "2:501",
+          "label": "应用配置",
+          "targets": [
+            "228:4479"
+          ]
+        },
+        {
+          "id": "2:510",
+          "label": "拾取元素",
+          "targets": [
+            "2:3991"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 33,
+      "variableWrites": 2,
+      "operationResult": "保留宽屏网页协作；共享显示 / 收起网页保留来源页",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "004",
+      "nodeId": "1:3125",
+      "name": "模板库",
+      "object": "查看模板与实例；v1.0.0  ·  2 个入口；查看模板与实例",
+      "entry": "模板库",
+      "beforeState": "模板库 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "1:3194",
+          "label": "导入 ZIP 模板",
+          "targets": [
+            "1:3256"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 18,
+      "variableWrites": 7,
+      "operationResult": "文件 / 表格 / 网页填写模板有独立详情和实例",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "005",
+      "nodeId": "1:3256",
+      "name": "导入模板",
+      "object": "网页文字归档；操作入口与要求；安装时无需先绑定所有资源。创建实例后，按所选入口配置。",
+      "entry": "导入模板",
+      "beforeState": "导入模板 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "1:3125"
+      ],
+      "actionCount": 25,
+      "variableWrites": 12,
+      "operationResult": "未核对来源禁用安装；原生复选门槛",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "006",
+      "nodeId": "1:3376",
+      "name": "运行记录",
+      "object": "RUN-0920-019；网页文字归档；RUN-0920-018",
+      "entry": "运行记录",
+      "beforeState": "运行记录 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [],
+      "actionCount": 44,
+      "variableWrites": 27,
+      "operationResult": "第一页上一页禁用；分页示例与加载状态分开",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "007",
+      "nodeId": "1:3539",
+      "name": "运行详情",
+      "object": "RUN-0921-024 / 原运行快照",
+      "entry": "运行详情",
+      "beforeState": "运行详情 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "1:3608",
+          "label": "查看网页",
+          "targets": [
+            "251:4645"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3376"
+      ],
+      "actionCount": 44,
+      "variableWrites": 28,
+      "operationResult": "旧 Run 使用独立状态；运行中输出到 350:5072，仅当前阶段、0 写入文件；观察网页保持该 Run",
+      "exceptionRecovery": "终态阻止暂停/恢复/再次取消；未知副作用保持待核对",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "008",
+      "nodeId": "1:3673",
+      "name": "本机计划",
+      "object": "web / sheet / file / new 四个本机计划对象",
+      "entry": "本机计划",
+      "beforeState": "本机计划 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "358:5203",
+          "label": "创建计划",
+          "targets": [
+            "2:3431"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 55,
+      "variableWrites": 45,
+      "operationResult": "保存更新当前行；创建增加暂停行；启停同步同一行文字、样式、按钮、下次安排；重开采用已保存间隔",
+      "exceptionRecovery": "307:5204 / 307:5212 保留当前编辑；取消保持原行",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "009",
+      "nodeId": "1:3794",
+      "name": "待办与提醒",
+      "object": "待办与提醒 所示当前对象",
+      "entry": "待办与提醒",
+      "beforeState": "待办与提醒 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "1:3874",
+          "label": "查看网页并核对",
+          "targets": [
+            "2:4316"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 23,
+      "variableWrites": 13,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "010",
+      "nodeId": "1:3896",
+      "name": "本地设置",
+      "object": "本地设置 所示当前对象",
+      "entry": "本地设置",
+      "beforeState": "本地设置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "1:3986",
+          "label": "保存浏览器设置",
+          "targets": [
+            "228:4488"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 17,
+      "variableWrites": 3,
+      "operationResult": "外观进入单页 variable-mode 切换",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "011",
+      "nodeId": "1:4023",
+      "name": "首次使用",
+      "object": "首次使用 所示当前对象",
+      "entry": "首次使用",
+      "beforeState": "首次使用 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "1:4100",
+          "label": "创建空白流程",
+          "targets": [
+            "2:1650"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:198"
+      ],
+      "actionCount": 18,
+      "variableWrites": 7,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "012",
+      "nodeId": "2:812",
+      "name": "安装完成",
+      "object": "网页文字归档 · v1.0.0；2 个入口 · 普通配置和业务状态由每个实例独立保存。；创建实例",
+      "entry": "安装完成",
+      "beforeState": "安装完成 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:888",
+          "label": "创建实例",
+          "targets": [
+            "2:973"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3125"
+      ],
+      "actionCount": 14,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "013",
+      "nodeId": "2:892",
+      "name": "实例列表",
+      "object": "打开实例；v1.0.0 · 独立配置 · 1 项资源待绑定；打开实例",
+      "entry": "实例列表",
+      "beforeState": "实例列表 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:961",
+          "label": "创建实例",
+          "targets": [
+            "2:973"
+          ]
+        },
+        {
+          "id": "2:966",
+          "label": "打开实例",
+          "targets": [
+            "2:973"
+          ]
+        },
+        {
+          "id": "2:971",
+          "label": "打开实例",
+          "targets": [
+            "275:4817"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3125"
+      ],
+      "actionCount": 15,
+      "variableWrites": 3,
+      "operationResult": "第二个项目记录实例保持独立身份",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "014",
+      "nodeId": "2:973",
+      "name": "模板实例",
+      "object": "共享配置适用于本实例所有入口；每次运行仍有独立的入口输入。；另一个实例保留自己的配置、状态、资源和授权。；查看其他实例",
+      "entry": "模板实例",
+      "beforeState": "模板实例 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:1072",
+          "label": "保存配置",
+          "targets": [
+            "2:1083"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:892"
+      ],
+      "actionCount": 20,
+      "variableWrites": 3,
+      "operationResult": "取消共享配置返回精确实例列表",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "015",
+      "nodeId": "2:1083",
+      "name": "资源与动作授权",
+      "object": "操作入口；按入口检查；只需要网页资源；输出目录和 AI 不影响此入口。",
+      "entry": "资源与动作授权",
+      "beforeState": "资源与动作授权 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:1176",
+          "label": "禁止",
+          "targets": []
+        },
+        {
+          "id": "2:1184",
+          "label": "保存授权",
+          "targets": [
+            "2:1314"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:973"
+      ],
+      "actionCount": 28,
+      "variableWrites": 8,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "016",
+      "nodeId": "2:1199",
+      "name": "入口输入与执行",
+      "object": "运行此入口；切换只读入口；查看上次入口结果",
+      "entry": "入口输入与执行",
+      "beforeState": "入口输入与执行 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:1296",
+          "label": "运行此入口",
+          "targets": [
+            "2:2911"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:973"
+      ],
+      "actionCount": 27,
+      "variableWrites": 8,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "017",
+      "nodeId": "2:1314",
+      "name": "只读入口",
+      "object": "我的资料 / 检查页面 / RUN-CHECK-A",
+      "entry": "只读入口",
+      "beforeState": "只读入口 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:1394",
+          "label": "运行检查",
+          "targets": [
+            "309:4888"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:973"
+      ],
+      "actionCount": 16,
+      "variableWrites": 3,
+      "operationResult": "只读检查到 309:4888，文件产物 0；返回 2:973",
+      "exceptionRecovery": "不复用带写入产物的旧 Run",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "018",
+      "nodeId": "2:1398",
+      "name": "流程参数与资源",
+      "object": "网页文字归档 / title、profile、maxItems、items 参数草稿",
+      "entry": "流程参数与资源",
+      "beforeState": "流程参数与资源 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "210:8245",
+          "label": "保存参数",
+          "targets": [
+            "350:5039",
+            "350:5047"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "357:5102",
+        "1:394"
+      ],
+      "actionCount": 83,
+      "variableWrites": 50,
+      "operationResult": "确认只更新 title 来源；清空恢复本周记录；数字/数组保留有效类型；保存成功才替换已保存版本；失败或取消保留/恢复对应草稿",
+      "exceptionRecovery": "305:4954、350:5039、350:5047、357:5102；删除依赖与重命名使用对应当前来源",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "019",
+      "nodeId": "2:1545",
+      "name": "变量选择",
+      "object": "网页文字归档 / 步骤 04 内容配置草稿",
+      "entry": "变量选择",
+      "beforeState": "变量选择 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:1642",
+          "label": "使用此变量",
+          "targets": [
+            "242:4582"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 67,
+      "variableWrites": 51,
+      "operationResult": "候选→确认到配置草稿→应用到流程草稿三层分开；取消恢复该层原值；数字/数组禁用文本消费者确认",
+      "exceptionRecovery": "来源缺失或有效类型不符阻止保存/应用，保留原引用",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "020",
+      "nodeId": "2:1650",
+      "name": "步骤编辑与位置",
+      "object": "网页文字归档",
+      "entry": "步骤编辑与位置",
+      "beforeState": "步骤编辑与位置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:1738",
+          "label": "移动步骤",
+          "targets": [
+            "2:3779"
+          ]
+        },
+        {
+          "id": "2:1751",
+          "label": "保存草稿",
+          "targets": [
+            "228:4470"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 25,
+      "variableWrites": 5,
+      "operationResult": "保存反馈保持步骤编辑",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "021",
+      "nodeId": "2:1758",
+      "name": "条件与串行循环",
+      "object": "网页文字归档 / 串行循环集合",
+      "entry": "条件与串行循环",
+      "beforeState": "条件与串行循环 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:1864",
+          "label": "查看调试状态",
+          "targets": [
+            "2:2534"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 17,
+      "variableWrites": 3,
+      "operationResult": "使用数组确认得到 params.items；固定值入口得到固定数组 []；当前 item/index 不作为集合来源",
+      "exceptionRecovery": "文本与数字不能冒充数组集合",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "022",
+      "nodeId": "2:1866",
+      "name": "网页动作配置",
+      "object": "网页文字归档",
+      "entry": "网页动作配置",
+      "beforeState": "网页动作配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:1999",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:2015",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:2031",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "023",
+      "nodeId": "2:2033",
+      "name": "HTTP文件与表格配置",
+      "object": "网页文字归档",
+      "entry": "HTTP文件与表格配置",
+      "beforeState": "HTTP文件与表格配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:2166",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:2182",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:2198",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "HTTP / 文件配置进入完整配置稿",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "024",
+      "nodeId": "2:2200",
+      "name": "流程控制配置",
+      "object": "网页文字归档",
+      "entry": "流程控制配置",
+      "beforeState": "流程控制配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:2333",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:2349",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:2365",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "025",
+      "nodeId": "2:2367",
+      "name": "脚本与依赖配置",
+      "object": "入口；当前入口能力与资源；入口",
+      "entry": "脚本与依赖配置",
+      "beforeState": "脚本与依赖配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:2500",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:2516",
+          "label": "应用配置",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:2532",
+          "label": "应用配置",
+          "targets": [
+            "4:11164"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "脚本入口签名与实际 ABI 对齐；配置规格保持只读说明",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "026",
+      "nodeId": "2:2534",
+      "name": "逐步调试",
+      "object": "网页文字归档；网页文字归档 · 逐步调试",
+      "entry": "逐步调试",
+      "beforeState": "逐步调试 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:2630",
+          "label": "执行下一步",
+          "targets": [
+            "235:5951"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 18,
+      "variableWrites": 3,
+      "operationResult": "单步完成后保持暂停；继续 / 取消有后续阶段",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "027",
+      "nodeId": "2:2640",
+      "name": "输出与运行产物",
+      "object": "RUN-0921-024 / 本次产物索引",
+      "entry": "输出与运行产物",
+      "beforeState": "输出与运行产物 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:2742",
+          "label": "核对后重新运行",
+          "targets": [
+            "2:3014"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3539"
+      ],
+      "actionCount": 24,
+      "variableWrites": 6,
+      "operationResult": "清理预览到原 043（2:4421），不再跳到按钮内层；旧结果不被重跑覆盖",
+      "exceptionRecovery": "清理、外部丢失、失败和运行阶段输出分开",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "028",
+      "nodeId": "2:2744",
+      "name": "日志与步骤输出",
+      "object": "RUN-0921-023；RUN-0921-024；原快照 / 当前已保存",
+      "entry": "日志与步骤输出",
+      "beforeState": "日志与步骤输出 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:2877",
+          "label": "应用配置",
+          "targets": [
+            "2:2640"
+          ]
+        },
+        {
+          "id": "2:2893",
+          "label": "应用配置",
+          "targets": [
+            "1:3539"
+          ]
+        },
+        {
+          "id": "2:2909",
+          "label": "应用配置",
+          "targets": [
+            "2:3014"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3539"
+      ],
+      "actionCount": 23,
+      "variableWrites": 7,
+      "operationResult": "日志目录改为只读查看操作",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "029",
+      "nodeId": "2:2911",
+      "name": "人工确认与输入",
+      "object": "当前人工请求 / 实例、入口、Run、目标及动作范围",
+      "entry": "人工确认与输入",
+      "beforeState": "人工确认与输入 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "1:3794"
+      ],
+      "actionCount": 27,
+      "variableWrites": 14,
+      "operationResult": "请求门槛按对象初始化；同一对象返回保留核对；新请求、过期请求分别处理",
+      "exceptionRecovery": "消费、过期、取消或对象范围变化阻止执行",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "030",
+      "nodeId": "2:3014",
+      "name": "核对后重新运行",
+      "object": "来源 RUN-0921-018 或 RUN-0921-024 / 所选版本",
+      "entry": "核对后重新运行",
+      "beforeState": "核对后重新运行 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "241:4741",
+          "label": "原执行快照",
+          "targets": []
+        }
+      ],
+      "returnTargets": [
+        "149:3674"
+      ],
+      "actionCount": 10,
+      "variableWrites": 0,
+      "operationResult": "来源贯穿版本选择、核对、排队及 309:5176 新 Run；新 Run 状态独立",
+      "exceptionRecovery": "来源/版本/动作改变需重新核对；同次创建消费门槛，重复点击不再创建",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "031",
+      "nodeId": "2:3118",
+      "name": "AI 服务配置",
+      "object": "AI 服务配置 所示当前对象",
+      "entry": "AI 服务配置",
+      "beforeState": "AI 服务配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:16450",
+          "label": "测试连接",
+          "targets": [
+            "4:10715"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3896"
+      ],
+      "actionCount": 23,
+      "variableWrites": 3,
+      "operationResult": "重新测试与失败保留；不静默换模型",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "032",
+      "nodeId": "2:3227",
+      "name": "凭据与本机资源",
+      "object": "凭据与本机资源 所示当前对象",
+      "entry": "凭据与本机资源",
+      "beforeState": "凭据与本机资源 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:3308",
+          "label": "保存凭据",
+          "targets": [
+            "2:4732"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3896"
+      ],
+      "actionCount": 22,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "033",
+      "nodeId": "2:3333",
+      "name": "本机浏览器绑定",
+      "object": "本机浏览器绑定 所示当前对象",
+      "entry": "本机浏览器绑定",
+      "beforeState": "本机浏览器绑定 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:3426",
+          "label": "检测并保存",
+          "targets": [
+            "2:4104"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3896"
+      ],
+      "actionCount": 14,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "034",
+      "nodeId": "2:3431",
+      "name": "创建计划",
+      "object": "本机计划 new / 当前已保存入口和版本",
+      "entry": "创建计划",
+      "beforeState": "创建计划 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:3559",
+          "label": "保存计划",
+          "targets": [
+            "246:4895",
+            "230:4493"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3673"
+      ],
+      "actionCount": 68,
+      "variableWrites": 49,
+      "operationResult": "创建固定快照；原列表状态同步；成功增加暂停行，可滚动查看；再次创建不会重复该固定示例对象",
+      "exceptionRecovery": "取消返回原列表；原计划、已排队及活动 Run 保持",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "035",
+      "nodeId": "2:3565",
+      "name": "安装校验与版本冲突",
+      "object": "同 ID/版本的内容摘要发生冲突；不会覆盖已有包或实例。；新版本不会覆盖原实例、计划或运行；采用新版需创建新实例。",
+      "entry": "安装校验与版本冲突",
+      "beforeState": "安装校验与版本冲突 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:3641",
+          "label": "重新选择 ZIP",
+          "targets": [
+            "1:3256"
+          ]
+        },
+        {
+          "id": "2:3651",
+          "label": "打开模板",
+          "targets": [
+            "2:892"
+          ]
+        },
+        {
+          "id": "2:3668",
+          "label": "检查并安装",
+          "targets": [
+            "1:3256"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3256",
+        "1:3125"
+      ],
+      "actionCount": 39,
+      "variableWrites": 23,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "036",
+      "nodeId": "2:3672",
+      "name": "输入与保存状态",
+      "object": "网页文字归档",
+      "entry": "输入与保存状态",
+      "beforeState": "输入与保存状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:3760",
+          "label": "查看引用来源",
+          "targets": [
+            "8:24062"
+          ]
+        },
+        {
+          "id": "2:3769",
+          "label": "返回编辑重试",
+          "targets": [
+            "2:973"
+          ]
+        },
+        {
+          "id": "2:3777",
+          "label": "选择位置",
+          "targets": [
+            "2:1650"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:1398",
+        "2:973"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "保留数字原始错误输入、来源和草稿",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "037",
+      "nodeId": "2:3779",
+      "name": "保存与离开确认",
+      "object": "网页文字归档",
+      "entry": "保存与离开确认",
+      "beforeState": "保存与离开确认 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:3863",
+          "label": "保存并离开",
+          "targets": [
+            "1:198"
+          ]
+        },
+        {
+          "id": "2:3874",
+          "label": "修正输入",
+          "targets": [
+            "2:2200"
+          ]
+        },
+        {
+          "id": "2:3882",
+          "label": "查看草稿",
+          "targets": [
+            "1:394"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 14,
+      "variableWrites": 0,
+      "operationResult": "保存、离开守卫、复制回执区分",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "038",
+      "nodeId": "2:3884",
+      "name": "运行前检查",
+      "object": "当前入口无法运行；缺少归档目录；只阻止使用该目录的入口。；运行只读入口",
+      "entry": "运行前检查",
+      "beforeState": "运行前检查 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:3970",
+          "label": "配置资源与授权",
+          "targets": [
+            "2:1083"
+          ]
+        },
+        {
+          "id": "2:3981",
+          "label": "检查本机环境",
+          "targets": [
+            "1:3896"
+          ]
+        },
+        {
+          "id": "2:3989",
+          "label": "重新检查",
+          "targets": [
+            "2:1083"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "039",
+      "nodeId": "2:3991",
+      "name": "拾取与会话状态",
+      "object": "网页文字归档",
+      "entry": "拾取与会话状态",
+      "beforeState": "拾取与会话状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:4069",
+          "label": "选定目标",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:4081",
+          "label": "应用目标",
+          "targets": [
+            "1:394"
+          ]
+        },
+        {
+          "id": "2:4090",
+          "label": "重新拾取",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:2229"
+      ],
+      "actionCount": 22,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "040",
+      "nodeId": "2:4104",
+      "name": "浏览器故障与恢复",
+      "object": "浏览器故障与恢复 所示当前对象",
+      "entry": "浏览器故障与恢复",
+      "beforeState": "浏览器故障与恢复 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:4180",
+          "label": "重新选择安装",
+          "targets": [
+            "2:3333"
+          ]
+        },
+        {
+          "id": "2:4188",
+          "label": "核对运行结果",
+          "targets": [
+            "1:3794"
+          ]
+        },
+        {
+          "id": "2:4205",
+          "label": "查看网页",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3896"
+      ],
+      "actionCount": 17,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "041",
+      "nodeId": "2:4209",
+      "name": "运行控制状态",
+      "object": "RUN-0921-024",
+      "entry": "运行控制状态",
+      "beforeState": "运行控制状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:4304",
+          "label": "执行下一步",
+          "targets": [
+            "1:3539"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3539"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "请求暂停、已暂停、恢复、取消收尾分开",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "042",
+      "nodeId": "2:4316",
+      "name": "人工请求与结果核对",
+      "object": "人工请求与结果核对 所示当前对象",
+      "entry": "人工请求与结果核对",
+      "beforeState": "人工请求与结果核对 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:4400",
+          "label": "查看证据",
+          "targets": [
+            "2:2744"
+          ]
+        },
+        {
+          "id": "2:4419",
+          "label": "打开待办列表",
+          "targets": [
+            "1:3794"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3794"
+      ],
+      "actionCount": 18,
+      "variableWrites": 4,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "043",
+      "nodeId": "2:4421",
+      "name": "产物状态与清理",
+      "object": "RUN-0921-024",
+      "entry": "产物状态与清理",
+      "beforeState": "产物状态与清理 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "1:3539",
+        "2:2640"
+      ],
+      "actionCount": 21,
+      "variableWrites": 6,
+      "operationResult": "清理完成 / 清理失败 / 外部丢失分开",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "044",
+      "nodeId": "2:4526",
+      "name": "计划状态与冲突",
+      "object": "计划状态与冲突 所示当前对象",
+      "entry": "计划状态与冲突",
+      "beforeState": "计划状态与冲突 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:5548",
+          "label": "返回计划",
+          "targets": [
+            "1:3673"
+          ]
+        },
+        {
+          "id": "2:5573",
+          "label": "重新编辑",
+          "targets": [
+            "2:3431"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3673"
+      ],
+      "actionCount": 16,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "045",
+      "nodeId": "2:4629",
+      "name": "AI连接与输出状态",
+      "object": "AI连接与输出状态 所示当前对象",
+      "entry": "AI连接与输出状态",
+      "beforeState": "AI连接与输出状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:17418",
+          "label": "查看连接失败详情",
+          "targets": [
+            "4:10955"
+          ]
+        },
+        {
+          "id": "4:17435",
+          "label": "重新测试",
+          "targets": [
+            "4:10715"
+          ]
+        },
+        {
+          "id": "4:17452",
+          "label": "返回配置",
+          "targets": [
+            "4:10599"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:3118",
+        "4:10599"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "046",
+      "nodeId": "2:4732",
+      "name": "资源与存储异常",
+      "object": "资源与存储异常 所示当前对象",
+      "entry": "资源与存储异常",
+      "beforeState": "资源与存储异常 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:5762",
+          "label": "重新绑定",
+          "targets": [
+            "2:3227"
+          ]
+        },
+        {
+          "id": "2:5781",
+          "label": "检查脚本与依赖",
+          "targets": [
+            "2:2367"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3896",
+        "2:3227"
+      ],
+      "actionCount": 17,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "047",
+      "nodeId": "2:4837",
+      "name": "模板版本与导出",
+      "object": "查看实例；原实例保持原样；打开实例",
+      "entry": "模板版本与导出",
+      "beforeState": "模板版本与导出 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:5859",
+          "label": "创建新版实例",
+          "targets": [
+            "2:973"
+          ]
+        },
+        {
+          "id": "2:5867",
+          "label": "导出 ZIP",
+          "targets": [
+            "2:4940"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:973"
+      ],
+      "actionCount": 18,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "048",
+      "nodeId": "2:4940",
+      "name": "导出 ZIP",
+      "object": "网页文字归档；只导出包定义，不携带本地实例、凭据和运行记录。；可以经同一导入入口安装；获取文件本身不产生执行授权。",
+      "entry": "导出 ZIP",
+      "beforeState": "导出 ZIP 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:5972",
+          "label": "确认导出",
+          "targets": [
+            "1:3125"
+          ]
+        },
+        {
+          "id": "2:5981",
+          "label": "检查资源节点",
+          "targets": [
+            "2:2033"
+          ]
+        },
+        {
+          "id": "2:5989",
+          "label": "导入验证",
+          "targets": [
+            "1:3256"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 22,
+      "variableWrites": 7,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "049",
+      "nodeId": "2:5045",
+      "name": "退出与运行环境",
+      "object": "退出与运行环境 所示当前对象",
+      "entry": "退出与运行环境",
+      "beforeState": "退出与运行环境 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:6067",
+          "label": "继续运行",
+          "targets": [
+            "1:3539"
+          ]
+        },
+        {
+          "id": "2:6077",
+          "label": "恢复工作台",
+          "targets": [
+            "1:198"
+          ]
+        },
+        {
+          "id": "2:6096",
+          "label": "查看待办",
+          "targets": [
+            "1:3794"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3896"
+      ],
+      "actionCount": 18,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "050",
+      "nodeId": "2:5152",
+      "name": "紧凑窗口与网页",
+      "object": "网页文字归档",
+      "entry": "紧凑窗口与网页",
+      "beforeState": "紧凑窗口与网页 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:6175",
+          "label": "逐步调试",
+          "targets": [
+            "2:2534"
+          ]
+        },
+        {
+          "id": "2:6186",
+          "label": "编辑当前步骤",
+          "targets": [
+            "2:5253"
+          ]
+        },
+        {
+          "id": "2:6197",
+          "label": "拾取元素",
+          "targets": [
+            "2:3991"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:394"
+      ],
+      "actionCount": 15,
+      "variableWrites": 3,
+      "operationResult": "紧凑观察与执行页布局不重置任务对象",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "051",
+      "nodeId": "2:5253",
+      "name": "紧凑配置抽屉",
+      "object": "网页文字归档",
+      "entry": "紧凑配置抽屉",
+      "beforeState": "紧凑配置抽屉 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:6276",
+          "label": "逐步调试",
+          "targets": [
+            "2:2534"
+          ]
+        },
+        {
+          "id": "2:6311",
+          "label": "应用并关闭",
+          "targets": [
+            "2:5152"
+          ]
+        },
+        {
+          "id": "2:6298",
+          "label": "拾取元素",
+          "targets": [
+            "2:3991"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:5152"
+      ],
+      "actionCount": 17,
+      "variableWrites": 3,
+      "operationResult": "配置抽屉关闭回到原紧凑观察页",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "052",
+      "nodeId": "2:6948",
+      "name": "P1 操作路径总览",
+      "object": "创建和选择实例；入口输入与运行；只读入口",
+      "entry": "P1 操作路径总览",
+      "beforeState": "P1 操作路径总览 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:13209",
+          "label": "AI 任务主线",
+          "targets": [
+            "23:1941"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 46,
+      "variableWrites": 12,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "053",
+      "nodeId": "2:7749",
+      "name": "动作授权：每次确认",
+      "object": "操作入口；按入口检查；只需要网页资源；输出目录和 AI 不影响此入口。",
+      "entry": "动作授权：每次确认",
+      "beforeState": "动作授权：每次确认 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:7844",
+          "label": "每次确认",
+          "targets": []
+        },
+        {
+          "id": "2:7850",
+          "label": "保存授权",
+          "targets": [
+            "2:1199"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:973"
+      ],
+      "actionCount": 29,
+      "variableWrites": 8,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "054",
+      "nodeId": "2:7867",
+      "name": "动作授权：自动范围",
+      "object": "操作入口；按入口检查；只需要网页资源；输出目录和 AI 不影响此入口。",
+      "entry": "动作授权：自动范围",
+      "beforeState": "动作授权：自动范围 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:7964",
+          "label": "配置范围内自动",
+          "targets": []
+        },
+        {
+          "id": "2:7968",
+          "label": "保存授权",
+          "targets": [
+            "2:7985"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:973"
+      ],
+      "actionCount": 29,
+      "variableWrites": 8,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "055",
+      "nodeId": "2:7985",
+      "name": "入口输入：自动范围",
+      "object": "运行此入口；切换只读入口；查看上次入口结果",
+      "entry": "入口输入：自动范围",
+      "beforeState": "入口输入：自动范围 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:8082",
+          "label": "运行此入口",
+          "targets": [
+            "2:9120"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:973"
+      ],
+      "actionCount": 23,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "056",
+      "nodeId": "2:8100",
+      "name": "运行记录：第2页",
+      "object": "RUN-0920-013；网页文字归档；RUN-0920-012",
+      "entry": "运行记录：第2页",
+      "beforeState": "运行记录：第2页 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "1:3376"
+      ],
+      "actionCount": 48,
+      "variableWrites": 27,
+      "operationResult": "下一页不回跳第一页；补第三页固定示例与加载浮层",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "057",
+      "nodeId": "2:8270",
+      "name": "运行记录筛选",
+      "object": "网页文字归档",
+      "entry": "运行记录筛选",
+      "beforeState": "运行记录筛选 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:8361",
+          "label": "应用筛选",
+          "targets": [
+            "1:3376"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3376"
+      ],
+      "actionCount": 14,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "058",
+      "nodeId": "2:9120",
+      "name": "模板运行：写入中",
+      "object": "RUN-0921-025；网页文字归档；RUN-0921-025  ·  手动运行  ·  今天 10:42:18",
+      "entry": "模板运行：写入中",
+      "beforeState": "模板运行：写入中 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:9188",
+          "label": "查看网页",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3376"
+      ],
+      "actionCount": 17,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "059",
+      "nodeId": "2:9260",
+      "name": "模板运行：结果",
+      "object": "RUN-0921-025；RUN-0921-025 · 使用本次运行保存的结果，不重新执行节点。；入口结果",
+      "entry": "模板运行：结果",
+      "beforeState": "模板运行：结果 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "2:9354",
+          "label": "核对后重新运行",
+          "targets": [
+            "2:3014"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:9120"
+      ],
+      "actionCount": 25,
+      "variableWrites": 6,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "060",
+      "nodeId": "4:10378",
+      "name": "DeepSeek · 未配置",
+      "object": "仅需要 AI 的入口受影响，其他流程仍可使用。",
+      "entry": "DeepSeek · 未配置",
+      "beforeState": "DeepSeek · 未配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:16555",
+          "label": "填写配置",
+          "targets": [
+            "4:10487"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:3118"
+      ],
+      "actionCount": 20,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "061",
+      "nodeId": "4:10487",
+      "name": "DeepSeek · 首次填写",
+      "object": "DeepSeek · 首次填写 所示当前对象",
+      "entry": "DeepSeek · 首次填写",
+      "beforeState": "DeepSeek · 首次填写 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:16665",
+          "label": "保存配置",
+          "targets": [
+            "2:3118"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "8:20559"
+      ],
+      "actionCount": 21,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "062",
+      "nodeId": "4:10599",
+      "name": "DeepSeek · 替换 Key",
+      "object": "DeepSeek · 替换 Key 所示当前对象",
+      "entry": "DeepSeek · 替换 Key",
+      "beforeState": "DeepSeek · 替换 Key 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:16781",
+          "label": "保存配置",
+          "targets": [
+            "2:3118"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "8:20678"
+      ],
+      "actionCount": 22,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "063",
+      "nodeId": "4:10715",
+      "name": "DeepSeek · 测试中",
+      "object": "DeepSeek · 测试中 所示当前对象",
+      "entry": "DeepSeek · 测试中",
+      "beforeState": "DeepSeek · 测试中 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:16906",
+          "label": "取消测试",
+          "targets": [
+            "2:3118"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:3118",
+        "1:3896"
+      ],
+      "actionCount": 23,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "064",
+      "nodeId": "4:10835",
+      "name": "DeepSeek · 已验证",
+      "object": "DeepSeek · 已验证 所示当前对象",
+      "entry": "DeepSeek · 已验证",
+      "beforeState": "DeepSeek · 已验证 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:17025",
+          "label": "重新测试",
+          "targets": [
+            "4:10715"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:3118",
+        "1:3896"
+      ],
+      "actionCount": 25,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "065",
+      "nodeId": "4:10955",
+      "name": "DeepSeek · 连接失败",
+      "object": "DeepSeek · 连接失败 所示当前对象",
+      "entry": "DeepSeek · 连接失败",
+      "beforeState": "DeepSeek · 连接失败 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:17144",
+          "label": "测试连接",
+          "targets": [
+            "4:10715"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:3118",
+        "1:3896"
+      ],
+      "actionCount": 26,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "066",
+      "nodeId": "4:11077",
+      "name": "DeepSeek · 移除确认",
+      "object": "将移除这台 Mac 保存的 Key（尾四位 7K2M）。依赖此资源的入口下次运行前需要重新配置。",
+      "entry": "DeepSeek · 移除确认",
+      "beforeState": "DeepSeek · 移除确认 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "2:3118"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "067",
+      "nodeId": "4:11164",
+      "name": "模板 AI 资源配置",
+      "object": "状态规格 · AI 仅对声明需要该能力的入口必填。；当前入口需要 AI。共享配置和本次输入会保留，设置完成后返回此处。；只读、网页或文件入口未声明 AI 时，不受此项阻塞。",
+      "entry": "模板 AI 资源配置",
+      "beforeState": "模板 AI 资源配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "4:17321",
+          "label": "去配置 DeepSeek",
+          "targets": [
+            "8:18826"
+          ]
+        },
+        {
+          "id": "4:17338",
+          "label": "管理 AI 配置",
+          "targets": [
+            "2:3118"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:973"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "068",
+      "nodeId": "8:18364",
+      "name": "导航与返回演示",
+      "object": "离开模板配置 DeepSeek，返回后保留实例、入口和本次输入。；打开模板入口；查看运行详情后回到原分页，设置子项能回到原入口。",
+      "entry": "导航与返回演示",
+      "beforeState": "导航与返回演示 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "8:18938",
+        "8:19310"
+      ],
+      "actionCount": 19,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "069",
+      "nodeId": "8:18463",
+      "name": "模板入口 · 待配置 AI",
+      "object": "进入设置不会运行此入口；返回后保留本页输入与所选入口。；运行此入口；当前入口声明需要 AI。到本地设置完成配置后，再回到这里。",
+      "entry": "模板入口 · 待配置 AI",
+      "beforeState": "模板入口 · 待配置 AI 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:18567",
+          "label": "去配置 DeepSeek",
+          "targets": [
+            "8:18826"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3125"
+      ],
+      "actionCount": 17,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "070",
+      "nodeId": "8:18569",
+      "name": "模板入口 · AI 已配置",
+      "object": "进入设置不会运行此入口；返回后保留本页输入与所选入口。；运行此入口；已恢复到实例 A 的生成草稿入口，输入未丢失。",
+      "entry": "模板入口 · AI 已配置",
+      "beforeState": "模板入口 · AI 已配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:18677",
+          "label": "管理 AI 配置",
+          "targets": [
+            "8:18938"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:3125"
+      ],
+      "actionCount": 18,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "071",
+      "nodeId": "8:18679",
+      "name": "流程参数 · 未保存",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "流程参数 · 未保存",
+      "beforeState": "流程参数 · 未保存 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:18804",
+          "label": "保存参数",
+          "targets": [
+            "2:1398"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "8:20277"
+      ],
+      "actionCount": 28,
+      "variableWrites": 3,
+      "operationResult": "保留四种类型输入练习；与主参数来源示例分开",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "072",
+      "nodeId": "8:18826",
+      "name": "DeepSeek · 来自模板配置",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "DeepSeek · 来自模板配置",
+      "beforeState": "DeepSeek · 来自模板配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:18912",
+          "label": "保存配置",
+          "targets": [
+            "8:18938"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "8:20443"
+      ],
+      "actionCount": 20,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "073",
+      "nodeId": "8:18938",
+      "name": "DeepSeek · 返回模板前",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入；返回实例 A · 生成草稿",
+      "entry": "DeepSeek · 返回模板前",
+      "beforeState": "DeepSeek · 返回模板前 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:19040",
+          "label": "测试连接",
+          "targets": [
+            "8:19057"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "8:18569"
+      ],
+      "actionCount": 23,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "074",
+      "nodeId": "8:19057",
+      "name": "DeepSeek · 模板来源已验证",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入；返回实例 A · 生成草稿",
+      "entry": "DeepSeek · 模板来源已验证",
+      "beforeState": "DeepSeek · 模板来源已验证 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:19159",
+          "label": "重新测试",
+          "targets": [
+            "4:10715"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "8:18569"
+      ],
+      "actionCount": 23,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "075",
+      "nodeId": "8:19176",
+      "name": "运行详情 · 来源第2页",
+      "object": "RUN-0921-018；网页文字归档；RUN-0921-018  ·  手动运行  ·  今天 10:42:18",
+      "entry": "运行详情 · 来源第2页",
+      "beforeState": "运行详情 · 来源第2页 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:19244",
+          "label": "查看网页",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:8100"
+      ],
+      "actionCount": 18,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "076",
+      "nodeId": "8:19310",
+      "name": "返回来源已失效",
+      "object": "原实例可能已删除或替换。不会自动打开另一个实例，也不会丢弃当前已保存的 AI 配置。；请选择明确的去向，再选择要继续操作的实例。",
+      "entry": "返回来源已失效",
+      "beforeState": "返回来源已失效 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:19386",
+          "label": "返回模板库",
+          "targets": [
+            "1:3125"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "8:18364",
+        "1:3125"
+      ],
+      "actionCount": 14,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "077",
+      "nodeId": "8:20277",
+      "name": "离开确认 · 流程参数",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。；当前输入尚未保存。保存成功后前往「流程编排」；不保存将放弃本次更改。",
+      "entry": "离开确认 · 流程参数",
+      "beforeState": "离开确认 · 流程参数 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:20411",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:20441",
+          "label": "保存并离开",
+          "targets": [
+            "1:394"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "离开三选及保存失败保持；确认背景控件不参与操作",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "078",
+      "nodeId": "8:20443",
+      "name": "离开确认 · 模板 AI",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入；当前输入尚未保存。保存成功后前往「模板入口 · 待配置 AI」；不保存将放弃本次更改。",
+      "entry": "离开确认 · 模板 AI",
+      "beforeState": "离开确认 · 模板 AI 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:20535",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:20557",
+          "label": "保存并离开",
+          "targets": [
+            "8:18463"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "079",
+      "nodeId": "8:20559",
+      "name": "离开确认 · 首次配置",
+      "object": "离开确认 · 首次配置 所示当前对象",
+      "entry": "离开确认 · 首次配置",
+      "beforeState": "离开确认 · 首次配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:20654",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:20676",
+          "label": "保存并离开",
+          "targets": [
+            "2:3118"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "080",
+      "nodeId": "8:20678",
+      "name": "离开确认 · 替换 Key",
+      "object": "离开确认 · 替换 Key 所示当前对象",
+      "entry": "离开确认 · 替换 Key",
+      "beforeState": "离开确认 · 替换 Key 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:20777",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:20799",
+          "label": "保存并离开",
+          "targets": [
+            "2:3118"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "081",
+      "nodeId": "8:20801",
+      "name": "保存失败 · 保留参数",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "保存失败 · 保留参数",
+      "beforeState": "保存失败 · 保留参数 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:20935",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:20965",
+          "label": "重试保存并离开",
+          "targets": [
+            "1:394"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "082",
+      "nodeId": "8:23606",
+      "name": "选择变量 · 来源 网页操作与拾取",
+      "object": "网页文字归档",
+      "entry": "选择变量 · 来源 网页操作与拾取",
+      "beforeState": "选择变量 · 来源 网页操作与拾取 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:23709",
+          "label": "使用此变量",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "1:2229"
+      ],
+      "actionCount": 25,
+      "variableWrites": 3,
+      "operationResult": "步骤引用范围与参数来源选择范围区分",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "083",
+      "nodeId": "8:23758",
+      "name": "选择变量 · 来源 流程参数与资源",
+      "object": "网页文字归档",
+      "entry": "选择变量 · 来源 流程参数与资源",
+      "beforeState": "选择变量 · 来源 流程参数与资源 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:23861",
+          "label": "使用此变量",
+          "targets": [
+            "2:1398"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:1398"
+      ],
+      "actionCount": 23,
+      "variableWrites": 3,
+      "operationResult": "仅其他参数候选；数字来源进入对应详情",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "084",
+      "nodeId": "8:23910",
+      "name": "选择变量 · 来源 条件与串行循环",
+      "object": "网页文字归档；当前流程参数；进入循环前解析",
+      "entry": "选择变量 · 来源 条件与串行循环",
+      "beforeState": "选择变量 · 来源 条件与串行循环 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:24013",
+          "label": "使用此变量",
+          "targets": [
+            "2:1758"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:1758"
+      ],
+      "actionCount": 22,
+      "variableWrites": 5,
+      "operationResult": "循环集合只展示数组候选；隐藏当前循环变量",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "085",
+      "nodeId": "8:24062",
+      "name": "选择变量 · 来源 输入与保存状态",
+      "object": "网页文字归档",
+      "entry": "选择变量 · 来源 输入与保存状态",
+      "beforeState": "选择变量 · 来源 输入与保存状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:24165",
+          "label": "使用此变量",
+          "targets": [
+            "2:3672"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:3672"
+      ],
+      "actionCount": 26,
+      "variableWrites": 3,
+      "operationResult": "无效状态保留修复入口和原值",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "086",
+      "nodeId": "8:24218",
+      "name": "选择变量 · 来源 紧凑配置抽屉",
+      "object": "网页文字归档",
+      "entry": "选择变量 · 来源 紧凑配置抽屉",
+      "beforeState": "选择变量 · 来源 紧凑配置抽屉 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:24321",
+          "label": "使用此变量",
+          "targets": [
+            "2:5253"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:5253"
+      ],
+      "actionCount": 26,
+      "variableWrites": 3,
+      "operationResult": "紧凑配置返回入口保持",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "087",
+      "nodeId": "8:24374",
+      "name": "选择变量 · 来源 流程参数 · 未保存",
+      "object": "网页文字归档",
+      "entry": "选择变量 · 来源 流程参数 · 未保存",
+      "beforeState": "选择变量 · 来源 流程参数 · 未保存 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:24477",
+          "label": "使用此变量",
+          "targets": [
+            "2:1398"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "2:1398"
+      ],
+      "actionCount": 23,
+      "variableWrites": 3,
+      "operationResult": "与 083 同一参数来源语义",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "088",
+      "nodeId": "8:24539",
+      "name": "RUN-0921-018 · 输出与产物",
+      "object": "RUN-0921-018；RUN-0921-018 · 使用本次运行保存的结果，不重新执行节点。",
+      "entry": "RUN-0921-018 · 输出与产物",
+      "beforeState": "RUN-0921-018 · 输出与产物 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:24642",
+          "label": "核对后重新运行",
+          "targets": []
+        }
+      ],
+      "returnTargets": [
+        "8:19176"
+      ],
+      "actionCount": 18,
+      "variableWrites": 3,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "089",
+      "nodeId": "8:24669",
+      "name": "RUN-0921-018 · 日志与步骤",
+      "object": "RUN-0921-023；RUN-0921-018；原快照 / 当前已保存",
+      "entry": "RUN-0921-018 · 日志与步骤",
+      "beforeState": "RUN-0921-018 · 日志与步骤 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:24807",
+          "label": "应用配置",
+          "targets": [
+            "8:24539"
+          ]
+        },
+        {
+          "id": "8:24822",
+          "label": "应用配置",
+          "targets": [
+            "8:19176"
+          ]
+        },
+        {
+          "id": "8:24837",
+          "label": "应用配置",
+          "targets": [
+            "2:3014"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "8:19176"
+      ],
+      "actionCount": 23,
+      "variableWrites": 6,
+      "operationResult": "日志状态目录只读；重跑来源 Run 上下文带入核对页",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "090",
+      "nodeId": "23:1941",
+      "name": "AI · 开始任务",
+      "object": "AI · 开始任务 所示当前对象",
+      "entry": "AI · 开始任务",
+      "beforeState": "AI · 开始任务 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:2072",
+          "label": "开始规划",
+          "targets": [
+            "23:2280"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 22,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "091",
+      "nodeId": "23:2106",
+      "name": "AI · 第一次实操",
+      "object": "AI · 第一次实操 所示当前对象",
+      "entry": "AI · 第一次实操",
+      "beforeState": "AI · 第一次实操 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:2276",
+          "label": "跟着做一次",
+          "targets": [
+            "23:2280"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:1941"
+      ],
+      "actionCount": 11,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "092",
+      "nodeId": "23:2280",
+      "name": "AI · 描述与附件",
+      "object": "AI · 描述与附件 所示当前对象",
+      "entry": "AI · 描述与附件",
+      "beforeState": "AI · 描述与附件 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:2426",
+          "label": "理解我的任务",
+          "targets": [
+            "23:2440"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:1941"
+      ],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "附件核对有保留上下文的详情",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "093",
+      "nodeId": "23:2440",
+      "name": "AI · 选择操作对象",
+      "object": "AI · 选择操作对象 所示当前对象",
+      "entry": "AI · 选择操作对象",
+      "beforeState": "AI · 选择操作对象 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:2605",
+          "label": "使用这个目标",
+          "targets": [
+            "23:2766"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2280"
+      ],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "094",
+      "nodeId": "23:2609",
+      "name": "AI · 应用窗口与能力",
+      "object": "AI · 应用窗口与能力 所示当前对象",
+      "entry": "AI · 应用窗口与能力",
+      "beforeState": "AI · 应用窗口与能力 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:2761",
+          "label": "查看连接与授权",
+          "targets": [
+            "23:5033"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2440"
+      ],
+      "actionCount": 13,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "095",
+      "nodeId": "23:2766",
+      "name": "AI · 理解与补问",
+      "object": "AI · 理解与补问 所示当前对象",
+      "entry": "AI · 理解与补问",
+      "beforeState": "AI · 理解与补问 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:2911",
+          "label": "确认并生成方案",
+          "targets": [
+            "23:10659"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2440"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "096",
+      "nodeId": "23:2928",
+      "name": "AI · 确认任务方案",
+      "object": "v1 · 已保存",
+      "entry": "AI · 确认任务方案",
+      "beforeState": "AI · 确认任务方案 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:3105",
+          "label": "确认，去试运行",
+          "targets": [
+            "23:3799"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2766"
+      ],
+      "actionCount": 17,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "097",
+      "nodeId": "23:3109",
+      "name": "AI · 步骤清单",
+      "object": "v1 · 已保存",
+      "entry": "AI · 步骤清单",
+      "beforeState": "AI · 步骤清单 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:3286",
+          "label": "确认，去试运行",
+          "targets": [
+            "23:3799"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2766"
+      ],
+      "actionCount": 16,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "098",
+      "nodeId": "23:3290",
+      "name": "AI · 同一流程图",
+      "object": "网页标题归档 · v1 · 清单和流程图使用同一份流程草稿",
+      "entry": "AI · 同一流程图",
+      "beforeState": "AI · 同一流程图 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:3418",
+          "label": "流程图",
+          "targets": []
+        },
+        {
+          "id": "23:3420",
+          "label": "试运行",
+          "targets": [
+            "23:3799"
+          ]
+        },
+        {
+          "id": "23:3463",
+          "label": "用 AI 修改此步",
+          "targets": [
+            "23:3467"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2928"
+      ],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "099",
+      "nodeId": "23:3467",
+      "name": "AI · 修改差异",
+      "object": "仅修改第 3 步 · 草稿 v1 → v2 · 尚未采纳；采纳只更新草稿，当前运行和已建立计划仍使用原快照。",
+      "entry": "AI · 修改差异",
+      "beforeState": "AI · 修改差异 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:3612",
+          "label": "采纳修改",
+          "targets": [
+            "23:3618"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2928"
+      ],
+      "actionCount": 13,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "100",
+      "nodeId": "23:3618",
+      "name": "AI · 采纳后的方案",
+      "object": "v2 · 已保存",
+      "entry": "AI · 采纳后的方案",
+      "beforeState": "AI · 采纳后的方案 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:3795",
+          "label": "确认，去试运行",
+          "targets": [
+            "23:7281"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2766"
+      ],
+      "actionCount": 18,
+      "variableWrites": 0,
+      "operationResult": "撤销采纳前展示影响范围并显式确认",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "101",
+      "nodeId": "23:3799",
+      "name": "AI · 试运行前检查",
+      "object": "AI · 试运行前检查 所示当前对象",
+      "entry": "AI · 试运行前检查",
+      "beforeState": "AI · 试运行前检查 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:3953",
+          "label": "开始试运行",
+          "targets": [
+            "23:3957"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2928"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "102",
+      "nodeId": "23:3957",
+      "name": "AI · 试运行中",
+      "object": "AI · 试运行中 所示当前对象",
+      "entry": "AI · 试运行中",
+      "beforeState": "AI · 试运行中 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "23:2928"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "模拟完成入口移到产品外审稿导航",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "103",
+      "nodeId": "23:4127",
+      "name": "AI · 可读结果",
+      "object": "AI · 可读结果 所示当前对象",
+      "entry": "AI · 可读结果",
+      "beforeState": "AI · 可读结果 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:4262",
+          "label": "预览文件",
+          "targets": [
+            "23:4283"
+          ]
+        },
+        {
+          "id": "23:4270",
+          "label": "告诉 AI 怎么改",
+          "targets": [
+            "23:3467"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:3957"
+      ],
+      "actionCount": 17,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "104",
+      "nodeId": "23:4283",
+      "name": "AI · 结果详细信息",
+      "object": "AI · 结果详细信息 所示当前对象",
+      "entry": "AI · 结果详细信息",
+      "beforeState": "AI · 结果详细信息 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:4423",
+          "label": "返回结果摘要",
+          "targets": [
+            "23:4127"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4127"
+      ],
+      "actionCount": 11,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "105",
+      "nodeId": "23:4425",
+      "name": "AI · 失败与引导",
+      "object": "AI · 失败与引导 所示当前对象",
+      "entry": "AI · 失败与引导",
+      "beforeState": "AI · 失败与引导 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:4568",
+          "label": "重新选择标题区域",
+          "targets": [
+            "23:7691"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:1941"
+      ],
+      "actionCount": 13,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "106",
+      "nodeId": "23:4575",
+      "name": "AI · 修复提议",
+      "object": "AI · 修复提议 所示当前对象",
+      "entry": "AI · 修复提议",
+      "beforeState": "AI · 修复提议 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:4720",
+          "label": "采纳并检查起点",
+          "targets": [
+            "23:4724"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4425"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "107",
+      "nodeId": "23:4724",
+      "name": "AI · 修复后运行起点",
+      "object": "AI · 修复后运行起点 所示当前对象",
+      "entry": "AI · 修复后运行起点",
+      "beforeState": "AI · 修复后运行起点 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:4863",
+          "label": "确认，重新检查",
+          "targets": [
+            "23:7765"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4575"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "108",
+      "nodeId": "23:4867",
+      "name": "应用与工具 · 连接目录",
+      "object": "应用与工具 · 连接目录 所示当前对象",
+      "entry": "应用与工具 · 连接目录",
+      "beforeState": "应用与工具 · 连接目录 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "23:1941"
+      ],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "109",
+      "nodeId": "23:5033",
+      "name": "应用与工具 · 连接向导",
+      "object": "应用与工具 · 连接向导 所示当前对象",
+      "entry": "应用与工具 · 连接向导",
+      "beforeState": "应用与工具 · 连接向导 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:5190",
+          "label": "完成授权后测试",
+          "targets": [
+            "23:5195"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4867"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "110",
+      "nodeId": "23:5195",
+      "name": "应用与工具 · 已连接",
+      "object": "应用与工具 · 已连接 所示当前对象",
+      "entry": "应用与工具 · 已连接",
+      "beforeState": "应用与工具 · 已连接 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:5340",
+          "label": "选择应用窗口",
+          "targets": [
+            "23:8087"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4867"
+      ],
+      "actionCount": 17,
+      "variableWrites": 3,
+      "operationResult": "连接重新测试进入检查状态",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "111",
+      "nodeId": "23:5348",
+      "name": "应用与工具 · 失效重连",
+      "object": "应用与工具 · 失效重连 所示当前对象",
+      "entry": "应用与工具 · 失效重连",
+      "beforeState": "应用与工具 · 失效重连 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:5487",
+          "label": "重新授权并测试",
+          "targets": [
+            "23:5033"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4867"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "112",
+      "nodeId": "23:5493",
+      "name": "应用与工具 · 高级 MCP",
+      "object": "应用与工具 · 高级 MCP 所示当前对象",
+      "entry": "应用与工具 · 高级 MCP",
+      "beforeState": "应用与工具 · 高级 MCP 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:5648",
+          "label": "发现并检查能力",
+          "targets": [
+            "23:8773"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4867"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "113",
+      "nodeId": "23:5656",
+      "name": "AI · 模型未配置",
+      "object": "AI · 模型未配置 所示当前对象",
+      "entry": "AI · 模型未配置",
+      "beforeState": "AI · 模型未配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:5791",
+          "label": "去配置 AI 服务",
+          "targets": [
+            "23:9067"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:1941"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "114",
+      "nodeId": "23:5795",
+      "name": "AI · 模型配置后返回",
+      "object": "AI · 模型配置后返回 所示当前对象",
+      "entry": "AI · 模型配置后返回",
+      "beforeState": "AI · 模型配置后返回 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:5903",
+          "label": "测试连接",
+          "targets": [
+            "248:4614"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2280"
+      ],
+      "actionCount": 17,
+      "variableWrites": 1,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "115",
+      "nodeId": "23:5921",
+      "name": "AI · 全宽网页查看",
+      "object": "AI · 全宽网页查看 所示当前对象",
+      "entry": "AI · 全宽网页查看",
+      "beforeState": "AI · 全宽网页查看 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:6051",
+          "label": "聚焦选中目标",
+          "targets": [
+            "23:6221"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2440"
+      ],
+      "actionCount": 13,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "116",
+      "nodeId": "23:6084",
+      "name": "AI · 紧凑网页总览",
+      "object": "AI · 紧凑网页总览 所示当前对象",
+      "entry": "AI · 紧凑网页总览",
+      "beforeState": "AI · 紧凑网页总览 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:6185",
+          "label": "100% 聚焦目标",
+          "targets": [
+            "23:6221"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2440",
+        "23:2928"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "117",
+      "nodeId": "23:6221",
+      "name": "AI · 紧凑目标聚焦",
+      "object": "AI · 紧凑目标聚焦 所示当前对象",
+      "entry": "AI · 紧凑目标聚焦",
+      "beforeState": "AI · 紧凑目标聚焦 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:6322",
+          "label": "确认这个目标",
+          "targets": [
+            "23:2766"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2440",
+        "23:6084"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "118",
+      "nodeId": "23:6333",
+      "name": "编排 · 四十步任务",
+      "object": "步骤大纲、搜索定位和分支折叠 · 当前运行使用 v3，草稿 v4 独立",
+      "entry": "编排 · 四十步任务",
+      "beforeState": "编排 · 四十步任务 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:6464",
+          "label": "聚焦当前执行",
+          "targets": []
+        }
+      ],
+      "returnTargets": [
+        "23:2928"
+      ],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "119",
+      "nodeId": "23:6516",
+      "name": "配置 · Excel 映射编辑",
+      "object": "当前任务 / Excel 映射草稿与已保存映射",
+      "entry": "配置 · Excel 映射编辑",
+      "beforeState": "配置 · Excel 映射编辑 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:6707",
+          "label": "预览 3 行",
+          "targets": [
+            "233:4798"
+          ]
+        },
+        {
+          "id": "23:6722",
+          "label": "保存映射并返回",
+          "targets": [
+            "23:2928"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2928"
+      ],
+      "actionCount": 18,
+      "variableWrites": 4,
+      "operationResult": "第五条 E 映射进入 307:4871 五列预览；返回保持五条；保存到 307:5088；重开仍五条",
+      "exceptionRecovery": "307:5175 失败保留五条；取消恢复最后保存的四条或五条；保存不写工作簿",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "120",
+      "nodeId": "23:6726",
+      "name": "配置 · 脚本编辑",
+      "object": "配置 · 脚本编辑 所示当前对象",
+      "entry": "配置 · 脚本编辑",
+      "beforeState": "配置 · 脚本编辑 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:6886",
+          "label": "保存并返回",
+          "targets": [
+            "23:2928"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2928"
+      ],
+      "actionCount": 14,
+      "variableWrites": 0,
+      "operationResult": "语法检查与输入结构预览；签名为 async({ input, logger })",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "121",
+      "nodeId": "23:6890",
+      "name": "编排 · 更多操作",
+      "object": "保存状态常驻任务顶部。显示网页只有一个入口，不在工具栏与属性区重复放置。",
+      "entry": "编排 · 更多操作",
+      "beforeState": "编排 · 更多操作 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "23:3290"
+      ],
+      "actionCount": 16,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "122",
+      "nodeId": "23:7031",
+      "name": "AI · v2 步骤清单",
+      "object": "v2 · 已保存",
+      "entry": "AI · v2 步骤清单",
+      "beforeState": "AI · v2 步骤清单 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:7146",
+          "label": "确认，去试运行",
+          "targets": [
+            "23:7281"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2766"
+      ],
+      "actionCount": 16,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "123",
+      "nodeId": "23:7158",
+      "name": "AI · v2 流程图",
+      "object": "网页标题归档 · v2 · 清单和流程图使用同一份流程草稿",
+      "entry": "AI · v2 流程图",
+      "beforeState": "AI · v2 流程图 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:7230",
+          "label": "流程图",
+          "targets": []
+        },
+        {
+          "id": "23:7231",
+          "label": "试运行",
+          "targets": [
+            "23:7281"
+          ]
+        },
+        {
+          "id": "23:7268",
+          "label": "用 AI 修改此步",
+          "targets": [
+            "27:13212"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:3618"
+      ],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "124",
+      "nodeId": "23:7281",
+      "name": "AI · v2 运行检查",
+      "object": "AI · v2 运行检查 所示当前对象",
+      "entry": "AI · v2 运行检查",
+      "beforeState": "AI · v2 运行检查 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:7380",
+          "label": "开始试运行",
+          "targets": [
+            "23:7385"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:3618"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "125",
+      "nodeId": "23:7385",
+      "name": "AI · v2 试运行",
+      "object": "AI · v2 试运行 所示当前对象",
+      "entry": "AI · v2 试运行",
+      "beforeState": "AI · v2 试运行 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "23:3618"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "模拟完成移到产品外",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "126",
+      "nodeId": "23:7501",
+      "name": "AI · v2 结果",
+      "object": "v2 试运行",
+      "entry": "AI · v2 结果",
+      "beforeState": "AI · v2 结果 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:7581",
+          "label": "预览文件",
+          "targets": [
+            "23:7603"
+          ]
+        },
+        {
+          "id": "23:7587",
+          "label": "告诉 AI 怎么改",
+          "targets": [
+            "27:13212"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:7385"
+      ],
+      "actionCount": 17,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "127",
+      "nodeId": "23:7603",
+      "name": "AI · v2 结果详情",
+      "object": "v2 结果",
+      "entry": "AI · v2 结果详情",
+      "beforeState": "AI · v2 结果详情 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:7688",
+          "label": "返回结果摘要",
+          "targets": [
+            "23:7501"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:7501"
+      ],
+      "actionCount": 11,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "128",
+      "nodeId": "23:7691",
+      "name": "AI · 修复时重新拾取",
+      "object": "AI · 修复时重新拾取 所示当前对象",
+      "entry": "AI · 修复时重新拾取",
+      "beforeState": "AI · 修复时重新拾取 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:7752",
+          "label": "确认这个目标",
+          "targets": [
+            "23:4575"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4425"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "129",
+      "nodeId": "23:7765",
+      "name": "AI · 修复版运行检查",
+      "object": "AI · 修复版运行检查 所示当前对象",
+      "entry": "AI · 修复版运行检查",
+      "beforeState": "AI · 修复版运行检查 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:7864",
+          "label": "开始试运行",
+          "targets": [
+            "23:7869"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:4575"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "130",
+      "nodeId": "23:7869",
+      "name": "AI · 修复版运行",
+      "object": "AI · 修复版运行 所示当前对象",
+      "entry": "AI · 修复版运行",
+      "beforeState": "AI · 修复版运行 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "23:4575"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "模拟完成移到产品外",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "131",
+      "nodeId": "23:7985",
+      "name": "AI · 修复版结果",
+      "object": "AI · 修复版结果 所示当前对象",
+      "entry": "AI · 修复版结果",
+      "beforeState": "AI · 修复版结果 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:8065",
+          "label": "预览文件",
+          "targets": [
+            "23:11195"
+          ]
+        },
+        {
+          "id": "23:8071",
+          "label": "告诉 AI 怎么改",
+          "targets": [
+            "23:3467"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:7869"
+      ],
+      "actionCount": 17,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "132",
+      "nodeId": "23:8087",
+      "name": "AI · 应用窗口已就绪",
+      "object": "AI · 应用窗口已就绪 所示当前对象",
+      "entry": "AI · 应用窗口已就绪",
+      "beforeState": "AI · 应用窗口已就绪 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:8183",
+          "label": "用这个窗口规划",
+          "targets": [
+            "23:8190"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2440"
+      ],
+      "actionCount": 13,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "133",
+      "nodeId": "23:8190",
+      "name": "AI · 应用任务方案",
+      "object": "应用任务 · v1 · 文本编辑 / 会议备忘.txt",
+      "entry": "AI · 应用任务方案",
+      "beforeState": "AI · 应用任务方案 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:8340",
+          "label": "查看改动并确认",
+          "targets": [
+            "23:8344"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:8087"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "134",
+      "nodeId": "23:8344",
+      "name": "AI · 应用任务确认",
+      "object": "AI · 应用任务确认 所示当前对象",
+      "entry": "AI · 应用任务确认",
+      "beforeState": "AI · 应用任务确认 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:8488",
+          "label": "确认修改并试运行",
+          "targets": [
+            "23:8492"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:8190"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "135",
+      "nodeId": "23:8492",
+      "name": "AI · 应用任务执行",
+      "object": "应用任务 R-APP-001 · 固定快照 v1",
+      "entry": "AI · 应用任务执行",
+      "beforeState": "AI · 应用任务执行 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "23:8190"
+      ],
+      "actionCount": 11,
+      "variableWrites": 0,
+      "operationResult": "模拟结果移到产品外",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "136",
+      "nodeId": "23:8631",
+      "name": "AI · 应用任务结果",
+      "object": "AI · 应用任务结果 所示当前对象",
+      "entry": "AI · 应用任务结果",
+      "beforeState": "AI · 应用任务结果 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:8771",
+          "label": "开始新任务",
+          "targets": [
+            "23:1941"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:8190"
+      ],
+      "actionCount": 13,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "137",
+      "nodeId": "23:8773",
+      "name": "应用与工具 · 自定义能力检查",
+      "object": "应用与工具 · 自定义能力检查 所示当前对象",
+      "entry": "应用与工具 · 自定义能力检查",
+      "beforeState": "应用与工具 · 自定义能力检查 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:8916",
+          "label": "保存这个连接",
+          "targets": [
+            "23:8920"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:5493"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "138",
+      "nodeId": "23:8920",
+      "name": "应用与工具 · 自定义已连接",
+      "object": "应用与工具 · 自定义已连接 所示当前对象",
+      "entry": "应用与工具 · 自定义已连接",
+      "beforeState": "应用与工具 · 自定义已连接 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:9063",
+          "label": "返回应用与工具",
+          "targets": [
+            "23:4867"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:5493",
+        "23:4867"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "139",
+      "nodeId": "23:9067",
+      "name": "AI · 任务中填写模型",
+      "object": "AI · 任务中填写模型 所示当前对象",
+      "entry": "AI · 任务中填写模型",
+      "beforeState": "AI · 任务中填写模型 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:9165",
+          "label": "保存配置",
+          "targets": [
+            "23:5795"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:5656"
+      ],
+      "actionCount": 13,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "140",
+      "nodeId": "23:9182",
+      "name": "AI · 任务中验证模型",
+      "object": "AI · 任务中验证模型 所示当前对象",
+      "entry": "AI · 任务中验证模型",
+      "beforeState": "AI · 任务中验证模型 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:9293",
+          "label": "重新测试",
+          "targets": [
+            "248:4614"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2280"
+      ],
+      "actionCount": 17,
+      "variableWrites": 1,
+      "operationResult": "任务内模型测试中 / 失败 / 重试 / 返回草稿分开",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "141",
+      "nodeId": "23:10659",
+      "name": "AI · 正在生成方案",
+      "object": "AI · 正在生成方案 所示当前对象",
+      "entry": "AI · 正在生成方案",
+      "beforeState": "AI · 正在生成方案 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "23:2766"
+      ],
+      "actionCount": 11,
+      "variableWrites": 0,
+      "operationResult": "生成中仅保留产品取消；结果审稿入口在画板外",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "142",
+      "nodeId": "23:10802",
+      "name": "AI · 生成失败与重试",
+      "object": "AI · 生成失败与重试 所示当前对象",
+      "entry": "AI · 生成失败与重试",
+      "beforeState": "AI · 生成失败与重试 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:10934",
+          "label": "重试生成",
+          "targets": [
+            "23:10659"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2766",
+        "23:2280"
+      ],
+      "actionCount": 13,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "143",
+      "nodeId": "23:10940",
+      "name": "AI · 当前能力不支持",
+      "object": "AI · 当前能力不支持 所示当前对象",
+      "entry": "AI · 当前能力不支持",
+      "beforeState": "AI · 当前能力不支持 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:11072",
+          "label": "查看应用与工具",
+          "targets": [
+            "23:4867"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2766"
+      ],
+      "actionCount": 12,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "144",
+      "nodeId": "23:11076",
+      "name": "AI · 任务中替换 Key",
+      "object": "AI · 任务中替换 Key 所示当前对象",
+      "entry": "AI · 任务中替换 Key",
+      "beforeState": "AI · 任务中替换 Key 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:11178",
+          "label": "保存配置",
+          "targets": [
+            "23:5795"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:2280"
+      ],
+      "actionCount": 14,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "145",
+      "nodeId": "23:11195",
+      "name": "AI · 修复版结果详情",
+      "object": "AI · 修复版结果详情 所示当前对象",
+      "entry": "AI · 修复版结果详情",
+      "beforeState": "AI · 修复版结果详情 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "23:11280",
+          "label": "返回结果摘要",
+          "targets": [
+            "23:7985"
+          ]
+        }
+      ],
+      "returnTargets": [
+        "23:7985"
+      ],
+      "actionCount": 11,
+      "variableWrites": 0,
+      "operationResult": "保留该状态；已查看截图和读取字段 / 按钮 / 返回连线，统一语义主题",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "146",
+      "nodeId": "27:13212",
+      "name": "AI · 继续修改当前版本",
+      "object": "填写要求后，先展示基于当前 v2 的差异。尚未提出新修改时，不重新套用 v1 的提议。；当前方案 · v2；新提议仍需检查修改范围并采纳；运行记录与原快照保持不变。",
+      "entry": "AI · 继续修改当前版本",
+      "beforeState": "AI · 继续修改当前版本 的固定示例状态",
+      "primaryActions": [],
+      "returnTargets": [
+        "23:3618"
+      ],
+      "actionCount": 11,
+      "variableWrites": 0,
+      "operationResult": "新请求从当前版本修改；空输入保持禁用",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "147",
+      "nodeId": "8:26305",
+      "name": "离开 流程参数 · 未保存 → 我的流程",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。；当前输入尚未保存。保存成功后前往「我的流程」；不保存将放弃本次更改。",
+      "entry": "离开 流程参数 · 未保存 → 我的流程",
+      "beforeState": "离开 流程参数 · 未保存 → 我的流程 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:26439",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:26469",
+          "label": "保存并离开",
+          "targets": [
+            "1:198"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "148",
+      "nodeId": "8:26472",
+      "name": "离开 流程参数 · 未保存 → 模板库",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "离开 流程参数 · 未保存 → 模板库",
+      "beforeState": "离开 流程参数 · 未保存 → 模板库 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:26606",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:26636",
+          "label": "保存并离开",
+          "targets": [
+            "1:3125"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "149",
+      "nodeId": "8:26639",
+      "name": "离开 流程参数 · 未保存 → 运行记录",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "离开 流程参数 · 未保存 → 运行记录",
+      "beforeState": "离开 流程参数 · 未保存 → 运行记录 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:26773",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:26803",
+          "label": "保存并离开",
+          "targets": [
+            "1:3376"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "150",
+      "nodeId": "8:26806",
+      "name": "离开 流程参数 · 未保存 → 本机计划",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "离开 流程参数 · 未保存 → 本机计划",
+      "beforeState": "离开 流程参数 · 未保存 → 本机计划 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:26940",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:26970",
+          "label": "保存并离开",
+          "targets": [
+            "1:3673"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "151",
+      "nodeId": "8:26973",
+      "name": "离开 流程参数 · 未保存 → 待办与提醒",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "离开 流程参数 · 未保存 → 待办与提醒",
+      "beforeState": "离开 流程参数 · 未保存 → 待办与提醒 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:27107",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:27137",
+          "label": "保存并离开",
+          "targets": [
+            "1:3794"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "152",
+      "nodeId": "8:27140",
+      "name": "离开 流程参数 · 未保存 → 本地设置",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "离开 流程参数 · 未保存 → 本地设置",
+      "beforeState": "离开 流程参数 · 未保存 → 本地设置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:27274",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:27304",
+          "label": "保存并离开",
+          "targets": [
+            "1:3896"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "153",
+      "nodeId": "8:27310",
+      "name": "离开 流程参数 · 未保存 → 网页操作与拾取",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "离开 流程参数 · 未保存 → 网页操作与拾取",
+      "beforeState": "离开 流程参数 · 未保存 → 网页操作与拾取 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:27444",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:27474",
+          "label": "保存并离开",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "154",
+      "nodeId": "8:27477",
+      "name": "离开 流程参数 · 未保存 → 输入与保存状态",
+      "object": "网页文字归档；普通流程自由编辑参数；模板实例使用独立共享配置与入口输入。",
+      "entry": "离开 流程参数 · 未保存 → 输入与保存状态",
+      "beforeState": "离开 流程参数 · 未保存 → 输入与保存状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:27611",
+          "label": "保存参数",
+          "targets": []
+        },
+        {
+          "id": "8:27641",
+          "label": "保存并离开",
+          "targets": [
+            "2:3672"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 15,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "155",
+      "nodeId": "8:27644",
+      "name": "离开 DeepSeek · 来自模板配置 → 我的流程",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入；当前输入尚未保存。保存成功后前往「我的流程」；不保存将放弃本次更改。",
+      "entry": "离开 DeepSeek · 来自模板配置 → 我的流程",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 我的流程 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:27736",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:27758",
+          "label": "保存并离开",
+          "targets": [
+            "1:198"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "156",
+      "nodeId": "8:27761",
+      "name": "离开 DeepSeek · 来自模板配置 → 模板库",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → 模板库",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 模板库 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:27853",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:27875",
+          "label": "保存并离开",
+          "targets": [
+            "1:3125"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "157",
+      "nodeId": "8:27878",
+      "name": "离开 DeepSeek · 来自模板配置 → 运行记录",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → 运行记录",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 运行记录 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:27970",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:27992",
+          "label": "保存并离开",
+          "targets": [
+            "1:3376"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "158",
+      "nodeId": "8:27995",
+      "name": "离开 DeepSeek · 来自模板配置 → 本机计划",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → 本机计划",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 本机计划 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:28087",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:28109",
+          "label": "保存并离开",
+          "targets": [
+            "1:3673"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "159",
+      "nodeId": "8:28112",
+      "name": "离开 DeepSeek · 来自模板配置 → 待办与提醒",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → 待办与提醒",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 待办与提醒 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:28204",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:28226",
+          "label": "保存并离开",
+          "targets": [
+            "1:3794"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "160",
+      "nodeId": "8:28229",
+      "name": "离开 DeepSeek · 来自模板配置 → 本地设置",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → 本地设置",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 本地设置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:28321",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:28343",
+          "label": "保存并离开",
+          "targets": [
+            "1:3896"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "161",
+      "nodeId": "8:28348",
+      "name": "离开 DeepSeek · 来自模板配置 → 网页操作与拾取",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → 网页操作与拾取",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 网页操作与拾取 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:28440",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:28462",
+          "label": "保存并离开",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "162",
+      "nodeId": "8:28466",
+      "name": "离开 DeepSeek · 来自模板配置 → AI 服务配置",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → AI 服务配置",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → AI 服务配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:28558",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:28580",
+          "label": "保存并离开",
+          "targets": [
+            "2:3118"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "163",
+      "nodeId": "8:28583",
+      "name": "离开 DeepSeek · 来自模板配置 → 凭据与本机资源",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → 凭据与本机资源",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 凭据与本机资源 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:28675",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:28697",
+          "label": "保存并离开",
+          "targets": [
+            "2:3227"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "164",
+      "nodeId": "8:28700",
+      "name": "离开 DeepSeek · 来自模板配置 → 脚本与依赖配置",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → 脚本与依赖配置",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → 脚本与依赖配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:28792",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:28814",
+          "label": "保存并离开",
+          "targets": [
+            "2:2367"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "165",
+      "nodeId": "8:28818",
+      "name": "离开 DeepSeek · 来自模板配置 → AI连接与输出状态",
+      "object": "← 返回模板入口；来自：AI 示例 / 实例 A / 生成草稿 · 返回后保留本次输入",
+      "entry": "离开 DeepSeek · 来自模板配置 → AI连接与输出状态",
+      "beforeState": "离开 DeepSeek · 来自模板配置 → AI连接与输出状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:28910",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:28932",
+          "label": "保存并离开",
+          "targets": [
+            "2:4629"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "166",
+      "nodeId": "8:28935",
+      "name": "离开 DeepSeek · 首次填写 → 我的流程",
+      "object": "当前输入尚未保存。保存成功后前往「我的流程」；不保存将放弃本次更改。",
+      "entry": "离开 DeepSeek · 首次填写 → 我的流程",
+      "beforeState": "离开 DeepSeek · 首次填写 → 我的流程 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29030",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:29052",
+          "label": "保存并离开",
+          "targets": [
+            "1:198"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "167",
+      "nodeId": "8:29055",
+      "name": "离开 DeepSeek · 首次填写 → 模板库",
+      "object": "离开 DeepSeek · 首次填写 → 模板库 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → 模板库",
+      "beforeState": "离开 DeepSeek · 首次填写 → 模板库 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29150",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:29172",
+          "label": "保存并离开",
+          "targets": [
+            "1:3125"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "168",
+      "nodeId": "8:29175",
+      "name": "离开 DeepSeek · 首次填写 → 运行记录",
+      "object": "离开 DeepSeek · 首次填写 → 运行记录 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → 运行记录",
+      "beforeState": "离开 DeepSeek · 首次填写 → 运行记录 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29270",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:29292",
+          "label": "保存并离开",
+          "targets": [
+            "1:3376"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "169",
+      "nodeId": "8:29295",
+      "name": "离开 DeepSeek · 首次填写 → 本机计划",
+      "object": "离开 DeepSeek · 首次填写 → 本机计划 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → 本机计划",
+      "beforeState": "离开 DeepSeek · 首次填写 → 本机计划 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29390",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:29412",
+          "label": "保存并离开",
+          "targets": [
+            "1:3673"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "170",
+      "nodeId": "8:29415",
+      "name": "离开 DeepSeek · 首次填写 → 待办与提醒",
+      "object": "离开 DeepSeek · 首次填写 → 待办与提醒 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → 待办与提醒",
+      "beforeState": "离开 DeepSeek · 首次填写 → 待办与提醒 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29510",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:29532",
+          "label": "保存并离开",
+          "targets": [
+            "1:3794"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "171",
+      "nodeId": "8:29535",
+      "name": "离开 DeepSeek · 首次填写 → 本地设置",
+      "object": "离开 DeepSeek · 首次填写 → 本地设置 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → 本地设置",
+      "beforeState": "离开 DeepSeek · 首次填写 → 本地设置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29630",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:29652",
+          "label": "保存并离开",
+          "targets": [
+            "1:3896"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "172",
+      "nodeId": "8:29658",
+      "name": "离开 DeepSeek · 首次填写 → 网页操作与拾取",
+      "object": "离开 DeepSeek · 首次填写 → 网页操作与拾取 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → 网页操作与拾取",
+      "beforeState": "离开 DeepSeek · 首次填写 → 网页操作与拾取 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29753",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:29775",
+          "label": "保存并离开",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "173",
+      "nodeId": "8:29780",
+      "name": "离开 DeepSeek · 首次填写 → 凭据与本机资源",
+      "object": "离开 DeepSeek · 首次填写 → 凭据与本机资源 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → 凭据与本机资源",
+      "beforeState": "离开 DeepSeek · 首次填写 → 凭据与本机资源 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29875",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:29897",
+          "label": "保存并离开",
+          "targets": [
+            "2:3227"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "174",
+      "nodeId": "8:29900",
+      "name": "离开 DeepSeek · 首次填写 → 脚本与依赖配置",
+      "object": "离开 DeepSeek · 首次填写 → 脚本与依赖配置 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → 脚本与依赖配置",
+      "beforeState": "离开 DeepSeek · 首次填写 → 脚本与依赖配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:29995",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:30017",
+          "label": "保存并离开",
+          "targets": [
+            "2:2367"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "175",
+      "nodeId": "8:30020",
+      "name": "离开 DeepSeek · 首次填写 → DeepSeek · 未配置",
+      "object": "离开 DeepSeek · 首次填写 → DeepSeek · 未配置 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → DeepSeek · 未配置",
+      "beforeState": "离开 DeepSeek · 首次填写 → DeepSeek · 未配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:30115",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:30137",
+          "label": "保存并离开",
+          "targets": [
+            "4:10378"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "176",
+      "nodeId": "8:30140",
+      "name": "离开 DeepSeek · 首次填写 → AI连接与输出状态",
+      "object": "离开 DeepSeek · 首次填写 → AI连接与输出状态 所示当前对象",
+      "entry": "离开 DeepSeek · 首次填写 → AI连接与输出状态",
+      "beforeState": "离开 DeepSeek · 首次填写 → AI连接与输出状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:30235",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:30257",
+          "label": "保存并离开",
+          "targets": [
+            "2:4629"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 4,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "177",
+      "nodeId": "8:30260",
+      "name": "离开 DeepSeek · 替换 Key → 我的流程",
+      "object": "当前输入尚未保存。保存成功后前往「我的流程」；不保存将放弃本次更改。",
+      "entry": "离开 DeepSeek · 替换 Key → 我的流程",
+      "beforeState": "离开 DeepSeek · 替换 Key → 我的流程 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:30359",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:30381",
+          "label": "保存并离开",
+          "targets": [
+            "1:198"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "178",
+      "nodeId": "8:30384",
+      "name": "离开 DeepSeek · 替换 Key → 模板库",
+      "object": "离开 DeepSeek · 替换 Key → 模板库 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → 模板库",
+      "beforeState": "离开 DeepSeek · 替换 Key → 模板库 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:30483",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:30505",
+          "label": "保存并离开",
+          "targets": [
+            "1:3125"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "179",
+      "nodeId": "8:30508",
+      "name": "离开 DeepSeek · 替换 Key → 运行记录",
+      "object": "离开 DeepSeek · 替换 Key → 运行记录 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → 运行记录",
+      "beforeState": "离开 DeepSeek · 替换 Key → 运行记录 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:30607",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:30629",
+          "label": "保存并离开",
+          "targets": [
+            "1:3376"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "180",
+      "nodeId": "8:30632",
+      "name": "离开 DeepSeek · 替换 Key → 本机计划",
+      "object": "离开 DeepSeek · 替换 Key → 本机计划 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → 本机计划",
+      "beforeState": "离开 DeepSeek · 替换 Key → 本机计划 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:30731",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:30753",
+          "label": "保存并离开",
+          "targets": [
+            "1:3673"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "181",
+      "nodeId": "8:30756",
+      "name": "离开 DeepSeek · 替换 Key → 待办与提醒",
+      "object": "离开 DeepSeek · 替换 Key → 待办与提醒 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → 待办与提醒",
+      "beforeState": "离开 DeepSeek · 替换 Key → 待办与提醒 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:30855",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:30877",
+          "label": "保存并离开",
+          "targets": [
+            "1:3794"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "182",
+      "nodeId": "8:30880",
+      "name": "离开 DeepSeek · 替换 Key → 本地设置",
+      "object": "离开 DeepSeek · 替换 Key → 本地设置 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → 本地设置",
+      "beforeState": "离开 DeepSeek · 替换 Key → 本地设置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:30979",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:31001",
+          "label": "保存并离开",
+          "targets": [
+            "1:3896"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "183",
+      "nodeId": "8:31007",
+      "name": "离开 DeepSeek · 替换 Key → 网页操作与拾取",
+      "object": "离开 DeepSeek · 替换 Key → 网页操作与拾取 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → 网页操作与拾取",
+      "beforeState": "离开 DeepSeek · 替换 Key → 网页操作与拾取 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:31106",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:31128",
+          "label": "保存并离开",
+          "targets": [
+            "1:2229"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "184",
+      "nodeId": "8:31133",
+      "name": "离开 DeepSeek · 替换 Key → 凭据与本机资源",
+      "object": "离开 DeepSeek · 替换 Key → 凭据与本机资源 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → 凭据与本机资源",
+      "beforeState": "离开 DeepSeek · 替换 Key → 凭据与本机资源 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:31232",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:31254",
+          "label": "保存并离开",
+          "targets": [
+            "2:3227"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "185",
+      "nodeId": "8:31257",
+      "name": "离开 DeepSeek · 替换 Key → 脚本与依赖配置",
+      "object": "离开 DeepSeek · 替换 Key → 脚本与依赖配置 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → 脚本与依赖配置",
+      "beforeState": "离开 DeepSeek · 替换 Key → 脚本与依赖配置 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:31356",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:31378",
+          "label": "保存并离开",
+          "targets": [
+            "2:2367"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    },
+    {
+      "number": "186",
+      "nodeId": "8:31382",
+      "name": "离开 DeepSeek · 替换 Key → AI连接与输出状态",
+      "object": "离开 DeepSeek · 替换 Key → AI连接与输出状态 所示当前对象",
+      "entry": "离开 DeepSeek · 替换 Key → AI连接与输出状态",
+      "beforeState": "离开 DeepSeek · 替换 Key → AI连接与输出状态 的固定示例状态",
+      "primaryActions": [
+        {
+          "id": "8:31481",
+          "label": "保存配置",
+          "targets": []
+        },
+        {
+          "id": "8:31503",
+          "label": "保存并离开",
+          "targets": [
+            "2:4629"
+          ]
+        }
+      ],
+      "returnTargets": [],
+      "actionCount": 5,
+      "variableWrites": 0,
+      "operationResult": "独立离开目标与三选确认保持；背景操作锁定，危险操作文字反白",
+      "exceptionRecovery": "保留本板现行异常或相邻恢复入口；客户端故障与任意输入尚待验收",
+      "evidence": {
+        "structureRead": true,
+        "lightScreenshotReviewed": true,
+        "darkScreenshotReviewed": true,
+        "allPrototypeBranchesClicked": false,
+        "clientAcceptanceThisRound": false
+      }
+    }
+  ],
+  "prototypeClickCases": [
+    {
+      "case": "numeric-source-roundtrip",
+      "status": "fixed-example-clicked",
+      "result": "数字选择、确认及清空恢复对应固定值"
+    },
+    {
+      "case": "excel-fifth-mapping",
+      "status": "fixed-example-clicked",
+      "result": "五列预览、返回五条、保存返回任务五条"
+    },
+    {
+      "case": "instance-b-readonly",
+      "status": "fixed-example-clicked",
+      "result": "B 检查零文件产物并返回 B"
+    },
+    {
+      "case": "two-instance-saved-isolation",
+      "status": "fixed-example-clicked",
+      "result": "B 保存季度值；A 保持资料值；B 重开保留季度值"
+    },
+    {
+      "case": "rerun-source-v8",
+      "status": "fixed-example-clicked",
+      "result": "R018 选择 v8、核对、排队、新 Run 均保留 R018；新 Run 取消不改变 R024"
+    },
+    {
+      "case": "consecutive-cancel-different-runs",
+      "status": "pending",
+      "result": "新旧取消分别点击；没有同一连续会话的组合证据"
+    },
+    {
+      "case": "human-new-consumed-expired",
+      "status": "fixed-example-clicked",
+      "result": "新请求重新确认；消费同请求禁用；过期请求不能执行"
+    },
+    {
+      "case": "plan-edit-create-toggle",
+      "status": "fixed-example-clicked",
+      "result": "保存90分钟、列表暂停标签、重开90分钟、创建暂停行"
+    },
+    {
+      "case": "pagination-failure-retry",
+      "status": "fixed-example-clicked",
+      "result": "失败保持第3页，重试后第4页及面包屑同步"
+    },
+    {
+      "case": "late-result-discard",
+      "status": "fixed-example-clicked",
+      "result": "旧结果丢弃，关闭浮层返回当前连接；真实异步竞态待客户端"
+    },
+    {
+      "case": "theme-page-state",
+      "status": "fixed-example-clicked",
+      "result": "第4页 Dark/Light 切换保持页码和当前数据"
+    },
+    {
+      "case": "arbitrary-input-files-api-persistence",
+      "status": "client-pending",
+      "result": "Figma 有限示例不能验证真实输入、文件、API、监听及持久化"
+    }
+  ]
+}
