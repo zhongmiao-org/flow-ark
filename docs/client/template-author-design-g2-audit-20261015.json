@@ -1,0 +1,678 @@
+{
+  "date": "2026-10-15",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "sectionId": "487:7024",
+  "section": {
+    "width": 4480,
+    "height": 28640
+  },
+  "boards": [
+    {
+      "id": "522:5403",
+      "name": "模板制作 v1 / 你的制作草稿",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 22840
+    },
+    {
+      "id": "522:5493",
+      "name": "模板制作 v1 / 基本信息",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 22840
+    },
+    {
+      "id": "522:5602",
+      "name": "模板制作 v1 / 多入口与编排",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 22840
+    },
+    {
+      "id": "522:5715",
+      "name": "模板制作 v1 / 可视化字段",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 24000
+    },
+    {
+      "id": "522:5851",
+      "name": "模板制作 v1 / 公开提示词",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 24000
+    },
+    {
+      "id": "522:5959",
+      "name": "模板制作 v1 / 资源与动作",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 24000
+    },
+    {
+      "id": "522:6068",
+      "name": "模板制作 v1 / 在编排器编辑入口",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 25160
+    },
+    {
+      "id": "522:6159",
+      "name": "模板制作 v1 / 带回入口变更",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 25160
+    },
+    {
+      "id": "522:6258",
+      "name": "模板制作 v1 / 导出前完整核对",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 25160
+    },
+    {
+      "id": "522:6350",
+      "name": "模板制作 v1 / ZIP已保存",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 26320
+    },
+    {
+      "id": "522:6447",
+      "name": "模板制作 v1 / 导出结果待核对",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 26320
+    },
+    {
+      "id": "522:6534",
+      "name": "模板制作 v1 / 草稿已经变化",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 26320
+    },
+    {
+      "id": "522:6626",
+      "name": "模板制作 v1 / 从准确包复制",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 27480
+    },
+    {
+      "id": "522:6724",
+      "name": "模板制作 v1 / 未保存编辑",
+      "width": 1040,
+      "height": 700,
+      "x": 1520,
+      "y": 27480
+    },
+    {
+      "id": "525:5522",
+      "name": "模板制作 v1 / 公共文件与依赖",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 27480
+    }
+  ],
+  "counts": {
+    "FRAME": 553,
+    "ELLIPSE": 45,
+    "TEXT": 486,
+    "VECTOR": 320,
+    "INSTANCE": 116,
+    "RECTANGLE": 3
+  },
+  "imageNodes": [],
+  "navigation": [
+    {
+      "source": "522:5474",
+      "destination": "522:5493",
+      "valid": true
+    },
+    {
+      "source": "522:5476",
+      "destination": "522:5493",
+      "valid": true
+    },
+    {
+      "source": "522:5484",
+      "destination": "522:6626",
+      "valid": true
+    },
+    {
+      "source": "522:5486",
+      "destination": "522:6258",
+      "valid": true
+    },
+    {
+      "source": "522:5562",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5566",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5570",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5574",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5577",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:5583",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5587",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5593",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:5595",
+      "destination": "522:5715",
+      "valid": true
+    },
+    {
+      "source": "522:5599",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:5671",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5675",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5679",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5684",
+      "destination": "522:6068",
+      "valid": true
+    },
+    {
+      "source": "522:5690",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5694",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5698",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5704",
+      "destination": "522:5715",
+      "valid": true
+    },
+    {
+      "source": "522:5706",
+      "destination": "522:5851",
+      "valid": true
+    },
+    {
+      "source": "522:5708",
+      "destination": "522:5959",
+      "valid": true
+    },
+    {
+      "source": "522:5712",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:5783",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5795",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5807",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5828",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5832",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5836",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5842",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:5844",
+      "destination": "522:6534",
+      "valid": true
+    },
+    {
+      "source": "522:5848",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:5920",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5924",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5928",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5933",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:5939",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5943",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:5950",
+      "destination": "522:6159",
+      "valid": true
+    },
+    {
+      "source": "522:5952",
+      "destination": "522:6258",
+      "valid": true
+    },
+    {
+      "source": "522:5956",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6028",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6032",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6036",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6040",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6049",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6053",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6059",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:6061",
+      "destination": "522:6258",
+      "valid": true
+    },
+    {
+      "source": "522:6065",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6142",
+      "destination": "522:6159",
+      "valid": true
+    },
+    {
+      "source": "522:6150",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:6152",
+      "destination": "522:5851",
+      "valid": true
+    },
+    {
+      "source": "522:6156",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6228",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6232",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6238",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:6247",
+      "destination": "522:5851",
+      "valid": true
+    },
+    {
+      "source": "522:6251",
+      "destination": "522:6068",
+      "valid": true
+    },
+    {
+      "source": "522:6255",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6332",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:6341",
+      "destination": "522:6350",
+      "valid": true
+    },
+    {
+      "source": "522:6343",
+      "destination": "522:6447",
+      "valid": true
+    },
+    {
+      "source": "522:6347",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6419",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6423",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6427",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6430",
+      "destination": "522:6626",
+      "valid": true
+    },
+    {
+      "source": "522:6438",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:6440",
+      "destination": "522:5959",
+      "valid": true
+    },
+    {
+      "source": "522:6444",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6525",
+      "destination": "522:6350",
+      "valid": true
+    },
+    {
+      "source": "522:6527",
+      "destination": "522:5602",
+      "valid": true
+    },
+    {
+      "source": "522:6531",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6608",
+      "destination": "522:5493",
+      "valid": true
+    },
+    {
+      "source": "522:6617",
+      "destination": "522:5493",
+      "valid": true
+    },
+    {
+      "source": "522:6619",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6623",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6695",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6699",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6703",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6706",
+      "destination": "522:5493",
+      "valid": true
+    },
+    {
+      "source": "522:6715",
+      "destination": "522:5851",
+      "valid": true
+    },
+    {
+      "source": "522:6717",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6721",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6793",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "522:6799",
+      "destination": "522:5851",
+      "valid": true
+    },
+    {
+      "source": "522:6801",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6803",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "522:6807",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "525:5591",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "525:5599",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "525:5603",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "525:5607",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "525:5616",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "525:5620",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "525:5624",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "525:5629",
+      "destination": "522:6258",
+      "valid": true
+    },
+    {
+      "source": "525:5631",
+      "destination": "522:5403",
+      "valid": true
+    },
+    {
+      "source": "525:5635",
+      "destination": "522:5403",
+      "valid": true
+    }
+  ],
+  "catalog": {
+    "row": "1:3190",
+    "author": {
+      "id": "525:5641",
+      "x": 812,
+      "y": 0,
+      "width": 160,
+      "height": 40
+    },
+    "import": {
+      "id": "1:3194",
+      "x": 996,
+      "y": 0,
+      "width": 156,
+      "height": 40
+    }
+  },
+  "phase": "G2 incremental design",
+  "baseAudit": "template-author-design-audit-20261015.json",
+  "screenshotsReviewed": [
+    "522:5715",
+    "522:5851",
+    "522:6258",
+    "525:5522",
+    "1:3125"
+  ]
+}
