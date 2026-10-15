@@ -469,6 +469,11 @@
         "status": "partial",
         "note": "原生真实Excel权限失败/目录失效与各自恢复新Run分别持久化，最终正常退出重开11条记录保持；提交瞬间取消副作用未知和整板仍待验收",
         "record": "complex-excel-live-acceptance-20261015.md"
+      },
+      "clientFileSideEffect20261015": {
+        "status": "partial",
+        "note": "提交后取消Run的原文件可能存在且零产物，增加同Run固定目标和恢复说明；保留终态及逐实例待核对，不计整板完成",
+        "record": "file-side-effect-acceptance-20261015.md"
       }
     },
     {
@@ -1182,6 +1187,11 @@
         "status": "partial",
         "note": "真实文件适配器提交前取消门槛已修复；原生文件失败和恢复运行独立，提交边界竞态仍未完整验收",
         "record": "complex-excel-live-acceptance-20261015.md"
+      },
+      "clientFileSideEffect20261015": {
+        "status": "partial",
+        "note": "零产物不推断零文件；新增固定目标核对/复制原目录及不自动撤回说明，安装发现轮询key冲突按独立修复处理；整板仍待验收",
+        "record": "file-side-effect-acceptance-20261015.md"
       }
     },
     {
@@ -1279,6 +1289,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientFileSideEffect20261015": {
+        "status": "partial",
+        "note": "保留原快照/当前已保存来源、重新预检与人工确认门槛，文件核对入口不替代运行授权；完整整板仍待验收",
+        "record": "file-side-effect-acceptance-20261015.md"
       }
     },
     {
@@ -1717,6 +1732,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientFileSideEffect20261015": {
+        "status": "partial",
+        "note": "真实宿主/Worker受控暂扣link/rename提交回执后取消，原文件保留/替换与取消状态分开；自然竞态全窗口及整板待验收",
+        "record": "file-side-effect-acceptance-20261015.md"
       }
     },
     {
@@ -6794,5 +6814,21 @@
       "all186ClientAccepted": false
     },
     "note": "只增加本批局部证据，不改变原186节点与历史证据标志；用户要求记录401继续其他场景。"
+  },
+  "clientFileSideEffect20261015": {
+    "status": "partial",
+    "record": "file-side-effect-acceptance-20261015.md",
+    "clientPullRequests": [
+      263,
+      264
+    ],
+    "evidence": {
+      "controlledRealCommitThenCancel": true,
+      "naturalCommitRacesFullyVerified": false,
+      "fileRollbackPromised": false,
+      "ai401RetainedWithoutRetry": true,
+      "all186ClientAccepted": false
+    },
+    "note": "受控宿主真实提交、原生核对/安装与整板状态分别记录，保留所有原节点和历史证据标志。"
   }
 }
