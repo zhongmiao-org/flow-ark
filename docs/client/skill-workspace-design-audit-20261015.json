@@ -1,0 +1,556 @@
+{
+  "date": "2026-10-15",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "sectionId": "487:7024",
+  "boards": [
+    {
+      "id": "514:7031",
+      "name": "个人 Skill v1 / 配置待确认草稿",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 17960,
+      "contentChildren": [
+        {
+          "id": "514:7093",
+          "name": "个人 Skill v1 / 配置待确认草稿",
+          "y": 32,
+          "height": 40,
+          "bottom": 72
+        },
+        {
+          "id": "514:7094",
+          "name": "通用节点只创建待核对草稿。不会自动写出确认版本，不调用模型，也不授予其他流程权限。",
+          "y": 88,
+          "height": 22,
+          "bottom": 110
+        },
+        {
+          "id": "514:7095",
+          "name": "内容区 0",
+          "y": 126,
+          "height": 340,
+          "bottom": 466
+        },
+        {
+          "id": "514:7125",
+          "name": "弹性留白",
+          "y": 482,
+          "height": 420,
+          "bottom": 902
+        },
+        {
+          "id": "514:7126",
+          "name": "辅助操作",
+          "y": 918,
+          "height": 40,
+          "bottom": 958
+        }
+      ],
+      "contentHeight": 990
+    },
+    {
+      "id": "514:7130",
+      "name": "个人 Skill v1 / 编辑待确认草稿",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 17960,
+      "contentChildren": [
+        {
+          "id": "514:7192",
+          "name": "个人 Skill v1 / 编辑待确认草稿",
+          "y": 32,
+          "height": 40,
+          "bottom": 72
+        },
+        {
+          "id": "514:7193",
+          "name": "来自流程的内容只是候选。请核对正文、结构化内容与来源；修改会保留为草稿。",
+          "y": 88,
+          "height": 22,
+          "bottom": 110
+        },
+        {
+          "id": "514:7194",
+          "name": "内容区 0",
+          "y": 126,
+          "height": 484,
+          "bottom": 610
+        },
+        {
+          "id": "514:7224",
+          "name": "弹性留白",
+          "y": 626,
+          "height": 276,
+          "bottom": 902
+        },
+        {
+          "id": "514:7225",
+          "name": "辅助操作",
+          "y": 918,
+          "height": 40,
+          "bottom": 958
+        }
+      ],
+      "contentHeight": 990
+    },
+    {
+      "id": "514:7229",
+      "name": "个人 Skill v1 / 核对版本差异",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 17960,
+      "contentChildren": [
+        {
+          "id": "514:7291",
+          "name": "个人 Skill v1 / 核对版本差异",
+          "y": 32,
+          "height": 40,
+          "bottom": 72
+        },
+        {
+          "id": "514:7292",
+          "name": "新版本以已确认版本为基线。完整原文与草稿均保留，差异摘要不能代替正文核对。",
+          "y": 88,
+          "height": 22,
+          "bottom": 110
+        },
+        {
+          "id": "514:7293",
+          "name": "内容区 0",
+          "y": 126,
+          "height": 378,
+          "bottom": 504
+        },
+        {
+          "id": "514:7315",
+          "name": "弹性留白",
+          "y": 520,
+          "height": 382,
+          "bottom": 902
+        },
+        {
+          "id": "514:7316",
+          "name": "辅助操作",
+          "y": 918,
+          "height": 40,
+          "bottom": 958
+        }
+      ],
+      "contentHeight": 990
+    },
+    {
+      "id": "514:7320",
+      "name": "个人 Skill v1 / 确认保存到工作区",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 19120,
+      "contentChildren": [
+        {
+          "id": "514:7382",
+          "name": "个人 Skill v1 / 确认保存到工作区",
+          "y": 32,
+          "height": 40,
+          "bottom": 72
+        },
+        {
+          "id": "514:7383",
+          "name": "本次保存普通可读文件。确认 Skill 内容与允许模型读取、允许对外发送是独立决定。",
+          "y": 88,
+          "height": 22,
+          "bottom": 110
+        },
+        {
+          "id": "514:7384",
+          "name": "内容区 0",
+          "y": 126,
+          "height": 232,
+          "bottom": 358
+        },
+        {
+          "id": "514:7405",
+          "name": "弹性留白",
+          "y": 374,
+          "height": 528,
+          "bottom": 902
+        },
+        {
+          "id": "514:7406",
+          "name": "辅助操作",
+          "y": 918,
+          "height": 40,
+          "bottom": 958
+        }
+      ],
+      "contentHeight": 990
+    },
+    {
+      "id": "514:7410",
+      "name": "个人 Skill v1 / 已确认版本",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 19120,
+      "contentChildren": [
+        {
+          "id": "514:7472",
+          "name": "个人 Skill v1 / 已确认版本",
+          "y": 32,
+          "height": 40,
+          "bottom": 72
+        },
+        {
+          "id": "514:7473",
+          "name": "普通文件保存在所选工作区。流程固定选择版本，新增版本不会替换现有流程或活动运行。",
+          "y": 88,
+          "height": 22,
+          "bottom": 110
+        },
+        {
+          "id": "514:7474",
+          "name": "内容区 0",
+          "y": 126,
+          "height": 284,
+          "bottom": 410
+        },
+        {
+          "id": "514:7504",
+          "name": "弹性留白",
+          "y": 426,
+          "height": 476,
+          "bottom": 902
+        },
+        {
+          "id": "514:7505",
+          "name": "辅助操作",
+          "y": 918,
+          "height": 40,
+          "bottom": 958
+        }
+      ],
+      "contentHeight": 990
+    },
+    {
+      "id": "514:7509",
+      "name": "个人 Skill v1 / 固定读取确认版本",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 19120,
+      "contentChildren": [
+        {
+          "id": "514:7571",
+          "name": "个人 Skill v1 / 固定读取确认版本",
+          "y": 32,
+          "height": 40,
+          "bottom": 72
+        },
+        {
+          "id": "514:7572",
+          "name": "这是通用 Skill 资源配置。模型仍只收到流程明确选择的内容，Key 由宿主保护存储。",
+          "y": 88,
+          "height": 22,
+          "bottom": 110
+        },
+        {
+          "id": "514:7573",
+          "name": "内容区 0",
+          "y": 126,
+          "height": 284,
+          "bottom": 410
+        },
+        {
+          "id": "514:7601",
+          "name": "弹性留白",
+          "y": 426,
+          "height": 476,
+          "bottom": 902
+        },
+        {
+          "id": "514:7602",
+          "name": "辅助操作",
+          "y": 918,
+          "height": 40,
+          "bottom": 958
+        }
+      ],
+      "contentHeight": 990
+    },
+    {
+      "id": "514:7606",
+      "name": "个人 Skill v1 / 先处理版本变化",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 20280,
+      "contentChildren": [
+        {
+          "id": "514:7668",
+          "name": "个人 Skill v1 / 先处理版本变化",
+          "y": 32,
+          "height": 40,
+          "bottom": 72
+        },
+        {
+          "id": "514:7669",
+          "name": "确认基线、工作区文件或当前版本已变化。保留当前编辑，不覆盖原版本，也不自动采用其他内容。",
+          "y": 88,
+          "height": 22,
+          "bottom": 110
+        },
+        {
+          "id": "514:7670",
+          "name": "内容区 0",
+          "y": 126,
+          "height": 232,
+          "bottom": 358
+        },
+        {
+          "id": "514:7688",
+          "name": "弹性留白",
+          "y": 374,
+          "height": 528,
+          "bottom": 902
+        },
+        {
+          "id": "514:7689",
+          "name": "辅助操作",
+          "y": 918,
+          "height": 40,
+          "bottom": 958
+        }
+      ],
+      "contentHeight": 990
+    },
+    {
+      "id": "514:7693",
+      "name": "个人 Skill v1 / 保存结果待核对",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 20280,
+      "contentChildren": [
+        {
+          "id": "514:7755",
+          "name": "个人 Skill v1 / 保存结果待核对",
+          "y": 32,
+          "height": 40,
+          "bottom": 72
+        },
+        {
+          "id": "514:7756",
+          "name": "磁盘可能已写入部分或全部内容，但确认回执未完成。本次操作身份与草稿保留。",
+          "y": 88,
+          "height": 22,
+          "bottom": 110
+        },
+        {
+          "id": "514:7757",
+          "name": "内容区 0",
+          "y": 126,
+          "height": 232,
+          "bottom": 358
+        },
+        {
+          "id": "514:7775",
+          "name": "弹性留白",
+          "y": 374,
+          "height": 528,
+          "bottom": 902
+        },
+        {
+          "id": "514:7776",
+          "name": "辅助操作",
+          "y": 918,
+          "height": 40,
+          "bottom": 958
+        }
+      ],
+      "contentHeight": 990
+    },
+    {
+      "id": "514:7780",
+      "name": "个人 Skill v1 / 草稿尚未保存",
+      "width": 1040,
+      "height": 700,
+      "x": 3040,
+      "y": 20280,
+      "contentChildren": [
+        {
+          "id": "514:7842",
+          "name": "个人 Skill v1 / 草稿尚未保存",
+          "y": 24,
+          "height": 40,
+          "bottom": 64
+        },
+        {
+          "id": "514:7843",
+          "name": "紧凑深色状态 · 离开前选择处理方式，保留输入与焦点。",
+          "y": 80,
+          "height": 22,
+          "bottom": 102
+        },
+        {
+          "id": "514:7844",
+          "name": "内容区 0",
+          "y": 118,
+          "height": 172,
+          "bottom": 290
+        },
+        {
+          "id": "514:7853",
+          "name": "内容区 1",
+          "y": 306,
+          "height": 202,
+          "bottom": 508
+        },
+        {
+          "id": "514:7866",
+          "name": "弹性留白",
+          "y": 524,
+          "height": 6,
+          "bottom": 530
+        },
+        {
+          "id": "514:7867",
+          "name": "辅助操作",
+          "y": 546,
+          "height": 40,
+          "bottom": 586
+        }
+      ],
+      "contentHeight": 610
+    }
+  ],
+  "counts": {
+    "FRAME": 313,
+    "ELLIPSE": 27,
+    "TEXT": 266,
+    "VECTOR": 189,
+    "INSTANCE": 45
+  },
+  "navigation": [
+    {
+      "source": "514:7123",
+      "destination": "514:7130"
+    },
+    {
+      "source": "514:7220",
+      "destination": "514:7229"
+    },
+    {
+      "source": "514:7222",
+      "destination": "514:7320"
+    },
+    {
+      "source": "514:7226",
+      "destination": "514:7031"
+    },
+    {
+      "source": "514:7311",
+      "destination": "514:7130"
+    },
+    {
+      "source": "514:7313",
+      "destination": "514:7320"
+    },
+    {
+      "source": "514:7317",
+      "destination": "514:7031"
+    },
+    {
+      "source": "514:7399",
+      "destination": "514:7130"
+    },
+    {
+      "source": "514:7401",
+      "destination": "514:7410"
+    },
+    {
+      "source": "514:7403",
+      "destination": "514:7693"
+    },
+    {
+      "source": "514:7407",
+      "destination": "514:7031"
+    },
+    {
+      "source": "514:7498",
+      "destination": "514:7229"
+    },
+    {
+      "source": "514:7500",
+      "destination": "514:7509"
+    },
+    {
+      "source": "514:7502",
+      "destination": "514:7606"
+    },
+    {
+      "source": "514:7506",
+      "destination": "514:7031"
+    },
+    {
+      "source": "514:7597",
+      "destination": "514:7410"
+    },
+    {
+      "source": "514:7599",
+      "destination": "514:7606"
+    },
+    {
+      "source": "514:7603",
+      "destination": "514:7031"
+    },
+    {
+      "source": "514:7684",
+      "destination": "514:7229"
+    },
+    {
+      "source": "514:7686",
+      "destination": "514:7410"
+    },
+    {
+      "source": "514:7690",
+      "destination": "514:7031"
+    },
+    {
+      "source": "514:7771",
+      "destination": "514:7410"
+    },
+    {
+      "source": "514:7773",
+      "destination": "514:7130"
+    },
+    {
+      "source": "514:7777",
+      "destination": "514:7031"
+    },
+    {
+      "source": "514:7860",
+      "destination": "514:7410"
+    },
+    {
+      "source": "514:7862",
+      "destination": "514:7130"
+    },
+    {
+      "source": "514:7864",
+      "destination": "514:7410"
+    },
+    {
+      "source": "514:7868",
+      "destination": "514:7031"
+    }
+  ],
+  "imageNodes": 0,
+  "fontFamilies": [
+    "Noto Sans SC",
+    "Inter"
+  ],
+  "sectionHeight": 21440,
+  "status": "native editable design specification; fixed prototype navigation, not implementation or business acceptance"
+}
