@@ -1,5 +1,7 @@
 # FlowArk 最终逻辑闭环复核与优化
 
+后续更新：2026-10-15 的[实际组合复验](design-prototype-reverification-20261015.md)已补连续取消不同 Run 的同会话证据，并修复静态面包屑、“重新检查”误跳授权及状态同步。下文保留 10 月 14 日的验证范围，避免混淆日期。
+
 2026-10-14。在原 [Figma 文件](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398)内实施本轮设计修订，保留原 186 个画板 ID 和可编辑节点；使用同一套组件和 Light / Dark 模式。只修改 Figma 与治理设计说明，没有修改客户端、模板、公共 API，也没有新增或运行单元测试。
 
 ## 参数与保存边界
