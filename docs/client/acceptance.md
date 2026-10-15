@@ -1,5 +1,9 @@
 # 开发预览验收记录
 
+## 2026-10-15 参数、导航与 Run 隔离实施
+
+客户端 [PR #251](https://github.com/zhongmiao-org/flow-ark-client/pull/251) 补齐参数保存留页、选择器祖先目标、普通流程预检确认及新来源不复用旧回执；已有参数契约、主页面祖先、refresh/configure 和按 Run ID 详情隔离保留。构建 Renderer 配合真实 Runtime/SQLite/Worker 的人工界面与执行核对完成，两个调试 Run 依次取消、两个正常 Run 分别输出 3/7，最终 4 Run、零产物/计划/触发。保存失败及迟到回复是显式注入，未打包安装、未执行单元/集成/smoke 套件。详细回执、实际视口及未验证边界见[本轮实施记录](parameter-run-implementation-20261015.md)；不据此标记完整 186 板或 Dark 主题通过。
+
 ## 2026-10-13 多资源组合与可选数字原生核对
 
 经独立模板打包器构造虚构包 `ui-resource-boundary-review` 1.0.0，三入口仅执行 value，无脚本、网络、动作或计划。包摘要 `e7e36a71341f5b8c5a4d7a0acdd5e5094cbbe28cf6ca6541a4d8c13e41573e5e`，ZIP SHA256 `7a5a6808aba23684da4e366bfbde12481d97afca5b93bc702c1cf3959823028a`。原生导入与来源确认后创建实例 `76b442a3-2b22-4cd6-b66c-ad6053a8165c`；文件入口声明必需文件/目录及可选文件，独立参数入口无资源，服务入口声明浏览器/AI。仅用本轮专用虚构文件和空目录；导入、绑定、保存不执行入口。

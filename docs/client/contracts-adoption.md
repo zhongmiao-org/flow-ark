@@ -1,5 +1,7 @@
 # 固定契约来源
 
+2026-10-15 客户端 [PR #251](https://github.com/zhongmiao-org/flow-ark-client/pull/251) 将治理设计基线推进为 `917bb7657c3ffd00226a3d575b0deada54a6a5e2`（治理 #720）；公共契约继续固定 [0.17.1](../../contracts/v0.17.1/README.md) / `contracts-v0.17.1`，不修改契约快照、生成类型或 API。此次只消费最新参数/导航/运行核对设计，验证和发布边界见[实施记录](parameter-run-implementation-20261015.md)。下文均为历史采用记录，不代表当前版本回退。
+
 当前客户端设计分支固定采用[契约0.16.0](../../contracts/v0.16.0/README.md)，治理基线及不可变开发快照 `contracts-v0.16.0` 均为 `dea27a5f0eebc11a401d7088517ccc6f3f4367d9`（[PR #423](https://github.com/zhongmiao-org/flow-ark/pull/423)，最新头 `97c1bf683a46d43ac30331048bb727fe5857f458` 的 CI `37713327968` 成功自动合并，远程 tag 已核实）。客户端本地提交 `83e5886bb9cf95e48a43424e64373ea97485753d` 增加 `human-review-v1` 能力、human/effect.prepare 请求中的 review 校验与持久化，以及人工确认页的目标/拟执行内容。Renderer 使用从同一 Schema 生成的静态校验器；无效结构不能回应，不依赖运行时动态编译。类型生成、类型检查、构建、格式与所采用契约字节/摘要核对通过，没有新增或运行单元测试。三尺寸内存界面查看完成，真实模板 RPC、动作确认、持久化跨重启仍待验收；模板仓库本轮未采用此能力。流程格式1.0、SDK1.0、模板包2.0及SQLite表结构不变，产品未正式发布或安装。
 
 前序客户端设计分支固定采用[契约 0.15.0](../../contracts/v0.15.0/README.md)，治理基线与不可变开发快照 `contracts-v0.15.0` 均为 `9754fef76e95f5aa3ab5b5c0e70695232bf9dc4c`（[PR #192](https://github.com/zhongmiao-org/flow-ark/pull/192)，CI `35881509255` 成功并自动合并）。客户端本地提交 `43eb1de` 接入[工具试运行](mcp-execution.md)，包括原任务确认、固定 Run 绑定、实际参数核对、同会话发现与单次调用、取消收尾及可读回执。普通直接运行、旧重跑及计划入口仍拒绝缺少此次确认的工具方案。流程格式 1.0、SDK 1.0、模板包 2.0、SQLite 表结构不变；未公开推送或安装。类型、Swift 编译、构建、格式与所采用契约字节/摘要核对通过，没有新增或运行单元测试。受控 HTTP 服务的真实 Host/Worker 调用与界面取得证据，Main IPC、真实第三方服务/账号、stdio 工具调用及系统生命周期仍待验收。
