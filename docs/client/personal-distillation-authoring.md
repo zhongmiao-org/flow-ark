@@ -87,4 +87,4 @@ AI输入明确引用本次完整资料和已确认访谈，输出格式通过现
 
 模板[PR #5](https://github.com/zhongmiao-org/flow-ark-templates/pull/5)交付本批原始检查点、公开源及使用说明，契约仍固定0.24.0、SDK1.0。`pnpm validate`、`pnpm build`和`git diff --check`通过，未新增/运行单元测试。最新[CI 38783342801](https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/38783342801)的Validate/Auto Merge均成功，实际合并`6ddb735cf6a9b2e799e50347e2dacd15b4bda584`，较早取消检查不计通过；见[分层交付记录](personal-distillation-synthesis-delivery-20261016.json)。真实自有Key运行、未确认分支实际结束/已确认分支实际生成、生成草稿编辑/试聊/确认仍未取得本批证据，不能以静态路径和导入成功标为通过。
 
-下一步继续独立固定父版本的局部更新：明确更新要求、保留无关手工内容、差异/冲突核对和新确认版本；完整原生多轮、两家自有Key、全流程复导及BOSS继续，G3/S01–S08保持未完整验收。跨入口访谈读取不以代码推断为已通过，本批采用同一入口的后续确认分支。
+后续固定父版本局部更新已取得[八步制作与独立复导检查点](personal-distillation-update.md#2026-10-16-原生制作与复导检查点)，真实单项变化、差异/冲突和新确认版本仍需自有Key运行。完整原生多轮、两家自有Key、全流程复导及BOSS继续，G3/S01–S08保持未完整验收。跨入口访谈读取不以代码推断为已通过，本批采用同一入口的后续确认分支。
