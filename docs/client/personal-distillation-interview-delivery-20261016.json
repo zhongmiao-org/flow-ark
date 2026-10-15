@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-16",
+  "scope": "G3 client-authored guided interview checkpoint; in progress",
+  "template": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-templates/pull/4",
+    "source": "d7c44850956f84ca9d8fe9f5759fc1a9b9f4a851",
+    "merge": "a458140d0834d95ae1ec9cbcd14cd9f8201c856d",
+    "ci": "https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/38780856624",
+    "result": "latest Validate and Auto Merge success; actual merged",
+    "contractsVersion": "0.24.0",
+    "contractsTag": "contracts-v0.24.0",
+    "governanceBaseline": "c24f437f0fbde9d7c4cc5aca709a8a5cdb6e98ad",
+    "fixedMachineFiles": 51,
+    "sdkVersion": "1.0"
+  },
+  "authoring": {
+    "installedClientMerge": "3968b62ff88e27a46df34e2360b6127d19340a56",
+    "newClientCodeOrInteraction": false,
+    "existingDesignRecord": "personal-distillation-design-audit-20261015.json",
+    "method": "native client visual fields, action library, variable pickers, explicit checkout adoption and public prompt binding",
+    "templateId": "personal-distillation",
+    "packageVersion": "0.2.0",
+    "authorRevision": 10,
+    "entries": ["materials", "interview"],
+    "interviewSteps": ["document", "assert ready", "conversation"],
+    "fileReference": "params.file",
+    "conversationKeyReference": "params.round",
+    "conversationInputReference": "steps.n_5f8ec913",
+    "maxRequests": 20,
+    "publicPromptBinding": "interview/n_98ecf4fa/instructions -> personal-interview",
+    "exportedFlowJsonEditedOutsideClient": false,
+    "businessLogicAddedToClient": false
+  },
+  "export": {
+    "archive": "templates/personal-distillation/authoring/interview-checkpoint/personal-distillation-interview-checkpoint.flowark-template.zip",
+    "bytes": 11489,
+    "sha256": "af32b0ac868567f8857e02ec42ef1f34329ef587cf646034c63cf4caf5e7d497",
+    "contentDigest": "6b4d82cffac82c248121d95e074f9ecd8436f42fc56fda7088198847b6330da4",
+    "files": 16,
+    "systemSaveReceipt": "written",
+    "extractedFilesMatchArchive": true,
+    "promptSourceAndNodeInstructionsByteEqual": true,
+    "absoluteLocalPathsFound": false,
+    "originalCheckpointRetained": true
+  },
+  "native": {
+    "authorPreflight": "own AI Key missing; start disabled before creating Run",
+    "consumerImport": "same exported ZIP validated and installed alongside existing version",
+    "newInstanceInitiallyUnbound": ["materials", "ai"],
+    "consumerRebinding": "system-selected independent fictional directory and explicit provider/model saved",
+    "materialsReadiness": "filled; execution still requires preflight",
+    "interviewReadiness": "own Key absent; blocked",
+    "newRunsOrConversations": false,
+    "modelInvoked": false,
+    "externalRecruitingActions": false,
+    "oldConsumerDocumentsAndEventsUnchanged": true,
+    "originalWorkspaceRestored": true,
+    "originalEncryptedDocumentsEventsAndProtectedCredentialsUnchanged": true
+  },
+  "checks": {
+    "pnpmValidate": "passed",
+    "pnpmBuild": "passed",
+    "fixedContractHashesAndJson": "passed",
+    "gitDiffCheck": "passed",
+    "prettier": "unavailable in template repository; no dependency installed",
+    "unitTestsAddedOrRun": false
+  },
+  "remaining": [
+    "confirmed-conversation gated synthesis and true source references",
+    "fixed-parent partial update with unrelated manual content preserved",
+    "real own-Key rounds, resume and confirmation for both providers",
+    "editing, internal trial, explicit new Skill version and full independent reimport",
+    "BOSS calibration, own-Key JD decisions and authorized real business receipts",
+    "186 boards, U01-U12 and Agent complete flow generation"
+  ],
+  "longTermGoal": "active"
+}
