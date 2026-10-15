@@ -1,0 +1,185 @@
+{
+  "date": "2026-10-16",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "section": "487:7024",
+  "boards": [
+    {
+      "id": "555:5818",
+      "width": 1440,
+      "height": 1080,
+      "body": {
+        "y": 126,
+        "height": 524,
+        "bottom": 650
+      },
+      "footerTop": 918,
+      "fonts": [
+        "Noto Sans SC",
+        "Inter"
+      ],
+      "textOverflow": [],
+      "mode": {
+        "VariableCollectionId:1:5": "1:1"
+      }
+    },
+    {
+      "id": "555:5939",
+      "width": 1440,
+      "height": 1080,
+      "body": {
+        "y": 126,
+        "height": 364,
+        "bottom": 490
+      },
+      "footerTop": 918,
+      "fonts": [
+        "Noto Sans SC",
+        "Inter"
+      ],
+      "textOverflow": [],
+      "mode": {
+        "VariableCollectionId:1:5": "1:1"
+      }
+    },
+    {
+      "id": "555:6052",
+      "width": 1440,
+      "height": 1080,
+      "body": {
+        "y": 126,
+        "height": 444,
+        "bottom": 570
+      },
+      "footerTop": 918,
+      "fonts": [
+        "Noto Sans SC",
+        "Inter"
+      ],
+      "textOverflow": [],
+      "mode": {
+        "VariableCollectionId:1:5": "199:0"
+      }
+    }
+  ],
+  "counts": {
+    "FRAME": 99,
+    "ELLIPSE": 9,
+    "TEXT": 99,
+    "VECTOR": 63,
+    "INSTANCE": 18
+  },
+  "images": 0,
+  "navigation": [
+    {
+      "source": "555:5910",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:5914",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:5918",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:5922",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:5926",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:5928",
+      "target": "536:5801",
+      "valid": true
+    },
+    {
+      "source": "555:5903",
+      "target": "536:6098",
+      "valid": true
+    },
+    {
+      "source": "555:6031",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:6035",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:6039",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:6041",
+      "target": "555:5818",
+      "valid": true
+    },
+    {
+      "source": "555:6024",
+      "target": "536:6098",
+      "valid": true
+    },
+    {
+      "source": "555:6144",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:6148",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:6152",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:6156",
+      "target": "139:4",
+      "valid": true
+    },
+    {
+      "source": "555:6158",
+      "target": "536:5894",
+      "valid": true
+    },
+    {
+      "source": "555:6137",
+      "target": "536:6098",
+      "valid": true
+    }
+  ],
+  "sourceComponents": [
+    "1:146",
+    "1:148",
+    "139:2"
+  ],
+  "reusedModes": [
+    "1:1",
+    "199:0"
+  ],
+  "sourceFonts": [
+    "Noto Sans SC",
+    "Inter"
+  ],
+  "compositionScreenshotsInspected": [
+    "555:5818",
+    "555:6052"
+  ],
+  "original186NodesMutated": false,
+  "sectionHeight": 42300,
+  "allPrototypePathsClicked": false,
+  "implementation": false
+}
