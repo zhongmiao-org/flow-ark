@@ -607,5 +607,14 @@
       "cssDark": 0.6
     }
   ],
-  "closureReview": "design-final-closure-20261014.md"
+  "closureReview": "design-final-closure-20261014.md",
+  "clientAdoption": {
+    "date": "2026-10-15",
+    "pullRequest": "https://github.com/zhongmiao-org/flow-ark-client/pull/252",
+    "mergeCommit": "df2c817264e202178c5f42d5ff48ccdf6ebe9c82",
+    "colorCountPerMode": 46,
+    "staticColorDifferences": 0,
+    "fullBoardAcceptance": false,
+    "evidence": "native-appearance-acceptance-20261015.md"
+  }
 }
