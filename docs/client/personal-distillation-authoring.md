@@ -46,6 +46,8 @@
 
 ## 已证实的编排缺口与下一步
 
+2026-10-16已为以下前两项补[0.24.0契约](../../contracts/v0.24.0/README.md)和[六个Figma状态](skill-trial.md)；客户端尚未采用，规范先行不等于实现。
+
 - 已确认ConversationOutput目前只有sessionId/status/revision/transcript，缺少SkillEvidence.conversation所需的真实sequence和sha256。补通用来源证明后再生成来源记录，不能让模型捏造，或伪装为用户手工来源绕过。
 - Skill节点只支持创建草稿及读取已确认版本，现有草稿面板没有直接试聊。需先定义固定草稿修订/摘要、自有AI资源选择、内部对话、修改后旧试聊提示及取消/恢复边界，再按Figma实现通用能力。
 - 结构化草稿目前主要通过JSON编辑，常用事实/偏好逐项编辑体验仍需核对，不能因正文可编辑就标记全部表单完成。
