@@ -8,6 +8,20 @@ BOSS 两入口原生制作时发现，返回作者页虽保留副本身份，却
 
 设计使用既有组件实例、字体、变量和画板，当前示例明确选中第二入口“继续整理”。六处文字与当前面板名称已更新，原186画板不变。不改公共契约、宿主采用逻辑或已有Run。本项设计不代表客户端修复或真实往返已验收。
 
+### 客户端与候选原生核对
+
+治理[PR #766](https://github.com/zhongmiao-org/flow-ark/pull/766)最新[CI 38800484903](https://github.com/zhongmiao-org/flow-ark/actions/runs/38800484903)的Validate/Auto Merge成功，实际合并`427d9c780b79cf030985f43c80bb481433e5b0c3`。客户端随后按副本ID查其entryId，再按入口ID恢复索引，不靠副本或入口数组位置；缺失回首项。契约0.25.0/SDK1.0保持，源码无BOSS分支或站点规则。
+
+修复候选包通过原生客户端读取独立复制的作者工作区：第二入口open普通返回、保存并核对返回、第一入口preflight返回、再次第二入口返回，界面入口标识、所选副本来源分别一致，保留原两步/八步和制作修订9。没有采用修改、导出新业务包、运行流程或调用模型。正常打开草稿的首项行为已核对；缺失副本/入口仅源码核对，未注入异常持久数据制造UI证据。
+
+`pnpm typecheck`初次发现新增回调的隐式any，补显式契约类型后退出0；Prettier初次未通过，格式修正后通过；`git diff --check`通过。`pnpm package:mac`退出0；本批未新增/运行单元测试。候选包证据与下方最终安装/PR记录分开，不以候选包代替最终安装核对。
+
+“保存并核对带回”后曾看到保存按钮残留loading的AX标记，点击核对后恢复；当前选中入口始终正确。该现象单列继续核验，不据本次选择修复宣布已解决。
+
+客户端[PR #283](https://github.com/zhongmiao-org/flow-ark-client/pull/283)源码`2192161a4a5bd14721b5687dc28d2bb7d41a6b69`经最新[CI 38801002636](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38801002636)的Validate/Auto Merge成功，实际合并`efbd56c408aaa36a96acb006f8dfdcbdbf0d2349`；旧取消检查38800999506不计通过。消费者契约基线仍为0.25.0，本项设计采用治理#766，不创建新契约版本。
+
+从该合并主线再次`pnpm package:mac`成功；正常退出、零主进程、旧安装备份后串行更新。最终安装ASAR与构建产物相同，为`d66e1c8f6a1b08efde2c760196593968f04e51565290df5e13c8799f39b740d3`。安装版重开独立作者副本，再次完成open→编排副本→返回；界面保持open、两步及相同所属副本，制作修订仍9，原生Dark截图已查看。之后正常退出核对实例，恢复原BOSS作者工作区。原业务工作区全部SQLite表内容与受保护凭据仍与既有备份一致；截图、备份和本机路径仅留本机。没有新招聘Run、模型消耗或外发动作，完整G3–G5/186/Agent目标继续。
+
 ## Figma先行
 
 在原文件、本批Section增加十四个原生状态，复用Button、AntInput、AntSelect、AntCheckbox、Semantic Light/Dark和Noto Sans SC/Inter，原186板与前批设计保留。
