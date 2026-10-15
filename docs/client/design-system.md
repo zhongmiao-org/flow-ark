@@ -1,5 +1,7 @@
 # FlowArk 产品设计基线 v4.2（Ant Design 单套主题与交互闭环）
 
+2026-10-15 检查器操作补充：按用户反馈缩短长按钮文案，以两列12px间距分组并补悬停/聚焦提示，原186节点保持；详见[检查器操作规范](inspector-actions-design-20261015.md)，客户端安装验收另记。
+
 2026-10-15 原型复验：修复 36 个参数/重跑等头部的静态祖先、“重新检查”误跳授权、新 Run 返回来源、终态按钮和列表状态。连续取消两个 Run、参数祖先离开保护、循环数组/固定值、新包独立确认及重查分支已按有限示例实际点击；新增 3 个检查状态，仍为单套 Light / Dark。详见[组合复验记录](design-prototype-reverification-20261015.md)；真实客户端实施与验收分开记录。
 
 2026-10-14 最新修订：同一 Semantic 集合包含 Light / Dark 两个模式，单套组件与画板继承主题。参数主入口 [原 018](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-1398)，重跑 [原 030](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3014)；外观 [149:4362](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=149-4362)，配色 [177:2](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=177-2)。旧深色副本隐藏归档；本轮仅更新设计与治理资料，详见 [单套主题规范](design-antd-themes.md)与 [186 项设计复核](design-board-review-20261014.md)。
