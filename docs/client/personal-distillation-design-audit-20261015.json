@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-15",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "section": "487:7024",
+  "boards": [
+    {
+      "key": "start",
+      "id": "536:5605",
+      "name": "个人蒸馏 / 多入口制作",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "key": "materials",
+      "id": "536:5700",
+      "name": "个人蒸馏 / 资料与发送范围",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "key": "interview",
+      "id": "536:5801",
+      "name": "个人蒸馏 / 引导与稍后继续",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "key": "draft",
+      "id": "536:5894",
+      "name": "个人蒸馏 / 草稿、事实与来源",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "key": "trial",
+      "id": "536:5997",
+      "name": "个人蒸馏 / 试聊待确认草稿",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "key": "update",
+      "id": "536:6098",
+      "name": "个人蒸馏 / 确认与局部更新",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "key": "compact",
+      "id": "536:6190",
+      "name": "个人蒸馏 / Key 不可用",
+      "width": 1040,
+      "height": 700
+    }
+  ],
+  "counts": {
+    "FRAME": 244,
+    "ELLIPSE": 21,
+    "TEXT": 214,
+    "VECTOR": 147,
+    "INSTANCE": 40
+  },
+  "imageNodes": 0,
+  "fontPass": true,
+  "programmedNavigationCount": 32,
+  "sectionHeight": 35840,
+  "navigationTargetsValid": true,
+  "contentAndFooterBoundsPass": true,
+  "checkedScreens": [
+    "start",
+    "trial",
+    "compact"
+  ],
+  "allPrototypePathsClicked": false,
+  "implementation": false,
+  "actualBusinessNavigationCount": 31,
+  "componentVariantActions": 8,
+  "invalidTargets": 0
+}
