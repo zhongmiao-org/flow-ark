@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-16",
+  "scope": "会话来源与固定草稿试聊 G1",
+  "governance": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark/pull/754",
+    "source": "0dec09106b113dd0edca84e65cddd571bdeac8d4",
+    "merge": "c24f437f0fbde9d7c4cc5aca709a8a5cdb6e98ad",
+    "ci": "https://github.com/zhongmiao-org/flow-ark/actions/runs/38765908535",
+    "ciResult": "latest Validate / Auto Merge success; actual merged",
+    "tag": "contracts-v0.24.0",
+    "remoteTagCommit": "c24f437f0fbde9d7c4cc5aca709a8a5cdb6e98ad"
+  },
+  "validation": {
+    "scope": "normative JSON only; not Runtime, model or UI implementation",
+    "checksummedFiles": 51,
+    "formatCases": 206,
+    "semanticCases": 26,
+    "normativeTypecheck": "passed",
+    "governanceCheck": "passed",
+    "diffCheck": "passed",
+    "unitTestsAddedOrRun": false,
+    "figma": {
+      "newEditableBoards": 6,
+      "businessNavigation": 22,
+      "componentVariantNavigation": 12,
+      "invalidTargets": 0,
+      "fontPass": true,
+      "imageFills": 0,
+      "contentOverflow": 0,
+      "screenshotsInspected": ["prepare", "chat after controls and disabled send", "compact dark"]
+    }
+  },
+  "client": {
+    "adoptedVersion": "0.23.0",
+    "sourceHead": "d9a38c48ad697cd15b2cc6a42db6958be2f14ccc",
+    "newSourceOrTrialCapabilityAdvertised": false,
+    "sourceChangedInThisBatch": false,
+    "packageOrInstallationChangedInThisBatch": false
+  },
+  "remaining": [
+    "Client fixed contract adoption and generated types / validators",
+    "Actual saved conversation provenance and Skill acceptance verification",
+    "Fixed draft trial creation, request receipt transaction and before-network revalidation",
+    "Native trial preparation, ordered conversation, stale source and Key failure UI",
+    "Runtime / Worker cancellation, recovery, concurrency and independent draft isolation",
+    "Real user-owned API Keys for both providers",
+    "Full personal distillation and BOSS visual authoring, export and independent reuse",
+    "Structured Skill field editing and remaining UI / bug acceptance",
+    "186 boards / U01-U12 / Agent complete flow generation"
+  ]
+}
