@@ -1,5 +1,7 @@
 # 本地运行产物接口
 
+2026-10-16 来源/试聊（0.24.0）：新增严格白名单`skill.trial.preview({id,revision})`、`skill.trial.start(SkillTrialRequest)`、`conversation.trialStatus({id})`和`conversation.output({id})`。预览由宿主固定全文，建立请求不携带Key/任意路径，回执与会话同事务；发送前核对真实草稿，Renderer状态不作为权限。`run.detail.typedResults`/`run.typedResult`增加conversation完整加密结果。字段及限制见[0.24.0](../../contracts/v0.24.0/README.md)，采用/原生及未通过范围见[分层记录](skill-trial.md)；包/SDK/流程主格式及SQLite表不变。
+
 2026-09-20 系统挂起：Main → Host 的既有 system.suspend/system.resume 保持私有，挂起撤销旧执行请求并独立于写库结果停止资源；不增加 Renderer 方法，见[系统挂起生命周期](system-suspend.md)。
 
 2026-09-20 导出修复：`flow.export` 改为提交当前流程及可选配置定义，不再按 ID 导出旧记录；严格载荷、固定快照、取消语义与兼容规则见 [导出快照与退出确认](export-and-exit.md)。

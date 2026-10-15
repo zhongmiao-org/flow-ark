@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-16",
+  "scope": "会话来源与固定草稿试聊 G2，含原生返回标签修复",
+  "contract": {
+    "version": "0.24.0",
+    "tag": "contracts-v0.24.0",
+    "governanceBaseline": "c24f437f0fbde9d7c4cc5aca709a8a5cdb6e98ad",
+    "checksummedFiles": 51,
+    "packageFormat": "2.0",
+    "sdkVersion": "1.0",
+    "sqliteTableMigration": false
+  },
+  "client": [
+    {
+      "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/279",
+      "source": "18c1cae4e0c86c48691d53b3932b5bd297529982",
+      "merge": "b011cb916dfb31b9779551595c6b46f39b319475",
+      "ci": "https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38770281553",
+      "result": "latest Validate / Auto Merge success; actual merged"
+    },
+    {
+      "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/280",
+      "source": "c02e1e60177b39505fbdbe545f40612006a7514f",
+      "merge": "460a27b0d2da714bd62233d8f81d5e46ba6f5976",
+      "ci": "https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38771975986",
+      "result": "latest Validate / Auto Merge success; actual merged"
+    }
+  ],
+  "validation": {
+    "unitTestsAddedOrRun": false,
+    "sourceChecks": [
+      "pnpm typecheck passed",
+      "pnpm build passed",
+      "explicit changed-source Prettier passed",
+      "git diff --check passed",
+      "51 adopted contract files match immutable snapshot"
+    ],
+    "runtimeWorker": "Real Runtime / Worker / SQLite observations with fictional inputs and explicit injected model replies; not live API success",
+    "scenarios": [
+      "confirmed and unconfirmed complete conversation output",
+      "forged provenance rejected on Skill save",
+      "same trial request idempotent; changed contents rejected",
+      "missing Key and draft edited during Key lookup prevent Provider invocation",
+      "in-flight reply stays with original source; later requests blocked when draft changes",
+      "cancelled attempt rejects late chunks; saved input and history retained",
+      "failed transaction rolls back snapshot and receipt",
+      "reopen preserves receipt and source; unavailable workspace blocks new requests"
+    ],
+    "crashRecovery": "Real child SIGKILL before transaction commit leaves no partial conversation or receipt; after commit before response returns original receipt on explicit same request",
+    "componentUi": {
+      "host": "actual local host / Worker; no real Key or model replies",
+      "actualDomViewports": [
+        [
+          1082,
+          812
+        ],
+        [
+          782,
+          526
+        ]
+      ],
+      "themes": [
+        "Light",
+        "Dark"
+      ],
+      "compactHorizontalOverflow": false,
+      "observed": [
+        "settings leave protection",
+        "save current draft before preparation",
+        "explicit provider / current model metadata",
+        "missing Key failure",
+        "fee acknowledgement cleared",
+        "saved input survives reopen",
+        "stale source retains history and disables send"
+      ]
+    },
+    "native": {
+      "platform": "macOS arm64",
+      "theme": "Dark",
+      "fixtureOnly": true,
+      "sourceRun": "386d827d-4060-4522-9e92-c19eef0b5e7f",
+      "sourceRunResult": "SUCCEEDED",
+      "observed": [
+        "visual authoring from blank flow and system directory selection",
+        "fixed draft revision / full hash preview",
+        "no automatic model call on conversation creation",
+        "actual missing-Key failure; no model invocation",
+        "fee acknowledgement cleared",
+        "save unsubmitted input then edit draft",
+        "old trial keeps revision 1 while current draft is revision 2",
+        "normal quit and reopen retains history / input and disabled send / retry",
+        "new revision 2 trial has zero model requests",
+        "embedded return-current-draft label and actual destination agree",
+        "direct attention conversation returns to attention list"
+      ]
+    },
+    "actualLiveProviderSuccess": false,
+    "recruitingExternalActions": false
+  },
+  "installation": {
+    "command": "pnpm package:mac",
+    "result": "passed",
+    "finalSourceMatchesMerge": true,
+    "installedAsarMatchesCandidate": true,
+    "asarSha256": "ddfc37a6a04606f5bc6cecd915179bf2f4da4f5504db896f663e08df46e9edc4",
+    "dmgSha256": "fea6b7003b376a7e3cd151887256777aff63bfc2f6a500b00f55cb2487844ed1",
+    "serialReplacementAfterNormalExit": true,
+    "previousApplicationsBackedUp": true,
+    "originalWorkspaceRestored": true,
+    "originalEncryptedDocumentsUnchanged": true,
+    "originalEventsUnchanged": true,
+    "protectedCredentialHashesUnchanged": true,
+    "release": "unsigned / unnotarized development package; not formal release"
+  },
+  "remaining": [
+    "native full Light / compact matrix and all fault combinations",
+    "real user-owned Keys for both providers",
+    "structured Skill field form editing",
+    "saved-resource helper text consistency",
+    "full personal distillation interview / synthesis / local update visual authoring",
+    "full public ZIP export / independent workspace reuse",
+    "BOSS site calibration, JD matching and authorized external business verification",
+    "186 boards / U01-U12 / Agent complete flow generation"
+  ],
+  "longTermGoal": "active"
+}
