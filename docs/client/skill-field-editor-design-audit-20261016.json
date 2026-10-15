@@ -332,5 +332,19 @@
       "target": "549:7069",
       "valid": true
     }
-  ]
+  ],
+  "savedResourceCorrection": {
+    "date": "2026-10-16",
+    "board": "552:5735",
+    "width": 1440,
+    "height": 1080,
+    "feedback": "552:6075",
+    "component": "139:16",
+    "instancePropertyOverrideVerified": true,
+    "designContextAndScreenshotInspected": true,
+    "imageFills": 0,
+    "originalUnsavedState": "210:8247",
+    "originalPreserved": true,
+    "scope": "separate saved state added during archival after initial descendant override did not persist in export; counts above cover five field boards only"
+  }
 }
