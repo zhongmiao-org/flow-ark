@@ -1,0 +1,130 @@
+{
+  "date": "2026-10-16",
+  "scope": "G4 client-authored BOSS opening and read-only current-page preflight checkpoint",
+  "status": "in-progress",
+  "design": {
+    "reusedExistingNodes": [
+      "490:5247",
+      "487:11707"
+    ],
+    "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+    "inspectedBeforeAuthoring": true,
+    "newClientBusinessUi": false
+  },
+  "baseline": {
+    "clientMerge": "0d9ff09031752d55970f0f47c2b84d48e28d70ad",
+    "clientPr": 282,
+    "contractsTag": "contracts-v0.25.0",
+    "governanceCommit": "095c19c383ca7c86310407da6325a0dd974342f5",
+    "machineFilesVerified": 54,
+    "sdk": "1.0",
+    "packageFormat": "2.0"
+  },
+  "template": {
+    "id": "boss-job-search",
+    "version": "0.1.1",
+    "authorRevision": 9,
+    "entrySteps": {
+      "open": 2,
+      "preflight": 8
+    },
+    "sharedResource": {
+      "id": "browser",
+      "kind": "browser",
+      "access": "use",
+      "required": true
+    },
+    "actions": [],
+    "modelCalls": false,
+    "rawExportFiles": 14,
+    "archiveSha256": "ab86c5753b22e10a9c2f0d70f7cc953a3c8ed8c1d32f5aa027036f69a95a64ab",
+    "contentDigest": "2bbc4d55f1fbc7af658c383baf500735d8e848443eb7d6f58811ed8dbe5c5aa7",
+    "sourceVerification": "original ZIP and extracted bytes; three TS source compilation mappings; no hand-edited business flow JSON",
+    "repositoryVisibility": "PUBLIC",
+    "distributionStatus": "public source checkpoint; complete recruiting template not released"
+  },
+  "site": {
+    "browserMode": "explicit embedded",
+    "browserVersion": "152.0.7977.78",
+    "startUrl": "https://www.zhipin.com/chengshi/c101170100/?seoRefer=index",
+    "loginUrl": "https://www.zhipin.com/web/user/?ka=header-login",
+    "observedLoginMethods": [
+      "SMS verification",
+      "APP scan",
+      "WeChat login"
+    ],
+    "actualAccountVerified": false,
+    "jdOrConversationCalibrated": false,
+    "loginAgreementAccepted": false,
+    "verificationCodeRequested": false
+  },
+  "authorRuns": [
+    {
+      "id": "ee827bb1-71ff-4015-883e-d6f2c8a98ccb",
+      "entry": "preflight",
+      "result": "SUCCEEDED; login-required; then notification completed; else not executed"
+    },
+    {
+      "id": "9467b230-61fa-4c2b-9397-f37d01086f50",
+      "entry": "open",
+      "result": "SUCCEEDED; supplied public city page opened and current URL read"
+    },
+    {
+      "id": "51a51dd8-711b-4e47-9c66-c4a78acd96d6",
+      "entry": "preflight",
+      "result": "SUCCEEDED; account-unverified; else notification completed; then not executed"
+    }
+  ],
+  "independentReimport": {
+    "source": "same unmodified ZIP",
+    "initialBindings": "one unbound browser; both entries not ready",
+    "runs": [
+      {
+        "id": "6d6b5d8a-d4a3-48b6-8cea-dd973c19ae05",
+        "entry": "open",
+        "result": "SUCCEEDED"
+      },
+      {
+        "id": "35d3b290-c87e-4ea1-92c0-ba1f1a59aba5",
+        "entry": "preflight",
+        "result": "SUCCEEDED; account-unverified; independent local attention"
+      }
+    ],
+    "normalReopen": {
+      "runRecords": 2,
+      "pendingAttention": 1,
+      "noReplay": true
+    }
+  },
+  "checks": {
+    "pnpmValidate": "passed; includes existing build and checkpoint/source verification",
+    "pnpmBuild": "passed",
+    "gitDiffCheck": "passed",
+    "unitTestsAddedOrRun": false,
+    "privatePathMarkersInArchive": []
+  },
+  "delivery": {
+    "templatePr": "https://github.com/zhongmiao-org/flow-ark-templates/pull/7",
+    "sourceCommit": "7a321d22f751cca1b2f75b9cd72d376c099d739d",
+    "mergeCommit": "16141b474f006ee4e781834f25deb367762e1290",
+    "latestCi": "https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/38798906035",
+    "validate": "success",
+    "autoMerge": "success",
+    "actualState": "MERGED",
+    "cancelledCiNotCounted": "38798905173"
+  },
+  "preservation": {
+    "originalDatabaseTablesUnchanged": true,
+    "originalCredentialFileUnchanged": true,
+    "authorAndConsumerWorkspacesIndependent": true
+  },
+  "remaining": [
+    "human BOSS login and actual job-seeker account/role verification",
+    "real account/JD/conversation selectors and change detection",
+    "confirmed personal Skill and own-Key distillation/AI",
+    "application/resume/chat/not-interested actions and idempotent receipts",
+    "full G3-G5 and independent complete-business reuse",
+    "186 boards/U01-U12 and Agent flow generation",
+    "nonfirst-entry author return selection bug; host adoption target remained correct"
+  ]
+}
