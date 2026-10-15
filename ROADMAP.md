@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-15 Skill G1：补齐九个原生设计状态和[0.21.0契约](contracts/v0.21.0/README.md)，定义Skill草稿、人工确认、工作区版本文件、固定读取与只读资源；格式/设计不能替代客户端实现，发布及G2证据见[记录](docs/client/skill-workspace.md)。完整蒸馏、可视化作者和BOSS闭环保持待完成。
+
 2026-10-15资料解析G2：治理#745/契约0.20.0与客户端#275最新CI已交付，新增通用document节点与PDF/DOCX/UTF-8来源/定位/缺口核对；虚构文件、Runtime/Worker重开、ZIP函数路径及包内解析分别取证，原生更新后核对动作与Dark形状。完整原生运行、独立可视化复导、个人Skill和G3–G5待完成，见[记录](docs/client/document-extraction.md)。
 
 2026-10-15 长期目标进入G1/G2：首批结构化AI节点先补Figma配置/失败/取消，再发布[0.18.0契约](contracts/v0.18.0/README.md)并实现客户端独立节点及资源/导出链路，证据见[节点记录](docs/client/ai-node.md)。这只是蒸馏、JD与聊天共同依赖，不替代多轮会话、Skill和真实BOSS闭环。
