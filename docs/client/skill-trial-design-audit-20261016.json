@@ -75,5 +75,18 @@
       "id": "541:6151",
       "overflow": []
     }
-  ]
+  ],
+  "postNativeNavigation": {
+    "date": "2026-10-16",
+    "button": "541:6034",
+    "text": "返回当前草稿",
+    "destination": "514:7130",
+    "size": [
+      160,
+      40
+    ],
+    "designContextAndScreenshotInspected": true,
+    "beforeClientChange": "PR #280",
+    "countsUnchanged": true
+  }
 }
