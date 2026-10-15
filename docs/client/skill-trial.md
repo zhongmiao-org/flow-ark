@@ -2,6 +2,8 @@
 
 2026-10-15，接续[个人蒸馏制作](personal-distillation-authoring.md)实际缺口。先更新Figma及[0.24.0契约](../../contracts/v0.24.0/README.md)，再实现客户端；当前不代表客户端或真实Key通过。
 
+2026-10-16 G1已交付：[治理PR #754](https://github.com/zhongmiao-org/flow-ark/pull/754)源`0dec09106b113dd0edca84e65cddd571bdeac8d4`由最新[CI 38765908535](https://github.com/zhongmiao-org/flow-ark/actions/runs/38765908535)的Validate/Auto Merge自动合并，合并提交`c24f437f0fbde9d7c4cc5aca709a8a5cdb6e98ad`。真实远端`contracts-v0.24.0`已核对指向该提交，51份机器资料摘要通过。客户端仍0.23.0，未新增或宣告试聊能力；下一步独立采用及实现，不能把本批记为G2/G3通过。详见[分层回执](skill-trial-delivery-20261016.json)。
+
 ## 设计与交互
 
 复用原文件单套Semantic Light/Dark、Noto Sans SC/Inter、Button/Input/Select/Checkbox及主导航，无新主题/字体，原186及已有检查点保持。
@@ -16,6 +18,8 @@
 | 紧凑Dark Key不可用 | [541:6151](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=541-6151) |
 
 五张1440×1080及一张1040×700。最终结构215Frame/191Text/127Vector/40Instance/18Ellipse/1Rectangle，零图像填充且字体通过。22条实际跨画板导航、12条原组件变体导航，无失效目标，内容/底部无越界。准备、补控件后的内部试聊及紧凑Dark截图已查看；费用未勾选时发送使用原Disabled变体。没有据此声称全部原型或原生UI已通过。
+
+[结构记录](skill-trial-design-audit-20261016.json)保留节点、字体/图像、导航和内容范围核对。设计组件原有变体跳转与业务导航分别计数。
 
 普通会话确认后在结果显示真实sequence/evidence。草稿来源核对不接受模型编造摘要；试聊不能自动作为本人事实。编辑后先明确保存，再核对全文/父版本/服务模型/补充要求；建立会话不调用模型，逐轮费用、顺序、取消及恢复复用已有面板。
 
