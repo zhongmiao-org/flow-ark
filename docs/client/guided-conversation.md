@@ -27,4 +27,16 @@
 
 ## 交付状态
 
-当前为治理/契约及Figma批次，待PR与tag发布；客户端尚未采用0.19.0。格式正反例和流程示例通过，只证明Schema格式。未新增/运行单元测试，未使用真实Key或模型。个人工作区镜像、资料解析和Skill最终确认仍属后续契约/能力，不将会话保存在加密数据库等同于已完成工作区落盘。
+治理[PR #743](https://github.com/zhongmiao-org/flow-ark/pull/743)已由最新CI合并，提交`bcff18cc2718a56f78290ab83dae4351d2218ff8`，不可变tag `contracts-v0.19.0`已发布。客户端固定采用该快照并生成类型及校验器，[PR #273](https://github.com/zhongmiao-org/flow-ark-client/pull/273)源提交`36aac2091dd74cd3782e48d7bb21a3dd1e4529ee`的[最新CI](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38720351913)中Validate与Auto Merge成功，实际合并`86c062c19aca338f3a49ce5f6834cf9ec34a8751`。安装及原生核对另记，不以PR合并代替运行验收。
+
+客户端实现：动作库与节点配置、键/上下文引用、入口AI资源声明和ZIP导出；宿主加密会话、修订/请求身份与有限并发、完整快照onmessage、两家流式适配、取消/手动重试及退出清理；待办中的输入保存、离开保护、消息恢复和确认只读。无个人蒸馏或招聘业务专属节点。
+
+本地`pnpm typecheck`、`pnpm build`、修改源文件Prettier、`git diff --check`及契约SHA256校验通过。构建仍有既有的大包体提示。按当前UI/UE阶段约定未新增/运行单元测试。
+
+隔离预览使用实际面板、宿主和适配器，输入虚构资料、受控SSE响应，无真实Key或网络模型调用。人工核对了保存后离开与返回、刷新恢复已保存输入、同轮取消/重试不重复用户消息、HTTP429保留失败且不自动重试、旧快照丢弃、跳号后读取完整快照、供应商会话隔离、两种协议完整终态、用量未知与明确用量、确认只读、供应商切换清空模型，以及Light/Dark和紧凑布局。此证据不等同原生会话IPC、系统重启、真实API及S08全部异常通过；这些项目继续独立验收。
+
+原生续批：首次候选安装暴露运行时AJV编译与既有CSP冲突，页面空白，未将其记为安装通过。改为复用构建时静态校验生成流程，未放宽CSP；[修复PR #274](https://github.com/zhongmiao-org/flow-ark-client/pull/274)源`7a86b14`经[最新CI](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38720950173)Validate/Auto Merge通过，实际合并`fe0d409fa4c7048ad773958ca6b9a955a30335b1`。
+
+修复后重新生成macOS arm64 ZIP/DMG并更新现有应用，候选与安装ASAR一致。正常退出后备份原应用和加密资料，串行更新并确认唯一主进程；原工作区正常打开，经动作库实际添加持久引导会话并显示完整配置，随后撤销临时添加，回到原零步骤流程及列表。只读比对全部加密documents保持一致，未保存临时节点、未新增Run。原生界面显示AI服务未配置，因此没有创建或发送真实会话；原生会话IPC、Key鉴权、真实流式API及系统重开会话仍待资源到位后验收。详细安装路径、备份和截图仅保留本机，不进入公开仓库。
+
+个人工作区镜像、资料解析和Skill最终确认仍属后续契约/能力，不将会话保存在加密数据库等同于已完成工作区落盘。G3–G5与完整BOSS验收保持未完成。
