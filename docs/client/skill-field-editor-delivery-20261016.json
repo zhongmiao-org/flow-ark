@@ -29,7 +29,7 @@
       "549:7484",
       "549:7639"
     ],
-    "resourceFeedbackNode": "210:8247",
+    "resourceFeedbackNode": "552:6075",
     "editableLayers": true,
     "imageFills": 0,
     "fonts": [
@@ -41,7 +41,10 @@
       "FlowArk/AntInput"
     ],
     "existing186Preserved": true,
-    "highFidelityContextsAndFinalScreenshotsInspected": true
+    "highFidelityContextsAndFinalScreenshotsInspected": true,
+    "resourceSavedBoard": "552:5735",
+    "originalResourceStateRetained": "210:8247",
+    "resourceDesignCorrection": "Initial descendant text override did not persist in export; original unsaved state retained, separate saved board added during archival with instance properties and verified design context."
   },
   "validation": {
     "sourceChecks": [
