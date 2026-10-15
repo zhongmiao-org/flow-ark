@@ -31,3 +31,12 @@
 - 工作区工具栏：祖先流程名可以省略显示，但支持悬停与键盘聚焦查看完整名称；禁用使用主题禁用色。返回与网页按钮保持原行为。
 
 先在完整生产组件页面核对1040px紧凑窗和760px说明页的长文本与受控状态，再在真实安装版走查本地脚本、控制及模板配置。人为延时／失败、系统选择框、真实保存及整板验收分别记录，不将演示页状态当作真实宿主失败或186整板通过。
+
+
+## 模板筛选对齐与流程图主题修正
+
+2026-10-15用户截图反馈：模板库“本地实例”与筛选框不齐，Dark流程图节点白底配浅色文字。先更新原[模板筛选行1:3200](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1-3200)及[跨页规范471:5124](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=471-5124)，再修客户端。搜索框复用Field、下拉槽与按钮复用Button，保持Noto Sans SC及Semantic绑定；搜索/能力/排序/本地实例均40px高、同排居中、间距16px，标签和控件不继承通用表单外边距，窄窗换行。
+
+原[流程节点23:3430](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3430)及同页process/decision/document形状保留几何和bg/surface、border/default绑定，join用text/secondary，选中/悬停描边用action/primary。客户端应使原SVG继承当前语义颜色；保留源文件路径、尺寸、轮廓及连接位置，不以滤镜反色替代。复用同一Light/Dark，不新建另一套深色页面或组件。
+
+已读取两处高保真设计上下文并查看Dark截图：4个工具控件y=0、height=40；原页面零图片填充，字体家族检查通过。两原画板临时切Dark核对后恢复默认继承。设计原型未新增业务行为，实际安装和人工核对记录见[本批修复](catalog-dark-graph-fix-20261015.md)。
