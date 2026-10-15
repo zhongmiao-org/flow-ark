@@ -1,6 +1,6 @@
 # 个人蒸馏与 BOSS 模板设计规格
 
-2026-10-15。按[开发计划](guided-skills-boss-plan-20261015.md)，在[原 Figma 文件的本批区域](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=487-7024)新增 26 个原生可编辑场景。原186节点全部存在且可见，原验收结论不变。本轮只更新治理与 Figma，不修改客户端或模板实现。
+2026-10-15。按[开发计划](guided-skills-boss-plan-20261015.md)，在[原 Figma 文件的本批区域](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=487-7024)新增 26 个原生可编辑场景。原186节点全部存在且可见，原验收结论不变。该26场景的G0批次只更新治理与Figma；后续实现按下面追加的批次设计和交付记录单独核对。
 
 ## 设计入口与复用
 
@@ -64,3 +64,8 @@
 这26个场景建立主路径和关键恢复边界，不是完整控件/状态矩阵。每批实现之前，继续在同文件补齐对应节点配置控件、逐项事实编辑、实际可编辑对话、字段校验、模型处理中/取消/迟到与限流、未保存离开、键盘焦点、完整多入口作者表单、文件选择及不支持格式、按对象保存/切换、结果确认回执与更多紧凑布局。现有通用画板可复用，新增交互必须先补图再编码。
 
 G1–G5的契约、实现、类型/构建、安装、真实AI与BOSS业务以及独立使用者复用分别取证。本轮不新增/运行单元测试，不执行真实投递/消息/不感兴趣动作。治理检查使用既有命令，PR/CI与实际合并状态见交付消息。
+
+
+## G1/G2追加：结构化AI节点
+
+2026-10-15在同一Section增加4个原生设计状态，原26与186节点保留：[配置](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=498-5279)、[资源缺失](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=498-5392)、[请求与取消](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=498-5476)、[失败恢复](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=498-5562)。已读取配置页高保真上下文；状态画板不等于运行验证，原26的结构审计JSON不包含此次追加。实现与证据详见[结构化AI节点](ai-node.md)。
