@@ -1,0 +1,279 @@
+{
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "sectionId": "487:7024",
+  "boards": [
+    {
+      "id": "487:10842",
+      "name": "从可复用流程开始",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:10943",
+      "name": "准备你的个人资料",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11049",
+      "name": "核对材料与发送范围",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11139",
+      "name": "补充你希望怎样求职与沟通",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11231",
+      "name": "核对蒸馏草稿",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11327",
+      "name": "先看看回答是否像你",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11416",
+      "name": "确认你的个人 Skill",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11504",
+      "name": "个人 Skill · 已确认 v1",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11604",
+      "name": "编排 · 个人蒸馏流程",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11707",
+      "name": "编排 · BOSS 招聘模板",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11802",
+      "name": "配置 BOSS 直聘模板",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11906",
+      "name": "回复草稿 · 尚未发送",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:11995",
+      "name": "此会话已交给本人处理",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:12082",
+      "name": "发送结果待核对",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:12168",
+      "name": "导出与独立复用",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:12258",
+      "name": "对话已保存，AI 请求未完成",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:12344",
+      "name": "保存前先核对版本差异",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:12432",
+      "name": "对话 Skill 当前不可用",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:12525",
+      "name": "这份材料还不能用于蒸馏",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "487:12611",
+      "name": "配置对话 Skill",
+      "width": 1040,
+      "height": 700,
+      "contentHeight": 610,
+      "bottom": 586,
+      "overflow": false
+    },
+    {
+      "id": "490:5247",
+      "name": "先确认 BOSS 登录与账号",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "490:5348",
+      "name": "核对自动投递条件",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "490:5450",
+      "name": "主动沟通先看职位介绍",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "490:5550",
+      "name": "该职位明确不符合你的方向",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "490:5637",
+      "name": "这个职位需要你来判断",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    },
+    {
+      "id": "490:5723",
+      "name": "对方索要简历 · 先核对发送内容",
+      "width": 1440,
+      "height": 1080,
+      "contentHeight": 990,
+      "bottom": 958,
+      "overflow": false
+    }
+  ],
+  "descendants": 2479,
+  "counts": {
+    "FRAME": 922,
+    "TEXT": 789,
+    "INSTANCE": 132,
+    "ELLIPSE": 78,
+    "VECTOR": 558
+  },
+  "navigationCount": 98,
+  "issues": [],
+  "fontFamilies": [
+    "Noto Sans SC",
+    "Inter"
+  ],
+  "fontPass": true,
+  "imageFilledNodes": [],
+  "prototypesActuallyClicked": false,
+  "date": "2026-10-15",
+  "componentChangeCount": 33,
+  "uniqueNavigationDestinations": 26,
+  "originalBoardsChecked": 186,
+  "originalProblems": [],
+  "defaultTheme": "Light",
+  "screenshotEvidence": {
+    "fullCompositionReviewed": true,
+    "focusedLightReviewed": [
+      "487:11139",
+      "487:11707",
+      "487:11802",
+      "487:12611",
+      "490:5450"
+    ],
+    "focusedDarkReviewed": [
+      "487:11802",
+      "487:12611"
+    ],
+    "compactOverflowFixed": true
+  },
+  "evidenceBoundary": "Editable Figma specification and structural navigation audit only; no live prototype clicking, client implementation, real AI, BOSS login, applications or messages verified."
+}
