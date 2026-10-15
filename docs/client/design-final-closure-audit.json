@@ -423,6 +423,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientIOAsync20261015": {
+        "status": "partial",
+        "note": "10月15日#259/#260补分页失败手动重试/取消/迟到保护与关闭后焦点；受控HTTP故障及原生7条真实记录分页分层记录，整板仍待验收",
+        "record": "io-async-acceptance-20261015.md"
       }
     },
     {
@@ -454,6 +459,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientIOAsync20261015": {
+        "status": "partial",
+        "note": "10月15日真实Excel成功/重名失败/改名恢复三个Run独立快照与终态已核对，复杂副作用及整板仍待验收",
+        "record": "io-async-acceptance-20261015.md"
       }
     },
     {
@@ -1152,6 +1162,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientIOAsync20261015": {
+        "status": "partial",
+        "note": "10月15日真实两份Excel产物、Run归属和副本字节与输出一致已核对，整板仍待验收",
+        "record": "io-async-acceptance-20261015.md"
       }
     },
     {
@@ -1280,6 +1295,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientIOAsync20261015": {
+        "status": "partial",
+        "note": "10月15日真实AISettings/Store配合虚构提供方人工核对取消、修订变化和迟到旧回执；未计真实供应商或整板通过",
+        "record": "io-async-acceptance-20261015.md"
       }
     },
     {
@@ -3236,6 +3256,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientIOAsync20261015": {
+        "status": "partial",
+        "note": "10月15日真实ExcelRun对应产物及独立读回已核对；沿用按实际Run展示，不扩大到此固定示例全部行为",
+        "record": "io-async-acceptance-20261015.md"
       }
     },
     {
@@ -4219,6 +4244,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientIOAsync20261015": {
+        "status": "partial",
+        "note": "10月15日原生五列工作簿实际写入和独立读回、同名停止原文件不变、改名新Run恢复已核对；复杂类型/文件故障和整板仍待验收",
+        "record": "io-async-acceptance-20261015.md"
       }
     },
     {
@@ -6678,5 +6708,28 @@
     ],
     "allPrototypeBranchesClicked": false,
     "clientAcceptanceThisRound": false
+  },
+  "clientIOAsync20261015": {
+    "record": "io-async-acceptance-20261015.md",
+    "clientPRs": [
+      259,
+      260
+    ],
+    "originalCount": 186,
+    "fullBoardAcceptance": false,
+    "figmaMutated": false,
+    "evidence": {
+      "designContextRead": [
+        "23:6516",
+        "1:3376",
+        "311:5176",
+        "319:5243"
+      ],
+      "nativeWorkbookReadback": true,
+      "nativePagination": true,
+      "controlledHTTPFailureAndLateResults": true,
+      "realVendorLateResults": false,
+      "unitTestsRun": false
+    }
   }
 }
