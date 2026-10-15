@@ -1,5 +1,7 @@
 # 会话来源与草稿试聊
 
+2026-10-16 后续：通用结构化逐项编辑及保存目录后的旧提示已由客户端#281按先行Figma交付，见[字段编辑与原生证据](skill-field-editor.md)。下文G2验收保留当批范围，完整个人蒸馏和BOSS继续。
+
 2026-10-16 G2增量：客户端[PR #279](https://github.com/zhongmiao-org/flow-ark-client/pull/279)固定采用0.24.0，源`18c1cae4e0c86c48691d53b3932b5bd297529982`经最新[CI 38770281553](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38770281553)自动合并为`b011cb916dfb31b9779551595c6b46f39b319475`。来源核验、完整结果和固定草稿试聊已实现；原生发现嵌入式返回标签不一致，追加[PR #280](https://github.com/zhongmiao-org/flow-ark-client/pull/280)。以下G1段落保留发布时状态，当前证据与边界见文末。
 
 2026-10-15，接续[个人蒸馏制作](personal-distillation-authoring.md)实际缺口。先更新Figma及[0.24.0契约](../../contracts/v0.24.0/README.md)，再实现客户端；当前不代表客户端或真实Key通过。

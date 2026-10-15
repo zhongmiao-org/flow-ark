@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-16",
+  "scope": "通用Skill结构化字段编辑与目录保存反馈 G2",
+  "governance": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark/pull/757",
+    "source": "420878b",
+    "merge": "b73cb467591afce3fe0e77e1727a7d6dc31cee50",
+    "ci": "https://github.com/zhongmiao-org/flow-ark/actions/runs/38774467307",
+    "result": "latest Validate / Auto Merge success; actual merged"
+  },
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/281",
+    "source": "2b3b52a0243cbea946fa8328effa0f84063d6dee",
+    "merge": "3968b62ff88e27a46df34e2360b6127d19340a56",
+    "ci": "https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38776604763",
+    "result": "latest Validate / Auto Merge success; actual merged",
+    "contractsVersion": "0.24.0",
+    "contractBaseline": "c24f437f0fbde9d7c4cc5aca709a8a5cdb6e98ad",
+    "publicContractOrIpcChanged": false,
+    "sqliteTablesChanged": false,
+    "businessFieldsAddedToClient": false
+  },
+  "design": {
+    "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+    "boards": [
+      "549:7069",
+      "549:7216",
+      "549:7364",
+      "549:7484",
+      "549:7639"
+    ],
+    "resourceFeedbackNode": "210:8247",
+    "editableLayers": true,
+    "imageFills": 0,
+    "fonts": [
+      "Noto Sans SC",
+      "Inter"
+    ],
+    "sourceComponents": [
+      "FlowArk/Button",
+      "FlowArk/AntInput"
+    ],
+    "existing186Preserved": true,
+    "highFidelityContextsAndFinalScreenshotsInspected": true
+  },
+  "validation": {
+    "sourceChecks": [
+      "pnpm typecheck passed",
+      "pnpm build passed",
+      "six changed files Prettier passed",
+      "git diff --check passed"
+    ],
+    "unitTestsAddedOrRun": false,
+    "fixtureScope": "Fictional data with actual local Runtime / Worker; no model invocation or external recruiting actions",
+    "componentObservations": [
+      "duplicate names and incomplete numbers rejected without losing input",
+      "unapplied edits block field / mode switching, saving and save-before-leave",
+      "continue editing keeps input and restores current-field focus",
+      "object rename, type replacement confirmation / cancellation",
+      "array add / remove / up / down move",
+      "new children expand ancestors and keep selection",
+      "actual saved values preserve number / boolean / null / arrays / objects",
+      "other fields, manual evidence, literal $ref and own __proto__ preserved",
+      "reopen retains saved content",
+      "external save then reread preserves pending field and requires explicit conflict review"
+    ],
+    "actualDomViewports": [
+      [
+        1082,
+        812
+      ],
+      [
+        782,
+        526
+      ]
+    ],
+    "layout": "two columns / one column; Light and Dark; no document horizontal overflow",
+    "previewScreenshotLimit": "Some clipped / full-page preview images do not map to actual DOM viewport coordinates; not counted as complete visual acceptance",
+    "native": {
+      "platform": "macOS arm64",
+      "theme": "Dark",
+      "observations": [
+        "existing fictional proposal opened",
+        "unapplied input blocks save and advanced mode",
+        "explicit field apply then save revision 2 to 3",
+        "normal quit / reopen reads revision 3, changed field, original facts and evidence",
+        "system directory selection displays unsaved then success clears prior selection hint"
+      ],
+      "runDocumentsUnchanged": true,
+      "conversationDocumentsUnchanged": true,
+      "modelInvoked": false,
+      "skillConfirmed": false,
+      "externalActions": false
+    }
+  },
+  "installation": {
+    "command": "pnpm package:mac",
+    "result": "passed",
+    "finalSourceMatchesMerge": true,
+    "serialReplacementAfterNormalExit": true,
+    "previousApplicationAndOriginalDataBackedUp": true,
+    "installedAsarMatchesCandidate": true,
+    "asarSha256": "c4daba0653b75a3af462c9e4fedd5a138f1456b14bfe5a0d7c2f3febc2a25f5b",
+    "dmgSha256": "72837504f6037e4dd8759fc900f64287eeb63edef7a0532e1a9f5d6d59e50f67",
+    "originalWorkspaceRestored": true,
+    "originalEncryptedDocumentsUnchanged": true,
+    "originalEventsUnchanged": true,
+    "protectedCredentialHashesUnchanged": true,
+    "release": "unsigned / unnotarized development package; not formal release"
+  },
+  "cleanup": {
+    "temporaryObservationServicesStopped": true,
+    "temporaryBrowserTabClosed": true,
+    "viewportOverrideReset": true
+  },
+  "remaining": [
+    "complex / large native fields and full keyboard / theme / size / failure matrix",
+    "resource-save failure interaction",
+    "full personal distillation interview / synthesis / partial update visual authoring",
+    "real user-owned API Keys for both providers",
+    "full public export / independent workspace reimport and reuse",
+    "BOSS site calibration and authorized real business verification",
+    "186 boards / U01-U12 / Agent complete flow generation"
+  ],
+  "longTermGoal": "active"
+}

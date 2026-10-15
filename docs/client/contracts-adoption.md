@@ -1,5 +1,7 @@
 # 固定契约来源
 
+2026-10-16 字段交互：客户端[PR #281](https://github.com/zhongmiao-org/flow-ark-client/pull/281)源`2b3b52a0243cbea946fa8328effa0f84063d6dee`，最新[CI 38776604763](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38776604763)自动合并`3968b62ff88e27a46df34e2360b6127d19340a56`。消费治理#757/`b73cb467591afce3fe0e77e1727a7d6dc31cee50`设计，仍固定下条0.24.0契约基线；没有新增IPC/表结构或契约快照变更。安装及原生范围见[字段编辑](skill-field-editor.md)。
+
 2026-10-16 交互补丁：客户端[PR #280](https://github.com/zhongmiao-org/flow-ark-client/pull/280)最新[CI 38771975986](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38771975986)自动合并`460a27b0d2da714bd62233d8f81d5e46ba6f5976`，只修正嵌入试聊返回标签，仍采用下条0.24.0基线。最终安装及原工作区恢复证据见[记录](skill-trial.md)，没有改动已发布契约快照。
 
 2026-10-16 最新采用：客户端[PR #279](https://github.com/zhongmiao-org/flow-ark-client/pull/279)固定[0.24.0](../../contracts/v0.24.0/README.md)/`contracts-v0.24.0`，治理基线`c24f437f0fbde9d7c4cc5aca709a8a5cdb6e98ad`（治理#754），应用合并`b011cb916dfb31b9779551595c6b46f39b319475`，最新CI `38770281553` Validate/Auto Merge成功。51份规范资料摘要、类型/静态校验器生成、类型/构建/格式通过，未新增或运行单元测试。真实Runtime/Worker、SIGKILL和部分原生见[记录](skill-trial.md)；两家真实Key及完整业务另验。包2.0/SDK1.0/流程1.0和SQLite表不变，以下采用记录为历史语境。
