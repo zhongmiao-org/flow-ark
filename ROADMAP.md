@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-15 个人蒸馏G3制作开始：七个Figma状态与固定nuwa/MIT来源先行，客户端从空白制作资料字段/解析节点/引用并实际运行，明确带回及导出阶段性检查点。完整访谈、来源证明、草稿试聊及局部更新继续，不能把只读资料成功计为G3通过；见[制作边界](docs/client/personal-distillation-authoring.md)。
+
 2026-10-15 配置/状态G2：客户端[#278](https://github.com/zhongmiao-org/flow-ark-client/pull/278)采用已发布0.23.0，最新CI自动合并。通用节点/变量、固定上下文、私有双修订表单、同事务回执、SDK修订与独立写动作已实现；真实Runtime/Worker并发、隔离、取消、超时和SIGKILL恢复取得证据，原生Dark编辑/新增/运行/回执刷新与重开已核对。安装记录及尚未覆盖界面见[分层证据](docs/client/template-data.md)。真实蒸馏与BOSS继续G3–G5，不改变186/U01–U12目标。
 
 2026-10-15 配置/状态G1：根据可视化多入口编排缺口，补[0.23.0契约及九个Figma状态](docs/client/template-data.md)，定义context节点、固定配置、最新状态/修订、私有调试表单与同事务写入回执。184个正反格式资料及27项规范数据一致性核对符合预期；G1交付时客户端采用0.22.0，新节点/调试上下文随后由G2实现。真实CAS、权限、SDK联动及蒸馏/BOSS另验，原186计数保持。
