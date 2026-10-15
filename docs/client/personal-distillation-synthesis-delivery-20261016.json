@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-16",
+  "scope": "G3 client-authored confirmed interview synthesis; in progress",
+  "template": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-templates/pull/5",
+    "source": "3db23b2a172676db24b385d224284a296d2b52ca",
+    "merge": "6ddb735cf6a9b2e799e50347e2dacd15b4bda584",
+    "ci": "https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/38783342801",
+    "result": "latest Validate / Auto Merge success; actual merged",
+    "contractsVersion": "0.24.0",
+    "sdkVersion": "1.0"
+  },
+  "authoring": {
+    "installedClientMerge": "3968b62ff88e27a46df34e2360b6127d19340a56",
+    "newClientCodeOrInteraction": false,
+    "existingDesignRecord": "personal-distillation-design-audit-20261015.json",
+    "method": "native client visual action library, fields, reference pickers, script editor, Schema editor, explicit adoption and public prompt mapping",
+    "packageVersion": "0.3.0",
+    "authorRevision": 13,
+    "stepCount": 7,
+    "confirmationCondition": "steps.n_98ecf4fa.status equals confirmed",
+    "then": ["source mapping script", "structured AI", "pending Skill proposal"],
+    "else": [],
+    "sourceMapping": "existing parsed unit indices and real host conversation evidence; no AI / generated hashes / generated times",
+    "aiOutput": ["title", "markdown", "profile"],
+    "profileFields": ["facts", "preferences", "expression", "boundaries", "unknown", "conflicts"],
+    "skillReferences": {
+      "title": "steps.n_ce29c164.output.title",
+      "markdown": "steps.n_ce29c164.output.markdown",
+      "data": "steps.n_ce29c164.output.profile",
+      "evidence": "steps.n_d1d422e5.evidence",
+      "base": null
+    },
+    "publicPromptBindings": [
+      "interview/n_98ecf4fa/instructions -> personal-interview",
+      "interview/n_ce29c164/instructions -> personal-synthesis"
+    ],
+    "exportedFlowJsonEditedOutsideClient": false
+  },
+  "export": {
+    "archive": "templates/personal-distillation/authoring/synthesis-checkpoint/personal-distillation-synthesis-checkpoint.flowark-template.zip",
+    "bytes": 13858,
+    "files": 17,
+    "sha256": "7c3dff7ddf7d5aedae166b41a8e29aeba3a04572a1ed9e3e25a74b96a5c4a2eb",
+    "contentDigest": "41d33f99ea73966ecb9124e704984186e34aa5c6395481cd8cba355097461909",
+    "receipt": "written",
+    "extractedFilesByteEqual": true,
+    "publicScriptRecompileByteEqual": true,
+    "aiSchemaSourceEqual": true,
+    "publicInstructionsSourceEqual": true,
+    "localAbsolutePathsFound": false,
+    "previousCheckpointsRetained": true
+  },
+  "native": {
+    "scriptSyntaxCheck": "passed; no execution claimed",
+    "independentConsumerImport": "format / digest passed, installed new version alongside existing versions, created independent instance",
+    "initiallyUnbound": ["materials", "ai", "workspace"],
+    "authorAndConsumerRunsConversationsEventsUnchanged": true,
+    "oldConsumerDocumentsUnchanged": true,
+    "originalWorkspaceRestored": true,
+    "originalDocumentsEventsProtectedCredentialsUnchanged": true,
+    "modelInvoked": false,
+    "skillConfirmed": false,
+    "externalActions": false
+  },
+  "checks": {
+    "pnpmValidate": "passed",
+    "pnpmBuild": "passed",
+    "gitDiffCheck": "passed",
+    "unitTestsAddedOrRun": false
+  },
+  "remaining": [
+    "real own-Key execution of unconfirmed and confirmed branches for both providers",
+    "actual generated Skill editing, trial, explicit confirmation, reopen and reuse",
+    "fixed-parent partial update preserving unrelated manual content and all old evidence",
+    "full native workflow reimport and independent use",
+    "BOSS site calibration and authorized real business verification",
+    "186 boards, U01-U12 and Agent complete flow generation"
+  ],
+  "longTermGoal": "active"
+}
