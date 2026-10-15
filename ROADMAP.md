@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-16 网页只读核对G1：实际BOSS制作核对发现驱动/SDK已有url/count/attribute，但可视化节点及定位引用缺失；先补browser v4/0.25.0、纯数据规范及Light/Dark两个Figma状态。当前客户端仍采用0.24.0，新节点尚未实现；后续接入执行/输出预算、唯一性、可视化导出复导并分别核对真实浏览器。见[本批边界](docs/client/browser-inspection.md)，完整G3–G5、BOSS及186/U01–U12不缩减。
+
 2026-10-16 G3局部更新：治理#761/Figma先行，客户端实际搭建固定父版本八步入口、五项输入及两份公共规程；0.4.0原始导出经来源/Schema对照和独立原生复导，新实例四类资源初始解绑、缺资源禁运行、旧记录和原工作区保持。详见[本批记录](docs/client/personal-distillation-update.md)。真实自有Key访谈/实际更新、冲突与确认、完整G3/BOSS及原186/U01–U12继续，未计业务通过。
 
 2026-10-16 G3确认后生成：客户端实际制作confirmed分支、来源映射、结构化AI与Skill待确认草稿，0.3.0原始导出经来源对照及独立原生安装核对，三类资源初始解绑。详见[制作记录](docs/client/personal-distillation-authoring.md#2026-10-16-确认后生成待确认草稿)。真实Key分支运行、编辑/试聊/确认、固定父版本局部更新及完整G3/BOSS继续，未计业务通过。
