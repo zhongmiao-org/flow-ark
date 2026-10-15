@@ -70,3 +70,21 @@
 独立模板仓库[PR #4](https://github.com/zhongmiao-org/flow-ark-templates/pull/4)接收原始检查点及公开使用说明，固定采用已发布`contracts-v0.24.0`/`c24f437f0fbde9d7c4cc5aca709a8a5cdb6e98ad`的51个机器文件，SDK保持1.0；原0.1.0检查点保留。`pnpm validate`、`pnpm build`、固定文件SHA256/JSON解析和`git diff --check`通过；未新增或运行单元测试。仓库无Prettier，格式命令尝试返回不可用，未额外安装依赖。最新[CI 38780856624](https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/38780856624)的Validate/Auto Merge均成功，实际合并`a458140d0834d95ae1ec9cbcd14cd9f8201c856d`；较早检查已取消，不计通过。完整分层信息见[交付记录](personal-distillation-interview-delivery-20261016.json)。
 
 下一步继续通过客户端搭建“会话已确认 → 生成结构化草稿 → 用真实资料/会话来源创建Skill待办”，再补局部更新、用户编辑/试聊/确认及完整复导。跨入口引用会话与作者副本的作用域需要实际核对，不能用手工来源或伪造确认替代。本批不标记G3/S01–S08、真实Key或BOSS通过。
+
+## 2026-10-16 确认后生成待确认草稿
+
+接续0.2.0，继续使用客户端#281及先行七个个人蒸馏Figma状态，本批没有新增客户端交互或公共契约。在原访谈编排副本中添加条件`n_ba696eac`，通过变量选择器引用真实会话`steps.n_98ecf4fa.status`，严格等于`confirmed`才进入成立分支；否则分支为空，本批结束，等待用户仍通过已有会话待办继续。沿用同一会话节点、键和上下文，新增后续步骤不改变原会话指纹。
+
+成立分支通过动作库逐项添加来源映射`n_d1d422e5`、结构化AI`n_ce29c164`和Skill草稿`n_c820f3d6`，总计七个步骤。来源映射为独立17行无依赖脚本，仅将本次解析的全部单元索引整理为文档来源，并带入宿主提供的真实已确认会话来源；核对ready/confirmed及来源形状，不调用AI、不生成来源摘要或时间。脚本正文在客户端完整编辑器录入，原生语法检查通过；资料、访谈、判断、AI与Skill保持各自可视化步骤，没有将业务流程合为一个脚本。
+
+AI输入明确引用本次完整资料和已确认访谈，输出格式通过现有高级Schema编辑器配置：title、markdown、profile必需，profile内分facts/preferences/expression/boundaries/unknown/conflicts；事实状态为reported/unknown/conflict，不将生成结果标为本人已确认。Skill步骤通过变量选择器引用AI的标题、正文和profile，来源引用映射步骤的evidence数组，初次草稿父版本为null。它仅创建待本人编辑、内部试聊和确认的草稿，不自动保存确认版本或授予外发权限。
+
+保存并明确核对带回后，入口改名“引导访谈与生成待确认草稿”，草稿版本0.3.0，公开整理规程personal-synthesis绑定`interview/n_ce29c164/instructions`；原访谈规程映射保持。制作修订13经系统保存导出，回执written。归档13858字节、17个文件，SHA256 `7c3dff7ddf7d5aedae166b41a8e29aeba3a04572a1ed9e3e25a74b96a5c4a2eb`，包摘要 `41d33f99ea73966ecb9124e704984186e34aa5c6395481cd8cba355097461909`。原始归档与逐字节提取文件保留，未手改导出流程JSON。直接读回包核对了确认条件、成立/否则分支、全部引用、两个规程映射、Schema及无本机绝对路径。
+
+模板仓库新增公开可审阅的source-evidence.ts和profile-output.schema.json。现有检查点校验按可选映射重新编译脚本，与客户端导出文件逐字节对照；递归查找指定入口/分支中的AI节点并对照Schema规范值，均通过。此校验只核对制作来源与归档一致，不生成ZIP，不代替Runtime、真实模型或Skill确认。
+
+在原独立消费者工作区导入同一0.3.0ZIP，格式/摘要核对通过，成功并存安装并创建新实例；materials、ai、workspace三类资源均初始未绑定，入口显示待配置。没有复用旧实例的目录、服务或工作区，也未运行新入口。逐条只读对照确认旧消费者文档、Run/会话与事件保持；制作工作区也没有新增Run/会话或事件。结束后恢复原安装工作区，原加密文档、事件和受保护凭据摘要保持。
+
+模板[PR #5](https://github.com/zhongmiao-org/flow-ark-templates/pull/5)交付本批原始检查点、公开源及使用说明，契约仍固定0.24.0、SDK1.0。`pnpm validate`、`pnpm build`和`git diff --check`通过，未新增/运行单元测试。最新[CI 38783342801](https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/38783342801)的Validate/Auto Merge均成功，实际合并`6ddb735cf6a9b2e799e50347e2dacd15b4bda584`，较早取消检查不计通过；见[分层交付记录](personal-distillation-synthesis-delivery-20261016.json)。真实自有Key运行、未确认分支实际结束/已确认分支实际生成、生成草稿编辑/试聊/确认仍未取得本批证据，不能以静态路径和导入成功标为通过。
+
+下一步继续独立固定父版本的局部更新：明确更新要求、保留无关手工内容、差异/冲突核对和新确认版本；完整原生多轮、两家自有Key、全流程复导及BOSS继续，G3/S01–S08保持未完整验收。跨入口访谈读取不以代码推断为已通过，本批采用同一入口的后续确认分支。
