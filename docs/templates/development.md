@@ -30,4 +30,6 @@ templates/ 管理业务模板及可独立打包的 demo，examples/scenarios/ �
 
 使用与贡献说明保留在模板仓库 README/CONTRIBUTING，设计及验收在本目录。规范提交使用 type(scope): description，分支 type/lowercase-hyphen-name，禁止工具名前缀。PR 添加 automerge，由最新提交 CI 检查及自动合并交付。
 
-当前命令：`pnpm check` 独立校验、测试并打包；`pnpm forms:serve` 启动完整模拟表单；`FLOWARK_TEST_EXECUTABLE=/absolute/path/FlowArk.app/Contents/MacOS/FlowArk pnpm test:client` 通过安装版公共 IPC 验证标准包。产物输出 dist，测试资料必须虚构。DeepSeek 联调的凭据引用和模型显式指定，说明见模板仓库 README。
+当前UI/UE阶段使用`pnpm validate`、`pnpm build`和`git diff --check`，不运行含单元测试的`pnpm check`；保留既有测试供后续统一验收。`pnpm forms:serve` 启动模拟表单，`FLOWARK_TEST_EXECUTABLE=/absolute/path/FlowArk.app/Contents/MacOS/FlowArk pnpm test:client`是既有安装版联调入口，本批未运行。产物输出 dist，测试资料必须虚构。DeepSeek 联调的凭据引用和模型显式指定，说明见模板仓库 README。
+
+2026-10-16 个人蒸馏0.4.0固定父版本局部更新检查点由客户端实际编排、核对带回与导出，独立原生工作区已并存安装并核对资源解绑及缺资源阻断。原0.1/0.2/0.3检查点保留，ZIP及逐字节提取目录不手改；公开来源校验核对三个映射脚本编译字节和两个AI Schema。业务边界及最新交付见[本批记录](../client/personal-distillation-update.md)，仍为制作中，真实自有Key和完整G3/BOSS未通过。
