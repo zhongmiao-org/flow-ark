@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-15",
+  "scope": "通用配置与状态G2",
+  "governance": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark/pull/751",
+    "commit": "d210d9170196ef6e65f1274bee262060b40139d6",
+    "tag": "contracts-v0.23.0"
+  },
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/278",
+    "source": "e6fdb1df1d2af5ba0f6246afa29bc64b0d9dc29c",
+    "merge": "d9a38c48ad697cd15b2cc6a42db6958be2f14ccc",
+    "ci": "https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38757660998",
+    "ciResult": "Validate / Auto Merge success; actual merged"
+  },
+  "artifacts": {
+    "appAsarSha256": "4613e57904ca6d224f000bfd7f0e034f3714dc88fea3e728317bdc51467b03ae",
+    "dmgSha256": "5f5472de62ad3e704a8f309b0b23361fc763eadc16faa55ddadcbae83bda3b93",
+    "published": false
+  },
+  "installation": {
+    "originalWorkspaceLaunched": true,
+    "newActionObserved": true,
+    "existingEncryptedDocumentsUnchanged": true,
+    "existingEventsUnchanged": true,
+    "protectedKeyUnchanged": true
+  },
+  "validation": {
+    "unitTestsAddedOrRun": false,
+    "typecheck": "passed",
+    "buildAndMacPackage": "passed",
+    "sourceFormatting": "passed",
+    "contractFiles": 42,
+    "contractChecksums": "passed",
+    "runtimeWorker": "manual actual local Runtime/Worker; no external model or recruiting service",
+    "crashRecovery": "actual child SIGKILL before transaction / after commit, inspect original operation without replay",
+    "native": "isolated macOS Dark private forms, leave guard, variable selection, add/configure node, preflight, run, receipt refresh and reopen"
+  },
+  "remaining": [
+    "Native complex Schema and multi-window conflict matrix",
+    "Complete Light and compact layouts",
+    "Native cancellation and unknown-result matrix",
+    "Independent-workspace full visual export/reimport for complete personal workflow",
+    "Real user API Key and nuwa adaptation",
+    "Personal distillation and BOSS business acceptance",
+    "186 boards / U01-U12 / complete Agent generation goal"
+  ]
+}
