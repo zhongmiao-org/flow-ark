@@ -1,0 +1,384 @@
+{
+  "date": "2026-10-15",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "sectionId": "487:7024",
+  "section": {
+    "width": 4480,
+    "height": 22720
+  },
+  "boards": [
+    {
+      "id": "514:7031",
+      "name": "个人 Skill v1 / 配置待确认草稿",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 17960,
+      "counts": {
+        "FRAME": 40,
+        "ELLIPSE": 3,
+        "TEXT": 38,
+        "VECTOR": 21,
+        "INSTANCE": 9
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7095",
+          "width": 1152,
+          "height": 508,
+          "overflow": []
+        },
+        {
+          "id": "514:7114",
+          "width": 516,
+          "height": 22,
+          "overflow": []
+        },
+        {
+          "id": "514:7118",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "514:7130",
+      "name": "个人 Skill v1 / 编辑待确认草稿",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 17960,
+      "counts": {
+        "FRAME": 36,
+        "ELLIPSE": 3,
+        "TEXT": 32,
+        "VECTOR": 21,
+        "INSTANCE": 7
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7194",
+          "width": 1152,
+          "height": 484,
+          "overflow": []
+        },
+        {
+          "id": "514:7209",
+          "width": 516,
+          "height": 22,
+          "overflow": []
+        },
+        {
+          "id": "514:7213",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "514:7229",
+      "name": "个人 Skill v1 / 核对版本差异",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 17960,
+      "counts": {
+        "FRAME": 34,
+        "ELLIPSE": 3,
+        "TEXT": 29,
+        "VECTOR": 21,
+        "INSTANCE": 4
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7293",
+          "width": 1152,
+          "height": 378,
+          "overflow": []
+        },
+        {
+          "id": "514:7296",
+          "width": 516,
+          "height": 112,
+          "overflow": []
+        },
+        {
+          "id": "514:7307",
+          "width": 516,
+          "height": 52,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "514:7320",
+      "name": "个人 Skill v1 / 确认保存到工作区",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 19120,
+      "counts": {
+        "FRAME": 33,
+        "ELLIPSE": 3,
+        "TEXT": 29,
+        "VECTOR": 21,
+        "INSTANCE": 4
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7384",
+          "width": 1152,
+          "height": 232,
+          "overflow": []
+        },
+        {
+          "id": "514:7387",
+          "width": 516,
+          "height": 112,
+          "overflow": []
+        },
+        {
+          "id": "514:7394",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "514:7410",
+      "name": "个人 Skill v1 / 已确认版本",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 19120,
+      "counts": {
+        "FRAME": 36,
+        "ELLIPSE": 3,
+        "TEXT": 32,
+        "VECTOR": 21,
+        "INSTANCE": 7
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7474",
+          "width": 1152,
+          "height": 284,
+          "overflow": []
+        },
+        {
+          "id": "514:7489",
+          "width": 516,
+          "height": 22,
+          "overflow": []
+        },
+        {
+          "id": "514:7493",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "514:7509",
+      "name": "个人 Skill v1 / 固定读取确认版本",
+      "width": 1440,
+      "height": 1080,
+      "x": 3040,
+      "y": 19120,
+      "counts": {
+        "FRAME": 36,
+        "ELLIPSE": 3,
+        "TEXT": 31,
+        "VECTOR": 21,
+        "INSTANCE": 6
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7573",
+          "width": 1152,
+          "height": 284,
+          "overflow": []
+        },
+        {
+          "id": "514:7588",
+          "width": 516,
+          "height": 22,
+          "overflow": []
+        },
+        {
+          "id": "514:7592",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "514:7606",
+      "name": "个人 Skill v1 / 先处理版本变化",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 20280,
+      "counts": {
+        "FRAME": 33,
+        "ELLIPSE": 3,
+        "TEXT": 27,
+        "VECTOR": 21,
+        "INSTANCE": 3
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7670",
+          "width": 1152,
+          "height": 232,
+          "overflow": []
+        },
+        {
+          "id": "514:7673",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        },
+        {
+          "id": "514:7679",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "514:7693",
+      "name": "个人 Skill v1 / 保存结果待核对",
+      "width": 1440,
+      "height": 1080,
+      "x": 1520,
+      "y": 20280,
+      "counts": {
+        "FRAME": 33,
+        "ELLIPSE": 3,
+        "TEXT": 27,
+        "VECTOR": 21,
+        "INSTANCE": 3
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7757",
+          "width": 1152,
+          "height": 232,
+          "overflow": []
+        },
+        {
+          "id": "514:7760",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        },
+        {
+          "id": "514:7766",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "514:7780",
+      "name": "个人 Skill v1 / 草稿尚未保存",
+      "width": 1040,
+      "height": 700,
+      "x": 3040,
+      "y": 20280,
+      "counts": {
+        "FRAME": 35,
+        "ELLIPSE": 3,
+        "TEXT": 27,
+        "VECTOR": 21,
+        "INSTANCE": 5
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "514:7844",
+          "width": 832,
+          "height": 172,
+          "overflow": []
+        },
+        {
+          "id": "514:7851",
+          "width": 784,
+          "height": 22,
+          "overflow": []
+        },
+        {
+          "id": "514:7853",
+          "width": 832,
+          "height": 202,
+          "overflow": []
+        },
+        {
+          "id": "514:7856",
+          "width": 784,
+          "height": 52,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "id": "519:5396",
+      "name": "个人 Skill v1 / 运行保存的完整版本",
+      "width": 1440,
+      "height": 1080,
+      "x": 0,
+      "y": 21560,
+      "counts": {
+        "FRAME": 36,
+        "ELLIPSE": 3,
+        "TEXT": 32,
+        "VECTOR": 21,
+        "INSTANCE": 7
+      },
+      "images": 0,
+      "contentBounds": [
+        {
+          "id": "519:5460",
+          "width": 1152,
+          "height": 284,
+          "overflow": []
+        },
+        {
+          "id": "519:5472",
+          "width": 516,
+          "height": 22,
+          "overflow": []
+        },
+        {
+          "id": "519:5476",
+          "width": 516,
+          "height": 82,
+          "overflow": []
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "FRAME": 352,
+    "ELLIPSE": 30,
+    "TEXT": 304,
+    "VECTOR": 210,
+    "INSTANCE": 55
+  }
+}
