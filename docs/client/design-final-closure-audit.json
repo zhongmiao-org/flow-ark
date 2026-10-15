@@ -464,6 +464,11 @@
         "status": "partial",
         "note": "10月15日真实Excel成功/重名失败/改名恢复三个Run独立快照与终态已核对，复杂副作用及整板仍待验收",
         "record": "io-async-acceptance-20261015.md"
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "原生真实Excel权限失败/目录失效与各自恢复新Run分别持久化，最终正常退出重开11条记录保持；提交瞬间取消副作用未知和整板仍待验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -1131,6 +1136,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "原生权限/目录恢复后重新预检，影响确认和调试重新初始化，新Run独立成功；所有预检分支及整板仍待验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -1167,6 +1177,11 @@
         "status": "partial",
         "note": "10月15日真实两份Excel产物、Run归属和副本字节与输出一致已核对，整板仍待验收",
         "record": "io-async-acceptance-20261015.md"
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "真实文件适配器提交前取消门槛已修复；原生文件失败和恢复运行独立，提交边界竞态仍未完整验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -1300,6 +1315,11 @@
         "status": "partial",
         "note": "10月15日真实AISettings/Store配合虚构提供方人工核对取消、修订变化和迟到旧回执；未计真实供应商或整板通过",
         "record": "io-async-acceptance-20261015.md"
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "生产宿主真实DeepSeek为401，旧鉴权响应受控迟到保持取消，新请求独立失败；用户选择记录401，成功模型响应及原生整板未验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -2537,6 +2557,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "真实DeepSeek鉴权失败和受控迟到在生产宿主核对，未计为原生AI页或成功生成通过，整板仍待验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -3896,6 +3921,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "原生真实DeepWiki发现后取消候选并明确放弃，目录仍0保存连接；未授予权限，OAuth/工具运行及整板仍待验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -4020,6 +4050,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "原生真实DeepWiki检查取消后更换官方直连地址，来源确认清除、重新确认发现三项真实工具；受控旧回执未覆盖新候选，整板仍待验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -4249,6 +4284,11 @@
         "status": "partial",
         "note": "10月15日原生五列工作簿实际写入和独立读回、同名停止原文件不变、改名新Run恢复已核对；复杂类型/文件故障和整板仍待验收",
         "record": "io-async-acceptance-20261015.md"
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "原生第4条布尔冲突定位/阻止保存，修正后A/C/E/G/H五映射保存重开；真实工作簿保留0/false/空串/null/Unicode及公式样文本，权限/目录故障恢复独立读回；更多复杂文件及整板仍待验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -4801,6 +4841,11 @@
         "darkScreenshotReviewed": true,
         "allPrototypeBranchesClicked": false,
         "clientAcceptanceThisRound": false
+      },
+      "clientComplexExcelLive20261015": {
+        "status": "partial",
+        "note": "原生真实DeepWiki受控迟到取消、独立再次发现及新保存确认初始化已核对；没有保存连接或调用工具，全部服务/自然竞态及整板仍待验收",
+        "record": "complex-excel-live-acceptance-20261015.md"
       }
     },
     {
@@ -6731,5 +6776,23 @@
       "realVendorLateResults": false,
       "unitTestsRun": false
     }
+  },
+  "clientComplexExcelLive20261015": {
+    "status": "partial",
+    "record": "complex-excel-live-acceptance-20261015.md",
+    "clientPullRequests": [
+      261,
+      262
+    ],
+    "evidence": {
+      "realWorkbookMixedTypesReadBack": true,
+      "nativePermissionAndDirectoryRecovery": true,
+      "nativeMcpRealServiceControlledLateResponse": true,
+      "realAiHttpStatus": 401,
+      "realAiSuccessVerified": false,
+      "commitBoundaryRaceFullyVerified": false,
+      "all186ClientAccepted": false
+    },
+    "note": "只增加本批局部证据，不改变原186节点与历史证据标志；用户要求记录401继续其他场景。"
   }
 }
