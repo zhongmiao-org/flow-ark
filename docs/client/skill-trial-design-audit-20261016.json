@@ -1,0 +1,79 @@
+{
+  "boards": [
+    {
+      "id": "541:5645",
+      "name": "会话与试聊 / 已确认来源",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "541:5743",
+      "name": "会话与试聊 / 来源不匹配",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "541:5841",
+      "name": "会话与试聊 / 准备草稿试聊",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "541:5955",
+      "name": "会话与试聊 / 内部对话",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "541:6053",
+      "name": "会话与试聊 / 草稿已修改",
+      "width": 1440,
+      "height": 1080
+    },
+    {
+      "id": "541:6151",
+      "name": "会话与试聊 / Key 不可用",
+      "width": 1040,
+      "height": 700
+    }
+  ],
+  "counts": {
+    "FRAME": 215,
+    "ELLIPSE": 18,
+    "TEXT": 191,
+    "VECTOR": 127,
+    "INSTANCE": 40,
+    "RECTANGLE": 1
+  },
+  "business": 22,
+  "variant": 12,
+  "invalid": 0,
+  "fontPass": true,
+  "imageNodes": [],
+  "bounds": [
+    {
+      "id": "541:5645",
+      "overflow": []
+    },
+    {
+      "id": "541:5743",
+      "overflow": []
+    },
+    {
+      "id": "541:5841",
+      "overflow": []
+    },
+    {
+      "id": "541:5955",
+      "overflow": []
+    },
+    {
+      "id": "541:6053",
+      "overflow": []
+    },
+    {
+      "id": "541:6151",
+      "overflow": []
+    }
+  ]
+}
