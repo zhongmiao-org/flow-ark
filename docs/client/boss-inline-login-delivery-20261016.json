@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-16",
+  "scope": "G4 visible-text login-gate preflight increment; complete recruiting workflow remains in progress",
+  "status": "in-progress",
+  "baseline": {
+    "clientMerge": "efbd56c408aaa36a96acb006f8dfdcbdbf0d2349",
+    "clientPr": 283,
+    "installedAsar": "d66e1c8f6a1b08efde2c760196593968f04e51565290df5e13c8799f39b740d3",
+    "contractsTag": "contracts-v0.25.0",
+    "sdkVersion": "1.0",
+    "clientChangesThisBatch": false
+  },
+  "design": {
+    "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+    "node": "490:5450",
+    "mutatedTextNodes": ["490:5530", "490:5537"],
+    "editableExistingLayers": true,
+    "finalScreenshotViewed": true,
+    "governancePr": 768,
+    "mergeCommit": "401a4fd8f60a50c8819371063dae84739daa3824",
+    "latestCi": "38802391742",
+    "validate": "success",
+    "autoMerge": "success"
+  },
+  "siteCalibration": {
+    "mode": "explicit embedded",
+    "browserVersion": "152.0.7977.78",
+    "entry": "actual visible job card from user-supplied city page",
+    "actualJobPageObserved": true,
+    "descriptionRequiresLoginForCompleteContent": true,
+    "salaryReadableTextObtained": false,
+    "fullJdObtained": false,
+    "loggedInAccountOrConversationVerified": false,
+    "sampleJobOrQueryCommitted": false
+  },
+  "template": {
+    "id": "boss-job-search",
+    "version": "0.1.2",
+    "authorRevision": 4,
+    "authoredFromExactVersion": "0.1.1",
+    "uiForkAndMetadataEdit": true,
+    "entrySteps": {"open": 2, "preflight": 9},
+    "newNode": {"id": "n_763f1a13", "type": "browser", "version": 2, "operation": "read", "selector": "body"},
+    "newNodeInputReference": "steps.n_763f1a13",
+    "classificationSource": "classify-page-v2.ts",
+    "gateStatus": "login-required / login-gated / job-description-login-gate",
+    "absentMarkerStatus": "account-unverified / unverified",
+    "accountVerified": false,
+    "eligibleForActions": false,
+    "pageTextBudgetCharacters": 65536,
+    "wholeBodyIncludedInAttention": false,
+    "pageTextReadSavedByExistingHost": true,
+    "queryAndFragmentIncludedInAttention": false,
+    "sameSingleBrowserResourceForBothEntries": true,
+    "actions": [],
+    "modelCalls": false,
+    "rawArchiveFiles": 14,
+    "archiveSha256": "471c26b972545f05575884a96fc315ea2ef980163b12dbd77c7e66a094692b97",
+    "contentDigest": "8145f6b833640a0552a9719c52de8d0908b15a484e1b363fa28cf4b86614bd0d",
+    "openFlowByteIdenticalToPriorCheckpoint": true,
+    "priorArchiveAndSourceMappingsRetained": true
+  },
+  "authorRun": {
+    "id": "5dc0e446-09a9-4f66-a955-496cd87022ec",
+    "state": "SUCCEEDED",
+    "actualPage": "public job detail with explicit login-gated description",
+    "thenNotification": "completed",
+    "elseNotification": "not executed",
+    "nativeAttentionFieldsVerified": true
+  },
+  "independentReimport": {
+    "sameOriginalZip": true,
+    "coexistsWithPriorVersion": true,
+    "initialBrowserUnbound": true,
+    "bothEntriesInitiallyNotReady": true,
+    "ownBrowserExplicitlyBound": true,
+    "runs": [
+      {"id": "0abbd1a8-7430-4d1a-8e97-78a1f8f9b7fb", "entry": "open", "state": "SUCCEEDED"},
+      {"id": "3c24aca2-93c9-489f-9785-03ba45966ccb", "entry": "preflight", "page": "public city page", "state": "SUCCEEDED", "status": "account-unverified", "jdContentStatus": "unverified"},
+      {"id": "db00a4ab-b3f2-4558-93b8-c9919504c5ba", "entry": "preflight", "page": "actual public job detail", "state": "SUCCEEDED", "status": "login-required", "jdContentStatus": "login-gated"}
+    ],
+    "normalReopen": {"priorRunsRetained": 2, "newRunsRetained": 3, "totalRuns": 5, "allSucceeded": true, "pendingAttention": 3, "noReplay": true}
+  },
+  "checks": {
+    "pnpmValidate": "passed; includes existing build and original ZIP/source byte validation",
+    "gitDiffCheck": "passed",
+    "rawArchivePrivatePathOrActualJobMarkers": [],
+    "unitTestsAddedOrRun": false
+  },
+  "delivery": {
+    "templatePr": "https://github.com/zhongmiao-org/flow-ark-templates/pull/8",
+    "sourceCommit": "2848bbcab928b4ffd9f73b4179f13846eff27fe8",
+    "mergeCommit": "a32e9245d12b7134543abba7dc2976d48d2474d8",
+    "latestCi": "38804316859",
+    "validate": "success",
+    "autoMerge": "success",
+    "actualState": "MERGED",
+    "cancelledCiNotCounted": "38804316124"
+  },
+  "preservation": {"originalDatabaseTablesUnchanged": true, "originalCredentialFileUnchanged": true},
+  "remaining": [
+    "human login and actual job-seeker account verification",
+    "complete JD/salary/contact fields and conversation binding/change detection",
+    "template attention origin Run deep link; current UI reports no direct related Run",
+    "real own-Key distillation, confirmed Skill and recruiting actions/receipts",
+    "full G3-G5, 186/U01-U12 and Agent workflow generation"
+  ]
+}
