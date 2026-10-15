@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-16",
+  "scope": "G1 browser v4 read-only inspection; no client implementation claimed",
+  "contractsVersion": "0.25.0",
+  "machineFiles": 54,
+  "formatValidation": {
+    "schemaCases": 210,
+    "newSchemaCases": 21,
+    "nonSchemaCasesSkipped": 7,
+    "exampleFlow": "valid",
+    "newHelperAndPackageValidatorSyntax": "passed",
+    "runtimeOrBrowserExecution": false
+  },
+  "designAudit": "browser-inspection-design-20261016.json",
+  "clientBaseline": "3968b62ff88e27a46df34e2360b6127d19340a56",
+  "clientContractsVersion": "0.24.0",
+  "templateBaseline": "d07d2e27f2f804513cb52f5d211754f70599adf6",
+  "modelInvoked": false,
+  "externalActions": false,
+  "originalWorkspaceUnmodifiedThisBatch": true,
+  "remaining": [
+    "real contract tag publication",
+    "client pinned adoption and actions/reference/host/output implementation",
+    "native Light/Dark/compact inspection and independent ZIP reimport",
+    "real BOSS login/account/JD/action calibration",
+    "real own-Key personal distillation and BOSS workflows",
+    "complete G3-G5, 186 boards, U01-U12 and Agent flow generation"
+  ],
+  "longTermGoal": "active"
+}
