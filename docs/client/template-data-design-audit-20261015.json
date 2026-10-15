@@ -1,0 +1,620 @@
+{
+  "date": "2026-10-15",
+  "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+  "sectionId": "487:7024",
+  "section": {
+    "width": 4480,
+    "height": 32200
+  },
+  "boards": [
+    {
+      "key": "start",
+      "id": "529:5533",
+      "name": "配置与状态 v1 / 读取本次配置",
+      "width": 1440,
+      "height": 1080,
+      "nav": "flows",
+      "x": 0,
+      "y": 28720,
+      "contentBounds": [
+        {
+          "id": "529:5597",
+          "y": 126,
+          "height": 314,
+          "bottom": 440,
+          "parentHeight": 990,
+          "overflow": false
+        },
+        {
+          "id": "529:5635",
+          "y": 918,
+          "height": 40,
+          "bottom": 958,
+          "parentHeight": 990,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "key": "state",
+      "id": "529:5639",
+      "name": "配置与状态 v1 / 读取最新状态",
+      "width": 1440,
+      "height": 1080,
+      "nav": "flows",
+      "x": 1520,
+      "y": 28720,
+      "contentBounds": [
+        {
+          "id": "529:5703",
+          "y": 126,
+          "height": 314,
+          "bottom": 440,
+          "parentHeight": 990,
+          "overflow": false
+        },
+        {
+          "id": "529:5741",
+          "y": 918,
+          "height": 40,
+          "bottom": 958,
+          "parentHeight": 990,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "key": "write",
+      "id": "529:5745",
+      "name": "配置与状态 v1 / 按修订更新",
+      "width": 1440,
+      "height": 1080,
+      "nav": "flows",
+      "x": 3040,
+      "y": 28720,
+      "contentBounds": [
+        {
+          "id": "529:5811",
+          "y": 196,
+          "height": 370,
+          "bottom": 566,
+          "parentHeight": 990,
+          "overflow": false
+        },
+        {
+          "id": "529:5848",
+          "y": 918,
+          "height": 40,
+          "bottom": 958,
+          "parentHeight": 990,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "key": "debug",
+      "id": "529:5852",
+      "name": "配置与状态 v1 / 调试配置与状态",
+      "width": 1440,
+      "height": 1080,
+      "nav": "templates",
+      "x": 0,
+      "y": 29880,
+      "contentBounds": [
+        {
+          "id": "529:5916",
+          "y": 126,
+          "height": 314,
+          "bottom": 440,
+          "parentHeight": 990,
+          "overflow": false
+        },
+        {
+          "id": "529:5954",
+          "y": 918,
+          "height": 40,
+          "bottom": 958,
+          "parentHeight": 990,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "key": "conflict",
+      "id": "529:5958",
+      "name": "配置与状态 v1 / 修订已变化",
+      "width": 1440,
+      "height": 1080,
+      "nav": "templates",
+      "x": 1520,
+      "y": 29880,
+      "contentBounds": [
+        {
+          "id": "529:6022",
+          "y": 126,
+          "height": 314,
+          "bottom": 440,
+          "parentHeight": 990,
+          "overflow": false
+        },
+        {
+          "id": "529:6060",
+          "y": 918,
+          "height": 40,
+          "bottom": 958,
+          "parentHeight": 990,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "key": "receipt",
+      "id": "529:6064",
+      "name": "配置与状态 v1 / 运行取消但写入已提交",
+      "width": 1440,
+      "height": 1080,
+      "nav": "runs",
+      "x": 3040,
+      "y": 29880,
+      "contentBounds": [
+        {
+          "id": "529:6128",
+          "y": 126,
+          "height": 370,
+          "bottom": 496,
+          "parentHeight": 990,
+          "overflow": false
+        },
+        {
+          "id": "529:6163",
+          "y": 918,
+          "height": 40,
+          "bottom": 958,
+          "parentHeight": 990,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "key": "unknown",
+      "id": "529:6167",
+      "name": "配置与状态 v1 / 写入结果待核对",
+      "width": 1440,
+      "height": 1080,
+      "nav": "runs",
+      "x": 0,
+      "y": 31040,
+      "contentBounds": [
+        {
+          "id": "529:6231",
+          "y": 126,
+          "height": 314,
+          "bottom": 440,
+          "parentHeight": 990,
+          "overflow": false
+        },
+        {
+          "id": "529:6262",
+          "y": 918,
+          "height": 40,
+          "bottom": 958,
+          "parentHeight": 990,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "key": "preflight",
+      "id": "529:6266",
+      "name": "配置与状态 v1 / 运行前检查",
+      "width": 1440,
+      "height": 1080,
+      "nav": "flows",
+      "x": 1520,
+      "y": 31040,
+      "contentBounds": [
+        {
+          "id": "529:6330",
+          "y": 126,
+          "height": 370,
+          "bottom": 496,
+          "parentHeight": 990,
+          "overflow": false
+        },
+        {
+          "id": "529:6365",
+          "y": 918,
+          "height": 40,
+          "bottom": 958,
+          "parentHeight": 990,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "key": "compact",
+      "id": "529:6369",
+      "name": "配置与状态 / 未保存",
+      "width": 1040,
+      "height": 700,
+      "nav": "templates",
+      "x": 3040,
+      "y": 31040,
+      "contentBounds": [
+        {
+          "id": "529:6433",
+          "y": 118,
+          "height": 258,
+          "bottom": 376,
+          "parentHeight": 610,
+          "overflow": false
+        },
+        {
+          "id": "529:6449",
+          "y": 546,
+          "height": 40,
+          "bottom": 586,
+          "parentHeight": 610,
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "FRAME": 332,
+    "ELLIPSE": 27,
+    "TEXT": 300,
+    "VECTOR": 189,
+    "INSTANCE": 72
+  },
+  "imageNodes": [],
+  "fontPass": true,
+  "navigation": [
+    {
+      "source": "529:5602",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5606",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5612",
+      "destination": "529:5852",
+      "valid": true
+    },
+    {
+      "source": "529:5614",
+      "destination": "529:5639",
+      "valid": true
+    },
+    {
+      "source": "529:5620",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5624",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5630",
+      "destination": "529:5745",
+      "valid": true
+    },
+    {
+      "source": "529:5632",
+      "destination": "529:6266",
+      "valid": true
+    },
+    {
+      "source": "529:5708",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5712",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5718",
+      "destination": "529:5852",
+      "valid": true
+    },
+    {
+      "source": "529:5720",
+      "destination": "529:5745",
+      "valid": true
+    },
+    {
+      "source": "529:5726",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5730",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5736",
+      "destination": "529:6064",
+      "valid": true
+    },
+    {
+      "source": "529:5738",
+      "destination": "529:5533",
+      "valid": true
+    },
+    {
+      "source": "529:5742",
+      "destination": "529:5533",
+      "valid": true
+    },
+    {
+      "source": "529:5816",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5820",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5824",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5830",
+      "destination": "529:5639",
+      "valid": true
+    },
+    {
+      "source": "529:5832",
+      "destination": "529:6266",
+      "valid": true
+    },
+    {
+      "source": "529:5841",
+      "destination": "529:5958",
+      "valid": true
+    },
+    {
+      "source": "529:5843",
+      "destination": "529:6064",
+      "valid": true
+    },
+    {
+      "source": "529:5845",
+      "destination": "529:6167",
+      "valid": true
+    },
+    {
+      "source": "529:5849",
+      "destination": "529:5533",
+      "valid": true
+    },
+    {
+      "source": "529:5921",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5925",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5931",
+      "destination": "529:6266",
+      "valid": true
+    },
+    {
+      "source": "529:5933",
+      "destination": "529:6369",
+      "valid": true
+    },
+    {
+      "source": "529:5939",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5943",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:5949",
+      "destination": "529:5958",
+      "valid": true
+    },
+    {
+      "source": "529:5951",
+      "destination": "529:5745",
+      "valid": true
+    },
+    {
+      "source": "529:5955",
+      "destination": "529:5533",
+      "valid": true
+    },
+    {
+      "source": "529:6027",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6031",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6037",
+      "destination": "529:5852",
+      "valid": true
+    },
+    {
+      "source": "529:6045",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6049",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6055",
+      "destination": "529:5852",
+      "valid": true
+    },
+    {
+      "source": "529:6057",
+      "destination": "529:6064",
+      "valid": true
+    },
+    {
+      "source": "529:6061",
+      "destination": "529:5533",
+      "valid": true
+    },
+    {
+      "source": "529:6133",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6137",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6141",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6149",
+      "destination": "529:5745",
+      "valid": true
+    },
+    {
+      "source": "529:6158",
+      "destination": "529:5639",
+      "valid": true
+    },
+    {
+      "source": "529:6160",
+      "destination": "529:6167",
+      "valid": true
+    },
+    {
+      "source": "529:6164",
+      "destination": "529:5533",
+      "valid": true
+    },
+    {
+      "source": "529:6236",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6240",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6246",
+      "destination": "529:6064",
+      "valid": true
+    },
+    {
+      "source": "529:6257",
+      "destination": "529:5852",
+      "valid": true
+    },
+    {
+      "source": "529:6259",
+      "destination": "529:6064",
+      "valid": true
+    },
+    {
+      "source": "529:6263",
+      "destination": "529:5533",
+      "valid": true
+    },
+    {
+      "source": "529:6335",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6339",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6343",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6349",
+      "destination": "529:5852",
+      "valid": true
+    },
+    {
+      "source": "529:6351",
+      "destination": "529:6064",
+      "valid": true
+    },
+    {
+      "source": "529:6360",
+      "destination": "529:5745",
+      "valid": true
+    },
+    {
+      "source": "529:6362",
+      "destination": "529:6167",
+      "valid": true
+    },
+    {
+      "source": "529:6366",
+      "destination": "529:5533",
+      "valid": true
+    },
+    {
+      "source": "529:6438",
+      "destination": "139:4",
+      "valid": true
+    },
+    {
+      "source": "529:6444",
+      "destination": "529:5852",
+      "valid": true
+    },
+    {
+      "source": "529:6446",
+      "destination": "529:5958",
+      "valid": true
+    },
+    {
+      "source": "529:6450",
+      "destination": "529:5533",
+      "valid": true
+    }
+  ],
+  "screenshotsReviewed": [
+    "529:5745",
+    "529:5852",
+    "529:6369"
+  ],
+  "originalBoardAcceptanceUnchanged": true
+}
