@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-16",
+  "scope": "generic browser v4 G2; fictional data; native UI authoring and independent reimport",
+  "governance": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark/pull/763",
+    "tag": "contracts-v0.25.0",
+    "commit": "095c19c383ca7c86310407da6325a0dd974342f5",
+    "machineFilesVerified": 54
+  },
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/282",
+    "sourceCommit": "cf8c1006f287b3aaed83a28d0c313be7003dd14d",
+    "mergeCommit": "0d9ff09031752d55970f0f47c2b84d48e28d70ad",
+    "latestCi": "https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38794449468",
+    "validate": "success",
+    "autoMerge": "success",
+    "actualState": "MERGED",
+    "cancelledCiNotCounted": "38794449216"
+  },
+  "native": {
+    "browserMode": "explicit embedded",
+    "observedBrowserVersion": "152.0.7977.78",
+    "authoring": "blank flow built using action library, fields and variable picker; no whole-flow JSON injection",
+    "successRun": "c5ac5bfa-5a65-4fb8-8f3a-e4c8b63f675c",
+    "stepCount": 8,
+    "observations": [
+      {
+        "operation": "url",
+        "result": "http://127.0.0.1:18765/index.html"
+      },
+      {
+        "operation": "count",
+        "selector": ".item",
+        "result": 2
+      },
+      {
+        "operation": "count",
+        "selector": ".missing",
+        "result": 0
+      },
+      {
+        "operation": "attribute",
+        "selectorRef": "params.selector",
+        "attribute": "href",
+        "result": "/relative/one"
+      },
+      {
+        "operation": "attribute",
+        "attribute": "data-missing",
+        "result": null
+      },
+      {
+        "operation": "attribute",
+        "attribute": "data-empty",
+        "result": ""
+      },
+      {
+        "operation": "attribute",
+        "framePath": [
+          "iframe#outer"
+        ],
+        "selector": "#inside",
+        "attribute": "href",
+        "result": "../frame-result"
+      }
+    ],
+    "failureRuns": [
+      {
+        "run": "704727ad-b552-4944-84c0-b9177f8f8b36",
+        "case": "multiple attribute targets",
+        "result": "failed explicitly; no first-match result"
+      },
+      {
+        "run": "0ebad3fe-2da9-4cd1-8a01-885d3bb311ca",
+        "case": "72000 UTF-8 bytes attribute",
+        "result": "failed at 65536-byte budget; no truncated result"
+      },
+      {
+        "run": "2f3bca0b-fec9-4482-a0a5-330cd0117455",
+        "case": "missing target with 1000ms node deadline",
+        "result": "failed with node timeout"
+      }
+    ],
+    "cancellation": {
+      "run": "6819d25d-9ddf-4f63-8a17-567ef418f93c",
+      "while": "ninth attribute node waiting for missing target",
+      "result": "CANCELLED; ninth incomplete; tenth not executed",
+      "controlledLateReturnVerified": false
+    },
+    "temporaryNodesRemovedViaUi": true,
+    "themesObserved": [
+      "Dark configuration and results",
+      "Light results"
+    ]
+  },
+  "export": {
+    "source": "original client-generated ZIP; unmodified",
+    "files": 6,
+    "sha256": "8820fa39c01229cf3aafd14d51ccdda032e38f47394babe0c97ce0fd8cdb920a",
+    "contentDigest": "33c0f742f89176be5b1c81c5311a5fbbb9c972c4ad2eb9b9d2865c90b74c6470",
+    "flowAndEntryCapability": "browser-observe-v1",
+    "parameterValuesCleared": true,
+    "logicalBrowserOnly": true,
+    "independentInstance": "9eea6891-1a4f-4b98-8087-2948f12a11b9",
+    "missingBrowserInitiallyBlocked": true,
+    "runAfterIndependentRebinding": "909d76b2-cc15-4cf4-bafa-52a4b7eb851e",
+    "actualResult": "SUCCEEDED with same eight-step output",
+    "reopenWithFixtureServerStopped": "same complete output; one existing run; no replay"
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "prettier": "passed for changed source",
+    "diffCheck": "passed",
+    "unitTestsAddedOrRun": false
+  },
+  "packaging": {
+    "candidatePackageCommand": "exit 1 at DMG after App and ZIP built",
+    "candidateDmgOnlyRetry": "passed",
+    "mergedSourcePackage": "passed; App, ZIP and DMG; exit 0",
+    "installation": "serial replacement after normal quit and backup; installed ASAR equals merged candidate",
+    "installedAsarSha256": "206a7b8e1a7c481d12db89bbc7135063788822559e29f0aee5bb067d9e1921ea",
+    "installedNativeObservation": "existing independent consumer result reopened through installed app; original run only",
+    "originalWorkspaceRestored": true,
+    "originalDatabaseTablesAndCredentialFileUnchanged": true
+  },
+  "remaining": [
+    "Chrome and Firefox/Safari native behavior",
+    "full item/index and dynamic attribute reference matrix",
+    "controlled late return and capability rejection matrix",
+    "compact layouts and Light configuration",
+    "TaskRepair v4 target picker",
+    "real user-key distillation and BOSS account/JD/actions",
+    "full G3-G5, 186 boards/U01-U12 and Agent flow generation"
+  ]
+}

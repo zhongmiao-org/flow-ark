@@ -1,6 +1,10 @@
 # 公共契约管理
 
-2026-10-16：新增[0.25.0](v0.25.0/README.md)的browser v4网页只读核对：当前网址、匹配数和原始DOM属性，动态定位/属性名引用、null/空值/0区别、预算及唯一性。采用能力browser-observe-v1，包2.0/SDK1.0不变；客户端当前仍采用0.24.0，本批是G1，[Figma与缺口记录](../docs/client/browser-inspection.md)先行。真实tag发布及消费者实现独立记录，不以格式资料计为网页/BOSS验收。
+2026-10-16：新增[0.25.0](v0.25.0/README.md)的browser v4网页只读核对：当前网址、匹配数和原始DOM属性，动态定位/属性名引用、null/空值/0区别、预算及唯一性。采用能力browser-observe-v1，包2.0/SDK1.0不变；G1时客户端仍采用0.24.0，[Figma与缺口记录](../docs/client/browser-inspection.md)先行。真实tag发布及消费者实现独立记录，不以格式资料计为网页/BOSS验收。
+
+0.25.0发布核对：治理[PR #763](https://github.com/zhongmiao-org/flow-ark/pull/763)最新[CI 38790756407](https://github.com/zhongmiao-org/flow-ark/actions/runs/38790756407)的Validate/Auto Merge均成功，实际合并`095c19c383ca7c86310407da6325a0dd974342f5`。真实远端`contracts-v0.25.0`的解引用提交与该合并相同，54份机器资料摘要固定；旧取消检查不计通过。消费者实现、原生运行与BOSS仍分别验收。
+
+0.25.0消费者核对：客户端[#282](https://github.com/zhongmiao-org/flow-ark-client/pull/282)固定采用该tag，最新CI自动合并并打包安装；实际内置浏览器八步编排、失败/取消/期限及独立ZIP复导运行已取得局部证据，见[分层记录](../docs/client/browser-inspection.md#g2客户端与原生编排)。其他浏览器、完整矩阵与BOSS继续独立验收。
 
 2026-10-16：新增[0.24.0](v0.24.0/README.md)的已确认会话来源输出、固定Skill草稿试聊/状态与同请求回执格式；先定义真实来源核验、草稿变化和网络前复核、自有Key及有序消息复用。客户端仍采用0.23.0，未声明G2/G3通过；[六个Figma状态与实施门槛](../docs/client/skill-trial.md)先行，发布以实际tag为准。
 

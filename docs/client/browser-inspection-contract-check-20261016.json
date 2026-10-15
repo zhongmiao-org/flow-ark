@@ -19,12 +19,21 @@
   "externalActions": false,
   "originalWorkspaceUnmodifiedThisBatch": true,
   "remaining": [
-    "real contract tag publication",
     "client pinned adoption and actions/reference/host/output implementation",
     "native Light/Dark/compact inspection and independent ZIP reimport",
     "real BOSS login/account/JD/action calibration",
     "real own-Key personal distillation and BOSS workflows",
     "complete G3-G5, 186 boards, U01-U12 and Agent flow generation"
   ],
-  "longTermGoal": "active"
+  "longTermGoal": "active",
+  "publication": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark/pull/763",
+    "source": "9c70e01822578abe9e5042bc0fc445818213e2ea",
+    "merge": "095c19c383ca7c86310407da6325a0dd974342f5",
+    "ci": "https://github.com/zhongmiao-org/flow-ark/actions/runs/38790756407",
+    "result": "latest Validate / Auto Merge success; actual merged",
+    "tag": "contracts-v0.25.0",
+    "tagObject": "107cbf72b8d3f4b59e6c3fe13558037f13d6d03f",
+    "remotePeeledCommit": "095c19c383ca7c86310407da6325a0dd974342f5"
+  }
 }
