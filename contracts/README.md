@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.28.0消费者状态：客户端[PR #287](https://github.com/zhongmiao-org/flow-ark-client/pull/287)经最新CI38858045170自动合并为`18e3e36a08c735c346d4c3912b850882c2786018`，70份机器资料固定采用，已从合并源打包安装；[G2运行与原生复导证据](../docs/client/ai-failure-outcome.md#g2客户端安装与原生复导)。公开BOSS0.1.8尚未升级，真实API/业务仍待验收。下列G1发布条目记录当时消费者状态。
+
 0.28.0实际发布：治理[PR #785](https://github.com/zhongmiao-org/flow-ark/pull/785)最新CI38854846762的Validate/Auto Merge成功，实际合并`49240f8f64fb158b083cae8728713605c2b6340c`。远端`contracts-v0.28.0`解引用同一提交，70份机器资料固定。客户端仍0.27.0，尚未采用；[证据与G2边界](../docs/client/ai-failure-outcome.md#g1实际发布)。
 
 2026-10-16：新增[0.28.0](v0.28.0/README.md)的ai v2、受控请求失败与显式结果分支。四状态[Figma及边界](../docs/client/ai-failure-outcome.md)先行；ai-outcome-v1能力、取消/节点期限优先、未知用量和旧v1保持独立定义。当前仅G1，真实tag、客户端采用及模板运行另验。

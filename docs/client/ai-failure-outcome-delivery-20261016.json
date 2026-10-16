@@ -1,0 +1,473 @@
+{
+  "date": "2026-10-16",
+  "scope": "G2 generic AI v2 failure outcomes; not full G3-G5 or real API acceptance",
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/287",
+    "source": "5b1df1f6294d3132bbb517b13ba458b218821165",
+    "merge": "18e3e36a08c735c346d4c3912b850882c2786018",
+    "ciRun": 38858045170,
+    "ci": [
+      "Validate:success",
+      "Auto Merge:success"
+    ],
+    "contract": "0.28.0",
+    "pinnedMachineFiles": 70
+  },
+  "figmaAmendment": {
+    "node": "674:9345",
+    "button": "查看节点配置",
+    "beforeImplementation": true
+  },
+  "installation": {
+    "source": "5b1df1f6294d3132bbb517b13ba458b218821165",
+    "merge": "18e3e36a08c735c346d4c3912b850882c2786018",
+    "previousAsar": "c3f58fe81d4f1e8689f241a04a1f69ea17ff2d33b96e4a552ec4ad94a5503ee3",
+    "installedAsar": "2c17461763596378b6f8f6c924e9d5f9d5fc5eadde01e3768a1c1c998850d57c",
+    "dmgSha256": "b8584ab3d5ab529eb7489ff30a0f4487eba19dd5b59fa45bdf1f9616fa0e49d3"
+  },
+  "manualRuntime": {
+    "scope": "isolated real Runtime/Worker and encrypted Store; controlled provider boundary only; not real API, system vault, native UI or business acceptance",
+    "observations": [
+      {
+        "provider": "deepseek",
+        "mode": "success",
+        "runId": "d063b60a-b5e4-4d56-8529-ad024c5fcbae",
+        "state": "SUCCEEDED",
+        "requestStatus": "success",
+        "errorCode": null,
+        "usage": {
+          "prompt_tokens": 20,
+          "completion_tokens": 10,
+          "total_tokens": 30
+        }
+      },
+      {
+        "provider": "deepseek",
+        "mode": "auth",
+        "runId": "7630b314-d504-459f-9d03-b1175e28926e",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "authentication",
+        "usage": null
+      },
+      {
+        "provider": "deepseek",
+        "mode": "rate",
+        "runId": "1c913f9d-ba46-46c8-baf4-d40cbfa11a00",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "rate-limit",
+        "usage": null
+      },
+      {
+        "provider": "deepseek",
+        "mode": "http",
+        "runId": "31a4120f-ab16-4d55-a095-9b36af0cf51c",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "http",
+        "usage": null
+      },
+      {
+        "provider": "deepseek",
+        "mode": "network",
+        "runId": "1d454bfb-424a-48dd-9165-e1cb448af41c",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "network",
+        "usage": null
+      },
+      {
+        "provider": "deepseek",
+        "mode": "refused",
+        "runId": "43ea42f2-051d-4e4d-99c9-d23a6c51bca8",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "refused",
+        "usage": {
+          "prompt_tokens": 20,
+          "completion_tokens": 10,
+          "total_tokens": 30
+        }
+      },
+      {
+        "provider": "deepseek",
+        "mode": "incomplete",
+        "runId": "29cebf88-30be-4377-a190-be03d0df85be",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "incomplete",
+        "usage": {
+          "prompt_tokens": 20,
+          "completion_tokens": 10,
+          "total_tokens": 30
+        }
+      },
+      {
+        "provider": "deepseek",
+        "mode": "bad-json",
+        "runId": "e194ea24-dbda-4c09-aef2-de48e8c621ec",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "invalid-response",
+        "usage": null
+      },
+      {
+        "provider": "deepseek",
+        "mode": "schema",
+        "runId": "4c94f2cf-aa36-49f5-be09-b8f2ac893aab",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "invalid-response",
+        "usage": {
+          "prompt_tokens": 20,
+          "completion_tokens": 10,
+          "total_tokens": 30
+        }
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "success",
+        "runId": "a95b8b2d-9d38-4ed5-b2f3-be776a0cfe12",
+        "state": "SUCCEEDED",
+        "requestStatus": "success",
+        "errorCode": null,
+        "usage": {
+          "total_tokens": 30,
+          "input_tokens": 20,
+          "output_tokens": 10
+        }
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "auth",
+        "runId": "ef6d3501-bef1-4617-9741-4bc92452e1d8",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "authentication",
+        "usage": null
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "rate",
+        "runId": "2cec032d-b634-4059-83a2-57313dd020f8",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "rate-limit",
+        "usage": null
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "http",
+        "runId": "0c8e668d-2ee3-4329-bac8-229ed3333ce9",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "http",
+        "usage": null
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "network",
+        "runId": "729d232f-62c4-460b-af1c-0de84fe63a22",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "network",
+        "usage": null
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "refused",
+        "runId": "15cd67ef-63c8-4afd-ba24-a5b98d702e0f",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "refused",
+        "usage": {
+          "total_tokens": 30,
+          "input_tokens": 20,
+          "output_tokens": 10
+        }
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "incomplete",
+        "runId": "8652e69d-8e8f-421f-b174-e3244d9b69ea",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "incomplete",
+        "usage": {
+          "total_tokens": 30,
+          "input_tokens": 20,
+          "output_tokens": 10
+        }
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "bad-json",
+        "runId": "2f42acad-6e3a-4342-8bfa-e68e511141f6",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "invalid-response",
+        "usage": null
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "schema",
+        "runId": "4094ffb0-2b52-476e-a273-f1497174cafa",
+        "state": "SUCCEEDED",
+        "requestStatus": "failed",
+        "errorCode": "invalid-response",
+        "usage": {
+          "total_tokens": 30,
+          "input_tokens": 20,
+          "output_tokens": 10
+        }
+      },
+      {
+        "mode": "rate",
+        "strategy": "stop",
+        "state": "FAILED",
+        "providerFailureReceipt": true
+      },
+      {
+        "mode": "program",
+        "strategy": "result",
+        "state": "FAILED",
+        "providerFailureReceipt": false
+      },
+      {
+        "mode": "v1-success",
+        "state": "SUCCEEDED",
+        "flatOutput": true
+      },
+      {
+        "mode": "missing-key",
+        "blocked": true,
+        "requests": 0
+      },
+      {
+        "mode": "key-read-fault",
+        "state": "FAILED",
+        "requests": 0
+      },
+      {
+        "mode": "receipt-storage-fault",
+        "state": "FAILED"
+      },
+      {
+        "mode": "short-node-deadline",
+        "state": "FAILED",
+        "providerFailureReceipt": false
+      },
+      {
+        "mode": "cancel-and-late-result",
+        "state": "CANCELLED",
+        "lateEvents": 0
+      },
+      {
+        "mode": "request-own-45-second-deadline",
+        "state": "SUCCEEDED",
+        "errorCode": "request-timeout"
+      }
+    ],
+    "syntheticFetchCalls": 25,
+    "realModelRequests": 0,
+    "outboundActions": 0,
+    "runs": 26,
+    "reopenedWithoutReplay": true,
+    "status": "passed"
+  },
+  "manualExtra": {
+    "scope": "isolated real Runtime/Worker; finite JSON, literal schema data and explicit zero; no real API",
+    "observations": [
+      {
+        "provider": "deepseek",
+        "mode": "finite",
+        "state": "SUCCEEDED",
+        "status": "success",
+        "totalTokens": 0
+      },
+      {
+        "provider": "deepseek",
+        "mode": "non-finite",
+        "state": "SUCCEEDED",
+        "status": "failed",
+        "totalTokens": 0
+      },
+      {
+        "provider": "deepseek",
+        "mode": "literal-ref",
+        "state": "SUCCEEDED",
+        "status": "success",
+        "totalTokens": 0
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "finite",
+        "state": "SUCCEEDED",
+        "status": "success",
+        "totalTokens": 0
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "non-finite",
+        "state": "SUCCEEDED",
+        "status": "failed",
+        "totalTokens": 0
+      },
+      {
+        "provider": "openai-codex",
+        "mode": "literal-ref",
+        "state": "SUCCEEDED",
+        "status": "success",
+        "totalTokens": 0
+      },
+      {
+        "mode": "sync-program",
+        "state": "FAILED",
+        "providerFailureReceipt": false
+      },
+      {
+        "mode": "body-program",
+        "state": "FAILED",
+        "providerFailureReceipt": false
+      }
+    ],
+    "syntheticFetchCalls": 8,
+    "realModelRequests": 0,
+    "status": "passed"
+  },
+  "renderer": {
+    "scope": "actual React components in an isolated browser harness; fictional configuration/receipts; no host or model calls",
+    "states": [
+      "new v2 defaults to stop",
+      "explicit selection result",
+      "v1 retains flat output references",
+      "explicit v1 to v2 change defaults to stop and shows result.output references",
+      "failed result with null ID/usage and explicit later handling",
+      "successful known usage and result.output in 350px column",
+      "cancelled/no-receipt notice",
+      "readonly configuration expands and receives focus"
+    ],
+    "themes": [
+      "light configuration and narrow success",
+      "dark failed result"
+    ],
+    "layout": {
+      "horizontalOverflow": false,
+      "narrowColumnCssWidth": 350,
+      "nominalPolicyControlHeight": 40,
+      "measuredPolicyControlHeight": 39.48543167114258
+    },
+    "fixedDuringObservation": [
+      "wait for Collapse motion frame before focusing configuration",
+      "align result cards at their top without stretching empty card",
+      "reuse normal 40px theme select height"
+    ],
+    "screenshots": [
+      "renderer-config-light.png",
+      "renderer-failed-dark.png",
+      "renderer-success-narrow-light.png"
+    ],
+    "realModelRequests": 0,
+    "nativeAcceptance": false,
+    "status": "passed"
+  },
+  "nativeExport": {
+    "filename": "native-ai-outcome-1.0.0.flowark-template.zip",
+    "size": 2144,
+    "sha256": "b691a28985615fd5a9abda481f6bdd7f01d6356bb5263a83555e91609645f691",
+    "manifestId": "local-29688a24-9c3a-40c1-a6ed-7291da4eea95",
+    "version": "1.0.0",
+    "contentDigest": "6400344ba270d18145db709ae6e72bc03b47190589cb91882deafc153239f120",
+    "fileCount": 6,
+    "entryId": "run",
+    "capabilities": [
+      "ai-node-v1",
+      "ai-outcome-v1",
+      "ai",
+      "condition",
+      "value"
+    ],
+    "resources": [
+      {
+        "access": "use",
+        "id": "ai",
+        "kind": "ai",
+        "name": "ai",
+        "required": true
+      }
+    ],
+    "aiNodeId": "n_6542df7b",
+    "conditionNodeId": "n_27575e81",
+    "steps": 4,
+    "publicBoundariesPassed": true,
+    "origin": "unmodified native export"
+  },
+  "preservation": {
+    "privateAfterReopen": {
+      "allDocumentPayloadsUnchanged": true,
+      "allEventsUnchanged": true,
+      "runCount": 1,
+      "protectedCredentialFilesUnchanged": 1,
+      "sameInstanceAndInputsVisible": true,
+      "missingResources": [
+        "ai",
+        "workspace"
+      ],
+      "nativeNewRuns": 0,
+      "realModelRequests": 0
+    },
+    "previousChecks": {
+      "native-author-records": {
+        "oldDocumentsPreserved": 248,
+        "oldEventsPreserved": 216,
+        "runCount": 18
+      },
+      "native-consumer-records": {
+        "oldDocumentsPreserved": 248,
+        "oldEventsPreserved": 216,
+        "runCount": 18
+      },
+      "privateBeforeReopen": {
+        "allDocumentPayloadsUnchanged": true,
+        "allEventsUnchanged": true,
+        "runCount": 1,
+        "topLevelNonDatabaseFilesUnchanged": [
+          "Preferences",
+          "DIPS",
+          "declarative_performance_observer.db",
+          "declarative_performance_observer.db-journal",
+          "Network Persistent State",
+          "Local State",
+          "Trust Tokens-journal",
+          "Trust Tokens"
+        ]
+      }
+    }
+  },
+  "native": {
+    "fourStepsCreatedThroughUI": true,
+    "handEditedFlowOrZip": false,
+    "authorSaveAndReopen": true,
+    "independentConsumerImportAndReopen": true,
+    "consumerAiInitiallyUnbound": true,
+    "consumerRunDebugScheduleDisabled": true,
+    "newNativeRuns": 0
+  },
+  "failedProbe": {
+    "observed": "non-finite parsed JSON accepted by open AJV schema",
+    "fixed": "finite number traversal; complete extra matrix rerun passed",
+    "initialDirectoryRetained": true
+  },
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "unitTestsAddedOrRun": false,
+  "publicBossVersion": "0.1.8",
+  "remaining": [
+    "BOSS two AI nodes v2 upgrade and failure reminder wiring through client",
+    "real user Key distillation and user confirmation",
+    "full onmessage failure and ordering matrix",
+    "authenticated JD/chat/outbound acceptance",
+    "complete G3-G5 and 186/U01-U12/Agent goals"
+  ]
+}
