@@ -1,0 +1,259 @@
+{
+  "date": "2026-10-16",
+  "scope": "Wholly fictional generic array, actual Renderer/Runtime/Worker and installed native import/copy/edit/export/reimport. Does not claim native business template authorship.",
+  "governance": {
+    "pr": 796,
+    "merge": "9501c80d55ae1fee8c75a22904f353c5f09a2f23",
+    "tag": "contracts-v0.29.0"
+  },
+  "client": {
+    "pr": 291,
+    "source": "443a540c4318b93f1f1ec0a1eada2f32d6d2833f",
+    "merge": "7baf08892d2a8bd8e40bf633cc58deb9ed65abbb",
+    "ci": 38872999417
+  },
+  "format": {
+    "scope": "language independent contract format data, not application or unit tests",
+    "count": 18,
+    "results": [
+      {
+        "name": "empty",
+        "schemaValid": true,
+        "valueValid": false
+      },
+      {
+        "name": "single",
+        "schemaValid": true,
+        "valueValid": true
+      },
+      {
+        "name": "three",
+        "schemaValid": true,
+        "valueValid": true
+      },
+      {
+        "name": "too-many",
+        "schemaValid": true,
+        "valueValid": false
+      },
+      {
+        "name": "duplicate",
+        "schemaValid": true,
+        "valueValid": false
+      },
+      {
+        "name": "case-distinct",
+        "schemaValid": true,
+        "valueValid": true
+      },
+      {
+        "name": "explicit-false",
+        "schemaValid": true,
+        "valueValid": true
+      },
+      {
+        "name": "object-key-order",
+        "schemaValid": true,
+        "valueValid": false
+      },
+      {
+        "name": "nested-array-order",
+        "schemaValid": true,
+        "valueValid": true
+      },
+      {
+        "name": "nested-array-duplicate",
+        "schemaValid": true,
+        "valueValid": false
+      },
+      {
+        "name": "empty-only",
+        "schemaValid": true,
+        "valueValid": true
+      },
+      {
+        "name": "negative-min",
+        "schemaValid": false
+      },
+      {
+        "name": "fraction-min",
+        "schemaValid": false
+      },
+      {
+        "name": "bad-max",
+        "schemaValid": false
+      },
+      {
+        "name": "unsafe-min",
+        "schemaValid": false
+      },
+      {
+        "name": "contradiction",
+        "schemaValid": false
+      },
+      {
+        "name": "not-array",
+        "schemaValid": false
+      },
+      {
+        "name": "string-unique",
+        "schemaValid": false
+      }
+    ]
+  },
+  "rendererHost": {
+    "scope": "wholly fictional generic array package generated for manual observation; not native-authored business template",
+    "saves": 4,
+    "entries": [
+      {
+        "id": "strings",
+        "values": {
+          "items": [
+            "B",
+            "A",
+            "C"
+          ]
+        }
+      },
+      {
+        "id": "complex",
+        "values": {
+          "items": [
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      },
+      {
+        "id": "options",
+        "values": {
+          "items": [
+            "A",
+            "B"
+          ]
+        }
+      }
+    ],
+    "runs": [
+      {
+        "id": "67dbfe83-d549-4168-9d9c-5f1197e3319f",
+        "state": "SUCCEEDED"
+      }
+    ],
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "directHost": {
+    "scope": "actual Runtime/Worker with wholly fictional generic array ZIP, not native-authored business template",
+    "observed": [
+      {
+        "kind": "initial-empty",
+        "rejectedBeforeRun": true
+      },
+      {
+        "entry": "strings",
+        "value": [],
+        "rejected": true,
+        "revisionUnchanged": true
+      },
+      {
+        "entry": "strings",
+        "value": [
+          "A",
+          "A"
+        ],
+        "rejected": true,
+        "revisionUnchanged": true
+      },
+      {
+        "entry": "strings",
+        "value": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "rejected": true,
+        "revisionUnchanged": true
+      },
+      {
+        "entry": "complex",
+        "value": [
+          {
+            "x": 1,
+            "y": 2
+          },
+          {
+            "y": 2,
+            "x": 1
+          }
+        ],
+        "rejected": true,
+        "revisionUnchanged": true
+      }
+    ],
+    "validSaveAndFixedOrderRun": true,
+    "reopenedWithoutReplay": true,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "manualUI": [
+    "neutral invalid defaults block Run without false dirty state",
+    "empty, max and precise duplicate notice",
+    "first up/last down and inherited disabled state",
+    "stable row identity and moved unfinished JSON draft",
+    "focus remains in moved row after rAF fix",
+    "synthetic pre-Host save failure preserves values; actual save and Run recover",
+    "structural objects ignore key order; nested arrays preserve order",
+    "enum arrays obey minimum/unique rules",
+    "actual author schema preview accepts minItems/uniqueItems and rejects contradictory bounds",
+    "type change removes obsolete array constraints; instance discard restores baseline"
+  ],
+  "limitations": [
+    "failure injection is before Host, not storage transaction corruption",
+    "synthetic generic fixture was generated via CLI; native copy/edit/export is not a business-template creation claim",
+    "personal 0.5.0 graph and multi-material implementation pending",
+    "real API/BOSS account and outbound actions not exercised"
+  ],
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "installation": {
+    "source": "443a540c4318b93f1f1ec0a1eada2f32d6d2833f",
+    "merge": "7baf08892d2a8bd8e40bf633cc58deb9ed65abbb",
+    "previousAsar": "fcc5844d4ef277d81cfe6d04ce2ad6fe7a50b4030fdadd3e2ea44b213c1347c4",
+    "installedAsar": "026f758be50ebdd0855aa5a37644768186b587303983b90932c7e5fc432f977f",
+    "dmgSha256": "f757771d3728c6286ee254a96e60d7fdd9cddfc14c304145fa9bbc208a475c5d"
+  },
+  "preservation": {
+    "allDocumentPayloadsUnchanged": true,
+    "allEventPayloadsUnchanged": true,
+    "protectedCredentialFilesUnchanged": 1,
+    "runCount": 1,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "native": {
+    "authorRevision": 2,
+    "base": "CLI-generated fictional generic fixture",
+    "edit": "Native visual author changed minItems from 1 to 2; maxItems=3, uniqueItems=true, neutral default=[]",
+    "zipSha256": "9b446e8eb53d926cc4043bd1619116fcfa07f11b4a8f41d339dd1856859fd98b",
+    "exportedId": "local-abda0fa0-dd9b-47d5-bbcf-a1e2736a1991",
+    "independentReimport": true,
+    "duplicateBlocked": true,
+    "chineseOrderSaved": [
+      "乙",
+      "甲"
+    ],
+    "normalReopenPreservedOrder": true,
+    "runCounts": {
+      "author": 0,
+      "consumer": 0
+    }
+  }
+}
