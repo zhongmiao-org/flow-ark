@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-16",
+  "status": "in-progress",
+  "version": "0.1.8",
+  "authoring": "native-client-visual-editor-raw-export",
+  "archiveBytes": 42661,
+  "archiveSha256": "21c93b109ace8324761323079d3675d7fbb8b5e1ccf19501e93f84dbc17fc804",
+  "contentDigest": "3dc6248607c677de125038b547f20cfee6ee55f0427854eb64b097104582c7e1",
+  "files": 48,
+  "steps": [
+    {
+      "id": "n_bfd6c7e8",
+      "type": "context",
+      "name": "读取本次固定求职条件"
+    },
+    {
+      "id": "n_22f52238",
+      "type": "script",
+      "name": "核对JD、来信完整性与本人接管"
+    },
+    {
+      "id": "n_39f0804e",
+      "type": "condition",
+      "name": "JD与来信完整且未由本人接管"
+    },
+    {
+      "id": "n_e1b60b6f",
+      "type": "skill",
+      "name": "读取固定确认的个人Skill"
+    },
+    {
+      "id": "n_86f9736c",
+      "type": "ai",
+      "name": "使用自有Key评估JD方向（仅建议）"
+    },
+    {
+      "id": "n_2d0a046c",
+      "type": "script",
+      "name": "核对JD原句与目标引用；缺口转本人"
+    },
+    {
+      "id": "n_2dfc8270",
+      "type": "condition",
+      "name": "评估建议是否需要本人判断"
+    },
+    {
+      "id": "n_60242c2b",
+      "type": "script",
+      "name": "登记本人判断待办并保存建议"
+    },
+    {
+      "id": "n_71b730e8",
+      "type": "condition",
+      "name": "明确建议是否符合目标"
+    },
+    {
+      "id": "n_d596ea4f",
+      "type": "ai",
+      "name": "使用自有Key分类来信并生成简短草稿"
+    },
+    {
+      "id": "n_adc66c1e",
+      "type": "script",
+      "name": "核对Skill事实原句与本人处理边界"
+    },
+    {
+      "id": "n_56ade4fa",
+      "type": "condition",
+      "name": "来信是否需要本人处理或附件核对"
+    },
+    {
+      "id": "n_5447c54f",
+      "type": "script",
+      "name": "保存本人待办；未发送消息或简历"
+    },
+    {
+      "id": "n_e46dfa6e",
+      "type": "script",
+      "name": "保存普通回复草稿；仅供本人核对"
+    },
+    {
+      "id": "n_dd293c99",
+      "type": "script",
+      "name": "保存明确不符合建议；尚未点击不感兴趣"
+    },
+    {
+      "id": "n_bfb208ae",
+      "type": "script",
+      "name": "登记JD、来信或接管缺口并保存结果"
+    }
+  ],
+  "oldFiveFlowsBytesUnchanged": true,
+  "allFileSizesAndHashesPassed": true,
+  "sourceCompilationAndSchemasPassed": true,
+  "publicPathBoundaryPassed": true,
+  "governance": {
+    "pr": 783,
+    "merge": "7ff633b6a8427138e1f90c4743ce2724a490261a",
+    "ci": 38851060592
+  },
+  "templates": {
+    "pr": 12,
+    "source": "97922ad891c18da2964fc8eaf85203132f5eec54",
+    "merge": "c24c52c18c61d9ee62358571242d6952f27e5879",
+    "ci": 38853022462
+  },
+  "figma": {
+    "states": [
+      "654:8967",
+      "654:9069",
+      "654:9171",
+      "654:9273"
+    ],
+    "textPerState": 33,
+    "instancesPerState": 8,
+    "imageFills": 0,
+    "placeholdersLeft": 0
+  },
+  "consumer": {
+    "instance": "2f015acd-397b-42f9-b32a-80d9efb69ccd",
+    "versions": 6,
+    "instances": 6,
+    "boundResources": 0,
+    "missingResources": [
+      "profile",
+      "ai"
+    ],
+    "runDisabled": true,
+    "debugDisabled": true,
+    "normalReopenVerified": true,
+    "oldRuns": 10,
+    "unread": 4,
+    "inputDefaults": {
+      "descriptionComplete": false,
+      "incomingMessage": "",
+      "jobDescription": "",
+      "jobTitle": "",
+      "manualTakeover": true,
+      "messageComplete": false,
+      "sourceLabel": ""
+    },
+    "optionalSourceLabel": true,
+    "chineseTitlesAndMultilineJdVerified": true
+  },
+  "preservation": {
+    "oldRunCount": 10,
+    "newRunCount": 10,
+    "oldRunsEqual": true,
+    "oldInstanceCount": 5,
+    "oldInstancesEqual": true,
+    "oldEventsPreserved": true,
+    "consumerProtectedKeyEqual": true,
+    "privateDocumentsEqual": true,
+    "privateEventsEqual": true,
+    "privateProtectedKeyEqual": true,
+    "resumeUnchanged": true
+  },
+  "authorPreservation": {
+    "oldAuthorRuns": 18,
+    "authorRunCount": 18,
+    "authorRunPayloadsEqual": true,
+    "oldAuthorEventsPreserved": true,
+    "authorProtectedKeyEqual": true
+  },
+  "privateProfileRestored": true,
+  "privateMaterialRuns": 1,
+  "privateInterviewMissing": [
+    "ai",
+    "workspace"
+  ],
+  "mainProcessCount": 1,
+  "modelCalls": 0,
+  "outboundActions": 0,
+  "newEntryRuntimeBranchVerification": false,
+  "unitTestsAddedOrRun": false,
+  "clientRebuilt": false,
+  "checks": [
+    "pnpm validate",
+    "pnpm build",
+    "git diff --check"
+  ],
+  "remaining": [
+    "real-Key and user-confirmed personal Skill",
+    "model semantics/failure and branch runtime matrix",
+    "full onmessage ordering cancellation reconnect",
+    "real login and conversation JD/latest-message association",
+    "live takeover and outbound authorization deduplication receipts",
+    "complete G3-G5/186/U01-U12/Agent"
+  ]
+}
