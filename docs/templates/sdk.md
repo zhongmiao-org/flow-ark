@@ -26,7 +26,7 @@ AI 供应商接入使用通用 AIRequest/AIResult，不包含求职提示词。�
 
 - `file(id, {operation:'read'})` 读取文件；目录还需 `name`。写入请求为 `{operation:'write', name?, content}`，UTF-8 单次最多 10 MiB。绑定目录中的符号链接不能越界，输出同时登记为运行产物。
 - `human({title, description?, schema?, review?})` 等待最长十分钟；取消、超时、宿主退出后原请求失效。`template.answer({id,value})` 仅响应当前仍在等待的请求。可选 `review:{version:1,target,content}` 由模板提供完整的核对目标与拟执行文本；使用时入口还须声明 `human-review-v1`。宿主校验并固定保存，界面不从说明文字猜测。字段限制与边界见[契约0.16.0](../../contracts/v0.16.0/README.md)。
-- `attention({key,title,detail?})` 使用实例内去重键。
+- `attention({key,title,detail?})` 使用实例内去重键。按[0.26.0](../../contracts/v0.26.0/README.md)，宿主将当前Run、实例和入口保存为独立origin；请求不能指定来源。detail为任意JSON，显式null保留，省略才为空对象；其中runId/runIds/origin只是模板数据。同实例同key始终返回首条提醒，保留首次来源、详情、时间及已读状态；跨Run不改写，无来源的既有记录不回填。该来源扩展不增加请求字段、方法或动作授权。
 - `effect.prepare({action,key,description?,review?})` 返回 `{id,execute,state}`；可选 review 与 human 相同，需要 `human-review-v1`，仅 confirm 授权进入人工确认；auto/deny 及去重规则不变。仅 `execute:true` 可以执行动作。同键已有记录（包括 failed/unknown）均不重新授权。`effect.resolve({id,state,evidence?})` 仅允许本 Run 的 submitting 记录终结；Run 结束和崩溃恢复将未核验记录置为 unknown。
 - `ai(id,{instructions,input,schema})` 返回 `{provider,model,requestId,output,usage}`。模板脚本不能通过旧 credential SDK 读取 Key。
 - `browser(id,{operation,selector?,value?,timeoutMs?})` 当前公开 url/navigate/read/count/attribute/inputValue/wait/click/fill/select/check/press。监听导航使用有期限的 url 轮询并检查 signal；不得无限占用 Run。通用节点的上传/下载等能力仍由通用 BrowserDriver 契约约束。

@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-16：新增[0.26.0](v0.26.0/README.md)的模板提醒宿主来源。来源独立于原始详情，由宿主固定首次Run/实例/入口，同键不改写、不猜测旧来源；包2.0/SDK1.0及SQLite表不变。[三种Figma状态和实施范围](../docs/client/template-attention-origin.md)先行，客户端采用与原生运行另验。
+
 2026-10-16：新增[0.25.0](v0.25.0/README.md)的browser v4网页只读核对：当前网址、匹配数和原始DOM属性，动态定位/属性名引用、null/空值/0区别、预算及唯一性。采用能力browser-observe-v1，包2.0/SDK1.0不变；G1时客户端仍采用0.24.0，[Figma与缺口记录](../docs/client/browser-inspection.md)先行。真实tag发布及消费者实现独立记录，不以格式资料计为网页/BOSS验收。
 
 0.25.0发布核对：治理[PR #763](https://github.com/zhongmiao-org/flow-ark/pull/763)最新[CI 38790756407](https://github.com/zhongmiao-org/flow-ark/actions/runs/38790756407)的Validate/Auto Merge均成功，实际合并`095c19c383ca7c86310407da6325a0dd974342f5`。真实远端`contracts-v0.25.0`的解引用提交与该合并相同，54份机器资料摘要固定；旧取消检查不计通过。消费者实现、原生运行与BOSS仍分别验收。
