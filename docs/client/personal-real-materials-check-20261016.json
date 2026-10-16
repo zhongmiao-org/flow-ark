@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-16",
+  "scope": "Installed native client using unmodified personal-distillation 0.5.1 and one user-selected real text source. Local extraction only; no real-source content, path, digest or private identifiers in this public evidence.",
+  "templateVersion": "0.5.1",
+  "templateMerge": "0897a10221826a3419fd78e29b29a07338fc764b",
+  "clientMerge": "7baf08892d2a8bd8e40bf633cc58deb9ed65abbb",
+  "nativeSourceStatus": "ready",
+  "sourceIdentityComparedPrivately": true,
+  "allFiveMaterialNodesCompleted": true,
+  "allPriorDocumentsUnchanged": true,
+  "allPriorEventsUnchanged": true,
+  "protectedCredentialFilesUnchanged": true,
+  "priorRunCount": 1,
+  "currentRunCount": 2,
+  "onlyExpectedNewRun": true,
+  "sourceFileUnchanged": true,
+  "newResultRecordExists": true,
+  "skillWorkspaceStillEmpty": true,
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "normalReopenRetainsInputsAndExpectedRun": true,
+  "normalReopenDoesNotReplay": true,
+  "interviewOnlyMissingAI": true,
+  "interviewInputsSaved": true,
+  "oldAndNewVersionsCoexist": true,
+  "remaining": [
+    "user own AI binding and real API acceptance",
+    "user interview, edit, trial and explicit Skill confirmation",
+    "full BOSS account and message/JD/action acceptance"
+  ]
+}
