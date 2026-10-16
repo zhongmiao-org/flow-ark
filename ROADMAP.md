@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-16 作者调试G2增量：客户端#285采用真实0.27.0，最新CI自动合并并从合并源打包安装。result/attention固定来源、独立记录、显式读取和原快照配置重跑具备运行证据；真实Worker人工验证、原生BOSS副本两分支/去重/重开和安装版新Run完成，公开0.1.4导出不变。原作者/业务表与凭据保持，当前在隔离作者复制件；详见[分层记录](docs/client/author-sdk-debug.md)。完整矩阵、第二消费者重绑运行、其他SDK及真实Key/完整G3–G5/186/Agent保持待验收。
+
 2026-10-16 作者调试G1：原生BOSS制作暴露副本SDK无固定模板上下文，先补[结果/提醒调试的0.27.0及四状态Figma](docs/client/author-sdk-debug.md)，客户端随后采用。此为先行契约，不计作者完整运行、其他SDK、G3–G5或186/Agent通过。
 
 2026-10-16 BOSS可视化制作：复用原登录/编排Figma，客户端实际从空白制作open两步与preflight八步，原始0.1.1 ZIP及逐字节来源由模板#7最新CI自动合并。实际FlowArk内置浏览器登录页/公开页分流与待办取得证据；两入口共享一个浏览器，独立工作区复导、重新绑定运行和正常重开通过，原工作区保持。见[本批记录](docs/client/boss-login-authoring.md)。本人登录、求职者账号/JD/会话、Skill和自有Key、外发动作及完整G3–G5/BOSS继续，原186/U01–U12及Agent目标不缩减。

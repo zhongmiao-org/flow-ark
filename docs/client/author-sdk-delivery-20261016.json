@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-16",
+  "scope": "author checkout SDK result and attention only",
+  "status": "increment-delivered; overall goal in progress",
+  "governance": {
+    "pr": 776,
+    "source": "30fcc6f77dd9a62fa0f8586c9b1c009d60033554",
+    "merge": "5d9b087e8dcfdd9bcb680e7d42dc7a437127f7f0",
+    "latestCi": "38841799153",
+    "validate": "success",
+    "autoMerge": "success",
+    "tag": "contracts-v0.27.0",
+    "remoteDereferencedVerified": true,
+    "machineFiles": 63,
+    "formatCases": 294,
+    "semanticCases": 16,
+    "figmaFrames": [
+      "590:6085",
+      "590:6171",
+      "590:6257",
+      "590:6343"
+    ]
+  },
+  "client": {
+    "pr": 285,
+    "source": "2207864c4db6a82d22ab2f8ef7a4d1419c3ae493",
+    "merge": "ac7430509fe75e7a032c67466c29f6c6d01c843a",
+    "latestCi": "38844085999",
+    "contracts": "0.27.0",
+    "sdk": "1.0",
+    "packageFormat": "2.0",
+    "formalInstanceSdkUnchanged": true,
+    "authorSdkOperations": [
+      "result",
+      "attention"
+    ],
+    "validate": "success",
+    "autoMerge": "success"
+  },
+  "manual": {
+    "runtimeWorkerRuns": 13,
+    "additionalConfigurationRuns": 3,
+    "expectedSuccessFailureCancelStatesPassed": true,
+    "atomicRegistrationRollback": true,
+    "configurationOriginalSnapshot": [
+      2,
+      2,
+      9
+    ],
+    "authorSchedulesBlocked": true,
+    "protectedReopenNoReplay": true,
+    "fixtureDriverInitialFailuresNotCounted": true
+  },
+  "native": {
+    "checkoutPrefix": "b9ba50bb",
+    "sourceRevision": 7,
+    "sourceDefinitionSha256": "38943485651413366f68358c2bb3c19c035f1ddd8cbbc0e327e296f2a0419d52",
+    "oldCheckoutMissingContextShown": true,
+    "runs": [
+      {
+        "id": "89fdf2c5-6f15-4d93-8783-6c1dd54c4ad8",
+        "branch": "sources-ready",
+        "state": "SUCCEEDED"
+      },
+      {
+        "id": "705406b9-7a1e-46b2-a14a-c054bcef7954",
+        "branch": "needs-review",
+        "state": "SUCCEEDED"
+      },
+      {
+        "id": "061e43df-7180-4300-af57-34a161b11a64",
+        "branch": "needs-review",
+        "state": "SUCCEEDED",
+        "firstSourceAndReadKept": true
+      }
+    ],
+    "sourceRunRoundtrip": true,
+    "reopenedRuns": 17,
+    "reopenedUnreadAttention": 3,
+    "noAutoReplay": true,
+    "lightDarkFixedScreenshotsViewed": true,
+    "themeRestored": "system",
+    "fixtureOnly": true,
+    "realUserSkillConfirmation": false,
+    "installedRun": {
+      "id": "34d07046-1146-4515-a1c9-47c1da8aa2b5",
+      "branch": "needs-review",
+      "state": "SUCCEEDED",
+      "protectedResultRead": true,
+      "firstSourceRun": "705406b9-7a1e-46b2-a14a-c054bcef7954",
+      "firstSourceAndReadKept": true
+    },
+    "finalRuns": 18,
+    "finalUnreadAttention": 3,
+    "finalInstalledOnlyMainProcess": true,
+    "finalActiveWorkspace": "isolated author copy; original author directory preserved",
+    "installedResultScreenshotViewed": true
+  },
+  "export": {
+    "version": "0.1.4",
+    "authorRevision": 7,
+    "bytes": 16246,
+    "sha256": "ba5f13f013c8354102dc89dbc3cc2ff3b4465fddc26af51d8d9daebcf437a45e",
+    "contentDigest": "a758a5a37d45719b6dd4aaea485357d0b4f0c46686ece24c709300b4cc2a4b03",
+    "originalBytesIdentical": true,
+    "privateMetadataExcluded": true,
+    "templateRepoChanged": false
+  },
+  "package": {
+    "candidateInitialAsar": "526dfecaf7e5eaaaa3b93012e551b0aec6e0624cd3ae127336b6aaa9d355e536",
+    "candidateVisualFixAsar": "d9d21b86315e77619366d3550109a444caa4a48892a07a1474cc79718eadb204",
+    "finalInstalledAsar": "d9d21b86315e77619366d3550109a444caa4a48892a07a1474cc79718eadb204",
+    "previousInstalledAsar": "5d94abc7a316d27049e10f387d24869013c172f1895c0b98c18a6df4ffd14581",
+    "relativeSymlinksVerified": 14,
+    "backupPreserved": true,
+    "artifacts": {
+      "FlowArk-0.3.0-arm64.dmg": {
+        "bytes": 267173374,
+        "sha256": "5ead3fc9da11a66198378a69f7dde422499f8fd5913c0bc28d680ff4ae354a32"
+      },
+      "FlowArk-0.3.0-arm64-mac.zip": {
+        "bytes": 232471619,
+        "sha256": "cf20db491453448c7f54ec76dd9f4c9f33b6ca5fd4cab0d59f3ac3db7758d4ba"
+      }
+    },
+    "buildCommand": "pnpm package:mac",
+    "sourceMerge": "ac7430509fe75e7a032c67466c29f6c6d01c843a"
+  },
+  "verification": {
+    "typecheck": "passed",
+    "build": "passed",
+    "diffCheck": "passed",
+    "unitTestsAddedOrRun": false,
+    "modelCalls": 0,
+    "recruitingOutboundActions": 0,
+    "originalAuthorTablesAndProtectedCredentialsUnchanged": true,
+    "defaultWindowAccidentalLaunchClosedWithoutTaskOrServiceUse": true,
+    "defaultProfileAllBytesVerified": false,
+    "originalBusinessTablesAndProtectedCredentialsUnchanged": true,
+    "uiHelperClosureRetargetingFailureCorrectedWithExplicitInstalledHandle": true
+  },
+  "remaining": [
+    "other author SDK operations",
+    "full cancellation/fault/layout/focus/bounds matrices",
+    "second consumer rebind/read run",
+    "real own-Key personal distillation and user confirmation",
+    "logged-in JD/account/conversations and recruiting actions",
+    "complete G3-G5 and 186/U01-U12/Agent goals"
+  ]
+}
