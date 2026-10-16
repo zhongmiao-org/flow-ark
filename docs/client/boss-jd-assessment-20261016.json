@@ -1,0 +1,90 @@
+{
+  "version": "0.1.5",
+  "archiveBytes": 27347,
+  "archiveSha256": "0b333b051c11bb59c6378f43a9c177c27c6d1c476d5be74b1a0f76de1e2ca5f1",
+  "contentDigest": "e1a1f08c31225f5ba1d4f7d293c32d1a5f55227e105409dc20597a1d8eb4ee5f",
+  "files": 36,
+  "steps": 12,
+  "resources": [
+    "profile",
+    "ai"
+  ],
+  "capabilities": [
+    "template-data-v1",
+    "skill-v1",
+    "ai-node-v1",
+    "template-sdk-v1",
+    "attention",
+    "context",
+    "script",
+    "condition",
+    "skill",
+    "ai"
+  ],
+  "oldFourFlowsBytesUnchanged": true,
+  "publicBoundaryPassed": true,
+  "date": "2026-10-16",
+  "authoring": "native-client-visual-editor-raw-export",
+  "governance": {
+    "pr": 779,
+    "merge": "9a0cc5d55e4be570fb8170119ec1226a97dc244b",
+    "ci": 38846893346
+  },
+  "templates": {
+    "pr": 11,
+    "source": "b5cfca3e67640f89c01b90371ab934d0aa18cbec",
+    "merge": "5479f7656c9e4d293792bfe4c97f4833a979d18a",
+    "ci": 38848723553
+  },
+  "consumer": {
+    "instance": "3782b75e-a2ad-4936-98ba-b328dc1860d6",
+    "installedVersions": 5,
+    "instances": 5,
+    "boundResources": 0,
+    "jobTitle": "",
+    "jobDescription": "",
+    "sourceLabel": "",
+    "descriptionComplete": false,
+    "blockedMissing": [
+      "profile",
+      "ai"
+    ],
+    "runDisabled": true,
+    "normalReopenVerified": true,
+    "runs": 10,
+    "unread": 4,
+    "preservation": {
+      "oldRunCount": 10,
+      "oldRunPayloadsPreserved": true,
+      "allOldEventsPreserved": true,
+      "protectedKeyBytesEqual": true
+    }
+  },
+  "localChecks": [
+    "pnpm validate",
+    "pnpm build",
+    "git diff --check"
+  ],
+  "modelCalls": 0,
+  "outboundActions": 0,
+  "unitTestsAddedOrRun": false,
+  "clientRebuilt": false,
+  "runtimeThreeRouteValidation": false,
+  "finalPrivateProfile": {
+    "restored": true,
+    "existingMaterialRuns": 1,
+    "sourceUnchanged": true,
+    "interviewBlockedMissing": [
+      "ai",
+      "workspace"
+    ]
+  },
+  "remaining": [
+    "real-Key confirmed personal Skill",
+    "three-route model and fault matrix",
+    "onmessage ordering cancellation reconnect matrix",
+    "real conversation JD and target revalidation",
+    "outbound authorization deduplication receipt",
+    "complete G3-G5 and 186/U01-U12 and Agent"
+  ]
+}
