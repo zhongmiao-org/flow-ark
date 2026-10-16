@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.28.0实际发布：治理[PR #785](https://github.com/zhongmiao-org/flow-ark/pull/785)最新CI38854846762的Validate/Auto Merge成功，实际合并`49240f8f64fb158b083cae8728713605c2b6340c`。远端`contracts-v0.28.0`解引用同一提交，70份机器资料固定。客户端仍0.27.0，尚未采用；[证据与G2边界](../docs/client/ai-failure-outcome.md#g1实际发布)。
+
 2026-10-16：新增[0.28.0](v0.28.0/README.md)的ai v2、受控请求失败与显式结果分支。四状态[Figma及边界](../docs/client/ai-failure-outcome.md)先行；ai-outcome-v1能力、取消/节点期限优先、未知用量和旧v1保持独立定义。当前仅G1，真实tag、客户端采用及模板运行另验。
 
 0.27.0实际发布：治理#776最新CI38841799153自动合并`5d9b087e8dcfdd9bcb680e7d42dc7a437127f7f0`，真实远端`contracts-v0.27.0`解引用相同，63份机器资料固定。作者结果/提醒实现与原生范围见[分层记录](../docs/client/author-sdk-debug.md#g2实现与人工证据)，其余SDK与完整业务继续。
