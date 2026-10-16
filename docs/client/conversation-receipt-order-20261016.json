@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-16",
+  "controlledRenderer": true,
+  "component": "ConversationPanel",
+  "modelCalls": 0,
+  "outboundActions": 0,
+  "before": {
+    "snapshotSequence": 3,
+    "lateReceiptSequence": 2,
+    "input": "本次保存输入 A",
+    "incorrectlyDirty": true
+  },
+  "after": {
+    "snapshotSequence": 3,
+    "lateReceiptSequence": 2,
+    "input": "来自较新快照的输入",
+    "dirty": false
+  },
+  "observations": {
+    "oldAndOtherSession": "较新输入保持",
+    "sequenceGap": "6/9完整快照恢复",
+    "unsavedLocalInput": "本人尚未保存的补充 B在跳号与手动重读后保持",
+    "normalSave": "正常保存输入 C，已保存且重挂载保持"
+  },
+  "unitTestsAddedOrRun": false,
+  "remaining": [
+    "native IPC delayed receipt schedule",
+    "real provider streaming failure cancellation reconnect matrix",
+    "real personal distillation and user confirmation",
+    "full BOSS login JD conversation and outbound receipts"
+  ],
+  "governance": {
+    "pr": 781,
+    "merge": "c1bca8bfe28fc28052c97181a7ed261bff56fa65",
+    "ci": 38849766815
+  },
+  "client": {
+    "pr": 286,
+    "source": "4f072f489b5da17168237ac4215bbddc2dfea68a",
+    "merge": "801231c489eb8615ce960567d20e84f74a2195fd",
+    "ci": 38849962870,
+    "contractsVersion": "0.27.0"
+  },
+  "installation": {
+    "asarSha256": "c3f58fe81d4f1e8689f241a04a1f69ea17ff2d33b96e4a552ec4ad94a5503ee3",
+    "dmgSha256": "2bd0a731f216b854cb138f9b892de9b328e4386bf3c3d1a7b6a6068587c9fb43",
+    "normalReopen": true,
+    "existingMaterialRuns": 1,
+    "interviewInputPreserved": true,
+    "missingResources": [
+      "ai",
+      "workspace"
+    ],
+    "runDisabled": true,
+    "preservation": {
+      "documentsEqual": true,
+      "eventsEqual": true,
+      "protectedKeyEqual": true,
+      "resumeUnchanged": true,
+      "installedMainProcessCount": 1
+    }
+  },
+  "localChecks": [
+    "pnpm typecheck",
+    "pnpm build",
+    "prettier --check src/renderer/ConversationPanel.tsx",
+    "git diff --check",
+    "pnpm package:mac"
+  ],
+  "nativeIpcDelayedReceiptVerified": false,
+  "realProviderNetworkVerified": false
+}
