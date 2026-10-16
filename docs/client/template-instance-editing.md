@@ -101,3 +101,18 @@ Schema对象中的可选数字清空表示省略该属性，不存为空文本�
 统一保存并离开的校验范围与实际请求一致：共享配置/资源以及本次变化的入口输入；未修改入口的中性空值不能阻止只保存共享配置。未完成原始输入必须先修正，不能跳过它后离开。单入口保存仍校验该入口完整值。无IPC、包、数据库或公共契约变化。
 
 Figma先行更新[模板实例2:973](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973)及[离开保护2:3779](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-3779)，修改文本2:1077、2:3862、2:3873，沿用单套Light/Dark变量与既有布局。此条为先行规格，客户端实现/安装和业务验收分别记录；真实Key访谈、Skill确认及BOSS登录/外发未因此通过。
+
+
+## 2026-10-16 · 未编辑空值修复交付（G2）
+
+治理[PR #792](https://github.com/zhongmiao-org/flow-ark/pull/792)先行，最新CI38866324336两项成功，合并`43bd70c7057b4b5952ee9438a6fdc2e1efc19c0b`。客户端[PR #289](https://github.com/zhongmiao-org/flow-ark-client/pull/289)源`dbdccc8b658fa012529f857ddff4e220938b493c`、最新[CI38866798905](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38866798905)的Validate/Auto Merge成功，实际合并`358a928f01d210a14d15e508954a901704cce50e`；旧38866796130因标签事件取消，不计通过。
+
+LiteralValue仅对用户未完成的原始编辑添加独立标记；实例导航和入口“未保存”由实际基线变化或该标记决定。Schema无效仍单独阻止运行/调试/计划；统一保存的入口校验范围与templateSaveRequest实际inputs一致，同时检查未完成原始输入，避免隐藏JSON被跳过。没有卸载隐藏表单、修改模板业务节点或放宽Host校验，无契约/IPC/SQLite变化。
+
+实际Renderer/Runtime隔离人工核对：修复前未编辑preflight即错误弹窗；修复后直接离开，中性空简历名有校验提示、无保存入口按钮且运行禁用。真实输入更改仍受保护，恢复基线直接离开。合成无约束字段的JSON仅输入左括号后切换标签，离开仍保护；保存并离开被阻止，返回修正保留原始文本，修正回基线后可离开。共享名称修改实际Host保存inputs为空；有效单入口保存仅提交profile-sources，其他中性空值不拦截；清空已保存必填字段阻止单入口及统一保存，Host未再收到请求。这是受控人工观察，JSON字段为明确合成组件夹具，未改写公开包或冒称业务模板制作。
+
+`pnpm typecheck`、`pnpm build`、修改文件Prettier、`git diff --check`及合并main的`pnpm package:mac`通过；按当前UI阶段未新增/运行单元测试。公开BOSS0.1.11包仅用于隔离观察，无真实Key/登录/外发。临时服务和标签已关闭。
+
+安装版ASAR `fcc5844d4ef277d81cfe6d04ce2ad6fe7a50b4030fdadd3e2ea44b213c1347c4`，DMG `ce186f8237aaa0d9f2e3239ee3e4709dd0258084d7b9da25bcf8f55a4eb080f1`；先关闭确切安装进程、确认零进程并备份原App/闭合工作区，再串行替换。原生Dark只读查看原个人蒸馏实例的README.md/initial、原1条解析Run、访谈缺ai/workspace禁运行；切到空更新要求后仍显示校验与缺资源，返回设置未再误弹未保存提示。最后恢复原AI服务设置页，两家仍未配置，唯一安装版主进程。原全部加密documents/events及受保护凭据与本批备份相同，未写真实业务资料或新建Run。安装/原生局部核对不计完整尺寸矩阵或真实求职验收。
+
+[机器记录](template-pristine-delivery-20261016.json)保留分层边界。继续独立个人蒸馏、真实自有Key/本人确认、BOSS可视化制作与完整账号闭环，186/U01–U12及Agent目标保持；长期目标仍进行中。
