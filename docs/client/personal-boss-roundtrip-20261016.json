@@ -1,0 +1,188 @@
+{
+  "scope": "actual Runtime/Worker and unmodified native-authored public personal-distillation 0.4.0; fictional files, protected-system and provider transport stubs; manual confirmations issued by observation driver, not real user confirmation",
+  "observations": [
+    {
+      "provider": "deepseek",
+      "runs": 9,
+      "sessions": 4,
+      "versions": 2,
+      "confirmedInterviewResumed": true,
+      "pendingBeforeConfirmation": true,
+      "internalTrial": true,
+      "singleSalaryAndMarkdownChange": true,
+      "unknownHandFieldsAndOldEvidenceRetained": true,
+      "oldVersionUnchanged": true,
+      "staleParentCannotPublish": true,
+      "ambiguousFragmentStopsBeforeModel": true,
+      "bossReadsExactGeneratedChild": true,
+      "bossDraftIncludesUpdatedSalaryContext": true,
+      "bossAccountAndActionEligibilityFalse": true,
+      "reopenedWithoutReplay": true
+    },
+    {
+      "provider": "openai-codex",
+      "runs": 9,
+      "sessions": 4,
+      "versions": 2,
+      "confirmedInterviewResumed": true,
+      "pendingBeforeConfirmation": true,
+      "internalTrial": true,
+      "singleSalaryAndMarkdownChange": true,
+      "unknownHandFieldsAndOldEvidenceRetained": true,
+      "oldVersionUnchanged": true,
+      "staleParentCannotPublish": true,
+      "ambiguousFragmentStopsBeforeModel": true,
+      "bossReadsExactGeneratedChild": true,
+      "bossDraftIncludesUpdatedSalaryContext": true,
+      "bossAccountAndActionEligibilityFalse": true,
+      "reopenedWithoutReplay": true
+    }
+  ],
+  "calls": [
+    {
+      "provider": "deepseek",
+      "kind": "conversation",
+      "mode": "synthesis"
+    },
+    {
+      "provider": "deepseek",
+      "kind": "conversation",
+      "mode": "synthesis"
+    },
+    {
+      "provider": "deepseek",
+      "kind": "structured",
+      "mode": "synthesis"
+    },
+    {
+      "provider": "deepseek",
+      "kind": "conversation",
+      "mode": "synthesis"
+    },
+    {
+      "provider": "deepseek",
+      "kind": "conversation",
+      "mode": "update"
+    },
+    {
+      "provider": "deepseek",
+      "kind": "structured",
+      "mode": "update"
+    },
+    {
+      "provider": "deepseek",
+      "kind": "conversation",
+      "mode": "update"
+    },
+    {
+      "provider": "deepseek",
+      "kind": "structured",
+      "mode": "update"
+    },
+    {
+      "provider": "deepseek",
+      "kind": "structured",
+      "mode": "boss",
+      "updatedSalaryPresent": true,
+      "fixedSkillPresent": true
+    },
+    {
+      "provider": "deepseek",
+      "kind": "structured",
+      "mode": "boss",
+      "updatedSalaryPresent": true,
+      "fixedSkillPresent": true
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "conversation",
+      "mode": "synthesis"
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "conversation",
+      "mode": "synthesis"
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "structured",
+      "mode": "synthesis"
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "conversation",
+      "mode": "synthesis"
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "conversation",
+      "mode": "update"
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "structured",
+      "mode": "update"
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "conversation",
+      "mode": "update"
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "structured",
+      "mode": "update"
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "structured",
+      "mode": "boss",
+      "updatedSalaryPresent": true,
+      "fixedSkillPresent": true
+    },
+    {
+      "provider": "openai-codex",
+      "kind": "structured",
+      "mode": "boss",
+      "updatedSalaryPresent": true,
+      "fixedSkillPresent": true
+    }
+  ],
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "status": "passed",
+  "date": "2026-10-16",
+  "clientMerge": "358a928f01d210a14d15e508954a901704cce50e",
+  "templatesMerge": "610ca12997e4bb7db8fbf61d8ef066cf045da4ad",
+  "personalPackage": {
+    "version": "0.4.0",
+    "sha256": "bd2b04ef25be466fc61b60040edd69f397dec123868db1f69973229a06709636"
+  },
+  "bossPackage": {
+    "version": "0.1.11",
+    "sha256": "ccae61bdae9e0b2f3799db434fb69173524f1a8ea806b6ec4466a3a421c06590"
+  },
+  "manualDriverSha256": "205cd3c3f1e580bf542ab765ca788dd5e5ace5915875fa07eaa061562b0f1955",
+  "totalRuns": 18,
+  "totalSessions": 8,
+  "totalVersions": 4,
+  "syntheticProviderRequests": 20,
+  "realUserProfilePreservation": {
+    "allDocumentPayloadsUnchanged": true,
+    "allEventPayloadsUnchanged": true,
+    "protectedCredentialFilesUnchanged": 1,
+    "runCount": 1,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "unitTestsAddedOrRun": false,
+  "sourceOrPackageModified": false,
+  "installationChanged": false,
+  "limitations": [
+    "protected-system operations and provider transport are explicit synthetic boundaries",
+    "confirmation operations issued by manual driver over wholly fictional materials; not the real user approving their Skill",
+    "no native IPC or full UI path in this increment",
+    "no real provider request, BOSS login, conversation account identity or outbound action acceptance",
+    "multi-document/project materials and remaining matrices still require separate implementation and acceptance"
+  ]
+}
