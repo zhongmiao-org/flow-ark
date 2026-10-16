@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.28.0模板消费者：BOSS客户端原始0.1.11检查点采用ai-outcome-v1，独立模板仓库固定70份发布机器资料；[编排/复导及受控运行证据](../docs/client/boss-ai-failure-branches.md#原生制作与分层验收)。不是新契约发布，不修改旧快照，真实用户Key与完整招聘验收仍待完成。
+
 0.28.0消费者状态：客户端[PR #287](https://github.com/zhongmiao-org/flow-ark-client/pull/287)经最新CI38858045170自动合并为`18e3e36a08c735c346d4c3912b850882c2786018`，70份机器资料固定采用，已从合并源打包安装；[G2运行与原生复导证据](../docs/client/ai-failure-outcome.md#g2客户端安装与原生复导)。公开BOSS0.1.8尚未升级，真实API/业务仍待验收。下列G1发布条目记录当时消费者状态。
 
 0.28.0实际发布：治理[PR #785](https://github.com/zhongmiao-org/flow-ark/pull/785)最新CI38854846762的Validate/Auto Merge成功，实际合并`49240f8f64fb158b083cae8728713605c2b6340c`。远端`contracts-v0.28.0`解引用同一提交，70份机器资料固定。客户端仍0.27.0，尚未采用；[证据与G2边界](../docs/client/ai-failure-outcome.md#g1实际发布)。

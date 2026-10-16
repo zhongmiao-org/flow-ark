@@ -1,0 +1,200 @@
+{
+  "date": "2026-10-16",
+  "scope": "G4 native BOSS template AI failure branch increment; not full business acceptance",
+  "governanceSpec": {
+    "pr": 788,
+    "ci": 38860646818,
+    "merge": "bcb81f9694bc2a1fce24114a356adc416031335f"
+  },
+  "figma": {
+    "file": "sVciNUZHG9yx81gCpYzjH9",
+    "node": "688:7891",
+    "width": 1440,
+    "height": 1080,
+    "counts": {
+      "FRAME": 36,
+      "TEXT": 33,
+      "INSTANCE": 8,
+      "ELLIPSE": 3,
+      "VECTOR": 21
+    },
+    "imageFills": 0,
+    "fonts": [
+      "Noto Sans SC",
+      "Inter"
+    ],
+    "staticSpecificationOnly": true
+  },
+  "contract": {
+    "version": "0.28.0",
+    "tag": "contracts-v0.28.0",
+    "commit": "49240f8f64fb158b083cae8728713605c2b6340c",
+    "files": 70
+  },
+  "nativeExport": {
+    "version": "0.1.11",
+    "size": 46332,
+    "files": 48,
+    "sha256": "ccae61bdae9e0b2f3799db434fb69173524f1a8ea806b6ec4466a3a421c06590",
+    "contentDigest": "5d4fcd436615e9784eb82b548c20a49704908ae4e96f38bd3b63d5132005fe61",
+    "nativeAuthorRevision": 19,
+    "messageCapabilities": [
+      "template-data-v1",
+      "skill-v1",
+      "ai-node-v1",
+      "ai-outcome-v1",
+      "template-sdk-v1",
+      "attention",
+      "context",
+      "script",
+      "condition",
+      "skill",
+      "ai"
+    ],
+    "oldFourFlowsUnchanged": true,
+    "promptsUnchanged": true,
+    "localRejectedCandidates": [
+      "0.1.9: native AX editor assignment not written",
+      "0.1.10: missing explicit message SDK/attention capabilities; import cancelled"
+    ]
+  },
+  "nativeConsumer": {
+    "instanceId": "40fa3557-8971-4763-a7c2-0639a87439f5",
+    "versions": 7,
+    "instances": 7,
+    "allResourcesInitiallyUnbound": true,
+    "newRuns": 0,
+    "emptyDefaultsAndManualTakeoverPreserved": true,
+    "missingProfileAiBlocked": true,
+    "sameInstanceReopened": true
+  },
+  "preservation": {
+    "author": {
+      "oldRunPayloadsUnchanged": true,
+      "allOldEventsUnchanged": true,
+      "protectedCredentialFilesUnchanged": true,
+      "runCount": 18,
+      "oldDocumentsChecked": 247,
+      "intentionalChangedOldDrafts": 1
+    },
+    "consumer": {
+      "oldRunPayloadsUnchanged": true,
+      "allOldEventsUnchanged": true,
+      "protectedCredentialFilesUnchanged": true,
+      "runCount": 10,
+      "oldDocumentsChecked": 133,
+      "intentionalChangedOldDrafts": 0
+    },
+    "private": {
+      "allDocumentsUnchanged": true,
+      "allEventsUnchanged": true,
+      "protectedCredentialFilesUnchanged": true,
+      "runCount": 1,
+      "beforeReopen": false,
+      "afterReopen": true,
+      "sameInstanceAndInputsVisible": true,
+      "realModelRequests": 0
+    }
+  },
+  "runtime": {
+    "scope": "real Runtime/Worker and unmodified native template ZIP with wholly fictional profile and protected-service/fetch stubs; not real user Skill confirmation/API or native business acceptance",
+    "observations": [
+      {
+        "provider": "deepseek",
+        "scenario": "jd-failure",
+        "entry": "job-assessment",
+        "runId": "f0123f44-9bf1-4ce2-8c75-a2a7eab94c5d",
+        "state": "SUCCEEDED",
+        "nextAction": "ask-user",
+        "stage": "jd-assessment",
+        "syntheticCalls": 1
+      },
+      {
+        "provider": "deepseek",
+        "scenario": "message-failure",
+        "entry": "message-draft",
+        "runId": "55108479-9d16-4e31-8a66-be7ac1b16586",
+        "state": "SUCCEEDED",
+        "nextAction": "ask-user",
+        "stage": "message-draft",
+        "syntheticCalls": 2
+      },
+      {
+        "provider": "deepseek",
+        "scenario": "success",
+        "entry": "message-draft",
+        "runId": "1dfeb06f-e278-4280-8765-f3d3e8241d5f",
+        "state": "SUCCEEDED",
+        "nextAction": "review-draft",
+        "stage": null,
+        "syntheticCalls": 2
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "jd-failure",
+        "entry": "job-assessment",
+        "runId": "d108dff0-ab7a-4ec1-b0f6-24d6248d2cc5",
+        "state": "SUCCEEDED",
+        "nextAction": "ask-user",
+        "stage": "jd-assessment",
+        "syntheticCalls": 1
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "message-failure",
+        "entry": "message-draft",
+        "runId": "d35c156f-39dd-4181-b8e9-ab2bbcd63ee9",
+        "state": "SUCCEEDED",
+        "nextAction": "ask-user",
+        "stage": "message-draft",
+        "syntheticCalls": 2
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "success",
+        "entry": "message-draft",
+        "runId": "84d79f43-f685-4b6d-a971-84e1dcf1a762",
+        "state": "SUCCEEDED",
+        "nextAction": "review-draft",
+        "stage": null,
+        "syntheticCalls": 2
+      }
+    ],
+    "runs": 6,
+    "syntheticFetchCalls": 10,
+    "reopenedWithoutReplay": true,
+    "duplicateFailureKeepsFirstOriginAndRead": true,
+    "realModelRequests": 0,
+    "outboundActions": 0,
+    "status": "passed"
+  },
+  "checks": {
+    "pnpm validate": "passed",
+    "pnpm build": "passed",
+    "pinnedChecksums": "passed",
+    "publicBoundaries": "passed",
+    "git diff --check": "passed"
+  },
+  "unitTestsAddedOrRun": false,
+  "clientCodeChangedOrRepackaged": false,
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "remaining": [
+    "full failure and semantic matrix",
+    "real user Key distillation and user confirmation",
+    "complete onmessage ordering and failure matrix",
+    "authenticated account/job/conversation and all recruiting outbound acceptance",
+    "full G3-G5, 186/U01-U12 and Agent flow generation"
+  ],
+  "templateDelivery": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-templates/pull/13",
+    "source": "35c245e01b115813313ae7787d0b7a63fa1c2bc9",
+    "merge": "610ca12997e4bb7db8fbf61d8ef066cf045da4ad",
+    "ciRun": 38862764488,
+    "checks": [
+      "Validate:success",
+      "Auto Merge:success"
+    ],
+    "olderCancelledRun": 38862746706
+  }
+}
