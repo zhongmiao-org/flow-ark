@@ -1,0 +1,217 @@
+{
+  "date": "2026-10-16",
+  "scope": "Native client visual authoring, exact original ZIP, fictional controlled Runtime/Worker and independent native import. Not real user confirmation, provider acceptance or complete recruiting acceptance.",
+  "template": {
+    "pr": 14,
+    "source": "fc55ca5e8ecba2191df6d2e069400013f5a40130",
+    "version": "0.5.1",
+    "sha256": "9ec2b05c897b00de483e565ff27b7d8f8ab7613461b98c65f75ab14a5cd728d5",
+    "contentDigest": "0435c8874a23cbcdab07ea2eda5cec78cdba90754ba17e448796a7eab86c21a7",
+    "merge": "0897a10221826a3419fd78e29b29a07338fc764b",
+    "ci": 38876655130
+  },
+  "contracts": {
+    "tag": "contracts-v0.29.0",
+    "baseline": "9501c80d55ae1fee8c75a22904f353c5f09a2f23",
+    "machineFiles": 71
+  },
+  "materialsCandidate": {
+    "scope": "Actual Runtime/Worker with unmodified native candidate ZIP; wholly fictional files, no real credentials or network",
+    "nativeCompiledSourceMatches": true,
+    "updateFlowBytesUnchanged": true,
+    "observations": [
+      {
+        "case": "ready",
+        "files": [
+          "resume.md"
+        ],
+        "runId": "5f9aadd0-f815-4fdb-9580-cc14c4304ed7",
+        "totals": {
+          "files": 1,
+          "characters": 28,
+          "contextBytes": 407
+        },
+        "sourceOrderPreserved": true,
+        "realSources": true
+      },
+      {
+        "case": "ready",
+        "files": [
+          "resume.md",
+          "project.md"
+        ],
+        "runId": "8ad3bbc0-0826-4231-bfc3-2b49fa4cf5dd",
+        "totals": {
+          "files": 2,
+          "characters": 49,
+          "contextBytes": 787
+        },
+        "sourceOrderPreserved": true,
+        "realSources": true
+      },
+      {
+        "case": "ready",
+        "files": [
+          "project.md",
+          "resume.md"
+        ],
+        "runId": "0e970fe6-875e-4186-94cc-1ab8081a7523",
+        "totals": {
+          "files": 2,
+          "characters": 49,
+          "contextBytes": 787
+        },
+        "sourceOrderPreserved": true,
+        "realSources": true
+      },
+      {
+        "case": "review",
+        "files": [
+          "empty.txt"
+        ],
+        "runId": "5cce63b8-d967-49cb-922a-271bffbce5de",
+        "totals": {
+          "files": 1,
+          "characters": 0,
+          "contextBytes": 287
+        },
+        "contextNull": false,
+        "issues": [
+          "empty.txt：正文为空，请本人核对"
+        ]
+      },
+      {
+        "case": "review",
+        "files": [
+          "large-a.txt",
+          "large-b.txt"
+        ],
+        "runId": "1129f40b-0430-4d46-8e9b-1b37723f9a4c",
+        "totals": {
+          "files": 2,
+          "characters": 50001,
+          "contextBytes": 50560
+        },
+        "contextNull": true,
+        "issues": [
+          "资料合计超过50,000字符或192KiB上下文；未截断、未建立访谈"
+        ]
+      },
+      {
+        "case": "review",
+        "files": [
+          "utf8-a.txt",
+          "utf8-b.txt"
+        ],
+        "runId": "0f97229e-eac1-4e4e-9a87-c03fd17bde60",
+        "totals": {
+          "files": 2,
+          "characters": 48598,
+          "contextBytes": 252009
+        },
+        "contextNull": true,
+        "issues": [
+          "资料合计超过50,000字符或192KiB上下文；未截断、未建立访谈"
+        ]
+      },
+      {
+        "case": "failure",
+        "files": [
+          "missing.txt"
+        ],
+        "runId": "73288b12-e3d7-4469-9e1b-b01e542c6bf6",
+        "noResult": true
+      },
+      {
+        "case": "failure",
+        "files": [
+          "../outside.txt"
+        ],
+        "runId": "c99816cd-9bb3-4a86-bed4-01948ca5ae04",
+        "noResult": true
+      }
+    ],
+    "reopenedWithoutReplay": true,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "fullCandidateInterview": {
+    "scope": "Actual Runtime/Worker and unmodified native-authored 0.5.1 candidate; wholly fictional files/key/provider transport; manual confirmation is synthetic, not user confirmation",
+    "compiledSourceMatches": true,
+    "updateBytesUnchanged": true,
+    "promptBytesMatch": true,
+    "observations": [
+      {
+        "sameListResumes": true,
+        "orderAndContentIsolate": true,
+        "initialModelRequests": 0
+      },
+      {
+        "emptyAndBothBudgetsStopBeforeSession": true
+      },
+      {
+        "confirmedMultiSourceSkillPending": true,
+        "bothDocumentAndActualConversationEvidence": true,
+        "syntheticProviderRequests": 2
+      }
+    ],
+    "runs": 8,
+    "sessions": 3,
+    "versions": 0,
+    "pendingSkills": 1,
+    "calls": [
+      {
+        "stream": true,
+        "bothFiles": true
+      },
+      {
+        "stream": false,
+        "bothFiles": true
+      }
+    ],
+    "reopenedWithoutReplay": true,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "native": {
+    "archiveSha256": "9ec2b05c897b00de483e565ff27b7d8f8ab7613461b98c65f75ab14a5cd728d5",
+    "authorRevision": 11,
+    "independentNativeImport": true,
+    "initialAllResourcesUnbound": true,
+    "initialFilesEmpty": true,
+    "missingAIWorkspaceBlocksInterview": true,
+    "materialsInputs": [
+      "resume.md",
+      "project.md"
+    ],
+    "materialsRun": "92958e58-d326-4f88-9796-92fb493d28ee",
+    "state": "SUCCEEDED",
+    "bothDocumentSourcesViewed": true,
+    "normalReopenRetainsInputsAndRun": true,
+    "runCount": 1,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "preservation": {
+    "allDocumentPayloadsUnchanged": true,
+    "allEventPayloadsUnchanged": true,
+    "protectedCredentialFilesUnchanged": 1,
+    "runCount": 1,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "probeNotes": [
+    "Initial UTF8 sample was 181209 bytes, within 192KiB; driver expectation was corrected using a new isolated record directory. No product code change; six initial probe Runs are separate from the final eight-case materials matrix.",
+    "Initial direct code comparison saw @package references; resolved packaged compiled JavaScript and compared exact esbuild output.",
+    "Initial attempt to save undeclared params.files was rejected; declared parameter before saving.",
+    "Same identity/version content replacement was rejected after local 0.5.0 export; full candidate advanced to 0.5.1."
+  ],
+  "remaining": [
+    "PDF/DOCX/partial and exact boundary coverage",
+    "real own-Key conversation, user trial and explicit confirmation",
+    "actual resume materials and BOSS account integration",
+    "complete onmessage faults and full G3-G5/186/Agent goals"
+  ],
+  "realModelRequests": 0,
+  "outboundActions": 0
+}

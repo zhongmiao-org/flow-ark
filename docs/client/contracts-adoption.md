@@ -1,5 +1,7 @@
 # 固定契约来源
 
+2026-10-16 模板采用：独立模板[PR #14](https://github.com/zhongmiao-org/flow-ark-templates/pull/14)固定真实`contracts-v0.29.0`的71份机器资料，治理基线`9501c80d55ae1fee8c75a22904f353c5f09a2f23`。最新CI38876655130自动合并`0897a10221826a3419fd78e29b29a07338fc764b`，原始多资料0.5.1 ZIP与精确提取/可编译源码核对；[分层记录](personal-distillation-materials.md#客户端制作与独立复导检查点)。SDK1.0/包2.0保持；不计完整业务通过。
+
 2026-10-16 最新采用：客户端[PR #291](https://github.com/zhongmiao-org/flow-ark-client/pull/291)固定真实`contracts-v0.29.0`，治理基线`9501c80d55ae1fee8c75a22904f353c5f09a2f23`（治理#796），71份机器资料摘要核对。最新CI38872999417自动合并`7baf08892d2a8bd8e40bf633cc58deb9ed65abbb`，源与合并树一致；通用数组能力、安装与原生复导范围见[分层记录](template-array-rules.md#g2客户端安装与原生复导)。Flow/ZIP/SDK/IPC/SQLite保持，不计完整业务验收。
 
 2026-10-16 最新采用：客户端[PR #284](https://github.com/zhongmiao-org/flow-ark-client/pull/284)固定真实`contracts-v0.26.0`，治理基线`ba92f4c886de13947a6cb735b8a4cb06c6e8fd30`；57份机器资料摘要与再生成核对。最新CI38833989212自动合并`839113c23af0c917412964c0d2ede60d2e235d13`。模板提醒origin由宿主生成，原始详情独立、同键保留首次，旧来源不回填；SDK1.0/包2.0/SQLite表保持。真实Worker与原生范围见[分层记录](template-attention-origin.md)。
