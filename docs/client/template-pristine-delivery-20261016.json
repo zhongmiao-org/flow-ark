@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-16",
+  "scope": "template pristine input leave protection correction; partial UI increment",
+  "governance": {
+    "pr": 792,
+    "merge": "43bd70c7057b4b5952ee9438a6fdc2e1efc19c0b",
+    "ciRun": 38866324336
+  },
+  "client": {
+    "pr": 289,
+    "source": "dbdccc8b658fa012529f857ddff4e220938b493c",
+    "merge": "358a928f01d210a14d15e508954a901704cce50e",
+    "ciRun": 38866798905,
+    "checks": [
+      "Validate:success",
+      "Auto Merge:success"
+    ],
+    "contractsVersionUnchanged": "0.28.0"
+  },
+  "figma": {
+    "boards": [
+      "2:973",
+      "2:3779"
+    ],
+    "editedTexts": [
+      "2:1077",
+      "2:3862",
+      "2:3873"
+    ],
+    "newNodes": 0
+  },
+  "manual": {
+    "scope": "actual Renderer + Runtime with native-authored public BOSS 0.1.11 package; unconstrained JSON field only in explicit synthetic component fixture",
+    "manualChecks": [
+      "before: pristine preflight leave falsely opens unsaved dialog because hidden entries invalid",
+      "after: untouched public instance leaves directly",
+      "neutral invalid resume field shows correction notice, disabled Run and no unsaved save button",
+      "real resume filename edit opens leave guard; restoring baseline empty leaves directly",
+      "unparseable JSON hidden behind configuration tab opens guard even when parsed value unchanged",
+      "save-and-leave refuses hidden incomplete JSON; return-to-correction retains raw opening brace",
+      "repair JSON to baseline clears leave guard",
+      "actual Host accepts name-only shared save with inputs empty despite untouched invalid entries",
+      "actual Host accepts valid single-entry save with other invalid entries untouched",
+      "clearing saved required filename blocks explicit entry save and save-and-leave without another Host request"
+    ],
+    "hostSaveCalls": [
+      {
+        "name": "虚构共享配置保存",
+        "inputs": []
+      },
+      {
+        "name": "虚构共享配置保存",
+        "inputs": [
+          "profile-sources"
+        ]
+      }
+    ],
+    "realModelRequests": 0,
+    "outboundActions": 0,
+    "unitTestsAddedOrRun": false,
+    "status": "passed",
+    "limitations": [
+      "not real API or BOSS account acceptance",
+      "native installation verification recorded separately"
+    ]
+  },
+  "installation": {
+    "source": "dbdccc8b658fa012529f857ddff4e220938b493c",
+    "merge": "358a928f01d210a14d15e508954a901704cce50e",
+    "previousAsar": "edbf54bdbd1bef44c2e762142b417cb930ee0fb094243fcff7b6fc643be5fdbd",
+    "installedAsar": "fcc5844d4ef277d81cfe6d04ce2ad6fe7a50b4030fdadd3e2ea44b213c1347c4",
+    "dmgSha256": "ce186f8237aaa0d9f2e3239ee3e4709dd0258084d7b9da25bcf8f55a4eb080f1"
+  },
+  "preservation": {
+    "allDocumentPayloadsUnchanged": true,
+    "allEventPayloadsUnchanged": true,
+    "protectedCredentialFilesUnchanged": 1,
+    "runCount": 1,
+    "realModelRequests": 0,
+    "outboundActions": 0,
+    "samePersonalInstanceAndReadmeInitial": true,
+    "neutralUpdateInputStillInvalidAndRunDisabled": true,
+    "readonlyLeaveToSettingsWithoutFalseDialog": true,
+    "originalAiSettingsRestored": true,
+    "aiProvidersStillUnconfigured": true,
+    "singleInstalledMainPid": 33828
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "changedFilePrettier": "passed",
+    "gitDiffCheck": "passed",
+    "macPackage": "passed"
+  },
+  "unitTestsAddedOrRun": false,
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "remaining": [
+    "real user Key interview and Skill confirmation",
+    "BOSS real login and complete outbound acceptance",
+    "G3-G5 and 186/U01-U12 and Agent goal"
+  ]
+}
