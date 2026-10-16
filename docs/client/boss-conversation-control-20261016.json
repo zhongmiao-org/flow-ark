@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-16",
+  "status": "bounded-native-checkpoint-not-complete-g4-g5",
+  "designGovernancePr": "https://github.com/zhongmiao-org/flow-ark/pull/800",
+  "templatePr": "https://github.com/zhongmiao-org/flow-ark-templates/pull/15",
+  "templateSourceCommit": "6bfa15c8fd99cd857d7fd7aa311623e0361fe923",
+  "templateMergeCommit": "2fe824ae22a5558c2ebdf90454b056b224ea41d1",
+  "templateLatestCi": {
+    "runId": 38882267078,
+    "validate": "SUCCESS",
+    "autoMerge": "SUCCESS",
+    "olderCancelledRun": 38882265451
+  },
+  "clientSourceCommit": "443a540c4318b93f1f1ec0a1eada2f32d6d2833f",
+  "contractsVersion": "0.29.0",
+  "installedAsarSha256": "026f758be50ebdd0855aa5a37644768186b587303983b90932c7e5fc432f977f",
+  "archiveSha256": "eb8fb1feea0a28724029956d6d0fbc77120272fa25bcd1b215925303b512fa0f",
+  "contentDigest": "3e376293381701a15b9e84f00278ca3ebe35231a5e05be7864464a3fcb5ffa9a",
+  "nativeAuthoring": {
+    "sourceVersion": "0.1.11",
+    "finalVersion": "0.2.1",
+    "draftRevision": 12,
+    "entryCount": 7,
+    "controlNodes": 7,
+    "messageNodes": 19,
+    "originalArchiveNotRewritten": true,
+    "scriptSourceMappings": 26,
+    "newCompiledSourceComparisons": 6,
+    "unchangedPriorFlows": 5,
+    "unpublishedCandidate": "0.2.0 limitation disclosure amended through client"
+  },
+  "controlledRuntime": {
+    "scope": "Actual Runtime/Worker, original native-authored 0.2.1 ZIP; wholly fictional Skill, credentials and intercepted provider; mid-model state changes injected through host state writer, separate from queued native entry",
+    "originalArchive": true,
+    "sourceMatches": 6,
+    "unchangedPriorFlows": 5,
+    "entryNodes": {
+      "control": 7,
+      "message": 19
+    },
+    "observations": [
+      {
+        "case": "default-unbound-and-deny",
+        "passed": true
+      },
+      {
+        "case": "pause-no-resources-duplicate-and-isolation",
+        "passed": true
+      },
+      {
+        "case": "review-required-and-identical-resume",
+        "passed": true
+      },
+      {
+        "case": "unknown-conversation",
+        "passed": true,
+        "requests": 0
+      },
+      {
+        "case": "paused-conversation",
+        "passed": true,
+        "requests": 0
+      },
+      {
+        "case": "changed-message",
+        "passed": true,
+        "requests": 0
+      },
+      {
+        "case": "changed-jd",
+        "passed": true,
+        "requests": 0
+      },
+      {
+        "case": "manual-takeover",
+        "passed": true,
+        "requests": 0
+      },
+      {
+        "case": "new-run-configuration-change",
+        "passed": true
+      },
+      {
+        "case": "unchanged-scope-two-model-draft",
+        "passed": true,
+        "requests": 2
+      },
+      {
+        "case": "mutate-first",
+        "passed": true,
+        "requests": 1,
+        "scope": "controlled host state change injection; not concurrent native control entry"
+      },
+      {
+        "case": "mutate-second",
+        "passed": true,
+        "requests": 2,
+        "scope": "controlled host state change injection; not concurrent native control entry"
+      },
+      {
+        "case": "other-second",
+        "passed": true,
+        "requests": 2,
+        "scope": "controlled host state change injection; not concurrent native control entry"
+      },
+      {
+        "case": "native-control-entry-queues-after-active-run",
+        "passed": true,
+        "limitation": "no immediate in-flight takeover"
+      }
+    ],
+    "runs": 24,
+    "syntheticRequests": 9,
+    "realModelRequests": 0,
+    "outboundActions": 0,
+    "reopenedWithoutReplay": true,
+    "remaining": [
+      "immediate control lane",
+      "CAS conflict/cancel/result-storage-failure behavior",
+      "real user Key and Skill confirmation",
+      "actual account/JD/message source",
+      "onmessage sequence and external actions"
+    ]
+  },
+  "nativeConsumer": {
+    "freshImportUnboundAndDenied": true,
+    "aiRequiredForControl": false,
+    "browserOrSkillRequiredForControl": false,
+    "operations": [
+      "pause state revision 0 to 1",
+      "repeat pause uses unchanged branch without write",
+      "reviewed internal-draft resume revision 1 to 2, epoch 2"
+    ],
+    "modelRequests": 0,
+    "allEncryptedDocumentsUnchanged": true,
+    "allEventsUnchanged": true,
+    "runs": 3,
+    "templateResults": 3,
+    "stateOperations": 2
+  },
+  "originalWorkspace": {
+    "allEncryptedDocumentsUnchanged": true,
+    "allEventsUnchanged": true,
+    "credentialsUnchanged": true,
+    "runs": 2,
+    "reopenedWithoutReplay": true,
+    "interviewInputsPreserved": true,
+    "onlyAiBindingMissing": true,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "checks": {
+    "pnpm validate": "passed",
+    "pnpm build": "passed",
+    "git diff --check": "passed",
+    "unitTests": "not added or run per current phase"
+  },
+  "limitations": [
+    "Single execution slot queues the separate control Run after the active Run; no immediate in-flight takeover. Cancel active Run and verify completion before running pause.",
+    "Configuration is fixed at Run start. Re-reading control state does not detect all configuration edits during the same Run.",
+    "Mid-model control mutations were injected using host state writer; these observations do not prove a concurrent native pause entry.",
+    "CAS conflict, cancellation boundary and post-commit result-storage failure matrix remain unverified.",
+    "No real user provider request, user Skill confirmation, site account/JD/message source, complete onmessage ordering or external recruiting acceptance."
+  ]
+}
