@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-16 即时接管通用前置：先补[停止本实例后执行入口的四状态Figma与0.30.0](docs/client/entry-handoff.md)，复用取消/回收、固定来源和单槽，精确范围/同请求幂等/重开不重放先定义。当前G1，公开BOSS0.2.1与原个人资料保持，完整主线继续。
+
 2026-10-16 会话控制制作检查点：先行治理#800/Figma后，客户端可视化完成七步控制与十九步来信、原始BOSS0.2.1；受控24Run/9模拟请求及独立原生3Run/重开取得局部证据，见[制作与限制](docs/client/boss-conversation-control.md#2026-10-16-原生制作与分层核对)。发现当前单运行槽使控制入口排在活跃Run后，不能立即接管；通用即时控制通道列为下一缺口，未据状态注入冒充原生并发。真实模型/外发0，原个人资料2条Run/加密记录/凭据保持；完整onmessage、真实Key/本人确认和G3–G5/186/Agent继续。
 
 2026-10-16 会话接管先行：现有来信manualTakeover仅一次输入，先补[三种Figma状态与跨Run控制规则](docs/client/boss-conversation-control.md)，复用现有context状态/CAS和模板SDK；业务键/Schema归模板。当前仅G1，未制作或保护真实发送，公开0.1.11及原个人工作区保持，完整主线继续。

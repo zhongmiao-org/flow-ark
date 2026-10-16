@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-16：新增[0.30.0](v0.30.0/README.md)的通用模板入口停止后执行请求/回执及格式资料，保持单槽、固定来源、明确取消范围、同请求幂等与恢复不重放。四状态[Figma/消费者门槛](../docs/client/entry-handoff.md)先行；当前G1，发布和客户端采用另行核对。
+
 2026-10-16：新增[0.29.0](v0.29.0/README.md)的通用模板数组minItems/uniqueItems与一致校验资料，原包/节点/SDK/SQLite不变；[Figma与消费者门槛](../docs/client/template-array-rules.md)先行。客户端尚未采用，本条仅G1，真实tag与消费者交付另验。
 
 0.28.0模板消费者：BOSS客户端原始0.1.11检查点采用ai-outcome-v1，独立模板仓库固定70份发布机器资料；[编排/复导及受控运行证据](../docs/client/boss-ai-failure-branches.md#原生制作与分层验收)。不是新契约发布，不修改旧快照，真实用户Key与完整招聘验收仍待完成。
