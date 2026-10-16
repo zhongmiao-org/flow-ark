@@ -1,5 +1,7 @@
 # 作者副本的结果与提醒SDK调试
 
+2026-10-16后续：前批所列第二消费者重新绑定资料后的实际运行缺口已补，见[独立消费者复用](boss-source-reuse-20261016.md)。消费者使用正式0.1.4实例与自身合成Skill，不是作者SDK的新操作支持；其他SDK和完整业务仍待验收。
+
 2026-10-16，接续[0.1.4资料来源入口](boss-profile-sources.md)。上一批原生副本制作完成，但正式SDK在Templates.context要求bindings.template；作者副本不属于实例，因此result/attention无法完成整个分支。复用既有Store、Run、作者副本和SDK调用通道，先补通用固定上下文，业务脚本与判断仍归模板仓库。
 
 ## 已确认范围
