@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-16",
+  "scope": "BOSS neutral shared conditions and independent read-only consistency entry",
+  "status": "in-progress",
+  "governanceDesign": {
+    "pr": 772,
+    "merge": "2c48f445ff0875b85321d1a1b4dc7fa128e83571",
+    "latestCi": "38835127219",
+    "validate": "success",
+    "autoMerge": "success",
+    "figmaFrames": [
+      "574:5896",
+      "574:6002",
+      "574:6108"
+    ],
+    "allFinalScreenshotsViewed": true
+  },
+  "baseline": {
+    "clientMerge": "839113c23af0c917412964c0d2ede60d2e235d13",
+    "installedAsar": "5d94abc7a316d27049e10f387d24869013c172f1895c0b98c18a6df4ffd14581",
+    "clientContracts": "0.26.0",
+    "templateContractsUnchanged": "0.25.0",
+    "sdkVersion": "1.0",
+    "clientCodeChanged": false,
+    "packageBuiltOrInstalledThisBatch": false
+  },
+  "archive": {
+    "version": "0.1.3",
+    "bytes": 12067,
+    "sha256": "239042d0a292ebb3aa079d3a5b4c7e067458065dd6b3d126ffdd0f2fbb533f00",
+    "contentDigest": "4033c193c21729fff8006212e2885c4ef2aa23597ac802e1adb9bd4921a34cd8",
+    "authorRevision": 9,
+    "files": 20,
+    "scriptSources": 6,
+    "originalOpenAndPreflightBytesUnchanged": true,
+    "conditionsSteps": 5,
+    "conditionsResources": 0,
+    "actions": 0,
+    "entryCount": 3,
+    "clientExportUnmodified": true,
+    "publicBoundaryScanPassed": true
+  },
+  "nativeAuthor": {
+    "schemaTreeEdited": true,
+    "referencesPickedInUi": true,
+    "scriptSyntaxChecked": true,
+    "debugReadAndCheckCompleted": true,
+    "debugCancelledBeforeBranch": true,
+    "fullAuthorSdkDebugVerified": false,
+    "formalRuns": [
+      {
+        "id": "20375576-7498-4c0a-943d-73816b6d0c8f",
+        "revision": 1,
+        "status": "needs-review",
+        "runState": "SUCCEEDED"
+      },
+      {
+        "id": "b7adfe9c-f372-49d2-a5d2-6366e660a9c4",
+        "revision": 2,
+        "status": "ready",
+        "runState": "SUCCEEDED"
+      },
+      {
+        "id": "f8b0788a-4a65-4ff0-9bc0-7bab051acee9",
+        "revision": 3,
+        "status": "needs-review",
+        "issues": [
+          "exact target/exclusion overlap",
+          "salary maximum lower than minimum"
+        ],
+        "runState": "SUCCEEDED"
+      },
+      {
+        "id": "1a138d4b-1a41-464d-8701-6cf722807718",
+        "revision": 3,
+        "status": "needs-review",
+        "firstSourceAndReadRetained": true,
+        "runState": "SUCCEEDED"
+      }
+    ]
+  },
+  "consumer": {
+    "instanceId": "f2b8c4b6-199d-48d8-afc5-4d1cec52b7ef",
+    "versionsCoexist": [
+      "0.1.1",
+      "0.1.2",
+      "0.1.3"
+    ],
+    "arraysEmptyAndSalaryZero": true,
+    "browserInitiallyUnbound": true,
+    "webEntriesBlocked": true,
+    "conditionsEntryRunnable": true,
+    "runId": "d4aeb313-dea9-4f46-8076-b3cd01c2df35",
+    "runState": "SUCCEEDED",
+    "independentReminderSource": true,
+    "reopenRunCount": 6,
+    "reopenAttentionCount": 4,
+    "noAutoReplay": true
+  },
+  "templateDelivery": {
+    "pr": 9,
+    "source": "36478c20084b6fa7edf3ec79e6880e75bfb98b6f",
+    "merge": "63d5f5b4c783ef55de5734ec1318b4709748c904",
+    "latestCi": "38837149971",
+    "validate": "success",
+    "autoMerge": "success"
+  },
+  "verification": {
+    "pnpmValidate": "passed; existing build and byte/source checks",
+    "diffCheck": "passed",
+    "unitTestsAddedOrRun": false,
+    "modelCalls": 0,
+    "recruitingOutboundActions": 0,
+    "originalTablesAndProtectedCredentialsUnchanged": true,
+    "authorWorkspaceRestored": true
+  },
+  "remaining": [
+    "full author checkout template SDK debugging",
+    "whitespace/normalization duplicates/list bounds/malformed input/fault and layout matrices",
+    "full personal distillation with user Key",
+    "logged-in complete JD/conversation matching and recruiting actions",
+    "complete G3-G5 and 186/U01-U12/Agent targets"
+  ]
+}
