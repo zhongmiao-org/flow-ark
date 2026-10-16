@@ -6,6 +6,8 @@
 
 ## 2026-10-15 可视化模板制作与个人 Skill 决策
 
+2026-10-16 作者SDK增量：实际编排副本缺少正式模板上下文，先定义[0.27.0](../contracts/v0.27.0/README.md)的固定作者结果结构/能力/来源、Run快照和独立调试结果/提醒。仅result/attention本机调试，不创建正式实例，不扩展其他SDK或外发权限；私有元数据不带回定义或ZIP，原正式来源和记录保持。四状态Figma及消费者门槛见[作者SDK](client/author-sdk-debug.md)，发布与实现分别核对。
+
 2026-10-16 模板提醒来源增量：宿主从已核验Run及固定模板引用生成独立origin，原始detail不作为可信来源；同实例同key保留首次记录，既有缺失来源不回填。先行[0.26.0契约](../contracts/v0.26.0/README.md)与[三状态Figma](client/template-attention-origin.md)，包2.0/SDK1.0及SQLite表不变，查看/已读不执行流程或授予动作。
 
 2026-10-16 网页只读核对增量：BOSS制作核对发现驱动/SDK已有当前网址、统计和属性操作，但可视化节点及动态定位引用缺失。先补[0.25.0契约](../contracts/v0.25.0/README.md)与[两主题Figma规格](client/browser-inspection.md)，browser v4只承载三个通用只读操作，保留0/null/空属性区别、原始属性和唯一性，独立观察不成为外发授权或原子页面快照。包/SDK/IPC/SQLite不变，站点定位仍归模板；客户端采用与真实网页运行另验。
