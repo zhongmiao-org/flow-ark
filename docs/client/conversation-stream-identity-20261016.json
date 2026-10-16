@@ -1,0 +1,319 @@
+{
+  "date": "2026-10-16",
+  "scope": "S08 partial stream identity correction; not full conversation/business acceptance",
+  "governance": {
+    "pr": 790,
+    "merge": "63aab82aca0e5beadec64a166c70550fb7384241",
+    "ciRun": 38863865988
+  },
+  "client": {
+    "pr": 288,
+    "source": "01a5556dd04a2fca90de90bbafa066e8571bca18",
+    "merge": "5e4733c22e397102b349197aebdf64256e2ff501",
+    "ciRun": 38864688000,
+    "checks": [
+      "Validate:success",
+      "Auto Merge:success"
+    ],
+    "contractsVersionUnchanged": "0.28.0"
+  },
+  "figma": {
+    "boards": [
+      "505:5588",
+      "505:5848"
+    ],
+    "editedTexts": [
+      "505:5656",
+      "505:5658",
+      "505:5917"
+    ],
+    "newNodes": 0,
+    "compositionScreenshotsReviewed": true
+  },
+  "before": {
+    "scope": "actual Conversations host, SSE adapter, encrypted Store and onmessage publication; wholly fictional transport and Key; no real API",
+    "observations": [
+      {
+        "provider": "deepseek",
+        "scenario": "valid",
+        "status": "ready",
+        "assistant": "甲乙",
+        "messageState": "complete",
+        "error": "",
+        "attempts": 1
+      },
+      {
+        "provider": "deepseek",
+        "scenario": "id-swap",
+        "status": "ready",
+        "assistant": "甲乙",
+        "messageState": "complete",
+        "error": "",
+        "attempts": 1
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "valid",
+        "status": "ready",
+        "assistant": "甲乙",
+        "messageState": "complete",
+        "error": "",
+        "attempts": 1
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "item-swap",
+        "status": "ready",
+        "assistant": "甲乙",
+        "messageState": "complete",
+        "error": "",
+        "attempts": 1
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "response-swap",
+        "status": "ready",
+        "assistant": "甲乙",
+        "messageState": "complete",
+        "error": "",
+        "attempts": 1
+      }
+    ],
+    "requests": 5,
+    "realModelRequests": 0,
+    "events": 15
+  },
+  "afterSameFive": {
+    "scope": "actual Conversations host, SSE adapter, encrypted Store and onmessage publication; wholly fictional transport and Key; no real API",
+    "observations": [
+      {
+        "provider": "deepseek",
+        "scenario": "valid",
+        "status": "ready",
+        "assistant": "甲乙",
+        "messageState": "complete",
+        "error": "",
+        "attempts": 1
+      },
+      {
+        "provider": "deepseek",
+        "scenario": "id-swap",
+        "status": "failed",
+        "assistant": "甲",
+        "messageState": "partial",
+        "error": "AI 消息流的响应身份不一致",
+        "attempts": 1
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "valid",
+        "status": "ready",
+        "assistant": "甲乙",
+        "messageState": "complete",
+        "error": "",
+        "attempts": 1
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "item-swap",
+        "status": "failed",
+        "assistant": "甲",
+        "messageState": "partial",
+        "error": "AI 正文所属消息身份不一致",
+        "attempts": 1
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "response-swap",
+        "status": "failed",
+        "assistant": "甲乙",
+        "messageState": "partial",
+        "error": "AI 消息流的响应身份不一致",
+        "attempts": 1
+      }
+    ],
+    "requests": 5,
+    "realModelRequests": 0,
+    "events": 12
+  },
+  "finalMatrix": {
+    "scope": "actual Conversations host/SSE parser/encrypted Store/onmessage with fully synthetic transport and Key; not real API/IPC/business acceptance",
+    "observations": [
+      {
+        "provider": "deepseek",
+        "scenario": "valid",
+        "state": "ready",
+        "messageState": "complete",
+        "text": "甲乙",
+        "error": ""
+      },
+      {
+        "provider": "deepseek",
+        "scenario": "id-swap",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "甲",
+        "error": "AI 消息流的响应身份不一致"
+      },
+      {
+        "provider": "deepseek",
+        "scenario": "usage-id-swap",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "甲乙",
+        "error": "AI 消息流的响应身份不一致"
+      },
+      {
+        "provider": "deepseek",
+        "scenario": "unterminated",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "甲乙",
+        "error": "AI 消息流未完整结束或正文为空"
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "valid",
+        "state": "ready",
+        "messageState": "complete",
+        "text": "甲乙",
+        "error": ""
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "item-swap",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "",
+        "error": "AI 正文所属消息身份不一致"
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "response-swap",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "甲乙",
+        "error": "AI 消息流的响应身份不一致"
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "part-swap",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "",
+        "error": "AI 正文所属段缺失或已结束"
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "final-item-swap",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "甲乙",
+        "error": "AI 完成消息的身份或类型不一致"
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "missing-created",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "",
+        "error": "AI 消息流缺少响应创建身份"
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "duplicate-item",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "",
+        "error": "AI 输出消息的身份、顺序或类型无效"
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "sequence-gap",
+        "state": "failed",
+        "messageState": "partial",
+        "text": "",
+        "error": "AI 流式事件序号缺失或乱序"
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "multipart",
+        "state": "ready",
+        "messageState": "complete",
+        "text": "甲乙甲乙",
+        "error": ""
+      },
+      {
+        "provider": "openai-codex",
+        "scenario": "interleaved",
+        "state": "ready",
+        "messageState": "complete",
+        "text": "甲乙丙",
+        "error": ""
+      },
+      {
+        "provider": "deepseek",
+        "scenario": "cancel-and-explicit-retry",
+        "state": "ready",
+        "attempts": 2,
+        "userMessages": 1,
+        "lateOldDeltaRejected": true
+      }
+    ],
+    "sessions": 15,
+    "syntheticRequests": 16,
+    "cancelledReaders": 8,
+    "reopenedWithoutReplay": true,
+    "realModelRequests": 0,
+    "outboundActions": 0,
+    "status": "passed"
+  },
+  "renderer": {
+    "actualConversationPanel": true,
+    "snapshot": "fully fictional result of actual host matrix",
+    "failedAndPartialVisible": true,
+    "confirmDisabled": true,
+    "themesViewed": [
+      "light",
+      "dark"
+    ],
+    "realIpc": false
+  },
+  "installation": {
+    "source": "01a5556dd04a2fca90de90bbafa066e8571bca18",
+    "merge": "5e4733c22e397102b349197aebdf64256e2ff501",
+    "previousAsar": "2c17461763596378b6f8f6c924e9d5f9d5fc5eadde01e3768a1c1c998850d57c",
+    "installedAsar": "edbf54bdbd1bef44c2e762142b417cb930ee0fb094243fcff7b6fc643be5fdbd",
+    "dmgSha256": "c4b05b5cf710edaf6ea133e015ce35a7e60994ba82a7fd5a59697de1327aa6c4"
+  },
+  "preservation": {
+    "allDocumentPayloadsUnchanged": true,
+    "allEventPayloadsUnchanged": true,
+    "protectedCredentialFilesUnchanged": 1,
+    "runCount": 1,
+    "sameInstanceAndReadmeInitialVisible": true,
+    "interviewMissing": [
+      "ai",
+      "workspace"
+    ],
+    "aiProvidersStillUnconfigured": true,
+    "originalAiSettingsPageRestored": true,
+    "readonlyWalkLeavePromptObservedAndNotSaved": true,
+    "realModelRequests": 0
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "changedFilePrettier": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "unitTestsAddedOrRun": false,
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "remaining": [
+    "real provider and streaming IPC acceptance",
+    "full S08 cancellation/reconnect/budget and stale subscription matrix",
+    "real user distillation and confirmation",
+    "G3-G5, BOSS, 186/U01-U12, Agent goals"
+  ]
+}
