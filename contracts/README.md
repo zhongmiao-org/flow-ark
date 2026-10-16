@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-16：新增[0.29.0](v0.29.0/README.md)的通用模板数组minItems/uniqueItems与一致校验资料，原包/节点/SDK/SQLite不变；[Figma与消费者门槛](../docs/client/template-array-rules.md)先行。客户端尚未采用，本条仅G1，真实tag与消费者交付另验。
+
 0.28.0模板消费者：BOSS客户端原始0.1.11检查点采用ai-outcome-v1，独立模板仓库固定70份发布机器资料；[编排/复导及受控运行证据](../docs/client/boss-ai-failure-branches.md#原生制作与分层验收)。不是新契约发布，不修改旧快照，真实用户Key与完整招聘验收仍待完成。
 
 0.28.0消费者状态：客户端[PR #287](https://github.com/zhongmiao-org/flow-ark-client/pull/287)经最新CI38858045170自动合并为`18e3e36a08c735c346d4c3912b850882c2786018`，70份机器资料固定采用，已从合并源打包安装；[G2运行与原生复导证据](../docs/client/ai-failure-outcome.md#g2客户端安装与原生复导)。公开BOSS0.1.8尚未升级，真实API/业务仍待验收。下列G1发布条目记录当时消费者状态。

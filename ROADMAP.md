@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-16 多资料制作暴露通用数组缺口：先补[最少项数、结构唯一性与排序的Figma/0.29.0](docs/client/template-array-rules.md)。仅G1，客户端尚未采用；0.5.0制作与完整主线继续，公开0.4.0/0.1.11保持。
+
 2026-10-16 个人→BOSS受控集成：实际Runtime/Worker使用未修改公开包，在两家合成传输下完成访谈/草稿/试聊/版本确认、单项更新和BOSS准确采用新Skill；18Run/8会话/4版本及冲突/重开有局部证据。无真实模型/外发，原资料保持；[分层记录](docs/client/personal-boss-roundtrip.md)。多材料制作、真实Key/本人确认和完整G3–G5/186/Agent继续。
 
 2026-10-16 模板入口误报修复：治理#792/Figma先行，客户端#289最新CI自动合并并更新本机。未编辑中性空值不再触发未保存保护，隐藏未完成JSON与实际无效编辑仍受保护；原个人资料、凭据和1条Run保持，原生只读返回设置无误弹。详见[分层证据](docs/client/template-instance-editing.md#2026-10-16--未编辑空值修复交付g2)。真实Key蒸馏、BOSS、完整186/U01–U12及Agent目标继续。
