@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-16",
+  "scope": "BOSS explicit resume and fixed Skill sources; in-progress checkpoint",
+  "status": "in-progress",
+  "governanceDesign": {
+    "pr": 774,
+    "merge": "a99d80ae5f27a20e916ea881da2f49f0585558f5",
+    "latestCi": "38838030275",
+    "validate": "success",
+    "autoMerge": "success",
+    "frames": [
+      "581:6056",
+      "581:6158",
+      "581:6260"
+    ],
+    "screenshotsViewed": true
+  },
+  "baseline": {
+    "clientMerge": "839113c23af0c917412964c0d2ede60d2e235d13",
+    "installedAsar": "5d94abc7a316d27049e10f387d24869013c172f1895c0b98c18a6df4ffd14581",
+    "clientContracts": "0.26.0",
+    "templateContractsUnchanged": "0.25.0",
+    "sdk": "1.0",
+    "clientCodeChanged": false,
+    "packageBuiltOrInstalledThisBatch": false
+  },
+  "archive": {
+    "version": "0.1.4",
+    "bytes": 16246,
+    "sha256": "ba5f13f013c8354102dc89dbc3cc2ff3b4465fddc26af51d8d9daebcf437a45e",
+    "contentDigest": "a758a5a37d45719b6dd4aaea485357d0b4f0c46686ece24c709300b4cc2a4b03",
+    "authorRevision": 7,
+    "files": 26,
+    "scriptSources": 9,
+    "entryCount": 4,
+    "profileSteps": 6,
+    "profileResources": [
+      "resume-materials",
+      "profile"
+    ],
+    "actions": 0,
+    "originalThreeFlowsBytesUnchanged": true,
+    "clientExportUnmodified": true,
+    "boundaryScanPassed": true
+  },
+  "nativeAuthor": {
+    "instanceId": "01648201-f697-4bac-8c76-555e7e2001e9",
+    "fixtureOnly": true,
+    "syntheticSkillCreatedAndRegisteredThroughUi": true,
+    "realUserProfileOrHumanConfirmation": false,
+    "browserUnbound": true,
+    "runs": [
+      {
+        "id": "0ac48e52-56b0-4e82-baad-2b31dcf54ef2",
+        "runState": "SUCCEEDED",
+        "branch": "sources-ready"
+      },
+      {
+        "id": "68f1fb95-f0e3-4b57-b3a3-6e2f0f8e4a6d",
+        "runState": "SUCCEEDED",
+        "branch": "needs-review",
+        "documentStatus": "empty"
+      },
+      {
+        "id": "408cbfa2-fc61-43b9-825d-8646cea2b041",
+        "runState": "SUCCEEDED",
+        "firstSourceAndReadRetained": true
+      },
+      {
+        "id": "4281b6bf-8e6d-4bc1-9b27-d36eb23ede4e",
+        "runState": "FAILED",
+        "failedAt": "document",
+        "laterStepsUnexecuted": true
+      },
+      {
+        "id": "b71c1a56-b8f7-4663-89ef-455409ee1c57",
+        "runState": "SUCCEEDED",
+        "branch": "sources-ready",
+        "afterFixtureRestored": true
+      }
+    ],
+    "externalSkillChangeBlockedBeforeRun": true,
+    "syntheticSkillOriginalBytesRestored": true,
+    "authorReopenedRunCountBeforeMissingFile": 12,
+    "finalRunCount": 14,
+    "finalDraftRevision": 7,
+    "sixStepNativeScreenshotViewed": true
+  },
+  "consumer": {
+    "instanceId": "54ada997-57c5-4594-b7ce-a42f04a4bcea",
+    "versions": [
+      "0.1.1",
+      "0.1.2",
+      "0.1.3",
+      "0.1.4"
+    ],
+    "allResourcesInitiallyUnbound": true,
+    "resumeFileInitiallyEmpty": true,
+    "profileEntryBlocked": true,
+    "conditionsEntryResourceIndependent": true,
+    "reopenRunCount": 6,
+    "reopenUnreadAttentionCount": 4,
+    "noAutoReplay": true,
+    "reboundSourcesRunVerified": false
+  },
+  "templateDelivery": {
+    "pr": 10,
+    "source": "f52f1f5e1b389cab405f03b50730a0f957b56859",
+    "merge": "c133dcd7c1bc7fa2e53e1f10b66db7a0a3c7b1af",
+    "latestCi": "38839842312",
+    "validate": "success",
+    "autoMerge": "success"
+  },
+  "verification": {
+    "pnpmValidate": "passed; existing build and byte/source checks",
+    "diffCheck": "passed",
+    "unitTestsAddedOrRun": false,
+    "modelCalls": 0,
+    "recruitingOutboundActions": 0,
+    "originalBusinessTablesUnchanged": 2,
+    "protectedCredentialsUnchanged": 1,
+    "authorWorkspaceRestored": true
+  },
+  "remaining": [
+    "second consumer own source registration/bind/read run",
+    "partial/PDF/DOCX/bounds/cancellation/fault/changed-content and version matrix",
+    "full author SDK debugging and layout matrix",
+    "real user Key personal distillation and human confirmation",
+    "logged-in complete JD/account/conversations and recruiting actions",
+    "complete G3-G5, 186/U01-U12 and Agent goal"
+  ]
+}
