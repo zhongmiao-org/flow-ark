@@ -1,5 +1,7 @@
 # 固定契约来源
 
+2026-10-16 最新采用：客户端[PR #291](https://github.com/zhongmiao-org/flow-ark-client/pull/291)固定真实`contracts-v0.29.0`，治理基线`9501c80d55ae1fee8c75a22904f353c5f09a2f23`（治理#796），71份机器资料摘要核对。最新CI38872999417自动合并`7baf08892d2a8bd8e40bf633cc58deb9ed65abbb`，源与合并树一致；通用数组能力、安装与原生复导范围见[分层记录](template-array-rules.md#g2客户端安装与原生复导)。Flow/ZIP/SDK/IPC/SQLite保持，不计完整业务验收。
+
 2026-10-16 最新采用：客户端[PR #284](https://github.com/zhongmiao-org/flow-ark-client/pull/284)固定真实`contracts-v0.26.0`，治理基线`ba92f4c886de13947a6cb735b8a4cb06c6e8fd30`；57份机器资料摘要与再生成核对。最新CI38833989212自动合并`839113c23af0c917412964c0d2ede60d2e235d13`。模板提醒origin由宿主生成，原始详情独立、同键保留首次，旧来源不回填；SDK1.0/包2.0/SQLite表保持。真实Worker与原生范围见[分层记录](template-attention-origin.md)。
 
 2026-10-16 字段交互：客户端[PR #281](https://github.com/zhongmiao-org/flow-ark-client/pull/281)源`2b3b52a0243cbea946fa8328effa0f84063d6dee`，最新[CI 38776604763](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/38776604763)自动合并`3968b62ff88e27a46df34e2360b6127d19340a56`。消费治理#757/`b73cb467591afce3fe0e77e1727a7d6dc31cee50`设计，仍固定下条0.24.0契约基线；没有新增IPC/表结构或契约快照变更。安装及原生范围见[字段编辑](skill-field-editor.md)。
