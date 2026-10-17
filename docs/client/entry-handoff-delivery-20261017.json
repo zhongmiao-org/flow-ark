@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-17",
+  "status": "g2-merged-installed-and-bounded-native-verification-passed",
+  "governance": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark/pull/802",
+    "source": "5fe241c573aa1a6ecf9212f40f441d64c4cb406b",
+    "merge": "0c1daf5fe8ddb9c5219be7d719d349ff2ffe4354",
+    "latestCi": 38883534747,
+    "validate": "SUCCESS",
+    "autoMerge": "SUCCESS",
+    "tag": "contracts-v0.30.0",
+    "remoteTagCommit": "0c1daf5fe8ddb9c5219be7d719d349ff2ffe4354",
+    "machineFiles": 75,
+    "formatCases": 16
+  },
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/292",
+    "source": "1c377a12463aaaf67bb7ea0dd625f6dd8b1d8170",
+    "merge": "81d5558be29ad83ee38111e502f57e1f3a5b5b89",
+    "latestCi": 38988357792,
+    "validate": "SUCCESS",
+    "autoMerge": "SUCCESS",
+    "contractsVersion": "0.30.0",
+    "sourceAndMergeTreesIdentical": true
+  },
+  "controlledRuntime": {
+    "scope": "Actual Runtime/Worker with unmodified public BOSS0.2.1; fictional profile/key/provider, held request cancelled by actual AbortSignal; no private state injection for successful handoff",
+    "observations": [
+      {
+        "case": "active-model-and-two-queued-cancelled-then-pause",
+        "passed": true,
+        "abortedRequests": 1,
+        "modelRequests": 1,
+        "createdRuns": 1,
+        "unrelatedRunPreserved": true,
+        "concurrentAndLaterDuplicateSingleRun": true
+      },
+      {
+        "case": "scope-and-source-change-reject-before-cancellation",
+        "passed": true
+      },
+      {
+        "case": "other-instance-active-refused-and-valid-control-accepted",
+        "passed": true
+      },
+      {
+        "case": "source-change-during-real-cancel-cleanup",
+        "passed": true,
+        "scope": "session release was delayed by controlled wrapper; source edit through actual template.save"
+      },
+      {
+        "case": "created-receipt-failure-rolls-back-run-and-snapshot",
+        "passed": true,
+        "scope": "controlled Store.put rejection inside real SQLite transaction; not disk-full simulation"
+      },
+      {
+        "case": "older-asynchronous-admission-revoked-after-handoff",
+        "passed": true,
+        "scope": "provider configuration read delayed during real admission; no Run or snapshot created for revoked request"
+      }
+    ],
+    "runs": 19,
+    "receipts": 5,
+    "syntheticModelRequests": 6,
+    "abortedRequests": 6,
+    "realModelRequests": 0,
+    "outboundActions": 0,
+    "reopenedWithoutReplay": true,
+    "remaining": [
+      "physical disk failure and unconfirmed cleanup matrix",
+      "native UI and installed release verification",
+      "real user Key, account source and external actions"
+    ]
+  },
+  "recovery": {
+    "cleanup": {
+      "passed": true,
+      "runCount": 1,
+      "newRuns": 0,
+      "receiptStatus": "failed",
+      "scope": "controlled session-release failure result on actual Runtime; no real browser resource failure"
+    },
+    "crash": {
+      "passed": true,
+      "actualOwnedHostTerminated": true,
+      "signal": "SIGKILL",
+      "runsBeforeAndAfter": 1,
+      "receiptStatus": "interrupted",
+      "receiptRevision": 2,
+      "recoveryAttention": true,
+      "repeatedRequestCreatesNoRun": true,
+      "scope": "actual child Runtime terminated after durable stopping receipt during held cleanup; actual Store/script recovery on restart"
+    },
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "nativeCandidate": {
+    "scope": "isolated native build, CLI-generated generic fictional fixture, not business-template visual-authoring proof",
+    "runs": 2,
+    "receipts": 1,
+    "actualLongTaskCancelledThenStateEntrySucceeded": true,
+    "lightAndDarkViewed": true,
+    "sameRequestReadAndRunNavigation": true,
+    "aiRequests": 0,
+    "outboundActions": 0
+  },
+  "installation": {
+    "source": "1c377a12463aaaf67bb7ea0dd625f6dd8b1d8170",
+    "merge": "81d5558be29ad83ee38111e502f57e1f3a5b5b89",
+    "previousAsar": "026f758be50ebdd0855aa5a37644768186b587303983b90932c7e5fc432f977f",
+    "installedAsar": "e1a508047e196717974e74e9b4a49b545de5bb91ec30128a28475869f5c2ea31",
+    "dmgSha256": "6ad2b38b477f3caff07daa3dbf291415d4ed84c65650219b218567c6eaf948e4"
+  },
+  "installedNative": {
+    "scope": "installed merged application; same fictional generic consumer instance",
+    "firstInstalledReopenAllPriorEncryptedDocumentsAndEventsUnchanged": true,
+    "runs": 4,
+    "receipts": 2,
+    "stateOperations": 2,
+    "priorRunSnapshotsReceiptsAndEventsUnchanged": true,
+    "onlyExpectedCurrentStateAndRevisionUpdated": true,
+    "normalReopen": {
+      "runs": 4,
+      "receipts": 2,
+      "allEncryptedDocumentsUnchangedOnReopen": true,
+      "allEventsUnchangedOnReopen": true,
+      "sameLatestReceiptAndRunIdentityVisible": true,
+      "replayedRuns": 0
+    },
+    "modelRequests": 0,
+    "outboundActions": 0
+  },
+  "originalWorkspace": {
+    "runs": 2,
+    "allEncryptedDocumentsUnchanged": true,
+    "allEventsUnchanged": true,
+    "credentialsUnchanged": true,
+    "selectedSourceBytesUnchanged": true,
+    "interviewInputsPreserved": true,
+    "onlyAiMissingAndRunDisabled": true,
+    "replayedRuns": 0,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "changedFilesPrettier": "passed",
+    "diff": "passed",
+    "unitTests": "not added or run locally per current phase"
+  },
+  "remaining": [
+    "physical disk failure and full renderer delayed-response matrix",
+    "real user Key and personal Skill confirmation",
+    "site account/JD/message source, full onmessage and external recruiting acceptance",
+    "complete G3-G5, 186 boards and automatic Agent flow generation",
+    "finer execution grouping for independent conversation takeover within one instance",
+    "BOSS public README update and finer-scope native authoring remain separate"
+  ]
+}
