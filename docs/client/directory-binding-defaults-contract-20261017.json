@@ -1,0 +1,271 @@
+{
+  "date": "2026-10-17",
+  "scope": "Declaration JSON Schema and normative semantic modules only; no ZIP generation, client runtime, UI, model, personal data or business template edits.",
+  "cases": [
+    {
+      "name": "no-default",
+      "expected": true,
+      "declaration": {
+        "valid": true
+      },
+      "author": {
+        "valid": true
+      },
+      "archive": {
+        "valid": true
+      }
+    },
+    {
+      "name": "one-default",
+      "expected": true,
+      "declaration": {
+        "valid": true
+      },
+      "author": {
+        "valid": true
+      },
+      "archive": {
+        "valid": true
+      }
+    },
+    {
+      "name": "many-targets",
+      "expected": true,
+      "declaration": {
+        "valid": true
+      },
+      "author": {
+        "valid": true
+      },
+      "archive": {
+        "valid": true
+      }
+    },
+    {
+      "name": "out-of-order",
+      "expected": true,
+      "declaration": {
+        "valid": true
+      },
+      "author": {
+        "valid": true
+      },
+      "archive": {
+        "valid": true
+      }
+    },
+    {
+      "name": "other-kinds-no-default",
+      "expected": true,
+      "declaration": {
+        "valid": true
+      },
+      "author": {
+        "valid": true
+      },
+      "archive": {
+        "valid": true
+      }
+    },
+    {
+      "name": "unknown",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      },
+      "author": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      }
+    },
+    {
+      "name": "self",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：source"
+      },
+      "author": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：source"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：source"
+      }
+    },
+    {
+      "name": "source-file",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      },
+      "author": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      }
+    },
+    {
+      "name": "source-ai",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      },
+      "author": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "默认目录必须引用已声明的目录资源：output"
+      }
+    },
+    {
+      "name": "target-file",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "data/kind must be equal to constant, data must match \"then\" schema"
+      },
+      "author": {
+        "valid": false,
+        "reason": "TemplateAuthorDefinition无效：data/resources/1/kind must be equal to constant, data/resources/1 must match \"then\" schema"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "模板清单无效：data/resources/1/kind must be equal to constant, data/resources/1 must match \"then\" schema"
+      }
+    },
+    {
+      "name": "target-skill",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "data/kind must be equal to constant, data must match \"then\" schema"
+      },
+      "author": {
+        "valid": false,
+        "reason": "TemplateAuthorDefinition无效：data/resources/1/kind must be equal to constant, data/resources/1 must match \"then\" schema"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "模板清单无效：data/resources/1/kind must be equal to constant, data/resources/1 must match \"then\" schema"
+      }
+    },
+    {
+      "name": "cycle",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：source"
+      },
+      "author": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：source"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：source"
+      }
+    },
+    {
+      "name": "chain",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：output"
+      },
+      "author": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：output"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "默认目录不能自引用、循环或链式引用：output"
+      }
+    },
+    {
+      "name": "duplicate-id",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "默认目录资源标识重复"
+      },
+      "author": {
+        "valid": false,
+        "reason": "作者资源重复"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "资源重复"
+      }
+    },
+    {
+      "name": "private-path-instead-of-id",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "data/defaultDirectoryFrom must match pattern \"^[a-z][a-z0-9-]{0,99}$\""
+      },
+      "author": {
+        "valid": false,
+        "reason": "TemplateAuthorDefinition无效：data/resources/0/defaultDirectoryFrom must match pattern \"^[a-z][a-z0-9-]{0,99}$\""
+      },
+      "archive": {
+        "valid": false,
+        "reason": "模板清单无效：data/resources/0/defaultDirectoryFrom must match pattern \"^[a-z][a-z0-9-]{0,99}$\""
+      }
+    },
+    {
+      "name": "empty-source-id",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "data/defaultDirectoryFrom must match pattern \"^[a-z][a-z0-9-]{0,99}$\""
+      },
+      "author": {
+        "valid": false,
+        "reason": "TemplateAuthorDefinition无效：data/resources/0/defaultDirectoryFrom must match pattern \"^[a-z][a-z0-9-]{0,99}$\""
+      },
+      "archive": {
+        "valid": false,
+        "reason": "模板清单无效：data/resources/0/defaultDirectoryFrom must match pattern \"^[a-z][a-z0-9-]{0,99}$\""
+      }
+    },
+    {
+      "name": "bad-source-value",
+      "expected": false,
+      "declaration": {
+        "valid": false,
+        "reason": "data/defaultDirectoryFrom must be string"
+      },
+      "author": {
+        "valid": false,
+        "reason": "TemplateAuthorDefinition无效：data/resources/1/defaultDirectoryFrom must be string"
+      },
+      "archive": {
+        "valid": false,
+        "reason": "模板清单无效：data/resources/1/defaultDirectoryFrom must be string"
+      }
+    }
+  ],
+  "checks": 51,
+  "exampleValid": true,
+  "exampleRelationPreserved": true,
+  "inputBytesUnchanged": true,
+  "previousSchemaRejectsNewField": true,
+  "previousSchemaControlValid": true,
+  "realModelRequests": 0,
+  "outboundActions": 0
+}
