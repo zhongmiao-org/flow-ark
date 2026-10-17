@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.32.0实际发布：治理[#813](https://github.com/zhongmiao-org/flow-ark/pull/813)经最新CI38999888707自动合并，远端contracts-v0.32.0解引用`6a27736310d765320111df2d308224337d1a178f`，93份机器资料固定。十状态Figma、格式及后续门槛见[持续访谈](../docs/client/continuous-profile-interview.md#g1实际发布)。客户端仍0.31.0，未解除安装版上限；消费者与业务随后分别取证。
+
 2026-10-17：新增[0.32.0持续会话](v0.32.0/README.md)，conversation v2按请求保留历史、有界分页与实际发送核对，固定确认快照后仍可继续；SkillEvidence支持独立checkpoint来源，旧记录不变。十状态[Figma与门槛](../docs/client/continuous-profile-interview.md)先行；当前G1/格式核对，真实tag、客户端和可视化个人模板采用另验，不能据新格式称已解除安装版上限。
 
 0.31.0模板采用：模板[#16](https://github.com/zhongmiao-org/flow-ark-templates/pull/16)固定78份发布机器资料及同一治理基线，最新CI自动合并`fde7dbd0449c399a283efa942f2a17f23201db98`。原生个人0.5.2为workspace声明默认materials，独立复导保持关系且初始资源解绑；[采用证据](../docs/client/directory-binding-defaults.md#个人模板原生采用)。不改旧快照，不计真实Skill写出或完整业务通过。
