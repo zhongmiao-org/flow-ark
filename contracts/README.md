@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.30.0消费者：治理#802已自动合并，真实远端contracts-v0.30.0固定`0c1daf5fe8ddb9c5219be7d719d349ff2ffe4354`；客户端[#292](https://github.com/zhongmiao-org/flow-ark-client/pull/292)固定75份机器资料，最新CI自动合并并打包安装。实际取消/幂等/恢复与原生范围见[分层证据](../docs/client/entry-handoff.md#g1发布与g2客户端)，不计细粒度会话接管或完整招聘通过。
+
 2026-10-16：新增[0.30.0](v0.30.0/README.md)的通用模板入口停止后执行请求/回执及格式资料，保持单槽、固定来源、明确取消范围、同请求幂等与恢复不重放。四状态[Figma/消费者门槛](../docs/client/entry-handoff.md)先行；当前G1，发布和客户端采用另行核对。
 
 2026-10-16：新增[0.29.0](v0.29.0/README.md)的通用模板数组minItems/uniqueItems与一致校验资料，原包/节点/SDK/SQLite不变；[Figma与消费者门槛](../docs/client/template-array-rules.md)先行。客户端尚未采用，本条仅G1，真实tag与消费者交付另验。
