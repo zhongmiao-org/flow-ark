@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-17：新增[0.31.0](v0.31.0/README.md)的通用目录默认来源声明，作者与包资源保持逻辑ID关系，只影响明确选择后的资源草稿，不作为运行时备用绑定或授权。四状态[Figma及门槛](../docs/client/directory-binding-defaults.md)先行；当前G1，真实tag、客户端及个人模板采用分别核对。
+
 0.30.0消费者：治理#802已自动合并，真实远端contracts-v0.30.0固定`0c1daf5fe8ddb9c5219be7d719d349ff2ffe4354`；客户端[#292](https://github.com/zhongmiao-org/flow-ark-client/pull/292)固定75份机器资料，最新CI自动合并并打包安装。实际取消/幂等/恢复与原生范围见[分层证据](../docs/client/entry-handoff.md#g1发布与g2客户端)，不计细粒度会话接管或完整招聘通过。
 
 2026-10-16：新增[0.30.0](v0.30.0/README.md)的通用模板入口停止后执行请求/回执及格式资料，保持单槽、固定来源、明确取消范围、同请求幂等与恢复不重放。四状态[Figma/消费者门槛](../docs/client/entry-handoff.md)先行；当前G1，发布和客户端采用另行核对。
