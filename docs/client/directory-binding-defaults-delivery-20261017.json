@@ -1,0 +1,244 @@
+{
+  "date": "2026-10-17",
+  "scope": "Generic directory-default G2. Wholly fictional components/Runtime/native package; no original source content, paths, digests, keys or private identifiers. Candidate/native/installed and controlled picker/fault are distinguished.",
+  "clientPR": "https://github.com/zhongmiao-org/flow-ark-client/pull/293",
+  "clientSource": "7be476a1ca8c06ac4f2709ea6195a20e10453ace",
+  "clientMerge": "34bdf4b3b5ea4a0c3a4279aef176fd419a248bbf",
+  "latestCI": 38992195844,
+  "contracts": "0.31.0",
+  "contractFiles": 78,
+  "rendererCases": [
+    {
+      "case": "manual-same-path-does-not-follow",
+      "values": {
+        "source": "source-a",
+        "output": "source-b",
+        "manual": true,
+        "derived": false
+      }
+    },
+    {
+      "case": "cancelled-picker-preserves-manual",
+      "values": {
+        "source": "source-a",
+        "output": "source-b",
+        "manual": true,
+        "derived": false
+      }
+    },
+    {
+      "case": "explicit-clear-does-not-refill",
+      "values": {
+        "source": "source-b",
+        "output": "",
+        "manual": true,
+        "derived": false
+      }
+    },
+    {
+      "case": "clearing-source-clears-only-derived",
+      "values": {
+        "source": "",
+        "output": "",
+        "manual": false,
+        "derived": false
+      }
+    },
+    {
+      "case": "save-fault-retains-draft",
+      "values": {
+        "source": "source-a",
+        "output": "source-a",
+        "manual": false,
+        "derived": true
+      }
+    },
+    {
+      "case": "save-fault-retains-default-provenance",
+      "values": {
+        "source": "source-b",
+        "output": "source-b",
+        "manual": false,
+        "derived": true
+      }
+    },
+    {
+      "case": "configuration-save-preserves-default-provenance",
+      "values": {
+        "source": "source-a",
+        "output": "source-a",
+        "manual": false,
+        "derived": true
+      }
+    },
+    {
+      "case": "resources-save-fixes-independent-bindings",
+      "values": {
+        "source": "source-a",
+        "output": "source-a",
+        "manual": false,
+        "derived": false
+      }
+    },
+    {
+      "case": "saved-equal-paths-remain-independent",
+      "values": {
+        "source": "source-b",
+        "output": "source-a",
+        "manual": false,
+        "derived": false
+      }
+    },
+    {
+      "case": "cancel-form-restores-saved-resources",
+      "values": {
+        "source": "source-a",
+        "output": "source-a",
+        "manual": false,
+        "derived": false
+      }
+    },
+    {
+      "case": "actual-cas-refusal-retains-draft",
+      "values": {
+        "source": "source-b",
+        "output": "source-a",
+        "manual": false,
+        "derived": false
+      }
+    },
+    {
+      "case": "fresh-read-does-not-establish-following",
+      "values": {
+        "source": "source-b",
+        "output": "source-a",
+        "manual": false,
+        "derived": false
+      }
+    },
+    {
+      "case": "final-styled-reopen-fixed-bindings",
+      "values": {
+        "source": "source-a",
+        "output": "source-b",
+        "manual": false,
+        "derived": false
+      }
+    },
+    {
+      "case": "author-reference-maintenance",
+      "checks": {
+        "directoryOnlyOptions": true,
+        "typeChangeRefused": true,
+        "renamedReferencePreserved": true,
+        "referencedRemovalRefused": true,
+        "chainRefused": true,
+        "unlinkedRemovalSucceeded": true,
+        "saved": true
+      }
+    }
+  ],
+  "host": {
+    "scope": "Actual Runtime/SQLite/author validation/flow export and ZIP read/install with wholly fictional generic package originally configured through production author UI. Not native business-template authoring or an installed-client UI proof.",
+    "observations": [
+      {
+        "case": "missing-target-never-falls-back",
+        "savedSourceOnly": true,
+        "refusedBeforeRun": true
+      },
+      {
+        "case": "author-and-flow-reexport",
+        "relationRetained": true,
+        "invalidAuthorSaveRefusedWithoutMutation": true,
+        "independentInstanceUnbound": true,
+        "noPrivatePaths": true
+      }
+    ],
+    "normalReopenPreservesAllInstancesFlowsAndAuthorDrafts": true,
+    "runs": 0,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "nativeCandidate": {
+    "scope": "Candidate native Electron, real OS directory picker, wholly fictional generic package; no business-template authoring",
+    "initialUnbound": true,
+    "sourcePickFillsTarget": true,
+    "osPickerCancellationPreservesDerivedDraft": true,
+    "savedBothResources": true,
+    "normalReopenRetainsBindings": true,
+    "changingSavedSourceDoesNotChangeSavedTarget": true,
+    "cancelRestoresSavedValues": true,
+    "runs": 0,
+    "realModelRequests": 0,
+    "outboundActions": 0
+  },
+  "nativeCandidateReopen": {
+    "allEncryptedDocumentsUnchanged": true,
+    "allEventsUnchanged": true,
+    "runs": 0,
+    "normalReopenDoesNotReplay": true
+  },
+  "archiveInspection": [
+    {
+      "name": "generic-directory-fixture.flowark-template.zip",
+      "allFilesInspected": 8,
+      "localAbsolutePathsAbsent": true,
+      "relation": "source"
+    },
+    {
+      "name": "generic-independent-reexport.flowark-template.zip",
+      "allFilesInspected": 7,
+      "localAbsolutePathsAbsent": true,
+      "relation": "source"
+    }
+  ],
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "unitTestsAddedOrRun": false,
+  "remaining": [
+    "native personal template new version using the declaration",
+    "real own-Key and user interview/trial/confirmation",
+    "complete S08/BOSS/G3-G5/186/Agent"
+  ],
+  "installation": {
+    "source": "7be476a1ca8c06ac4f2709ea6195a20e10453ace",
+    "merge": "34bdf4b3b5ea4a0c3a4279aef176fd419a248bbf",
+    "previousAsar": "e1a508047e196717974e74e9b4a49b545de5bb91ec30128a28475869f5c2ea31",
+    "installedAsar": "0f0f164ede0762d55ebf3464cc63b041298b9b209d54dbc4b613188e56c2fa11",
+    "dmgSha256": "6feebdd811ddff7d597ee0cb743ef72c480c09f3ed2b88ddf3c91f110c15b364",
+    "noClientProcessDuringReplacement": true,
+    "previousAppRetained": true
+  },
+  "installedNative": {
+    "allEncryptedDocumentsUnchanged": true,
+    "allEventsUnchanged": true,
+    "protectedCredentialsUnchanged": true,
+    "runs": 0,
+    "installedAsar": "0f0f164ede0762d55ebf3464cc63b041298b9b209d54dbc4b613188e56c2fa11",
+    "normalReopenDoesNotReplay": true,
+    "lightNativeScreenshotViewed": true,
+    "allClientMainProcessesClosedBeforeRestore": true,
+    "additionalBuildAppEmptyProfileClosedNormally": true
+  },
+  "originalProfileRestored": {
+    "allEncryptedDocumentsUnchanged": true,
+    "allEventsUnchanged": true,
+    "protectedCredentialsUnchanged": true,
+    "runs": 2,
+    "installedAppURLObserved": true,
+    "materialsAndSkillWorkspaceSameConfiguredRepository": true,
+    "aiStillUnconfigured": true,
+    "userSkillNotConfirmed": true,
+    "noTemplateOrModelRunTriggered": true
+  },
+  "checks": {
+    "contractsGenerate": true,
+    "typecheck": true,
+    "build": true,
+    "modifiedSourcePrettier": true,
+    "diffCheck": true,
+    "mergedPackageMac": true,
+    "firstDmgAttemptRestrictedEnvironmentFailed": true,
+    "latestCIValidateAndAutoMerge": true
+  }
+}
