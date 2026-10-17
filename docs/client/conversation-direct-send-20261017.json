@@ -1,0 +1,65 @@
+{
+  "source": "6c0902629b1379ad645cf2af8e716d0b31c62273",
+  "merge": "ce96216878d790eda5c38426f76e3d6fb52729ab",
+  "previousAsar": "a26360c1eac9734f4bf407596ece694f934093f81cad9fa6b439f6b1c388abb0",
+  "installedAsar": "c6d6488bb7a6d5f0a5e05f3c4e9b5f5361537d6b62fafab528aed00b6bc7c0d5",
+  "zipSha256": "353617cca2dc6ce7d36c855f26f57c16fa4bcb5fb73204cbb5fe2092be8538a0",
+  "noClientProcessDuringReplacement": true,
+  "previousAppAndRecordsRetained": true,
+  "dmgSha256": "e81d9e8d2b3e2868d543f473558b24a0209704021b8bf0971335b2d9ef82e293",
+  "preservation": {
+    "allEncryptedDocumentsUnchanged": true,
+    "allRunEventsUnchanged": true,
+    "protectedCredentialsUnchanged": true,
+    "originalConversationIdRetained": true,
+    "runCount": 3,
+    "documentCount": 63,
+    "eventCount": 35
+  },
+  "clientPR": "https://github.com/zhongmiao-org/flow-ark-client/pull/297",
+  "clientCIRun": 39004594001,
+  "governancePR": "https://github.com/zhongmiao-org/flow-ark/pull/816",
+  "governanceMerge": "135f4f881f773f88b88af32d74f94c338883bdeb",
+  "governanceCIRun": 39004322611,
+  "figmaNodes": [
+    "812:8839",
+    "812:8936"
+  ],
+  "localChecks": [
+    "pnpm typecheck",
+    "pnpm build",
+    "pnpm exec prettier --check src/renderer/ConversationPanel.tsx src/renderer/ConversationThreadPanel.tsx",
+    "git diff --check"
+  ],
+  "unitTestsRun": false,
+  "fictionalObservation": {
+    "seedRequests": 62,
+    "finalModelCalls": 64,
+    "sendRPCs": 2,
+    "previewRPCs": 4,
+    "checkpointPreviewRPCs": 1,
+    "doubleClickAdmittedOnce": true,
+    "configurationChangedBlockedBeforePreview": true,
+    "configurationChangedBlockedAfterPreview": true,
+    "prepareFailureNoModelCall": true,
+    "sourceConfirmationStillSeparate": true,
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "viewport": [
+      1040,
+      700
+    ],
+    "realModelCalls": 0
+  },
+  "installedObservation": {
+    "originalSessionRestored": true,
+    "requestCountAtReopen": 19,
+    "optionalRangeVisible": true,
+    "directSendEnabledOnHumanInput": true,
+    "ownProviderModelVisible": true,
+    "onlyOneMainProcessPID": 41111,
+    "agentSubmittedPersonalChat": false
+  }
+}
