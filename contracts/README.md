@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.34.0实际发布：治理[#823](https://github.com/zhongmiao-org/flow-ark/pull/823)最新CI39011622641的Validate/Auto Merge通过，实际合并及远端contracts-v0.34.0解引用为`19cb003f95143e8d380687168034d2368432ace4`，106份机器资料固定。[发布与消费者接续](../docs/client/conversation-source-reading.md#g1实际发布与消费者接续)。客户端仍0.33.0，来源节点/选择器与AI覆盖接续实现，不计Skill生成完成。
+
 2026-10-17：新增[0.34.0来源资源与有界读取](v0.34.0/README.md)，四个定义、source v1清单/读取、conversation-source只读资源及独立能力；[四状态Figma与核对](../docs/client/conversation-source-reading.md)先行。106份机器资料及405项格式/22项关联资料本机核对通过，实际发布tag/消费者另记。客户端仍0.33.0；不含AI处理收据或Skill生成。
 
 0.33.0消费者已采用：客户端[#298](https://github.com/zhongmiao-org/flow-ark-client/pull/298)最新CI39009885582通过并实际自动合并`12ff2b1f07f04215331be48a98c4b1079c2ab08b`，98份机器资料固定；合并源打包安装，原生22/22完整来源确认及重开取得证据。[实现与安装边界](../docs/client/conversation-full-source.md#g2打包安装与原访谈核对)。本版仍不含可执行来源节点、AI真实处理覆盖或Skill生成；以下G1条目保留当时消费者状态。
