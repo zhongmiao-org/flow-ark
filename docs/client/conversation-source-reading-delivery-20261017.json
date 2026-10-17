@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-17",
+  "contracts": {
+    "version": "0.34.0",
+    "tag": "contracts-v0.34.0",
+    "governanceBaseline": "19cb003f95143e8d380687168034d2368432ace4",
+    "machineFilesVerified": 106
+  },
+  "client": {
+    "pullRequest": "https://github.com/zhongmiao-org/flow-ark-client/pull/299",
+    "sourceCommit": "216684dd2b3beb3dea02b1128419eb52564ac180",
+    "latestCi": "https://github.com/zhongmiao-org/flow-ark-client/actions/runs/39014073943",
+    "latestCiValidate": "success",
+    "latestCiAutoMerge": "success",
+    "mergeCommit": "d33fc094c087f098a08b5760b52c80e50d7bd8ba",
+    "sourceAndMergeTreesEqual": true,
+    "checks": ["contracts:generate", "typecheck", "build", "git diff --check"],
+    "unitTestsAddedOrRun": false
+  },
+  "controlledRuntime": {
+    "virtualDataOnly": true,
+    "realEncryptedStore": true,
+    "realRuntimeAndWorker": true,
+    "originalRequests": 22,
+    "afterAppendRequests": 40,
+    "runStates": ["SUCCEEDED", "SUCCEEDED", "FAILED"],
+    "selectionBypassesRejected": 3,
+    "crossSourceCursorRejected": true,
+    "historicalResultsUnchanged": true,
+    "modelCalls": 0
+  },
+  "nativeUi": {
+    "virtualDataOnly": true,
+    "authoringFromEmptyFlow": true,
+    "allAuthoringAndConfigurationThroughUi": true,
+    "sourceNodes": 3,
+    "nextPositionChosenInDropdown": true,
+    "authorRequests": 22,
+    "authorRunSucceeded": true,
+    "authorReopenOriginalDocumentsUnchanged": 59,
+    "authorReopenOriginalEventsUnchanged": 9,
+    "zipExportedThroughUi": true,
+    "zipSha256": "c05734095693ef67d7cabf0c3512048dd050b59be5354fc112a94db711dcfd4c",
+    "zipExcludesPrivateSource": true,
+    "independentConsumerImportThroughUi": true,
+    "newInstanceInitiallyUnbound": true,
+    "consumerRequests": 40,
+    "consumerSourceChosenAndSavedThroughUi": true,
+    "consumerBindingSurvivedRestart": true,
+    "consumerRunSucceeded": true,
+    "continuousReadPositionVerified": true,
+    "resultThemesViewed": ["Light", "Dark"],
+    "allSizesOr186BoardsPassed": false,
+    "rawMachineDataCollapsedByDefault": true,
+    "modelCalls": 0
+  },
+  "installed": {
+    "packageMacPassed": true,
+    "appVersion": "0.3.0",
+    "contractsVersion": "0.34.0",
+    "previousAppAndDataBackedUp": true,
+    "oldAppReplacedAndRestarted": true,
+    "asarSha256": "7562d1b4efcef5b0d96a37cb59c427fd4e1a92ec3907b269ef13279c4a6aacba",
+    "zipSha256": "64a3690b43ea26d4cc927abd1755fc4812335291f57d3ce5cdac46c43c89efcd",
+    "dmgSha256": "2ad05527ed39c7a0c67989fa012274ffe6b12cd4f6d8d4ee89c348def1918784",
+    "installedAsarMatchesPackage": true,
+    "originalDocumentsUnchanged": 130,
+    "originalEventsUnchanged": 66,
+    "protectedCredentialFilesUnchanged": 2,
+    "originalConfirmedSourceRequestsVisible": 22,
+    "newPersonalRunEvents": 0,
+    "newRealModelCalls": 0,
+    "signedOrNotarized": false
+  },
+  "notCompleted": [
+    "actual AI processing receipts and complete source coverage",
+    "bounded batch continuation and persisted merge",
+    "personal Skill generation and publication",
+    "public personal and BOSS template acceptance",
+    "full G3-G5, S08, 186 boards and Agent goal",
+    "real BOSS login and outbound actions"
+  ]
+}
