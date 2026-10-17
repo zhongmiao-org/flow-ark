@@ -1,5 +1,7 @@
 # 固定契约来源
 
+2026-10-17 本地候选：客户端[#301](https://github.com/zhongmiao-org/flow-ark-client/pull/301)固定已发布contracts-v0.35.1及治理`884a7c362a4f26228a72dcd5ffef341518f50563`的110份机器资料，修复公开提示词绑定并补本机字段失败说明；公共故障、IPC和数据库不变。[反馈范围与本机证据](ai-output-feedback.md)。CI受GitHub计费限制，尚未实际合并，候选安装不计正式交付。最新已合并消费者仍为#300的0.35.0，源`2e6d3e50219b5bfeeb45b19d7f12b3827160ba47`、合并`c09a0569c48690c08b723df43c886b56b76da8f3`及最新CI39017968274通过；[历史交付证据](source-reduction.md#g2实际交付与分层核对)。下文保留历史状态。
+
 2026-10-17 最新采用：客户端[#299](https://github.com/zhongmiao-org/flow-ark-client/pull/299)固定真实`contracts-v0.34.0`、治理`19cb003f95143e8d380687168034d2368432ace4`及106份机器资料。最新CI39014073943实际自动合并`d33fc094c087f098a08b5760b52c80e50d7bd8ba`，已打包替换日常安装版。只读来源资源、来源节点及可视化参数/变量/结果接通，独立ZIP导入重新绑定取得原生证据；[交付与限制](conversation-source-reading.md#g2客户端与原生复用核对)。完整来源AI处理与Skill写出未完成；下文均为历史采用记录。
 
 2026-10-17 最新采用：客户端[#296](https://github.com/zhongmiao-org/flow-ark-client/pull/296)固定真实`contracts-v0.32.0`、治理`6a27736310d765320111df2d308224337d1a178f`和93份机器资料。最新CI39001925018实际自动合并`a4f892d3c4480f106756ca03aab138d88d6f4b94`，已安装；[持续会话交付与限制](continuous-profile-interview.md#g2实际交付与原工作区恢复)。通用conversation v2、固定确认来源和独立事件已接入，模板采用/完整Skill更新仍待完成。以下为历史采用记录。
