@@ -1,5 +1,7 @@
 # 固定契约来源
 
+2026-10-17 最新采用：客户端[#296](https://github.com/zhongmiao-org/flow-ark-client/pull/296)固定真实`contracts-v0.32.0`、治理`6a27736310d765320111df2d308224337d1a178f`和93份机器资料。最新CI39001925018实际自动合并`a4f892d3c4480f106756ca03aab138d88d6f4b94`，已安装；[持续会话交付与限制](continuous-profile-interview.md#g2实际交付与原工作区恢复)。通用conversation v2、固定确认来源和独立事件已接入，模板采用/完整Skill更新仍待完成。以下为历史采用记录。
+
 2026-10-16 模板采用：独立模板[PR #14](https://github.com/zhongmiao-org/flow-ark-templates/pull/14)固定真实`contracts-v0.29.0`的71份机器资料，治理基线`9501c80d55ae1fee8c75a22904f353c5f09a2f23`。最新CI38876655130自动合并`0897a10221826a3419fd78e29b29a07338fc764b`，原始多资料0.5.1 ZIP与精确提取/可编译源码核对；[分层记录](personal-distillation-materials.md#客户端制作与独立复导检查点)。SDK1.0/包2.0保持；不计完整业务通过。
 
 2026-10-16 最新采用：客户端[PR #291](https://github.com/zhongmiao-org/flow-ark-client/pull/291)固定真实`contracts-v0.29.0`，治理基线`9501c80d55ae1fee8c75a22904f353c5f09a2f23`（治理#796），71份机器资料摘要核对。最新CI38872999417自动合并`7baf08892d2a8bd8e40bf633cc58deb9ed65abbb`，源与合并树一致；通用数组能力、安装与原生复导范围见[分层记录](template-array-rules.md#g2客户端安装与原生复导)。Flow/ZIP/SDK/IPC/SQLite保持，不计完整业务验收。

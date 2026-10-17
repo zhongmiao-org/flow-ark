@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-17 持续会话G2：客户端#296已经最新CI自动合并并安装，0.32.0通用持续历史/确认快照与同ID继续有分层证据，原个人记录保持。[当前范围](docs/client/continuous-profile-interview.md#g2实际交付与原工作区恢复)；个人模板采用、完整Skill增量更新/通知/新版显式采用及历史阅读位置持久化仍待完成，真实API/BOSS及G3–G5/S08/186/Agent继续。
+
 2026-10-17持续会话G1已发布：治理#813最新CI实际自动合并，真实contracts-v0.32.0固定6a27736310d765320111df2d308224337d1a178f及93份机器资料；[发布与消费者门槛](docs/client/continuous-profile-interview.md#g1实际发布)。客户端仍0.31.0，未解除当前安装版上限，无新增个人Run/模型/Skill或招聘动作；继续G2及可视化个人模板、完整G3–G5/S08/186/Agent。
 
 2026-10-17持续会话G1：十状态Figma先行，新增0.32.0的conversation v2、逐请求持久历史/分页、实际发送核对和固定checkpoint来源；原v1/旧Run保持。格式/参考语义已核对，见[规范与消费者门槛](docs/client/continuous-profile-interview.md#g1持续会话与来源)。当前发布/客户端及可视化个人模板待推进，未解除安装版上限，不计无限轮次运行或Skill更新通过；完整主线保持。
