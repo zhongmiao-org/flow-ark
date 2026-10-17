@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-17",
+  "stage": "G2 generic continuous-conversation implementation",
+  "clientSourceCommit": "71da6be12fb66db5023206abf6abefd6ce70c65e",
+  "clientPr": "https://github.com/zhongmiao-org/flow-ark-client/pull/296",
+  "contract": {
+    "version": "0.32.0",
+    "tag": "contracts-v0.32.0",
+    "governanceCommit": "6a27736310d765320111df2d308224337d1a178f",
+    "sha256FileCount": 93,
+    "digestMismatches": []
+  },
+  "checks": {
+    "typecheck": true,
+    "build": true,
+    "sourceFormat": true,
+    "gitDiffCheck": true,
+    "generationIdempotent": true,
+    "unitTestsAddedOrRun": false
+  },
+  "observations": {
+    "host": {
+      "scope": "actual encrypted Store and conversation host; synthetic provider, no network or real Key",
+      "requests": 62,
+      "completeHistoryEntries": 62,
+      "oldLimit20And100MessagesExceeded": true,
+      "pagedWithoutGaps": true,
+      "checkpointAfterContinueImmutable": true,
+      "staleCheckpointRejectedForNewPublication": true,
+      "duplicateRequestNoCall": true,
+      "reopenNoModelReplay": true,
+      "eventSequencesMonotonic": true
+    },
+    "fault": {
+      "scope": "actual encrypted Store, shared admission and host classes; synthetic provider; no unit suite or real model",
+      "credentialRevisionChangeBlocked": true,
+      "durableWithdrawalNoCall": true,
+      "splitSurrogateStreamPreserved": true,
+      "checkpointHistoricalTypedResultStillReadable": true,
+      "staleSourceManualEditsPersistAsConflict": true,
+      "staleSourceTrialBlocked": true,
+      "contextProposalCASAndDraftProtection": true,
+      "cancelAndLateDeltaProtected": true,
+      "retryUsesSameTurnAndUserWithNewAssistant": true,
+      "failurePartialPreserved": true,
+      "sharedCapacityBlocksAdmission": true
+    },
+    "origin": {
+      "scope": "actual encrypted legacy and thread hosts; synthetic model; not personal interview",
+      "sameSessionId": true,
+      "legacySourceByteEquivalent": true,
+      "originSelectionAndCheckpointValid": true,
+      "openingV2NodeReusesScopeAndKey": true,
+      "continueAndCheckpointNoNewModelCall": true,
+      "newRequestSeparateImmutableHistory": true
+    },
+    "crash": {
+      "scope": "actual child SIGKILL, SQLite WAL and encrypted host restore; synthetic pending provider; no real API",
+      "oneInterruptedRequestRecoveredAsCancelled": true,
+      "originalRequestReceiptPreserved": true,
+      "noConfigurationOrKeyReadOnReopen": true,
+      "noModelReplay": true,
+      "secondReopenIdempotent": true
+    },
+    "ui": {
+      "scope": "actual production conversation component with actual encrypted host over temporary localhost bridge; synthetic provider, no native Main or real API proof",
+      "requestsObserved": 63,
+      "sendPreviewAndOwnKeyReview": true,
+      "streamingMarkdownMermaid": true,
+      "checkpointThenContinue": true,
+      "savedInputSurvivesPageReload": true,
+      "boundedOlderPageAndInputPreserved": true,
+      "reversedOldEventsDoNotRegress": true,
+      "contextReviewBlocksSendAndRejectPreservesInput": true,
+      "compactFrame": {
+        "width": 1040,
+        "height": 700,
+        "light": true,
+        "dark": true
+      },
+      "limitations": [
+        "temporary bridge does not prove native IPC",
+        "no personal Skill publication",
+        "no real provider calls",
+        "reading position not yet durable across reopen"
+      ]
+    },
+    "runtime": {
+      "scope": "actual Runtime admission, real Worker process, encrypted Store, typed result and strict thread IPC; synthetic configuration only",
+      "actualWorkerRuns": 3,
+      "newV2PendingTypedResult": true,
+      "sameScopeAndKeyReuse": true,
+      "draftPreservedAcrossRerun": true,
+      "changedInstructionReturnsContextReview": true,
+      "explicitRejectKeepsInput": true,
+      "oldRunOutputUnchanged": true,
+      "systemThreadEventsValidated": true,
+      "keyReads": 0,
+      "realModelCalls": 0,
+      "nativeMain": false
+    }
+  },
+  "realProviderCalls": 0,
+  "personalSkillPublications": 0,
+  "nativeInstallationVerified": true,
+  "limitations": [
+    "native no-request continuation and restart observed; full native streaming/real provider matrix remains",
+    "visual authoring and independent ZIP installation still to verify",
+    "three-way incremental Skill merge, write-success notification and explicit new-version adoption incomplete",
+    "history reading position not yet durable across reopen",
+    "no real provider or BOSS acceptance claim"
+  ],
+  "clientMerge": "a4f892d3c4480f106756ca03aab138d88d6f4b94",
+  "latestCI": {
+    "runId": "39001925018",
+    "url": "https://github.com/zhongmiao-org/flow-ark-client/actions/runs/39001925018",
+    "headSha": "71da6be12fb66db5023206abf6abefd6ce70c65e",
+    "validate": "success",
+    "autoMerge": "success",
+    "olderCancelledRun": "39001895646"
+  },
+  "installation": {
+    "source": "71da6be12fb66db5023206abf6abefd6ce70c65e",
+    "merge": "a4f892d3c4480f106756ca03aab138d88d6f4b94",
+    "previousAsar": "8a3512acec77326ca7884256d30a1ac7f1f92b6be940d5d6f60995377aa8d08d",
+    "installedAsar": "a26360c1eac9734f4bf407596ece694f934093f81cad9fa6b439f6b1c388abb0",
+    "dmgSha256": "4bcf80a19f793c0b6044df6c227b67311f48d24fb546b09581815c437bdfdc23",
+    "noClientProcessDuringReplacement": true,
+    "previousAppAndRecordsRetained": true
+  },
+  "personalContinuation": {
+    "scope": "installed app original workspace, explicit continue only; no personal answers or confirmations",
+    "allOriginalEncryptedDocumentsPreserved": true,
+    "originalEventAndProtectedCredentialBytesPreserved": true,
+    "sameConversationId": true,
+    "newRecordKindsOnly": [
+      "attention",
+      "conversation-thread",
+      "conversation-thread-context",
+      "conversation-thread-index"
+    ],
+    "runCount": 3,
+    "documentCount": 43,
+    "eventCount": 35,
+    "newModelRequestRecords": 0,
+    "reopenAllBytesPreserved": true
+  }
+}
