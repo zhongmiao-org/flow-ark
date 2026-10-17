@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-17：新增[入口结果只读视图草案](drafts/entry-result-view/README.md)与[七状态 Figma](../docs/client/entry-result-view.md)，独立 drafts、未发布、不可由客户端采用；88 项格式/关联条件资料核对通过，不计实际宿主读取、安装或业务验收。
+
 2026-10-17：[0.35.1](v0.35.1/README.md)修复source-reduce公开提示词目标在作者定义与元数据校验中的遗漏；实际UI制作保存失败触发，既有绑定设计不变。发布、消费者安装和原始ZIP独立复导继续分别核对。
 
 0.35.0实际发布：治理[#826](https://github.com/zhongmiao-org/flow-ark/pull/826)最新CI39015584964通过，实际合并及远端contracts-v0.35.0解引用`6de6418e172f2e0a585f96b166ea2a92df6712f9`，110份机器资料固定。[真实发布与消费者门槛](../docs/client/source-reduction.md#g1实际发布与消费者顺序)。客户端仍0.34.0，完整AI整理和Skill写出未实现；以下G1条目保留当时状态。
