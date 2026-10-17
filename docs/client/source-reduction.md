@@ -4,14 +4,16 @@
 
 ## 先行Figma
 
-在原Product Screens页复用Semantic Light/Dark、Noto Sans SC/Inter、Button、AntInput、AntSelect、AntCheckbox和原布局；没有整页图片或栅格填充。Code Connect未命中，使用现有组件实例及变量；六状态均已查看完整构图，并修正结果页导航选中项和主要按钮层级后查看修正图。
+在原Product Screens页复用Semantic Light/Dark、Noto Sans SC/Inter、Button、AntInput、AntSelect、AntCheckbox和原布局；没有整页图片或栅格填充。Code Connect未命中，使用现有组件实例及变量；原六状态均已查看完整构图，并修正结果页导航选中项和主要按钮层级后查看修正图。
 
 - [节点配置 · Dark，834:8918](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=834-8918)：来源资源、AI资源、每批上限、初始数据、模板整理规则和结果字段编辑器。
 - [已保存进度 · Light，834:9043](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=834-9043)：已处理片段与完整原记录分开计数，预览草稿，明确继续本批的调用上限。
 - [请求进行中 · Dark，834:9138](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=834-9138)：固定请求身份、尚未提交范围及取消，不用部分响应推进。
 - [结果未知 · Dark，834:9233](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=834-9233)：保留进度、查看请求、核对恢复或重试。
-- [再次请求核对 · Light，834:9328](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=834-9328)：原请求可能收费，默认未勾选；仅当前未提交片段可建立新尝试。
+- [允许当前片段重试 · Light，834:9328](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=834-9328)：原请求可能收费，默认未勾选；只允许当前未提交片段的一次新尝试，再进入原入口的运行核对，此处不发请求。
 - [全部覆盖与草稿 · Light，834:9426](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=834-9426)：连续来源与实际请求收据核对后进入草稿编辑/试聊；完整处理不等于事实确认或Skill发布。
+
+- [采用已有完整响应 · Light，839:8957](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=839-8957)：按模板字段预览已落盘完整响应，点击采用时原子提交草稿与下一位置，不调用模型；保留独立请求记录。
 
 以上是先行可编辑设计，不计客户端或真实模型通过。普通作者和使用者使用表单、字段编辑器、变量选择器与按钮；JSON仅作高级详情，不要求填写私人ID或游标。
 
@@ -66,3 +68,9 @@ Skill只能采用本机登记的完整覆盖证明，且在提案/试聊/确认�
 治理[#826](https://github.com/zhongmiao-org/flow-ark/pull/826)的源`382c3768667fd925656e8de7063d1654e8885b81`通过[最新CI39015584964](https://github.com/zhongmiao-org/flow-ark/actions/runs/39015584964)的Validate/Auto Merge，实际自动合并`6de6418e172f2e0a585f96b166ea2a92df6712f9`。源与合并树一致，真实带注释tag `contracts-v0.35.0`远端对象`d41bd220f0208c306730b02ce82b22581e6e2739`解引用为同一合并；110份机器资料固定，0.34.0及历史快照未改写，较早取消的CI不计通过。
 
 G2先采用准确tag/基线及全部机器资料、生成静态校验器和类型，再接登记来源/实际HTTP正文拦截、加密任务/尝试、原子检查点与取消/退出恢复；证据核对必须覆盖Skill提案/编辑/试聊/确认及历史读取，不能默认放过新增Evidence。UI在已有动作库/资源/字段编辑/结果页接入，onmessage使用本任务单调修订的持久快照。实际Key、完整来源整理/本人确认和工作区写出，以及作者UI导出独立模板仍须完成。当前安装版保持0.34.0，没有新模型请求、本人Run或Skill，原22次来源保留。
+
+## G2 UI实施约束（进行中）
+
+2026-10-17先核对日常安装版仍为0.34.0，0.35.0消费者在开发分支，尚未打包安装，不把开发代码计为旧界面已更新。新节点进入动作库，以来源选择、本人AI资源、每批次数、初始数据、整理规则和可视化结果字段配置；原始JSON仅位于高级调试折叠区。运行后默认展示可读草稿、完整记录/片段进度和实际用量，不用JSON正文代替普通结果。
+
+恢复已有完整响应不发新模型请求。未知结果的重试许可为十分钟内、当前任务/修订/片段的一次许可；已有排队Run不能消费，用户仍须核对原入口整体执行范围并显式启动新Run。原来源节点最多新增一次请求，其余步骤以原入口核对为准。重开不续跑、不重新收费。公开复用验收须由作者在UI搭建、导出标准ZIP，另一实例在UI导入并选择自己的来源/AI资源；不编辑私人JSON、直接写Store或手工改ZIP替代制作。
