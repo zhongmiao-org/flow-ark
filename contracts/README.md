@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.33.0来源核心实际发布：治理[#819](https://github.com/zhongmiao-org/flow-ark/pull/819)最新CI39008133642的Validate/Auto Merge均通过，实际合并及远端contracts-v0.33.0解引用为`b3e2e13452e5169d9b6a25ddc7cb3848320fabbc`，98份机器资料固定。[发布与消费者门槛](../docs/client/conversation-full-source.md#g1实际发布)；客户端仍0.32.0，本版不代表UI整理或Skill生成完成。
+
 2026-10-17：新增[0.33.0完整会话来源核心](v0.33.0/README.md)，六个独立清单/记录/引用/游标/页/捕获定义，真实原访谈与全部后续终态请求分别保留，固定来源可跨页核对且不依赖12/24聊天窗口。390项格式及35项关联语义资料本机核对通过，参考模块类型检查通过；[范围与后续](../docs/client/conversation-full-source.md#g1完整来源核心)。本批尚待实际发布tag与消费者，不定义AI处理覆盖或可视化整理节点，不计Skill生成完成。
 
 0.32.0实际发布：治理[#813](https://github.com/zhongmiao-org/flow-ark/pull/813)经最新CI38999888707自动合并，远端contracts-v0.32.0解引用`6a27736310d765320111df2d308224337d1a178f`，93份机器资料固定。十状态Figma、格式及后续门槛见[持续访谈](../docs/client/continuous-profile-interview.md#g1实际发布)。客户端仍0.31.0，未解除安装版上限；消费者与业务随后分别取证。

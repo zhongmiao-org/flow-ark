@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-17 完整来源G1已发布：治理#819由最新CI39008133642实际自动合并，真实contracts-v0.33.0固定`b3e2e13452e5169d9b6a25ddc7cb3848320fabbc`及98份机器资料。[证据与消费者余项](docs/client/conversation-full-source.md#g1实际发布)；客户端仍0.32.0，完整来源UI、可视化整理/处理覆盖及本人Skill尚未实现，完整主线继续。
+
 2026-10-17 完整来源G1核心：新增[0.33.0完整清单与分页](contracts/v0.33.0/README.md)，390项格式/35项关联资料与参考模块类型核对通过。原访谈与后续请求独立保留，22/40/131次虚构范围有序完整；[范围与消费者余项](docs/client/conversation-full-source.md#g1完整来源核心)。尚待实际发布/客户端UI和可编排读取、真实AI覆盖，未生成本人Skill，完整G3–G5/S08/186/Agent继续。
 
 2026-10-17 完整来源与UI路径G0：核对聊天窗口12轮不等于全部访谈，补齐[独立完整来源、分页覆盖及不再补充生成草稿的五状态Figma](docs/client/conversation-full-source.md)，明确[作者和普通使用者全程UI及独立复导门槛](docs/client/guided-skills-boss-plan-20261015.md#30-全程-ui-操作与公开复用)。旧包调试因入口能力校验阻止且已还原；无本次模型调用或Skill生成。当前#297直接发送修复已安装，本批完整来源尚未编码/安装；接续通用契约、消费者和可视化个人模板，完整G3–G5/S08/186/Agent目标保持。
