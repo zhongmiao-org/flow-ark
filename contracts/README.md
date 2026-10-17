@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-17：[0.35.1](v0.35.1/README.md)修复source-reduce公开提示词目标在作者定义与元数据校验中的遗漏；实际UI制作保存失败触发，既有绑定设计不变。发布、消费者安装和原始ZIP独立复导继续分别核对。
+
 0.35.0实际发布：治理[#826](https://github.com/zhongmiao-org/flow-ark/pull/826)最新CI39015584964通过，实际合并及远端contracts-v0.35.0解引用`6de6418e172f2e0a585f96b166ea2a92df6712f9`，110份机器资料固定。[真实发布与消费者门槛](../docs/client/source-reduction.md#g1实际发布与消费者顺序)。客户端仍0.34.0，完整AI整理和Skill写出未实现；以下G1条目保留当时状态。
 
 2026-10-17：新增[0.35.0可恢复来源AI整理](v0.35.0/README.md)，八个定义、source-reduce v1及完整覆盖SkillEvidence；[六状态Figma与边界](../docs/client/source-reduction.md)先行。110份机器资料、417项格式/37项关联及长Unicode参考核对通过，待实际tag发布和消费者采用；客户端#299已安装0.34.0，尚未生成本人Skill。
