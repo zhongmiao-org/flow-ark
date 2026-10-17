@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-17 完整来源与UI路径G0：核对聊天窗口12轮不等于全部访谈，补齐[独立完整来源、分页覆盖及不再补充生成草稿的五状态Figma](docs/client/conversation-full-source.md)，明确[作者和普通使用者全程UI及独立复导门槛](docs/client/guided-skills-boss-plan-20261015.md#30-全程-ui-操作与公开复用)。旧包调试因入口能力校验阻止且已还原；无本次模型调用或Skill生成。当前#297直接发送修复已安装，本批完整来源尚未编码/安装；接续通用契约、消费者和可视化个人模板，完整G3–G5/S08/186/Agent目标保持。
+
 2026-10-17 持续会话G2：客户端#296已经最新CI自动合并并安装，0.32.0通用持续历史/确认快照与同ID继续有分层证据，原个人记录保持。[当前范围](docs/client/continuous-profile-interview.md#g2实际交付与原工作区恢复)；个人模板采用、完整Skill增量更新/通知/新版显式采用及历史阅读位置持久化仍待完成，真实API/BOSS及G3–G5/S08/186/Agent继续。
 
 2026-10-17持续会话G1已发布：治理#813最新CI实际自动合并，真实contracts-v0.32.0固定6a27736310d765320111df2d308224337d1a178f及93份机器资料；[发布与消费者门槛](docs/client/continuous-profile-interview.md#g1实际发布)。客户端仍0.31.0，未解除当前安装版上限，无新增个人Run/模型/Skill或招聘动作；继续G2及可视化个人模板、完整G3–G5/S08/186/Agent。

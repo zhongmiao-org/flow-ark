@@ -1,5 +1,7 @@
 # FlowArk 总体架构
 
+2026-10-17 可视化使用边界：用户再次明确模板制作与使用都以客户端UI为正常路径，JSON仅供调试/高阶配置；[实施与独立复导门槛](client/guided-skills-boss-plan-20261015.md#30-全程-ui-操作与公开复用)。完整访谈来源不能沿用聊天窗口截断范围，先补[完整来源/分页/覆盖与五状态Figma](client/conversation-full-source.md)，再定义通用契约和实现；本批仅G0，尚未生成个人Skill或升级公开模板。
+
 2026-10-17 持续会话消费者：客户端#296已采用0.32.0并安装，持久历史/确认快照分离、同ID显式继续、独立有界onmessage及Skill来源当前性保护有分层证据；公共协议保持G1已发布内容。[实际范围与后续](client/continuous-profile-interview.md#g2实际交付与原工作区恢复)，个人/BOSS模板与完整增量更新尚未完成。
 
 2026-10-17 持续访谈G1：先行十状态Figma后，新增[0.32.0](../contracts/v0.32.0/README.md)的conversation v2和固定checkpoint来源。宿主按请求持久保存历史和幂等身份，head/onmessage/分页及单次发送有界，持续档案与不可变确认结果分离；材料变化先核对，不覆盖旧证据。已有v1显式继续只建立关联记录、保留原ID/快照，不隐式迁移或清库。Renderer仍用静态校验和白名单，全部模型使用本人Key；[范围与后续门槛](client/continuous-profile-interview.md#g1持续会话与来源)。当前仅规范/格式，客户端和模板未采用。
