@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.35.0实际发布：治理[#826](https://github.com/zhongmiao-org/flow-ark/pull/826)最新CI39015584964通过，实际合并及远端contracts-v0.35.0解引用`6de6418e172f2e0a585f96b166ea2a92df6712f9`，110份机器资料固定。[真实发布与消费者门槛](../docs/client/source-reduction.md#g1实际发布与消费者顺序)。客户端仍0.34.0，完整AI整理和Skill写出未实现；以下G1条目保留当时状态。
+
 2026-10-17：新增[0.35.0可恢复来源AI整理](v0.35.0/README.md)，八个定义、source-reduce v1及完整覆盖SkillEvidence；[六状态Figma与边界](../docs/client/source-reduction.md)先行。110份机器资料、417项格式/37项关联及长Unicode参考核对通过，待实际tag发布和消费者采用；客户端#299已安装0.34.0，尚未生成本人Skill。
 
 0.34.0实际发布：治理[#823](https://github.com/zhongmiao-org/flow-ark/pull/823)最新CI39011622641的Validate/Auto Merge通过，实际合并及远端contracts-v0.34.0解引用为`19cb003f95143e8d380687168034d2368432ace4`，106份机器资料固定。[发布与消费者接续](../docs/client/conversation-source-reading.md#g1实际发布与消费者接续)。客户端仍0.33.0，来源节点/选择器与AI覆盖接续实现，不计Skill生成完成。
