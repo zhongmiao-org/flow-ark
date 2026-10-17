@@ -1,0 +1,811 @@
+{
+  "date": "2026-10-17",
+  "scope": "Actual Runtime, Worker, document subprocesses and encrypted Store with unchanged native-authored public personal-distillation 0.5.1. Wholly fictional PDF/DOCX/text fixtures; no original personal profile and no real credentials or network.",
+  "templateVersion": "0.5.1",
+  "zipSha256": "9ec2b05c897b00de483e565ff27b7d8f8ab7613461b98c65f75ab14a5cd728d5",
+  "clientMerge": "81d5558be29ad83ee38111e502f57e1f3a5b5b89",
+  "runs": 24,
+  "observations": [
+    {
+      "case": "mixed-real-formats",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "chinese.pdf",
+          "format": "pdf",
+          "status": "ready",
+          "unitKinds": [
+            "page"
+          ],
+          "warningCodes": [
+            "text-only"
+          ]
+        },
+        {
+          "name": "body.docx",
+          "format": "docx",
+          "status": "ready",
+          "unitKinds": [
+            "paragraph"
+          ],
+          "warningCodes": [
+            "body-only"
+          ]
+        },
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": true,
+      "totals": {
+        "files": 3,
+        "characters": 103,
+        "contextBytes": 1453
+      },
+      "contextNull": false,
+      "issueCount": 0,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "utf16-docx-with-text",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "utf16.docx",
+          "format": "docx",
+          "status": "ready",
+          "unitKinds": [
+            "paragraph"
+          ],
+          "warningCodes": [
+            "body-only"
+          ]
+        },
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": true,
+      "totals": {
+        "files": 2,
+        "characters": 85,
+        "contextBytes": 1028
+      },
+      "contextNull": false,
+      "issueCount": 0,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "pdf-empty-page",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "mixed.pdf",
+          "format": "pdf",
+          "status": "partial",
+          "unitKinds": [
+            "page"
+          ],
+          "warningCodes": [
+            "text-only",
+            "empty-unit"
+          ]
+        },
+        {
+          "name": "body.docx",
+          "format": "docx",
+          "status": "ready",
+          "unitKinds": [
+            "paragraph"
+          ],
+          "warningCodes": [
+            "body-only"
+          ]
+        }
+      ],
+      "ready": false,
+      "totals": {
+        "files": 2,
+        "characters": 76,
+        "contextBytes": 1312
+      },
+      "contextNull": false,
+      "issueCount": 1,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "pdf-empty-page-interview-blocked",
+      "entry": "interview",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "mixed.pdf",
+          "format": "pdf",
+          "status": "partial",
+          "unitKinds": [
+            "page"
+          ],
+          "warningCodes": [
+            "text-only",
+            "empty-unit"
+          ]
+        },
+        {
+          "name": "body.docx",
+          "format": "docx",
+          "status": "ready",
+          "unitKinds": [
+            "paragraph"
+          ],
+          "warningCodes": [
+            "body-only"
+          ]
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "docx-tracked-change",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "tracked.docx",
+          "format": "docx",
+          "status": "partial",
+          "unitKinds": [
+            "paragraph"
+          ],
+          "warningCodes": [
+            "body-only",
+            "tracked-changes"
+          ]
+        },
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": false,
+      "totals": {
+        "files": 2,
+        "characters": 49,
+        "contextBytes": 879
+      },
+      "contextNull": false,
+      "issueCount": 1,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "docx-tracked-change-interview-blocked",
+      "entry": "interview",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "tracked.docx",
+          "format": "docx",
+          "status": "partial",
+          "unitKinds": [
+            "paragraph"
+          ],
+          "warningCodes": [
+            "body-only",
+            "tracked-changes"
+          ]
+        },
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "empty-among-documents",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "chinese.pdf",
+          "format": "pdf",
+          "status": "ready",
+          "unitKinds": [
+            "page"
+          ],
+          "warningCodes": [
+            "text-only"
+          ]
+        },
+        {
+          "name": "empty.txt",
+          "format": "text",
+          "status": "empty",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": false,
+      "totals": {
+        "files": 2,
+        "characters": 18,
+        "contextBytes": 713
+      },
+      "contextNull": false,
+      "issueCount": 1,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "empty-among-documents-interview-blocked",
+      "entry": "interview",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "chinese.pdf",
+          "format": "pdf",
+          "status": "ready",
+          "unitKinds": [
+            "page"
+          ],
+          "warningCodes": [
+            "text-only"
+          ]
+        },
+        {
+          "name": "empty.txt",
+          "format": "text",
+          "status": "empty",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "characters-49999",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "a.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "b.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": true,
+      "totals": {
+        "files": 2,
+        "characters": 49999,
+        "contextBytes": 50546
+      },
+      "contextNull": false,
+      "issueCount": 0,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "characters-50000",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "a.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "b.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": true,
+      "totals": {
+        "files": 2,
+        "characters": 50000,
+        "contextBytes": 50547
+      },
+      "contextNull": false,
+      "issueCount": 0,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "characters-limit-interview-draft",
+      "entry": "interview",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "a.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "b.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "characters-50001",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "a.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "b.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": false,
+      "totals": {
+        "files": 2,
+        "characters": 50001,
+        "contextBytes": 50548
+      },
+      "contextNull": true,
+      "issueCount": 1,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "characters-over-interview-blocked",
+      "entry": "interview",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "a.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "b.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "context-bytes-196607",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "byte-edge.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": true,
+      "totals": {
+        "files": 1,
+        "characters": 47582,
+        "contextBytes": 196607
+      },
+      "contextNull": false,
+      "issueCount": 0,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "context-bytes-196608",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "byte-edge.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": true,
+      "totals": {
+        "files": 1,
+        "characters": 47583,
+        "contextBytes": 196608
+      },
+      "contextNull": false,
+      "issueCount": 0,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "context-limit-interview-draft",
+      "entry": "interview",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "byte-edge.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "context-bytes-196609",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "byte-edge.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": false,
+      "totals": {
+        "files": 1,
+        "characters": 47584,
+        "contextBytes": 196609
+      },
+      "contextNull": true,
+      "issueCount": 1,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "context-over-interview-blocked",
+      "entry": "interview",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "byte-edge.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "ten-explicit-documents",
+      "entry": "materials",
+      "state": "SUCCEEDED",
+      "parsedDocuments": [
+        {
+          "name": "part0.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part1.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part2.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part3.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part4.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part5.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part6.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part7.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part8.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        },
+        {
+          "name": "part9.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "ready": true,
+      "totals": {
+        "files": 10,
+        "characters": 180,
+        "contextBytes": 2817
+      },
+      "contextNull": false,
+      "issueCount": 0,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "password-pdf",
+      "entry": "materials",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "bad-pdf-format",
+      "entry": "materials",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "docx-dtd",
+      "entry": "materials",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "invalid-utf8",
+      "entry": "materials",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "missing-later-file",
+      "entry": "materials",
+      "state": "FAILED",
+      "parsedDocuments": [
+        {
+          "name": "note.txt",
+          "format": "text",
+          "status": "ready",
+          "unitKinds": [
+            "line"
+          ],
+          "warningCodes": []
+        }
+      ],
+      "noTemplateResult": true,
+      "allReturnedSourceBytesVerified": true
+    },
+    {
+      "case": "zero-files-rejected",
+      "rejectedBeforeRun": true,
+      "reason": "Schema 校验失败：data/files must NOT have fewer than 1 items",
+      "priorValidInputAndRevisionPreserved": true
+    },
+    {
+      "case": "eleven-files-rejected",
+      "rejectedBeforeRun": true,
+      "reason": "Schema 校验失败：data/files must NOT have more than 10 items",
+      "priorValidInputAndRevisionPreserved": true
+    },
+    {
+      "case": "duplicate-file-rejected",
+      "rejectedBeforeRun": true,
+      "reason": "Schema 校验失败：data/files must NOT have duplicate items (items ## 1 and 0 are identical)",
+      "priorValidInputAndRevisionPreserved": true
+    }
+  ],
+  "networkCalls": 0,
+  "realModelRequests": 0,
+  "outboundActions": 0,
+  "conversations": 2,
+  "skillProposals": 0,
+  "reopenPreservesPriorBodiesAfterSourceChanged": true,
+  "reopenPreservesRunEvents": true,
+  "reopenDoesNotReplay": true,
+  "preservation": {
+    "allOriginalEncryptedDocumentsUnchanged": true,
+    "allOriginalEventsUnchanged": true,
+    "protectedCredentialFilesUnchanged": true,
+    "protectedCredentialFileCount": 1,
+    "originalRunCount": 2
+  },
+  "scopeLimits": [
+    "Fictional files and synthetic service configuration, with network and credential reads forbidden",
+    "Runtime observations do not prove native UI PDF/DOCX full-path acceptance",
+    "No real own-key interview, user trial or Skill confirmation",
+    "No arbitrary-document compatibility or complete S08/BOSS/G3-G5 acceptance"
+  ],
+  "preliminaryAttempts": "Separate temporary records contain an environment process-permission failure and observation harness errors in interview output typing and expected diagnostic wording. None is counted in the final 24 Runs or three strict rejection observations.",
+  "strictInputRejectionObservation": {
+    "scope": "Separate fresh isolated instance; valid save before invalid inputs; no Run admission",
+    "validSaveSucceeded": true,
+    "runs": 0,
+    "invalidInputsPreservePriorValidInputAndRevision": true
+  },
+  "checks": {
+    "clientBuild": "passed on unchanged client merge; existing chunk-size warning remains",
+    "templateValidate": "passed on unchanged template main",
+    "templateBuild": "passed on unchanged template main",
+    "governance": "passed",
+    "diffCheck": "passed",
+    "unitTestsAddedOrRun": false
+  }
+}
