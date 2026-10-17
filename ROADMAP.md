@@ -1,5 +1,9 @@
 # FlowArk Roadmap
 
+2026-10-17 DeepSeek真实首轮：用户明确授权配置自有Key后，原生个人访谈首次实接完成，累计10,213 token，等待本人回答；[聚合与限制](docs/client/personal-distillation-materials.md#2026-10-17-用户授权的首次真实访谈)。原2Run/旧事件保留，授权新增访谈1Run；仅此供应商单轮成功，不计OpenAI/完整onmessage、多轮确认、Skill实际文件或招聘通过。
+
+2026-10-17 个人0.5.2目录默认：先行Figma/0.31.0和客户端#293后，通过原生制作、系统ZIP导出与独立消费者复导/OS选择器/另选清除/保存重开完成采用，模板#16最新CI实际自动合并。见[分层记录](docs/client/directory-binding-defaults.md#个人模板原生采用)。三个流程等字节不变，无私人路径；Key新授权前原个人2Run/加密记录/凭据保持。真实Key/本人确认、完整S08/BOSS/G3–G5/186/Agent继续。
+
 2026-10-17 默认目录G2交付：先行Figma/0.31.0后，客户端#293最新CI自动合并、合并源完整打包安装；作者引用保护、默认草稿/手动独立/实际CAS、通用ZIP与原生选择器/重开取得局部证据，[分层记录](docs/client/directory-binding-defaults.md#g2-客户端实现与局部核对)。原个人资料/Skill同仓库绑定及2Run/全部加密记录/凭据保持，模型/外发0。公开个人0.5.1仍待原生制作新版本，完整主线继续。
 
 2026-10-17 默认目录G1发布：治理#805最新CI自动合并，真实contracts-v0.31.0解引用实际合并提交，78份机器资料固定；[发布及后续门槛](docs/client/directory-binding-defaults.md#g1-实际发布)。客户端/个人包尚未采用，无新Run或模型，继续G2和完整主线。

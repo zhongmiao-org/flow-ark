@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-17",
+  "scope": "First user-authorized real DeepSeek guided interview through installed native client. Aggregate usage only; no key, personal materials, source digest, local path, request/conversation/private instance identifiers or actual answers.",
+  "provider": "deepseek",
+  "model": "deepseek-flash",
+  "templateVersion": "0.5.1",
+  "completedRequests": 1,
+  "usage": {
+    "prompt_tokens": 7873,
+    "completion_tokens": 2340,
+    "total_tokens": 10213,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 1831
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 7873
+  },
+  "separateConnectionTestRequests": 0,
+  "stage": "awaiting-user-first-answer",
+  "conversationConfirmed": false,
+  "skillConfirmed": false,
+  "skillFileGenerated": false,
+  "recruitingOutboundActions": 0,
+  "historyPreservation": {
+    "priorTwoRunPayloadsUnchanged": true,
+    "priorEventsUnchanged": true,
+    "protectedDataKeyUnchanged": true,
+    "currentRunCount": 3,
+    "newInterviewRunCreatedByUserAuthorization": true,
+    "allRecordsUnchangedClaimed": false
+  },
+  "estimate": {
+    "lowerTokens": 60000,
+    "upperTokens": 120000,
+    "status": "provisional budget, not a completed distillation measurement",
+    "assumptions": "Same selected material, 4-8 interview rounds plus synthesis/trial; history/reasoning/cache/trial count vary; excludes Codex/BOSS."
+  },
+  "unitTestsAddedOrRun": false
+}

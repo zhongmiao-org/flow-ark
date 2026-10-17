@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-17",
+  "scope": "Personal 0.5.2 native author fork/export and independent native consumer. Fictional local directories, no personal materials, keys, identifiers or paths. No model/Skill confirmation/business run.",
+  "archive": {
+    "archiveSha256": "b0389ec581e99f733d157cc9ae42bfd480913effb7f5f19842290022683da231",
+    "contentDigest": "11a535b8f599dc561b0c40744c4bf9cc886080fe3d03ce1a4916609df1fd4c76",
+    "version": "0.5.2",
+    "allFilesInspected": 29,
+    "changedFiles": [
+      "manifest.json",
+      "README.md"
+    ],
+    "threeFlowsUnchanged": true,
+    "promptsSchemasScriptsAndNuwaUnchanged": true,
+    "onlyVersionDefaultRelationAndReadmeChanged": true,
+    "privatePathsAbsent": true,
+    "nativeAuthorRevision": 2,
+    "initialSourceVersion": "0.5.1"
+  },
+  "nativeConsumer": {
+    "initialResourcesUnbound": true,
+    "sourceOsPickerDefaultsWorkspace": true,
+    "manualOutputOverride": true,
+    "explicitClear": true,
+    "explicitUseSource": true,
+    "savedAndNormallyReopened": true,
+    "savedOutputDoesNotFollowChangedSource": true,
+    "cancelRestoresSavedValues": true,
+    "allEncryptedDocumentsUnchanged": true,
+    "allEventsUnchanged": true,
+    "protectedCredentialsUnchanged": true,
+    "runs": 0,
+    "realModelRequests": 0,
+    "outboundActions": 0,
+    "interviewRequiresOwnAi": true
+  },
+  "originalPersonalProfile": {
+    "allEncryptedDocumentsUnchanged": true,
+    "allEventsUnchanged": true,
+    "protectedCredentialsUnchanged": true,
+    "runs": 2,
+    "originalSameRepositoryBindingsVerifiedInInstalledUI": true,
+    "originalVersionPreserved": "0.5.1",
+    "aiUnconfiguredAndUserSkillUnconfirmed": true
+  },
+  "contracts": "0.31.0",
+  "machineFiles": 78,
+  "validation": {
+    "pnpmValidate": true,
+    "pnpmBuild": true,
+    "nonExtractedStagedDiffCheck": true,
+    "fullStagedDiffCheck": "original exported README and two unchanged prompts contain trailing whitespace; preserved byte fidelity, not reformatted",
+    "unitTestsAddedOrRun": false
+  },
+  "remaining": [
+    "real own-Key interview and user trial/confirmation",
+    "actual Skill file saved after user confirmation",
+    "complete onmessage/BOSS/G3-G5/186/Agent"
+  ],
+  "templatePR": "https://github.com/zhongmiao-org/flow-ark-templates/pull/16",
+  "templateSource": "4779c59892cc0bfcba91d048604e2b67e995fff0",
+  "templateMerge": "fde7dbd0449c399a283efa942f2a17f23201db98",
+  "latestCI": 38993476736,
+  "evidenceCutoff": "Before subsequent user authorization to configure real Key/start interview; original-profile preservation is that closed checkpoint, not a promise of no later authorized runs."
+}

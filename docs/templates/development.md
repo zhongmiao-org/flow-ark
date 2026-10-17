@@ -1,5 +1,7 @@
 # 模板开发
 
+2026-10-17 个人目录默认检查点：模板[#16](https://github.com/zhongmiao-org/flow-ark-templates/pull/16)接收客户端原生0.5.2 ZIP与29份精确提取字节，固定发布0.31.0的78份机器资料。workspace默认materials在作者资源表单设置，独立原生消费者选择/另选/清除/保存与重开已核对；三个流程及提示词/脚本/Schema不变。见[制作与边界](../client/directory-binding-defaults.md#个人模板原生采用)，Key新授权前无模型或Skill确认，完整业务继续。
+
 2026-10-16资料来源检查点：模板[#10](https://github.com/zhongmiao-org/flow-ark-templates/pull/10)接收客户端原始0.1.4及26文件/九份脚本来源，新增独立简历与固定Skill只读入口，原三流程字节不改；资源/默认值公开边界、合成正式运行、外部变化阻止及独立复导/重开取得局部证据。详情见[制作与边界](../client/boss-profile-sources.md#2026-10-16-原生制作来源运行与独立复导)。第二工作区重绑读取、真实个人蒸馏/本人确认及完整BOSS仍待验收，不新增业务客户端或契约。
 
 2026-10-16条件检查点：模板[#9](https://github.com/zhongmiao-org/flow-ark-templates/pull/9)纳入客户端原始0.1.3 ZIP和逐字节20文件/六份脚本来源，新增无浏览器或AI依赖的共享条件一致性核对，旧两个网页登录预检流程字节不变。正式实例四场景、独立消费者中性默认/解绑/实际运行/重开已取证，见[制作与边界](../client/boss-conditions-authoring.md#2026-10-16-原生制作与独立复导)。仍为制作检查点，不计完整JD/会话/外发或G4/G5通过；未修改通用客户端或契约。

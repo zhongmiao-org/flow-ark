@@ -1,5 +1,7 @@
 # 公共契约管理
 
+0.31.0模板采用：模板[#16](https://github.com/zhongmiao-org/flow-ark-templates/pull/16)固定78份发布机器资料及同一治理基线，最新CI自动合并`fde7dbd0449c399a283efa942f2a17f23201db98`。原生个人0.5.2为workspace声明默认materials，独立复导保持关系且初始资源解绑；[采用证据](../docs/client/directory-binding-defaults.md#个人模板原生采用)。不改旧快照，不计真实Skill写出或完整业务通过。
+
 0.31.0客户端采用：客户端[#293](https://github.com/zhongmiao-org/flow-ark-client/pull/293)固定真实tag与78份机器资料，最新CI自动合并为`34bdf4b3b5ea4a0c3a4279aef176fd419a248bbf`，合并源完整打包安装。默认只存在于明确选择后的Renderer草稿，成功保存成为独立绑定；运行宿主无默认回退。[分层交付](../docs/client/directory-binding-defaults.md#g2-客户端实现与局部核对)不计个人新模板或完整业务通过。下述G1消费者状态保留当时含义。
 
 0.31.0实际发布：治理[#805](https://github.com/zhongmiao-org/flow-ark/pull/805)经最新CI38990593590自动合并，远端contracts-v0.31.0解引用`e61fbe54d484c25f27f193a8474b56a030d7f80b`，78份机器资料固定。客户端/模板尚未采用；[发布与后续门槛](../docs/client/directory-binding-defaults.md#g1-实际发布)分别记录，不能据格式校验计目录默认交互通过。
