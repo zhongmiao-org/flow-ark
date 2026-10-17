@@ -1,5 +1,7 @@
 # FlowArk 总体架构
 
+2026-10-17 持续访谈G1：先行十状态Figma后，新增[0.32.0](../contracts/v0.32.0/README.md)的conversation v2和固定checkpoint来源。宿主按请求持久保存历史和幂等身份，head/onmessage/分页及单次发送有界，持续档案与不可变确认结果分离；材料变化先核对，不覆盖旧证据。已有v1显式继续只建立关联记录、保留原ID/快照，不隐式迁移或清库。Renderer仍用静态校验和白名单，全部模型使用本人Key；[范围与后续门槛](client/continuous-profile-interview.md#g1持续会话与来源)。当前仅规范/格式，客户端和模板未采用。
+
 2026-10-17 目录默认消费者：客户端#293已采用发布0.31.0并自动合并、打包安装；目录默认及手动覆盖记录仅属于Renderer草稿，IPC/实例/Run不保存该记录，资源保存成功固定独立路径，宿主仍拒绝缺失目标。作者引用保护和标准导出保持通用关系；[交付与证据](client/directory-binding-defaults.md#g2-客户端实现与局部核对)。公开个人0.5.1尚未采用新声明，下方G1为历史状态。
 
 2026-10-17 目录默认来源先行：用户要求个人Skill默认归已配置资料仓库，新增[0.31.0](../contracts/v0.31.0/README.md)的通用defaultDirectoryFrom声明；客户端仅按用户明确选择在资源草稿中复用路径，不在宿主运行时推断业务目录、代替缺项或继承授权。已有绑定/手动覆盖、保存CAS与Run快照保持，包/作者定义校验同一逻辑关系。四状态[Figma及消费者门槛](client/directory-binding-defaults.md)先行，当前G1，客户端及公开个人包尚未采用。
