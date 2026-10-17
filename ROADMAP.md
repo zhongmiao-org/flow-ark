@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-17：0.34.0来源选择/读取已由客户端#299合并、打包安装并全UI独立复导；接续[分批AI整理六状态及0.35.0](docs/client/source-reduction.md)，补实际请求收据、原子进度、unknown核对与完整覆盖。当前G1参考核对，安装版仍0.34.0、本人的22次来源保持、Skill未生成。下一步发布/客户端及UI个人模板，完整G3–G5/S08/186/Agent/BOSS继续。
+
 2026-10-17 来源读取G1已发布：治理#823最新CI实际自动合并，真实contracts-v0.34.0固定`19cb003f95143e8d380687168034d2368432ace4`与106份机器资料。[发布及G2门槛](docs/client/conversation-source-reading.md#g1实际发布与消费者接续)。客户端仍0.33.0；接续原生资源选择/读取节点及真实AI覆盖，个人Skill与完整公开UI模板尚未完成，G3–G5/S08/186/Agent/BOSS继续。
 
 2026-10-17 来源读取G1：先补[四状态Figma与UI路径](docs/client/conversation-source-reading.md)，新增0.34.0只读来源资源/source节点及无损有界片段，405项格式/22项关联语义、长Unicode重建和包/作者门槛本机核对通过。106份机器资料待实际发布；客户端仍0.33.0，真实AI覆盖、Skill生成及可视化独立模板继续，不以协议读取等同蒸馏完成。
