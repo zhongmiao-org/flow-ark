@@ -1,6 +1,6 @@
 # FlowArk Roadmap
 
-2026-10-17 会话回复布局：按真实访谈反馈先补Light/Dark/1040×700三张Figma；消息独立滚动，回复固定在下方，阅读历史不被新回复打断。见[设计与实施边界](docs/client/conversation-composer.md)。当前G1，客户端与安装人工验收另记，原onmessage/发送核对与完整主线保持。
+2026-10-17 会话回复布局：按真实访谈反馈先补Light/Dark/1040×700三张Figma；消息独立滚动，回复固定在下方，阅读历史不被新回复打断。见[设计与实施边界](docs/client/conversation-composer.md)。客户端#294最新CI已合并并安装重启，真实原会话5/20次请求、ID和全部加密记录/凭据保持，底部回复已原生看图；正常重开证据及未验范围见同文。原onmessage/发送核对与完整主线保持。
 
 2026-10-17 DeepSeek真实首轮：用户明确授权配置自有Key后，原生个人访谈首次实接完成，累计10,213 token，等待本人回答；[聚合与限制](docs/client/personal-distillation-materials.md#2026-10-17-用户授权的首次真实访谈)。原2Run/旧事件保留，授权新增访谈1Run；仅此供应商单轮成功，不计OpenAI/完整onmessage、多轮确认、Skill实际文件或招聘通过。
 
