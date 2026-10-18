@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-19：新增[0.42.0显式前次结果绑定候选](v0.42.0/README.md)，run-result-read-v1资源/节点、目录/预览/选择/保存、私有Proof/索引与Run快照。固定凭据过滤后完整Schema再次校验，42命名空间定义与wire一致，142项纯格式/关系/过滤及40项作者/包规范检查通过。[实际阶段与消费者门槛](../docs/client/run-result-binding.md#2026-10-19-g1正式候选)明确尚未发布、不得提前采用，旧0.41.0快照保持。
+
 2026-10-19：新增[已保存入口结果显式绑定草案](drafts/run-result-binding/README.md)与[24张先行Figma](../docs/client/run-result-binding.md)。42项纯格式/关联核对通过，未占正式版本；固定过滤算法、完整响应/许可和宿主生命周期仍待G1，不可提前由客户端采用，0.41.0快照不变。
 
 2026-10-19：[0.41.0入口整体结果](v0.41.0/README.md)经治理[#893](https://github.com/zhongmiao-org/flow-ark/pull/893)同树压缩合并，真实contracts-v0.41.0固定09b96390beadbca21e8e6a5db0ff6f672264c434和132份机器资料。客户端[#321](https://github.com/zhongmiao-org/flow-ark-client/pull/321)已独立采用、实现普通只读UI、打包安装；[分层证据和边界](../docs/client/entry-result-view.md#g2客户端与原生ui接续)保留原本人资料与未验收完整矩阵，CI计费零步骤不计通过。下方候选为先行状态。
