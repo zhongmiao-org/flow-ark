@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-19：[0.41.0入口整体结果](v0.41.0/README.md)经治理[#893](https://github.com/zhongmiao-org/flow-ark/pull/893)同树压缩合并，真实contracts-v0.41.0固定09b96390beadbca21e8e6a5db0ff6f672264c434和132份机器资料。客户端[#321](https://github.com/zhongmiao-org/flow-ark-client/pull/321)已独立采用、实现普通只读UI、打包安装；[分层证据和边界](../docs/client/entry-result-view.md#g2客户端与原生ui接续)保留原本人资料与未验收完整矩阵，CI计费零步骤不计通过。下方候选为先行状态。
+
 2026-10-19：既有七状态Figma复核后，新增[0.41.0入口整体结果只读候选](v0.41.0/README.md)，完整固定来源/Schema校验、五类状态、已知秘密值的私有显示投影与历史不可核验边界。89项纯格式/关联核对及132份机器资料封存重建独立记录；当前未发布、客户端不得提前采用。[消费者门槛](../docs/client/entry-result-view.md#2026-10-19-g1正式候选)不计宿主/UI或业务通过。
 
 2026-10-19：[0.40.0](v0.40.0/README.md)已由实际合并源发布，远端`contracts-v0.40.0^{}`准确固定`d0a8b181a2309d40a6651d759e23977cfb5d70ae`和127份机器资料。治理#887最新付款限制零步骤后，经完整远端树/135文件blob核对按用户授权CLI squash；[实际发布与G2门槛](../docs/client/visual-effect-node.md#g1实际发布与g2接续)区分30格式/41关联、真实tag与尚未实现的客户端。下条候选为先行阶段记录，不计实际账本/业务通过。
