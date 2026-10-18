@@ -1,0 +1,407 @@
+{
+  "date": "2026-10-19",
+  "stage": "G2 host foundation local candidate, not complete usable feature",
+  "contracts": {
+    "version": "0.42.0",
+    "tag": "contracts-v0.42.0",
+    "baseline": "f735b532393d20ecc5d2dc5ef9991b697e350f7e",
+    "adoptedMachineFiles": 144,
+    "allSealedBytesExact": true
+  },
+  "newControlledHostObservations": {
+    "scope": "controlled host observation with synthetic records and injected owner resolver; not native acceptance or application unit tests",
+    "count": 54,
+    "observations": [
+      {
+        "name": "original finalizer registers private proof",
+        "passed": true
+      },
+      {
+        "name": "business identity facts and content survive credential filter",
+        "passed": true
+      },
+      {
+        "name": "reuse proof contains no final known secret",
+        "passed": true
+      },
+      {
+        "name": "original result remains unchanged",
+        "passed": true
+      },
+      {
+        "name": "display and reusable values are separate",
+        "passed": true
+      },
+      {
+        "name": "scoped catalog candidate",
+        "passed": true
+      },
+      {
+        "name": "full preview matches protected data",
+        "passed": true
+      },
+      {
+        "name": "read stamp mismatch rejected",
+        "passed": true
+      },
+      {
+        "name": "selection creates no saved binding",
+        "passed": true
+      },
+      {
+        "name": "inspect sees saved binding only",
+        "passed": true
+      },
+      {
+        "name": "list preview select inspect do not register new source proofs",
+        "passed": true
+      },
+      {
+        "name": "manual reference without choice rejected",
+        "passed": true
+      },
+      {
+        "name": "saved binding can be inspected",
+        "passed": true
+      },
+      {
+        "name": "old target or lease cannot save again",
+        "passed": true
+      },
+      {
+        "name": "host read uses exact fixed source",
+        "passed": true
+      },
+      {
+        "name": "consumer self-reference rejected",
+        "passed": true
+      },
+      {
+        "name": "saved unbinding stops new reads",
+        "passed": true
+      },
+      {
+        "name": "foreign owner does not appear in directory",
+        "passed": true
+      },
+      {
+        "name": "guessed other-owner Run gives no content",
+        "passed": true
+      },
+      {
+        "name": "old Run is not silently repaired",
+        "passed": true
+      },
+      {
+        "name": "non-success not reusable FAILED",
+        "passed": true
+      },
+      {
+        "name": "non-success not reusable CANCELLED",
+        "passed": true
+      },
+      {
+        "name": "non-success not reusable INTERRUPTED",
+        "passed": true
+      },
+      {
+        "name": "non-success not reusable RUNNING",
+        "passed": true
+      },
+      {
+        "name": "preserve falsy null",
+        "passed": true
+      },
+      {
+        "name": "preserve falsy false",
+        "passed": true
+      },
+      {
+        "name": "preserve falsy 0",
+        "passed": true
+      },
+      {
+        "name": "preserve falsy \"\"",
+        "passed": true
+      },
+      {
+        "name": "preserve falsy {}",
+        "passed": true
+      },
+      {
+        "name": "preserve falsy []",
+        "passed": true
+      },
+      {
+        "name": "filter breaking original Schema not reusable",
+        "passed": true
+      },
+      {
+        "name": "secret in key cannot be renamed and adopted",
+        "passed": true
+      },
+      {
+        "name": "monotonic expiry rejects old preview",
+        "passed": true
+      },
+      {
+        "name": "wall clock jump does not expire monotonic lease",
+        "passed": true
+      },
+      {
+        "name": "new source service loses prior in-memory choice",
+        "passed": true
+      },
+      {
+        "name": "source changes during async read refused",
+        "passed": true
+      },
+      {
+        "name": "undeclared entry has no preview",
+        "passed": true
+      },
+      {
+        "name": "bounded catalog has at most 20 rows",
+        "passed": true
+      },
+      {
+        "name": "forged directory handle rejected",
+        "passed": true
+      },
+      {
+        "name": "cursor cannot change query",
+        "passed": true
+      },
+      {
+        "name": "returned cursor mutation cannot alter host lease",
+        "passed": true
+      },
+      {
+        "name": "catalog cursor advances without duplicates",
+        "passed": true
+      },
+      {
+        "name": "public select requires reviewed true",
+        "passed": true
+      },
+      {
+        "name": "public preview cannot accept raw value",
+        "passed": true
+      },
+      {
+        "name": "reference cannot carry paths",
+        "passed": true
+      },
+      {
+        "name": "depth guard before format validator",
+        "passed": true
+      },
+      {
+        "name": "read node cannot omit independent capability",
+        "passed": true
+      },
+      {
+        "name": "unfinished full UI capability not advertised",
+        "passed": true
+      },
+      {
+        "name": "pending reader capability remains blocked",
+        "passed": true
+      },
+      {
+        "name": "forged original source digest rejected",
+        "passed": true
+      },
+      {
+        "name": "own JSON prototype key does not mutate prototypes",
+        "passed": true
+      },
+      {
+        "name": "encrypted proof survives real Store close and reopen",
+        "passed": true
+      },
+      {
+        "name": "reopened Store does not restore process grants",
+        "passed": true
+      },
+      {
+        "name": "saved source can be read from reopened encrypted Store",
+        "passed": true
+      }
+    ],
+    "realModelRequests": 0,
+    "originalUserDataRead": false,
+    "originalUserDataWritten": false
+  },
+  "existingDisplayRegressionObservations": {
+    "scope": "controlled host observation, temporary synthetic records; not native acceptance or an application unit test suite",
+    "count": 25,
+    "realArchiveLoads": 2,
+    "observations": [
+      {
+        "name": "preserve null",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "preserve false",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "preserve 0",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "preserve \"\"",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "preserve {}",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "preserve []",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "fixed author survives current registration removed",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "private projection contains no known secret",
+        "status": "verified"
+      },
+      {
+        "name": "saved-only FAILED",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "saved-only CANCELLED",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "saved-only INTERRUPTED",
+        "status": "available",
+        "reason": null
+      },
+      {
+        "name": "active remains pending",
+        "status": "pending",
+        "reason": null
+      },
+      {
+        "name": "old result without projection",
+        "status": "unavailable",
+        "reason": "privacy-unavailable"
+      },
+      {
+        "name": "changed original rejected",
+        "status": "unavailable",
+        "reason": "privacy-unavailable"
+      },
+      {
+        "name": "changed projection rejected",
+        "status": "unavailable",
+        "reason": "privacy-unavailable"
+      },
+      {
+        "name": "missing is not null",
+        "status": "missing",
+        "reason": null
+      },
+      {
+        "name": "full original schema rejects invalid",
+        "status": "unavailable",
+        "reason": "result-invalid"
+      },
+      {
+        "name": "value budget before validation",
+        "status": "unavailable",
+        "reason": "read-limit"
+      },
+      {
+        "name": "missing snapshot is not ordinary",
+        "status": "unavailable",
+        "reason": "snapshot-missing"
+      },
+      {
+        "name": "wrong snapshot version",
+        "status": "unavailable",
+        "reason": "snapshot-mismatch"
+      },
+      {
+        "name": "ordinary run retains other outputs",
+        "status": "not-applicable",
+        "reason": null
+      },
+      {
+        "name": "real archive historical missing privacy evidence",
+        "status": "unavailable",
+        "reason": "privacy-unavailable"
+      },
+      {
+        "name": "real package IO with changed record",
+        "status": "unavailable",
+        "reason": "changed-during-read"
+      },
+      {
+        "name": "storage unavailable fixed reason",
+        "status": "unavailable",
+        "reason": "storage-unavailable"
+      },
+      {
+        "name": "synthetic malformed 65537-byte Schema refused before package parse",
+        "status": "read-limit"
+      }
+    ]
+  },
+  "localChecks": {
+    "contractsGenerate": "passed; generator now resolves acyclic local Node references",
+    "typecheck": "passed",
+    "build": "passed; existing chunk-size warning remains",
+    "format": "passed",
+    "diffCheck": "passed",
+    "applicationUnitTests": "not added or run"
+  },
+  "figma": {
+    "fileKey": "sVciNUZHG9yx81gCpYzjH9",
+    "contextAndScreenshotRead": [
+      "936:10376",
+      "936:11490",
+      "936:11726"
+    ],
+    "newDesignOrAssets": false,
+    "nativeUiAcceptance": false
+  },
+  "implementedFoundation": [
+    "Original successful Run finalizer registers protected reuse proof and owner-scoped index in encrypted KV without storing secret lists",
+    "Exact source/complete Schema/proof validation and full protected preview with final known secrets",
+    "Monotonic process-local preview/choice/cursor grants, owner/entry scoping and finite pages",
+    "Existing flow/instance save validates exact grants, current revision and source again inside CAS",
+    "Pinned contract generation, private result resource slot and optional snapshot type/identity support",
+    "Strict IPC input and private reference guards, no credential reread or old Run repair"
+  ],
+  "executionCapabilityAdvertised": false,
+  "remaining": [
+    "Complete native result picker, full reader, author resource/sourceEntries editor and variable/node UI",
+    "Runtime preflight preparation and Main/Worker node dispatch plus typed result view",
+    "Actual formal and author owner resolution, full cancellation/lateness/unknown/native matrix",
+    "Reference deletion/export protections and standard ZIP independent all-UI reuse",
+    "Full packaging and old app update after usable feature acceptance",
+    "Actual personal Skill/model/BOSS recruiting and full G3-G5/S01-S08/186/Agent acceptance"
+  ],
+  "limits": [
+    "New service observations inject owner resolver and active callback; not proof of production Runtime/Main/Worker authorization or native UI",
+    "Synthetic encrypted Store mutations are controlled observations, never normal template delivery",
+    "Display regressions include two reads of the real public BOSS archive but do not prove formal reusable-result binding",
+    "No original profile read/write, provider request, paid retry, final Skill, login or recruiting action; installed app and public template packages not updated"
+  ]
+}
