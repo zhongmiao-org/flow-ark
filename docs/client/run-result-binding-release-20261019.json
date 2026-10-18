@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-19",
+  "stage": "G1 published; G2 not implemented",
+  "repository": "zhongmiao-org/flow-ark",
+  "pullRequest": "https://github.com/zhongmiao-org/flow-ark/pull/896",
+  "sourceCommit": "902cb5fe572b65f7fdc61055a7f16c5d5a5f93e1",
+  "mergeCommit": "f735b532393d20ecc5d2dc5ef9991b697e350f7e",
+  "sourceMergeTree": "3e07ba519cdd4650865f3c459528227f08018b8e",
+  "contract": {
+    "version": "0.42.0",
+    "tag": "contracts-v0.42.0",
+    "tagObject": "2cddcd094f169b5de2cc9666f7dbe6c21ded5b39",
+    "peeledCommit": "f735b532393d20ecc5d2dc5ef9991b697e350f7e",
+    "remoteObserved": true,
+    "machineFiles": 144,
+    "inheritedExactFiles": 129,
+    "changedInheritedFiles": [
+      "p1.schema.json",
+      "package-format.ts",
+      "template-authoring.ts"
+    ],
+    "newMachineFiles": 12,
+    "fullRebuildExact": true,
+    "sealedManifest": "../../contracts/v0.42.0/SHA256SUMS"
+  },
+  "mergeValidation": {
+    "remoteFullTreesExact": true,
+    "remoteChangedBlobCount": 165,
+    "allChangedBlobsExact": true,
+    "method": "gh pr merge 896 --squash --match-head-commit 902cb5fe572b65f7fdc61055a7f16c5d5a5f93e1",
+    "authorization": "User authorized CLI squash for CI billing failure before steps"
+  },
+  "ci": {
+    "runId": 39165855935,
+    "jobId": 117788541930,
+    "conclusion": "failure",
+    "steps": [],
+    "annotation": "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings",
+    "passed": false
+  },
+  "localChecks": {
+    "originalWireCases": {
+      "valid": 21,
+      "formatInvalid": 11,
+      "relationInvalid": 10
+    },
+    "lifecycleCases": {
+      "valid": 31,
+      "formatInvalid": 11,
+      "relationInvalid": 17
+    },
+    "credentialCases": {
+      "valid": 28,
+      "invalid": 13
+    },
+    "publicPrivatePolicyCaseTotal": 142,
+    "embeddedDefinitionsExact": 42,
+    "authorPackageFixtures": {
+      "valid": 2,
+      "invalid": 17,
+      "actualNormativeChecks": 40
+    },
+    "allSnapshotTypescript": "passed",
+    "governanceLinksBoundariesChecksums": "passed",
+    "newJsonAndLinks": "passed",
+    "diffCheck": "passed",
+    "applicationUnitTests": "not added or run per current phase"
+  },
+  "consumer": {
+    "clientChanges": false,
+    "clientAdopted": false,
+    "clientPackaged": false,
+    "publicTemplateChanges": false,
+    "modelRequests": 0,
+    "originalProfileWrites": 0
+  },
+  "remaining": [
+    "Independent client adoption of exact published contract",
+    "Host finalizer protected reuse proof and owner-scoped index",
+    "Monotonic preview/choice/cursor grants and atomic CAS validation",
+    "Main/Worker read, immutable Run resultSources and current binding revalidation",
+    "Normal complete data reader, author/instance selection UI and lateness/cancel/failure/unknown handling",
+    "Historical reference protection and export/import isolation",
+    "Native full UI authoring, original ZIP export and independent workspace reuse",
+    "Actual personal Skill/model/BOSS recruiting and full G3-G5/S01-S08/186/Agent acceptance"
+  ]
+}
