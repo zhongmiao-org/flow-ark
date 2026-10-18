@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-18 关联字段变量与异常 UI 接续：原生通过参数/变量选择/条件分支完成完整、必填缺失、多匹配及根不唯一四场景；发现并修复根定位引用使失败详情空白的问题，先更新既有两主题 Figma/治理 #861，再由客户端 #312 实际合并打包安装。准确最新 CI 计费零步骤按授权 CLI squash，同树及原工作区 247 文档/94 事件/2 凭据/7 Run 保持已核对。[实际范围](docs/client/browser-associated-fields.md#原生变量分支与快照修复)。没有新模型/招聘外发；BOSS 公开模板来源校准、完整故障/紧凑/主题与 G3–G5/186/Agent 继续。
+
 2026-10-18 关联采集 G2 分层交付：客户端 [#311](https://github.com/zhongmiao-org/flow-ark-client/pull/311) 已按最新计费零步骤例外准确 CLI squash、同树打包替换旧界面，采用发布 0.38.0。真实内置 19/Chrome 8/加密 Store 12 项受控观察，以及普通 UI 从零制作、原始 ZIP 独立导入/自选浏览器/正式运行和重开取得证据；两条实际 Worker Run 成功。原日常 247 加密文档/94 事件/2 凭据/7 Run 逐项保持，模型与招聘外发增量 0。[交付与剩余范围](docs/client/browser-associated-fields.md#g2-实际交付与安装)。完整故障/变量/紧凑及浏览器矩阵、真实 Skill/BOSS 和 G3–G5/186/Agent 继续；Firefox/Safari 新能力明确阻止，下方未采用条目为历史。
 
 2026-10-18 关联采集 G1 实际发布：[#858](https://github.com/zhongmiao-org/flow-ark/pull/858) 最新准确提交 CI 明确计费零步骤后，逐个核对 130 个远端文件 blob 并按用户授权 CLI squash；合并树一致，真实 `contracts-v0.38.0` 固定到 `c689404a151062593f20ce6a007c0663c6961d77`。[发布证据与消费者门槛](docs/client/browser-associated-fields.md#g1-实际发布)。当前客户端仍 #310/0.37.1，真实驱动、可视化节点/结果、安装及全 UI 模板复导继续，不计业务或整个 G2 通过；下方候选条目为历史状态。

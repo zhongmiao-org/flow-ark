@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-18",
+  "scope": "native variable/incomplete/rejected browser fields followup and generic snapshot rendering fix",
+  "figma": {
+    "file": "sVciNUZHG9yx81gCpYzjH9",
+    "boards": [
+      "887:9964",
+      "887:10083"
+    ],
+    "updatedTextNodes": 12,
+    "descendantsPerBoard": 108,
+    "instancesPerBoard": 7,
+    "imageFills": 0,
+    "fonts": [
+      "Noto Sans SC",
+      "Inter"
+    ],
+    "screenshotsViewed": true
+  },
+  "native": {
+    "normalUIAuthoring": true,
+    "jsonStoreOrZipAuthorEdits": false,
+    "runs": [
+      {
+        "id": "076bcd6d-6a20-4143-9526-bd5c4966cf11",
+        "state": "SUCCEEDED",
+        "scenario": "complete dynamic root and field selectors",
+        "branch": "n_34bbacb4/n_57d8e1d0"
+      },
+      {
+        "id": "c4fd96d1-7e7a-4c21-969e-2c469f66b0f1",
+        "state": "SUCCEEDED",
+        "scenario": "required missing null and incomplete",
+        "branch": "n_34bbacb4/n_d7253852"
+      },
+      {
+        "id": "b321fbde-0ed8-4666-9855-c7d994b30c92",
+        "state": "SUCCEEDED",
+        "scenario": "two matches null and incomplete",
+        "branch": "n_34bbacb4/n_d7253852"
+      },
+      {
+        "id": "638d6583-7cd2-4912-9bc6-9217809b1d87",
+        "state": "FAILED",
+        "scenario": "two root matches; entire collection rejected",
+        "allSuccessorsUnexecuted": true,
+        "originalDetailWhiteScreen": true,
+        "sameOriginalRunReadableAfterFix": true,
+        "snapshotReferencePathVisible": true
+      }
+    ],
+    "reopenedHistoryRuns": 5,
+    "reopenCreatedRun": false,
+    "boundary": "otherwise branch is a data result, not a real human notification"
+  },
+  "componentObservation": {
+    "before": {
+      "scope": "Controlled render of production RunStepDetails; synthetic fixture; not native UI by itself",
+      "rows": [
+        {
+          "kind": "literal",
+          "rendered": true,
+          "pathVisible": false
+        },
+        {
+          "kind": "reference",
+          "rendered": false,
+          "error": "Objects are not valid as a React child (found: object with keys {$ref}). If you meant to render a collection of children, use an array instead."
+        }
+      ]
+    },
+    "after": {
+      "scope": "Controlled render of production RunStepDetails; synthetic fixture; not native UI by itself",
+      "rows": [
+        {
+          "kind": "literal",
+          "rendered": true,
+          "pathVisible": false
+        },
+        {
+          "kind": "reference",
+          "rendered": true,
+          "pathVisible": true
+        }
+      ]
+    }
+  },
+  "governance": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark/pull/861",
+    "source": "fb7c506ebc239541c60a3f558a11eebdcbbfa4b4",
+    "merge": "312234b47cef8dffe9cd64c869c346a453831e4d",
+    "tree": "2ed1526f5e44c23160481ec491f919c474d513e9",
+    "ciRun": 39115050591,
+    "ciJob": 117639042795,
+    "ciSteps": [],
+    "ciPassed": false,
+    "ciReason": "account payments or spending limit",
+    "exactDiffAndBlobChecked": true,
+    "mergeMethod": "user authorized CLI squash"
+  },
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/312",
+    "source": "ced5417467463682301d60b3557bb4be3b282557",
+    "base": "8e2d8aae5f798336633276da5658d388026d659a",
+    "merge": "4af9093b8d56d567d1b686acd5d4c7622e4429bf",
+    "tree": "13453028f694814ad8dd5169c2f0aecf8bc56f96",
+    "contracts": "0.38.0",
+    "ciRun": 39115216769,
+    "ciJob": 117639536761,
+    "ciSteps": [],
+    "ciPassed": false,
+    "ciReason": "account payments or spending limit",
+    "exactDiffAndBlobsChecked": 2,
+    "mergeMethod": "user authorized CLI squash"
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "sourcePrettier": "passed",
+    "diffCheck": "passed",
+    "unitTestsAddedOrRun": false,
+    "packageMac": "passed"
+  },
+  "modelRequests": 0,
+  "recruitingExternalActions": 0,
+  "evidenceDirectory": "/private/tmp/flowark-browser-fields-g2-20261018",
+  "remaining": [
+    "full native theme/compact/failure matrix",
+    "public BOSS template source calibration via UI",
+    "personal Skill paid retry remains unapproved",
+    "BOSS login remains deferred",
+    "G3-G5, S08, 186/U01-U12 and full Agent goal"
+  ],
+  "installation": {
+    "path": "/Users/mac/Applications/FlowArk.app",
+    "asarSha256": "45f250c76ec4c1ef3fb763f83ce553940adeb6a23edec1cc9e32803da30efd13",
+    "zipSha256": "1c31a05e7e9bd8b0a6a825f4ea76e347f884256431c10ea46528d9b9bc137eb0",
+    "dmgSha256": "06b8e9161f51d5f9e3b80772780cb15526eace61678e9383dc165191324572e0",
+    "backup": "/private/tmp/flowark-browser-fields-g2-20261018/FlowArk-before-312.app",
+    "installedSameFailureRunViewed": true,
+    "installedReadonlyReferencePathVisible": true,
+    "installedIsolatedHistoryRuns": 5,
+    "originalDataDirectoryRestored": true,
+    "preserved": {
+      "encryptedDocuments": 247,
+      "events": 94,
+      "protectedCredentialFiles": 2,
+      "runs": 7,
+      "allHashesEqual": true
+    },
+    "modelCallsAdded": 0,
+    "originalNewRuns": 0
+  }
+}
