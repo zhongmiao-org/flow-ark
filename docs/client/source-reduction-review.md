@@ -53,3 +53,5 @@ G1 参考模块只检查语言无关格式、真实来源/配方/记录的范围
 首段本机 `contracts:generate`、`pnpm typecheck`、`pnpm build`、相关 Prettier 与 diff 检查通过，未新增或运行单元测试。独立临时数据目录使用既有合成来源、内部示例 ZIP、真实 Runtime/Worker 和实际适配器的受控传输完成 25 项手工观察：有限续批上限 2、attention 上限 1、complete 上限 0；准确目标/检查点、排除正文、未创建 Run/未发许可、数据库文档/事件逐项不变、预览未读 Key/未发请求、Key 修订变化拒绝、伪造任务/实例/多余字段拒绝、完整结果连 Key 元数据也不读、注册对象与调用方副本分离。合成来源共完成 10 原记录；11 次适配器请求均由受控传输返回，不访问真实 Provider 或本人工作区。
 
 观察脚本 `/private/tmp/flowark-source-review-host-observe-20261018.ts` 与结果 `/private/tmp/flowark-source-review-host-observe-result-20261018.json`；生产构建日志 `/private/tmp/flowark-source-review-host-build-20261018.log`。首次观察脚本把运行的不可变结果修订当成任务当前修订而遭旧重试 CAS 拒绝，改为按既有 detail 读取当前修订后继续；没有放宽宿主 CAS。上述为开发验证，不计 UI 可操作、确认/网络准入闭环或个人/BOSS 模板验收。
+
+实际交付：治理 [#843](https://github.com/zhongmiao-org/flow-ark/pull/843) 合并 `6a0607ddf2b07f92fb75528543ef8240e5a9c1c5`，消费者 [#307](https://github.com/zhongmiao-org/flow-ark-client/pull/307) 合并 `32c74df21114a51913b480a60404e61c60cfe304`、源 `28ad8f22f4165ca60c7b517ec9ed5c16217e6fe0`。两者最新 CI 分别为 39096828480/39096852722，Validate 117584924663/117584994304 均因付款/支出限制未启动；按用户同一目标的既有 CLI squash 授权完成并复读实际合并结果。源检查通过与 CI 未启动分别记录，日常安装版不因合并而改变；下一段从已合并 main 接续唯一 Run/回执和执行准入。
