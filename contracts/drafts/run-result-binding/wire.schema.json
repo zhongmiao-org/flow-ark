@@ -227,23 +227,50 @@
       "additionalProperties": false
     },
     "Owner": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "enum": [
-            "instance",
-            "author-draft"
-          ]
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "instance"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            },
+            "packageKey": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 181
+            },
+            "packageDigest": {
+              "$ref": "#/$defs/Sha256"
+            }
+          },
+          "required": [
+            "kind",
+            "id",
+            "packageKey",
+            "packageDigest"
+          ],
+          "additionalProperties": false
         },
-        "id": {
-          "$ref": "#/$defs/Id"
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "author-draft"
+            },
+            "id": {
+              "$ref": "#/$defs/Id"
+            }
+          },
+          "required": [
+            "kind",
+            "id"
+          ],
+          "additionalProperties": false
         }
-      },
-      "required": [
-        "kind",
-        "id"
-      ],
-      "additionalProperties": false
+      ]
     },
     "Target": {
       "type": "object",
@@ -299,7 +326,7 @@
           "maxItems": 64,
           "uniqueItems": true,
           "items": {
-            "$ref": "#/$defs/Id"
+            "$ref": "#/$defs/BindingId"
           }
         }
       },
@@ -409,6 +436,9 @@
           "type": "integer",
           "minimum": 1,
           "maximum": 9007199254740991
+        },
+        "cursorId": {
+          "$ref": "#/$defs/OpaqueId"
         }
       },
       "required": [
@@ -417,7 +447,8 @@
         "binding",
         "querySha256",
         "ceiling",
-        "before"
+        "before",
+        "cursorId"
       ],
       "additionalProperties": false
     },
@@ -483,7 +514,7 @@
           "$ref": "#/$defs/BindingId"
         },
         "reviewId": {
-          "$ref": "#/$defs/Id"
+          "$ref": "#/$defs/OpaqueId"
         },
         "readStamp": {
           "$ref": "#/$defs/Sha256"
@@ -632,9 +663,832 @@
         "labelsComplete"
       ],
       "additionalProperties": false
+    },
+    "OpaqueId": {
+      "$ref": "#/$defs/Sha256"
+    },
+    "Timestamp": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$",
+      "minLength": 24,
+      "maxLength": 24
+    },
+    "Reason": {
+      "enum": [
+        "source-unavailable",
+        "source-not-succeeded",
+        "reuse-unavailable",
+        "schema-invalid",
+        "result-invalid",
+        "read-limit",
+        "privacy-unavailable",
+        "changed-during-read",
+        "storage-unavailable"
+      ]
+    },
+    "Run": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "flowId": {
+          "$ref": "#/$defs/Id"
+        },
+        "versionId": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "state": {
+          "enum": [
+            "QUEUED",
+            "RUNNING",
+            "PAUSED",
+            "WAITING_INPUT",
+            "CANCELLING",
+            "CANCELLED",
+            "INTERRUPTED",
+            "SUCCEEDED",
+            "FAILED"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "flowId",
+        "versionId",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "Choice": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "run": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "#/$defs/Id"
+                },
+                "flowId": {
+                  "$ref": "#/$defs/Id"
+                },
+                "versionId": {
+                  "$ref": "#/$defs/Sha256"
+                },
+                "state": {
+                  "const": "SUCCEEDED"
+                }
+              },
+              "required": [
+                "id",
+                "flowId",
+                "versionId",
+                "state"
+              ],
+              "additionalProperties": false
+            },
+            "entryId": {
+              "$ref": "#/$defs/Id"
+            },
+            "entryName": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "status": {
+              "const": "candidate"
+            }
+          },
+          "required": [
+            "run",
+            "entryId",
+            "entryName",
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "run": {
+              "$ref": "#/$defs/Run"
+            },
+            "entryId": {
+              "$ref": "#/$defs/Id"
+            },
+            "entryName": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "status": {
+              "const": "unavailable"
+            },
+            "reason": {
+              "$ref": "#/$defs/Reason"
+            }
+          },
+          "required": [
+            "run",
+            "entryId",
+            "entryName",
+            "status",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ListResponse": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "targetSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Choice"
+          },
+          "maxItems": 20
+        },
+        "next": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/Cursor"
+            }
+          ]
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "targetSha256",
+        "choices",
+        "next"
+      ],
+      "additionalProperties": false
+    },
+    "PreviewAvailable": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "status": {
+          "const": "available"
+        },
+        "ref": {
+          "$ref": "#/$defs/Reference"
+        },
+        "value": {
+          "$ref": "#/$defs/Json"
+        },
+        "dataChanged": {
+          "type": "boolean"
+        },
+        "schemaValidation": {
+          "const": "passed"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Label"
+          },
+          "maxItems": 256
+        },
+        "labelsComplete": {
+          "type": "boolean"
+        },
+        "reviewId": {
+          "$ref": "#/$defs/OpaqueId"
+        },
+        "expiresAt": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "readStamp": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "status",
+        "ref",
+        "value",
+        "dataChanged",
+        "schemaValidation",
+        "labels",
+        "labelsComplete",
+        "reviewId",
+        "expiresAt",
+        "readStamp"
+      ],
+      "additionalProperties": false
+    },
+    "Unavailable": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "status": {
+          "const": "unavailable"
+        },
+        "reason": {
+          "$ref": "#/$defs/Reason"
+        },
+        "readStamp": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "status",
+        "reason",
+        "readStamp"
+      ],
+      "additionalProperties": false
+    },
+    "PreviewResponse": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/PreviewAvailable"
+        },
+        {
+          "$ref": "#/$defs/Unavailable"
+        }
+      ]
+    },
+    "SelectResponse": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "status": {
+          "const": "selected"
+        },
+        "ref": {
+          "$ref": "#/$defs/Reference"
+        },
+        "choiceId": {
+          "$ref": "#/$defs/OpaqueId"
+        },
+        "expiresAt": {
+          "$ref": "#/$defs/Timestamp"
+        },
+        "readStamp": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "status",
+        "ref",
+        "choiceId",
+        "expiresAt",
+        "readStamp"
+      ],
+      "additionalProperties": false
+    },
+    "InspectAvailable": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "status": {
+          "const": "available"
+        },
+        "ref": {
+          "$ref": "#/$defs/Reference"
+        },
+        "value": {
+          "$ref": "#/$defs/Json"
+        },
+        "dataChanged": {
+          "type": "boolean"
+        },
+        "schemaValidation": {
+          "const": "passed"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Label"
+          },
+          "maxItems": 256
+        },
+        "labelsComplete": {
+          "type": "boolean"
+        },
+        "readStamp": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "status",
+        "ref",
+        "value",
+        "dataChanged",
+        "schemaValidation",
+        "labels",
+        "labelsComplete",
+        "readStamp"
+      ],
+      "additionalProperties": false
+    },
+    "InspectUnbound": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "status": {
+          "const": "unbound"
+        },
+        "readStamp": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "status",
+        "readStamp"
+      ],
+      "additionalProperties": false
+    },
+    "InspectResponse": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/InspectAvailable"
+        },
+        {
+          "$ref": "#/$defs/InspectUnbound"
+        },
+        {
+          "$ref": "#/$defs/Unavailable"
+        }
+      ]
+    },
+    "Binding": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "$ref": "#/$defs/Reference"
+        }
+      },
+      "required": [
+        "result"
+      ],
+      "additionalProperties": false
+    },
+    "SaveChoices": {
+      "type": "object",
+      "maxProperties": 100,
+      "propertyNames": {
+        "$ref": "#/$defs/BindingId"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/OpaqueId"
+      }
+    },
+    "PreparedSource": {
+      "type": "object",
+      "properties": {
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "ref": {
+          "$ref": "#/$defs/Reference"
+        },
+        "owner": {
+          "$ref": "#/$defs/Owner"
+        },
+        "proofSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "registeredPosition": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "binding",
+        "ref",
+        "owner",
+        "proofSha256",
+        "registeredPosition"
+      ],
+      "additionalProperties": false
+    },
+    "PreparedSources": {
+      "type": "object",
+      "maxProperties": 100,
+      "propertyNames": {
+        "$ref": "#/$defs/BindingId"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/PreparedSource"
+      }
+    },
+    "Proof": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "policy": {
+          "const": "credential-redacted-v1"
+        },
+        "finalized": {
+          "const": true
+        },
+        "finalSecretsComplete": {
+          "const": true
+        },
+        "run": {
+          "$ref": "#/$defs/RunIdentity"
+        },
+        "owner": {
+          "$ref": "#/$defs/Owner"
+        },
+        "ref": {
+          "$ref": "#/$defs/Reference"
+        },
+        "snapshotSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "sourceRecordSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "originalValueSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "originalSourceSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "value": {
+          "$ref": "#/$defs/Json"
+        },
+        "dataChanged": {
+          "type": "boolean"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Label"
+          },
+          "maxItems": 256
+        },
+        "labelsComplete": {
+          "type": "boolean"
+        },
+        "proofSha256": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "version",
+        "policy",
+        "finalized",
+        "finalSecretsComplete",
+        "run",
+        "owner",
+        "ref",
+        "snapshotSha256",
+        "sourceRecordSha256",
+        "originalValueSha256",
+        "originalSourceSha256",
+        "value",
+        "dataChanged",
+        "labels",
+        "labelsComplete",
+        "proofSha256"
+      ],
+      "additionalProperties": false
+    },
+    "Index": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "version": {
+              "const": 1
+            },
+            "finalized": {
+              "const": true
+            },
+            "owner": {
+              "$ref": "#/$defs/Owner"
+            },
+            "run": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "#/$defs/Id"
+                },
+                "flowId": {
+                  "$ref": "#/$defs/Id"
+                },
+                "versionId": {
+                  "$ref": "#/$defs/Sha256"
+                },
+                "state": {
+                  "const": "SUCCEEDED"
+                }
+              },
+              "required": [
+                "id",
+                "flowId",
+                "versionId",
+                "state"
+              ],
+              "additionalProperties": false
+            },
+            "entryId": {
+              "$ref": "#/$defs/Id"
+            },
+            "entryName": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "status": {
+              "const": "candidate"
+            },
+            "ref": {
+              "$ref": "#/$defs/Reference"
+            }
+          },
+          "required": [
+            "version",
+            "finalized",
+            "owner",
+            "run",
+            "entryId",
+            "entryName",
+            "status",
+            "ref"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "version": {
+              "const": 1
+            },
+            "finalized": {
+              "const": true
+            },
+            "owner": {
+              "$ref": "#/$defs/Owner"
+            },
+            "run": {
+              "$ref": "#/$defs/Run"
+            },
+            "entryId": {
+              "$ref": "#/$defs/Id"
+            },
+            "entryName": {
+              "type": "string",
+              "maxLength": 200
+            },
+            "status": {
+              "const": "unavailable"
+            },
+            "reason": {
+              "$ref": "#/$defs/Reason"
+            }
+          },
+          "required": [
+            "version",
+            "finalized",
+            "owner",
+            "run",
+            "entryId",
+            "entryName",
+            "status",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Lease": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "version": {
+              "const": 1
+            },
+            "id": {
+              "$ref": "#/$defs/OpaqueId"
+            },
+            "target": {
+              "$ref": "#/$defs/Target"
+            },
+            "targetSha256": {
+              "$ref": "#/$defs/Sha256"
+            },
+            "binding": {
+              "$ref": "#/$defs/BindingId"
+            },
+            "issuedMonotonicMs": {
+              "type": "number",
+              "minimum": 0
+            },
+            "expiresMonotonicMs": {
+              "type": "number",
+              "minimum": 0
+            },
+            "kind": {
+              "const": "cursor"
+            },
+            "cursor": {
+              "$ref": "#/$defs/Cursor"
+            }
+          },
+          "required": [
+            "version",
+            "id",
+            "target",
+            "targetSha256",
+            "binding",
+            "issuedMonotonicMs",
+            "expiresMonotonicMs",
+            "kind",
+            "cursor"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "version": {
+              "const": 1
+            },
+            "id": {
+              "$ref": "#/$defs/OpaqueId"
+            },
+            "target": {
+              "$ref": "#/$defs/Target"
+            },
+            "targetSha256": {
+              "$ref": "#/$defs/Sha256"
+            },
+            "binding": {
+              "$ref": "#/$defs/BindingId"
+            },
+            "issuedMonotonicMs": {
+              "type": "number",
+              "minimum": 0
+            },
+            "expiresMonotonicMs": {
+              "type": "number",
+              "minimum": 0
+            },
+            "kind": {
+              "const": "preview"
+            },
+            "ref": {
+              "$ref": "#/$defs/Reference"
+            },
+            "proofSha256": {
+              "$ref": "#/$defs/Sha256"
+            },
+            "readStamp": {
+              "$ref": "#/$defs/Sha256"
+            }
+          },
+          "required": [
+            "version",
+            "id",
+            "target",
+            "targetSha256",
+            "binding",
+            "issuedMonotonicMs",
+            "expiresMonotonicMs",
+            "kind",
+            "ref",
+            "proofSha256",
+            "readStamp"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "version": {
+              "const": 1
+            },
+            "id": {
+              "$ref": "#/$defs/OpaqueId"
+            },
+            "target": {
+              "$ref": "#/$defs/Target"
+            },
+            "targetSha256": {
+              "$ref": "#/$defs/Sha256"
+            },
+            "binding": {
+              "$ref": "#/$defs/BindingId"
+            },
+            "issuedMonotonicMs": {
+              "type": "number",
+              "minimum": 0
+            },
+            "expiresMonotonicMs": {
+              "type": "number",
+              "minimum": 0
+            },
+            "kind": {
+              "const": "choice"
+            },
+            "ref": {
+              "$ref": "#/$defs/Reference"
+            },
+            "proofSha256": {
+              "$ref": "#/$defs/Sha256"
+            },
+            "reviewId": {
+              "$ref": "#/$defs/OpaqueId"
+            },
+            "readStamp": {
+              "$ref": "#/$defs/Sha256"
+            }
+          },
+          "required": [
+            "version",
+            "id",
+            "target",
+            "targetSha256",
+            "binding",
+            "issuedMonotonicMs",
+            "expiresMonotonicMs",
+            "kind",
+            "ref",
+            "proofSha256",
+            "reviewId",
+            "readStamp"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Response": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ListResponse"
+        },
+        {
+          "$ref": "#/$defs/PreviewResponse"
+        },
+        {
+          "$ref": "#/$defs/SelectResponse"
+        },
+        {
+          "$ref": "#/$defs/InspectResponse"
+        },
+        {
+          "$ref": "#/$defs/Read"
+        }
+      ]
     }
   },
-  "oneOf": [
+  "anyOf": [
     {
       "$ref": "#/$defs/Resource"
     },
@@ -649,6 +1503,27 @@
     },
     {
       "$ref": "#/$defs/Read"
+    },
+    {
+      "$ref": "#/$defs/ListResponse"
+    },
+    {
+      "$ref": "#/$defs/PreviewResponse"
+    },
+    {
+      "$ref": "#/$defs/SelectResponse"
+    },
+    {
+      "$ref": "#/$defs/InspectResponse"
+    },
+    {
+      "$ref": "#/$defs/Binding"
+    },
+    {
+      "$ref": "#/$defs/SaveChoices"
+    },
+    {
+      "$ref": "#/$defs/PreparedSources"
     }
   ]
 }
