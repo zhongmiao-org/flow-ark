@@ -1,0 +1,317 @@
+{
+  "date": "2026-10-19",
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/320",
+    "source": "f37f5576fb4b1121ba33b56de54e5b09709eeafa",
+    "merge": "a2302734596b2f4468f818ad8b15346129c78a83",
+    "sourceMergeTreeExact": true,
+    "contractsVersion": "0.40.0",
+    "governanceBaseline": "585d6df022ebc3bbf4193ba56019ea6a029bfa2d",
+    "ci": {
+      "run": 39156023555,
+      "job": 117759308927,
+      "steps": [],
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ],
+      "passed": false
+    },
+    "fullRemoteDiffExact": true,
+    "remoteFilesExact": [
+      {
+        "path": "package.json",
+        "sha256": "41f938d4f891e59f16f99b8c393134fd6102c80d76c2b51475e1aea591a00158"
+      },
+      {
+        "path": "src/host/runtime.ts",
+        "sha256": "5510b7e1fdb2d2b8e2451749c357b171819640afdb5c253c41117eb0d37ffccc"
+      },
+      {
+        "path": "src/host/sessions.ts",
+        "sha256": "a39e6fa7930969bb4953c7ac1710655c0060f160ea492e868f267ecf6e9361b6"
+      },
+      {
+        "path": "src/templates/service.ts",
+        "sha256": "1073a0770c62e7ba675f95faa02464a3a653ee02b46f746f5883c71bfc262ec9"
+      }
+    ]
+  },
+  "controlledHost": {
+    "kind": "manual controlled real Store/Templates/Sessions integration observations; system transport stub is not a real browser or native UI",
+    "count": 41,
+    "results": [
+      {
+        "label": "unchanged scope allows auto",
+        "status": "observed"
+      },
+      {
+        "label": "unrelated extra resource does not block current entry",
+        "status": "observed"
+      },
+      {
+        "label": "revoked",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "changed mode",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "invalid grant",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "configuration revision",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "configuration value",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "resource binding",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "package identity",
+        "status": "rejected",
+        "reason": "模板入口与实例不匹配"
+      },
+      {
+        "label": "entry flow identity",
+        "status": "rejected",
+        "reason": "模板入口与实例不匹配"
+      },
+      {
+        "label": "missing current instance",
+        "status": "rejected",
+        "reason": "模板入口与实例不匹配"
+      },
+      {
+        "label": "missing accurate fixed revision",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "past approval cannot override revoked grant",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "prepared guard rechecks late resource changes",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "prepared guard rejects same-value new revision",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "human accept",
+        "status": "observed"
+      },
+      {
+        "label": "human reject",
+        "status": "observed"
+      },
+      {
+        "label": "human reject did not register approval",
+        "status": "observed"
+      },
+      {
+        "label": "human revoke",
+        "status": "observed"
+      },
+      {
+        "label": "human revoke did not register approval",
+        "status": "observed"
+      },
+      {
+        "label": "human configuration",
+        "status": "observed"
+      },
+      {
+        "label": "human configuration did not register approval",
+        "status": "observed"
+      },
+      {
+        "label": "human resource",
+        "status": "observed"
+      },
+      {
+        "label": "human resource did not register approval",
+        "status": "observed"
+      },
+      {
+        "label": "human mode",
+        "status": "observed"
+      },
+      {
+        "label": "human mode did not register approval",
+        "status": "observed"
+      },
+      {
+        "label": "human cancel",
+        "status": "observed"
+      },
+      {
+        "label": "human cancel did not register approval",
+        "status": "observed"
+      },
+      {
+        "label": "human inactive",
+        "status": "observed"
+      },
+      {
+        "label": "human inactive did not register approval",
+        "status": "observed"
+      },
+      {
+        "label": "aborted call before authorization",
+        "status": "rejected",
+        "reason": "This operation was aborted"
+      },
+      {
+        "label": "store fault blocks write",
+        "status": "rejected",
+        "reason": "controlled store fault"
+      },
+      {
+        "label": "plain-flow guard still respects cancellation",
+        "status": "rejected",
+        "reason": "This operation was aborted"
+      },
+      {
+        "label": "session ready boundary unchanged",
+        "status": "observed"
+      },
+      {
+        "label": "session ready boundary revoke",
+        "status": "observed"
+      },
+      {
+        "label": "session ready boundary configuration",
+        "status": "observed"
+      },
+      {
+        "label": "session ready boundary resource",
+        "status": "observed"
+      },
+      {
+        "label": "session ready boundary abort",
+        "status": "observed"
+      },
+      {
+        "label": "session ready boundary owner",
+        "status": "observed"
+      },
+      {
+        "label": "SDK state.set cannot bypass live deny",
+        "status": "rejected",
+        "reason": "本次写入范围已失效：当前权限、配置或资源已改变，请返回原入口重新核对"
+      },
+      {
+        "label": "denied SDK state remains unchanged",
+        "status": "observed"
+      }
+    ],
+    "businessFileOrBrowserWrites": 0,
+    "modelRequests": 0
+  },
+  "nativeUI": {
+    "runId": "620afc28-c589-4a20-b2fe-cb27af6257de",
+    "nativeUI": true,
+    "status": "completed",
+    "receipt": "confirmed",
+    "artifacts": 1,
+    "bytes": 72,
+    "sha256": "50b73880284a67716e649fbc807d7afe18345af82dcc97f6b76cd2cc7ecc1414",
+    "modelRequests": 0,
+    "path": "/private/tmp/flowark-effect-node-20261019/scope-unchanged.txt"
+  },
+  "installation": {
+    "sourceCommit": "a2302734596b2f4468f818ad8b15346129c78a83",
+    "zipSha256": "8353dad8cc38c50a31fe74fb8be2dc3e4d3d09678fd5e43aeae3847d1d0146cb",
+    "dmgSha256": "3c00134fad6e374e79f927c51e1931e5320879ac5e4698d5c338f1621126b1fc",
+    "asarSha256": "c91a29a871456804e5bdbd92b4a5ad4ff1c051c8a3b00fff074a849c9a2dfede",
+    "dmgBuildInstalledAsarExact": true,
+    "oldAsarSha256": "e54945408e3dfadc58b8f9891f15638e0d424eb14bb95f02ec7d87e726ce9392",
+    "rollbackApp": "/private/tmp/flowark-boss-reply-20261019/FlowArk-before-320.app"
+  },
+  "preservation": {
+    "documents": 247,
+    "events": 94,
+    "protectedFiles": 2,
+    "runs": 7,
+    "flows": 31,
+    "sourceRequestIndices": 22,
+    "allCiphertextHashesExact": true,
+    "nativeOldRunReadable": "6325a55c-9769-4c77-98ac-63eff7ea6606",
+    "newModelRequests": 0,
+    "newBusinessRuns": 0
+  },
+  "checks": [
+    "pnpm typecheck",
+    "pnpm build",
+    "pnpm exec prettier --check package.json src/host/runtime.ts src/host/sessions.ts src/templates/service.ts",
+    "git diff --check"
+  ],
+  "packaging": {
+    "zipFromPackageMac": true,
+    "packageMacExit": 1,
+    "initialDMGFailure": "hdiutil create failed: device not configured in sandbox",
+    "sameBuildDMGRetryCommand": "node scripts/package-dmg.mjs",
+    "retryExit": 0,
+    "readonlyDMGInstalled": true,
+    "signedRelease": false
+  },
+  "evidenceDigests": [
+    {
+      "file": "write-guard-before.json",
+      "sha256": "f583ecc5ca5078299d40e26fa6a68d0fd22d3e740488a78335084cdb010bfd25"
+    },
+    {
+      "file": "write-guard-after.json",
+      "sha256": "b29b9e118b8f6019f0bd5e6f363dadbe75e9148c083f32da626489fd87691c8d"
+    },
+    {
+      "file": "write-scope-host.json",
+      "sha256": "776baf18486a712b05b2fa454188aec5dfd29b9492f7c03f9432ba1503076396"
+    },
+    {
+      "file": "native-unchanged.json",
+      "sha256": "694a16916d1b3cdafaf8942416adcac93fc45b582c79e5651f83cc29943b2635"
+    },
+    {
+      "file": "native-unchanged-ax.txt",
+      "sha256": "248b7868def48a224847c9bc37d957d50aa6d386bd0317dde17a5ac67c0c6a05"
+    },
+    {
+      "file": "installed-old-run-ax.txt",
+      "sha256": "dfbb05be49d938d49a089cc1398c5573f36bc50a21f80ed370ef44158e1a7f61"
+    },
+    {
+      "file": "daily-before.json",
+      "sha256": "c993806b0eb284c63553329316bbac5de701aa4432cf734057ebe7f3ff2b760f"
+    },
+    {
+      "file": "daily-after.json",
+      "sha256": "c993806b0eb284c63553329316bbac5de701aa4432cf734057ebe7f3ff2b760f"
+    }
+  ],
+  "limits": [
+    "No app unit tests added or run",
+    "Controlled Sessions transport is not a real browser",
+    "Native revoked-resource/configuration failure matrix is incomplete",
+    "Already-dispatched browser commands are not atomically recalled",
+    "BOSS account/DOM/message receipt remains uncalibrated",
+    "No new public template, model request, personal Skill or recruiting action"
+  ]
+}
