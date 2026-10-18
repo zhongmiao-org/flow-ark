@@ -1,5 +1,7 @@
 # 固定契约来源
 
+2026-10-18 正文消费者：客户端 [#314](https://github.com/zhongmiao-org/flow-ark-client/pull/314) 已实际合并，固定真实 contracts-v0.39.0 的124份机器资料及治理01eb02e。同步有界渲染、文档代次与准确输入/结果、字段UI和原始ZIP独立复导取得分层证据；最新CI因账单零步骤失败，按用户授权CLI squash，不能计CI通过。已完整打包并实际串行更新旧应用，安装版重开独立结果和原个人记录摘要保持；[实际范围与边界](browser-rendered-fields.md#g2-实现原生-ui-与独立复导)。下文保持历史状态。
+
 2026-10-18 Skill更新已交付：客户端[#309](https://github.com/zhongmiao-org/flow-ark-client/pull/309)真实合并`047579c1bec1b1c490635810405534e9e3faa066`，与源头`8f51f4b71a2e88567b7c4bc14d44e97088ffd251`同树。固定真实`contracts-v0.37.1`/治理`856ddbc2e7e2a9aba4869461ade1c439de3eb1d2`的118份资料，已完整打包安装；类型/构建/格式、宿主与原生局部证据见[分层交付](skill-update-review.md#g2合并安装与原记录保持)。最新CI39105180009为计费零步骤，按用户授权CLI合并，不计CI通过；公开业务模板、完整真实Skill/BOSS验收尚未完成。下条为本机候选阶段。
 
 2026-10-18 Skill更新本机候选：客户端`feat/skill-update-review`独立固定真实`contracts-v0.37.1`和治理`856ddbc2e7e2a9aba4869461ade1c439de3eb1d2`，118份机器资料/生成结果逐字节核对通过；公共0.37.0/0.37.1均不改写。真实宿主/SQLite及原生UI分层证据见[采用范围](skill-update-review.md#0371实际发布与g2本机候选)。当前未提交/合并/安装，不能用本机分支替代交付；日常安装版仍#308/0.36.0。
