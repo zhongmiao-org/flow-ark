@@ -1,6 +1,6 @@
 {
   "date": "2026-10-19",
-  "stage": "G2 local candidate; PR and package/install pending",
+  "stage": "G2 normal UI/read path merged and installed; complete project and remaining native matrices not complete",
   "contract": {
     "version": "0.42.0",
     "tag": "contracts-v0.42.0",
@@ -8,7 +8,7 @@
   },
   "checks": {
     "typecheck": "passed",
-    "build": "passed with existing Vite chunk warning; final build follows latest edits",
+    "build": "pnpm build and full pnpm package:mac passed; existing chunk-size and unsigned development package warnings",
     "applicationUnitTests": "not added or run",
     "controlledServiceAndRuntime": {
       "scope": "controlled host observation with synthetic records and injected owner resolver; not native acceptance or application unit tests",
@@ -449,5 +449,267 @@
     "personal": "0.7.0",
     "boss": "0.2.13",
     "changed": false
+  },
+  "delivery": {
+    "governance": {
+      "pr": "https://github.com/zhongmiao-org/flow-ark/pull/900",
+      "source": "02946fbbb97a2c71204a47e1af06b448cdcb04cc",
+      "merge": "11c12c3dbe1540dcb8971958125fa62acf0f75d7",
+      "sameTree": true,
+      "tree": "6bfeb6e4d8a157a135a4a5bdaa4c40cfe3560fa3",
+      "verification": {
+        "repo": "zhongmiao-org/flow-ark",
+        "pr": 900,
+        "head": "02946fbbb97a2c71204a47e1af06b448cdcb04cc",
+        "base": "6ee5ce1a1d8bad3cf31f14cf3255b9ed9a798d06",
+        "tree": "6bfeb6e4d8a157a135a4a5bdaa4c40cfe3560fa3",
+        "remoteFullTreesExact": true,
+        "fullChangedPathsExact": true,
+        "filesExact": [
+          {
+            "path": "ROADMAP.md",
+            "gitBlob": "b7de4da6e20af6d3f63cd286e20061f2e4356422",
+            "sha256": "ac01c8a50ae75553c68f1c53e23182fdbeabbce60d67c838bb655ee1c5536283"
+          },
+          {
+            "path": "docs/client/run-result-binding.md",
+            "gitBlob": "c79d5af6e6c77501f3e07c153f1b23bb954e3c7d",
+            "sha256": "aececf8d4f09f4c483ff9c1d33e98cdec457d317e5b97bbb1c58a3e54e62516c"
+          },
+          {
+            "path": "docs/client/run-result-ui-20261019.json",
+            "gitBlob": "876d97067857cade1ef05a3d7b77b6dd5d4312e7",
+            "sha256": "9ab6795ab6e7a6be23de6ca74b20a66f611a006b03ef74016fa8049a020985fc"
+          }
+        ],
+        "ci": {
+          "run": 39171127634,
+          "job": 117804227638,
+          "steps": [],
+          "annotations": [
+            "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+          ],
+          "passed": false
+        }
+      }
+    },
+    "client": {
+      "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/323",
+      "source": "c9de38f5a0e7ec60cbb66546be7a2b93bfac231e",
+      "merge": "bdadbd980f3558c83c49c4ef1172ab36b753ce46",
+      "sameTree": true,
+      "verification": {
+        "repo": "zhongmiao-org/flow-ark-client",
+        "pr": 323,
+        "head": "c9de38f5a0e7ec60cbb66546be7a2b93bfac231e",
+        "base": "f56eaac80ff6144c51867e73d231750b7ac5ce89",
+        "tree": "b0b57da450c625af7f560d1d6e4a056feb4cfc46",
+        "remoteFullTreesExact": true,
+        "fullChangedPathsExact": true,
+        "filesExact": [
+          {
+            "path": "src/core/validate.ts",
+            "gitBlob": "538cf901fc9227aa1097d343ec936d649ccc1b5b",
+            "sha256": "3d5d778bfd002833610fa72f467071fdef3ab9c48bbce21b1c791c41d60e4c51"
+          },
+          {
+            "path": "src/host/run-result-sources.ts",
+            "gitBlob": "17b1ba8536fbd2ba56027fe27eaf0816831df3f9",
+            "sha256": "337bfe29265092a5b4d7fa040bfa0496300080a2c653c3d9d0d5f22debccfe3e"
+          },
+          {
+            "path": "src/host/runtime.ts",
+            "gitBlob": "803a80c8a584b1a370eaac17ad6c7f4a9b4d5d45",
+            "sha256": "3f65ef4f30976473b410ee12bb5157e1527051a084d493fd0665ee308d6628ad"
+          },
+          {
+            "path": "src/host/typed-results.ts",
+            "gitBlob": "b822231fc477466eeb3f5df62f6f68a7e2c5e6ef",
+            "sha256": "2b54d3b5fb953efcbd049dc561b16adff3f8d54e5bdb88a5967c3fbf6c5a50d4"
+          },
+          {
+            "path": "src/renderer/ActionLibrary.tsx",
+            "gitBlob": "c77fed6f1bdcd033142f76ad63dfeed85e07289f",
+            "sha256": "c815e2871a7263a28a0b05c7830a2a303f75551496321bfb4b6acf564456d449"
+          },
+          {
+            "path": "src/renderer/App.tsx",
+            "gitBlob": "44341efffb9abb50f9eb823aad76817471af4de1",
+            "sha256": "b35ebf25c59255304036a643c74c4cd926979664e5388815bfce24f86349a431"
+          },
+          {
+            "path": "src/renderer/CompleteValue.tsx",
+            "gitBlob": "4ee13879abb93bced63c6137abf4cfb98be49393",
+            "sha256": "56d397dee096a262add162a48a9caf39dc9543bdef830ba42da8167c0cd860ec"
+          },
+          {
+            "path": "src/renderer/FlowParametersPage.tsx",
+            "gitBlob": "a2727c8be9fae23a903d27a50096abda1b6c4255",
+            "sha256": "0679a91488481a9008d29f39b6024cbf236ff147619745f9bdcc2bccf13e697e"
+          },
+          {
+            "path": "src/renderer/ResultSourcePicker.tsx",
+            "gitBlob": "41925b6f0be420ec89a6d09e2445f17bc4d5adc6",
+            "sha256": "34062ef65ba22e473bbd0880504f4bac020cb0321d6ad3b3814cc877bac9dd3f"
+          },
+          {
+            "path": "src/renderer/RunResultNodeConfiguration.tsx",
+            "gitBlob": "8542e04458ca1e8498dd9cdaac4334c7782a0969",
+            "sha256": "ffb84d3108cc313afc1239651fe87c9ae6aa203ad7338cb4b52108a417728985"
+          },
+          {
+            "path": "src/renderer/TemplateAuthorWorkspace.tsx",
+            "gitBlob": "cfb9f30850959686418646dd5032c382aa45085f",
+            "sha256": "42ab1006f737d1cdf7a2aec077784cf8bd4ed26df25547002ab94122a49971b5"
+          },
+          {
+            "path": "src/renderer/TemplateEntry.tsx",
+            "gitBlob": "997435150560fc1961f1b9d458470bbc8749c5dc",
+            "sha256": "58d55975268860f43c5182f59133fa765a585837b3896b3948198565e2cc0ab0"
+          },
+          {
+            "path": "src/renderer/TemplateInstancePage.tsx",
+            "gitBlob": "21d8ed2a50cccc10747e147c0334db3e4ccc84ef",
+            "sha256": "ca45c8ad69f8832ec9a72bd8ca110104ce16a183bd1a7afe64b322cc241c05eb"
+          },
+          {
+            "path": "src/renderer/TemplateManifestOverview.tsx",
+            "gitBlob": "802e79c06f40b6e77421a3cff6f8fc7bf2a14778",
+            "sha256": "8f904718e016990a3ec813163bb10eec0ce904a2865237ba9247c52a22a6ab91"
+          },
+          {
+            "path": "src/renderer/TemplateResources.tsx",
+            "gitBlob": "86bf526a6ac113da6c2c29ff6b679f623bdc6467",
+            "sha256": "1b259c8bf95452584547bdb6fb78d7fed8cdf7e60238fd5ea05f80c6adf7b222"
+          },
+          {
+            "path": "src/renderer/TypedRunResults.tsx",
+            "gitBlob": "4e67e74caa4d4654331c20e51d2f4e75397b5686",
+            "sha256": "b6696371d26725aad51bd4fba817a24f36884318c317c3a75e3476de9a25f4a9"
+          },
+          {
+            "path": "src/renderer/node-defaults.ts",
+            "gitBlob": "2263804bd81ab28ff96d838c7818ba8662b183e7",
+            "sha256": "5605a34a532810628d9ea261a545aba8deaf49c405f7d83c5e874b6662b1cdde"
+          },
+          {
+            "path": "src/renderer/node-kinds.ts",
+            "gitBlob": "621758f43d828d0609232d81550d970b18977ca0",
+            "sha256": "28c9bfa054425f965b9a3ce4de8669ddf3545f8f52aff3441aa9fdccf623b018"
+          },
+          {
+            "path": "src/renderer/readonly-value.css",
+            "gitBlob": "12799829ed32eeb01ae0fbf3ade133bce609dd8a",
+            "sha256": "250a4588c056afe1f4fdd9f1ddd0b7365e68d73975a21dec37a42a13f524bf46"
+          },
+          {
+            "path": "src/renderer/result-save-recovery.ts",
+            "gitBlob": "d88f2637cd7f494b5add92fcb4d492f242198759",
+            "sha256": "05e1622c7fd3d69ed8f05918ab10acd68498d7fb528d37ac3bf59e5c9bb0e9a2"
+          },
+          {
+            "path": "src/renderer/result-source.css",
+            "gitBlob": "dc92ba21cff7f25c71e8c9dcb3780ab3740e1c36",
+            "sha256": "1fd214dd299ba0ea9ad11ebfc920594684037fce715302d40e9d2dfd90323468"
+          },
+          {
+            "path": "src/renderer/template-draft.ts",
+            "gitBlob": "556489576b6b90ab0369b8e72d24ed32f9ab133f",
+            "sha256": "624d545ba6882db8829c1053a6791536d34ba6d1c1437ed2a163a57505851cca"
+          },
+          {
+            "path": "src/renderer/value-references.ts",
+            "gitBlob": "42d7be6ba0e53fcac89aa5f90bda9daffb2e9d08",
+            "sha256": "0558e441cd172d52c15d54f1114e1011d7aebec8ebe94f8c5c5734f79a58133b"
+          },
+          {
+            "path": "src/templates/export-boundaries.ts",
+            "gitBlob": "fa353e1d08e665b87d27e678bd074fae411cc996",
+            "sha256": "493c0047b74cf83ce0b8ef4a59bc0c7b68542c808982eedc346c40301ef85b96"
+          },
+          {
+            "path": "src/templates/source-boundaries.ts",
+            "gitBlob": "d3f5569cec4268ea158b5d619bf0041414186b21",
+            "sha256": "44da317829972301399576dc344d91152daa889495a5733999f03e16435e6e02"
+          },
+          {
+            "path": "src/workers/runner.ts",
+            "gitBlob": "781727b24b15907d20e3189de205764e1342eff4",
+            "sha256": "8fa746e4276fe8585ca03f041d11c85d5e0e6bb06eef34d49061d1b6bc472eba"
+          }
+        ],
+        "ci": {
+          "run": 39171222594,
+          "job": 117804507468,
+          "steps": [],
+          "annotations": [
+            "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+          ],
+          "passed": false
+        }
+      }
+    },
+    "package": {
+      "asarSha256": "f2e3b4f5ec6e648f8e803b1f1687a489cdeb6f2c92745c27be551e4c85396f5f",
+      "zipSha256": "c9a031f1f5e73bb7dd05dad4b8281bdc550ee55cb2dcf882212b1d51e680bfbc",
+      "dmgSha256": "62502f55d3c53950d819feb9efddf9f03adfb2bec3aef9f8e29ed4f2a15950e7",
+      "distFilesExact": 339,
+      "governance": {
+        "governanceBaseline": "f735b532393d20ecc5d2dc5ef9991b697e350f7e",
+        "contractsVersion": "0.42.0",
+        "contractsTag": "contracts-v0.42.0"
+      },
+      "distManifestSha256": "ff63a892ee26c4a9d5b1e4b1abbd450625ca96c8daae8db51ca7344a98321248"
+    },
+    "installedPath": "/Users/mac/Applications/FlowArk.app",
+    "installedExact": true,
+    "installedNative": {
+      "workspace": "independent import workspace retained through normal quit/reopen",
+      "instanceId": "f5dc6052-4a43-419d-a9ec-f948de82c81a",
+      "runId": "0111ccf8-9bc9-4186-960d-dca258b6bb02",
+      "sourceRun": "3d81d346-df51-4b77-bd51-ef945c536b9a",
+      "state": "SUCCEEDED",
+      "observed": [
+        "unbound state restored",
+        "UI selects own original source",
+        "separate save through final recovery helper succeeds",
+        "real packaged Main/Worker reads and variable node succeeds",
+        "ordinary result shows fixed source"
+      ],
+      "after": {
+        "documents": 33,
+        "events": 19,
+        "protectedFiles": 1,
+        "runs": 3,
+        "flows": 2
+      }
+    },
+    "backup": {
+      "oldApplicationRetained": true,
+      "originalWorkspaceRetained": true,
+      "oldAsarSha256": "734bfaa9fdf1428c127e842ea883e8ee1213b4d3ede8166f52ae6209da34cd67"
+    },
+    "originalRestored": {
+      "appRunning": true,
+      "uiPath": "installed app.asar renderer",
+      "deepseekConfiguredVisible": true,
+      "encryptedDocumentsExactlyUnchanged": true,
+      "encryptedEventsExactlyUnchanged": true,
+      "protectedFilesExactlyUnchanged": true,
+      "counts": {
+        "documents": 247,
+        "events": 94,
+        "protectedFiles": 2,
+        "runs": 7,
+        "flows": 31,
+        "sourceRequestIndexes": 22
+      }
+    }
+  },
+  "controlledAdditionalWireBoundary": {
+    "status": "unavailable",
+    "wireAcceptedByRenderer": true,
+    "reason": "source-unavailable",
+    "scope": "one depth-64 synthetic source; unavailable response fits Renderer wire budget; not native deep-reader acceptance"
   }
 }
