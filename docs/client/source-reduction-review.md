@@ -33,3 +33,23 @@ G1 参考模块只检查语言无关格式、真实来源/配方/记录的范围
 本机参考类型检查及格式检查通过。38项独立受控合成观察核对三种调用范围、完整结果无需Key、精确循环实例、任务/配方/动态seed/配置/epoch/快照/未知用量或迟到状态变化、有效期边界、确认/回执关联和正文排除，均符合预期。另明确验证：自洽的片段hash能通过格式检查，却不能通过与宿主真实记录的当前性比较，不能把hash格式当成授权。临时观察脚本与日志为`/private/tmp/flowark-source-review-observe.cjs`、`/private/tmp/flowark-source-review-observe.log`，真实模型请求0、本人工作区读取0；未新增或运行单元测试。
 
 本批仍为治理G1草案。已有客户端#301及治理#833尚未合并，其最新CI仍失败；安装的本机0.35.1候选未因本草案改变，原任务和付费重试状态保持。新契约PR、最新CI和发布状态接续核对，不能以本机参考函数代替真实消费者执行。
+
+## 2026-10-18 固定快照发布与消费者开发
+
+治理 #834 已按用户明确的 GitHub 计费例外 squash 合并，实际提交 `f5810d915ea668fbebaf9164120f421e4a487a2d`。重新运行治理/历史校验和检查、参考模块类型检查及 38 项受控参考观察后，发布带注解的 `contracts-v0.36.0`：远端 tag 对象 `ba1a74785792fb9b7962962d3642f29e6314de07`，解引用到该实际合并提交。该目录树与当前 main 的目录树同为 `ed99b4ef49fb05a4b1dbf4262a9a69ac951aa977`，封存内容未改写。它是固定开发契约快照；CI 仍因付款/支出限制未启动，不记录为 CI 通过。
+
+现有 `849:9062` 重试范围核对之外，沿用既有画板、Noto Sans SC/Inter、Semantic Light/Dark、Button 和 AntCheckbox，先补三种状态并读取设计上下文/截图核对：
+
+| 状态 | Figma | 范围 |
+| --- | --- | --- |
+| 有限续批 · Dark | [868:9173](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=868-9173) | 以宿主原节点 maxRequests 为上限，准确来源/规则/配置与十分钟期限 |
+| 完整结果零调用 · Light | [868:9264](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=868-9264) | 只有来源节点零调用，不要求该来源节点的 Key；其他节点独立核对 |
+| 变化或过期阻断 · Dark | [868:9355](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=868-9355) | 禁止继续旧确认，显式重新核对，不沿用旧勾选 |
+
+客户端开发分支采用该 tag 的 112 份固定机器资料。首段实现 `reduction.runPreview` 的静态白名单与严格目标身份、原运行终态/回收及当前授权核对、宿主真实任务/来源/配方/片段投影、当前 Key 配置修订、进程 epoch 和最多 128 份十分钟本机临时登记；生成预览不创建 Run、读 Key、调用模型或发放重试许可。确认方后续必须按 reviewId 查原登记并复验，不能信任 Renderer 回传的完整对象或自洽摘要。
+
+这一段没有实现/安装完整 G2：唯一新 Run 与回执同事务、确认幂等、动态 seed 解析后的目标准入、逐次发出计数、重启/迟到响应、普通 UI 的确认执行及独立公开模板复导仍须接续。现有旧重试入口未由本段替换，不把只读预览当成已限制网络调用；完成消费者闭环前不替换日常安装版。本人资料、原失败片段及具体付费重试批准状态保持，真实本人模型请求为 0。
+
+首段本机 `contracts:generate`、`pnpm typecheck`、`pnpm build`、相关 Prettier 与 diff 检查通过，未新增或运行单元测试。独立临时数据目录使用既有合成来源、内部示例 ZIP、真实 Runtime/Worker 和实际适配器的受控传输完成 25 项手工观察：有限续批上限 2、attention 上限 1、complete 上限 0；准确目标/检查点、排除正文、未创建 Run/未发许可、数据库文档/事件逐项不变、预览未读 Key/未发请求、Key 修订变化拒绝、伪造任务/实例/多余字段拒绝、完整结果连 Key 元数据也不读、注册对象与调用方副本分离。合成来源共完成 10 原记录；11 次适配器请求均由受控传输返回，不访问真实 Provider 或本人工作区。
+
+观察脚本 `/private/tmp/flowark-source-review-host-observe-20261018.ts` 与结果 `/private/tmp/flowark-source-review-host-observe-result-20261018.json`；生产构建日志 `/private/tmp/flowark-source-review-host-build-20261018.log`。首次观察脚本把运行的不可变结果修订当成任务当前修订而遭旧重试 CAS 拒绝，改为按既有 detail 读取当前修订后继续；没有放宽宿主 CAS。上述为开发验证，不计 UI 可操作、确认/网络准入闭环或个人/BOSS 模板验收。
