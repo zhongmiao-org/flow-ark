@@ -1,0 +1,654 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:flowark:drafts:run-result-binding:1.0",
+  "title": "Unpublished run result binding shapes only",
+  "$defs": {
+    "Id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[a-zA-Z0-9_-]+$",
+      "not": {
+        "pattern": "[^a-zA-Z0-9_-]"
+      }
+    },
+    "Sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "minLength": 64,
+      "maxLength": 64
+    },
+    "Json": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Json"
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Json"
+          }
+        }
+      ]
+    },
+    "TemplateSource": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "template"
+        },
+        "instanceId": {
+          "$ref": "#/$defs/Id"
+        },
+        "templateId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[a-z][a-z0-9-]*$",
+          "not": {
+            "pattern": "[^a-z0-9-]"
+          }
+        },
+        "templateVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[0-9A-Za-z.-]+$",
+          "not": {
+            "pattern": "[^0-9A-Za-z.-]"
+          }
+        },
+        "packageKey": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 181
+        },
+        "packageDigest": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "entryId": {
+          "$ref": "#/$defs/Id"
+        },
+        "entryName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "schemaPath": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240,
+          "pattern": "^schemas/[a-zA-Z0-9._/-]+$",
+          "not": {
+            "pattern": "[^a-zA-Z0-9._/-]"
+          }
+        },
+        "schemaSha256": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "kind",
+        "instanceId",
+        "templateId",
+        "templateVersion",
+        "packageKey",
+        "packageDigest",
+        "entryId",
+        "entryName",
+        "schemaPath",
+        "schemaSha256"
+      ],
+      "additionalProperties": false
+    },
+    "AuthorSource": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "author-checkout"
+        },
+        "checkoutId": {
+          "$ref": "#/$defs/Id"
+        },
+        "draftId": {
+          "$ref": "#/$defs/Id"
+        },
+        "entryId": {
+          "$ref": "#/$defs/Id"
+        },
+        "flowId": {
+          "$ref": "#/$defs/Id"
+        },
+        "baseRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "contextId": {
+          "$ref": "#/$defs/Id"
+        },
+        "definitionSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "schemaSha256": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "kind",
+        "checkoutId",
+        "draftId",
+        "entryId",
+        "flowId",
+        "baseRevision",
+        "contextId",
+        "definitionSha256",
+        "schemaSha256"
+      ],
+      "additionalProperties": false
+    },
+    "Source": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/TemplateSource"
+        },
+        {
+          "$ref": "#/$defs/AuthorSource"
+        }
+      ]
+    },
+    "Label": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120
+        },
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "path",
+        "label"
+      ],
+      "additionalProperties": false
+    },
+    "BindingId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "not": {
+        "pattern": "[^a-z0-9-]"
+      }
+    },
+    "RunIdentity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "flowId": {
+          "$ref": "#/$defs/Id"
+        },
+        "versionId": {
+          "$ref": "#/$defs/Sha256"
+        }
+      },
+      "required": [
+        "id",
+        "flowId",
+        "versionId"
+      ],
+      "additionalProperties": false
+    },
+    "Owner": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "instance",
+            "author-draft"
+          ]
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "Target": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "instance",
+            "author-flow"
+          ]
+        },
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "not": {
+            "pattern": "[\u0000-\u001f]"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "id",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "kind": {
+          "const": "run-result"
+        },
+        "access": {
+          "const": "read"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "sourceEntries": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 64,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/Id"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "access",
+        "required",
+        "sourceEntries"
+      ],
+      "additionalProperties": false
+    },
+    "Reference": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "run": {
+          "$ref": "#/$defs/RunIdentity"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "policy": {
+          "const": "credential-redacted-v1"
+        },
+        "dataSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "dataBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 196608
+        }
+      },
+      "required": [
+        "version",
+        "run",
+        "source",
+        "policy",
+        "dataSha256",
+        "dataBytes"
+      ],
+      "additionalProperties": false
+    },
+    "Node": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/Id"
+        },
+        "type": {
+          "const": "run-result"
+        },
+        "version": {
+          "const": 1
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3600000
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "operation": {
+          "const": "read"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "version",
+        "name",
+        "binding",
+        "operation"
+      ],
+      "additionalProperties": false
+    },
+    "Cursor": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "targetSha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "querySha256": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "ceiling": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740990
+        },
+        "before": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "version",
+        "targetSha256",
+        "binding",
+        "querySha256",
+        "ceiling",
+        "before"
+      ],
+      "additionalProperties": false
+    },
+    "ListRequest": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "query": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "cursor": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/Cursor"
+            }
+          ]
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "query",
+        "cursor"
+      ],
+      "additionalProperties": false
+    },
+    "PreviewRequest": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "runId": {
+          "$ref": "#/$defs/Id"
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "runId"
+      ],
+      "additionalProperties": false
+    },
+    "SelectRequest": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "reviewId": {
+          "$ref": "#/$defs/Id"
+        },
+        "readStamp": {
+          "$ref": "#/$defs/Sha256"
+        },
+        "reviewed": {
+          "const": true
+        }
+      },
+      "required": [
+        "target",
+        "binding",
+        "reviewId",
+        "readStamp",
+        "reviewed"
+      ],
+      "additionalProperties": false
+    },
+    "InspectRequest": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        }
+      },
+      "required": [
+        "target",
+        "binding"
+      ],
+      "additionalProperties": false
+    },
+    "Request": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "resultSource.list"
+            },
+            "params": {
+              "$ref": "#/$defs/ListRequest"
+            }
+          },
+          "required": [
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "resultSource.preview"
+            },
+            "params": {
+              "$ref": "#/$defs/PreviewRequest"
+            }
+          },
+          "required": [
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "resultSource.select"
+            },
+            "params": {
+              "$ref": "#/$defs/SelectRequest"
+            }
+          },
+          "required": [
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "method": {
+              "const": "resultSource.inspect"
+            },
+            "params": {
+              "$ref": "#/$defs/InspectRequest"
+            }
+          },
+          "required": [
+            "method",
+            "params"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Read": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "operation": {
+          "const": "read"
+        },
+        "binding": {
+          "$ref": "#/$defs/BindingId"
+        },
+        "ref": {
+          "$ref": "#/$defs/Reference"
+        },
+        "value": {
+          "$ref": "#/$defs/Json"
+        },
+        "dataChanged": {
+          "type": "boolean"
+        },
+        "schemaValidation": {
+          "const": "passed"
+        },
+        "labels": {
+          "type": "array",
+          "maxItems": 256,
+          "items": {
+            "$ref": "#/$defs/Label"
+          }
+        },
+        "labelsComplete": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "version",
+        "operation",
+        "binding",
+        "ref",
+        "value",
+        "dataChanged",
+        "schemaValidation",
+        "labels",
+        "labelsComplete"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/Resource"
+    },
+    {
+      "$ref": "#/$defs/Reference"
+    },
+    {
+      "$ref": "#/$defs/Node"
+    },
+    {
+      "$ref": "#/$defs/Request"
+    },
+    {
+      "$ref": "#/$defs/Read"
+    }
+  ]
+}
