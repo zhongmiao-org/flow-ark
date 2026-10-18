@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-18",
+  "kind": "boss-web-jd-body-native-checkpoint",
+  "status": "negative-branches-and-reopen-verified-full-body-unverified",
+  "design": {
+    "file": "sVciNUZHG9yx81gCpYzjH9",
+    "nodes": [
+      "896:9310",
+      "903:9394",
+      "896:9412",
+      "903:9496",
+      "903:9598",
+      "896:9514"
+    ],
+    "newClientInteraction": false
+  },
+  "client": {
+    "pr": 316,
+    "commit": "a9a042c264248f436d7d6409faf257931c3b522d",
+    "changedThisBatch": false,
+    "repackagedThisBatch": false
+  },
+  "contracts": {
+    "tag": "contracts-v0.39.0",
+    "commit": "c80712a6c98e6fc25e499e6042b5e41c79fd571f",
+    "files": 124,
+    "publishedBytesExact": true
+  },
+  "authoring": {
+    "throughUI": true,
+    "base": "0.2.6",
+    "revision": 8,
+    "entry": "web-jd-body",
+    "nodes": 10,
+    "oldEntriesByteIdentical": 8,
+    "oldScriptsByteIdentical": 28,
+    "reviewTimeoutMs": 600000,
+    "sourceFiles": 4,
+    "scriptMappings": 6,
+    "flowJsonEdited": false,
+    "storeEdited": false,
+    "archiveEdited": false,
+    "privateCandidate": "0.2.7",
+    "immutableSameVersionChangedContentRejected": true
+  },
+  "artifact": {
+    "repository": "zhongmiao-org/flow-ark-templates",
+    "path": "templates/boss-job-search/authoring/web-jd-body-checkpoint/boss-job-search-0.2.8.flowark-template.zip",
+    "version": "0.2.8",
+    "bytes": 75319,
+    "files": 68,
+    "entries": 9,
+    "scripts": 34,
+    "sha256": "49c4fe777a4981ca7a89f2d363b00ab0897fae390536cdc613679e070062fe1c",
+    "contentDigest": "fb985464db499c87ab38d68f357faba88d0a9bcedfd8b208825787e9f5fe2932",
+    "rawExtractionExact": true,
+    "compiledScriptBytesExact": true,
+    "personalDataOrBindingsIncluded": false
+  },
+  "nativeConsumer": {
+    "freshWorkspace": true,
+    "importInstallCreateThroughUI": true,
+    "instance": "dde2a8d6-8434-487c-8ceb-e9852ed25e22",
+    "initialBrowserMissingBlocked": true,
+    "ownEmbeddedBrowserOnlyBound": true,
+    "aiSkillDirectoriesUnbound": true,
+    "stateWriteDenied": true,
+    "bodyOrHumanNodesExecuted": false,
+    "runs": [
+      {
+        "id": "aac5ffb5-2d17-493b-82e3-9fe6140b5f7b",
+        "scenario": "actual-public-city",
+        "status": "not-job-page",
+        "completed": true
+      },
+      {
+        "id": "7d541bb2-75cc-4a29-8d37-ee4b5bb10154",
+        "scenario": "actual-job-login-gated",
+        "status": "login-required",
+        "completed": true
+      },
+      {
+        "id": "ef4100f1-c27f-4b0d-9d3e-e6f4e069de19",
+        "scenario": "explicit-same-login-source-repeat",
+        "status": "login-required",
+        "completed": true,
+        "firstReminderSourceTimeAndReadStatePreserved": true
+      },
+      {
+        "id": "b96e62b8-0bfc-4857-ada8-d2c4285eb4ae",
+        "scenario": "owned-local-non-boss-fixture",
+        "status": "site-mismatch",
+        "completed": true
+      }
+    ],
+    "reopen": {
+      "runs": 4,
+      "reminders": 3,
+      "unread": 2,
+      "read": 1,
+      "documents": 46,
+      "events": 44,
+      "protectedStorageEntries": 1,
+      "allHashesEqual": true,
+      "beforeSha256": "37a8c723385d7034799e4c931609d5d143232e68ac892b6955d45a2121f94eb9",
+      "afterSha256": "37a8c723385d7034799e4c931609d5d143232e68ac892b6955d45a2121f94eb9",
+      "replayed": false
+    }
+  },
+  "dailyWorkspace": {
+    "documents": 247,
+    "events": 94,
+    "protectedCredentials": 2,
+    "runs": 7,
+    "flows": 31,
+    "sourceRequestIndices": 22,
+    "allHashesEqualTo316Baseline": true,
+    "beforeSha256": "c993806b0eb284c63553329316bbac5de701aa4432cf734057ebe7f3ff2b760f",
+    "afterSha256": "c993806b0eb284c63553329316bbac5de701aa4432cf734057ebe7f3ff2b760f"
+  },
+  "validation": {
+    "pnpm validate": "passed",
+    "pnpm build": "passed",
+    "git diff --check": "passed",
+    "unitTestsAdded": false,
+    "unitTestsRun": false,
+    "modelRequests": 0,
+    "modelTokens": 0,
+    "recruitingActions": 0
+  },
+  "delivery": {
+    "pr": 24,
+    "url": "https://github.com/zhongmiao-org/flow-ark-templates/pull/24",
+    "source": "3693a65608238304afd3168d16e49f3a451befa6",
+    "merge": "9c85309f3898bb57595d5d92d7fd9d3c5b74f710",
+    "tree": "142ae1eb878dc3d1ca536ebaf930618601ea9449",
+    "sourceAndMergeTreesEqual": true,
+    "state": "MERGED",
+    "ci": {
+      "run": 39138869235,
+      "head": "3693a65608238304afd3168d16e49f3a451befa6",
+      "validate": 117708941474,
+      "autoMerge": 117709038457,
+      "conclusion": "success",
+      "billingExceptionUsed": false
+    }
+  },
+  "unverified": [
+    "logged-in-complete-body-and-locator-calibration",
+    "human-confirmation-rejection-timeout-native-branches",
+    "real-company-account-conversation-identity",
+    "web-jd-model-assessment",
+    "real-user-key-and-final-skill",
+    "recruiting-actions-and-receipts",
+    "complete-G3-G5-186-Agent-S08"
+  ],
+  "boundaries": {
+    "bossLoginDeferred": true,
+    "originalPaidFailedFragmentRetryNotPerformed": true,
+    "deniedStateWriteNotGranted": true
+  }
+}
