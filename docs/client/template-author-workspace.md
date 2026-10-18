@@ -1,5 +1,24 @@
 # 可视化模板制作工作区
 
+## 2026-10-17 可读导出核对
+
+用户再次明确正常制作、配置、导出与安装均走客户端 UI，JSON 只供调试和高阶配置。导出核对复用导入页的入口要求组件：逐入口查看能力、资源读写要求和默认禁止的动作，查看作者、来源、版本及依赖；公开文件默认选择 README.md，Markdown 提供阅读预览与原文。完整原始声明、归档摘要仍可在高级详情查看，不作为普通核对的必经步骤。
+
+先更新原 Figma 的 [Light 写入入口](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=856-8983)、[Dark 写入入口](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=856-9122)、[Light 只读入口](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=856-9261)和[紧凑 Dark](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=856-9391)，复用原 Button/Checkbox 和 Semantic 变量，不新增组件库或资产。已核对设计上下文和主题截图；静态设计不是完整可点击原型。
+
+本项只调整通用 Renderer 展示，复用固定预览 token、公开文件读取、版本失效及导出确认和幂等身份，不改变 IPC、协议、数据库或动作授权。文件阅读不执行代码或请求模型；确认导出不授权执行模板。实现、本地验证、安装和 PR 状态分别记录，不据此声称个人 Skill、BOSS 业务或独立复用全部完成。
+
+### 本地安装与实际 UI 核对
+
+客户端 [PR #303](https://github.com/zhongmiao-org/flow-ark-client/pull/303)，源码 `a5bb7338f70e1f9226b0848c5b785dd97fa00895`。复用已有 React/Ant Design、模板要求组件及 MarkdownBody，不增加依赖或临时设计资产；原窗口栏/导航资产不在本批修改范围。`pnpm typecheck`、`pnpm build`、目标文件 Prettier 和 `git diff --check` 通过；按阶段约定未新增/运行单元测试。
+
+本机安装为保留既有修复的组合验证候选：基线 PR301 `6595e46ce3a7e3820622e6c2a2305f7f22752962`，加 PR302 `25d7a578277b148c2db84d4882de1aef59025ca3` 的两文件补丁与 PR303 的三文件补丁，组合差异 SHA256 `d763a8231f142cce86fdedff6c7089609a6782e684a04fdcdaff8019afc58a33`。不是单一已合并提交；契约仍为已发布 0.35.1。`pnpm package:mac` 退出0，正常退出、零进程核对、备份后替换 `/Users/mac/Applications/FlowArk.app` 并使用原工作区重开。安装 ASAR `35eab5d0fd03361f0b0ab59ff453334dddac521fbd212b653b615393151dfb88`；ZIP `79b768f513c1d9d9ede4ae0dde1e19794e87e61f14ca638bd412513cdc195847`；DMG `b40336f3ef9b9c04b3d1cb2b7e1b45b9cf038055fe97527c39f63198ae22cc9a`。
+
+原生 UI 打开既有本机核对副本，检查固定包、切换只读/状态写入入口，分别显示资源和一项默认禁止动作；README 默认选中，读取后 Markdown 阅读预览与原文可切换，原始声明独立展开/收起。勾选确认启用导出，再次检查固定包自动清除确认并禁用导出。本轮未另导出 ZIP、改公开定义、保存授权或调用模型。安装/重开及 UI 后原243条加密记录、94条事件、两份凭据逐字一致；原个人22次访谈和整理失败记录保持。截图与安装备份仅留本机。
+
+本批实际界面核对为原生 Dark 宽屏；完整 Light/紧凑窗口、独立新工作区复导及完整业务继续独立验收，不能以 Figma 截图代替。PR303 当前仍 OPEN，最新 CI 39027664091 的 Validate 117381734022 失败、Auto Merge 跳过，未实际合并；平台注释明确为账户付款/支出额度导致任务未启动，不用本地检查替代 CI。PR 附件工具返回本会话附件数量超过100，未移除其他附件。原目标 G3–G5、186画板和 Agent 完整闭环保持。
+
+
 2026-10-16 作者SDK增量已由客户端#285采用真实0.27.0并安装：新副本固定来源与结果Schema，result/attention独立持久化、同键保留首次及已读，旧副本缺上下文明确阻止脚本；原快照重跑保留固定私有配置。真实Worker、原生BOSS副本和安装版取得局部证据，公开ZIP不变。详见[作者SDK记录](author-sdk-debug.md)；其他SDK、完整矩阵及真实蒸馏/BOSS仍待验收。
 
 2026-10-16 原生BOSS制作确认作者副本result/attention仍要求正式实例，先补[作者SDK固定上下文及四状态Figma](author-sdk-debug.md)，发布0.27.0后再接客户端。本批只定义结果/提醒调试，其他SDK仍需正式实例，不把正式运行代替副本调试。
