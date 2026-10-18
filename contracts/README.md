@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-18：先行[八状态 Figma](../docs/client/browser-associated-fields.md)后新增 [0.38.0 关联字段采集候选](v0.38.0/README.md)，browser v5/collect 及独立 browser-fields-v1，明确同一同步 DOM、准确字段关联、文档代次/导航拒绝与预算。121 份机器文件重建一致，38 份格式/50 项纯参考资料核对通过。尚未发布，不提前供客户端采用；#310/0.37.1 的安装版不变，真实浏览器和全 UI 模板另验。
+
 2026-10-18：G2接入发现应用回包丢失后，重开UI没有原input的严格读取格式。先补两主题配置/恢复Figma及[0.37.1候选](v0.37.1/README.md)的SkillUpdateApplication/Detail、持久pending/applied/rejected及原请求核对。5组参考关联/13份格式资料通过，原0.37.0定义与114份继承机器资料不变。候选未发布，客户端开发分支尚未完成，不计安装或恢复通过。
 
 2026-10-18：`contracts-v0.37.0`已实际发布，远端解引用`54b483916efd0fa1a84ce697b43052df6a86e84e`、115份机器资料固定；[#850](https://github.com/zhongmiao-org/flow-ark/pull/850)在最新CI付款/支出限制零步骤后按用户授权CLI squash。33组参考观察/33份格式资料及本机类型/重建核对通过，CI未运行；[实际发布与G2接续](../docs/client/skill-update-review.md#0370实际发布)。客户端仍0.36.0，不能把契约发布计作差异UI、宿主事务或本人Skill完成。
