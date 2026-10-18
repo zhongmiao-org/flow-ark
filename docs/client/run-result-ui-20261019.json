@@ -1,0 +1,453 @@
+{
+  "date": "2026-10-19",
+  "stage": "G2 local candidate; PR and package/install pending",
+  "contract": {
+    "version": "0.42.0",
+    "tag": "contracts-v0.42.0",
+    "commit": "f735b532393d20ecc5d2dc5ef9991b697e350f7e"
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed with existing Vite chunk warning; final build follows latest edits",
+    "applicationUnitTests": "not added or run",
+    "controlledServiceAndRuntime": {
+      "scope": "controlled host observation with synthetic records and injected owner resolver; not native acceptance or application unit tests",
+      "count": 65,
+      "observations": [
+        {
+          "name": "original finalizer registers private proof",
+          "passed": true
+        },
+        {
+          "name": "business identity facts and content survive credential filter",
+          "passed": true
+        },
+        {
+          "name": "reuse proof contains no final known secret",
+          "passed": true
+        },
+        {
+          "name": "original result remains unchanged",
+          "passed": true
+        },
+        {
+          "name": "display and reusable values are separate",
+          "passed": true
+        },
+        {
+          "name": "scoped catalog candidate",
+          "passed": true
+        },
+        {
+          "name": "full preview matches protected data",
+          "passed": true
+        },
+        {
+          "name": "read stamp mismatch rejected",
+          "passed": true
+        },
+        {
+          "name": "selection creates no saved binding",
+          "passed": true
+        },
+        {
+          "name": "inspect sees saved binding only",
+          "passed": true
+        },
+        {
+          "name": "list preview select inspect do not register new source proofs",
+          "passed": true
+        },
+        {
+          "name": "manual reference without choice rejected",
+          "passed": true
+        },
+        {
+          "name": "saved binding can be inspected",
+          "passed": true
+        },
+        {
+          "name": "old target or lease cannot save again",
+          "passed": true
+        },
+        {
+          "name": "host read uses exact fixed source",
+          "passed": true
+        },
+        {
+          "name": "consumer self-reference rejected",
+          "passed": true
+        },
+        {
+          "name": "saved unbinding stops new reads",
+          "passed": true
+        },
+        {
+          "name": "foreign owner does not appear in directory",
+          "passed": true
+        },
+        {
+          "name": "guessed other-owner Run gives no content",
+          "passed": true
+        },
+        {
+          "name": "old Run is not silently repaired",
+          "passed": true
+        },
+        {
+          "name": "non-success not reusable FAILED",
+          "passed": true
+        },
+        {
+          "name": "non-success not reusable CANCELLED",
+          "passed": true
+        },
+        {
+          "name": "non-success not reusable INTERRUPTED",
+          "passed": true
+        },
+        {
+          "name": "non-success not reusable RUNNING",
+          "passed": true
+        },
+        {
+          "name": "preserve falsy null",
+          "passed": true
+        },
+        {
+          "name": "preserve falsy false",
+          "passed": true
+        },
+        {
+          "name": "preserve falsy 0",
+          "passed": true
+        },
+        {
+          "name": "preserve falsy \"\"",
+          "passed": true
+        },
+        {
+          "name": "preserve falsy {}",
+          "passed": true
+        },
+        {
+          "name": "preserve falsy []",
+          "passed": true
+        },
+        {
+          "name": "filter breaking original Schema not reusable",
+          "passed": true
+        },
+        {
+          "name": "secret in key cannot be renamed and adopted",
+          "passed": true
+        },
+        {
+          "name": "monotonic expiry rejects old preview",
+          "passed": true
+        },
+        {
+          "name": "wall clock jump does not expire monotonic lease",
+          "passed": true
+        },
+        {
+          "name": "new source service loses prior in-memory choice",
+          "passed": true
+        },
+        {
+          "name": "source changes during async read refused",
+          "passed": true
+        },
+        {
+          "name": "undeclared entry has no preview",
+          "passed": true
+        },
+        {
+          "name": "bounded catalog has at most 20 rows",
+          "passed": true
+        },
+        {
+          "name": "forged directory handle rejected",
+          "passed": true
+        },
+        {
+          "name": "cursor cannot change query",
+          "passed": true
+        },
+        {
+          "name": "returned cursor mutation cannot alter host lease",
+          "passed": true
+        },
+        {
+          "name": "catalog cursor advances without duplicates",
+          "passed": true
+        },
+        {
+          "name": "public select requires reviewed true",
+          "passed": true
+        },
+        {
+          "name": "public preview cannot accept raw value",
+          "passed": true
+        },
+        {
+          "name": "reference cannot carry paths",
+          "passed": true
+        },
+        {
+          "name": "depth guard before format validator",
+          "passed": true
+        },
+        {
+          "name": "read node cannot omit independent capability",
+          "passed": true
+        },
+        {
+          "name": "completed read path declares independent capability",
+          "passed": true
+        },
+        {
+          "name": "read node admits explicit completed capability",
+          "passed": true
+        },
+        {
+          "name": "forged original source digest rejected",
+          "passed": true
+        },
+        {
+          "name": "own JSON prototype key does not mutate prototypes",
+          "passed": true
+        },
+        {
+          "name": "prepared read current before asynchronous work",
+          "passed": true
+        },
+        {
+          "name": "production Runtime handler reads fixed protected source",
+          "passed": true
+        },
+        {
+          "name": "production handler persists one typed result",
+          "passed": true
+        },
+        {
+          "name": "Runtime rejects caller selected source",
+          "passed": true
+        },
+        {
+          "name": "Runtime rejects nonactive node instance",
+          "passed": true
+        },
+        {
+          "name": "Runtime rejects late read after original node ended",
+          "passed": true
+        },
+        {
+          "name": "Runtime rejects late read after cancellation",
+          "passed": true
+        },
+        {
+          "name": "prepared currentness guard rejects saved unbinding",
+          "passed": true
+        },
+        {
+          "name": "Runtime refuses new read after saved unbinding",
+          "passed": true
+        },
+        {
+          "name": "historical typed read survives later unbinding",
+          "passed": true
+        },
+        {
+          "name": "portable flow rejects a literal private result reference",
+          "passed": true
+        },
+        {
+          "name": "encrypted proof survives real Store close and reopen",
+          "passed": true
+        },
+        {
+          "name": "reopened Store does not restore process grants",
+          "passed": true
+        },
+        {
+          "name": "saved source can be read from reopened encrypted Store",
+          "passed": true
+        }
+      ],
+      "realModelRequests": 0,
+      "originalUserDataRead": false,
+      "originalUserDataWritten": false
+    },
+    "controlledSaveRecovery": {
+      "scope": "controlled renderer save helper with synthetic window transport; not real IPC failure injection or application unit tests",
+      "observations": [
+        {
+          "name": "flow committed",
+          "accepted": true,
+          "writeCalls": 1,
+          "readCalls": 1,
+          "passed": true
+        },
+        {
+          "name": "flow changed",
+          "accepted": false,
+          "writeCalls": 1,
+          "readCalls": 1,
+          "passed": true
+        },
+        {
+          "name": "flow read-unavailable",
+          "accepted": false,
+          "writeCalls": 1,
+          "readCalls": 1,
+          "passed": true
+        },
+        {
+          "name": "flow clear",
+          "accepted": true,
+          "writeCalls": 1,
+          "readCalls": 1,
+          "passed": true
+        },
+        {
+          "name": "template committed",
+          "accepted": true,
+          "writeCalls": 1,
+          "readCalls": 1,
+          "passed": true
+        },
+        {
+          "name": "template changed",
+          "accepted": false,
+          "writeCalls": 1,
+          "readCalls": 1,
+          "passed": true
+        },
+        {
+          "name": "template read-unavailable",
+          "accepted": false,
+          "writeCalls": 1,
+          "readCalls": 1,
+          "passed": true
+        },
+        {
+          "name": "template clear",
+          "accepted": true,
+          "writeCalls": 1,
+          "readCalls": 1,
+          "passed": true
+        }
+      ]
+    }
+  },
+  "native": {
+    "method": "macOS native CUA; all creation, node configuration, choice, saves, export and import through client UI. No direct Store/flow JSON/ZIP mutation. Virtual script source entered through supported script editor.",
+    "author": {
+      "draftId": "71521fa3-a30a-4828-831c-bdedcae9ccc5",
+      "sourceRun": "d846b539-bcc2-4495-b18a-54333bc33508",
+      "readerRun": "b63ff6b0-0872-45de-9212-befc9b7b2b47",
+      "producerRevision": 2,
+      "consumerRevision": 4,
+      "exportRevision": 5,
+      "observed": [
+        "resource kind and source-entry multiselect",
+        "action-library read node and logical resource select",
+        "complete preview preserves business fields; apiKey empty; 0/false/null distinct",
+        "select then separate save",
+        "ordinary variable choice value followed by actual Main/Worker successful Run"
+      ]
+    },
+    "export": {
+      "zip": "/private/tmp/flowark-run-result-g2-20261019/local-e32e6186-e8ea-4d1d-8dba-b1559e22c8f0-1.0.0.flowark-template.zip",
+      "sha256": "5f91db0a010999ea0c7a4b54175390e95aae9b363e6ffa0c4451a1abf6d10398",
+      "contentDigest": "4e6dcd3af23da693ed87e8b33990267ffa38a55c5f1a8c7a52b36d9626941eda",
+      "resources": [
+        {
+          "access": "read",
+          "id": "previous-result",
+          "kind": "run-result",
+          "name": "前次已保存结果",
+          "required": true,
+          "sourceEntries": [
+            "source"
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "id": "source",
+          "resources": [],
+          "capabilities": [
+            "script"
+          ]
+        },
+        {
+          "id": "read",
+          "resources": [
+            "previous-result"
+          ],
+          "capabilities": [
+            "run-result-read-v1",
+            "run-result",
+            "value"
+          ]
+        }
+      ],
+      "privateIdentifiersPresent": [],
+      "fileCount": 12,
+      "source": "Unmodified native UI author export. Inspection only."
+    },
+    "independentImport": {
+      "instanceId": "f5dc6052-4a43-419d-a9ec-f948de82c81a",
+      "sourceRun": "3d81d346-df51-4b77-bd51-ef945c536b9a",
+      "readerRun": "570dfe4c-dfc3-40a9-b66c-4b108e5f9d8e",
+      "observed": [
+        "fresh workspace and original unchanged ZIP installed",
+        "new instance unbound and result catalog empty",
+        "own source Run successful, exact preview/select/save",
+        "same instance and reference restored after normal quit/reopen",
+        "formal Main/Worker reader and value node successful",
+        "saved-source inspection after reopen",
+        "clear and save makes resource missing and Run/debug buttons disabled",
+        "historical complete result remains readable after clearing",
+        "Dark and Light ordinary reader screenshot viewed"
+      ],
+      "fixedDuringNative": "TemplateEntry readiness treated result as file path; fixed and verified after same-workspace reopen",
+      "after": {
+        "documents": 24,
+        "events": 12,
+        "protectedFiles": 1,
+        "runs": 2,
+        "flows": 2
+      }
+    }
+  },
+  "notProven": [
+    "all 24 design states or original 186 boards",
+    "every native TTL, concurrent save, slow/late IPC and crash boundary",
+    "192KiB/deep/large-array native reader matrix",
+    "actual OS IPC lost-save reply; eight helper cases use injected transport",
+    "real model/provider or recruiting business result"
+  ],
+  "userData": {
+    "originalBefore": {
+      "documents": 247,
+      "events": 94,
+      "protectedFiles": 2,
+      "runs": 7,
+      "flows": 31,
+      "sourceRequestIndexes": 22
+    },
+    "realModelRequests": 0,
+    "paidRetry": false,
+    "bossLogin": false,
+    "externalRecruitingActions": false,
+    "finalUserSkill": false
+  },
+  "publicBusinessTemplates": {
+    "personal": "0.7.0",
+    "boss": "0.2.13",
+    "changed": false
+  }
+}

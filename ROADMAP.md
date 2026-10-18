@@ -1,5 +1,7 @@
 # FlowArk Roadmap
 
+2026-10-19 结果复用G2本机接续：[普通UI/执行与独立复导](docs/client/run-result-binding.md#g2普通ui与执行路径本机接续)已取得作者与正式Main/Worker成功、全UI原始ZIP独立导入/新实例解绑及重开/解除后历史保留证据；65项受控服务/Runtime和8项保存回读与原生矩阵分开。当前PR与最终安装仍接续，未改公开个人/BOSS或本人资料，没有模型/招聘动作；完整主线与未验收范围保持。
+
 2026-10-19 结果复用宿主基础：客户端[#322](https://github.com/zhongmiao-org/flow-ark-client/pull/322)实际同树压缩合并并采用0.42.0，受保护登记/目录、完整来源预览与单调许可、CAS核对基础已接入；另复现并修复迟到凭据污染新Run。54服务/25显示/5凭据受控观察及类型/构建通过，[实际范围](docs/client/run-result-binding.md#g2基础已合并完整能力继续)明确全UI/Worker/引用/复导仍待完成，新执行能力不宣称支持，本批未打包安装或改公开模板/原本人资料。完整主线继续，CI计费零步骤不记通过。
 
 2026-10-19 前次结果契约已发布：治理[#896](https://github.com/zhongmiao-org/flow-ark/pull/896)同树压缩合并，真实contracts-v0.42.0固定`f735b532393d20ecc5d2dc5ef9991b697e350f7e`及144份机器资料。[发布证据与G2接续](docs/client/run-result-binding.md#g1实际发布与g2接续)保留CI计费零步骤、142项纯资料/40项规范检查与真实宿主/UI分别验收；接续客户端固定采用/可视化绑定/全UI独立复导，再接BOSS准确草稿来源及回复。安装和公开模板本批未改，完整主线保持；下条候选为历史阶段。
