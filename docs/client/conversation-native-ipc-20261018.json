@@ -1,0 +1,177 @@
+{
+  "date": "2026-10-18",
+  "scope": "Six bounded native IPC/S08 observations plus ordinary production reopen; no new feature or full S08 claim",
+  "client": {
+    "commit": "e59c97d8f52f0760ab6a4b5ada18db8e6bb0cd22",
+    "priorPR": 313,
+    "contracts": "0.38.0",
+    "codeChanged": false,
+    "repackagedOrInstalledThisBatch": false,
+    "bundleSha256": {
+      "dist/main.cjs": "75eb362ccab48863f187e2d0816ce4c3064c37c3665563a64c53071a0ef965e9",
+      "dist/preload.cjs": "873907b88ccfd08bfe0950825e8ea4c86ee33308050e2c35944cacef6546da51",
+      "dist/host.cjs": "48792c4759c0b3da1517ec55ed4031093d8958a18fd92f9f8564d07a542ea915",
+      "dist/worker.cjs": "77aa32a053076d24ca69e2dbac88d04c5546662742ee8b3e86a7ce027e487936"
+    },
+    "installedAsarSha256": "868cdddb7ec998ed3657559aba92d55295d65de4adaa2d11cb7191368a3f32a3"
+  },
+  "fixture": {
+    "directory": "/private/tmp/flowark-native-ipc-order-20261018",
+    "containsOnlyCopiedSyntheticRecords": true,
+    "normalNativeMainImportedWithoutEditingProductionBundles": true,
+    "interception": "Temporary launcher loads Main observer before original dist/main.cjs. Observer wraps only forwarding of original validated thread snapshot events and delays one original thread.send handler return; original handler still enforces sender, frame and IPC schemas. No forged snapshot or direct Store mutation.",
+    "transport": "real loopback HTTP with controlled synthetic provider; all other fetch destinations rejected; no real Key copied",
+    "maximumQueuedEvents": 16,
+    "queueLimitIsFixtureOnly": true,
+    "startupCorrections": "Premature Electron module load, missing split-hook local variables and different application identity prevented fixture startup. Restored normal Electron Main phase and exact application metadata. Snapshot before observations equals original synthetic source; no plaintext protection fallback. Failed startup attempts are not product observations.",
+    "scriptsSha256": {
+      "hook.cjs": "85c955f3994845a06a79e86b756f190ab290a0ba620c5e43735afa8f67f73259",
+      "ipc-hook.cjs": "79be238d00ea31b760d16649a804ca81930562a05a34071c804312e73055ad34",
+      "server.cjs": "542e749c6b3a07dc6eaebadfa47af617113877a787d86dc889d3899d833263b2",
+      "app/launcher.cjs": "9dc5e1beed7aa0ce944c33a48743104cfab0e441ec70cebf032bcdf19cf3ab95"
+    }
+  },
+  "sessions": {
+    "A": "e917dde6-dae8-4c06-abc9-e58408a5385e",
+    "B": "fbba016f-5420-4387-9df2-d818929a0b24"
+  },
+  "cases": [
+    {
+      "case": "late-send-receipt",
+      "attempt": 11,
+      "sourceSequence": 46,
+      "terminalSequenceAlreadyDelivered": 49,
+      "result": "Native UI stays ready with complete ordered A+B after older generating receipt arrives; one new request only",
+      "evidence": [
+        "complete-before-send-receipt.ax.txt",
+        "after-late-send-receipt.ax.txt"
+      ]
+    },
+    {
+      "case": "reverse-true-events",
+      "attempt": 12,
+      "deliverySequence": [
+        54,
+        53,
+        52,
+        51,
+        50
+      ],
+      "result": "Before release UI still generating. After reverse delivery UI requests original host detail and recovers full ready A+B; old events do not regress state.",
+      "evidence": [
+        "before-reverse.ax.txt",
+        "after-reverse.ax.txt"
+      ]
+    },
+    {
+      "case": "duplicate-true-events",
+      "attempt": 13,
+      "duplicateSequences": [
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "result": "Each actual event delivered twice; exactly one new request and one A+B reply, no duplicate body",
+      "evidence": [
+        "duplicate-history.ax.txt"
+      ]
+    },
+    {
+      "case": "missing-stream-event",
+      "attempt": 14,
+      "droppedSequence": 62,
+      "nextSequence": 63,
+      "terminalSequence": 64,
+      "result": "Native detail recovery supplies A+B while still generating; complete only after real terminal",
+      "evidence": [
+        "drop-recovery-generating.ax.txt",
+        "drop-complete-history.ax.txt"
+      ]
+    },
+    {
+      "case": "old-session-events-after-switch",
+      "attempt": 15,
+      "deliverySequence": [
+        69,
+        68,
+        67,
+        66,
+        65
+      ],
+      "result": "A remains generating when user navigates to B. Late A events do not change B requestCount0 or local input. A complete reply independently visible on return.",
+      "evidence": [
+        "b-after-a-late-events.ax.txt",
+        "a-after-cross-session-return.ax.txt"
+      ]
+    },
+    {
+      "case": "late-saved-event-and-manual-read",
+      "session": "B",
+      "delayedSequence": 2,
+      "result": "After original save RPC already accepted, its real delayed snapshot and manual detail read both preserve newer unsaved local input. User then saves latest input through UI.",
+      "evidence": [
+        "b-unsaved-after-old-event-and-read.ax.txt",
+        "b-saved-final.ax.txt"
+      ]
+    }
+  ],
+  "counts": {
+    "newExplicitModelAttempts": 5,
+    "localAcceptedHTTPConnections": 5,
+    "sourceHostEvents": 28,
+    "intentionalDuplicateDeliveries": 5,
+    "intentionallyDroppedEvents": 1,
+    "ARequestCountAfter": 15,
+    "BRequestCountAfter": 0,
+    "totalCompleteHistoryEntries": 8,
+    "runs": 2,
+    "sourceEventsNotRuns": true
+  },
+  "persistence": {
+    "copiedSyntheticSourceExactlyPreservedBeforeObservations": true,
+    "firstTenImmutableEntryInputRequestRowsPreserved": true,
+    "afterNormalReopenDocuments": 77,
+    "afterNormalReopenEvents": 10,
+    "protectedSyntheticCredentialBlobs": 2,
+    "allNormalReopenRecordsAndCredentialsExact": true,
+    "observerDisabledDuringNormalReopen": true,
+    "noRecoveryModelRequest": true
+  },
+  "originalPersonalWorkspace": {
+    "documents": 247,
+    "events": 94,
+    "credentials": 2,
+    "runs": 7,
+    "flows": 31,
+    "allRecordsAndCredentialsExact": true,
+    "observerNotAttached": true
+  },
+  "evidenceSha256": {
+    "ipc-report.json": "2ee9737f5b3bf44cb4af4458f19933bb3caf8b12b6e4fe0691fd140b2ee73cdc",
+    "transport-report.json": "667ce28d660f3940e5ec129ca5f86c6f4182ba7a9a155d0681415be0bb7ee5b6",
+    "native-b-isolated.png": "e9330f370e48d810523fc2cc3e28b854707c3b9b73fa80fa4e3e40a49223458c",
+    "a-normal-reopen.ax.txt": "b0cba83e9a9ed6e7a2999f25095a6ffc5c93c8b9a9a2f417b804a9f66e48db30",
+    "b-normal-reopen.ax.txt": "e4b2ab1a9afbe3cb48ad007f92df1cb5391bb668768fce111431fdaabdb6e497"
+  },
+  "checks": {
+    "unitTestsAddedOrRun": false,
+    "productSourceChanged": false,
+    "newFigmaInteraction": false,
+    "priorDesignsUsed": [
+      "505:5761",
+      "505:5848"
+    ],
+    "coverage": "Native Main/Preload/Utility Host/Renderer with transport scheduling controlled, not a browser-only mock bridge"
+  },
+  "limitations": [
+    "Synthetic provider and Key; real DeepSeek/OpenAI verification remains outstanding",
+    "Does not prove all concurrent capacities, provider/IPC timeouts, exhausted budgets, process crashes or every subscription lifecycle case",
+    "No new public template export; personal0.7.0 and BOSS0.2.5 remain unchanged",
+    "No final personal Skill, resumed paid-fragment request, BOSS login or recruiting actions",
+    "Full G3-G5,S08,186,U01-U12 and Agent objective remains active"
+  ],
+  "realProviderRequests": 0,
+  "realBilledTokens": 0
+}
