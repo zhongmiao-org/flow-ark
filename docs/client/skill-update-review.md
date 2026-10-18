@@ -18,6 +18,16 @@ G2接入发现重开界面缺少原应用身份：新增[回执待核对Light，
 
 ## 分层与采用顺序
 
+### G2合并安装与原记录保持
+
+客户端[#309](https://github.com/zhongmiao-org/flow-ark-client/pull/309)已实际squash合并为`047579c1bec1b1c490635810405534e9e3faa066`，与检查源头`8f51f4b71a2e88567b7c4bc14d44e97088ffd251`树完全相同；固定已发布0.37.1/治理`856ddbc2e7e2a9aba4869461ade1c439de3eb1d2`。最新CI `39105180009` / Validate `117609352615`明确为付款或支出限制、零步骤；按用户授权CLI准确头压缩合并，不记CI通过。先行治理[#853](https://github.com/zhongmiao-org/flow-ark/pull/853)也已实际合并为`ecfe7c0da0d095f3af10ddf3dec0b715bf9fa8b6`，其最新CI `39105042529` / Validate `117608942166`同为计费零步骤，源头`cef58ded0975a78f34e1174e4cd807fde536a0ea`与合并树相同。
+
+从准确客户端main执行完整`pnpm package:mac`，生成ZIP/DMG。正常退出旧应用后备份并可回滚替换`/Users/mac/Applications/FlowArk.app`，再以原数据目录重开；安装ASAR `cd447fbef2d0b5c8b63883ff84a285bcda20c75ae1156e6b4e08a4c8f51b5775`，ZIP `f91aea95f4caa98160e481739182f5b91c4b63fb664713335fda6b1f3a7aae04`，DMG `990c480a0fc25c641e7c8cddebbdbdef119ae09e4f72c58c82bada7ef3533ac4`。应用仍为0.3.0开发包，未签名/公证，不称为正式发版。
+
+新安装版原生打开原流程，Skill操作下拉可见“更新已有Skill·保留手工内容”，未选择、未保存或运行原流程；关闭菜单后仍为已保存五步。启动与该只读查看后再次逐项比较，全部246份加密documents、94条events、2份受保护凭据完全不变，原7Run保持。本批原工作区无新模型请求、无最终本人Skill、无招聘外发。安装和原生证据位于`/private/tmp/flowark-skill-update-install-20261018/`，包括`installation.json`、`native-preservation.json`、原应用/数据库/凭据备份及`native-installed-operation.png`；不纳入公开模板。
+
+隔离原生工作区正常重开后，原1流程/2Run/2合成版本、1次建议应用回执和1次更新通知保持；资源UI仍固定原父版本，没有自动切到新版本。20组宿主观察和本机UI范围见下段及[聚合记录](skill-update-delivery-20261018.json)。公开个人0.6.2和BOSS0.2.4尚未改用新节点，接续须通过客户端UI编排适配、原始导出及独立使用者复导，不能以本段通用合成Skill替代完整业务。原生完整故障/迟到、Dark/紧凑矩阵、真实模型/本人最终确认、完整G3–G5/186/Agent/BOSS继续。每个PR均尝试附件登记，因本聊天附件身份超过100项失败；以上直接PR链接有效，不删除其他附件。
+
 ### 0.37.1实际发布与G2本机候选
 
 治理[#852](https://github.com/zhongmiao-org/flow-ark/pull/852)已实际压缩合并为`856ddbc2e7e2a9aba4869461ade1c439de3eb1d2`，与源头`8d5f7f89e9fabfee5b602ed0bfde9d7ad928cf34`树相同。最新CI `39103630745` / Validate `117604802807`因账户付款/支出限制而零步骤失败，按用户授权CLI准确头squash，不能记成CI通过。远端`contracts-v0.37.1`标签对象`119082ff3c8d84055d6b302ac4b2c10d0583ccb0`已核验，准确解引用为上述合并提交；118份机器资料封存，不再修改0.37.0/0.37.1快照。

@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-18",
+  "scope": "generic Skill update review and durable application recovery",
+  "contract": {
+    "version": "0.37.1",
+    "tag": "contracts-v0.37.1",
+    "tagObject": "119082ff3c8d84055d6b302ac4b2c10d0583ccb0",
+    "commit": "856ddbc2e7e2a9aba4869461ade1c439de3eb1d2",
+    "machineFiles": 118
+  },
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/309",
+    "source": "8f51f4b71a2e88567b7c4bc14d44e97088ffd251",
+    "merged": "047579c1bec1b1c490635810405534e9e3faa066",
+    "treesEqual": true,
+    "ciRun": 39105180009,
+    "ciJob": 117609352615,
+    "ciStatus": "billing failure before any steps; user-authorized exact-head CLI squash"
+  },
+  "checks": {
+    "typecheck": true,
+    "build": true,
+    "formatChangedSources": true,
+    "diffCheck": true,
+    "contractChecksumsAndGeneratedBytes": true,
+    "unitTestsAddedOrRun": false
+  },
+  "controlledObservations": {
+    "actualSkillsAndEncryptedStore": 10,
+    "sigkillAndActualSqliteWriteFailure": 3,
+    "actualTypedResultsAndDocumentSourceRoles": 7,
+    "totalPassed": 20,
+    "scopeLimit": "Fictional content, controlled observations; document result is synthetic, no real parser/provider acceptance"
+  },
+  "nativeIsolatedUi": {
+    "authoredThroughUi": true,
+    "advancedJsonRequired": false,
+    "flows": 1,
+    "actualWorkerRuns": 2,
+    "syntheticConfirmedVersions": 2,
+    "applicationReceipts": 1,
+    "updateNotifications": 1,
+    "manualExtraFieldPreserved": true,
+    "selectedOnlyMarkdown": true,
+    "finalConfirmationSeparate": true,
+    "oldFixedBindingRetainedAfterReopen": true
+  },
+  "installation": {
+    "appVersion": "0.3.0 development build, unsigned",
+    "installedAsar": "cd447fbef2d0b5c8b63883ff84a285bcda20c75ae1156e6b4e08a4c8f51b5775",
+    "zipSha256": "f91aea95f4caa98160e481739182f5b91c4b63fb664713335fda6b1f3a7aae04",
+    "dmgSha256": "990c480a0fc25c641e7c8cddebbdbdef119ae09e4f72c58c82bada7ef3533ac4",
+    "backedUpAndReplaced": true,
+    "reopenedOriginalData": true,
+    "nativeUpdatedOperationObserved": true
+  },
+  "originalDataPreservation": {
+    "encryptedDocuments": 246,
+    "events": 94,
+    "protectedCredentialFiles": 2,
+    "runs": 7,
+    "allRowsAndCredentialBytesUnchanged": true
+  },
+  "realProviderRequestsThisBatch": 0,
+  "recruitingExternalActionsThisBatch": 0,
+  "remaining": [
+    "UI authoring and independent public ZIP reimport for personal/BOSS templates",
+    "native crash/late-reply and theme/compact coverage",
+    "real complete-source processing and final user Skill confirmation",
+    "actual BOSS account and recruiting business acceptance",
+    "full G3-G5, 186 boards and Agent flow-generation goal"
+  ]
+}
