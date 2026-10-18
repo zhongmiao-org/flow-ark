@@ -78,3 +78,14 @@ G1 参考模块只检查语言无关格式、真实来源/配方/记录的范围
 观察脚本 `/private/tmp/flowark-source-execution-observe-expanded-20261018.ts`，结果 `/private/tmp/flowark-source-execution-observe-expanded-20261018.json`。开发组件浏览器使用实际 React 组件和虚构回包，核对完整结果零调用、已有响应的零调用提示、浅色/深色可读、勾选和过期/任务事件清除、blocked不创建、unknown重试两次仅关联一次。后者只证明组件交互，不替代宿主观察、原生应用、本人模型或公开 ZIP 复导验收。
 
 本段 PR、准确合并提交、打包安装及原生预览在实际执行后补充。此前具体本人付费重试的待批准状态保持；本地实现/检查通过不等于完整个人 Skill、BOSS 或 186 画板验收。
+
+
+### G2 合并、安装与原生只读预览
+
+治理 [#845](https://github.com/zhongmiao-org/flow-ark/pull/845) 实际合并 `66ac3063724b0367f594b2f2055014721641a248`，客户端 [#308](https://github.com/zhongmiao-org/flow-ark-client/pull/308) 实际合并 `42638a7bc7b0b3fb1552ff71b5748e1c1a3e8a09`、源 `509d6cb3bf94f197af24af96486d9e3e4973b96f`。源树与 squash 合并树一致。最新 CI 分别为 39098961571 / 39099012263，Validate 117591111494 / 117591261555 注释均明确是账户付款/支出限制、steps为空；按用户同一目标的明确 CLI squash 授权处理，没有记录 CI 通过。
+
+从准确已合并 main 完整执行 `pnpm package:mac`，生成 ZIP 与 DMG并正常退出旧应用后，备份/可回滚替换 `/Users/mac/Applications/FlowArk.app`。本机应用仍标识开发版 0.3.0，采用固定 0.36.0；安装 ASAR `056e7dc48d4cf3f76e3809fbe2055f938cff4a3ea91c4644e147964fe4d49375`，ZIP `3672bc5affbc2f680939bb3604dc827986406bc0f6112fd697bd66718efd16fc`，DMG `c57c61364162fc39912f5739d80cd444c48db8d6b3e96d735ef55db6e5301c77`。这是已合并源码的本机开发包，不宣称签名、公证或正式发布。
+
+按原数据目录重开后，通过原生 UI 的运行记录→原结果→“核对一次新尝试”读取真实宿主范围：草稿修订5、任务修订25、已采用5片段/完整1原记录，历史6次请求、104927 Token、未知0；准确下一片段为原记录2第16385–29231字节，deepseek/deepseek-flash，本来源节点上限1，默认未勾选且确认禁用。整体5步骤和1固定脚本包、从首节点重跑警告可见。未点勾选/确认，未发新模型请求；随后返回原来源进度。用户原资料不进入公开证据文件，截图和加密备份只保留本机临时目录。
+
+替换前后及原生预览后逐项比较：全部243份加密documents、94条events、2份受保护凭据字节均保持，原7Run不增不改。安装记录与截图 `/private/tmp/flowark-source-review-execution-install-20261018/`，其中 `installation.json`、`native-preservation.json`、`native-range.png`、`native-unchecked.png` 分别对应安装、逐项保护和原生默认未勾选证据。仅凭只读预览不计本人付费重试成功；独立工作区原生导入/配置/确认/执行完整0/1/N、真实失败/取消/unknown矩阵、公开个人与BOSS复导、Skill最终保存和业务验收仍须接续。创建PR时均调用聊天附件工具，因本聊天附件数超过100未能挂载，PR本身已真实合并，不删除其他附件。
