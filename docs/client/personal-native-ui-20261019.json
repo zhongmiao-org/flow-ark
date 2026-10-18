@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-19",
+  "status": "synthetic-native-ui-path-only-not-full-g3-or-provider-acceptance",
+  "client": {
+    "pr": 317,
+    "commit": "9e035782d5add4aded96fbbe161ee05fe0fb6844",
+    "tree": "053adf329614a09accc295d4867a9a9d328e456e",
+    "contracts": "0.39.0",
+    "productSourceChanged": false,
+    "packageOrInstallChanged": false
+  },
+  "templates": {
+    "personal": {
+      "version": "0.7.0",
+      "sha256": "39157219de2b30b1c34298b573b8e47d1363d3842c638271d77d4859fc6c5081",
+      "contentDigest": "356d808919571a828daa695eb088d07f7dbf9937e556eaa6f772478a40e0ab62"
+    },
+    "boss": {
+      "version": "0.2.9",
+      "sha256": "8116331a3b4ee9b6a23bb7b420b078695769496be0adc4757c9aaa49801fdf72"
+    },
+    "archivesModified": false
+  },
+  "boundary": {
+    "allDataSynthetic": true,
+    "realKeyUsed": false,
+    "realProviderCalls": 0,
+    "realCandidateSkillGenerated": false,
+    "paidRetryPerformed": false,
+    "bossLoginPerformed": false,
+    "recruitingActions": 0,
+    "workflowJsonStoreArchiveEdited": false,
+    "fixtureRole": "network-only redirect in isolated processes; same production Main/Preload/host/adapters/worker/store/renderer; rejects all non-synthetic credentials and all other destinations; requests terminate at real 127.0.0.1 HTTP with canned content"
+  },
+  "uiPath": [
+    "import original personal ZIP and create instance",
+    "save synthetic model/key using protected local settings",
+    "bind two explicit files and default same Skill directory",
+    "run parsing and establish thread",
+    "send two rounds; prepare/read/confirm complete source",
+    "bind source and run synthesis through three complete records",
+    "edit title and add manualNote using field editor",
+    "save revision 2; create fixed trial and send one round",
+    "separate final confirmation writes version1",
+    "continue original thread with third round; prepare/read/confirm new source",
+    "import original BOSS ZIP; explicitly bind version1",
+    "bind old parent and new source in personal update",
+    "run update through four complete records",
+    "default keep all changes; explicitly adopt markdown and preferences only",
+    "fixed updated-draft trial; separate final confirmation writes version2",
+    "observe BOSS still bound to version1",
+    "explicitly select/save version2 in BOSS",
+    "normal quit/reopen; observe notification and exact new binding"
+  ],
+  "requests": {
+    "localHttp": 12,
+    "interviewStream": 3,
+    "trialStream": 2,
+    "synthesisNonStream": 3,
+    "updateNonStream": 4,
+    "syntheticReportedTokens": 384,
+    "realTokenCostIncrement": 0,
+    "syntheticUsageExcludedFromRealCost": true,
+    "allClosed": true,
+    "noAdditionalRequestOnReopen": true
+  },
+  "versions": {
+    "key": "personal-profile",
+    "first": "sv_da19b4687948edc6bb60bdaeba7750b8",
+    "second": "sv_ee9890438c953014c4362160ff362f7c",
+    "firstDigest": "db06a450d384d3fc3b508d330b12715a266333ac84000d3a8d5d1ba603a224ce",
+    "secondDigest": "072461fdad79375840e01782ea4cbd514faddcb1159ef4180691a504f17a3df9",
+    "parentExact": true,
+    "oldFilesUnchanged": true,
+    "manualNoteExact": true,
+    "selectedChanges": [
+      "markdown",
+      "data.preferences"
+    ],
+    "newVersionNotificationSeenAfterReopen": true,
+    "bossOldBindingKeptUntilExplicitSave": true,
+    "oldFiles": {
+      "data.json": "150a9e298155275f21a5f2b035053d57c87bff3c523b9ef01b09241b62c830d2",
+      "SKILL.md": "011b30bbf2bcb19ee368b6dd0c70fd8b2de37832bef73a85b945ddff857555ed",
+      "manifest.json": "db06a450d384d3fc3b508d330b12715a266333ac84000d3a8d5d1ba603a224ce"
+    },
+    "newFiles": {
+      "data.json": "3703bdc51439a4247eeb4e52ac042081f66e202d7f95a2be83af3052edb0b05f",
+      "SKILL.md": "daefecaa419409c3d780142f7dfc8f4ca6e2d8af4217f26dec5772162d78d079",
+      "manifest.json": "072461fdad79375840e01782ea4cbd514faddcb1159ef4180691a504f17a3df9"
+    },
+    "oldVersionByteExact": true,
+    "preferencesUpdated": true
+  },
+  "preservation": {
+    "synthetic": {
+      "documents": 134,
+      "events": 50,
+      "protectedFiles": 2,
+      "runs": 3,
+      "flows": 14,
+      "archiveVersions": 2,
+      "skillVersions": 2,
+      "allHashesExactAfterReopen": true
+    },
+    "daily": {
+      "documents": 247,
+      "events": 94,
+      "protectedFiles": 2,
+      "runs": 7,
+      "flows": 31,
+      "sourceIndexes": 22,
+      "allHashesExact": true
+    },
+    "processesNormalQuit": true,
+    "temporaryServerStopped": true
+  },
+  "localEvidence": {
+    "hook.cjs": "8c9023f5ca0a0f8b3f7e158333c30e14e53ed298c60ab328f714274c28e7187c",
+    "server.cjs": "b3c002598e5e2765d0075929bc5a3a210e0c2f48e992eb9351175b429a3303f6",
+    "app/launcher.cjs": "e8727b5ab5a079489aabcec78bca8f5eade4cc27ed83d4de689a3b1aeba29286",
+    "transport-report.json": "ece61c4911f024ae443e1963d850f417244bbf4fb5b92381dd82a6868d4387ff",
+    "before-reopen.json": "75454c2469890626b0083ae377054ee51a4d375910d31c92742cb8d9a5ae7acf",
+    "after-reopen.json": "75454c2469890626b0083ae377054ee51a4d375910d31c92742cb8d9a5ae7acf",
+    "version-protection.json": "3ce25706011f5aba48e6e4b8ee3e10d92dcc9b3c715676cebb49045c8a369296",
+    "skill-version1-ui.png": "4d510e4a37155f272153528f8531262044db55f72fc8cd040d6cb38df521e4a6",
+    "skill-version2-ui.png": "9c6f6de83b452b9260965b1ad2f4bfa00209b0e1f063096a8f8e04869134a635",
+    "boss-keeps-old-skill-ui.png": "78e3c8b96e867510f0f26fc1fef1e336d12a94145770966ba2a5eb0fb82efd33",
+    "update-notification-after-reopen.png": "b624dc6846a0c25b1876ad9d5760388ac61556949f9f98d33631e36e6e48cd5c"
+  },
+  "notVerified": [
+    "real DeepSeek/OpenAI semantic quality and failures",
+    "actual user full-source reduction and final Skill",
+    "full S01-S08/G3-G5/186/Agent acceptance",
+    "BOSS website full JD, account/session, recruiting actions",
+    "all concurrent/failure/deadline/compact/light-dark combinations"
+  ],
+  "unitTestsAddedOrRun": false
+}
