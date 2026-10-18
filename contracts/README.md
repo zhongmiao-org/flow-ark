@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-18：已排版正文 [0.39.0](v0.39.0/README.md) 已由实际合并源发布，远端 `contracts-v0.39.0^{}` 准确固定 `c80712a6c98e6fc25e499e6042b5e41c79fd571f`、124 份机器资料。[发布与 G2 门槛](../docs/client/browser-rendered-fields.md#g1-实际发布与-g2-接续)记录 PR #870 最新计费零步骤、完整远端树/132 文件内容核对及用户授权 CLI squash。当前客户端尚未采用；下条“候选”为历史，不计真实渲染或业务通过。
+
 2026-10-18：先行[八种两主题 Figma](../docs/client/browser-rendered-fields.md)后新增 [0.39.0 已排版正文候选](v0.39.0/README.md)。browser v6/collect 在同次来源中混合 DOM文字、属性及有界正文候选，隐藏/裁切/不支持返回 null 和原因，超限整次拒绝；旧 v5 保持。124 份机器资料重建相同，34 份格式/61 项参考核对和类型检查通过。尚未发布或由客户端采用，不能将资料核对当作实际渲染、UI 或招聘验收。
 
 2026-10-18：关联字段 [0.38.0](v0.38.0/README.md) 已从实际合并源发布，远端 `contracts-v0.38.0^{}` 准确为 `c689404a151062593f20ce6a007c0663c6961d77`，121 份机器资料固定；[#858](https://github.com/zhongmiao-org/flow-ark/pull/858) 按用户 CI 计费零步骤例外实际 CLI squash，130 个远端文件 blob 与本机准确提交逐个一致。[完整证据](../docs/client/browser-associated-fields.md#g1-实际发布)区分本机通过与 CI 未运行、客户端尚未采用；下方“候选”描述保留历史阶段。
