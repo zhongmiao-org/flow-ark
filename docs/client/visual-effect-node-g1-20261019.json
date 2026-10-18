@@ -1,0 +1,90 @@
+{
+  "recordedAt": "2026-10-19",
+  "scope": "visual-effect-node-g1",
+  "figma": {
+    "file": "sVciNUZHG9yx81gCpYzjH9",
+    "frames": [
+      "927:9756",
+      "927:9862",
+      "927:9968",
+      "927:10074",
+      "927:10180",
+      "927:10286",
+      "927:10392",
+      "927:10498"
+    ],
+    "framesViewedAfterComponentPropertyFix": 8,
+    "perFrame": {
+      "width": 1440,
+      "height": 1080,
+      "FRAME": 37,
+      "TEXT": 35,
+      "INSTANCE": 9,
+      "VECTOR": 21,
+      "ELLIPSE": 3,
+      "imageFills": 0
+    },
+    "fonts": [
+      "Noto Sans SC",
+      "Inter"
+    ],
+    "originalComponentAndSemanticModesReused": true,
+    "inheritedReactionsCleared": true
+  },
+  "contracts": {
+    "version": "0.40.0",
+    "tag": "contracts-v0.40.0",
+    "tagObject": "4afae99a7c532b3005e6011bf0a64cd339613130",
+    "remotePeeled": "d0a8b181a2309d40a6651d759e23977cfb5d70ae",
+    "machineFiles": 127,
+    "rebuiltAllFilesExact": 129,
+    "unchangedInheritedMachineFiles": 121,
+    "sealSha256": "3895b14f58ee9497070512099ab43922b8f74c16c6de8d20d30c7c45edabb960"
+  },
+  "delivery": {
+    "pr": 887,
+    "source": "531faaa23fc10cbc4b46c3846ba835d027525bfa",
+    "merge": "d0a8b181a2309d40a6651d759e23977cfb5d70ae",
+    "sourceAndMergeTree": "9a57876ecc764540293d36fe643222e320b4e66d",
+    "remoteFullTreesExact": true,
+    "fullChangedPathsExact": true,
+    "remoteFilesExact": 135,
+    "method": "gh-cli-squash-match-head",
+    "state": "MERGED",
+    "ci": {
+      "run": 39150577588,
+      "job": 117743213248,
+      "steps": [],
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ],
+      "passed": false
+    }
+  },
+  "validation": {
+    "formatFixtures": 30,
+    "referenceAndAuthorPackageAssociations": 41,
+    "referenceAndPackageAuthorTypes": "passed",
+    "governanceAndDiffCheck": "passed",
+    "hostTransactions": false,
+    "appUnitTestsAddedOrRun": false
+  },
+  "unchanged": {
+    "clientPr": 318,
+    "clientContracts": "0.39.0",
+    "personalTemplate": "0.7.0",
+    "bossTemplate": "0.2.9",
+    "originalPaidRetry": false,
+    "bossLogin": false,
+    "recruitingActions": 0,
+    "newRealProviderRequests": 0,
+    "newAppPackage": false
+  },
+  "next": [
+    "client adoption from exact published tag",
+    "ordinary fields and variable UI",
+    "host owner and durable effect execution",
+    "full native UI export and isolated reimport with fictional local operation",
+    "separate real BOSS calibration and recruiting acceptance"
+  ]
+}
