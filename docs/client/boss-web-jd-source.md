@@ -55,3 +55,18 @@
 尚未实测无登录遮挡且正文完整分支、非 BOSS/重复字段的新业务分支、正文核对拒绝/期限、本人 Key 三路语义与故障。当前唯一匹配公司区文字只是候选标签，后续真实会话关联还要更精确的公司/职位证据。拾取需在当前布局内使用实际指针；扩大网页会使当前拾取失效，切回重选后才采用目标。未将这一行为记为修复。
 
 本人暂不登录、未批准的付费失败片段重试和被拒的内部状态写权限保持。完整个人 Skill、账号/JD/来信关联、自动投递、简历发送、自我介绍/聊天、不感兴趣及去重/回执，以及 G3–G5/186/U01–U12/Agent 目标继续，不将当前检查点计作完成。
+
+
+## 2026-10-18 正文读取与本人核对先行
+
+客户端#314/0.39.0已实际安装后，更新原有三板并补齐两主题：预检 [896:9310](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=896-9310)/[903:9394](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=903-9394)，正文核对 [896:9412](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=896-9412)/[903:9496](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=903-9496)，停止转本人 [903:9598](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=903-9598)/[896:9514](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=896-9514)。继续使用既有 Ant Input/Button、Noto Sans SC/Inter、Light/Dark语义变量和可编辑图层，六板整图均已查看，清除继承跳转；Section扩为4480×89800。没有新增客户端专用界面或把截图当图层。
+
+本批从准确0.2.6经客户端UI复制制作独立 `web-jd-body` 入口，保留旧八入口，不把现有元数据检查误写为已读正文。目标为先由v5同次元数据和小脚本判定站点/职位路径/登录遮挡，明确阻断时走结果/待办，不执行正文步骤。仅初步无阻断才由v6同次读取元数据与已排版正文；模板再次校验站点、登录提示、岗位/公司候选、原预检目标、字段配置/状态和正文策略，不以页面标题、提示缺失或collectionComplete自行证明完整。
+
+正文目标须在实际网页中通过拾取验证；登录限制保持，不读取隐藏数据、私有接口或让模型补全。正文null、隐藏/裁切/无法判定、字段缺失/重复或两次目标不一致均停止并转本人。来源中分别保存预检与本次采集关联、岗位/公司候选、正文精确摘要、字段/策略状态，原全文仅在受保护Run与固定人工请求中使用，不夹带查询参数到公开结果。有限渲染策略不能证明站点删节、虚拟未加载内容或任意覆盖层，需本人完整阅读。
+
+唯一非空正文候选使用既有 `template.human` 的 review v1 固定展示目标与全部原文，并明确“确认并保留来源 / 拒绝本次正文”；超出既有target/content限制整次停止，不截断。回执只作用本次Run，确认后才将descriptionComplete设为本人声明，拒绝转待办，取消/超时/退出中止且不重放。此来源入口只声明自身browser/use、browser/browser-fields-v1/browser-rendered-fields-v1、script/template-sdk-v1/human/human-review-v1/attention，不绑定Skill/AI/Key/目录或状态写；确认不授予模型、账号或外发资格，modelInputAllowed/accountVerified/companyVerified/eligibleForActions继续false。作者SDK目前仅result/attention，人工请求的真实核对须在原始导出后的正式实例验证，不冒充作者调试通过。
+
+后续独立网页方向评估仍需重新采集/核对本次来源，绑定固定确认Skill、求职配置修订和用户自己的Key，接既有三路内部建议。当前这批来源入口并不替代该完整目标，更不代表真实账号/来信关联、投递/消息/简历/不感兴趣与回执完成。本人暂不登录、原未批准付费失败片段重试及被拒状态写边界保持。
+
+交付继续以客户端UI维护、原始ZIP导出及独立空工作区复导为准，不手改flow JSON/Store/归档。公开包不得包含用户资料、Key、真实职位标识或本机路径；新增能力只从已发布0.39.0精确采用。模板validate/build、原始归档/脚本字节、实际未登录停止与正文候选/人工确认拒绝/期限的证据分别记录，合成来源不冒充真实登录后正文。当前仅先行设计和制作约定，公开个人0.7.0/BOSS0.2.6与安装客户端#314保持，不计入口或真实业务已完成，不新增/运行单元测试。
