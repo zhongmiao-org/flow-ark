@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-18",
+  "scope": "browser v5 collect local client delivery; incomplete full G2 and business acceptance",
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/311",
+    "source": "6c9df5a94292540abd06343071f2617f100b2781",
+    "base": "877681c78b44a515fc70839b4410ee0086137f8a",
+    "merge": "8e2d8aae5f798336633276da5658d388026d659a",
+    "tree": "51dc7bbb73a40b67726d215dd2c05b7eb3eaed56",
+    "contracts": "0.38.0",
+    "machineFiles": 121,
+    "ci": {
+      "run": 39113652710,
+      "job": 117634873564,
+      "steps": [],
+      "conclusion": "failure",
+      "reason": "account payments or spending limit",
+      "passed": false
+    },
+    "mergeMethod": "user-authorized exact-head CLI squash"
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "changedSourcePrettier": "passed",
+    "diffCheck": "passed",
+    "packageMac": "passed",
+    "unitTestsAddedOrRun": false
+  },
+  "observations": [
+    {
+      "report": "embedded-report.json",
+      "count": 19,
+      "scope": "Actual Electron WebContents + production EmbeddedPage; synthetic local DOM and explicit controlled navigation/stop injection. No host/Worker/UI acceptance, no model or recruiting actions."
+    },
+    {
+      "report": "chrome-report.json",
+      "count": 8,
+      "scope": "Actual installed Chrome executable, isolated temporary profile, production PlaywrightDriver; controlled same-url reload and selected-page change injection. Not native Chrome UI template acceptance."
+    },
+    {
+      "report": "store-report.json",
+      "count": 12,
+      "scope": "Production encrypted Store and TypedResults with synthetic fixture setup; controlled write exception is not a real disk fault; no Runtime/Worker or native UI proof by itself."
+    }
+  ],
+  "native": {
+    "authorRun": "6d680d9f-f191-4b9e-ac5e-7e5e467501a5",
+    "consumerRun": "4d85cdd5-56e0-4e67-954d-242b9453201e",
+    "consumerInstance": "a1209ec2-6c47-41f8-b6ae-6c298039ca1d",
+    "results": "SUCCEEDED",
+    "fields": 3,
+    "themesViewed": [
+      "light",
+      "dark"
+    ],
+    "normalUIOnly": true,
+    "jsonOrArchiveAuthorEdits": false,
+    "reopenDocuments": 14,
+    "reopenEvents": 7,
+    "reopenRuns": 1,
+    "reopenAllCipherHashesEqual": true
+  },
+  "uiExport": {
+    "id": "local-94a2e057-c7eb-4d66-bbb5-58f22f7882fc",
+    "version": "1.0.0",
+    "files": 6,
+    "bytes": 1966,
+    "sha256": "ebadbe67753948b50cda170a08b01ad5eddddb68fd6ecb1746fdf09d7c719556",
+    "digest": "68855451fa42ed5a07df003ab06ba68b4e742fae4fb8fff93f9df4c9f39fcfb7",
+    "scope": "local fixture verification only; not a public BOSS template"
+  },
+  "installation": {
+    "path": "/Users/mac/Applications/FlowArk.app",
+    "asarSha256": "809fb8d6d85b85aba3771417c3057e883f8c94d8328fa6085fd52f873c8fde13",
+    "zipSha256": "03704183a0de045bd0d09f896ff9176922e9ee1aa88171b4840cb4beb13151df",
+    "dmgSha256": "b961800b2f18dcd72510e6af6db7a9f173f2ec8bc8f9384989cd21c6374d733d",
+    "backup": "/private/tmp/flowark-browser-fields-g2-20261018/FlowArk-before-311.app",
+    "preserved": {
+      "encryptedDocuments": 247,
+      "events": 94,
+      "protectedCredentialFiles": 2,
+      "runs": 7,
+      "allHashesEqual": true
+    },
+    "nativeNewActionVisible": true,
+    "originalFlows": 31,
+    "originalNewRuns": 0
+  },
+  "evidenceDirectory": "/private/tmp/flowark-browser-fields-g2-20261018",
+  "modelRequestsAdded": 0,
+  "recruitingExternalActions": 0,
+  "remaining": [
+    "native dynamic values and incomplete/rejected branches",
+    "full native failure, compact and theme matrix",
+    "Firefox/Safari collect remains explicitly blocked",
+    "personal Skill paid retry remains unapproved",
+    "BOSS login remains deferred",
+    "public business templates and actual account acceptance",
+    "full G3-G5/S08, 186/U01-U12 and Agent goal"
+  ]
+}
