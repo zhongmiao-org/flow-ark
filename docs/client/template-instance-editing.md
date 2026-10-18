@@ -129,3 +129,15 @@ LiteralValue仅对用户未完成的原始编辑添加独立标记；实例导�
 先更新原文件现有[实例2:973](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-973)为默认同名示例，h1只显示“网页文字归档”，名称表单保持同文，面包屑及短ID一致；文本2:1040/2:1041/8:19500/8:19503/I2:1051;1:163。目录两主题沿用[Light781:8714](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=781-8714)和[Dark781:8835](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=781-8835)，按钮组件781:8824/781:8829/781:8945/781:8950可见文字统一“选择目录”，图层名记录“选择目录：来源目录/输出目录”的可访问语义，原组件、变量与原型连接保持。没有新画板、组件或图片；此前复制两次失败均回滚，读取确认无残留后按既有节点更新。
 
 三张1440×1080最终整板已查看，实例板51FRAME/51TEXT/10INSTANCE，资源板各41FRAME/42TEXT/14INSTANCE，均无图片填充且字体仍Noto Sans SC/Inter，复用Semantic Light/Dark。当前为设计/规范先行，不计客户端、安装或完整业务通过。仅需通用UI修改，不增加IPC/协议/SDK/数据库；后续类型/构建/格式和原生同名/异名、两种资源、选择器取消/保存、重开与原记录保持分别核对，不新增/运行单元测试。
+
+## 2026-10-19 同名实例标题与资源操作名称交付
+
+先行治理[PR #885](https://github.com/zhongmiao-org/flow-ark/pull/885)实际合并`54afc56799504b047bcf7cdf45b53ddabe7c1443`；客户端[PR #318](https://github.com/zhongmiao-org/flow-ark-client/pull/318)源`1feb2a7f927ea024474ac1e69b1fe6809f0f5f8c`、实际合并`4d624f6e01d19dedafcd6d395f19c350ea7bebb0`，源与合并树一致`5aed9d6a103b1b4b73762cce408d7f78d4e47ed1`。两项CI分别为[39148054473](https://github.com/zhongmiao-org/flow-ark/actions/runs/39148054473)和[39148579791](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/39148579791)：最新准确head的Validate均为steps空数组，注释明确账户付款失败或支出限制，不能记为CI通过。核对完整远端diff及三个远端文件逐字一致、本地检查通过后，依用户授权以`gh pr merge --squash --match-head-commit`合并，未直推main或使用admin。
+
+改动只在通用Renderer的实例h1和资源选择可访问名称，另更新采用的治理基线。实例名称未改写；绑定、授权、系统选择器、保存守卫及公共契约0.39.0保持。`pnpm typecheck`、`pnpm build`、修改文件Prettier、`git diff --check`通过，按阶段未新增/运行单元测试。
+
+原生候选客户端复用闭合的合成工作区，经普通UI查看个人0.7.0：默认同名显示一次；未保存异名草稿显示“模板 · 实例”，取消恢复；仅两端空白不同仍显示一次，输入原值保持，取消恢复。资源名称分别为“选择目录：简历与项目资料”“选择目录：Skill 保存目录”；打开系统目录选择器后取消，原路径不变，焦点回到对应选择按钮。正常退出前后134份加密文档、50事件及两份保护文件逐项摘要相同，无新增Run或模型请求。此批原生观察为Dark，未执行文件类型资源的系统选择器、保存新绑定或Light/完整尺寸组合，未把未执行项记为通过。
+
+合并main实际`pnpm package:mac`成功，ZIP摘要`efcbe68f717113740e5e6e152ca7ae5d490d94104976b2322d1ca739a68a0fb5`，DMG摘要`8ca0a300314de641993f41288e41e633474880729ca8b4dbdf405b2f5e2846c0`。旧#317 App及闭合SQLite/保护文件已备份并核对；正常退出旧进程后从只读DMG串行安装，构建/DMG/安装三处ASAR均为`af0a34f54cc65a21dc6075d0b70c33148cc6621f2f9a7929f2950771266bbd81`，安装bundle相对链接检查通过，DMG已卸载。版本仍为未正式发布的0.3.0，本机更新不等于公开签名分发。
+
+安装版重开原工作区，实际查看同名个人0.6.1实例标题一次、资料和Skill目录仍指向本人原profile、DeepSeek仍已配置；31流程、7Run保持。安装前后247份文档、94事件、两份保护文件逐项摘要完全一致，原22来源索引和原整理失败位置不变，没有重试付费片段或发起BOSS动作。客户端已停在开始任务页供继续操作；公开个人0.7.0/BOSS0.2.9包和模板仓库未改动。[机器证据](template-instance-labels-20261019.json)只登记哈希和分层结果；本批不替代真实个人Skill完成、真实模型质量/成本、BOSS账号业务或完整S01–S08/G3–G5/186/Agent验收。

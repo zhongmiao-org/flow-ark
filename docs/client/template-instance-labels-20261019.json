@@ -1,0 +1,126 @@
+{
+  "recordedAt": "2026-10-19",
+  "scope": "generic-template-instance-display",
+  "contractsVersion": "0.39.0",
+  "figma": {
+    "file": "sVciNUZHG9yx81gCpYzjH9",
+    "existingFrames": [
+      "2:973",
+      "781:8714",
+      "781:8835"
+    ],
+    "newFrames": 0,
+    "beforeImplementation": true,
+    "threeFinalFramesViewed": true
+  },
+  "delivery": [
+    {
+      "repository": "zhongmiao-org/flow-ark",
+      "pr": 885,
+      "sourceHead": "0612d83281500a3c47510e4619e25ceb46943c11",
+      "sourceTree": "bf7d0b809fb25b58ff513fdda1f2b832f75f7b0e",
+      "fullDiffExact": true,
+      "remoteFilesExact": 3,
+      "ci": {
+        "run": 39148054473,
+        "job": 117735852365,
+        "steps": [],
+        "annotations": [
+          "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+        ],
+        "passed": false
+      },
+      "mergeMethod": "gh-cli-squash-with-match-head",
+      "actualState": "MERGED",
+      "mergeCommit": "54afc56799504b047bcf7cdf45b53ddabe7c1443"
+    },
+    {
+      "repository": "zhongmiao-org/flow-ark-client",
+      "pr": 318,
+      "sourceHead": "1feb2a7f927ea024474ac1e69b1fe6809f0f5f8c",
+      "sourceTree": "5aed9d6a103b1b4b73762cce408d7f78d4e47ed1",
+      "fullDiffExact": true,
+      "remoteFilesExact": 3,
+      "ci": {
+        "run": 39148579791,
+        "job": 117737392619,
+        "steps": [],
+        "annotations": [
+          "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+        ],
+        "passed": false
+      },
+      "mergeMethod": "gh-cli-squash-with-match-head",
+      "actualState": "MERGED",
+      "mergeCommit": "4d624f6e01d19dedafcd6d395f19c350ea7bebb0"
+    }
+  ],
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "prettierChangedFiles": "passed",
+    "diffCheck": "passed",
+    "unitTests": "not-added-or-run-per-current-stage",
+    "packageMac": "passed"
+  },
+  "nativeCandidate": {
+    "realRendererRuntime": true,
+    "syntheticDataOnly": true,
+    "normalUIOnly": true,
+    "directStoreOrTemplateJsonEdits": false,
+    "realProviderRequests": 0,
+    "sameNameTitleOnce": true,
+    "differentNamePreservesTemplateAndInstance": true,
+    "edgeWhitespaceComparisonOnly": true,
+    "cancelRestoresSavedName": true,
+    "directoryActionNames": [
+      "选择目录：简历与项目资料",
+      "选择目录：Skill 保存目录"
+    ],
+    "directoryCancelPreservesPathAndReturnsFocus": true,
+    "themeObserved": "dark",
+    "documents": 134,
+    "events": 50,
+    "protectedFiles": 2,
+    "beforeAfterAllHashesEqual": true
+  },
+  "installation": {
+    "clientSource": "4d624f6e01d19dedafcd6d395f19c350ea7bebb0",
+    "clientTree": "5aed9d6a103b1b4b73762cce408d7f78d4e47ed1",
+    "version": "0.3.0",
+    "platform": "macOS-arm64",
+    "app": "/Users/mac/Applications/FlowArk.app",
+    "fromDmg": true,
+    "dmgDetached": true,
+    "hashes": {
+      "zip": "efcbe68f717113740e5e6e152ca7ae5d490d94104976b2322d1ca739a68a0fb5",
+      "dmg": "8ca0a300314de641993f41288e41e633474880729ca8b4dbdf405b2f5e2846c0",
+      "buildAsar": "af0a34f54cc65a21dc6075d0b70c33148cc6621f2f9a7929f2950771266bbd81",
+      "dmgAsar": "af0a34f54cc65a21dc6075d0b70c33148cc6621f2f9a7929f2950771266bbd81",
+      "installedAsar": "af0a34f54cc65a21dc6075d0b70c33148cc6621f2f9a7929f2950771266bbd81"
+    },
+    "installedBundleRelativeLinks": true,
+    "oldAppBackedUp": true,
+    "closedSqliteBackupAndOpaqueCredentialsExact": true,
+    "reopenedOriginalWorkspace": true,
+    "sameNameTitleObserved": true,
+    "originalProfileBothDirectoryBindingsUnchanged": true,
+    "configuredDeepSeekRetained": true,
+    "flows": 31,
+    "runs": 7,
+    "documents": 247,
+    "events": 94,
+    "protectedFiles": 2,
+    "originalBeforeAfterAllHashesEqual": true,
+    "newProviderRequestRecords": 0
+  },
+  "templateRepositoryChanged": false,
+  "notVerified": [
+    "native file-resource picker in this batch",
+    "light native theme and full size matrix in this batch",
+    "real personal distillation completion or model semantic quality",
+    "original paid failed-fragment retry",
+    "BOSS authenticated recruiting business actions",
+    "complete S01-S08 G3-G5 U01-U12 and Agent goal"
+  ]
+}
