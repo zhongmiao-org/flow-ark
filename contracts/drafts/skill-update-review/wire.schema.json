@@ -1,0 +1,396 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowark.dev/drafts/skill-update-review/wire.schema.json",
+  "title": "Unpublished Skill update field review draft",
+  "$defs": {
+    "Json": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Json"
+          },
+          "maxItems": 10000
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Json"
+          },
+          "maxProperties": 10000
+        }
+      ]
+    },
+    "Content": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "pattern": "\\S"
+        },
+        "markdown": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60000,
+          "pattern": "\\S"
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/Json"
+          }
+        }
+      },
+      "required": ["title", "markdown", "data"],
+      "additionalProperties": false
+    },
+    "State": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "present": {
+              "const": false
+            }
+          },
+          "required": ["present"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "present": {
+              "const": true
+            },
+            "value": {
+              "$ref": "#/$defs/Json"
+            }
+          },
+          "required": ["present", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Target": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "area": {
+              "enum": ["title", "markdown"]
+            },
+            "path": {
+              "type": "array",
+              "maxItems": 0
+            }
+          },
+          "required": ["area", "path"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "area": {
+              "const": "data"
+            },
+            "path": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 32,
+              "items": {
+                "type": "string",
+                "maxLength": 1024
+              }
+            }
+          },
+          "required": ["area", "path"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Field": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "target": {
+          "$ref": "#/$defs/Target"
+        },
+        "baseline": {
+          "$ref": "#/$defs/State"
+        },
+        "current": {
+          "$ref": "#/$defs/State"
+        },
+        "suggested": {
+          "$ref": "#/$defs/State"
+        },
+        "status": {
+          "enum": ["candidate", "conflict", "manual-only", "already-applied"]
+        }
+      },
+      "required": [
+        "id",
+        "target",
+        "baseline",
+        "current",
+        "suggested",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "Review": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "reviewId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "proposalId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "epoch": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "baselineSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "suggestionSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "currentSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sourceSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "workspaceRevision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "fields": {
+          "type": "array",
+          "maxItems": 256,
+          "items": {
+            "$ref": "#/$defs/Field"
+          }
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "base": {
+          "$ref": "#/$defs/VersionRef"
+        }
+      },
+      "required": [
+        "version",
+        "reviewId",
+        "proposalId",
+        "revision",
+        "epoch",
+        "base",
+        "baselineSha256",
+        "suggestionSha256",
+        "currentSha256",
+        "sourceSha256",
+        "workspaceRevision",
+        "createdAt",
+        "expiresAt",
+        "fields",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "Choice": {
+      "type": "object",
+      "properties": {
+        "fieldId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "replaceManual": {
+          "type": "boolean"
+        }
+      },
+      "required": ["fieldId", "replaceManual"],
+      "additionalProperties": false
+    },
+    "Selection": {
+      "type": "object",
+      "properties": {
+        "proposalId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": ["proposalId", "revision"],
+      "additionalProperties": false
+    },
+    "Apply": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "proposalId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "reviewId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "reviewSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "choices": {
+          "type": "array",
+          "maxItems": 256,
+          "items": {
+            "$ref": "#/$defs/Choice"
+          }
+        },
+        "reviewed": {
+          "const": true
+        }
+      },
+      "required": [
+        "version",
+        "proposalId",
+        "revision",
+        "reviewId",
+        "reviewSha256",
+        "requestId",
+        "choices",
+        "reviewed"
+      ],
+      "additionalProperties": false
+    },
+    "Receipt": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "proposalId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "requestId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "confirmationSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "reviewSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "revisionBefore": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "revisionAfter": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "contentSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "changed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "version",
+        "proposalId",
+        "requestId",
+        "confirmationSha256",
+        "reviewSha256",
+        "revisionBefore",
+        "revisionAfter",
+        "contentSha256",
+        "changed"
+      ],
+      "additionalProperties": false
+    },
+    "VersionRef": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,63}$"
+        },
+        "versionId": {
+          "type": "string",
+          "pattern": "^sv_[a-f0-9]{32}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": ["key", "versionId", "sha256"],
+      "additionalProperties": false
+    }
+  }
+}

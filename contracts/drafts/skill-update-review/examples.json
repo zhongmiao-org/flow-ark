@@ -1,0 +1,396 @@
+{
+  "note": "Fictional values only. Format fixtures are not a host, persistence or authorization acceptance.",
+  "cases": [
+    {
+      "definition": "Content",
+      "valid": true,
+      "value": {
+        "title": "Example",
+        "markdown": "# Example",
+        "data": {
+          "tone": "formal",
+          "note": "manual",
+          "extra": "private"
+        }
+      }
+    },
+    {
+      "definition": "VersionRef",
+      "valid": true,
+      "value": {
+        "key": "sample-profile",
+        "versionId": "sv_11111111111111111111111111111111",
+        "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    },
+    {
+      "definition": "State",
+      "valid": true,
+      "value": {
+        "present": false
+      }
+    },
+    {
+      "definition": "State",
+      "valid": true,
+      "value": {
+        "present": true,
+        "value": null
+      }
+    },
+    {
+      "definition": "Target",
+      "valid": true,
+      "value": {
+        "area": "data",
+        "path": ["__proto__"]
+      }
+    },
+    {
+      "definition": "Field",
+      "valid": true,
+      "value": {
+        "id": "ff771e485890a38398cd4519156f2db59b3898b435b8d7871c51233f485a5033",
+        "target": {
+          "area": "data",
+          "path": ["extra"]
+        },
+        "baseline": {
+          "present": false
+        },
+        "current": {
+          "present": true,
+          "value": "private"
+        },
+        "suggested": {
+          "present": false
+        },
+        "status": "manual-only"
+      }
+    },
+    {
+      "definition": "Review",
+      "valid": true,
+      "value": {
+        "version": 1,
+        "reviewId": "review_example",
+        "proposalId": "proposal_example",
+        "revision": 4,
+        "epoch": "epoch_example",
+        "base": {
+          "key": "sample-profile",
+          "versionId": "sv_11111111111111111111111111111111",
+          "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+        },
+        "baselineSha256": "ffaf175346fdfff93b910fb075b7286ba934a25ad7a2772e65508d0345a24aad",
+        "suggestionSha256": "20441e452adb5cb81e1305a429db0ac622122cd6b0c28c006653492041e6200e",
+        "currentSha256": "db21aeb4cd0e5ff4d83b69f6e23ef3a5f2d230af03a65f93295cada462575d50",
+        "sourceSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "workspaceRevision": "4444444444444444444444444444444444444444444444444444444444444444",
+        "createdAt": "2026-10-18T04:00:00.000Z",
+        "expiresAt": "2026-10-18T04:05:00.000Z",
+        "fields": [
+          {
+            "id": "ff771e485890a38398cd4519156f2db59b3898b435b8d7871c51233f485a5033",
+            "target": {
+              "area": "data",
+              "path": ["extra"]
+            },
+            "baseline": {
+              "present": false
+            },
+            "current": {
+              "present": true,
+              "value": "private"
+            },
+            "suggested": {
+              "present": false
+            },
+            "status": "manual-only"
+          },
+          {
+            "id": "d4b7718aa8a5ffcbac41b655ef8eb1ac81bf62ee7dd7af5edf9d83f027c28b26",
+            "target": {
+              "area": "data",
+              "path": ["note"]
+            },
+            "baseline": {
+              "present": true,
+              "value": "keep"
+            },
+            "current": {
+              "present": true,
+              "value": "manual"
+            },
+            "suggested": {
+              "present": true,
+              "value": "keep"
+            },
+            "status": "manual-only"
+          },
+          {
+            "id": "50409786f4decc2e7fd9abee171f865c75c91c6b2fb2c474faf0c116f6ac9d67",
+            "target": {
+              "area": "data",
+              "path": ["tone"]
+            },
+            "baseline": {
+              "present": true,
+              "value": "formal"
+            },
+            "current": {
+              "present": true,
+              "value": "formal"
+            },
+            "suggested": {
+              "present": true,
+              "value": "brief"
+            },
+            "status": "candidate"
+          }
+        ],
+        "sha256": "9abd2c536db0a50164189efc6f8dea626960d9d45bc5e142bf46b302c6a44860"
+      }
+    },
+    {
+      "definition": "Choice",
+      "valid": true,
+      "value": {
+        "fieldId": "50409786f4decc2e7fd9abee171f865c75c91c6b2fb2c474faf0c116f6ac9d67",
+        "replaceManual": false
+      }
+    },
+    {
+      "definition": "Selection",
+      "valid": true,
+      "value": {
+        "proposalId": "proposal_example",
+        "revision": 4
+      }
+    },
+    {
+      "definition": "Apply",
+      "valid": true,
+      "value": {
+        "version": 1,
+        "proposalId": "proposal_example",
+        "revision": 4,
+        "reviewId": "review_example",
+        "reviewSha256": "9abd2c536db0a50164189efc6f8dea626960d9d45bc5e142bf46b302c6a44860",
+        "requestId": "request_example",
+        "choices": [
+          {
+            "fieldId": "50409786f4decc2e7fd9abee171f865c75c91c6b2fb2c474faf0c116f6ac9d67",
+            "replaceManual": false
+          }
+        ],
+        "reviewed": true
+      }
+    },
+    {
+      "definition": "Receipt",
+      "valid": true,
+      "value": {
+        "version": 1,
+        "proposalId": "proposal_example",
+        "requestId": "request_example",
+        "confirmationSha256": "eab517fc1fb22f4bc2d57dcd7ce4bef67f173555e2894aee20d71e876c570548",
+        "reviewSha256": "9abd2c536db0a50164189efc6f8dea626960d9d45bc5e142bf46b302c6a44860",
+        "revisionBefore": 4,
+        "revisionAfter": 5,
+        "contentSha256": "73bbe1c8e2953d0a61225fe6300d274e7e0be94475dc43b7e1238b95f0e55b18",
+        "changed": true
+      }
+    },
+    {
+      "definition": "Content",
+      "valid": false,
+      "value": {
+        "title": " ",
+        "markdown": "# Example",
+        "data": {
+          "tone": "formal",
+          "note": "manual",
+          "extra": "private"
+        }
+      }
+    },
+    {
+      "definition": "VersionRef",
+      "valid": false,
+      "value": {
+        "key": "sample-profile",
+        "versionId": "unfixed",
+        "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    },
+    {
+      "definition": "State",
+      "valid": false,
+      "value": {
+        "present": false,
+        "value": null
+      }
+    },
+    {
+      "definition": "Target",
+      "valid": false,
+      "value": {
+        "area": "markdown",
+        "path": ["x"]
+      }
+    },
+    {
+      "definition": "Field",
+      "valid": false,
+      "value": {
+        "id": "ff771e485890a38398cd4519156f2db59b3898b435b8d7871c51233f485a5033",
+        "target": {
+          "area": "data",
+          "path": ["extra"]
+        },
+        "baseline": {
+          "present": false
+        },
+        "current": {
+          "present": true,
+          "value": "private"
+        },
+        "suggested": {
+          "present": false
+        },
+        "status": "auto-apply"
+      }
+    },
+    {
+      "definition": "Review",
+      "valid": false,
+      "value": {
+        "version": 1,
+        "reviewId": "review_example",
+        "proposalId": "proposal_example",
+        "revision": 4,
+        "epoch": "epoch_example",
+        "baselineSha256": "ffaf175346fdfff93b910fb075b7286ba934a25ad7a2772e65508d0345a24aad",
+        "suggestionSha256": "20441e452adb5cb81e1305a429db0ac622122cd6b0c28c006653492041e6200e",
+        "currentSha256": "db21aeb4cd0e5ff4d83b69f6e23ef3a5f2d230af03a65f93295cada462575d50",
+        "sourceSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "workspaceRevision": "4444444444444444444444444444444444444444444444444444444444444444",
+        "createdAt": "2026-10-18T04:00:00.000Z",
+        "expiresAt": "2026-10-18T04:05:00.000Z",
+        "fields": [
+          {
+            "id": "ff771e485890a38398cd4519156f2db59b3898b435b8d7871c51233f485a5033",
+            "target": {
+              "area": "data",
+              "path": ["extra"]
+            },
+            "baseline": {
+              "present": false
+            },
+            "current": {
+              "present": true,
+              "value": "private"
+            },
+            "suggested": {
+              "present": false
+            },
+            "status": "manual-only"
+          },
+          {
+            "id": "d4b7718aa8a5ffcbac41b655ef8eb1ac81bf62ee7dd7af5edf9d83f027c28b26",
+            "target": {
+              "area": "data",
+              "path": ["note"]
+            },
+            "baseline": {
+              "present": true,
+              "value": "keep"
+            },
+            "current": {
+              "present": true,
+              "value": "manual"
+            },
+            "suggested": {
+              "present": true,
+              "value": "keep"
+            },
+            "status": "manual-only"
+          },
+          {
+            "id": "50409786f4decc2e7fd9abee171f865c75c91c6b2fb2c474faf0c116f6ac9d67",
+            "target": {
+              "area": "data",
+              "path": ["tone"]
+            },
+            "baseline": {
+              "present": true,
+              "value": "formal"
+            },
+            "current": {
+              "present": true,
+              "value": "formal"
+            },
+            "suggested": {
+              "present": true,
+              "value": "brief"
+            },
+            "status": "candidate"
+          }
+        ],
+        "sha256": "9abd2c536db0a50164189efc6f8dea626960d9d45bc5e142bf46b302c6a44860"
+      }
+    },
+    {
+      "definition": "Choice",
+      "valid": false,
+      "value": {
+        "fieldId": "50409786f4decc2e7fd9abee171f865c75c91c6b2fb2c474faf0c116f6ac9d67",
+        "replaceManual": "yes"
+      }
+    },
+    {
+      "definition": "Selection",
+      "valid": false,
+      "value": {
+        "proposalId": "proposal_example",
+        "revision": 0
+      }
+    },
+    {
+      "definition": "Apply",
+      "valid": false,
+      "value": {
+        "version": 1,
+        "proposalId": "proposal_example",
+        "revision": 4,
+        "reviewId": "review_example",
+        "reviewSha256": "9abd2c536db0a50164189efc6f8dea626960d9d45bc5e142bf46b302c6a44860",
+        "requestId": "request_example",
+        "choices": [
+          {
+            "fieldId": "50409786f4decc2e7fd9abee171f865c75c91c6b2fb2c474faf0c116f6ac9d67",
+            "replaceManual": false
+          }
+        ],
+        "reviewed": false
+      }
+    },
+    {
+      "definition": "Receipt",
+      "valid": false,
+      "value": {
+        "version": 1,
+        "proposalId": "proposal_example",
+        "requestId": "request_example",
+        "confirmationSha256": "eab517fc1fb22f4bc2d57dcd7ce4bef67f173555e2894aee20d71e876c570548",
+        "reviewSha256": "9abd2c536db0a50164189efc6f8dea626960d9d45bc5e142bf46b302c6a44860",
+        "revisionBefore": 4,
+        "revisionAfter": 5,
+        "contentSha256": "73bbe1c8e2953d0a61225fe6300d274e7e0be94475dc43b7e1238b95f0e55b18",
+        "changed": true,
+        "extra": true
+      }
+    }
+  ]
+}

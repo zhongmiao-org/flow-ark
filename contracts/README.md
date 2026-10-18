@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-18：新增[Skill更新字段核对草案](drafts/skill-update-review/README.md)及[三个先行Figma状态](../docs/client/skill-update-review.md)，定义模型建议/手工草稿分离、单项冲突采纳、完整父引用与确认回执关联。20组纯参考观察及21份正反格式资料通过；独立drafts未发布、不可采用，不改0.36.0或现有客户端/模板。正式节点/输出、宿主事务与UI仍待实现。
+
 2026-10-18：`contracts-v0.36.0` 已实际发布，远端解引用 `f5810d915ea668fbebaf9164120f421e4a487a2d`，112 份机器资料保持。#834 按用户计费例外实际 squash 合并，本机校验/参考观察通过，CI 未启动；[真实发布及消费者接续](../docs/client/source-reduction-review.md#2026-10-18-固定快照发布与消费者开发)。下方“未发布”为当时历史状态，客户端安装版仍是 0.35.1，不计新执行范围已生效。
 
 2026-10-17：新增[入口结果只读视图草案](drafts/entry-result-view/README.md)与[七状态 Figma](../docs/client/entry-result-view.md)，独立 drafts、未发布、不可由客户端采用；88 项格式/关联条件资料核对通过，不计实际宿主读取、安装或业务验收。
