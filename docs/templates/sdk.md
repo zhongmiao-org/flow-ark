@@ -18,6 +18,8 @@
 | effect.prepare(request)/effect.resolve(request) | 原子去重、提交前落盘、记录 confirmed/failed/unknown；未知不重放 |
 | result(value) | 按入口结果 Schema 校验并记录结果 |
 
+已通过入口结果 Schema 校验并保存的 `result(value)` 是显式入口结果；完成阶段仅在准确 Run 的结果记录不存在时才采用流程输出。`null`、`false`、`0`、空文本、空对象和空列表均是已保存的 JSON 值，不因空值含义被步骤输出覆盖。结果仍须按固定入口 Schema 校验；保存结果不代表业务操作成功。此说明澄清既有 SDK 语义，不新增字段、持久化格式或动作授权。
+
 宿主在每次 RPC 前后核对脚本 owner 和取消状态；只读入口不会因其他入口需要 AI 而被要求提供 Key。准备副作用必须引用入口声明的 action，执行结果核验由模板负责。SDK 不实现网站选择器、招聘状态或事实推理。
 
 AI 供应商接入使用通用 AIRequest/AIResult，不包含求职提示词。完整 JSON 返回后进行 Schema 校验，截断/错误不使用、不静默重试或切换模型。实例配置和授权修改不改变活动快照。
