@@ -4,6 +4,10 @@
 
 ## 先行设计
 
+2026-10-18 G2配置补图：复用原草稿节点514:7031，新增[更新节点Light，878:9124](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=878-9124)和[Dark，878:9235](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=878-9235)。工作区、更新操作、建议标题/正文/数据/本次来源及必填准确父版本均由普通字段/前序引用配置，不另填key；结果说明区分建议、无变化和不可核验。两板1440×1080，每板39Frame/38Text/9Instance/21Vector/3Ellipse，字体Noto Sans SC/Inter，零图片填充；已查看两张最终截图，沿同一Semantic Light/Dark变量。当前仅设计，客户端实现与原生验收另记。
+
+G2接入发现重开界面缺少原应用身份：新增[回执待核对Light，879:9244](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=879-9244)及[Dark，879:9346](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=879-9346)。原选择锁定，只可核对原请求，取得已应用或可靠未提交结果后再重新选择；修正过初稿仍可点击逐项按钮的问题，最终两主题截图已查看。字体与主题复用、无整页图片。先补[0.37.1候选](../../contracts/v0.37.1/README.md)的持久请求状态和详情格式，实际消费者仍待完成；不能仅以Renderer ref在重开后丢失原requestId。
+
 复用既有 `803:10158`、Semantic Light/Dark、Noto Sans SC/Inter 和 Button，新增三个1440×1080原生状态：
 
 - [选择建议，874:9106](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=874-9106)：原基线/当前手工内容/模型建议并列，默认选中0项；未选内容保持。
