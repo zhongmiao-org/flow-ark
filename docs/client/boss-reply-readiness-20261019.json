@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-19",
+  "templatePR": "https://github.com/zhongmiao-org/flow-ark-templates/pull/26",
+  "source": "846c94c10d4b040d6118fc002722d0302ef1e016",
+  "merge": "d548ddcf1bc9dce1df6affdecfcb010f37b67463",
+  "ci": {
+    "run": 39159380887,
+    "validateJob": 117769270214,
+    "validate": "success",
+    "automergeJob": 117769390686,
+    "automerge": "success",
+    "previousCancelledRun": 39159379896
+  },
+  "clientUnchanged": "a2302734596b2f4468f818ad8b15346129c78a83",
+  "contractsUnchanged": "0.39.0 template subset / installed client 0.40.0",
+  "rawExport": {
+    "version": "0.2.13",
+    "revision": 20,
+    "files": 88,
+    "scripts": 48,
+    "sha256": "97dc89a8e63c85f46525d0bbbe513a7301a4f99e6553be26ed3536f9ee64160d",
+    "digest": "bdc0635f479d823a3274046026af78455ad036f3c37b36f7bb96551cf0cb2cee",
+    "oldTenFlowAndEntryExact": true,
+    "changedOldScripts": [
+      "scripts/author/message-draft/n_22f52238.js",
+      "scripts/author/conditions/n_70c234d1.js",
+      "scripts/author/job-assessment/n_22f52238.js",
+      "scripts/author/web-job-assessment/n_4445b1ba.js"
+    ],
+    "otherOldScriptsExact": 42
+  },
+  "authoring": {
+    "normalPath": "native client UI only",
+    "sourcePackageVersion": "0.2.9",
+    "finalRevision": 20,
+    "newReadOnlySteps": 5,
+    "configurationFields": [
+      "replyDailyLimit",
+      "replyTimeZone"
+    ],
+    "defaultDailyLimit": 0,
+    "defaultTimeZone": "Asia/Shanghai",
+    "intentFields": 14,
+    "intentMaximum": 500,
+    "intentStructureOnly": true,
+    "actualReservationWrites": 0,
+    "businessStateWrites": 0,
+    "outboundActions": 0
+  },
+  "nativeFinal": {
+    "instance": "e6a717e1",
+    "runs": [
+      {
+        "id": "68743305-8ef8-4079-a21a-36f824275185",
+        "entry": "conditions",
+        "status": "completed",
+        "branch": "conditions-ready"
+      },
+      {
+        "id": "5d5da05f-acff-4c64-80ee-1c6d477b5110",
+        "entry": "confirmed-reply",
+        "status": "completed",
+        "businessEligibility": false,
+        "page": "about:blank",
+        "storedAttentionCount": 1,
+        "normalAttentionDetail": "Chinese scalar fields"
+      }
+    ],
+    "reopen": {
+      "documents": 34,
+      "events": 24,
+      "protectedFiles": 1,
+      "ciphertextHashesUnchanged": true,
+      "noAutomaticRun": true
+    }
+  },
+  "earlierCandidates": {
+    "versions": [
+      "0.2.10",
+      "0.2.11",
+      "0.2.12"
+    ],
+    "published": false,
+    "nativeConfigurationFailure": "8bbfa470-e39d-497c-a026-c8e0965bf0bd",
+    "failureResolvedByUIWhitelistEdits": 4,
+    "duplicateObservation": {
+      "version": "0.2.12",
+      "firstRun": "9eca422d-1d15-4d48-82e9-c43c31caf40a",
+      "repeatRun": "8a7330c3-a229-4e6d-af33-9cdca602d7d6",
+      "afterMarkRead": {
+        "pending": 0,
+        "read": 1,
+        "originalSourcePreserved": true
+      }
+    }
+  },
+  "originalDailyWorkspace": {
+    "documents": 247,
+    "events": 94,
+    "protectedFiles": 2,
+    "runs": 7,
+    "flows": 31,
+    "sourceRequestIndices": 22,
+    "ciphertextHashesUnchanged": true,
+    "modelRequests": 0,
+    "newPersonalSkillVersions": 0
+  },
+  "checks": [
+    "pnpm validate",
+    "pnpm build",
+    "git diff --check"
+  ],
+  "appUnitTestsAddedOrRun": false,
+  "remaining": [
+    "Generic whole entry result read-only UI",
+    "Generic exact prior-result source selection/binding UI",
+    "Real account/conversation/job/incoming-message/receipt calibration",
+    "Actual CAS reservation, effect preparation, review, fill, send and receipt pipeline",
+    "Full G3-G5, S01-S08, 186 screens and Agent flow generation"
+  ],
+  "evidenceDigests": [
+    {
+      "file": "author-013-export-ax.txt",
+      "sha256": "1798f1dd92598204834cbf89fd82b782811dba0226d6aa1e68896347a1e321ed"
+    },
+    {
+      "file": "release-default-deny-ax.txt",
+      "sha256": "12680d6bc6575cbf96d096cd7f457f8f87ea94e534834249ffaa8bb45d78a208"
+    },
+    {
+      "file": "release-conditions-success-ax.txt",
+      "sha256": "666c0b2430ac61d90dc1d4b2c06c0e31b7ff7ed885e5ecfa9b23cbe8caefe19b"
+    },
+    {
+      "file": "release-reply-run-ax.txt",
+      "sha256": "126899a137275a5d3a8a0c04f6f5cc97b0b2259f609a8eefd2610e3ae15c7808"
+    },
+    {
+      "file": "release-readable-attention-ax.txt",
+      "sha256": "0b579426a24c61ee039b6ae111a5f493717be08e41153cdf12447ad94384820b"
+    },
+    {
+      "file": "release-readable-attention.png",
+      "sha256": "8742594628e0e458aacaf5cc9480c7c6cbfd5c3be259885f85493f0c46ba6979"
+    },
+    {
+      "file": "release-reopen-runs-ax.txt",
+      "sha256": "f88e871cf50e54b79c36558ff833d6b669076e1b6b55e9eaeb462791d6624376"
+    },
+    {
+      "file": "release-before-reopen.json",
+      "sha256": "d3b38f7800341c1def6d4d523ee7def7aca0d37ed28d3a0eaaa128adced78f6c"
+    },
+    {
+      "file": "release-after-reopen.json",
+      "sha256": "d3b38f7800341c1def6d4d523ee7def7aca0d37ed28d3a0eaaa128adced78f6c"
+    },
+    {
+      "file": "daily-before.json",
+      "sha256": "c993806b0eb284c63553329316bbac5de701aa4432cf734057ebe7f3ff2b760f"
+    },
+    {
+      "file": "daily-after.json",
+      "sha256": "c993806b0eb284c63553329316bbac5de701aa4432cf734057ebe7f3ff2b760f"
+    }
+  ]
+}
