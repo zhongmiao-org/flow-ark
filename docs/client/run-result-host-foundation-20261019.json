@@ -1,6 +1,6 @@
 {
   "date": "2026-10-19",
-  "stage": "G2 host foundation local candidate, not complete usable feature",
+  "stage": "G2 host foundation merged; complete UI/Worker capability remains unsupported and unaccepted",
   "contracts": {
     "version": "0.42.0",
     "tag": "contracts-v0.42.0",
@@ -387,7 +387,8 @@
     "Monotonic process-local preview/choice/cursor grants, owner/entry scoping and finite pages",
     "Existing flow/instance save validates exact grants, current revision and source again inside CAS",
     "Pinned contract generation, private result resource slot and optional snapshot type/identity support",
-    "Strict IPC input and private reference guards, no credential reread or old Run repair"
+    "Strict IPC input and private reference guards, no credential reread or old Run repair",
+    "Late credential returns recheck captured Run object, abort and current readability; only the retained original Run collects observed values for protection, never the next Run. Outstanding host calls prevent reuse final-set claims."
   ],
   "executionCapabilityAdvertised": false,
   "remaining": [
@@ -403,5 +404,80 @@
     "Synthetic encrypted Store mutations are controlled observations, never normal template delivery",
     "Display regressions include two reads of the real public BOSS archive but do not prove formal reusable-result binding",
     "No original profile read/write, provider request, paid retry, final Skill, login or recruiting action; installed app and public template packages not updated"
-  ]
+  ],
+  "clientDelivery": {
+    "pullRequest": "https://github.com/zhongmiao-org/flow-ark-client/pull/322",
+    "firstSourceCommit": "90fe24d33c5229ffe6664e7352dfde3c681062c7",
+    "latestSourceCommit": "4bf41996a3df863c761ee81c2bdfedaca8330dd2",
+    "mergeCommit": "f56eaac80ff6144c51867e73d231750b7ac5ce89",
+    "remoteFullTreesExact": true,
+    "remoteAllChangedBlobsExact": 37,
+    "method": "user-authorized CLI squash with match-head after latest CI billing zero steps",
+    "ci": {
+      "runId": 39168615108,
+      "jobId": 117796779784,
+      "steps": [],
+      "conclusion": "failure",
+      "reason": "account payments or spending limit prevented job start",
+      "passed": false
+    },
+    "packaged": false,
+    "installed": false
+  },
+  "credentialReturnReproductionBeforeFix": {
+    "scope": "controlled production Runtime credential method with injected state/system; no real vault, native RPC or model",
+    "pendingTracked": true,
+    "lateReturned": true,
+    "rejected": false,
+    "lateSecretAttachedToNewRun": true,
+    "pendingReleased": true
+  },
+  "credentialReturnControlledAfterFix": {
+    "scope": "controlled production Runtime credential method with injected state/system; not real vault, native RPC, complete Main/Worker authorization or application unit tests",
+    "count": 5,
+    "observations": [
+      {
+        "name": "active",
+        "returned": true,
+        "originalRunProtectionCount": 1,
+        "newRunSecretCount": 0,
+        "pendingReleased": true,
+        "passed": true
+      },
+      {
+        "name": "abort",
+        "returned": false,
+        "originalRunProtectionCount": 1,
+        "newRunSecretCount": 0,
+        "pendingReleased": true,
+        "passed": true
+      },
+      {
+        "name": "switch-owner",
+        "returned": false,
+        "originalRunProtectionCount": 0,
+        "newRunSecretCount": 0,
+        "pendingReleased": true,
+        "passed": true
+      },
+      {
+        "name": "abort-and-switch",
+        "returned": false,
+        "originalRunProtectionCount": 0,
+        "newRunSecretCount": 0,
+        "pendingReleased": true,
+        "passed": true
+      },
+      {
+        "name": "revoke",
+        "returned": false,
+        "originalRunProtectionCount": 1,
+        "newRunSecretCount": 0,
+        "pendingReleased": true,
+        "passed": true
+      }
+    ],
+    "userDataAccess": false,
+    "modelRequests": 0
+  }
 }
