@@ -1,0 +1,158 @@
+{
+  "scope": "controlled host observation, temporary synthetic records; not native acceptance or an application unit test suite",
+  "count": 25,
+  "realArchiveLoads": 2,
+  "observations": [
+    {
+      "name": "preserve null",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "preserve false",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "preserve 0",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "preserve \"\"",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "preserve {}",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "preserve []",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "fixed author survives current registration removed",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "private projection contains no known secret",
+      "status": "verified"
+    },
+    {
+      "name": "saved-only FAILED",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "saved-only CANCELLED",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "saved-only INTERRUPTED",
+      "status": "available",
+      "reason": null
+    },
+    {
+      "name": "active remains pending",
+      "status": "pending",
+      "reason": null
+    },
+    {
+      "name": "old result without projection",
+      "status": "unavailable",
+      "reason": "privacy-unavailable"
+    },
+    {
+      "name": "changed original rejected",
+      "status": "unavailable",
+      "reason": "privacy-unavailable"
+    },
+    {
+      "name": "changed projection rejected",
+      "status": "unavailable",
+      "reason": "privacy-unavailable"
+    },
+    {
+      "name": "missing is not null",
+      "status": "missing",
+      "reason": null
+    },
+    {
+      "name": "full original schema rejects invalid",
+      "status": "unavailable",
+      "reason": "result-invalid"
+    },
+    {
+      "name": "value budget before validation",
+      "status": "unavailable",
+      "reason": "read-limit"
+    },
+    {
+      "name": "missing snapshot is not ordinary",
+      "status": "unavailable",
+      "reason": "snapshot-missing"
+    },
+    {
+      "name": "wrong snapshot version",
+      "status": "unavailable",
+      "reason": "snapshot-mismatch"
+    },
+    {
+      "name": "ordinary run retains other outputs",
+      "status": "not-applicable",
+      "reason": null
+    },
+    {
+      "name": "real archive historical missing privacy evidence",
+      "status": "unavailable",
+      "reason": "privacy-unavailable"
+    },
+    {
+      "name": "real package IO with changed record",
+      "status": "unavailable",
+      "reason": "changed-during-read"
+    },
+    {
+      "name": "storage unavailable fixed reason",
+      "status": "unavailable",
+      "reason": "storage-unavailable"
+    },
+    {
+      "name": "synthetic malformed 65537-byte Schema refused before package parse",
+      "status": "read-limit"
+    }
+  ],
+  "delivery": {
+    "contractPr": 893,
+    "contractMerge": "09b96390beadbca21e8e6a5db0ff6f672264c434",
+    "contractTag": "contracts-v0.41.0",
+    "clientPr": 321,
+    "clientMerge": "fc6077ca8f755d6c38ffcdd17667ca87700cc899",
+    "installedAsar": "734bfaa9fdf1428c127e842ea883e8ee1213b4d3ede8166f52ae6209da34cd67",
+    "nativeReopen": {
+      "documents": 78,
+      "events": 59,
+      "protectedFiles": 1,
+      "runs": 5,
+      "allStoredHashesUnchanged": true
+    },
+    "businessActions": 0,
+    "modelRequests": 0,
+    "originalDaily": {
+      "documents": 247,
+      "events": 94,
+      "protectedFiles": 2,
+      "runs": 7,
+      "flows": 31,
+      "sourceRequestIndexes": 22,
+      "allStoredHashesUnchanged": true,
+      "nativeKeyState": "configured",
+      "newRun": false
+    }
+  }
+}
