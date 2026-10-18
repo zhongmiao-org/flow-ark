@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-18",
+  "scope": "Readable connection failures plus partial native HTTP/IPC S08 observations; not full conversation or recruiting acceptance",
+  "design": {
+    "repo": "zhongmiao-org/flow-ark",
+    "pr": 865,
+    "head": "10bc0558efe55abedd0f90fa3c5d3829d0ffab8b",
+    "base": "dfd81d834a7597b32908654afd1e85a663277fd8",
+    "tree": "43dd9ba41b91b8c42bf03da2141a6659b70d9faa",
+    "filesExact": [
+      {
+        "path": "docs/client/conversation-connection-failure.md",
+        "sha256": "04a849614f30e86453cda9c6d4a1eee1d48baa242d2e468adfb7869a8f346d1d"
+      },
+      {
+        "path": "docs/client/guided-skills-boss-plan-20261015.md",
+        "sha256": "cd88ff3a062a50b2347eef69a9c4dc367d7a96aefd24241a2d978206a8983f47"
+      }
+    ],
+    "fullDiffExact": true,
+    "ci": {
+      "run": 39118586316,
+      "job": 117649345180,
+      "steps": [],
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ],
+      "passed": false
+    },
+    "merge": "b12dff6279c8e53a7844b46db9ac2f54c3f58fc6",
+    "mergedAt": "2026-10-18T10:17:40Z",
+    "actualState": "MERGED",
+    "sourceAndMergeTreeExact": true
+  },
+  "client": {
+    "repo": "zhongmiao-org/flow-ark-client",
+    "pr": 313,
+    "head": "d504d9018a1ae1388470100ddf6b23951f27acc9",
+    "base": "4af9093b8d56d567d1b686acd5d4c7622e4429bf",
+    "tree": "0b658294e082e2247d3a6377220115e092d7bd45",
+    "filesExact": [
+      {
+        "path": "package.json",
+        "sha256": "be362c4774f73c8a7b8bb3b2ea035ce8bb3ca16d3380c3ddcdf0a8e08be58837"
+      },
+      {
+        "path": "src/ai/conversation-stream.ts",
+        "sha256": "ebd8a289504e412665b9a3e7276a37dce8f6ffb34e64a13e14588b954728bc68"
+      }
+    ],
+    "fullDiffExact": true,
+    "ci": {
+      "run": 39118896208,
+      "job": 117650251722,
+      "steps": [],
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ],
+      "passed": false
+    },
+    "merge": "e59c97d8f52f0760ab6a4b5ada18db8e6bb0cd22",
+    "mergedAt": "2026-10-18T10:22:43Z",
+    "sourceAndMergeTreeExact": true
+  },
+  "figma": {
+    "file": "sVciNUZHG9yx81gCpYzjH9",
+    "frame": "505:5588",
+    "mutatedTextNodes": [
+      "505:5656",
+      "505:5658",
+      "505:5663"
+    ],
+    "beforeCode": true,
+    "descendants": 87,
+    "instances": 4,
+    "fontFamilies": [
+      "Noto Sans SC",
+      "Inter"
+    ],
+    "imageFills": 0,
+    "viewedModes": [
+      "Light",
+      "Dark"
+    ],
+    "restoredDefaultMode": "Light"
+  },
+  "productionPath": {
+    "main": "src/main/workbench.ts",
+    "preload": "src/main/preload.ts",
+    "host": "src/host/runtime.ts and src/host/conversation-threads.ts",
+    "worker": "src/workers/runner.ts, only initial Run to establish thread",
+    "stream": "src/ai/conversation-stream.ts",
+    "renderer": "src/renderer/ConversationThreadPanel.tsx",
+    "nativeAppConfigurationAndFlowAuthoredThroughUI": true,
+    "transport": "real loopback HTTP with manually emitted SSE UTF-8/CRLF data and terminals; provider endpoint rerouted only with synthetic credential, all other fetch destinations rejected",
+    "providerResponseAndUsage": "synthetic; not actual DeepSeek/OpenAI or billed-token evidence"
+  },
+  "observations": [
+    {
+      "request": 1,
+      "stage": "before",
+      "scenario": "manually release A, B, successful terminal",
+      "result": "generating until terminal, complete with ordered A+B"
+    },
+    {
+      "request": 2,
+      "stage": "before",
+      "scenario": "A then UI cancel; late write attempt on closed HTTP",
+      "result": "cancelled A only, late write could not be delivered; no claim of injected late IPC delivery"
+    },
+    {
+      "request": 3,
+      "stage": "before",
+      "scenario": "explicit retry of request2",
+      "result": "new request complete A+B, original cancelled entry unchanged"
+    },
+    {
+      "request": 4,
+      "stage": "before",
+      "scenario": "A then response identity change on B",
+      "result": "failed A only, specific identity conflict"
+    },
+    {
+      "request": 5,
+      "stage": "before",
+      "scenario": "A then deliberate HTTP disconnect",
+      "result": "failed A only, raw terminated visible; actual reproduced UX defect"
+    },
+    {
+      "request": 6,
+      "stage": "after",
+      "scenario": "A then deliberate HTTP disconnect",
+      "result": "failed A only, readable Chinese incomplete/partial/manual-retry message"
+    },
+    {
+      "request": 7,
+      "stage": "after",
+      "scenario": "request while local HTTP service stopped",
+      "result": "failed with no answer, readable connection-failed message; no automatic retry"
+    },
+    {
+      "request": 8,
+      "stage": "after",
+      "scenario": "explicit retry of request7 after server resumed",
+      "result": "complete A+B; request7 failure preserved"
+    },
+    {
+      "request": 9,
+      "stage": "after",
+      "scenario": "A then response identity change on B",
+      "result": "failed A only, original specific identity reason preserved"
+    },
+    {
+      "request": 10,
+      "stage": "after",
+      "scenario": "A then explicit UI cancel",
+      "result": "cancelled A only, not mislabeled as transport failure"
+    }
+  ],
+  "counts": {
+    "explicitAttempts": 10,
+    "acceptedLocalHTTPConnections": 9,
+    "connectionRefusedAttempts": 1,
+    "completeHistoryEntries": 3,
+    "automaticAttempts": 0,
+    "originalEstablishingRuns": 1
+  },
+  "persistence": {
+    "beforeFixReopenAllEncryptedRecordsExact": true,
+    "firstFiveImmutableEntryInputRequestBytesPreserved": true,
+    "oldRowsChangedKinds": [
+      "attention",
+      "conversation-thread"
+    ],
+    "additionalRowsAfterFiveMoreAttempts": 16,
+    "installedReopenAllRecordsExact": true,
+    "installedDocuments": 45,
+    "installedEvents": 5,
+    "installedReopenNoNewAttempts": true
+  },
+  "checks": {
+    "typecheck": "passed",
+    "build": "passed",
+    "prettierTwoChangedFiles": "passed",
+    "diffCheck": "passed",
+    "packageMac": "passed",
+    "unitTestsAddedOrRun": false,
+    "ciPassed": false,
+    "ciFailure": "exact-head billing/spending zero steps; user-authorized CLI squash"
+  },
+  "installation": {
+    "sourceCommit": "e59c97d8f52f0760ab6a4b5ada18db8e6bb0cd22",
+    "installedAsarSha256": "868cdddb7ec998ed3657559aba92d55295d65de4adaa2d11cb7191368a3f32a3",
+    "candidateAsarSha256": "868cdddb7ec998ed3657559aba92d55295d65de4adaa2d11cb7191368a3f32a3",
+    "zipSha256": "a07ee75747fe98082d4ad0caad003d0ff8b044548e478028c35a406d1195ad42",
+    "dmgSha256": "105d35aad8ae58fca1b70d6c42471c9c00b7ea977615873917859bf1c24613e0",
+    "backupApp": "/private/tmp/flowark-native-stream-20261018/FlowArk-before-313.app",
+    "closedPersonalRecordsBackup": "/private/tmp/flowark-native-stream-20261018/daily-records-before-313"
+  },
+  "originalPersonalWorkspace": {
+    "documents": 247,
+    "events": 94,
+    "credentials": 2,
+    "runs": 7,
+    "flows": 31,
+    "allEncryptedRecordsAndCredentialBlobsExact": true,
+    "oneInstalledMainPid": 55724,
+    "observerHookUsedInOriginalWorkspace": false
+  },
+  "evidence": {
+    "localDirectory": "/private/tmp/flowark-native-stream-20261018",
+    "beforeFailureAXSha256": "847521f14917a1438f7edb7488cfb225ac016a78c283c56302ab1b4bc77fd983",
+    "afterDisconnectAXSha256": "bdd9b92fd198db708e37e2bf45774ca880312311e0b64379011335d76a609fc2",
+    "afterConnectionFailureAXSha256": "45becea68b29ab211c377377fab96a4b827de132bf5552ad2b1ad3e56ed434eb",
+    "installedHistoryAXSha256": "dd74e0dd28d165ba0c3d95de4158396b144250e1851d1c79c291661ad532dfa7",
+    "installedScreenshotSha256": "c46633ec063efa3f252e59325fc109a1250b810b524d301a2d9c1bccdd460ed4",
+    "transportReportSha256": "94d7265a2afa857892e43a9869cac6011f0e6db339925e513dcae799958f1bf0"
+  },
+  "limitations": [
+    "Loopback and synthetic provider are not real external provider or user-Key acceptance",
+    "No arbitrary out-of-order/duplicate/missing Main IPC injection, full timeout/budget/subscription matrix or full S08 claim",
+    "No new reusable template exported in this narrow adapter fix; existing personal0.7.0 and BOSS0.2.5 unchanged",
+    "No final real personal Skill or recruiting actions; deferred login and unauthorized paid-fragment retry unchanged",
+    "Full G3-G5,186,U01-U12 and Agent goal remains active"
+  ],
+  "realProviderRequests": 0,
+  "realBilledTokens": 0
+}
