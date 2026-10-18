@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-18：关联字段 [0.38.0](v0.38.0/README.md) 已从实际合并源发布，远端 `contracts-v0.38.0^{}` 准确为 `c689404a151062593f20ce6a007c0663c6961d77`，121 份机器资料固定；[#858](https://github.com/zhongmiao-org/flow-ark/pull/858) 按用户 CI 计费零步骤例外实际 CLI squash，130 个远端文件 blob 与本机准确提交逐个一致。[完整证据](../docs/client/browser-associated-fields.md#g1-实际发布)区分本机通过与 CI 未运行、客户端尚未采用；下方“候选”描述保留历史阶段。
+
 2026-10-18：先行[八状态 Figma](../docs/client/browser-associated-fields.md)后新增 [0.38.0 关联字段采集候选](v0.38.0/README.md)，browser v5/collect 及独立 browser-fields-v1，明确同一同步 DOM、准确字段关联、文档代次/导航拒绝与预算。121 份机器文件重建一致，38 份格式/50 项纯参考资料核对通过。尚未发布，不提前供客户端采用；#310/0.37.1 的安装版不变，真实浏览器和全 UI 模板另验。
 
 2026-10-18：G2接入发现应用回包丢失后，重开UI没有原input的严格读取格式。先补两主题配置/恢复Figma及[0.37.1候选](v0.37.1/README.md)的SkillUpdateApplication/Detail、持久pending/applied/rejected及原请求核对。5组参考关联/13份格式资料通过，原0.37.0定义与114份继承机器资料不变。候选未发布，客户端开发分支尚未完成，不计安装或恢复通过。
