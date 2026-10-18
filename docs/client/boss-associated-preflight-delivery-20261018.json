@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-18",
+  "scope": "BOSS 0.2.5 associated read-only preflight; partial G4 template checkpoint, not full recruiting acceptance",
+  "governanceDesign": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark/pull/863",
+    "head": "2df5318e10c93b726328df65550daaa64bd9aa9d",
+    "merge": "17d7aa5cbfd7d3616a730e19d4324c4bbb5749d3",
+    "tree": "d8b11e7135874e2ecf25b625e9e4a176b50e240c",
+    "ci": {
+      "run": 39116325721,
+      "job": 117642745687,
+      "steps": [],
+      "passed": false,
+      "reason": "account payments or spending limit"
+    },
+    "mergeMethod": "user-authorized exact-head CLI squash"
+  },
+  "figma": {
+    "file": "sVciNUZHG9yx81gCpYzjH9",
+    "nodes": [
+      "490:5247",
+      "487:11707"
+    ],
+    "updatedTextNodes": [
+      "490:5310",
+      "I490:5320;139:3",
+      "I490:5324;139:3",
+      "490:5327",
+      "490:5328",
+      "490:5337",
+      "489:5281",
+      "487:11790",
+      "487:11791"
+    ],
+    "viewedModes": [
+      "Light",
+      "Dark"
+    ],
+    "restoredDefaultMode": "Light",
+    "beforeTemplateAuthoring": true
+  },
+  "client": {
+    "commit": "4af9093b8d56d567d1b686acd5d4c7622e4429bf",
+    "pr": 312,
+    "contracts": "0.38.0",
+    "codeChangedOrRepackagedThisCheckpoint": false,
+    "installedAsarSha256": "45f250c76ec4c1ef3fb763f83ce553940adeb6a23edec1cc9e32803da30efd13",
+    "nativeConsumer": "built Electron client, independent empty FLOWARK_DATA_DIR; not original personal workspace"
+  },
+  "template": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-templates/pull/22",
+    "source": "e9730380af2c210a15392acb7067ca314040cd95",
+    "base": "e89db1f8e9a3c45d54d1bde63c59c9f8578898fb",
+    "version": "0.2.5",
+    "authorRevision": 5,
+    "archiveSha256": "80a02d090b14c5fce39af6de60fd2157396c7eceb2efcff5241e433f68a57b68",
+    "contentDigest": "522a0dc346b12637348f007af41135735de3ecafa3276154e57ef938a1540c6c",
+    "archiveBytes": 57160,
+    "files": 54,
+    "entries": 7,
+    "scripts": 26,
+    "changedFrom024": [
+      "flows/preflight.json",
+      "manifest.json",
+      "README.md",
+      "scripts/author/preflight/n_bb9ceca5.js"
+    ],
+    "otherSixEntryDeclarationsAndFlowsUnchanged": true,
+    "originalExportAndExtractionExact": true,
+    "credentialsBindingsPrivateIdentifiersAbsent": true,
+    "contractsTag": "contracts-v0.38.0",
+    "contractsCommit": "c689404a151062593f20ce6a007c0663c6961d77",
+    "machineFiles": 121,
+    "merge": "07aa921f46902f98fb0fb30f465aa9c602f9c3e8",
+    "mergedAt": "2026-10-18T10:02:42Z",
+    "tree": "670d3f05ec9016b03aac3664ffc0f20fef35ed9b",
+    "ci": {
+      "run": 39117662063,
+      "validateJob": 117646630495,
+      "autoMergeJob": 117646715349,
+      "passed": true,
+      "mergeMethod": "CI automatic squash; no billing exception"
+    }
+  },
+  "nativeConsumer": {
+    "instance": "041ba120-2f52-4995-b37d-1506a80bd30a",
+    "initialResourcesUnbound": true,
+    "onlyBrowserBound": "embedded",
+    "stateWritePermission": "deny",
+    "runs": [
+      {
+        "id": "d488e2e6-68d7-4611-8f6a-be4039f1ef5b",
+        "entry": "open",
+        "state": "succeeded",
+        "page": "user-specified public city"
+      },
+      {
+        "id": "b7e526e7-82ec-422e-b6da-eb228fb28a47",
+        "entry": "preflight",
+        "state": "succeeded",
+        "page": "public city",
+        "branch": "account-unverified"
+      },
+      {
+        "id": "b89632e0-16b2-4def-b7ac-532e50b55db7",
+        "entry": "preflight",
+        "state": "succeeded",
+        "page": "login page, view only",
+        "branch": "login-required"
+      },
+      {
+        "id": "1c7e7789-32aa-4b10-9816-b3a8f08127cb",
+        "entry": "preflight",
+        "state": "succeeded",
+        "page": "public job with explicit login-gated description; private job identifier omitted",
+        "branch": "login-required"
+      }
+    ],
+    "attentionCount": 2,
+    "loginAttentionDeduplicated": true,
+    "normalReopenRecordHashesUnchanged": true,
+    "snapshot": {
+      "documents": 43,
+      "kinds": {
+        "attention": 2,
+        "browser": 1,
+        "browser-fields-input": 3,
+        "flow": 7,
+        "output": 4,
+        "run": 4,
+        "snapshot": 4,
+        "template-instance": 1,
+        "template-package": 1,
+        "template-result": 4,
+        "template-state": 1,
+        "template-state-meta": 1,
+        "typed-run-index": 4,
+        "typed-run-result": 4,
+        "version": 2
+      },
+      "documentsSha": "4a77d7a0c60ecbdc94d8ea63d1591505ab7c7cc9be45ee990d5c0c6ba4a497b3",
+      "events": 40,
+      "eventsSha": "9c29497cb767bedb6637534d4c29e8a9eb6bc2000094f49419e85b506e7f2a2d"
+    },
+    "browserFieldsEvidenceSource": "real native UI configured formal package Runs; encrypted typed results registered, not synthetic site fixtures"
+  },
+  "checks": {
+    "pnpmValidate": "passed, includes all original archives, exact extraction and TS compiled-byte mappings",
+    "pnpmBuild": "passed",
+    "nonExportDiffWhitespace": "passed",
+    "fullDiffWhitespace": "original UI-exported README final whitespace warning; exact bytes intentionally preserved",
+    "unitTestsAddedOrRun": false
+  },
+  "originalPersonalWorkspace": {
+    "documents": 247,
+    "events": 94,
+    "runs": 7,
+    "credentials": 2,
+    "unchangedAllExceptEmbeddedBrowserDocument": true,
+    "explanation": "public navigation/picker calibration changed browser record; all other 246 documents and all events/protected credential blobs exact"
+  },
+  "boundaries": {
+    "newModelRequests": 0,
+    "newTokens": 0,
+    "bossLoggedIn": false,
+    "accountOrCompleteJDOrConversationVerified": false,
+    "recruitingExternalActions": 0,
+    "fullOnmessageAccepted": false,
+    "finalRealPersonalSkillCreated": false,
+    "priorPaidFragmentRetryAuthorized": false,
+    "fullG3G4G5Or186OrAgentAccepted": false
+  },
+  "localEvidence": "/private/tmp/flowark-boss-associated-20261018"
+}
