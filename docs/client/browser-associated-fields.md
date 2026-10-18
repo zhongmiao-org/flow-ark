@@ -36,3 +36,11 @@
 38 份正反格式资料、50 项纯参考关联/作者/正式包核对通过；覆盖动态引用与非法路径、重复/保留键、准确配置/顺序关联、必填/可选/多匹配、空白/null、不一致状态、Unicode、单项和总字节预算，以及缺能力/入口浏览器资源。参考模块连同 package-format/template-authoring 的 TypeScript 检查通过；没有运行单元测试或浏览器，也没有本人付费请求。
 
 候选包含 121 份机器文件；重建全量一致，0.37.1 原 118 份中的 115 份保持原字节，仅 Schema 和两个规范入口校验模块增加本能力。临时核对目录 `/private/tmp/flowark-browser-fields-g1-20261018`，报告与观察脚本为本机辅助，不进入公开模板。八张设计均已查看两主题；原型点击、客户端消费/真实驱动、安装、UI ZIP 复导及真实账号业务仍待后续。
+
+## G1 实际发布
+
+治理 [#858](https://github.com/zhongmiao-org/flow-ark/pull/858) 准确 head `ec9bdba894d5b4f6715e2a0138c8e58fc500e3ac` 的最新 CI `39111155759`，Validate job `117627396310` 明确注释 recent account payments failed / spending limit，`steps: []`；本机检查通过不能将此记为 CI 通过。PR 在线 diff 超过 20000 行，已用两页 files API 核对全部 130 个远端文件 blob 与本机准确 head、base `529e24cf20300000ca735056f292cb9d7cc2bc9b` 的范围一致，再按用户明确授权 CLI squash，未使用 admin 或修改合并规则。
+
+实际状态 MERGED（2026-10-18T08:22:44Z），合并提交 `c689404a151062593f20ce6a007c0663c6961d77` 与已核对源提交 tree 均为 `63477899079d44ce95bdb8644f0dabaa9b4fbc70`。已实际发布不可变 `contracts-v0.38.0`，远端 tag object `e650662fd8b5f8e91b7dcf855e0b28564aa4dee8`，准确解引用上述合并提交；121 份机器资料固定。标签内的“候选”是封存前状态，以本段实际远端证据为准。
+
+客户端尚未采用，日常 #310/0.37.1 保持；接续 G2 的驱动/取消/文档代次与 UI 路径，不以发布契约计为节点已可运行。本任务 PR 附件工具返回 `thread attachment identity count exceeds 100`，因此保留直接 PR 链接，不移除既有附件。
