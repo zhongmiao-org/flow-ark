@@ -1,0 +1,326 @@
+{
+  "date": "2026-10-19",
+  "client": {
+    "pr": "https://github.com/zhongmiao-org/flow-ark-client/pull/319",
+    "source": "cfca6e441c7db955d6718611e9de0d216368a6b0",
+    "merge": "40a39840d6ebdacdd035828732f08ec23c29d762",
+    "sameTree": true,
+    "contractsVersion": "0.40.0",
+    "contractsTag": "contracts-v0.40.0",
+    "contractsFilesVerified": 127,
+    "localChecks": [
+      "contracts:generate",
+      "typecheck",
+      "build",
+      "changed-file prettier",
+      "git diff --check"
+    ],
+    "appUnitTestsAddedOrRun": false,
+    "ci": {
+      "run": 39153648724,
+      "job": 117752260433,
+      "steps": [],
+      "annotations": [
+        "The job was not started because recent account payments have failed or your spending limit needs to be increased. Please check the 'Billing & plans' section in your settings"
+      ],
+      "passed": false
+    },
+    "remoteFileBlobsExact": 34
+  },
+  "nativeUI": {
+    "author": "empty template through native UI",
+    "revision": 9,
+    "entry": "document-check",
+    "steps": 6,
+    "scripts": 0,
+    "rawZip": {
+      "sha256": "dd6bb502b9eaa81e8f16854b125a196c81251d52cc5ec1b203b9265281568e6e",
+      "contentDigest": "86b852d09ca8d708b8aa1d08eb7d1dc874066ed34f55e59a7a9dcfbc4bdc00d0",
+      "files": 8,
+      "sourceEdited": false
+    },
+    "consumer": "new independent empty workspace, no AI Key",
+    "runs": [
+      {
+        "id": "da05ec0c-e71b-44ac-8005-c8ce86583579",
+        "scenario": "confirm/create/read/assert/resolve confirmed",
+        "state": "SUCCEEDED"
+      },
+      {
+        "id": "5084427f-1fd1-4b54-8e63-40ebf81cb648",
+        "scenario": "same key no confirmation or execution",
+        "state": "SUCCEEDED"
+      },
+      {
+        "id": "d8e8246d-5ceb-492c-a33b-e7e274543247",
+        "scenario": "cancel during human review, no effect ledger",
+        "state": "CANCELLED"
+      },
+      {
+        "id": "4173c9bd-00d6-4b20-8381-21e89dcf7ddb",
+        "scenario": "reject review, no effect ledger",
+        "state": "FAILED"
+      },
+      {
+        "id": "d11bd267-c26a-450d-8e0a-0bd21fe81e72",
+        "scenario": "existing file, no overwrite; unresolved preparation becomes unknown",
+        "state": "FAILED"
+      },
+      {
+        "id": "d3affd10-80e2-4c0a-be92-3ffaaccd8818",
+        "scenario": "same unknown key no confirmation or execution",
+        "state": "SUCCEEDED"
+      }
+    ],
+    "defaultDenyAndMissingDirectoryBlocked": true,
+    "explicitDirectoryAndGrants": true,
+    "reopen": {
+      "documents": 46,
+      "events": 53,
+      "protectedFiles": 1,
+      "allPayloadHashesUnchanged": true,
+      "newRuns": 0
+    },
+    "fictionalFile": {
+      "bytes": 72,
+      "sha256": "50b73880284a67716e649fbc807d7afe18345af82dcc97f6b76cd2cc7ecc1414"
+    },
+    "themesViewed": [
+      "Dark configuration and results",
+      "Light unknown result"
+    ]
+  },
+  "controlledHost": {
+    "kind": "manual controlled host and encrypted SQLite observation, not native UI or unit tests",
+    "rawUiZipSha256": "dd6bb502b9eaa81e8f16854b125a196c81251d52cc5ec1b203b9265281568e6e",
+    "results": [
+      {
+        "label": "plain/author flow cannot prepare",
+        "status": "rejected",
+        "reason": "操作记录步骤需要正式模板实例；制作副本和普通流程不能执行"
+      },
+      {
+        "label": "missing effect capability rejected",
+        "status": "rejected",
+        "reason": "操作节点缺少effect/effect-node-v1或人工核对能力"
+      },
+      {
+        "label": "undeclared action rejected",
+        "status": "rejected",
+        "reason": "准备操作未由当前入口声明"
+      },
+      {
+        "label": "new instance deny blocks prepare",
+        "status": "rejected",
+        "reason": "当前动作未授权或确认期间授权已变化，请返回原入口重新核对"
+      },
+      {
+        "label": "denied has no ledger",
+        "status": "observed"
+      },
+      {
+        "label": "auto creates one submitting record",
+        "status": "observed"
+      },
+      {
+        "label": "same key cross-run returns original false receipt",
+        "status": "observed"
+      },
+      {
+        "label": "forged receipt id",
+        "status": "rejected",
+        "reason": "准备回执与本实例、本次运行的提交中记录不一致"
+      },
+      {
+        "label": "forged receipt key",
+        "status": "rejected",
+        "reason": "准备回执与本实例、本次运行的提交中记录不一致"
+      },
+      {
+        "label": "forged receipt action",
+        "status": "rejected",
+        "reason": "准备回执与本实例、本次运行的提交中记录不一致"
+      },
+      {
+        "label": "forged receipt runId",
+        "status": "rejected",
+        "reason": "准备回执与本实例、本次运行的提交中记录不一致"
+      },
+      {
+        "label": "forged receipt execute",
+        "status": "rejected",
+        "reason": "已有或终态回执不可登记为本次结果"
+      },
+      {
+        "label": "forged receipt state",
+        "status": "rejected",
+        "reason": "操作记录格式无效：data/state must be equal to constant, data must match \"then\" schema"
+      },
+      {
+        "label": "receipt from other run rejected",
+        "status": "rejected",
+        "reason": "准备回执与本实例、本次运行的提交中记录不一致"
+      },
+      {
+        "label": "receipt from other instance rejected",
+        "status": "rejected",
+        "reason": "准备回执与本实例、本次运行的提交中记录不一致"
+      },
+      {
+        "label": "fixed node input substitution rejected",
+        "status": "rejected",
+        "reason": "操作节点输入与固定快照不一致"
+      },
+      {
+        "label": "terminal confirmed preserves false evidence",
+        "status": "observed"
+      },
+      {
+        "label": "terminal receipt cannot resolve again",
+        "status": "rejected",
+        "reason": "准备回执与本实例、本次运行的提交中记录不一致"
+      },
+      {
+        "label": "historical submitting receipt readable after failure",
+        "status": "observed"
+      },
+      {
+        "label": "concurrent same key only one new execution",
+        "status": "observed"
+      },
+      {
+        "label": "failed terminal deduplicates and preserves zero evidence",
+        "status": "observed"
+      },
+      {
+        "label": "unknown terminal deduplicates and preserves zero evidence",
+        "status": "observed"
+      },
+      {
+        "label": "unknown durable attention survives notification failure",
+        "status": "observed"
+      },
+      {
+        "label": "unresolved completion becomes unknown",
+        "status": "observed"
+      },
+      {
+        "label": "revoke during human wait prevents ledger",
+        "status": "observed"
+      },
+      {
+        "label": "node cancellation aborts human wait",
+        "status": "observed"
+      },
+      {
+        "label": "run/deadline abort prevents ledger",
+        "status": "observed"
+      },
+      {
+        "label": "inactive owner after human response rejected",
+        "status": "observed"
+      },
+      {
+        "label": "already aborted never writes",
+        "status": "rejected",
+        "reason": "This operation was aborted"
+      },
+      {
+        "label": "fresh store recovery marks unknown and interrupted",
+        "status": "observed"
+      },
+      {
+        "label": "reopened same key cannot execute again",
+        "status": "observed"
+      },
+      {
+        "label": "store fault prevents prepare",
+        "status": "rejected",
+        "reason": "controlled storage fault"
+      }
+    ],
+    "counts": {
+      "observations": 32,
+      "effects": 6,
+      "notificationsAttempted": 6
+    }
+  },
+  "realModelRequests": 0,
+  "recruitingActions": 0,
+  "privateDataOrKeysCommitted": false,
+  "remaining": [
+    "BOSS visual template adoption and real account/action receipts",
+    "complete theme/keyboard/viewport and native failure matrix",
+    "real model and original paid retry remain separate and unexecuted",
+    "G3-G5/S01-S08/186/Agent full goal remains active"
+  ],
+  "localEvidence": [
+    {
+      "file": "native-author-export.ax.txt",
+      "sha256": "1679afcaeb255e80140b36dcfaa95a2ee3ede14e12442b43caaee03b4449360e"
+    },
+    {
+      "file": "native-canceled.ax.txt",
+      "sha256": "3e7ff732f4925fbc375ab563ed726bedafbfa6aa2212af95f6e237632944706b"
+    },
+    {
+      "file": "native-confirm-request.ax.txt",
+      "sha256": "7df6e39ee16f0406a4cb0346cf51dd3fabd09ecebfc5c578d0a5d2140a367b0a"
+    },
+    {
+      "file": "native-confirmed.ax.txt",
+      "sha256": "ae0e47ba42836c1eece8eaa488ce0a6ea87714a5f06787ec25e5ec5fa76c8519"
+    },
+    {
+      "file": "native-conflict.ax.txt",
+      "sha256": "15815e1be569392ced65d0bd7179d61a8c16b10478c76abb890c38b24cb016b9"
+    },
+    {
+      "file": "native-consumer-deny.ax.txt",
+      "sha256": "83f8d32782de492bb33b67d29816bf965f7f840f4ce9e729a1b618b2c8ddff48"
+    },
+    {
+      "file": "native-deny-blocked.ax.txt",
+      "sha256": "ab13952de64284b1e4d4c23e108cb0132de39ff16997efcf7e8ac79127e3f53e"
+    },
+    {
+      "file": "native-duplicate.ax.txt",
+      "sha256": "147e61499830ffb1512e705ef000dd1109b7ea7a84ff7ca16ff29533d796d57b"
+    },
+    {
+      "file": "native-rejected.ax.txt",
+      "sha256": "8fd6b246d7c2a00f78165d125f05a554703a6f868bcc011a3f2bb23563af978e"
+    },
+    {
+      "file": "native-reopen-runs.ax.txt",
+      "sha256": "3901c648cc50cd0d87b23f55a64d532ca55ae0ca0a91862dbee4a21361c116f8"
+    },
+    {
+      "file": "native-unknown-duplicate.ax.txt",
+      "sha256": "31d35a2663d521e4230f098b4189d8d8c0fabbf6208264a65a266e8b2090ce84"
+    },
+    {
+      "file": "native-unknown-inbox.ax.txt",
+      "sha256": "948258420a26e28466bc587748b6cf8b121d3315cd231fa4d3803328822e0807"
+    }
+  ],
+  "installation": {
+    "sourceCommit": "40a39840d6ebdacdd035828732f08ec23c29d762",
+    "zipSha256": "20e0def4c80999a07e7246c7efcb876b1f4968fe811f50b4634f27e6fdfdfc36",
+    "dmgSha256": "58f9fc929afe544be655fb71ae21fde2aa2171197a3a0e7fb6cc331c2bbf7922",
+    "asarSha256": "e54945408e3dfadc58b8f9891f15638e0d424eb14bb95f02ec7d87e726ce9392",
+    "dmgBuildInstalledAsarExact": true,
+    "oldAsarSha256": "af0a34f54cc65a21dc6075d0b70c33148cc6621f2f9a7929f2950771266bbd81",
+    "rollbackApp": "/private/tmp/flowark-effect-node-20261019/FlowArk-before-319.app",
+    "originalWorkspace": {
+      "documents": 247,
+      "events": 94,
+      "protectedFiles": 2,
+      "runs": 7,
+      "flows": 31,
+      "allPayloadHashesUnchanged": true,
+      "newModelRequests": 0,
+      "nativeInstalledActionLibraryViewed": true
+    }
+  }
+}
