@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-19：新增[0.43.0正文选区检查候选](v0.43.0/README.md)，browser v7、browser-rendered-fields-v2和结果v3在严格有限条件下核准祖先普通空格，保留目标/后代生成内容及原隐藏/裁切检查。[三状态六张先行Figma与范围](../docs/client/browser-scoped-rendering.md)明确当前未发布、不得提前采用；旧v5/v6/0.42.0快照保持，不能把合成CSS观察计为真实JD采纳。
+
 2026-10-19：[0.42.0显式结果绑定](v0.42.0/README.md)已由治理[#896](https://github.com/zhongmiao-org/flow-ark/pull/896)实际同树压缩合并，真实contracts-v0.42.0固定`f735b532393d20ecc5d2dc5ef9991b697e350f7e`及144份机器资料。142项格式/关系/过滤、40项作者/包规范检查与完整重建/类型通过，[消费者接续](../docs/client/run-result-binding.md#g1实际发布与g2接续)保留G2宿主/UI/原生复导与完整业务门槛。CI因计费未启动，不记通过；README候选文字为封存时历史。
 
 2026-10-19：新增[0.42.0显式前次结果绑定候选](v0.42.0/README.md)，run-result-read-v1资源/节点、目录/预览/选择/保存、私有Proof/索引与Run快照。固定凭据过滤后完整Schema再次校验，42命名空间定义与wire一致，142项纯格式/关系/过滤及40项作者/包规范检查通过。[实际阶段与消费者门槛](../docs/client/run-result-binding.md#2026-10-19-g1正式候选)明确尚未发布、不得提前采用，旧0.41.0快照保持。
