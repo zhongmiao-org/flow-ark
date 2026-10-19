@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-19 选区文字来源G0：新增[独立未发布草案](drafts/browser-selection-text/README.md)及[三状态六张先行Figma](../docs/client/browser-selection-text.md)。拟定browser v9/selection-text/result v4与外观未核验false，选区外装饰与已核准无绘制空格分开记录，旧正文政策保持。格式/关系资料不证明DOM或真实JD；完整P1/作者/包、正式发布与客户端采用仍待G1/G2，不修改0.44.0快照。
+
 2026-10-19 已发布：`contracts-v0.44.0`准确固定治理#912实际合并`99cec8e80f5f9ca80db8193f01b19148532824bd`，153份机器资料；[发布与消费门槛](../docs/client/browser-target-input.md#g1实际发布与g2接续)。下条候选记录保留历史。
 
 
