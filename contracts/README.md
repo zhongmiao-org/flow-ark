@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-19 循环身份修订候选：[0.45.1](v0.45.1/README.md)修正0.45.0过窄的调用路径字符模式，真实核心使用`outer[0]/node`；保留有效Unicode、2048上限、宿主真实活动登记及末段源id/固定调用关系，旧快照和扫描政策不改。新增六项资料，[现场与G2门槛](../docs/client/browser-selection-text.md#g2接线发现的循环身份修订)明确当前未发布/未采用，不能绕过校验继续。
+
 2026-10-19 已发布：`contracts-v0.45.0`准确固定治理[#938](https://github.com/zhongmiao-org/flow-ark/pull/938)实际合并 `955f370795ac84a89c9e8fe7836be462b6681265`，159份机器资料；[实际tag、计费CI零步骤和G2门槛](../docs/client/browser-selection-text.md#g1实际发布与g2接续)分别记录。客户端尚未采用，旧正文政策及公开0.2.17保持；下条候选文字为封存前状态。
 
 2026-10-19 选区文字来源G1候选：新增[0.45.0独立候选](v0.45.0/README.md)，browser v9/selection-text、固定调用/result v4及强制false外观标志，规范作者和正式包均核对新能力与本入口browser/use资源。58项格式/关系、42项作者/包、111项原格式及参考类型检查通过，159份机器资料封存重建一致；当前未发布/未采用。[阶段与先行Figma](../docs/client/browser-selection-text.md#g1正式候选)不计DOM、客户端、完整JD或招聘通过。
