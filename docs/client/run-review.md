@@ -4,6 +4,18 @@
 
 先行Figma为原[23:3799](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=23-3799)与同一Semantic集合的[Dark 1012:10388](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1012-10388)：保留原确认/版本说明，补右上角既有Button实例与状态提示。两屏各105后代、4实例，Noto Sans SC/Inter及既有变量保持，无整页图片；明暗整图及顶部入口修正后整图已查看。客户端实现/安装和真假两种查看选择另验，不将其当作隐藏网页输入修复。
 
+## 保留查看选择的实际交付
+
+2026-10-20：治理[#949](https://github.com/zhongmiao-org/flow-ark/pull/949)源29dfff4146af58f66f667e411be527096c971d22已合并为7ea2c0496e437ea49302324d5ee23badf33e30bd，完整树0fb89528685cbe54c910095f91d37e07cd9ff4f1相同。客户端[#338](https://github.com/zhongmiao-org/flow-ark-client/pull/338)仅移除通用run入口的自动收起，并为browser:embedded资源显示说明；源1e2d5708ea128df4de2aa1e1aea5835a515fdfd2已合并为c3cab7f200692c3fed5de79ea4c83aef95e25799，完整树10fcf731e58d4282fc0ae033996c8885a3689b27相同。pnpm typecheck、pnpm build、两文件Prettier及差异检查通过，没有新增或运行应用单元测试，临时驱动诊断和buttons候选均未进入最终代码。
+
+原生UI核对关闭状态进入检查页仍Value=0、展开状态仍Value=1；已勾选后返回再进入时勾选为0、开始按钮禁用，显示调整未就绪仍阻止并由显式重新检查恢复。仅预览/返回期间本机Run数保持64。02:59:01的无诊断候选新Run完成54步城市/两项详情返回，32秒，保存第2项北京及返回城市/身份true，正文缺口跳过，不授予投递资格。快速返回的调整门槛未被放宽，不把预检重检当成外部操作重试。
+
+完整pnpm package:mac退出0，ZIP SHA256 d49ba6e3352fbb5c906a3f3c374030702d882f806545c49f4bcab53b0850eea8、DMG 905ca723f2cfc60163040b89ad3cb7fbcf487b8cd5ab478d6fe1da33c58f13a5、ASAR 567a544cc4fd03c2afe22ccd816f2d527d5ae489e3511a1d9bef09b105f7424b。从只读DMG更新/Users/mac/Applications/FlowArk.app，386文件、14个内部有效链接及285目录与DMG逐项相同，挂载已退出；旧应用与完整records另有本机备份。正常打开原工作区后4494份文档、14648事件及两保护文件逐项相同，原129份访谈/来源在此前全部新Run中也保持，不自动继续模型或旧Run。
+
+安装版再次经普通UI核对关闭/展开两种进入状态及新说明，03:04:12从无固定城市地址新建Run，面板保持展开，54步定义与自动按配置选北京、两项独立详情和返回完成，35秒。普通入口结果position=2、configuredCities仅北京、actualCity/jobCity北京、listReturned/returnCityVerified/returnCandidateIdentityVerified均true；source-incomplete-skipped-after-return、sourceCollected=false、needsUserReview/skipped=true，eligibleForActions/dayTaskComplete/siteDailyLimitConfirmed均false。没有模型、简历或消息外发；公开模板仍0.2.20，54步作者带回/原始ZIP/独立复导随后完成，不能计作完整150次验收或隐藏输入通过。
+
+两仓CI均实际计费零步骤失败：治理39306919859/Validate118246293609、客户端39307365308/Validate118247811783，Auto Merge各skipped；此前同head并发取消亦为零步骤，分别记录、不计通过。准确head、全部当前任务终态、远端完整树及各变更blob精确核对后依持续授权CLI squash，未改保护或直接推main。治理#948亦已准确合并为25f7f790a8294297f28a4d4b499d0d7cd14606f9，源d79c773f96978c70f3f0b387f90fcf559dbb596e与合并树fba96a4fed90341bd4179943da544fa0a12c1bf7一致，其历史分类由本批更正。
+
 2026-09-21。实现 [AI 任务主线](design-ai-task.md) 的“确认方案 → 试运行前检查”，界面依据 Figma `23:3799`。适用于已保存的通用流程及模板入口；试运行执行真实操作，不代表无副作用预览。实际实现、检查和安装证据另记于 [Figma 实施记录](design-implementation.md)。
 
 ## 检查内容
