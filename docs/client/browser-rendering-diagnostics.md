@@ -49,6 +49,20 @@
 4. 普通结果区按中文列出目标/第几层祖先/后代、标签、原因及 before/after、生成内容分类，可滚动完整阅读最多32条；达到上限明确提示。无原因时显示“本次有限检查未发现拒绝原因”，不能显示“完整”或开启模型/外发。
 5. 不把诊断写入流程、模板、Run、来源结果、待办或公开ZIP。旧运行仍只显示原已保存原因，不能反查当前页面补写历史。原生字段验证、既有 v5/v6 及所选 Chrome 的实际执行保持；该编辑器诊断仅在内置网页可用，不冒充其他驱动验收。
 
+## 祖先空格检查解释增量
+
+2026-10-19 独立真实 JD 详情当前只报告 BODY::before 空白生成内容和核准数量0，仍不知道是哪项既有条件未满足。先更新现有 Light `947:10008` / Dark `947:10117`，十个文本节点复用字体/组件/主题并查看两主题整图；深色主按钮另放大核对文字正常。说明每个位置最多解释8项未通过条件、仍最多32个位置；示例不代表已发现真实网站的具体样式值。不增加截图、正文或原始CSS读取入口，不改变正式正文策略。
+
+在上述严格内部契约1中增加显式解释模式。请求可带 `details="ancestor-space-checks-v1"`，只允许同时明确 `policy="bounded-rendered-text-v2"`；省略时请求和响应保持原形状。响应仅在请求解释模式时带同值 details，每个 locations 条目另有 ancestorSpace：不适用为 null，适用为下述严格对象。返回的 details 必须与请求完全相同，不静默降级成没有解释的结果。此为编辑器内部、无持久化的只读扩展，不改变公开0.44.0、browser v6/v7或正式字段结果。
+
+适用位置必须是 generated-content、scope 为 ancestor / frame-ancestor、contentKind 为 whitespace-string，且策略为v2。祖先普通空格检查未满足时 ancestorSpace 为 `{failures,more}`；failures 为1–8个严格 `{rule,state}`，state 只能 mismatch / unavailable，表示不满足原条件或浏览器未提供可判断值，均保持拒绝。非适用条目必须 null；未请求模式时不得出现 ancestorSpace。普通采集和诊断仍共享原有判定，不为了获得更多原因进入原来不扫描的隐藏子树。多余检查只解释已发现的祖先空格，不读取 textContent、innerText、属性、CSS原值、生成内容原文或URL。
+
+rule 为固定有限枚举，顺序同时用于唯一/截断校验：ordinary-space；position、float、z-index、background-image、border-image-source、outline-style、box-shadow、text-shadow、text-decoration-line、text-emphasis-style、-webkit-text-stroke-width、filter、backdrop-filter、transform、perspective、clip、clip-path、mask-image、-webkit-mask-box-image-source、opacity、mix-blend-mode、visibility、content-visibility、animation-name、contain、overflow-x、overflow-y、-webkit-box-reflect、rotate、scale、translate、zoom；display、white-space、background-color、border-width、transition-duration。每项通过条件沿[既有v2有限规则](browser-scoped-rendering.md#语言无关策略-v2)，不新增准入条件或把无法判断的值补成默认。
+
+不是仅含普通空格的字面量时只解释 ordinary-space，和原短路判定相同；否则解释当前已存在的样式检查。某项检查需要的值为空时归 unavailable，其余失败归 mismatch，不回传实际样式字符串。每个位置按上述顺序只显示前8个失败条件；确有更多时 more=true且显示项必须恰为8。失败列表不得重复或无序，more 不表示正文截断。仍沿32位置、2000元素/6000节点/64祖先、15秒及65536字节的原边界，来源、取消、位置和规则变化继续清除迟到结果。
+
+普通UI在该拒绝位置下用中文显示“定位方式不符合现有规则”“换行规则：浏览器未提供可判断值”等实际检查项，更多时明确提示，不能显示未执行检查为通过，也不展示原内部属性键或猜测“可以忽略”。无原因、可解释或仅有少量不符都不代表完整正文、账号或动作授权。接续客户端类型/构建、正式读取结果前后对照、有限生产浏览器观察、打包原生真实诊断；当前仅先行设计与内部约定，不计真实JD采纳或招聘验收。
+
 ## 接续与验收
 
 先完成客户端共享严格格式、Main/EmbeddedPage的同源目标关联与取消、现有策略诊断分支和普通UI。类型/构建/格式及受控真实浏览器观察，与原生UI/两主题/取消和来源变化分别取证；当前不新增或运行应用单元测试。随后打包更新旧应用，保留本人资料、Key和已登录会话，再通过UI核对真实BOSS拒绝位置。不能以设计或诊断成功计作JD完整、账号核准、Skill发布或招聘动作完成。
