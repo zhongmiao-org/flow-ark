@@ -1,5 +1,7 @@
 # FlowArk 总体架构
 
+2026-10-19 独立文字来源G1候选：[0.45.0](../contracts/v0.45.0/README.md)追加browser v9及browser-selection-text-v1；选区外脱离流的祖先空格装饰与无绘制空格分开计数，结果明确外观未核验false，旧正文政策保持。P1/固定调用/规范作者与包声明已形成候选，未发布或由客户端采用；[纯格式与消费门槛](client/browser-selection-text.md#g1正式候选)不替代实际扫描、普通UI及完整业务。业务站点定位和JD规则仍归独立模板。
+
 2026-10-19 独立文字来源G0：[选区文字候选](client/browser-selection-text.md)及[未发布机器草案](../contracts/drafts/browser-selection-text/README.md)区分选区外装饰与视觉覆盖未核验；新操作/结果不能混作旧正文政策，来源候选不授予账号、事实或动作资格。六张先行Figma、格式/关联资料不代表宿主/驱动实现；正式契约发布、消费者和原生复导仍待接续，不含BOSS专属客户端逻辑。
 
 2026-10-19 网页变量目标消费者：正式0.44.0已由客户端#327独立采用、同树合并并打包安装。原生普通变量配置、固定调用/资源动作守卫、内置与Chrome固定元素和受保护结果已接入；Firefox/Safari新节点明确阻止。[分层交付和业务接续](client/browser-target-input.md#g2已合并安装)保留作者ZIP独立复导及真实城市/完整投递验收，不引入业务客户端节点。
