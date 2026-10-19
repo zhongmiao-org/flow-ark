@@ -32,7 +32,7 @@
 
 流程、包/作者入口必须声明browser与browser-rendered-fields-v2，当前入口仍须自己的browser/use资源。不支持新能力的客户端明确阻止，不回退旧驱动/策略或自动改包。模板规则和站点定位继续在独立模板仓库，客户端没有BOSS分支。
 
-临时诊断内部请求增加可选policy（v1/v2，缺省v1），响应policy须与请求一致；v2数据另有必需ignoredAncestorSpaces（0–128），v1保持原字节形状。响应不重复可选请求policy以覆盖已验证的必需策略。其余来源/requestId/定位/预算/32项位置及失效约定沿[诊断内部契约](browser-rendering-diagnostics.md)。诊断仍不读取正文或持久化。
+临时诊断内部请求增加可选policy（v1/v2，缺省v1），响应policy须与请求一致；v2数据另有必需ignoredAncestorSpaces（0–128），v1保持原字节形状。响应不重复可选请求policy以覆盖已验证的必需策略。其余来源/requestId/定位/预算/32项位置及失效约定沿[诊断内部契约](../../docs/client/browser-rendering-diagnostics.md)。诊断仍不读取正文或持久化。
 
 
 The three new definitions in p1.schema.json, ancestor-space-policy.json, browser-scoped-rendering.cases.json and example.browser-scoped-rendering.json are normative format/policy data. browser-rendered-fields.ts is a pure association reference; it does not establish rendering, host provenance, user confirmation or action eligibility.
