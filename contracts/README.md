@@ -1,5 +1,7 @@
 # 公共契约管理
 
+2026-10-19：新增[可引用网页目标G0草案](drafts/browser-target-input/README.md)及[两主题先行Figma/实际城市选项校准](../docs/client/browser-target-input.md)。拟定义独立browser v8和browser-target-input-v1，限click/read/wait的目标引用、准确固定调用及既有权限/唯一命令目标；旧v1–v7保持。当前未发布、客户端不得采用，不把格式/关系资料视为宿主或动态点击通过。
+
 2026-10-19：[0.43.0选区正文](v0.43.0/README.md)由治理[#906](https://github.com/zhongmiao-org/flow-ark/pull/906)实际同树合并，远端contracts-v0.43.0准确固定`89977b3a20d81cb7c79d54b636ee9b12906b49b8`和147份机器资料。[发布与客户端门槛](../docs/client/browser-scoped-rendering.md#g1-已发布与客户端接续)明确计费CI未启动、受控观察与原生UI/真实BOSS分层；客户端#326已合并，打包和实际模板接续另验。下方及封存README的候选文字为当时状态。
 
 2026-10-19：新增[0.43.0正文选区检查候选](v0.43.0/README.md)，browser v7、browser-rendered-fields-v2和结果v3在严格有限条件下核准祖先普通空格，保留目标/后代生成内容及原隐藏/裁切检查。[三状态六张先行Figma与范围](../docs/client/browser-scoped-rendering.md)明确当前未发布、不得提前采用；旧v5/v6/0.42.0快照保持，不能把合成CSS观察计为真实JD采纳。
