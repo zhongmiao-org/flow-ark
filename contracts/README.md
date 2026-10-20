@@ -217,3 +217,5 @@
 - 真正业务账号、真实订单和客户数据；示例只使用虚构数据。
 
 完整的所有权、执行语义和平台边界见 [总体架构](../docs/architecture.md)。
+
+0.47.0 已经 PR #977 合并并发布 `contracts-v0.47.0`，合并及消费者实际阶段见[发布记录](../docs/client/browser-hidden-empty-leaf.md#契约发布及消费者接续)。快照内README保留提交时状态。
