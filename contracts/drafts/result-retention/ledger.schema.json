@@ -1,0 +1,184 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://flowark.local/contracts/drafts/result-retention/ledger.schema.json",
+  "$ref": "#/$defs/ResultLedger",
+  "$defs": {
+    "LedgerOwner": {
+      "type": "object",
+      "properties": {
+        "runId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[^\\uD800-\\uDFFF]*$"
+        },
+        "flowId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "pattern": "^[^\\uD800-\\uDFFF]*$"
+        },
+        "versionId": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "snapshotSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "runId",
+        "flowId",
+        "versionId",
+        "snapshotSha256"
+      ],
+      "additionalProperties": false
+    },
+    "LogicalResultMeta": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "nodeId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000,
+          "pattern": "^[^\\uD800-\\uDFFF]*$"
+        },
+        "nodeInstance": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000,
+          "pattern": "^[^\\uD800-\\uDFFF]*$"
+        },
+        "type": {
+          "enum": [
+            "document",
+            "skill",
+            "context",
+            "conversation",
+            "browser",
+            "run-result",
+            "source",
+            "source-reduce",
+            "effect"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 2000,
+          "pattern": "^[^\\uD800-\\uDFFF]*$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8388608
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "nodeId",
+        "nodeInstance",
+        "type",
+        "label",
+        "bytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "RawCopy": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "enum": [
+            "state-operation",
+            "effect-operation",
+            "entry-result",
+            "entry-display",
+            "entry-reuse",
+            "browser-input-proof",
+            "document-source-proof",
+            "typed-result-record",
+            "typed-result-index",
+            "ai-receipt",
+            "run-output"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8388608
+        }
+      },
+      "required": [
+        "family",
+        "id",
+        "sha256",
+        "bytes"
+      ],
+      "additionalProperties": false
+    },
+    "ResultLedger": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "policy": {
+          "const": "run-owned-results-v1"
+        },
+        "owner": {
+          "$ref": "#/$defs/LedgerOwner"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740990
+        },
+        "values": {
+          "$ref": "https://flowark.local/contracts/drafts/result-retention/wire.schema.json#/$defs/RetentionSet"
+        },
+        "results": {
+          "type": "array",
+          "maxItems": 1000,
+          "items": {
+            "$ref": "#/$defs/LogicalResultMeta"
+          }
+        },
+        "copies": {
+          "type": "array",
+          "maxItems": 8192,
+          "items": {
+            "$ref": "#/$defs/RawCopy"
+          }
+        }
+      },
+      "required": [
+        "version",
+        "policy",
+        "owner",
+        "revision",
+        "values",
+        "results",
+        "copies"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
