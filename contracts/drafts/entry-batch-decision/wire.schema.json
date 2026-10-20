@@ -1,0 +1,108 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://flowark.local/contracts/drafts/entry-batch-decision/wire.schema.json",
+  "$defs": {
+    "BatchFieldPath": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "not": {
+          "enum": [
+            "__proto__",
+            "prototype",
+            "constructor"
+          ]
+        },
+        "pattern": "^[^\\uD800-\\uDFFF]*$"
+      }
+    },
+    "BatchDeclaration": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "decisionPath": {
+          "$ref": "#/$defs/BatchFieldPath"
+        },
+        "progressPath": {
+          "$ref": "#/$defs/BatchFieldPath"
+        },
+        "reasonPath": {
+          "$ref": "#/$defs/BatchFieldPath"
+        }
+      },
+      "required": [
+        "version",
+        "decisionPath",
+        "progressPath",
+        "reasonPath"
+      ],
+      "additionalProperties": false
+    },
+    "BatchDecision": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "decision": {
+          "enum": [
+            "continue",
+            "complete",
+            "review"
+          ]
+        },
+        "progress": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[^\\uD800-\\uDFFF]*$"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000,
+          "pattern": "^[^\\uD800-\\uDFFF]*$"
+        }
+      },
+      "required": [
+        "version",
+        "decision",
+        "progress",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "BatchLimits": {
+      "type": "object",
+      "properties": {
+        "maxBatches": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "maxDurationMs": {
+          "type": "integer",
+          "minimum": 60000,
+          "maximum": 86400000
+        },
+        "delayMs": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 300000
+        }
+      },
+      "required": [
+        "maxBatches",
+        "maxDurationMs",
+        "delayMs"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
