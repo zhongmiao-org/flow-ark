@@ -72,3 +72,5 @@ BOSS继续真实执行至网站150次打招呼上限提示，分别核对对方�
 [入口批次决策核心](../../contracts/drafts/entry-batch-decision/README.md)已形成未发布机器草案：只定义三个结果路径、三态规范化值及有限设置，附不访问系统的关系/提取参考。普通字段需必需对象路径及明确文本界限，完整Schema校验、Run来源/最终秘密及授权仍由宿主负责。当前不包含可用连续启动/停止IPC或完整会话协议，客户端仍0.49.0；不将该草案当正式契约、运行资格或容量治理完成。
 
 G0治理[#1002](https://github.com/zhongmiao-org/flow-ark/pull/1002)已实际合并`12dc94865ede1a65d365a9561e16ed31ed821414`，源`2cbc8eda3bf7d88a194916659a39d486104e3aa6`同树。CI39471859629/118797682443的实际注释为账户计费未启动、runner0/0步骤，Auto Merge118797709755跳过；核对准确远端base/head树及两变更blob后按长期目标授权CLI squash，不计CI通过。当前草案仅运行JSON解析、JavaScript语法和治理/差异检查，不新增或运行单元测试，也没有生产宿主/原生通过声明。
+
+决策核心草案治理[#1003](https://github.com/zhongmiao-org/flow-ark/pull/1003)已实际合并`1888368ea8a64187300d04f605e0f25bb97598b8`，准确源`4b17de87efb72651c9086e858bc0403295bca53d`同树。CI39472990234/118801610238实际注释为账户计费未启动、runner0/0步骤，Auto Merge118801640462跳过。完整远端base/head树及四变更blob逐一核对后按长期目标授权CLI squash，未计CI通过；草案仍未发布版本或被客户端采用。
