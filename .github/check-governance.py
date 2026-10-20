@@ -23,9 +23,15 @@ for name in tracked:
     if not name.endswith('.md'):
         continue
     file = root / name
+    link_base = file.parent
+    if file.name == 'snapshot-README.md' and file.parent.parent == root / 'contracts/drafts':
+        originals = [p for p in (root / 'contracts').glob('v*/README.md')
+                     if p.read_bytes() == file.read_bytes()]
+        assert len(originals) == 1, f'{name}: snapshot must match one published README'
+        link_base = originals[0].parent
     for target in re.findall(r'\]\(([^\s)]+)', file.read_text()):
         if ':' in target or target.startswith(('#', '/')):
             continue
         target = unquote(target.split('#')[0])
-        assert (file.parent / target).exists(), f'{name}: missing {target}'
+        assert (link_base / target).exists(), f'{name}: missing {target}'
 print('Governance links, repository boundaries and contract checksums passed.')
