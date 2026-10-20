@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flowark.local/contracts/drafts/browser-region-scroll/wire.schema.json",
+  "title": "Bounded vertical region scroll candidate",
+  "$defs": {
+    "FramePath": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000,
+        "pattern": "\\S"
+      },
+      "maxItems": 8
+    },
+    "BrowserScrollNode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "type": {
+          "const": "browser"
+        },
+        "version": {
+          "const": 12
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100000
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 3600000
+        },
+        "operation": {
+          "const": "scroll"
+        },
+        "selector": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "pattern": "\\S"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "$ref": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                }
+              },
+              "required": [
+                "$ref"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "framePath": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          }
+        },
+        "direction": {
+          "enum": [
+            "up",
+            "down"
+          ]
+        },
+        "distance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2000
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "version",
+        "operation",
+        "selector",
+        "framePath",
+        "direction",
+        "distance"
+      ],
+      "additionalProperties": false
+    },
+    "BrowserScrollInvocation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+        },
+        "type": {
+          "const": "browser"
+        },
+        "version": {
+          "const": 12
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 100000
+        },
+        "timeoutMs": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 3600000
+        },
+        "operation": {
+          "const": "scroll"
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "\\S"
+        },
+        "framePath": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000,
+            "pattern": "\\S"
+          }
+        },
+        "direction": {
+          "enum": [
+            "up",
+            "down"
+          ]
+        },
+        "distance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2000
+        },
+        "nodeInstance": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "version",
+        "operation",
+        "selector",
+        "framePath",
+        "direction",
+        "distance",
+        "nodeInstance"
+      ],
+      "additionalProperties": false
+    },
+    "BrowserScrollResult": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "operation": {
+          "const": "scroll"
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "documentUrl": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "pattern": "\\S"
+        },
+        "framePath": {
+          "$ref": "#/$defs/FramePath"
+        },
+        "direction": {
+          "enum": [
+            "up",
+            "down"
+          ]
+        },
+        "distance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2000
+        },
+        "region": {
+          "enum": [
+            "target",
+            "ancestor",
+            "document"
+          ]
+        },
+        "ancestorDepth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        },
+        "offsetBefore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000000
+        },
+        "offsetAfter": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000000
+        },
+        "heightBefore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000000
+        },
+        "heightAfter": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000000
+        },
+        "viewportBefore": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000000
+        },
+        "viewportAfter": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1000000000
+        },
+        "moved": {
+          "type": "boolean"
+        },
+        "atStart": {
+          "type": "boolean"
+        },
+        "atEnd": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "version",
+        "operation",
+        "url",
+        "documentUrl",
+        "selector",
+        "framePath",
+        "direction",
+        "distance",
+        "region",
+        "ancestorDepth",
+        "offsetBefore",
+        "offsetAfter",
+        "heightBefore",
+        "heightAfter",
+        "viewportBefore",
+        "viewportAfter",
+        "moved",
+        "atStart",
+        "atEnd"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
