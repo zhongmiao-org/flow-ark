@@ -166,6 +166,12 @@
           "retainedBytes"
         ]
       }
+    },
+    "parametersSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "resolvedParametersSha256": {
+      "$ref": "#/$defs/hash"
     }
   },
   "required": [
@@ -180,7 +186,9 @@
     "baseline",
     "upper",
     "withinBounds",
-    "exceeded"
+    "exceeded",
+    "parametersSha256",
+    "resolvedParametersSha256"
   ],
   "additionalProperties": false,
   "if": {

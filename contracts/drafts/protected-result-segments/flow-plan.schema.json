@@ -1,0 +1,382 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://flowark.local/contracts/drafts/protected-result-segments/flow-plan.schema.json",
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "boundary": {
+      "type": "object",
+      "properties": {
+        "canonicalBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8388608
+        },
+        "valueNodes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 262144
+        },
+        "depth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        },
+        "workBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 134217728
+        }
+      },
+      "required": ["canonicalBytes", "valueNodes", "depth", "workBytes"],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "policy": {
+      "const": "scoped-flow-plan-v1"
+    },
+    "flowSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "producerSchemasSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "aggregate": {
+      "$ref": "#/$defs/boundary"
+    },
+    "maxNodeExecutions": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "maxLeafReturns": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "producers": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "properties": {
+          "nodeId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+          },
+          "schemaSha256": {
+            "$ref": "#/$defs/hash"
+          },
+          "boundary": {
+            "$ref": "#/$defs/boundary"
+          }
+        },
+        "required": ["nodeId", "schemaSha256", "boundary"],
+        "additionalProperties": false
+      }
+    },
+    "parametersSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "resolvedParametersSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "nodes": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "properties": {
+          "nodeId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+          },
+          "type": {
+            "enum": [
+              "ai",
+              "assert",
+              "browser",
+              "context",
+              "conversation",
+              "desktop",
+              "document",
+              "effect",
+              "excel",
+              "file",
+              "http",
+              "human",
+              "mcp",
+              "run-result",
+              "script",
+              "skill",
+              "source",
+              "source-reduce",
+              "value",
+              "condition",
+              "loop"
+            ]
+          },
+          "blockPath": {
+            "type": "array",
+            "maxItems": 64,
+            "items": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          "position": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 999
+          },
+          "ancestors": {
+            "type": "array",
+            "maxItems": 4096,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": ["nodeId", "type", "blockPath", "position", "ancestors"],
+        "additionalProperties": false
+      }
+    },
+    "references": {
+      "type": "array",
+      "maxItems": 262144,
+      "items": {
+        "type": "object",
+        "properties": {
+          "nodeId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+          },
+          "instance": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "path": {
+            "type": "string",
+            "maxLength": 8388608
+          },
+          "reference": {
+            "type": "string",
+            "maxLength": 8388608
+          },
+          "source": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "parameter"
+                  }
+                },
+                "required": ["kind"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "step"
+                  },
+                  "nodeId": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+                  },
+                  "instance": {
+                    "type": "string",
+                    "maxLength": 4000
+                  }
+                },
+                "required": ["kind", "nodeId", "instance"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": ["item", "index"]
+                  },
+                  "instance": {
+                    "type": "string",
+                    "maxLength": 4000
+                  }
+                },
+                "required": ["kind", "instance"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "const": "steps"
+                  },
+                  "instances": {
+                    "type": "array",
+                    "maxItems": 4096,
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "nodeId": {
+                          "type": "string",
+                          "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+                        },
+                        "instance": {
+                          "type": "string",
+                          "maxLength": 4000
+                        }
+                      },
+                      "required": ["nodeId", "instance"],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": ["kind", "instances"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "presence": {
+            "enum": ["guaranteed", "runtime"]
+          },
+          "reachable": {
+            "type": "boolean"
+          },
+          "boundary": {
+            "$ref": "#/$defs/boundary"
+          }
+        },
+        "required": [
+          "nodeId",
+          "instance",
+          "path",
+          "reference",
+          "source",
+          "presence",
+          "reachable",
+          "boundary"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "loops": {
+      "type": "array",
+      "maxItems": 262144,
+      "items": {
+        "type": "object",
+        "properties": {
+          "nodeId": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+          },
+          "instance": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "maxItems": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "presence": {
+            "enum": ["guaranteed", "runtime"]
+          },
+          "itemsSha256": {
+            "$ref": "#/$defs/hash"
+          }
+        },
+        "required": ["nodeId", "instance", "maxItems", "presence"],
+        "additionalProperties": false
+      }
+    },
+    "segments": {
+      "type": "array",
+      "maxItems": 1000,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 2000
+          },
+          "blockPath": {
+            "type": "array",
+            "maxItems": 64,
+            "items": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          "first": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+          },
+          "last": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+          },
+          "roots": {
+            "type": "array",
+            "maxItems": 4096,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+            },
+            "uniqueItems": true
+          },
+          "members": {
+            "type": "array",
+            "maxItems": 4096,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "blockPath",
+          "first",
+          "last",
+          "roots",
+          "members"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "version",
+    "policy",
+    "flowSha256",
+    "producerSchemasSha256",
+    "aggregate",
+    "maxNodeExecutions",
+    "maxLeafReturns",
+    "producers",
+    "parametersSha256",
+    "resolvedParametersSha256",
+    "nodes",
+    "references",
+    "loops",
+    "segments"
+  ],
+  "additionalProperties": false
+}

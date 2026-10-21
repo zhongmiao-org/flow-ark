@@ -128,7 +128,11 @@ export function compileJointBudget(
   for (const root of ledger.values.roots)
     read(ledger.values, owner.runId, root.resultId);
   fields(plan, ["pending", "proposed", "completion"], "#");
-  fields(plan.completion, ["flow", "producerSchemas"], "#/completion");
+  fields(
+    plan.completion,
+    ["flow", "producerSchemas", "parameters"],
+    "#/completion",
+  );
   if (!Array.isArray(plan.pending) || plan.pending.length > 1000)
     fail("invalid", "#/pending", "未消费预留清单必须有界且完整");
   if (plan.completion.flow?.id !== owner.flowId)
@@ -145,6 +149,7 @@ export function compileJointBudget(
   const completion = compileCompletionBoundary(
     plan.completion.flow,
     plan.completion.producerSchemas,
+    plan.completion.parameters,
   );
   const nodes = new Map();
   function walk(steps) {
@@ -505,6 +510,8 @@ export function compileJointBudget(
     planSha256: capturedPlan.fingerprint,
     flowSha256: completion.flowSha256,
     producerSchemasSha256: completion.producerSchemasSha256,
+    parametersSha256: completion.parametersSha256,
+    resolvedParametersSha256: completion.resolvedParametersSha256,
     baseline,
     upper: {
       results: metadata.length,

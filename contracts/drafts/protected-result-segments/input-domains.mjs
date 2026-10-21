@@ -1,5 +1,6 @@
 /** Unpublished input capture. Domains are not permissions or retention reservations. */
 import { createHash } from "node:crypto";
+import { types } from "node:util";
 import { canonical, LIMITS } from "../../v0.51.0/result-retention.mjs";
 import { BoundaryError, measureValue } from "./schema-bounds.mjs";
 
@@ -21,6 +22,7 @@ function freeze(v) {
   return v;
 }
 function entries(v, path) {
+  if (types.isProxy(v)) fail(path, "输入不能包含可执行代理");
   if (Array.isArray(v)) {
     if (
       Object.getPrototypeOf(v) !== Array.prototype ||
@@ -46,6 +48,25 @@ function entries(v, path) {
     return [key, d.value];
   });
 }
+// No executable adapter may change a body between measurement and its owned canonical copy.
+function payloadData(value, path) {
+  let nodes = 0;
+  const active = new Set();
+  function visit(v, depth) {
+    if (++nodes > LIMITS.visits || depth > LIMITS.jsonDepth)
+      fail(path, "完整正文结构超限");
+    if (types.isProxy(v)) fail(path, "完整正文不能包含可执行代理");
+    if (v === null || typeof v !== "object") return;
+    if (active.has(v)) fail(path, "完整正文不能循环引用");
+    active.add(v);
+    try {
+      for (const [, child] of entries(v, path)) visit(child, depth + 1);
+    } finally {
+      active.delete(v);
+    }
+  }
+  visit(value, 0);
+}
 function capture(input, domain, bodyAt) {
   const active = new Set();
   const stats = { bodies: 0, bytes: 0, valueNodes: 0, workBytes: 0 };
@@ -64,11 +85,13 @@ function capture(input, domain, bodyAt) {
       fail("", "输入管理字段总量超过固定限额");
   }
   function visit(v, path, depth) {
+    if (types.isProxy(v)) fail(path, "输入不能包含可执行代理");
     if (++controls > LIMITS.visits || depth > LIMITS.jsonDepth)
       fail(path, "输入控制结构超限");
     if (bodyAt(path)) {
       // JSON string containing "sha256:" and 64 hex digits.
       reserveMetadata(73, depth);
+      payloadData(v, path);
       const measured = measureValue(v);
       for (const [key, limit] of Object.entries(CAPTURE_LIMITS)) {
         const metric = key === "bytes" ? "canonicalBytes" : key;
@@ -131,6 +154,7 @@ function capture(input, domain, bodyAt) {
   });
 }
 export function captureProducerSchemas(input) {
+  if (types.isProxy(input)) fail("", "生产者结构清单不能使用可执行代理");
   if (!input || Array.isArray(input) || typeof input !== "object")
     fail("", "生产者结构清单须为对象");
   return capture(input, "producer-schemas", (path) => /^\/[^/]+$/u.test(path));
@@ -141,6 +165,7 @@ export function captureJointPlan(input) {
     "joint-plan",
     (path) =>
       path === "/completion/flow" ||
+      path === "/completion/parameters" ||
       /^\/completion\/producerSchemas\/[^/]+$/u.test(path) ||
       /^\/(?:pending\/[0-9]+|proposed)\/(?:results\/[0-9]+\/output|copies\/[0-9]+\/stages\/[0-9]+)\/(?:value|schema)$/u.test(
         path,
@@ -155,6 +180,7 @@ export function captureProposal(input) {
   );
 }
 export function captureActualCopies(input) {
+  if (types.isProxy(input)) fail("", "实际副本清单不能使用可执行代理");
   if (!Array.isArray(input) || input.length > 8192)
     fail("", "实际副本清单必须是有界数组");
   return capture(input, "actual-copies", (path) =>
