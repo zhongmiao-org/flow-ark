@@ -50,7 +50,6 @@ const fail = (code, path, message) => {
   throw new BoundaryError(code, path, message);
 };
 const copy = (v) => JSON.parse(canonical(v));
-const bytes = (v) => Buffer.byteLength(canonical(v), "utf8");
 const refKey = (v) => v.family + ":" + v.id;
 const checked = (n) => {
   if (!Number.isSafeInteger(n) || n < 0) fail("limit", "#", "联合预算运算超限");
@@ -76,6 +75,23 @@ function text(v, max, empty = false) {
     })
   )
     fail("invalid", "#", "预算来源或结果标识无效");
+}
+function inventoryRows(input) {
+  if (
+    !Array.isArray(input) ||
+    Object.getPrototypeOf(input) !== Array.prototype ||
+    input.length > 8192 ||
+    Reflect.ownKeys(input).length !== input.length + 1
+  )
+    fail("invalid", "#/actualCopies", "实际副本清单必须是有界普通稠密数组");
+  const rows = [];
+  for (let i = 0; i < input.length; i++) {
+    const d = Object.getOwnPropertyDescriptor(input, String(i));
+    if (!d?.enumerable || !Object.hasOwn(d, "value"))
+      fail("invalid", "#/actualCopies", "实际副本清单不能包含访问器或空项");
+    rows.push(d.value);
+  }
+  return rows;
 }
 function ref(runId, kind, key) {
   const family =
@@ -120,9 +136,11 @@ export function compileJointBudget(
 ) {
   const ledger = copy(ledgerInput),
     owner = copy(expectedOwner),
-    actual = copy(actualInput),
     plan = copy(planInput);
-  const baseline = verifyCopies(ledger, owner, actual);
+  const rows = inventoryRows(actualInput);
+  const baseline = verifyCopies(ledger, owner, rows);
+  // Each existing ActualCopy has its own published codec scope; do not re-wrap all bodies.
+  const actual = rows.map(copy);
   for (const root of ledger.values.roots)
     read(ledger.values, owner.runId, root.resultId);
   fields(plan, ["pending", "proposed", "completion"], "#");
@@ -257,7 +275,21 @@ export function compileJointBudget(
       { family: c.family, id: c.id, bytes: c.bytes },
     ]),
   );
-  const boundCopy = (r, b) => {
+  let copyShape = true;
+  const frameBases = new Map();
+  const boundCopy = (r, boundary) => {
+    if (!frameBases.has(r.family))
+      frameBases.set(
+        r.family,
+        measureValue({ family: r.family, id: H, value: null }),
+      );
+    const frame = frameBases.get(r.family),
+      b = boundary.canonicalBytes;
+    copyShape &&=
+      frame.canonicalBytes + b - 4 <= LIMITS.value &&
+      frame.valueNodes + boundary.valueNodes - 1 <= LIMITS.visits &&
+      boundary.depth + 1 <= LIMITS.jsonDepth &&
+      frame.workBytes + boundary.workBytes + b - 8 <= LIMITS.workBytes;
     const k = refKey(r),
       old = maxima.get(k);
     const oldRef = refs.get(k);
@@ -274,7 +306,7 @@ export function compileJointBudget(
     if (r.kind !== INDEX) refs.set(k, r);
   };
   const knownCopy = (kind, key, value) =>
-    boundCopy(ref(owner.runId, kind, key), bytes(value));
+    boundCopy(ref(owner.runId, kind, key), measureValue(value));
   function valueBoundary(source) {
     if (source?.kind === "known") {
       fields(source, ["kind", "value"], "#/output");
@@ -319,7 +351,7 @@ export function compileJointBudget(
       )
         fail("unsupported", "#/copies", "模型副本必须固定实际事件身份");
     }
-    boundCopy(r, boundary.canonicalBytes);
+    boundCopy(r, boundary);
   }
   const metadata = [...ledger.results],
     ids = new Set(metadata.map((m) => m.id));
@@ -429,10 +461,7 @@ export function compileJointBudget(
   if (metadata.length)
     knownCopy("typed-run-index", owner.runId, { entries: metadata });
   // This reservation is Run-wide. Segment completion must not release it.
-  boundCopy(
-    ref(owner.runId, "output", owner.runId),
-    completion.aggregate.canonicalBytes,
-  );
+  boundCopy(ref(owner.runId, "output", owner.runId), completion.aggregate);
   const ordered = [...refs.values()].sort((a, b) =>
     refKey(a) < refKey(b) ? -1 : 1,
   );
@@ -473,6 +502,7 @@ export function compileJointBudget(
       ledger.revision + futureCommits < Number.MAX_SAFE_INTEGER,
     results: metadata.length <= LIMITS.roots,
     copies: maxima.size <= 8192 && ordered.length <= 8191,
+    copyShape,
     cells: checked(valueInfo.cells + unknownCells) <= LIMITS.cells,
     graphEdges:
       checked(edgeCount(values) + unknownRefs) <=
@@ -492,7 +522,8 @@ export function compileJointBudget(
     policy: "protected-joint-budget-v1",
     owner,
     ledgerSha256: digest(ledger),
-    actualCopiesSha256: digest(actual),
+    // Full bodies have already matched these sorted, content-addressed charges individually.
+    actualCopiesSha256: digest(ledger.copies),
     planSha256: digest(plan),
     flowSha256: completion.flowSha256,
     producerSchemasSha256: completion.producerSchemasSha256,

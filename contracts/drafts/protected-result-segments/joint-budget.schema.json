@@ -149,13 +149,14 @@
     },
     "exceeded": {
       "type": "array",
-      "maxItems": 10,
+      "maxItems": 11,
       "uniqueItems": true,
       "items": {
         "enum": [
           "revision",
           "results",
           "copies",
+          "copyShape",
           "cells",
           "graphEdges",
           "reconstruction",
