@@ -17,6 +17,7 @@ export declare const BOUND_LIMITS: Readonly<{
   workBytes: 134217728;
   arrayItems: 1000;
 }>;
+export declare const BOUND_SCHEMA_KEYWORDS: readonly string[];
 export declare class BoundaryError extends Error {
   readonly code:
     | "invalid"

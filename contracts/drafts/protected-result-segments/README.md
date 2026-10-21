@@ -26,6 +26,20 @@ Node语法、声明文件的隔离NodeNext类型检查和ESM打包通过。一�
 
 本核心允许的约束关键词不表示核心执行所有Schema有效性/数据验证；`pattern`、`format`、数值约束、类型与const交集以及未使用定义仍由固定Schema验证器负责。正式采用时应先完成Schema元验证和验证器编译，再编译边界；返回值必须先做完整数据验证，失败不得登记为可采用结果。以上验证器差异、整段图编译、保存联合预算和原生UI均仍未完成。
 
+## 固定生产者输出校验候选
+
+`output-validation.mjs`增加独立未发布的`compileOutputValidation(schema)`，配置名为`ajv-draft07-data-only-v1`。它使用消费者自己的准确AJV 8.20.0（当前客户端已锁定的版本），不在治理根安装依赖、不从客户端导入实现、不由Renderer动态生成代码。本目录仍不是客户端已采用的能力或正式G1发布；已有单值/汇总证书格式及0.51.0均保持。
+
+准入先按现有规范JSON规则取得独立Schema副本，再逐层检查所有结构位置、未使用的`$defs`与本地引用。关键词来源复用`schema-bounds.mjs`的`BOUND_SCHEMA_KEYWORDS`，包含元格式验证、正则语法和固定草案版本；最多4096个结构定义，包含引用的最长展开路径最多64层，递归引用拒绝。已访问结构的缓存保留其完整后继高度，不因先从较短路径访问而漏算更深的引用路径。未使用定义中的非法类型、外部引用、未知关键词和未注册命名格式也不静默略过。
+
+配置固定启用Schema元验证、严格关键词/有限数字、Unicode正则和自有属性检查，关闭类型转换、默认补值及删除多余字段；不开放远程Schema加载、异步Schema或自定义关键词。选项语义依据[AJV官方选项](https://ajv.js.org/options.html)与[元格式验证接口](https://ajv.js.org/api.html#ajv-validateschema-schema-object-boolean-boolean)。该配置没有注册命名格式插件，故所有`format`在准入时明确拒绝，不把日期/邮箱等要求降成注释；将来支持须固定实际实现和版本，再更新契约及普通字段表单。现有边界算术对`format`不增加上界仍保留，不能据此声称生产者配置已接受该要求。
+
+已知AJV会忽略`properties.__proto__`，本配置在取得任何准入前明确拒绝这类字段定义，不删除实际字段或假装校验成功。完整`const`值中的同名普通JSON字段保持，成功格式例已分别核对其保留；这是两种不同位置。实际使用仍须先满足整个有限结构语法及同一配置的编译。
+
+返回的本地校验对象固定完整Schema与其边界证书，外部后续修改原Schema不能改变它。`verify(value)`先取得完整普通JSON副本，在该副本上执行同一份固定Schema验证，再重新核对证书和四个实际计量维度；只在全部成功后返回包含同一完整副本、摘要和计量的深度冻结对象。后续持久化必须使用此副本，不能验证副本后却保存调用方可变的原对象。失败不返回裁剪值、转换值或AJV原始诊断/原始资料。该对象只是进程内校验结果，没有Run来源、权限、租约或可跨进程信任的许可语义。
+
+当前只给出静态格式例及语法/声明/ESM检查，不把它当作生产Worker、目录/原值联合预算或真实外发验收。Schema编译和数据验证含代码生成与正则运算，未来G2必须在可取消、有限期限、宿主监督的环境中完成，失败/超时在外发前阻断；它不是安全沙箱或已证明的CPU预算。返回副本/验证临时工作、生产者家族、全图完成观察、独立回执、事务预留和释放仍须联合接通，不能提前启用此候选来恢复招聘外发。
+
 ## 完整运行汇总边界
 
 `completion-bounds.mjs`接收完整固定的`FlowDefinition`和按步骤身份绑定的有限生产者Schema，返回`completion-certificate.schema.json`规定的独立证书；不接收调用方提供的字节数、循环次数覆盖或裁剪后的步骤段。输入须先由固定P1格式及同一数据验证器完整校验，生产者Schema还须在实际返回时执行；本函数只做完整汇总的静态上界推导。它不证明输入确属某个已准备Run，也不自动接入当前执行器。
@@ -47,4 +61,7 @@ flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segm
 node --check contracts/drafts/protected-result-segments/completion-bounds.mjs
 flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/completion-bounds.d.mts
 flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/completion-bounds.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-completion-bounds.mjs
+node --check contracts/drafts/protected-result-segments/output-validation.mjs
+flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/output-validation.d.mts
+NODE_PATH="$PWD/flow-ark-client/node_modules" flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/output-validation.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-output-validation.mjs
 ```

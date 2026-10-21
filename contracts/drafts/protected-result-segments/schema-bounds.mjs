@@ -56,6 +56,19 @@ const scalarKeys = {
     "maxProperties",
   ],
 };
+// Shared with the admission profile, including unused local definitions.
+export const BOUND_SCHEMA_KEYWORDS = Object.freeze([
+  ...new Set([
+    ...annotations,
+    "$ref",
+    "type",
+    "const",
+    "enum",
+    "anyOf",
+    "oneOf",
+    ...Object.values(scalarKeys).flat(),
+  ]),
+]);
 const length = (text) => Buffer.byteLength(text, "utf8");
 const add = (a, b, path) => {
   const result = a + b;
