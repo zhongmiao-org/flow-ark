@@ -8,7 +8,8 @@ import {
   read,
   LIMITS,
 } from "../../v0.51.0/result-retention.mjs";
-import { verifyCopies } from "../../v0.51.0/result-ledger.mjs";
+import { verifyScopedCopies } from "./scoped-ledger.mjs";
+import { captureJointPlan } from "./input-domains.mjs";
 import { BoundaryError, measureValue } from "./schema-bounds.mjs";
 import { compileOutputValidation } from "./output-validation.mjs";
 import { compileCompletionBoundary } from "./completion-bounds.mjs";
@@ -76,23 +77,6 @@ function text(v, max, empty = false) {
   )
     fail("invalid", "#", "预算来源或结果标识无效");
 }
-function inventoryRows(input) {
-  if (
-    !Array.isArray(input) ||
-    Object.getPrototypeOf(input) !== Array.prototype ||
-    input.length > 8192 ||
-    Reflect.ownKeys(input).length !== input.length + 1
-  )
-    fail("invalid", "#/actualCopies", "实际副本清单必须是有界普通稠密数组");
-  const rows = [];
-  for (let i = 0; i < input.length; i++) {
-    const d = Object.getOwnPropertyDescriptor(input, String(i));
-    if (!d?.enumerable || !Object.hasOwn(d, "value"))
-      fail("invalid", "#/actualCopies", "实际副本清单不能包含访问器或空项");
-    rows.push(d.value);
-  }
-  return rows;
-}
 function ref(runId, kind, key) {
   const family =
     typeof kind !== "string"
@@ -135,12 +119,12 @@ export function compileJointBudget(
   planInput,
 ) {
   const ledger = copy(ledgerInput),
-    owner = copy(expectedOwner),
-    plan = copy(planInput);
-  const rows = inventoryRows(actualInput);
-  const baseline = verifyCopies(ledger, owner, rows);
-  // Each existing ActualCopy has its own published codec scope; do not re-wrap all bodies.
-  const actual = rows.map(copy);
+    owner = copy(expectedOwner);
+  const capturedPlan = captureJointPlan(planInput),
+    plan = capturedPlan.value;
+  const verifiedCopies = verifyScopedCopies(ledger, owner, actualInput);
+  const baseline = verifiedCopies.capacity,
+    actual = verifiedCopies.actual;
   for (const root of ledger.values.roots)
     read(ledger.values, owner.runId, root.resultId);
   fields(plan, ["pending", "proposed", "completion"], "#");
@@ -276,20 +260,14 @@ export function compileJointBudget(
     ]),
   );
   let copyShape = true;
-  const frameBases = new Map();
   const boundCopy = (r, boundary) => {
-    if (!frameBases.has(r.family))
-      frameBases.set(
-        r.family,
-        measureValue({ family: r.family, id: H, value: null }),
-      );
-    const frame = frameBases.get(r.family),
-      b = boundary.canonicalBytes;
+    const b = boundary.canonicalBytes;
+    // Fixed metadata is checked separately by capture/proposal; it does not lower body limits.
     copyShape &&=
-      frame.canonicalBytes + b - 4 <= LIMITS.value &&
-      frame.valueNodes + boundary.valueNodes - 1 <= LIMITS.visits &&
-      boundary.depth + 1 <= LIMITS.jsonDepth &&
-      frame.workBytes + boundary.workBytes + b - 8 <= LIMITS.workBytes;
+      b <= LIMITS.value &&
+      boundary.valueNodes <= LIMITS.visits &&
+      boundary.depth <= LIMITS.jsonDepth &&
+      boundary.workBytes <= LIMITS.workBytes;
     const k = refKey(r),
       old = maxima.get(k);
     const oldRef = refs.get(k);
@@ -524,7 +502,7 @@ export function compileJointBudget(
     ledgerSha256: digest(ledger),
     // Full bodies have already matched these sorted, content-addressed charges individually.
     actualCopiesSha256: digest(ledger.copies),
-    planSha256: digest(plan),
+    planSha256: capturedPlan.fingerprint,
     flowSha256: completion.flowSha256,
     producerSchemasSha256: completion.producerSchemasSha256,
     baseline,

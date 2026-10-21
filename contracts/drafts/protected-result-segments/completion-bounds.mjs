@@ -7,6 +7,8 @@ import {
   measureValue,
 } from "./schema-bounds.mjs";
 
+import { captureProducerSchemas } from "./input-domains.mjs";
+
 const dimensions = ["canonicalBytes", "valueNodes", "depth", "workBytes"];
 const leafTypes = new Set([
   "ai",
@@ -113,7 +115,8 @@ function containsReference(value) {
  */
 export function compileCompletionBoundary(flow, producerSchemas) {
   canonical(flow);
-  canonical(producerSchemas);
+  const capturedSchemas = captureProducerSchemas(producerSchemas);
+  producerSchemas = capturedSchemas.value;
   if (!object(flow) || !Array.isArray(flow.steps) || !object(producerSchemas))
     fail("invalid", "#", "需要完整固定流程及生产者输出结构");
   const ids = new Set(),
@@ -215,7 +218,7 @@ export function compileCompletionBoundary(flow, producerSchemas) {
     version: 1,
     policy: "structured-completion-boundary-v1",
     flowSha256: digest(flow),
-    producerSchemasSha256: digest(producerSchemas),
+    producerSchemasSha256: capturedSchemas.fingerprint,
     aggregate: root.output,
     maxNodeExecutions: root.executions,
     maxLeafReturns: root.leafReturns,
