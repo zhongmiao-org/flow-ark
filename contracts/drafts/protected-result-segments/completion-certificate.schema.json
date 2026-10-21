@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://flowark.local/contracts/drafts/protected-result-segments/completion-certificate.schema.json",
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "boundary": {
+      "type": "object",
+      "properties": {
+        "canonicalBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8388608
+        },
+        "valueNodes": { "type": "integer", "minimum": 1, "maximum": 262144 },
+        "depth": { "type": "integer", "minimum": 0, "maximum": 64 },
+        "workBytes": { "type": "integer", "minimum": 1, "maximum": 134217728 }
+      },
+      "required": ["canonicalBytes", "valueNodes", "depth", "workBytes"],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "version": { "const": 1 },
+    "policy": { "const": "structured-completion-boundary-v1" },
+    "flowSha256": { "$ref": "#/$defs/hash" },
+    "producerSchemasSha256": { "$ref": "#/$defs/hash" },
+    "aggregate": { "$ref": "#/$defs/boundary" },
+    "maxNodeExecutions": { "type": "integer", "minimum": 0, "maximum": 10000 },
+    "maxLeafReturns": { "type": "integer", "minimum": 0, "maximum": 10000 },
+    "producers": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "properties": {
+          "nodeId": { "type": "string", "pattern": "^[a-zA-Z0-9_-]{1,100}$" },
+          "schemaSha256": { "$ref": "#/$defs/hash" },
+          "boundary": { "$ref": "#/$defs/boundary" }
+        },
+        "required": ["nodeId", "schemaSha256", "boundary"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "version",
+    "policy",
+    "flowSha256",
+    "producerSchemasSha256",
+    "aggregate",
+    "maxNodeExecutions",
+    "maxLeafReturns",
+    "producers"
+  ],
+  "additionalProperties": false
+}
