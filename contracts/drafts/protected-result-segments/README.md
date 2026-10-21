@@ -1,5 +1,7 @@
 # 有限完整值边界核心（未发布）
 
+2026-10-21接续：[完整目录与运行输出联合预算候选](joint-budget.md)增加storage-envelope、joint-budget及独立预算格式；原目录/实际副本、所有未消费清单、完整流程汇总和额外索引共同计量。此处没有Store持有/许可、生产来源完整性或原子消费证明，完整G1和客户端采用仍待完成。
+
 2026-10-21。依据[先行设计及完整门槛](../../../docs/client/protected-result-segments.md)。本目录包括单个规范JSON值及结构化完整运行汇总的有限边界草案，不修改0.51.0，不加入当前P1/SDK/IPC，不代表预留、持久化、原生节点或业务保护完成。
 
 `compileBoundary(schema)`接受下述封闭JSON Schema子集，返回恰有`version,policy,schemaSha256,canonicalBytes,valueNodes,depth,workBytes`的证书。规范序列化/摘要复用准确0.51.0。证书须重新从完整Schema计算比对；客户端不能信任调用方填写的字节数。实际数据仍先由同一固定Schema的验证器完整验证，随后再核对规范字节/访问数/深度及序列化工作。`verifyMeasuredBoundary`仅核对证书及计量，不替代Schema数据验证，也不授予保存/执行权。
@@ -64,4 +66,8 @@ flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segm
 node --check contracts/drafts/protected-result-segments/output-validation.mjs
 flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/output-validation.d.mts
 NODE_PATH="$PWD/flow-ark-client/node_modules" flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/output-validation.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-output-validation.mjs
+node --check contracts/drafts/protected-result-segments/storage-envelope.mjs
+node --check contracts/drafts/protected-result-segments/joint-budget.mjs
+flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/storage-envelope.d.mts contracts/drafts/protected-result-segments/joint-budget.d.mts
+NODE_PATH="$PWD/flow-ark-client/node_modules" flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/joint-budget.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-joint-budget.mjs
 ```
