@@ -21,7 +21,11 @@ export type JointPlan = {
   /** Every unconsumed inventory from the same stable host view. Never just cached byte counters. */
   pending: SegmentInventory[];
   proposed: SegmentInventory;
-  completion: { flow: unknown; producerSchemas: Record<string, unknown> };
+  completion: {
+    flow: unknown;
+    producerSchemas: Record<string, unknown>;
+    parameters: unknown;
+  };
 };
 export type JointBudget = {
   version: 1;
@@ -32,6 +36,8 @@ export type JointBudget = {
   planSha256: string;
   flowSha256: string;
   producerSchemasSha256: string;
+  parametersSha256: string;
+  resolvedParametersSha256: string;
   baseline: LedgerCapacity;
   upper: {
     results: number;

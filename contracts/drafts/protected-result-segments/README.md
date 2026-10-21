@@ -1,5 +1,7 @@
 # 有限完整值边界核心（未发布）
 
+2026-10-21流程来源接续：[完整流程来源与连续段](flow-plan.md)按执行器词法作用域分析参数、前序结果及item/index，固定实际参数和来源摘要，从准确数组/同源有限Schema推导循环次数，编译连续范围的完整结构闭包。汇总/联合预算采用相同分析，不接受人为小次数；可信生产者与SDK能力/原子持有消费释放仍待完整G1，安装版保持。
+
 2026-10-21输入域接续：[独立正文与管理字段](input-domains.md)统一完整计划、生产者结构集合、实际副本和复合提案的捕获；不把外层字段额外计入独立正文深度/工作。新增未发布scoped读写参考，联合预算按同一语义核对，准备总量另设限额；0.51.0及安装版保持。
 
 2026-10-21接续：[完整目录与运行输出联合预算候选](joint-budget.md)增加storage-envelope、joint-budget及独立预算格式；原目录/实际副本、所有未消费清单、完整流程汇总和额外索引共同计量。此处没有Store持有/许可、生产来源完整性或原子消费证明，完整G1和客户端采用仍待完成。
@@ -46,11 +48,11 @@ Node语法、声明文件的隔离NodeNext类型检查和ESM打包通过。一�
 
 ## 完整运行汇总边界
 
-`completion-bounds.mjs`接收完整固定的`FlowDefinition`和按步骤身份绑定的有限生产者Schema，返回`completion-certificate.schema.json`规定的独立证书；不接收调用方提供的字节数、循环次数覆盖或裁剪后的步骤段。输入须先由固定P1格式及同一数据验证器完整校验，生产者Schema还须在实际返回时执行；本函数只做完整汇总的静态上界推导。它不证明输入确属某个已准备Run，也不自动接入当前执行器。
+`completion-bounds.mjs`接收完整固定的`FlowDefinition`、按步骤身份绑定的有限生产者Schema及本次准确参数，返回`completion-certificate.schema.json`规定的独立证书；不接收调用方提供的字节数、循环次数覆盖或裁剪后的步骤段。输入须先由固定P1格式及同一数据验证器完整校验，生产者Schema还须在实际返回时执行；本函数只做完整汇总的静态上界推导。它不证明输入确属某个已准备Run，也不自动接入当前执行器。
 
-推导对应现行`execute()`的完整返回形状：每个块为以步骤身份作键的对象，条件返回选中分支对象，循环返回每次块对象组成的数组。两分支逐计量维度取最大；循环按字面数组实际长度、或动态引用所受执行器1000项硬上限计量，不能使用界面上自行填的小数。空数组循环也完整检查其体内结构，避免隐藏未知生产者。每层容器的键、逗号、括号、全部子值访问和重复序列化工作均计入，不能只把叶结果字节相加。由此也保守覆盖块前缀和循环已完成前缀的同形值，但不声称现行执行器会在失败时保存这样的部分输出。
+推导对应现行`execute()`的完整返回形状：每个块为以步骤身份作键的对象，条件返回选中分支对象，循环返回每次块对象组成的数组。两分支逐计量维度取最大；循环按[同一来源分析](flow-plan.md)取得准确数组长度或固定Schema的maxItems计量，始终受执行器1000项硬上限约束，不能使用界面上自行填的小数。空数组循环也完整检查其体内结构，避免隐藏未知生产者。每层容器的键、逗号、括号、全部子值访问和重复序列化工作均计入，不能只把叶结果字节相加。由此也保守覆盖块前缀和循环已完成前缀的同形值，但不声称现行执行器会在失败时保存这样的部分输出。
 
-固定`value`按完整字面原值计量；含变量引用的值及其他叶生产者必须提供有限Schema，断言成功返回由执行器固定为`{verified:true}`。Schema输出另与`null`逐维取最大，覆盖执行器的空返回规范化；本地Schema引用始终在原完整Schema中编译，不将它原样嵌入新汇总Schema而改变引用根。未知节点、身份重复/不安全、未绑定或多余Schema、无界输出及可能超过10000次节点执行的路径均拒绝。即使条件看似恒真也覆盖两个分支；不依赖模型判断跳过另一条路径。证书同时固定完整流程和全部生产者结构摘要，校验时完整重新编译，不能只信任证书字段。
+`value`按完整表达式和同源参数/前序值推导；其他叶生产者必须提供有限Schema，断言成功返回由执行器固定为`{verified:true}`。Schema输出另与`null`逐维取最大，覆盖执行器的空返回规范化；本地Schema引用始终在原完整Schema中编译，不将它原样嵌入新汇总Schema而改变引用根。未知节点、身份重复/不安全、未绑定或多余Schema、无界输出及可能超过10000次节点执行的路径均拒绝。即使条件看似恒真也覆盖两个分支；不依赖模型判断跳过另一条路径。证书同时固定完整流程和全部生产者结构摘要，校验时完整重新编译，不能只信任证书字段。
 
 `maxNodeExecutions`和`maxLeafReturns`是完整路径的保守次数，不是已经保存的目录条目数。不同能力还可能产生独立操作/AI/文档等回执；目录索引、原值副本、秘密投影及原子事务预算均不由这两个数字证明。段选择/作用域、可信生产者家族、每节点完成观察、取消/失败/unknown的独立回执边界、所有未消费预留与最终输出的联合空间仍须在完整G1/G2补齐。此处没有新增外发许可或启用客户端能力，也不改变旧快照。
 
@@ -64,7 +66,7 @@ flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext 
 flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/schema-bounds.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-schema-bounds.mjs
 node --check contracts/drafts/protected-result-segments/completion-bounds.mjs
 flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/completion-bounds.d.mts
-flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/completion-bounds.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-completion-bounds.mjs
+NODE_PATH="$PWD/flow-ark-client/node_modules" flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/completion-bounds.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-completion-bounds.mjs
 node --check contracts/drafts/protected-result-segments/output-validation.mjs
 flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/output-validation.d.mts
 NODE_PATH="$PWD/flow-ark-client/node_modules" flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/output-validation.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-output-validation.mjs
@@ -72,4 +74,12 @@ node --check contracts/drafts/protected-result-segments/storage-envelope.mjs
 node --check contracts/drafts/protected-result-segments/joint-budget.mjs
 flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/storage-envelope.d.mts contracts/drafts/protected-result-segments/joint-budget.d.mts
 NODE_PATH="$PWD/flow-ark-client/node_modules" flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/joint-budget.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-joint-budget.mjs
+```
+
+完整来源/连续段候选的定向检查同样不运行单元测试：
+
+```sh
+node --check contracts/drafts/protected-result-segments/flow-plan.mjs
+flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/flow-plan.d.mts
+NODE_PATH="$PWD/flow-ark-client/node_modules" flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/flow-plan.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-flow-plan.mjs
 ```

@@ -4,6 +4,8 @@ export type CompletionBoundary = {
   policy: "structured-completion-boundary-v1";
   flowSha256: string;
   producerSchemasSha256: string;
+  parametersSha256: string;
+  resolvedParametersSha256: string;
   aggregate: MeasuredBoundary;
   maxNodeExecutions: number;
   maxLeafReturns: number;
@@ -17,10 +19,12 @@ export type CompletionBoundary = {
 export declare function compileCompletionBoundary(
   flow: unknown,
   producerSchemas: unknown,
+  parameters: unknown,
 ): CompletionBoundary;
 /** Recomputes bounds; does not prove provenance, production enforcement or reservation. */
 export declare function verifyCompletionBoundary(
   flow: unknown,
   producerSchemas: unknown,
+  parameters: unknown,
   certificate: unknown,
 ): CompletionBoundary;
