@@ -1,0 +1,207 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://flowark.local/contracts/drafts/protected-result-segments/joint-budget.schema.json",
+  "$comment": "Unpublished conditional accounting only. Never a reservation, provenance proof or action permission.",
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "runId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "flowId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "versionId": {
+          "$ref": "#/$defs/hash"
+        },
+        "snapshotSha256": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "required": ["runId", "flowId", "versionId", "snapshotSha256"],
+      "additionalProperties": false
+    },
+    "capacity": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "$ref": "#/$defs/count"
+        },
+        "logicalBytes": {
+          "$ref": "#/$defs/count"
+        },
+        "catalogBytes": {
+          "$ref": "#/$defs/count"
+        },
+        "copyBytes": {
+          "$ref": "#/$defs/count"
+        },
+        "retainedBytes": {
+          "$ref": "#/$defs/count"
+        },
+        "copyCount": {
+          "$ref": "#/$defs/count"
+        }
+      },
+      "required": [
+        "count",
+        "logicalBytes",
+        "catalogBytes",
+        "copyBytes",
+        "retainedBytes",
+        "copyCount"
+      ],
+      "additionalProperties": false
+    },
+    "upper": {
+      "type": "object",
+      "properties": {
+        "results": {
+          "$ref": "#/$defs/count"
+        },
+        "copies": {
+          "$ref": "#/$defs/count"
+        },
+        "cells": {
+          "$ref": "#/$defs/count"
+        },
+        "catalogBytes": {
+          "$ref": "#/$defs/count"
+        },
+        "copyBytes": {
+          "$ref": "#/$defs/count"
+        },
+        "retainedBytes": {
+          "$ref": "#/$defs/count"
+        },
+        "catalogNodes": {
+          "$ref": "#/$defs/count"
+        },
+        "catalogDepth": {
+          "$ref": "#/$defs/count"
+        },
+        "catalogWorkBytes": {
+          "$ref": "#/$defs/count"
+        }
+      },
+      "required": [
+        "results",
+        "copies",
+        "cells",
+        "catalogBytes",
+        "copyBytes",
+        "retainedBytes",
+        "catalogNodes",
+        "catalogDepth",
+        "catalogWorkBytes"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "policy": {
+      "const": "protected-joint-budget-v1"
+    },
+    "owner": {
+      "$ref": "#/$defs/owner"
+    },
+    "ledgerSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "actualCopiesSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "planSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "flowSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "producerSchemasSha256": {
+      "$ref": "#/$defs/hash"
+    },
+    "baseline": {
+      "$ref": "#/$defs/capacity"
+    },
+    "upper": {
+      "$ref": "#/$defs/upper"
+    },
+    "withinBounds": {
+      "type": "boolean"
+    },
+    "exceeded": {
+      "type": "array",
+      "maxItems": 11,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "revision",
+          "results",
+          "copies",
+          "copyShape",
+          "cells",
+          "graphEdges",
+          "reconstruction",
+          "catalogNodes",
+          "catalogDepth",
+          "catalogWork",
+          "retainedBytes"
+        ]
+      }
+    }
+  },
+  "required": [
+    "version",
+    "policy",
+    "owner",
+    "ledgerSha256",
+    "actualCopiesSha256",
+    "planSha256",
+    "flowSha256",
+    "producerSchemasSha256",
+    "baseline",
+    "upper",
+    "withinBounds",
+    "exceeded"
+  ],
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "withinBounds": {
+        "const": true
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "exceeded": {
+        "maxItems": 0
+      }
+    }
+  },
+  "else": {
+    "properties": {
+      "exceeded": {
+        "minItems": 1
+      }
+    }
+  }
+}

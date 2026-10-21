@@ -22,6 +22,7 @@ const leafTypes = new Set([
   "http",
   "human",
   "mcp",
+  "run-result",
   "script",
   "skill",
   "source",
