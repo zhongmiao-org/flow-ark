@@ -11,6 +11,10 @@ import {
 } from "./schema-bounds.mjs";
 
 export const OUTPUT_VALIDATION_PROFILE = "ajv-draft07-data-only-v1";
+// Schema graph edges are not JSON data nesting. Keep their finite limits distinct.
+export const OUTPUT_VALIDATION_LIMITS = Object.freeze({
+  schemaGraphDepth: 256,
+});
 const keywords = new Set(BOUND_SCHEMA_KEYWORDS);
 const pointer = (key) => key.replace(/~/g, "~0").replace(/\//g, "~1");
 const object = (v) => v !== null && typeof v === "object" && !Array.isArray(v);
@@ -68,13 +72,13 @@ export function compileOutputValidation(schema) {
     active = new Set();
   let visits = 0;
   function inspect(node, path, depth) {
-    if (depth > BOUND_LIMITS.depth)
+    if (depth > OUTPUT_VALIDATION_LIMITS.schemaGraphDepth)
       fail("limit", path, "输出结构与引用展开层数超过校验限额");
     if (!object(node)) fail("invalid", path, "输出结构须为有限对象定义");
     if (active.has(node)) fail("cycle", path, "递归输出结构尚不能取得准入");
     if (heights.has(node)) {
       const height = heights.get(node);
-      if (depth + height > BOUND_LIMITS.depth)
+      if (depth + height > OUTPUT_VALIDATION_LIMITS.schemaGraphDepth)
         fail("limit", path, "输出结构与引用展开层数超过校验限额");
       return height;
     }

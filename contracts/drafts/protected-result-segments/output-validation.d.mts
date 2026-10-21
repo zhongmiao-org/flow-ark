@@ -3,6 +3,9 @@ import type {
   MeasuredBoundary,
 } from "./schema-bounds.mjs";
 export declare const OUTPUT_VALIDATION_PROFILE: "ajv-draft07-data-only-v1";
+export declare const OUTPUT_VALIDATION_LIMITS: Readonly<{
+  schemaGraphDepth: 256;
+}>;
 export type ValidatedOutput = Readonly<{
   profile: typeof OUTPUT_VALIDATION_PROFILE;
   schemaSha256: string;
