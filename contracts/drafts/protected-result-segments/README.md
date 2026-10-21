@@ -1,6 +1,6 @@
 # 有限完整值边界核心（未发布）
 
-2026-10-21。依据[先行设计及完整门槛](../../../docs/client/protected-result-segments.md)。本目录只是单个规范JSON值的有限边界草案，不修改0.51.0，不加入当前P1/SDK/IPC，不代表预留、持久化、原生节点或业务保护完成。
+2026-10-21。依据[先行设计及完整门槛](../../../docs/client/protected-result-segments.md)。本目录包括单个规范JSON值及结构化完整运行汇总的有限边界草案，不修改0.51.0，不加入当前P1/SDK/IPC，不代表预留、持久化、原生节点或业务保护完成。
 
 `compileBoundary(schema)`接受下述封闭JSON Schema子集，返回恰有`version,policy,schemaSha256,canonicalBytes,valueNodes,depth,workBytes`的证书。规范序列化/摘要复用准确0.51.0。证书须重新从完整Schema计算比对；客户端不能信任调用方填写的字节数。实际数据仍先由同一固定Schema的验证器完整验证，随后再核对规范字节/访问数/深度及序列化工作。`verifyMeasuredBoundary`仅核对证书及计量，不替代Schema数据验证，也不授予保存/执行权。
 
@@ -26,10 +26,25 @@ Node语法、声明文件的隔离NodeNext类型检查和ESM打包通过。一�
 
 本核心允许的约束关键词不表示核心执行所有Schema有效性/数据验证；`pattern`、`format`、数值约束、类型与const交集以及未使用定义仍由固定Schema验证器负责。正式采用时应先完成Schema元验证和验证器编译，再编译边界；返回值必须先做完整数据验证，失败不得登记为可采用结果。以上验证器差异、整段图编译、保存联合预算和原生UI均仍未完成。
 
+## 完整运行汇总边界
+
+`completion-bounds.mjs`接收完整固定的`FlowDefinition`和按步骤身份绑定的有限生产者Schema，返回`completion-certificate.schema.json`规定的独立证书；不接收调用方提供的字节数、循环次数覆盖或裁剪后的步骤段。输入须先由固定P1格式及同一数据验证器完整校验，生产者Schema还须在实际返回时执行；本函数只做完整汇总的静态上界推导。它不证明输入确属某个已准备Run，也不自动接入当前执行器。
+
+推导对应现行`execute()`的完整返回形状：每个块为以步骤身份作键的对象，条件返回选中分支对象，循环返回每次块对象组成的数组。两分支逐计量维度取最大；循环按字面数组实际长度、或动态引用所受执行器1000项硬上限计量，不能使用界面上自行填的小数。空数组循环也完整检查其体内结构，避免隐藏未知生产者。每层容器的键、逗号、括号、全部子值访问和重复序列化工作均计入，不能只把叶结果字节相加。由此也保守覆盖块前缀和循环已完成前缀的同形值，但不声称现行执行器会在失败时保存这样的部分输出。
+
+固定`value`按完整字面原值计量；含变量引用的值及其他叶生产者必须提供有限Schema，断言成功返回由执行器固定为`{verified:true}`。Schema输出另与`null`逐维取最大，覆盖执行器的空返回规范化；本地Schema引用始终在原完整Schema中编译，不将它原样嵌入新汇总Schema而改变引用根。未知节点、身份重复/不安全、未绑定或多余Schema、无界输出及可能超过10000次节点执行的路径均拒绝。即使条件看似恒真也覆盖两个分支；不依赖模型判断跳过另一条路径。证书同时固定完整流程和全部生产者结构摘要，校验时完整重新编译，不能只信任证书字段。
+
+`maxNodeExecutions`和`maxLeafReturns`是完整路径的保守次数，不是已经保存的目录条目数。不同能力还可能产生独立操作/AI/文档等回执；目录索引、原值副本、秘密投影及原子事务预算均不由这两个数字证明。段选择/作用域、可信生产者家族、每节点完成观察、取消/失败/unknown的独立回执边界、所有未消费预留与最终输出的联合空间仍须在完整G1/G2补齐。此处没有新增外发许可或启用客户端能力，也不改变旧快照。
+
+本机静态格式例经准确0.51.0的AJV2020流程格式及独立draft-07证书格式校验通过：固定值、包含动态叶输出的两分支条件及两项字面循环共同得到完整汇总上界355字节/11次值访问/深度3/1235工作字节，最多6次节点执行和4次叶返回；同形静态完整值为121字节/11次/深度3/299工作字节。首次格式命令误用draft-07验证器读取2020-12的P1元格式而拒绝，第二次因例中脚本漏写必填`dependencies`未通过；修正例后才取得上述通过结果，没有据此放松P1验证。该例未执行任何节点/Worker、未新增或运行应用单元测试，不构成生产执行、预留或业务验收。
+
 检查命令（工具取自独立客户端现有安装，不建立根依赖）：
 
 ```sh
 node --check contracts/drafts/protected-result-segments/schema-bounds.mjs
 flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/schema-bounds.d.mts
 flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/schema-bounds.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-schema-bounds.mjs
+node --check contracts/drafts/protected-result-segments/completion-bounds.mjs
+flow-ark-client/node_modules/.bin/tsc --noEmit --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 contracts/drafts/protected-result-segments/completion-bounds.d.mts
+flow-ark-client/node_modules/.bin/esbuild contracts/drafts/protected-result-segments/completion-bounds.mjs --bundle --platform=node --format=esm --outfile=/private/tmp/flowark-protected-completion-bounds.mjs
 ```
