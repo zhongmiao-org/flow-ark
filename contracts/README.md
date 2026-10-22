@@ -236,4 +236,6 @@
 
 完整的所有权、执行语义和平台边界见 [总体架构](../docs/architecture.md)。
 
+宿主内部尚未发布的 [RunOutputPackedV1](run-output-packed.schema.json) 定义整体运行输出的无损压缩记录；采用顺序与实际存储计量见[实现约束](../docs/client/packed-run-output.md)。它不修改已发布的 P1 0.51.0 快照或 IPC 输出值。
+
 0.47.0 已经 PR #977 合并并发布 `contracts-v0.47.0`，合并及消费者实际阶段见[发布记录](../docs/client/browser-hidden-empty-leaf.md#契约发布及消费者接续)。快照内README保留提交时状态。
