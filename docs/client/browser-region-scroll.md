@@ -2,6 +2,20 @@
 
 ## 2026-10-26 点击派发边界的定向取证
 
+### 输入链路 trace 已实际取得，招聘仍停止
+
+先行 [#1069](https://github.com/zhongmiao-org/flow-ark/pull/1069) head `494a048b9dabf054b567fd531a850686644e2169`，实际 CI40263916262/121381998334 的付款/额度注解与 `steps=[]` 已核对，依持续授权准确 CLI squash 为 `98fafb92ee8cfa0e3e4068ad7674b5a089193d42`，不计 CI 通过。源码/ASAR 未为本段修改，仍是下文 500565dd 候选，未新增或运行单元测试。
+
+原生独立新流程“输入交付链 · 仅展示二维码”，仅一个“只展开本页二维码，不发送或发布”步骤；普通拾取/唯一验证实际目标为微信扫码分享 a。高级配置只回读：browser v8、click、framePath=[]、value=null，selector=`div:nth-of-type(3) > div > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div > a:nth-of-type(1)`；仅内置浏览器绑定，无 AI/凭据/workspace。不重跑旧标题、公开导航或监听器盘点。
+
+正常退出 PID6137 后，同包原环境增加 Chromium `--trace-startup=input,latency,benchmark,devtools.timeline,disabled-by-default-devtools.timeline.inputs`、duration=180、record-continuously、format=json、本机明确输出文件；listener 诊断开关设为0，原被动 click 诊断保留。session71633/PID10054 启动，原生恢复同一 919e，张元凯/北京/原立即沟通保持。11:30:39 仅一次单次 Run，步骤11:30:40完成；截图实际二维码浮层显示，未发送/发布或点击原沟通入口，模型与业务账本不写。截图 `/tmp/flowark-input-delivery-qr-20261026.png`、被动摘要 `/tmp/flowark-input-delivery-live-20261026.log` 保留。
+
+原生正常退出后 trace 完整落盘 `/tmp/flowark-input-delivery-20261026.json`：162683547字节/765703事件/SHA256=`cc657fa9435225d5a870fd5bfc3e10e7d15d37cdc0f5b00ec5b871cda3f2e491`，只存本机、不提交或上传。私有有界摘录 `/tmp/flowark-input-delivery-chain-excerpt-20261026.json` 为56事件/21480字节，保留原摘要、时间窗和64位 trace id（分析使用 Python 整数，不经 JS 丢精度）。CommitLoad 明确该岗位的网页 Renderer=10240，工作台 Renderer=10057，Browser=10054；不是把工作台输入当网站输入。
+
+原生被动记录此次 point=(335.73046875,101.58203125)，move/down/up 三条均 defaultPrevented=false、原 mousedown 守卫 pressed-receipt。以 Browser `ForwardMouseEvent` ts=1565378192522us 为0，本次 MouseDown trace id `1868773146793193013` 的实际阶段为：FilterAndSend(MouseDown)+27us、SentBlocking+35us、Renderer impl+61us、Renderer main+103us、WebFrameWidget处理+105us；同一 main 处理区间内 DOM pointerdown+215us、mousedown+312us；Renderer main ACK(kConsumed)+1867us，Browser MouseEventHandled(CONSUMED)+1961us。MouseUp id `1868773146793193000` 同样进入网页 Renderer，DOM pointerup/mouseup/click 后返回 NOT_CONSUMED。一次具体输入已能区分浏览器前段丢失、进入 Renderer 后未到 DOM、DOM 已派发及回执阶段；ACK 的 CONSUMED 在本次明确位于 DOM mousedown 之后，不能单凭该词认定宿主吞掉输入。DOM坐标与宿主转发坐标数值不同，不直接据跨层不同量纲认定坐标bug。
+
+这只是本次新安全控件的完整交付证据，没有产生新的点击失败，不能反推旧85故障发生阶段、把CONSUMED当取消、宣称根因/修复或恢复招聘。今后不重复此二维码成功 trace 或监听器盘点；需要新的真实失败同次阶段证据，旧 unknown 绝不用于采样。退出追踪实例并确认全部退出后，已用原环境无 trace 参数重开 session2259/PID10487；FLOWARK_SCROLL_DIAGNOSTICS=1、FLOWARK_CLICK_LISTENER_DIAGNOSTICS=0，不留持续 trace。正式0.2.53/已发预留unknown/735待办及真实150弹框门槛保持。
+
 本人最新要求沿宿主到页面交付链继续，禁止重做监听器盘点和旧成功实验。下一段只启动 Chromium 内置 trace（input/latency/benchmark/devtools.timeline 相关类别，最多 180 秒，本机私有文件），同一安装包/内置驱动/原数据目录，不修改输入守卫、焦点、等待或重试。仅新建一个独立 v8 单次流程操作本页“微信扫码分享”的二维码展示浮层，不调用微信、不选择联系人、不发布或发送；原立即沟通不按，正式会话不启动。目标是记录浏览器侧输入、Renderer 处理与 DOM EventDispatch 的实际阶段；取得哪个阶段就报告哪个阶段，成功只证明该次安全控件，不推定历史间歇失败已修复。trace 原文件不提交 Git 或外传；正常退出结束采集后仍用原环境重开并保留正式停止现场。
 
 上一段新的只读监听器盘点已实际结束，不再重复：11:10:52 首轮和 11:18:04 中心命中补充均为原生普通流程“原目标监听器 · 无输入只读取证”，browser v8/read、0 层框架、原模板 84 的固定选择器，普通 UI 唯一验证为立即沟通 a；只绑定内置浏览器，无 AI/凭据/workspace。补充实际 geometry.point=(586.7384033203125,223.01324462890625)，与旧失败坐标一致，hit=A、same=true、descendant=true；14 节点/12 相关监听器，链路与函数描述均未截断。当前没有 pointerdown/up/cancel、touchstart/end 或捕获 mousedown；document 两份 mousedown 冒泡函数仅 `function(t){Md=t}`，window 无相关项，不能解释为当前静态页面取消按下；仍不能排除历史/悬停时动态处理或宿主阶段。
