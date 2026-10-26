@@ -2,6 +2,26 @@
 
 ## 2026-10-26 点击派发边界的定向取证
 
+### 本机按下取消负样本已实际执行（13:36）
+
+先行范围 [#1072](https://github.com/zhongmiao-org/flow-ark/pull/1072) 的准确 head `188e809d9d1a19a44dfbda22f4cbab110dbbd45f`，CI40274821930 / Validate121415230400 实际因付款/额度未启动、`steps=[]`；本地治理检查与 diff 检查通过后，依持续授权 CLI squash 为 `7e9d4372e2621bfa3f16b0c83e974a2996e31426`，不称 CI 通过。没有修改客户端、重装、改变驱动/守卫、增加等待/焦点/重试或运行单元测试；ASAR仍为 `500565dd634192752f45eb8ffbe005312b5528ef3a656fa34e5c8edbd9716958`，客户端原284增3删诊断WIP保持。
+
+原生普通UI新建独立“输入交付链 · 本机按下取消负样本”，唯一“仅一次点击本机取消按下按钮”；使用变量目标后普通拾取唯一按钮，高级JSON仅只读确认 browser v8 / click / selector `#probe` / framePath=[] / value=null。仅绑定内置浏览器，无参数、AI步骤、workspace或凭据授权。本机独立静态页只对可信 pointerdown 执行 preventDefault，记录最多12条可信事件，无外部网络、导航、表单、存储或业务动作。页面源码仅保留本机 `/tmp/flowark-pointer-cancel-probe-20261026/index.html`，SHA256=`26fa997038414373b41be608d2f8b60b09e1e47a592b7594c065cd2a8c8432ef`；脚本语法及静态检查通过，不是产品实现或业务验收。
+
+原PID10487正常退出且全部进程结束后，同包原环境加有界180秒trace启动session73603 / PID23331，listener盘点关闭。原生打开127.0.0.1页面后六类事件均为0；预检显示调整未完成时只重新检查，未创建Run。通过预检后13:36:19仅启动一次Run，同秒终态失败，原文仍为“点击期间目标发生变化，未确认点击结果（派发后核对时：未取得完整的可信点击回执；未取得原目标按下回执）。请核对网页实际结果，不会自动重试。”没有再次点击或重跑。
+
+页面实际计数为 pointerdown=1、pointerup=1、click=1、mousedown=mouseup=pointercancel=0，三条均 isTrusted=true / targetIsProbe=true，pointerdown取消后 defaultPrevented=true。被动守卫记录同次 initial / later 均 hovered=true、pressed=false、blocked=false；pointerdown在捕获阶段defaultPrevented=false，后续只读采样变为true，pointerup/click保持false。宿主临时观察器记录唯一move/down/up三个事件，PositionInWidget=(62.91015625,72.69921875)，宿主defaultPrevented均false；press-returned、release-returned和guard-read均实际出现。
+
+正常退出后的原始trace `/tmp/flowark-input-negative-20261026.json` 为98,092,027字节 / 469,105事件，SHA256=`32c43bffffbb0ab6fbd9c6e7501a149f2586a56a23545a5ddfd2a186444d226a`。私有有界摘录 `/tmp/flowark-input-negative-chain-excerpt-20261026.json` 为40事件 / 33,960字节，SHA256=`3e88c8b58cf5983521a077a615624ff7de41c920282f7d294c2d2b0d01fb0f73`；Python保留64位整数并输出字符串，不经JS数值。CommitLoad区分 Browser23331 / 工作台Renderer23335 / localhost Renderer23349（main tid28812542，compositor tid28812553）。原trace和摘录均只存本机，不上传或提交Git。
+
+同次 Down traceId=`-6088560592982761081`，以ForwardMouseEvent ts1572918054283µs为0：FilterAndSend +18µs、SentBlocking +25、Renderer dispatch +43 / impl flow +44、main flow +100、WebFrameWidget +101、DOM pointerdown +160、main ACK kConsumed +925、Browser ACK CONSUMED +964。Up traceId=`-6088560592982761088`，Forward ts1572918055289µs：Filter +14、SentBlocking +18、Renderer dispatch +30 / impl +31、main +53、WebFrameWidget +54、DOM pointerup +86、click +137、main ACK kNotConsumed +380、Browser ACK NOT_CONSUMED +457。traceId对应跨层流；无traceId的DOM事件按明确localhost PID及唯一Down/Up处理区间关联，不把时间接近单独称为全局身份。
+
+本次捕获从localhost CommitLoad到该Renderer最后事件结束覆盖38.627926秒 / 2266事件，WebFrameWidget Down与Up各1；DOM pointerdown/up/click各1，mousedown/up/pointercancel均0。Down处理区间内有pointerdown而无mousedown，Up处理区间内有pointerup/click而无mouseup，与页面计数和被动守卫相符。全事件名与metadata键未见显式data-loss/overflow/overrun/drop标记，但不宣称独立验证了零丢失。这个失败样本中已有肯定的跨层交付与DOM证据，因此排除该次“宿主未交付”或“Renderer在DOM前丢失”的解释，定位到已观测的页面取消；并未造出或验证另外两类故障，更不能迁移为旧BOSS失败的排除结论。
+
+截图 `/tmp/flowark-input-negative-result-20261026.png` SHA256=`16cce434ea1531b5f22ca98d3700c5bdfd4cee034bfdb355e90a4fba9579f145` 同屏展示失败与页面事件计数，AX和宿主日志另存本机。实际click已到页面而守卫仍失败，说明这类“未取得按下回执”不能单独当作网页未收到点击或可安全重试的依据。该结论仅针对本次明确主动取消的本机页面，不能据此把旧BOSS85归因为页面取消，也不能反推原目标在旧失败时是否收到click。
+
+追踪实例正常退出完成落盘后，已用同一原环境无trace参数重开session21757 / PID24291；FLOWARK_SCROLL_DIAGNOSTICS=1、FLOWARK_CLICK_LISTENER_DIAGNOSTICS=0，本机HTTP服务已关闭。原生恢复正式第7批失败详情，显示已停止后续批次 / 7登记7结束，右侧原919e仍张元凯 / 北京 / 空天院 / 立即沟通，未按；735待办保持。最近7天577为移动窗口，新增1条是本机失败样本，不是招聘或今日送达。旧未知、已发和预留不改写、不重放，10月26日网站用额和送达未核验，无150弹框。本负样本已执行，不重复用它采集成功或失败；BOSS根因及恢复招聘门槛保持未完成。
+
 ### 新路径范围：一次本机受控失败的阶段取证
 
 本人要求继续实际执行能区分宿主、Renderer与页面阶段的路径，且不重跑坐标核对或成功控件。本段只进行一次新的失败分支取证：在127.0.0.1独立静态诊断页放置无导航、无提交、无网络/存储动作的按钮，由页面在可信 pointerdown 中 preventDefault，使用原生普通作者UI建立独立 v8/click 单步并仅运行一次。它用于验证缺少兼容 mousedown 时能否从同次证据定位到页面取消；不是BOSS页面、本站根因、业务验收或新的产品能力。
