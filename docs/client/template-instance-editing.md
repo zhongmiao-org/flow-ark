@@ -151,7 +151,7 @@ LiteralValue仅对用户未完成的原始编辑添加独立标记；实例导�
 
 ### 0.53.0 候选边界
 
-完整语言无关字段与语义见 [目录声明契约](../../contracts/v0.53.0/template-resource-extension.md)及 [JSON Schema](../../contracts/v0.53.0/template-resource-extension.schema.json)。新增请求/响应/回执定义与 `RunSnapshot.templateResourceExtension`，标准 ZIP 2.0、SDK 1.0 和原节点保持。该版本仅候选，尚未发布、消费者未采用，不得将本节写成现行能力。
+完整语言无关字段与语义见 [目录声明契约](../../contracts/v0.53.0/template-resource-extension.md)及 [JSON Schema](../../contracts/v0.53.0/template-resource-extension.schema.json)。新增请求/响应/回执定义与 `RunSnapshot.templateResourceExtension`，标准 ZIP 2.0、SDK 1.0 和原节点保持。本节保留设计先行时的候选范围；契约发布、消费者采用和原生接入的后续实际状态见下方交付记录，不以先行设计代替运行证据。
 
 兼容检查要求两包先通过既有规范，模板 id 相同且版本/摘要不同，全部非 manifest 文件逐字节一致。manifest 仅可变更版本/摘要、末尾追加目录、原入口资源数组末尾追加这些目录；其他原声明、数组顺序、Schema、业务图/脚本/提示词及文件摘要保持。新增资源限不复用旧 ID 的 directory/write 或 readwrite，不附带 defaultDirectoryFrom。受影响入口必须原已声明 file，原 actions 非空且原授权仍按既有 canWrite/writeGuard 检查；不追加 capability/action，不按动作名称猜权限类型。旧动作无 kind 字段，不虚构 file.write 类型。
 
@@ -180,3 +180,26 @@ Figma 复用 [模板版本与导出 2:4837](https://www.figma.com/design/sVciNUZ
 原生作者前置已取得准确 0.2.53 往返对照，再经普通 UI 导出 0.2.55 目录声明扩展包。152 个归档文件仅 manifest.json 变化，151 个业务文件逐字节一致；原 resources/actions 保持，仅追加 communication-cache/readwrite/required=true 及 daily-apply 成员。包 digest `579ba06619d5098dd53d302156ec342c0de3f380a2ab63c1350998ca7b23e5fe`，ZIP SHA256 `dc341de76eeebf91b7f718eca4d81af9f22506e4902c8bda5c784b1a3c61bf98`。此为普通作者导出的真实前置，已本机导入定义，尚未接入正式实例；未新建实例、未启动 Run，不代表缓存已实现。契约参考函数另对这两个原生 ZIP 的完整 152 项 Map 进行了只读直接核对，原始 manifest 与对象一致，151 项文件逐字节保持，实际返回唯一上述目录/入口增量；没有改写 ZIP 或业务文件。
 
 消费者后续需核对严格兼容拒绝、CAS/事务故障零部分写入、相同/冲突幂等请求、活动与排队拒绝、旧快照无新增权限、原来源仍可读、原 state/effect/attention 保持、本地图不覆盖、缺绑定/选择器取消/保存和重开，以及实际 file SDK 写入与读回。该 SDK 不承诺原子追加或多文件事务；模板自行定义有界证据文件和核对。当前不新增、不运行单元测试；契约生成、设计核图、客户端安装、缓存写出与真实 150 上限弹框分别记录。
+
+## 2026-10-26 · 同实例目录声明扩展交付与原生接入
+
+先行治理 [PR #1077](https://github.com/zhongmiao-org/flow-ark/pull/1077) head `cea474377670f3d105dbbcc58e619ed6b641df0d` 已实际 squash 合并为 `339835c334fd99e6ea6329ba8508d231f3db7d0b`，`contracts-v0.53.0` 已推送。客户端 [PR #371](https://github.com/zhongmiao-org/flow-ark-client/pull/371) head `4590d0f7c4851d2e8adfeaba4f77ebc36a7a648b` 已于 `2026-10-26T09:46:47Z` 实际合并为 `8e5d2addbc60c1fe735041edcf1437e21da6e54a`，本地 main 已快进。治理 [CI 40299558371](https://github.com/zhongmiao-org/flow-ark/actions/runs/40299558371) / job `121493805014` 与客户端 [CI 40301967875](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/40301967875) / job `121501774635` 均为准确 head 的账户计费阻塞、`steps=[]`，依既有授权使用 CLI squash；均不是 CI 通过，未直推 main 或修改保护。
+
+客户端独立从已发布契约采用 0.53.0，189 个契约摘要逐项核对，类型、修改文件格式、diff、build 通过。UI 沿“来源与版本”选择已安装来源包，检查兼容性并预览新增目录/入口后接入；普通资源页再选择目录并保存。原 manifest 与固定包身份保持，页面单独展示有效资源；未保存或未完成输入阻止接入，接入后仍保留本地草稿。申请固定 requestId；没有确定响应先只读核对，已取得回执但 detail 读取失败仅重新读取。只读恢复不受“原实例修订已变化”的写入阻止状态影响。既有浏览器诊断 WIP 未纳入此 PR。
+
+本轮独立临时数据目录实际 Runtime / Worker 验证取得：
+
+- 非目录声明的额外包变更与过期实例修订被拒绝；真实 `PAUSED`、`QUEUED` 运行存在时，预览和接入均拒绝。
+- 第二次 Store 写入注入拒绝后事务回滚，没有部分提交。这是人工宿主写入拒绝样本，不代表磁盘满或崩溃恢复验证。
+- 提交后同请求幂等返回，requestId 与内容冲突、第二次接入均拒绝；旧修订只读预览返回 `already-applied`，缺少新增目录绑定时预检拒绝运行。
+- 原包身份、业务 state 值及修订保持。旧固定快照没有扩展字段，访问新增目录明确报“文件资源未声明”；新 Run 快照固定接入回执。
+- 真实 Worker 通过 SDK 写入并读回逐字一致，原生 file 节点写出内容逐字一致；读取不存在的文件明确报错。
+- 重新打开隔离宿主后回执仍在，身份、状态及修订保持，没有新增 Run；被引用的扩展包拒绝删除。
+
+本机摘要 `/tmp/flowark-resource-extension-runtime-20261026-omyG4i/summary.json` 的 SHA256 为 `e9c7be342fd9cd5c484a1795ebf028932786c3f52b5342d9c9782c996a4fc591`，只登记路径、摘要与结论，不上传运行内容。此隔离验证不使用正式实例，不新增或运行单元测试；未将人工故障、合成文件或代码审查当作正式缓存证据。
+
+完整 `pnpm package:mac` 通过。旧 App 原生退出后备份到 `/tmp/FlowArk-before-resource-extension-20261026.app`，在原安装目录替换并以原环境重开；新安装 ASAR 为 `4a3277cd3e38ffd110399edcc0dc47250ed36025d49788f0470dd95298fd8009`。这是本机安装交付，不代表公开签名发布。
+
+正式 `0.2.53` 实例已通过原生“来源与版本”选择已安装 `0.2.55`，实际显示可原地接入，接入成功后显示缺目录绑定。再通过 Finder UI 建立专用 `boss-communication-cache` 目录，经普通目录选择器绑定并保存，页面显示“实例配置已保存”，对应 daily 入口显示资源已填写、运行前复核。固定 `0.2.53` 来源、账号来源、确认 Skill、求职条件和既有授权保持；本轮未启动正式 Run、未招聘外发。原生证据 `/tmp/flowark-resource-extension-applied-20261026.png`、同名 `.ax.txt` 以及 `/tmp/flowark-cache-resource-bound-20261026.ax.txt` 仅保留本机，不提交截图、AX 或个人数据。
+
+本轮完成的是目录声明通用能力、安装以及正式实例的原生接入/绑定保存。缓存脚本尚未实施，真实网页已读或沟通证据尚未写出验收；此前点击故障仍未因本轮通过，unknown 去重保持且不重放、不补写成功。未取得 BOSS 当天 150 次上限弹框，业务目标与跟进继续保留。原生成功路径不覆盖全部明暗、尺寸、选择器取消或异常回执 UI 状态；这些未执行项不能补判通过。
