@@ -2,6 +2,18 @@
 
 ## 2026-10-26 点击派发边界的定向取证
 
+### 主页面 Window 缺口已实际补证（14:56）
+
+先行范围 [#1075](https://github.com/zhongmiao-org/flow-ark/pull/1075) 的准确 head `d2917bcf5f067cd95852db297a8b32b724ed5870`，CI40281569760 / Validate121435821148 因账户付款/额度未启动、`steps=[]`。本地治理检查与 diff 检查通过，依持续授权准确 head CLI squash 为 `18d0e221c07ad3eab2d81b54725f7aba52461b6e`；不是 CI 通过。
+
+客户端保持 `fix/browser-scroll-stall` / `243e583a195230e6e860faa28e2f63f1237c1c99`，仅 `embedded-page.ts` 诊断WIP由284增3删扩为388增3删。新增默认关闭的主环境 Window 只读诊断，旧传播链盘点关闭；有效函数描述优先于对象式 originalHandler 的简略描述。类型检查、Prettier、diff 与最终完整 `pnpm package:mac`（build / ZIP / DMG）通过，无新增或运行单元测试。删除本次方法与只读分支调用后，源码逐字恢复本轮修改前备份；守卫、输入、焦点、超时、重试及既有诊断代码没有修改。无产品UI或契约变化，不把该临时诊断交付称作点击修复。
+
+原实例原生正常退出后，同目录安装 ASAR `aa2f845401e290c2cfc25233176e6d2365b94457e1b7359ce6c8522bab9d3843`，旧包保留 `/tmp/FlowArk-before-main-world-window-20261026.app`。同一原数据目录、无trace参数启动 PID36752 / session84549，`FLOWARK_MAIN_WORLD_DIAGNOSTICS=1`、旧listener诊断为0。原生复用既有独立“原目标监听器 · 无输入只读取证”作为主框架读取载体，未修改正式流程；核对只有原固定selector读取文字、0层、仅内置浏览器绑定，无AI/工作区/凭据。打开预检时显示网页调整未完成，仅重新检查；通过后14:56:36单次Run同秒完成，快照为读取文字和原固定selector，未输入原沟通按钮或调用页面处理器。准备期间误入导出检查页后立即取消，未确认导出或生成ZIP；该页自动保存的是未改内容的独立诊断草稿，不涉及正式业务。
+
+唯一诊断报告明确选择根框架网站主环境：`origin=https://www.zhipin.com`、`isDefault=true`、name为空、context id=3，frame/loader前后一致，完整uniqueId保留本机。八类相关事件 `pointerdown/up/cancel`、`mousedown/up/click`、`touchstart/end` 的结果为 `count=0`、`truncated=false`、`listeners=[]`，并非 Window 的全部事件类型计数。这修正了旧隔离环境查询范围不足，但只证明该次当前主环境 Window 未发现这些JS监听器；不能与不同时刻的14节点盘点拼接成同次完整传播链，不覆盖其他环境、原生处理、历史或后续动态注册。本次未派发网页输入，没有新的宿主发送、Renderer接收或DOM执行因果样本，仍无法给旧85定位阶段，不据此恢复招聘。
+
+私有宿主记录 `/tmp/flowark-main-world-live-20261026.log` 为334字节，SHA256=`611808519359beed5a59915aa74c37b3d032a0f897c3f67b0a186bd0c3546773`；原生截图 `/tmp/flowark-main-world-result-20261026.png` SHA256=`ced3e5cb8c7209f5d010e4c75623a4fa57d783d2d78a38ed6b34393ca16e3216`，相应AX保留本机，不上传原始内容。诊断实例正常退出后，同包原环境重开 PID37613 / session69848，主环境和listener开关均0，scroll诊断保持1，无持续trace。正式第7批仍停止后续、7登记7结束，原岗位与unknown保持；新增一次只读记录不计招聘批次或送达，10月26日用额/送达仍未重新核验，没有150弹框。本补证已执行，不再重复为成功实验；总目标与跟进保留。
+
 ### 主页面 Window 观察盲点与定向补证范围
 
 本人要求继续执行尚未做过且有区分力的真实站点取证。本轮发现先前静态盘点的一个具体覆盖缺口：客户端从 `flowark-browser-driver` 隔离环境取得 `window` 对象；[Chromium 152.0.7977.78 的 InspectorDOMDebuggerAgent](https://github.com/chromium/chromium/blob/152.0.7977.78/third_party/blink/renderer/core/inspector/inspector_dom_debugger_agent.cc#L158) 对 Node 按 `pierce` 决定跨环境收集，但非 Node 的 EventTarget 分支固定 `report_for_all_contexts=false`（L186–188），并在 L113–115 过滤其他环境。故原14节点结果中的“window无相关项”仅覆盖驱动隔离环境，不能外推网站主环境的 Window 无相关监听器；原 DOM 节点采用 pierce 的范围与原历史证据保持，不将此采集盲点写成 BOSS 点击根因。
