@@ -141,3 +141,42 @@ LiteralValue仅对用户未完成的原始编辑添加独立标记；实例导�
 合并main实际`pnpm package:mac`成功，ZIP摘要`efcbe68f717113740e5e6e152ca7ae5d490d94104976b2322d1ca739a68a0fb5`，DMG摘要`8ca0a300314de641993f41288e41e633474880729ca8b4dbdf405b2f5e2846c0`。旧#317 App及闭合SQLite/保护文件已备份并核对；正常退出旧进程后从只读DMG串行安装，构建/DMG/安装三处ASAR均为`af0a34f54cc65a21dc6075d0b70c33148cc6621f2f9a7929f2950771266bbd81`，安装bundle相对链接检查通过，DMG已卸载。版本仍为未正式发布的0.3.0，本机更新不等于公开签名分发。
 
 安装版重开原工作区，实际查看同名个人0.6.1实例标题一次、资料和Skill目录仍指向本人原profile、DeepSeek仍已配置；31流程、7Run保持。安装前后247份文档、94事件、两份保护文件逐项摘要完全一致，原22来源索引和原整理失败位置不变，没有重试付费片段或发起BOSS动作。客户端已停在开始任务页供继续操作；公开个人0.7.0/BOSS0.2.9包和模板仓库未改动。[机器证据](template-instance-labels-20261019.json)只登记哈希和分层结果；本批不替代真实个人Skill完成、真实模型质量/成本、BOSS账号业务或完整S01–S08/G3–G5/186/Agent验收。
+
+
+## 2026-10-26 · 同实例目录声明扩展先行（0.53.0 候选）
+
+托管流程需要自行保存已经读取的证据，并在后续运行复用。已授权范围内的读取、核对和缓存不依赖使用者逐条标记已读；已读只表示通知阅读状态，不能替代外部结果、去重记录或模板取得的证据。业务判定和缓存格式归模板，客户端只接续通用目录资源能力。
+
+现有正式实例不能保存包外目录，而采用新版会新建独立实例。此次选择独立的“目录资源声明扩展回执”：原 `instance.packageKey`、包 digest、所有 `flow.sourceTemplate` / `bindings.template`、templateData owner 和固定结果来源 proof/index 全部保持；不做包版本迁移或结果兼容放宽。标准扩展包只提供新目录的声明来源，客户端不能把组合后的声明伪称为原 manifest。
+
+### 0.53.0 候选边界
+
+完整语言无关字段与语义见 [目录声明契约](../../contracts/v0.53.0/template-resource-extension.md)及 [JSON Schema](../../contracts/v0.53.0/template-resource-extension.schema.json)。新增请求/响应/回执定义与 `RunSnapshot.templateResourceExtension`，标准 ZIP 2.0、SDK 1.0 和原节点保持。该版本仅候选，尚未发布、消费者未采用，不得将本节写成现行能力。
+
+兼容检查要求两包先通过既有规范，模板 id 相同且版本/摘要不同，全部非 manifest 文件逐字节一致。manifest 仅可变更版本/摘要、末尾追加目录、原入口资源数组末尾追加这些目录；其他原声明、数组顺序、Schema、业务图/脚本/提示词及文件摘要保持。新增资源限不复用旧 ID 的 directory/write 或 readwrite，不附带 defaultDirectoryFrom。受影响入口必须原已声明 file，原 actions 非空且原授权仍按既有 canWrite/writeGuard 检查；不追加 capability/action，不按动作名称猜权限类型。旧动作无 kind 字段，不虚构 file.write 类型。
+
+`ApplyRequest` 固定 instanceId、expectedRevision、basePackage、extensionPackage、requestId。宿主自行推导新增 resources/entries，产生带 requestSha256 和 receiptSha256 的不可变回执；回执无路径、grants 或业务值。instance 侧挂及受影响当前 FlowRecord 的 `templateResourceExtension` 保存同一完整回执，新 Run 由当前记录复制并固定。旧版本、快照、计划、rerun 或已有连续会话没有该字段，就永远不从 live instance 获取新增目录权限。实例 revision 纳入新回执；业务 state 值与 revision 保持，二者不能混同。
+
+接入前拒绝未保存草稿、同实例排队/活动/暂停/等待/取消中 Run 或存活连续会话；不自动保存草稿、取消工作或抢占执行。按模板写操作串行，最终同事务复核 CAS 修订和静止状态，写不可变回执、实例侧挂及目标当前流程；失败零部分写入。保留 instanceId、flowId、本地图、输入、配置及其 revision、原绑定/grants、context、state、effect 和 attention。每实例只允许一份扩展，MVP 不替换、不叠加、不撤除；相同 requestId 且请求摘要相同返回原回执，同 ID 不同请求拒绝。
+
+`Templates.context()` 返回原 PackageData；独立有效资源解析器验证固定回执、两个包及当前入口，只组合可见目录声明。save/writeFlows/preflight/writeGuard/SDK file/原生 file 节点统一使用。detail 增加独立 effectiveResources 和可选 resourceExtension，入口资源展示采用有效成员，原 manifest 不改。普通保存保留回执，Renderer 不得注入或删除；写前还须比较 live/fixed 回执及新增目录的当前绑定。扩展包加入实例/流程/版本/Run 的引用保护；旧包和固定来源守卫保持。
+
+apply 只返回持久化 `{version:1,receipt}`，detail 随后单独读取。已成功接入但读取失败保留回执，仅重新读取；没有确定回执时先核对原 requestId，不静默重放。缺目录绑定只阻止使用该目录的相关入口，接入及打开页面不启动 Run、不重按 unknown、不补写成功。
+
+### 原生状态与先行设计
+
+沿用“来源与版本”和“资源与动作授权”，不新增产品导航或普通投递审批。Agent 在既有授权内可以操作这些 UI。
+
+| 状态 | 显示与下一步 |
+| --- | --- |
+| 可接入 | 明确仅接入目录声明、原模板身份保持；显示新增目录与访问范围 |
+| 缺目录绑定 | 普通资源分类显示缺失，选择目录并保存后相关入口才可运行 |
+| 不兼容 | 给出具体差异，不能通过此入口换包、迁移或放宽原规则 |
+| 保存中 | 禁止重复提交并保留目标和草稿；活动/排队运行不允许接入 |
+| 保存失败或回执未确认 | 确定失败保留原实例和输入；未确认先重新读取；成功回执后的详情失败只重读 |
+
+Figma 复用 [模板版本与导出 2:4837](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=2-4837) 的状态示例结构，新增 [Light 1158:11253](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1158-11253) / [Dark 1158:11441](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=1158-11441)。五状态卡依次为 Light `1158:11347/11352/11358/11363/11413`、Dark `1158:11535/11540/11546/11551/11601`，目录字段 `1158:11427/11615`。复用统一分类、按钮、状态和字段组件、Semantic Light/Dark、Noto Sans SC / Inter；每板 51 FRAME、56 TEXT、14 INSTANCE，无图片填充。收窄为“接入目录资源声明”后的两张 1440×1280 最终整板已实际查看，无截断、遮挡或重叠；设计完成不表示可点击原型、客户端或业务缓存已通过。
+
+原生作者前置已取得准确 0.2.53 往返对照，再经普通 UI 导出 0.2.55 目录声明扩展包。152 个归档文件仅 manifest.json 变化，151 个业务文件逐字节一致；原 resources/actions 保持，仅追加 communication-cache/readwrite/required=true 及 daily-apply 成员。包 digest `579ba06619d5098dd53d302156ec342c0de3f380a2ab63c1350998ca7b23e5fe`，ZIP SHA256 `dc341de76eeebf91b7f718eca4d81af9f22506e4902c8bda5c784b1a3c61bf98`。此为普通作者导出的真实前置，已本机导入定义，尚未接入正式实例；未新建实例、未启动 Run，不代表缓存已实现。契约参考函数另对这两个原生 ZIP 的完整 152 项 Map 进行了只读直接核对，原始 manifest 与对象一致，151 项文件逐字节保持，实际返回唯一上述目录/入口增量；没有改写 ZIP 或业务文件。
+
+消费者后续需核对严格兼容拒绝、CAS/事务故障零部分写入、相同/冲突幂等请求、活动与排队拒绝、旧快照无新增权限、原来源仍可读、原 state/effect/attention 保持、本地图不覆盖、缺绑定/选择器取消/保存和重开，以及实际 file SDK 写入与读回。该 SDK 不承诺原子追加或多文件事务；模板自行定义有界证据文件和核对。当前不新增、不运行单元测试；契约生成、设计核图、客户端安装、缓存写出与真实 150 上限弹框分别记录。
