@@ -1,5 +1,13 @@
 # 模板开发
 
+## 2026-10-27 · 旧 claim 宿主登记归属只读补证
+
+本轮仅通过普通原生界面核对 `02:08` 原失败 Run 的输出产物及事件：claim 的已保存副本位于该 Run 的产物目录；原日志顺序为第 7 步开始、宿主 artifact 登记、第 7 步完成，登记事件给出的 artifactId 与原生产物路径一致。随后只读比较该副本和当前缓存 claim，两者均为 `1076` 字节，逐字节及 SHA 相同。三十份缓存的 SHA/大小均与 `02:15` 审计一致，claim 一份、checkpoint 零份；未新增、删除或回写任何缓存。私有 Run/Artifact 标识、路径、摘要、内容及本机证据不提交 Git。
+
+窄源码核对确认普通 file/create 调用 `artifact.register({path})`，Worker RPC 闭包固定当前 Run.id，宿主核对 active ID 后由 registerArtifact 返回归属；脚本自造的同形 JSON、连续批次初始化复用均不能仅凭字段形状认定属于当前 Run。本轮没有取得第 7 步完整返回值或第 8 步传播的 claimArtifactRef，没有给脚本增加 currentRunId 验证；结论仅为原宿主登记及保存副本的归属补证，不是原末次非空采集、稳定会话身份、旧 claim 完成链闭合或游标推进。
+
+没有新 Run、网页导航或输入、恢复脚本、`1.0.8`、代码修改、安装、单元测试或招聘外发，不重跑原样本。正式招聘停止、unknown 不重放和真实 150 次上限弹框门槛保持；本段只登记已取得的限定证据，不称故障修复或验收完成。
+
 ## 2026-10-27 · 有界列表标准属性只读结果
 
 沿 [PR #1092](https://github.com/zhongmiao-org/flow-ark/pull/1092) 的独立只读核对范围，`02:32:51`（Asia/Shanghai）普通单步流程唯一 Run 同秒完成。根为 `body`、framePath 为空，四字段均 `required=false`：已核对 `ul:nth-of-type(2)` 范围内第 4–6 行 `li` 各读取标准 `id`，实际均为 `count=1/status=missing-attribute/value=null`；第 4 行 `li` 的 `class` 为 `count=1/status=empty`、值精确为空字符串。`complete=true` 仅说明可选字段处理完成，不代表取得 ID 或选中状态。结果只证明这三个 li 的标准 id 在当时缺失，不能排除其他属性、后代或站点机制，也不据此猜测 data-*、枚举属性或宣称稳定身份已解决。
