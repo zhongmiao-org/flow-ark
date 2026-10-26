@@ -2,6 +2,18 @@
 
 ## 2026-10-26 点击派发边界的定向取证
 
+### 新路径：坐标单位链与原生图像测量（无新增按下）
+
+本轮按本人要求继续区分宿主到页面的剩余假设：只分析既有 trace 的坐标字段，并新取当前原生截图测量目标绘制位置；没有重跑二维码、标题、公开导航或监听器盘点，没有创建 Run、派发页面输入、调用模型、修改业务数据或重装客户端。PID10487 的正式第7批仍显示已停止后续批次，原未知岗位保持立即沟通。截图及两份计算摘录只存本机，不上传或提交 Git。
+
+原 QR 记录中的 `(335.73046875,101.58203125)` 来自 Electron `before-mouse-event` 和同次 `ForwardMouseEvent`，两者一致；成功日志没有保存原始 CDP 发送参数，不能把这组数称为已观测的 sender point。[Electron v44.4.1 转换器](https://github.com/electron/electron/blob/v44.4.1/shell/common/gin_converters/blink_converter.cc#L426)直接输出 `PositionInWidget`；[Chromium 152 输入转换](https://github.com/chromium/chromium/blob/152.0.7977.78/content/browser/devtools/protocol/input_handler.cc#L1553)的有效倍率包含浏览器 zoom、嵌入 iframe CSS zoom 和 page scale。[DOM MouseEvent](https://github.com/chromium/chromium/blob/152.0.7977.78/third_party/blink/renderer/core/events/mouse_event.h#L152)的 x/y 使用向下取整的 clientX/clientY。以历史 zoom `0.3145833333333333` 作一致性计算，宿主点反算为 `(1067.22268,322.90977)`，落在实际 DOM `(1067,322)` 的同一像素区间；这不是对当次完整有效倍率或原始发送点的恢复。
+
+新截图 `/tmp/flowark-input-edge-before-20261026.png` 为2880×1920像素，SHA256=`35b71d3a93f1cb86f1113ca10e72ec88d1e410a4e27d80d1d87a040c53cf7801`。按图像可见网页边界约 `(1672,402)` / 宽1208像素与原生UI标示1920 CSS宽度，把既有原目标中心 `(586.7384033,223.0132446)` 映射至图像约 `(2041.16,542.31)`。只读颜色连通区域测得原按钮范围 `[1993,527]—[2087,555]`、中心 `(2040,541)`，两轴误差均小于2图像像素，映射点明确落在按钮内部。截图边界是图像测量，并非旧失败当次的原生 view bounds。把586.7直接与约604 DIP视图宽度相减得到“紧邻右滚动条”的候选混用了单位，已撤回；没有为该候选新增 compositor trace。
+
+私有摘录 `/tmp/flowark-input-coordinate-chain-20261026.json` 保留原 trace SHA、64位 trace id字符串、各层原数值、官方同版来源和推算前提；`/tmp/flowark-input-coordinate-image-measurement-20261026.json` 保留截图摘要、颜色区域、预测点和误差。原trace中没有 scrollbar layer快照，只读覆盖检索也已结束，不以普通DOM HitTest替代原生滚动条命中证据。
+
+本段排除了直接混用这些坐标数值所形成的错位推断，未取得旧失败同次的宿主按下坐标、有效倍率或路由目标，仍不能排除失败时瞬变、宿主未交付、Renderer内部处理或页面阶段问题。根因未定位，不修改点击实现、不恢复招聘、不重放unknown；10月26日网站用额和送达仍未核验，真实150次上限弹框未取得。此坐标核对已执行，后续不作为新的成功实验重复。
+
 ### 输入链路 trace 已实际取得，招聘仍停止
 
 先行 [#1069](https://github.com/zhongmiao-org/flow-ark/pull/1069) head `494a048b9dabf054b567fd531a850686644e2169`，实际 CI40263916262/121381998334 的付款/额度注解与 `steps=[]` 已核对，依持续授权准确 CLI squash 为 `98fafb92ee8cfa0e3e4068ad7674b5a089193d42`，不计 CI 通过。源码/ASAR 未为本段修改，仍是下文 500565dd 候选，未新增或运行单元测试。
@@ -12,7 +24,7 @@
 
 原生正常退出后 trace 完整落盘 `/tmp/flowark-input-delivery-20261026.json`：162683547字节/765703事件/SHA256=`cc657fa9435225d5a870fd5bfc3e10e7d15d37cdc0f5b00ec5b871cda3f2e491`，只存本机、不提交或上传。私有有界摘录 `/tmp/flowark-input-delivery-chain-excerpt-20261026.json` 为56事件/21480字节，保留原摘要、时间窗和64位 trace id（分析使用 Python 整数，不经 JS 丢精度）。CommitLoad 明确该岗位的网页 Renderer=10240，工作台 Renderer=10057，Browser=10054；不是把工作台输入当网站输入。
 
-原生被动记录此次 point=(335.73046875,101.58203125)，move/down/up 三条均 defaultPrevented=false、原 mousedown 守卫 pressed-receipt。以 Browser `ForwardMouseEvent` ts=1565378192522us 为0，本次 MouseDown trace id `1868773146793193013` 的实际阶段为：FilterAndSend(MouseDown)+27us、SentBlocking+35us、Renderer impl+61us、Renderer main+103us、WebFrameWidget处理+105us；同一 main 处理区间内 DOM pointerdown+215us、mousedown+312us；Renderer main ACK(kConsumed)+1867us，Browser MouseEventHandled(CONSUMED)+1961us。MouseUp id `1868773146793193000` 同样进入网页 Renderer，DOM pointerup/mouseup/click 后返回 NOT_CONSUMED。一次具体输入已能区分浏览器前段丢失、进入 Renderer 后未到 DOM、DOM 已派发及回执阶段；ACK 的 CONSUMED 在本次明确位于 DOM mousedown 之后，不能单凭该词认定宿主吞掉输入。DOM坐标与宿主转发坐标数值不同，不直接据跨层不同量纲认定坐标bug。
+原生被动记录此次宿主 PositionInWidget=(335.73046875,101.58203125)（非已记录的 CDP 发送参数），move/down/up 三条均 defaultPrevented=false、原 mousedown 守卫 pressed-receipt。以 Browser `ForwardMouseEvent` ts=1565378192522us 为0，本次 MouseDown trace id `1868773146793193013` 的实际阶段为：FilterAndSend(MouseDown)+27us、SentBlocking+35us、Renderer impl+61us、Renderer main+103us、WebFrameWidget处理+105us；同一 main 处理区间内 DOM pointerdown+215us、mousedown+312us；Renderer main ACK(kConsumed)+1867us，Browser MouseEventHandled(CONSUMED)+1961us。MouseUp id `1868773146793193000` 同样进入网页 Renderer，DOM pointerup/mouseup/click 后返回 NOT_CONSUMED。一次具体输入已能区分浏览器前段丢失、进入 Renderer 后未到 DOM、DOM 已派发及回执阶段；ACK 的 CONSUMED 在本次明确位于 DOM mousedown 之后，不能单凭该词认定宿主吞掉输入。DOM坐标与宿主转发坐标数值不同，不直接据跨层不同量纲认定坐标bug。
 
 这只是本次新安全控件的完整交付证据，没有产生新的点击失败，不能反推旧85故障发生阶段、把CONSUMED当取消、宣称根因/修复或恢复招聘。今后不重复此二维码成功 trace 或监听器盘点；需要新的真实失败同次阶段证据，旧 unknown 绝不用于采样。退出追踪实例并确认全部退出后，已用原环境无 trace 参数重开 session2259/PID10487；FLOWARK_SCROLL_DIAGNOSTICS=1、FLOWARK_CLICK_LISTENER_DIAGNOSTICS=0，不留持续 trace。正式0.2.53/已发预留unknown/735待办及真实150弹框门槛保持。
 
