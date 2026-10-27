@@ -1,5 +1,23 @@
 # 滚动网页区域
 
+## 2026-10-27 原点击悬停阶段差分已实际取证（09:38）
+
+下方先行计划 [#1095](https://github.com/zhongmiao-org/flow-ark/pull/1095) 已执行。其准确 head `2f97a02ac8e20f2bacbd22777e53f31c8e688a84` 的 CI40432279157 / Validate121952585181 实际因账户付款/额度未启动、`steps=[]`；本地治理检查通过后，依持续授权准确 head CLI squash 为 `32a191bacd8d4a6b1d1c8a004174334fcac5b013`，不是 CI 通过。下方“尚未实施”保留先行时点含义，本段登记实际结果。
+
+客户端基线为 `508088d1`，`embedded-page.ts` 原388增3删诊断WIP保留，本轮新增临时悬停边界诊断后总计480增3删，未提交为根因修复。修改前源码备份和旧应用均保留本机；typecheck、Prettier、diff 与完整 `pnpm package:mac`（build / ZIP / DMG）通过，没有新增或运行单元测试。旧应用正常退出后同目录安装，新 ASAR SHA256 为 `b15efab9f626904b6767f0d575f4752f6be2201acd6fd21bfb0da9e74bb53203`。
+
+同一原环境启动诊断进程，`FLOWARK_CLICK_HOVER_BOUNDARY_DIAGNOSTICS=1`、scroll诊断为1，旧listener/mainworld开关为0，无trace。开关开启时传输层拒绝全部 `Input.*`；唯一例外还须处于本次 click 局部 active 范围、方法为 `Input.dispatchMouseEvent`、类型为 `mouseMoved`、参数仅有有限数值 x/y 与 type。局部阻断先于首个 await 建立，只接受有固定 selector 的根框架诊断，结束清理后关闭 active；按下、释放、键盘、触摸与手势均无旁路。最后 `beforePress` 后再核对 frame/loader/url 与目标身份，读取差分并抛出专用诊断停止，不返回 `clicked:true`。
+
+通过普通原生UI复制独立单步“原目标悬停边界 · 按下前停止诊断”，实际快照为 v8 / click / framePath=[] / value=null / 原固定 selector，仅绑定内置浏览器，无 AI、file、workspace 或凭据。09:38:29唯一Run同秒以明确诊断错误停止，原按下和释放阶段没有派发；它不是点击成功或正式招聘Run。
+
+同次悬停前后，传播链14节点、29个监听器逐值一致，全部未截断；驱动隔离 Window 的16项来自原守卫4项和本次被动诊断12项，网站主环境 Window 为0项，不将自有诊断监听器算作网站处理。frame、loader、backend target 保持同一身份，目标点为 `(586.7384, 223.0132)`。只有一次 move；实际到达的可信 pointerover、mouseover、pointermove、mousemove 均命中原目标、目标仍连接、defaultPrevented=false，dropped=0。宿主观测到的 move 坐标为 `(184.578125, 70.15625)`、defaultPrevented=false；不同层坐标保留各自口径，不凭数值直接判错。
+
+本次结果只收窄“当前这一轮悬停新增相关监听器”的候选；没有新增监听器不排除既有处理器内部状态、历史动态、按下阶段处理或宿主路由问题。由于没有按下，不能据此定位旧85根因、宣布修复或恢复正式招聘，也不能声称悬停自身没有网站网络副作用。本次有界路径已经完成，不重复为安全成功实验。
+
+固定版本源码另作一项窄对照：Chromium152的CDP输入经[RenderWidget目标查找与InjectMouseEvent](https://github.com/chromium/chromium/blob/152.0.7977.78/content/browser/devtools/protocol/input_handler.cc#L1395)，最终直接[ForwardMouseEvent](https://github.com/chromium/chromium/blob/152.0.7977.78/content/browser/devtools/protocol/input_handler.cc#L739)；AppKit原生拖动区域的[hitTest / HTCAPTION路径](https://github.com/chromium/chromium/blob/152.0.7977.78/components/remote_cocoa/app_shim/bridged_content_view.mm#L286)不在这条CDP派发链内。这只排除“AppKit非客户区命中直接吞掉当前v8 CDP输入”的机制，不排除整个宿主拦截；Electron44.4.1的[before-mouse-event前置处理](https://github.com/electron/electron/blob/v44.4.1/shell/browser/api/electron_api_web_contents.cc#L1698)仍属另一边界。不能据CSS拖动区域猜测旧85根因或据旧issue升级Electron。
+
+原始宿主日志、审计及 AX/截图只保留本机，未上传原始内容或私有身份。结束后通过原生UI解除新诊断流程的浏览器绑定并保存，防止开关关闭后误执行原 click；原Run快照保持不可变。诊断进程正常退出，同包原环境以新开关0、无trace重开。正式流程和原unknown没有运行或改动，没有招聘外发或150弹框；本轮没有重新审计缓存，也未取得新的正式恢复截图，不据旧证据补报当前文件数或恢复状态。提前停止仍是未解决运行故障，真实150完成门槛与unknown不重放边界保持。
+
 ## 2026-10-27 原点击悬停阶段差分诊断（先行范围）
 
 本人要求集中修复正式第85步提前停止的点击故障。本轮仅针对一个尚未取得动态证据的边界：原实现先向固定目标派发可信 `mouseMoved`，确认悬停与坐标稳定，再复验目标链，最后才按下；既有静态监听器盘点没有覆盖这一前半段实际执行后新增的处理。计划沿原点击前半段取得同次差分，不重跑二维码、公开导航等安全成功样本，不重做已有本机按下取消负样本，也不把诊断成功当作点击修复。
