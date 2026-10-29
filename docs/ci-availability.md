@@ -14,6 +14,14 @@
 
 当前 UI 阶段继续不新增或运行单元测试，保留原有测试套件。CI 成功不代表客户端安装、BOSS 业务、网站当天上限或最终 ZIP 交付通过。
 
-仓库切为公开之后，治理 PR #1111、#1112 已实际启动 Validate 和 Auto Merge 并成功。此前 #1110、客户端 #378/#379 因计费未启动及经本人授权手工合并是当时的历史事实，不是当前 CI 状态。新增触发入口的准确 PR、合并提交、主线与手动运行证据在执行后补录，不先行宣称成功。
+仓库切为公开之后，治理 PR #1111、#1112 已实际启动 Validate 和 Auto Merge 并成功。此前 #1110、客户端 #378/#379 因计费未启动及经本人授权手工合并是当时的历史事实，不是当前 CI 状态。
 
-首轮触发入口 PR 已实际通过 CI 并自动合并：治理 #1113 为 `46648f97607f244411183643ee075023c81f8405`，客户端 #380 为 `d3fd4a69ffb9bbb72591c62cc95fa657601c9475`，模板 #59 为 `9d2f7a6431c57a5c1f9fd780b18769928125d8bf`。通过普通 workflow_dispatch 启动的 [治理主线](https://github.com/zhongmiao-org/flow-ark/actions/runs/40816501590)、[客户端主线](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/40816503343)、[模板主线](https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/40816505177)均已实际成功，各自 head_sha 与上述合并提交相同。自动合并后的显式触发另行核对。
+首轮触发入口 PR 已实际通过 CI 并自动合并：治理 #1113 为 `46648f97607f244411183643ee075023c81f8405`，客户端 #380 为 `d3fd4a69ffb9bbb72591c62cc95fa657601c9475`，模板 #59 为 `9d2f7a6431c57a5c1f9fd780b18769928125d8bf`。通过普通 workflow_dispatch 启动的 [治理主线](https://github.com/zhongmiao-org/flow-ark/actions/runs/40816501590)、[客户端主线](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/40816503343)、[模板主线](https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/40816505177)均已实际成功，各自 head_sha 与上述合并提交相同。
+
+自动合并后的显式触发也已逐仓库核对：以下 PR 的 Validate、Auto Merge 和随后自动创建的 main 运行均成功；运行 head_sha 与实际 squash 合并提交一致。main 运行的 PR 标题检查和 Auto Merge 均跳过，没有递归触发。
+
+| 仓库               | PR                                                                 | 实际合并提交                               | 自动启动的 main 校验                                                                                  |
+| ------------------ | ------------------------------------------------------------------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| flow-ark           | [#1114](https://github.com/zhongmiao-org/flow-ark/pull/1114)       | `39a497f117b0ef76032eec25f90359fc5b357855` | [40817005297 · success](https://github.com/zhongmiao-org/flow-ark/actions/runs/40817005297)           |
+| flow-ark-client    | [#381](https://github.com/zhongmiao-org/flow-ark-client/pull/381)  | `68f189b5bee37ca5093da2dfa9b61861a169c411` | [40817041571 · success](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/40817041571)    |
+| flow-ark-templates | [#60](https://github.com/zhongmiao-org/flow-ark-templates/pull/60) | `6add55d7d0144d68e6ea7069abc513d4164fe6cf` | [40816731750 · success](https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/40816731750) |
