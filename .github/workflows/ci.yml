@@ -1,15 +1,27 @@
 name: CI
 
 on:
+  push:
+    branches: [main]
+  workflow_dispatch:
   pull_request:
     branches: [main]
-    types: [opened, synchronize, reopened, ready_for_review, labeled, unlabeled, edited]
+    types:
+      [
+        opened,
+        synchronize,
+        reopened,
+        ready_for_review,
+        labeled,
+        unlabeled,
+        edited,
+      ]
 
 permissions:
   contents: read
 
 concurrency:
-  group: governance-pr-${{ github.event.pull_request.number }}
+  group: governance-ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -19,6 +31,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Check branch and PR title conventions
+        if: github.event_name == 'pull_request'
         env:
           PR_BRANCH: ${{ github.head_ref }}
           PR_TITLE: ${{ github.event.pull_request.title }}
@@ -42,6 +55,7 @@ jobs:
     name: Auto Merge
     needs: validate
     if: >-
+      github.event_name == 'pull_request' &&
       github.event.pull_request.head.repo.full_name == github.repository &&
       !github.event.pull_request.draft &&
       contains(github.event.pull_request.labels.*.name, 'automerge')
@@ -75,7 +89,6 @@ jobs:
             echo 'PR changed or is not ready; leave it open for fresh checks.'
             exit 1
           fi
-          # This private repository's plan does not offer branch protection.
           # Fail closed unless this run's Validate job passed, then inspect all
           # other reported PR checks (including any added in future workflows).
           jobs=$(gh api "repos/$GH_REPO/actions/runs/$GITHUB_RUN_ID/jobs")
