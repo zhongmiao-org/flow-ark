@@ -12,6 +12,8 @@
 
 ## 契约与普通UI
 
+2026-10-31 现场复核：列表右侧正文的普通 UI 诊断报告祖先第 3 层 DIV 的 `overflow-clip`，没有采用正文或执行外发。客户端修复草稿 [#388](https://github.com/zhongmiao-org/flow-ark-client/pull/388) 区分可见字段的自身内容溢出与祖先其他子树溢出：目标及后代仍检查自身 scroll/client 尺寸，祖先仍检查所选字段矩形是否越出其裁剪框。仅作用于现有 visible-text 策略；其他策略、字段结果格式、隐藏和行数截断拒绝保持。类型、构建、格式已通过，尚待安装后普通 UI 正反场景及实站读取核对；不据此认定真实正文可用或业务验收通过。
+
 [0.48.0候选](../../contracts/v0.48.0/README.md)追加browser v11及browser-visible-text-v1，renderPolicy=bounded-visible-text-v1，结果version6；沿用selection-text字段配置，每字段必需excludedHiddenTextLeaves。原始或非唯一字段为0，总计最多2000。节点、固定调用、字段顺序/源网址/Unicode和入口自身browser/use资源严格关联；2000元素/6000节点/64祖先、取消/期限/导航代次、祖先空格/装饰、整次128KiB及externalAppearanceVerified=false保持。旧v1–v10和旧结果不改。
 
 作者在原字段配置显式“只读可见文字”，启用后可“恢复严格规则”或“仅跳过空节点”，均通过普通UI切换/保存，不执行。结果和诊断显示隐藏文字叶子排除数及外部覆盖未核验；含子元素或生成内容仍返回null并保留原因。IPC仍version1，仅新policy分支增加必需计数，同一同步检查不读取正文。导出独立能力，旧客户端明确拒绝，不切换策略。冻结Run/已装包不因草稿变化而改变。
