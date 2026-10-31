@@ -16,7 +16,7 @@
 - [x] 同一连续会话达到 20 条明确成功，安全收尾后共 22 条，8 个批次全部完成。
 - [x] 作者 UI 导出一个完整 ZIP，读回核对并在干净工作区普通 UI 复导、配置、重开和作者再次编辑导出。
 - [x] 包内外 README 逐字节一致，模板目录仅 README 与当前 ZIP。
-- [ ] 治理与模板各自绿色 CI 自动合并并登记交付状态。
+- [x] 治理与模板各自绿色 CI 自动合并并登记交付状态（#1132 / 模板 #61）。
 - [ ] 网站真实 150 次上限及上限后的未读会话收尾取得实站证据。
 
 画板沿用 [Light](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=955-10092) 和 [Dark](https://www.figma.com/design/sVciNUZHG9yx81gCpYzjH9?node-id=955-10198)，单岗位循环说明更新后，另同步 App 配置、网页启用及首发核对的 8 处文字，不增加客户端业务界面。默认招呼与回复仍须经使用者资源绑定和动作授权；设计通过不代表流程已经实现。
@@ -61,7 +61,8 @@
 
 README 明确默认招呼准备、增量处理、上限后的回复、恢复方式、模型费用与实际验收范围。真实 150 次及其收尾尚无对应实站证据时继续标为未验收，不能用 20 次替代；未满足交付门槛不导出最终包或更新为正式通过。
 
-
 ## 本地检查与交付记录
 
-客户端通用字段裁剪修复由 #388 绿色 Validate 合并并安装，未覆盖客户端原有未提交改动。本次模板独立执行 `pnpm validate`、`pnpm build`、`pnpm package:templates` 和 `git diff --check`，均通过；原始作者 ZIP 在全部命令后仍保持相同字节和摘要。初次校验因本机 dist 残留旧版本归档明确失败，将该可重建旧产物移出 dist 保留后重跑通过。未新增、运行单元测试或调用含单元测试的聚合命令。治理与模板 PR、最新提交 CI 和实际合并状态在取得后另行登记。
+客户端通用字段裁剪修复由 #388 绿色 Validate 合并并安装，未覆盖客户端原有未提交改动。本次模板独立执行 `pnpm validate`、`pnpm build`、`pnpm package:templates` 和 `git diff --check`，均通过；原始作者 ZIP 在全部命令后仍保持相同字节和摘要。初次校验因本机 dist 残留旧版本归档明确失败，将该可重建旧产物移出 dist 保留后重跑通过。未新增、运行单元测试或调用含单元测试的聚合命令。治理 [#1132](https://github.com/zhongmiao-org/flow-ark/pull/1132) 最新提交 `6ecc41c2c29f0eafa58d74f5c86c8ed2288029fa` 的 [CI 2416](https://github.com/zhongmiao-org/flow-ark/actions/runs/41189508196) 成功，自动合并为 `992c8902bcb02a74a7e6e8f1d2fe24f331291c89`。模板 [#61](https://github.com/zhongmiao-org/flow-ark-templates/pull/61) 最新提交 `b576fb6674b707d90106a6839e592bebb2f78389` 的 [CI 143](https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/41189563751) 成功，自动合并为 `5fb9190b58b1490ae4ae086f42f131eaa862f396`。两仓均使用现有 `automerge` 标签触发 CI 自动合并，没有手工绕过检查；标签导致的旧工作流取消不替代最新提交成功证据。
+
+交付完成后再次只读比对：原正式流程与实例、全部 6 个 Skill 版本、其他 26 行模板状态及客户端既有未提交文件均未变化；旧 371 条安全索引记录逐项一致，仅本次 22 条新的 confirmed 首次沟通加入，共 393 条。最终索引更新时间仍为本次安全收尾时间，ZIP 复导没有追加外发或改写这些记录。
