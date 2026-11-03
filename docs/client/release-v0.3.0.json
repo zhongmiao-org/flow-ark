@@ -1,0 +1,98 @@
+{
+  "version": "0.3.0",
+  "release_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/tag/v0.3.0",
+  "tag": "v0.3.0",
+  "tag_commit": "b71e48e562e516c02fd7f5e4bd8de479fc3b3e48",
+  "candidate_head": "4da4af7ecb2b7ec3579084a027eaf9774b66d9a5",
+  "release_control_commit": "b7e4a17ac440887810fa274f684fd76180459dea",
+  "workflows": {
+    "prepare": 41588145493,
+    "candidate": 41588184443,
+    "main_ci": 41589447264,
+    "formal_packages": 41589450038,
+    "recovery_publish": 41591131996,
+    "published_idempotency": 41591380583
+  },
+  "formal_packages_result": "all_four_success",
+  "first_publish_result": "failed_draft_lookup_404",
+  "recovery_result": "success_reused_verified_formal_artifacts",
+  "idempotency_result": "success_no_release_or_asset_changes",
+  "published_at": "2026-11-03T06:40:06Z",
+  "latest": "v0.3.0",
+  "draft": false,
+  "assets": [
+    {
+      "digest": "sha256:37567ea412b322d95e4c8749e41afdf2d9de235bdde768c9a59118a1767c1ca7",
+      "id": 704601921,
+      "name": "FlowArk-0.3.0-linux-x64-SHA256SUMS.txt",
+      "updated_at": "2026-11-03T06:39:28Z"
+    },
+    {
+      "digest": "sha256:d7de91d5ad1f1c23a50e3effcabfd8c3cd03afe0795385ab59b24daff165c344",
+      "id": 704601920,
+      "name": "FlowArk-0.3.0-linux-x64.AppImage",
+      "updated_at": "2026-11-03T06:39:54Z"
+    },
+    {
+      "digest": "sha256:cfb9e873df68c4eff5fca4ef3ac50d5365da5c33eea1ea5009e88744ece885d5",
+      "id": 704601917,
+      "name": "FlowArk-0.3.0-linux-x64.deb",
+      "updated_at": "2026-11-03T06:39:50Z"
+    },
+    {
+      "digest": "sha256:48c92368493668691ca28a068974c034648f13de3111d0eb4174edce18183599",
+      "id": 704601919,
+      "name": "FlowArk-0.3.0-macos-arm64-SHA256SUMS.txt",
+      "updated_at": "2026-11-03T06:39:28Z"
+    },
+    {
+      "digest": "sha256:8c4ab0e806286ec4f1d2a8ef4a1822a12e8013653a0f500f7910545a7f83737b",
+      "id": 704601916,
+      "name": "FlowArk-0.3.0-macos-arm64.dmg",
+      "updated_at": "2026-11-03T06:39:59Z"
+    },
+    {
+      "digest": "sha256:9ec7c8f51aceadad1178c07d6ff1776c1b33ea8fbacb6d7109aaa05b7ab97bf6",
+      "id": 704601935,
+      "name": "FlowArk-0.3.0-macos-arm64.zip",
+      "updated_at": "2026-11-03T06:39:43Z"
+    },
+    {
+      "digest": "sha256:7a4f5dcd1d6210309306469deca8ef2bda368710ec9a97c22dca2c0c2d75b722",
+      "id": 704601941,
+      "name": "FlowArk-0.3.0-macos-x64-SHA256SUMS.txt",
+      "updated_at": "2026-11-03T06:39:28Z"
+    },
+    {
+      "digest": "sha256:ee4a3983e4f4e8582de87a6a3a329096ca238317b001217bbead29b5aefc1d2a",
+      "id": 704601965,
+      "name": "FlowArk-0.3.0-macos-x64.dmg",
+      "updated_at": "2026-11-03T06:39:47Z"
+    },
+    {
+      "digest": "sha256:686a25e78c7b859defde46e911590b357ecaa72fb1e2e423c22e22fd446477bc",
+      "id": 704602583,
+      "name": "FlowArk-0.3.0-macos-x64.zip",
+      "updated_at": "2026-11-03T06:40:01Z"
+    },
+    {
+      "digest": "sha256:ea17701f082e286efbf465a3406d4f4d0b2dbdfd3a9a88e04b042089812face6",
+      "id": 704602727,
+      "name": "FlowArk-0.3.0-windows-x64-SHA256SUMS.txt",
+      "updated_at": "2026-11-03T06:39:48Z"
+    },
+    {
+      "digest": "sha256:a84e2186d1668e285a75cb3f3b35c75818d39dfff5de95c7bcab02810f83ac03",
+      "id": 704602748,
+      "name": "FlowArk-0.3.0-windows-x64.exe",
+      "updated_at": "2026-11-03T06:40:02Z"
+    },
+    {
+      "digest": "sha256:304fcc22d9621ac1d7d28f897edc94e2a58f49844525d8bbd5c01df028a6733d",
+      "id": 704602817,
+      "name": "FlowArk-0.3.0-windows-x64.zip",
+      "updated_at": "2026-11-03T06:40:04Z"
+    }
+  ],
+  "acceptance_boundary": "Packaging and release only; distribution signing, macOS notarization, target-system installation and complete cross-platform business acceptance remain separate."
+}
