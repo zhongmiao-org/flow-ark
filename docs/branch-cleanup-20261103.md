@@ -14,13 +14,15 @@
 
 | 仓库 | 首轮删除 | 补充删除 | 合计 | 失败 | 最终保留 |
 | --- | ---: | ---: | ---: | ---: | --- |
-| flow-ark | 1,109 | 1 | 1,110 | 0 | main、docs/flow-zip-acceptance、docs/run-rerun-review |
+| flow-ark | 1,109 | 3 | 1,112 | 0 | main、docs/flow-zip-acceptance、docs/run-rerun-review |
 | flow-ark-client | 394 | 1 | 395 | 0 | main、feat/template-packages |
 | flow-ark-templates | 63 | 0 | 63 | 0 | main |
 
-合计删除 1,568 个历史分支，没有失败或因 lease 冲突跳过。以上数量不包含承载本次规则的治理 PR 合并后由 GitHub 自动删除的源分支。
+合计删除 1,570 个历史分支，没有失败或因 lease 冲突跳过。以上数量不包含新增 CI 验证 PR 自动删除的源分支。
 
 计划阶段仍开放的客户端 `feat/skill-restore-review` 已在执行前合并，刷新后符合本次条件，故纳入首轮清理。清理期间治理 #1146 与客户端 #401 的 `ci/node24-actions` 已分别合并，且发生在各仓库自动删除设置开启之前；已补充独立备份、恢复验证与准确 SHA 删除。
+
+首次配置验证的治理 #1147 和并发已合并的 #1148 源分支随后仍存在，另存 `post-ci.bundle` 及独立恢复仓库，核对准确 SHA 后清理；这两项计入治理仓库补充删除，不计为 CI 自动删除通过。
 
 三个历史分支的当前 SHA 与对应已合并 PR 的最终 head 不一致，与 main 的比较仍有独有提交，因此继续保留，不把历史 PR 合并当作新 head 已交付：
 
@@ -40,4 +42,12 @@
 
 三仓库分别用承载清理步骤的 PR 验证真实 CI 合并和源分支删除；准确 head、合并 SHA、CI 作业及远程引用证据保存于本机 `delivery.json` 并随交付回复报告。未通过的分层检查如实保留，不用设置读回或手工删除冒充 CI 自动删除成功。
 
-文档检查使用现有 `python3 .github/check-governance.py` 和 `git diff --check`，清理 shell 核对语法并分别执行现有 CI 验证；不新增或运行单元测试。公共 API、契约、产品 UI、业务数据和现有发布流程没有变化。
+| 仓库 / PR | 实际合并 SHA | 成功 CI |
+| --- | --- | --- |
+| [flow-ark #1149](https://github.com/zhongmiao-org/flow-ark/pull/1149) | 198d2ddfda4ece9e6f3a0d36cfc37e9b275f42d2 | [41593646225](https://github.com/zhongmiao-org/flow-ark/actions/runs/41593646225) |
+| [flow-ark-client #402](https://github.com/zhongmiao-org/flow-ark-client/pull/402) | e9d27364a6c3e8d840034190381ebc9cffe2693a | [41593836287](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41593836287) |
+| [flow-ark-templates #64](https://github.com/zhongmiao-org/flow-ark-templates/pull/64) | cacdde24435e70f02ab8d95bee286709eb44755f | [41593851648](https://github.com/zhongmiao-org/flow-ark-templates/actions/runs/41593851648) |
+
+上述三个 CI 的 Validate、Auto Merge 及独立删除步骤均成功；日志分别输出对应准确 head 的 `Deleted merged source branch`，随后 `git ls-remote --exit-code --heads` 均以无引用的状态 2 结束，没有以手工删除替代。显式调度的三次 main 校验 `41593680633`、`41593971583`、`41593945694` 也均成功，head 与各自实际合并 SHA 一致。opened/labeled 触发的旧运行取消或跳过单独保留，不计作成功。
+
+本地治理链接、仓库边界和契约摘要检查、双语 Changelog 守卫、`git diff --check`、`bash -n` 和 actionlint 1.7.12 通过；真实已合并 PR 配置错误 expected head 的只读命令在删除前以状态 1 拒绝。未新增或运行单元测试。公共 API、契约、产品 UI、业务数据和现有发布流程没有变化。
