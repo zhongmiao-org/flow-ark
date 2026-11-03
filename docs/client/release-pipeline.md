@@ -59,3 +59,12 @@ Windows/Linux 本批只新增打包交付；macOS 限定窗口能力及 Windows 
 - [恢复发布](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41591131996) 的 Metadata、Publish 成功；四平台重新打包按明确恢复输入跳过，复用上述正式运行的原始附件。已公开 [v0.3.0](https://github.com/zhongmiao-org/flow-ark-client/releases/tag/v0.3.0)，共 8 个安装/压缩包与 4 份 SHA-256 文件，12 个上传摘要均逐项核对，Latest 为 v0.3.0。
 - 再次手动运行 [幂等核验](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41591380583) 成功：只执行 Metadata，打包与 Publish 均跳过；重跑前后 published_at、附件 ID/digest/updated_at 完全相同。
 - 准确 tag commit、来源、控制版本、workflow 运行及 12 个附件摘要保存在[首版机器回执](release-v0.3.0.json)。这是发布 CI 与产物交付完成，不是签名、公证、目标系统完整运行或跨平台业务验收通过。
+
+## 2026-11-03 Node 24 Actions 升级
+
+用户要求消除 Actions 内部 Node 20 弃用警告。构建 Node 已是 24，警告来自 Action 自身的 runs.using；本批不通过强制运行环境变量掩盖旧声明。
+
+- checkout 7.0.1、setup-node 7.1.0、upload-artifact 7.0.2、download-artifact 8.0.2、pnpm/action-setup 6.1.0 的正式发布提交均已读取 action.yml，确认使用 node24；继续固定完整 SHA。治理 CI 的 checkout 同步升级。
+- 客户端构建 Node 从 24.3.0 更新为官方当前 24 LTS 补丁 24.22.2；pnpm 保持 10.14.0、锁文件和应用版本不变。README 更新推荐开发版本，package.json 的最低 Node 24.3.0 兼容声明保持。
+- 附件继续使用 ZIP archive、原名称/覆盖/保留天数与下载合并规则，不重写现有 v0.3.0 tag、Release 或附件。
+- 验证按 actionlint、格式、类型/构建及准确 head 的 GitHub 检查；不新增或运行单元测试，实际结果在本节后补充。
