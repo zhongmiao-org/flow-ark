@@ -18,7 +18,9 @@
 
 本地 0.3.1 再以零旧业务数据库、流程、Run、提醒、模板和 Skill 登记的独立工作区，在普通 UI 导入最终 rc.6，并重新完成自己的基础条件、PDF、原确认 Skill 复用、模型/目录绑定、当前真实账号来源确认和结果选择、安全索引核对及公开主入口恢复。5 次运行于 15:56–15:59 完成，原九会话汇总仍为历史确认 1、跳过 8、剩余 0，无新招呼/成员；新工作区效果 0，原 556 条效果、9157 个缓存 JSON、15 个 Skill 文件逐字节不变。十项动作恢复禁止，正常退出/重开后资源和权限保持。仅复用本人已加密 Key 与本人刚完成登录的浏览器会话，未将新 Key 录入或再次扫码计作通过。
 
-本地验收完成后才提交模板 [#65](https://github.com/zhongmiao-org/flow-ark-templates/pull/65) 并恢复正式 [Release 41600424172](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41600424172)。模板 PR 暂保持 Draft，待正式 0.3.1 公开并核对下载产物后再就绪；发布与模板最终合并状态另补，不以 Draft、tag 或本地包冒充公开下载。
+本地验收完成后才提交模板 [#65](https://github.com/zhongmiao-org/flow-ark-templates/pull/65) 并恢复正式 [Release 41600424172](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41600424172)。四平台与 Publish 全部成功，[v0.3.1](https://github.com/zhongmiao-org/flow-ark-client/releases/tag/v0.3.1) 已于 `2026-11-03T08:17:54Z` 公开为 Latest，12 个附件与四份下载清单摘要一致。实际下载 macOS arm64 DMG，SHA256 `f79278a2421f9eebebacb4f7adff3a12e4676540f1ef6819a1b494e9e7fe84c9`；352 个程序/契约文件与已验收本地包逐字节相同。Finder 安装正式下载包后，版本为 0.3.1，ASAR `8a1a49ae2ec2349ee0dae964effc864d5941b6f9b372afe4e2273a18f2ad7573`；普通 UI 重开保留资源、5 次完成记录和十项禁止权限，无自动新运行，已完成的账号提醒正常标为已读、待处理 0。正式源、构建和摘要见[机器回执](../client/release-v0.3.1.json)。
+
+正式下载核验后模板 #65 转就绪，经准确 head `cf0199f51eba8c742ada68631dedeaf231e115b5` 的 Validate/Auto Merge 绿色检查自动合并 `83a7b9208a01af9a152a127b127680ae1f2fb33c`，当前目录公开最终单个 rc.6 ZIP、同字节 README 和引用原图。没有手改导出包，也没有将私人资料、Key、Skill、账号或历史账本放入仓库。
 
 新一轮达到上限的首次自动切换、首次上传至发送的全自动分支、联系方式及其他平台实际招聘仍未通过。本节更新当前限定交付，下文旧版本及当时“未完成”描述保留为历史，不作为当前状态。
 

@@ -1,6 +1,6 @@
 # 客户端多平台发布与 Changelog 看门狗
 
-2026-11-03 用户授权新增发布 CI。当前应用版本为 0.3.0；首次沿用该版本，后续递增。安装包生成不代表跨平台功能、签名、公证或真实招聘验收完成。
+2026-11-03 用户授权新增发布 CI。首次应用版本为 0.3.0；后续递增，当前已发布 0.3.1。安装包生成不代表跨平台功能、签名、公证或真实招聘验收完成。
 
 ## 流程与边界
 
@@ -75,3 +75,13 @@ Windows/Linux 本批只新增打包交付；macOS 限定窗口能力及 Windows 
 - [客户端 CI](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41592289378) 与[治理 CI](https://github.com/zhongmiao-org/flow-ark/actions/runs/41592115524) 均通过；完整新日志中 Node 20 弃用警告数量为 0，客户端日志确认 Node v24.22.2。
 - 新运行时下的 [Release 只读核验](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41592761583) 成功，打包/Publish 均跳过；v0.3.0 的发布时间及 12 附件 ID、digest、updated_at 与升级前逐项一致。本批没有重新打包或发布 v0.3.0，附件 Actions 已核验正式提交的 node24 声明与输入兼容，未据此新增平台业务验收结论。
 - 原 embedded-page.ts 未提交改动摘要仍为 `7b9f35a78b1a85450a2ad4dcac489ed7141156872db15eeac1b3806d85eae59d`，未纳入上述 PR；无单元测试、真实 AI 或业务外发。
+
+## 2026-11-03 0.3.1 本地先行交付
+
+版本 [#403](https://github.com/zhongmiao-org/flow-ark-client/pull/403) 的准确候选通过四平台、类型/构建、双语看门狗和正常重跑的 Auto Merge，合并/tag 为 `8d1b331afa44455e8b8c8669d4841f9206798c8a`。本次包含已保存个人 Skill 的普通 UI 核对复用；0.3.0 正式源不含该入口，BOSS rc.6 明确要求客户端最低 0.3.1。
+
+用户随后要求先本地打包验证，再上传剩余 PR 并发布。原正式运行在公开前取消，Draft 和 tag 保留。准确版本源码本地类型检查、macOS arm64 DMG/ZIP 打包通过，Finder 安装后在零旧业务记录工作区完成普通模板导入、本人配置、原 Skill 复用、PDF/账号/安全索引核对和公开主入口恢复，5 次运行完成；重开保留全部资源与十项禁止权限。本人已有加密 Key 和已登录会话保留，无新模型、上传或消息；不是全新 Key 录入或付费蒸馏验收。
+
+本地验收后才提交最终模板 PR 并恢复 [Release 41600424172](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41600424172)。四平台和 Publish 全部成功，[v0.3.1](https://github.com/zhongmiao-org/flow-ark-client/releases/tag/v0.3.1) 于 `2026-11-03T08:17:54Z` 公开为 Latest，共 12 附件。实际下载四份校验清单并与 GitHub 的 12 项上传 digest 核对；下载 macOS arm64 DMG 的 SHA256 为 `f79278a2421f9eebebacb4f7adff3a12e4676540f1ef6819a1b494e9e7fe84c9`，与清单一致。352 个程序/契约文件与已验收本地包逐字节相同；正式 DMG 经 Finder 安装后，ASAR 为 `8a1a49ae2ec2349ee0dae964effc864d5941b6f9b372afe4e2273a18f2ad7573`，普通 UI 重开仍有 5 次完成记录、固定 Skill/账号来源/模型/目录及十项禁止权限，没有自动新运行。
+
+[本次机器回执](release-v0.3.1.json)只含公开来源、产物摘要和限定核验统计，不含本人资料或本机路径。完整业务范围见 [BOSS 当前交付](../templates/boss-single-job-loop.md)；签名/公证、其他平台业务与新一轮首次自动切换/上传继续单独验收。
