@@ -1,0 +1,142 @@
+{
+  "version": "0.3.1",
+  "release_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/tag/v0.3.1",
+  "tag": "v0.3.1",
+  "tag_object": "4042f3134b1cd2bb275990fcace7c83ce1846ed2",
+  "tag_commit": "8d1b331afa44455e8b8c8669d4841f9206798c8a",
+  "candidate_head": "db953417765898f366438642820df1261ccdea61",
+  "release_control_commit": "8d1b331afa44455e8b8c8669d4841f9206798c8a",
+  "workflows": {
+    "prepare": 41594547294,
+    "candidate": 41594587259,
+    "cancelled_before_local_acceptance": 41596660265,
+    "formal_publish_after_local_acceptance": 41600424172
+  },
+  "formal_packages_result": "all_four_success",
+  "publish_result": "success",
+  "published_at": "2026-11-03T08:17:54Z",
+  "latest_at_verification": "v0.3.1",
+  "draft": false,
+  "assets": [
+    {
+      "id": 704851847,
+      "name": "FlowArk-0.3.1-linux-x64-SHA256SUMS.txt",
+      "size": 193,
+      "digest": "sha256:858dbd5c03354ad33d7831cee4e4e6d473f73f5e606a84cbbf85012afa5779b2",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-linux-x64-SHA256SUMS.txt",
+      "updated_at": "2026-11-03T08:17:23Z"
+    },
+    {
+      "id": 704851845,
+      "name": "FlowArk-0.3.1-linux-x64.AppImage",
+      "size": 289740543,
+      "digest": "sha256:a3cccf5088b456185c3b9ff737bca33824da390cf264a85ef52bac784bf28ec2",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-linux-x64.AppImage",
+      "updated_at": "2026-11-03T08:17:37Z"
+    },
+    {
+      "id": 704851846,
+      "name": "FlowArk-0.3.1-linux-x64.deb",
+      "size": 228624292,
+      "digest": "sha256:4bd6bf162d6dbb327a01c847878f62460efa6a83cbc86197c60e2039594722f7",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-linux-x64.deb",
+      "updated_at": "2026-11-03T08:17:37Z"
+    },
+    {
+      "id": 704851848,
+      "name": "FlowArk-0.3.1-macos-arm64-SHA256SUMS.txt",
+      "size": 192,
+      "digest": "sha256:210ac877d5d4cec6af58c57c5d86afb4bdc31c354843e74a3578cfd62cfbfd97",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-macos-arm64-SHA256SUMS.txt",
+      "updated_at": "2026-11-03T08:17:23Z"
+    },
+    {
+      "id": 704851851,
+      "name": "FlowArk-0.3.1-macos-arm64.dmg",
+      "size": 325314239,
+      "digest": "sha256:f79278a2421f9eebebacb4f7adff3a12e4676540f1ef6819a1b494e9e7fe84c9",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-macos-arm64.dmg",
+      "updated_at": "2026-11-03T08:17:38Z"
+    },
+    {
+      "id": 704851875,
+      "name": "FlowArk-0.3.1-macos-arm64.zip",
+      "size": 279639961,
+      "digest": "sha256:e9433141b08e1abac8724a3e819bdbf7695e5345859132566179250b1114b995",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-macos-arm64.zip",
+      "updated_at": "2026-11-03T08:17:37Z"
+    },
+    {
+      "id": 704851877,
+      "name": "FlowArk-0.3.1-macos-x64-SHA256SUMS.txt",
+      "size": 188,
+      "digest": "sha256:a3f8d0b0c64d50147c789ba72b5e65b6a63c8effdd499852c58d4751ca18a4a3",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-macos-x64-SHA256SUMS.txt",
+      "updated_at": "2026-11-03T08:17:24Z"
+    },
+    {
+      "id": 704851896,
+      "name": "FlowArk-0.3.1-macos-x64.dmg",
+      "size": 332169255,
+      "digest": "sha256:39933ae368aa31f46a6471f3e0b783fe9d539f3fad82855389d9991e958572f9",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-macos-x64.dmg",
+      "updated_at": "2026-11-03T08:17:36Z"
+    },
+    {
+      "id": 704852456,
+      "name": "FlowArk-0.3.1-macos-x64.zip",
+      "size": 285234628,
+      "digest": "sha256:238fd9a8c7c697bbc7b44b2067da34552093470c98ba84a00bbe3229898570ae",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-macos-x64.zip",
+      "updated_at": "2026-11-03T08:17:52Z"
+    },
+    {
+      "id": 704852475,
+      "name": "FlowArk-0.3.1-windows-x64-SHA256SUMS.txt",
+      "size": 192,
+      "digest": "sha256:220c9f2a4c697890d37a5ef1a6283d96a2c74348f8235fddfc54f391f5626778",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-windows-x64-SHA256SUMS.txt",
+      "updated_at": "2026-11-03T08:17:37Z"
+    },
+    {
+      "id": 704852483,
+      "name": "FlowArk-0.3.1-windows-x64.exe",
+      "size": 225986478,
+      "digest": "sha256:3a918704a346de045c01c9b311768027b28e91c7d29b4fbebf7e5515cd7ac945",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-windows-x64.exe",
+      "updated_at": "2026-11-03T08:17:45Z"
+    },
+    {
+      "id": 704852492,
+      "name": "FlowArk-0.3.1-windows-x64.zip",
+      "size": 299037139,
+      "digest": "sha256:c312759868328f433e6790027103de683c57fac822bfcba2b1a17379796e9b54",
+      "browser_download_url": "https://github.com/zhongmiao-org/flow-ark-client/releases/download/v0.3.1/FlowArk-0.3.1-windows-x64.zip",
+      "updated_at": "2026-11-03T08:17:48Z"
+    }
+  ],
+  "local_acceptance": {
+    "source_commit": "8d1b331afa44455e8b8c8669d4841f9206798c8a",
+    "macos_arm64_dmg_sha256": "325a274748fae203ef96996fe099f5fbedb171a5f1612878d6103555ecef83ab",
+    "template": "boss-job-search@0.2.67-rc.6",
+    "old_business_records": 0,
+    "ordinary_ui_completed_runs": 5,
+    "new_effects": 0,
+    "new_api_calls": 0,
+    "original_effects_unchanged": 556,
+    "original_cache_json_unchanged": 9157,
+    "original_skill_files_unchanged": 15,
+    "all_ten_actions_deny": true,
+    "protected_key_and_login_reused": true
+  },
+  "official_download_acceptance": {
+    "platform": "macos-arm64",
+    "dmg_sha256": "f79278a2421f9eebebacb4f7adff3a12e4676540f1ef6819a1b494e9e7fe84c9",
+    "asar_sha256": "8a1a49ae2ec2349ee0dae964effc864d5941b6f9b372afe4e2273a18f2ad7573",
+    "same_runtime_and_contract_files_as_local": 352,
+    "all_four_checksum_manifests_match_uploaded_digests": true,
+    "native_finder_install_and_ui_reopen": true,
+    "five_completed_runs_and_resource_bindings_preserved": true
+  },
+  "acceptance_boundary": "macOS Apple Silicon first-use setup with existing confirmed Skill, own protected Key/login, existing safety index and original nine-conversation restoration; no new outreach/API. Fresh Key entry, paid distillation, new-day first quota transition, fully automatic first upload-to-send, signing/notarization and other-platform business remain separate."
+}
