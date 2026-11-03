@@ -67,4 +67,11 @@ Windows/Linux 本批只新增打包交付；macOS 限定窗口能力及 Windows 
 - checkout 7.0.1、setup-node 7.1.0、upload-artifact 7.0.2、download-artifact 8.0.2、pnpm/action-setup 6.1.0 的正式发布提交均已读取 action.yml，确认使用 node24；继续固定完整 SHA。治理 CI 的 checkout 同步升级。
 - 客户端构建 Node 从 24.3.0 更新为官方当前 24 LTS 补丁 24.22.2；pnpm 保持 10.14.0、锁文件和应用版本不变。README 更新推荐开发版本，package.json 的最低 Node 24.3.0 兼容声明保持。
 - 附件继续使用 ZIP archive、原名称/覆盖/保留天数与下载合并规则，不重写现有 v0.3.0 tag、Release 或附件。
-- 验证按 actionlint、格式、类型/构建及准确 head 的 GitHub 检查；不新增或运行单元测试，实际结果在本节后补充。
+- 验证按 actionlint、格式、类型/构建及准确 head 的 GitHub 检查；不新增或运行单元测试，实际结果见下方交付证据。
+
+升级交付证据：治理 [#1146](https://github.com/zhongmiao-org/flow-ark/pull/1146) 正常 CI 合并 `c3f059bb44e95643ca34a0afa0f7013c5707f69a`；客户端 [#401](https://github.com/zhongmiao-org/flow-ark-client/pull/401) 正常 CI 合并 `2fbf5dbff726150168fc6c6c05cc59e8f3281d20`。
+
+- 本机校验官方 Node 24.22.2 安装包 SHA-256 后，以该二进制实际执行类型检查和构建通过；actionlint、Prettier、Changelog 看门狗及 diff 检查通过。
+- [客户端 CI](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41592289378) 与[治理 CI](https://github.com/zhongmiao-org/flow-ark/actions/runs/41592115524) 均通过；完整新日志中 Node 20 弃用警告数量为 0，客户端日志确认 Node v24.22.2。
+- 新运行时下的 [Release 只读核验](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/41592761583) 成功，打包/Publish 均跳过；v0.3.0 的发布时间及 12 附件 ID、digest、updated_at 与升级前逐项一致。本批没有重新打包或发布 v0.3.0，附件 Actions 已核验正式提交的 node24 声明与输入兼容，未据此新增平台业务验收结论。
+- 原 embedded-page.ts 未提交改动摘要仍为 `7b9f35a78b1a85450a2ad4dcac489ed7141156872db15eeac1b3806d85eae59d`，未纳入上述 PR；无单元测试、真实 AI 或业务外发。
