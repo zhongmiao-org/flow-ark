@@ -1,6 +1,6 @@
 # FlowArk 远程分支清理与合并后自动删除
 
-2026-11-03（Asia/Shanghai），按本人确认的范围，仅处理 `zhongmiao-org/flow-ark`、`flow-ark-client` 和 `flow-ark-templates`。使用 GitHub 仓库原生设置，不修改现有 CI 合并守卫、squash 方法、发布调度、仓库保护或可见性。
+2026-11-03（Asia/Shanghai），按本人确认的范围，仅处理 `zhongmiao-org/flow-ark`、`flow-ark-client` 和 `flow-ark-templates`。开启 GitHub 仓库原生设置，并在实跑发现原生设置未删除 CI 合并分支后补充显式清理；保留现有合并守卫、squash 方法、发布调度、仓库保护及可见性。
 
 ## 清理规则与恢复
 
@@ -32,8 +32,12 @@
 
 ## 自动删除设置与验证边界
 
-三个仓库原来的 `delete_branch_on_merge` 均为 `false`；现已分别设置并通过仓库 API 读回为 `true`。GitHub 在 PR 合并后自动删除源分支，现有 Auto Merge 使用的 API squash 合并沿用这一设置；分支保护与仓库规则仍可能阻止删除，不绕过规则。[GitHub 官方说明](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches)
+三个仓库原来的 `delete_branch_on_merge` 均为 `false`；现已分别设置并通过仓库 API 读回为 `true`。这是 GitHub 提供的合并后自动删除开关；分支保护与仓库规则仍可能阻止删除，不绕过规则。[GitHub 官方说明](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches)
 
-本次真实自动删除验证使用承载本文和 AGENTS.md 规则的治理 PR：核对准确 head 的 Validate、Auto Merge、实际合并 SHA 与远程源分支消失，交付证据保存于本机 `delivery.json` 并随交付回复报告。客户端和模板仓库本次只核验设置与历史清理结果，不将其写成已经完成新的 PR 自动删除实跑。
+治理 [#1147](https://github.com/zhongmiao-org/flow-ark/pull/1147) 的准确 head 为 `7dd0ac54c58189995198c9b97151f141978776fb`，[CI 41592746735](https://github.com/zhongmiao-org/flow-ark/actions/runs/41592746735) 的 Validate、Auto Merge 均成功，实际合并 `d29f17414eaf057f49252dd3420970273aec56b0`；但合并后多次读取仍可见源分支。因此只确认开关生效，不将该次标记为自动删除通过，也不据此猜测 GitHub 内部原因。
 
-文档检查使用现有 `python3 .github/check-governance.py` 和 `git diff --check`；不新增或运行单元测试。公共 API、契约、产品 UI、业务数据和现有发布流程没有变化。
+三套现有 Auto Merge 随后补充独立的显式清理步骤，位于成功合并及原有 main/发布工作流调度之后：核对 PR 已合并、同仓库、原分支名及准确 head；排除默认分支、受保护分支和其他开放 PR 的 head/base。通过无 checkout 的临时空 bare 仓库与 GitHub 现有令牌执行带准确 SHA lease 的删除，再读取远程引用核对。原生已删或并发删除视为完成；新提交、分支重建、保护或权限拒绝均保留，不重试删除或重放合并。清理不需要新增令牌，也不读取产品工作区。
+
+三仓库分别用承载清理步骤的 PR 验证真实 CI 合并和源分支删除；准确 head、合并 SHA、CI 作业及远程引用证据保存于本机 `delivery.json` 并随交付回复报告。未通过的分层检查如实保留，不用设置读回或手工删除冒充 CI 自动删除成功。
+
+文档检查使用现有 `python3 .github/check-governance.py` 和 `git diff --check`，清理 shell 核对语法并分别执行现有 CI 验证；不新增或运行单元测试。公共 API、契约、产品 UI、业务数据和现有发布流程没有变化。
