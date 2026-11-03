@@ -80,7 +80,7 @@
 
 ### D. 现有界面与通用能力收口
 
-- [ ] 新增客户端多平台发布 CI、双语 Changelog 看门狗及首版 0.3.0 发布链路；macOS 双架构、Windows/Linux x64 打包不代表平台功能验收。[发布流程](docs/client/release-pipeline.md)
+- [x] 客户端多平台发布 CI、双语 Changelog 看门狗及首版 0.3.0 发布链路；候选与正式四平台打包、12 附件摘要、Latest 及公开后幂等核验通过，平台功能/签名公证仍独立验收。[发布流程](docs/client/release-pipeline.md)
 
 - [ ] 完成现有 186 画板对应的完整视觉、交互、保存返回及真实对象核对，不将共享组件或局部走查算整板完成。[逐板索引](docs/client/design-board-coverage.md)
 - [ ] 收口现有非 MCP 主路径的 U01–U06、U09–U12；U07 中 MCP 连接/工具部分暂缓，U08 的 AI 配置与原任务返回继续完成。[设计与验收](docs/client/design-ai-task.md)
