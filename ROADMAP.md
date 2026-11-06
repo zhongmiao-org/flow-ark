@@ -36,6 +36,8 @@
 
 ## 4. 当前必须完成的 Checklist
 
+- [ ] 任务按实例聚合、开发调试分类与Monaco工程文件/诊断/区块联动收口，保留底层历史；[本批计划](docs/client/task-project-experience.md)。
+
 ### A0. 缓存与待办管理（优先于后续 BOSS 验收）
 
 - [x] 现有 Figma 补齐缓存扫描、清理确认、部分失败、待办多选及回收站的明暗状态。[设计与边界](docs/client/cache-attention-management.md)
