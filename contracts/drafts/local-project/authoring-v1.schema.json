@@ -93,8 +93,7 @@
           "id",
           "name",
           "kind",
-          "access",
-          "required"
+          "access"
         ],
         "additionalProperties": false
       }
@@ -217,12 +216,7 @@
         "required": [
           "id",
           "name",
-          "parameters",
-          "inputSchema",
-          "resultSchema",
           "capabilities",
-          "resourceIds",
-          "actionIds",
           "steps"
         ],
         "additionalProperties": false
@@ -231,12 +225,6 @@
   },
   "required": [
     "summary",
-    "constants",
-    "defaults",
-    "configurationSchema",
-    "stateSchema",
-    "resources",
-    "actions",
     "entries"
   ],
   "additionalProperties": false

@@ -41,3 +41,14 @@ Excel仅前十列映射及保存核验，飞书和微信各一次已批准消息
 - 静态实测：虚构desktop.notReal返回TS2339及准确入口/区块/行列，原工程未写；修正后valid=true，修改规划摘要复用原脚本并组装通过，scriptsExecuted=false。
 - 待核对：连续同错原生UI、安装候选、两种AI闭环和三个业务场景。
 - 关联：[本地工程](local-project-development.md)、[macOS桌面验收](macos-desktop-automation.md)、[工具契约](../../contracts/drafts/local-project/README.md)。
+
+## 2026-11-06 安装候选与交付记录
+
+治理PR [#1166](https://github.com/zhongmiao-org/flow-ark/pull/1166)已通过最新Validate/Auto Merge并squash合并 `a84237ca02f4d7ff9fa4e8912724b6da1d16b473`，远端源分支已核对删除。客户端 [#407](https://github.com/zhongmiao-org/flow-ark-client/pull/407) head `e9a7317`，最新Validate与Changelog通过，保留draft/automerge，业务门槛未通过不转正式合并。
+
+- macOS arm64签名/严格校验/打包通过，安装仍为唯一 `/Users/mac/Applications/FlowArk.app`，安装与包内asar字节相同。
+- 安装版CLI已实际调用随包TypeScript编译器、标准库和Node类型，合法工程valid=true；修复了builder默认排除d.ts导致的标准库遗漏，并在打包门禁启动编译器核对，打包前强制类型检查。
+- 外部Codex Agent经安装版stdio MCP读取内置Skill，规划、触发SDK诊断、局部修复、组装、ZIP及复导通过；复导修订 `1ab15c949cee2c46a3c4ba036a45c036fedcee0dda769ecf63d55e1e3cbc71cf` 与原工程一致。示例ZIP5359字节，不含.flowark私人草稿/绑定。无Computer Use参与源码生成；此证据不包括真实Run。
+- 规划工具JSON Schema采用Zod输入模式，默认字段允许省略且仍由解析器严格补全，避免直接调用与MCP入口要求不一致。实际必填summary/entries；并非放宽未知字段或格式检查。
+- 原生运行时发现系统SecurityAgent等待本人处理，宿主尚未启动；只读数据库统计local-project=4、flow=96，20项Key/Skill/防重文件摘要不变。电脑控制工具明确禁止操作com.apple.SecurityAgent，已通知本人在系统窗口核对并允许钥匙串访问，不索取密码、不绕过系统保护。
+- 未通过：宿主Run、内置AI完整闭环、三次同错原生展示，以及Excel保存/飞书/微信业务。没有新增网页写入或消息发送，没有创建标签或Release。
