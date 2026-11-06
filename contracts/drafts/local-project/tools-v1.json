@@ -1,0 +1,468 @@
+{
+  "version": 1,
+  "status": "draft-unreleased",
+  "tools": [
+    {
+      "name": "flowark_project_init",
+      "description": "Create a new source project with Mermaid, bindings, schemas, constants/defaults and README. Destination must be new; never overwrites.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "destination",
+          "id",
+          "name"
+        ],
+        "properties": {
+          "destination": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,99}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_node_schema",
+      "description": "Read the actual installed node schema. Select a node type before generating code; do not guess fields.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "maxLength": 100
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_help",
+      "description": "Read installed project format, configuration rules and available actions before writing a project.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    },
+    {
+      "name": "flowark_project_open",
+      "description": "Read declared files, revisions and entries of a local project. Does not execute scripts.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_read",
+      "description": "Read one declared public file from a fixed project revision.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "path",
+          "revision"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_validate",
+      "description": "Compile Mermaid bindings, scripts, schemas and complete package without executing project scripts. Returns exact diagnostics.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_configuration",
+      "description": "Resolve and validate configuration layers. Selecting a profile explicitly enables that project root env. Never reads system env.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "object"
+          },
+          "overrides": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_from_zip",
+      "description": "Convert one exact standard ZIP into a new local source project. Never reads private instances or overwrites an existing directory.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "zip",
+          "destination"
+        ],
+        "properties": {
+          "zip": {
+            "type": "string"
+          },
+          "destination": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_package",
+      "description": "Build a fixed project revision and write a new complete ZIP. Refuses existing output files. Does not run the workflow.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "destination",
+          "revision"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "destination": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_write",
+      "description": "Apply a checked batch of public source changes at the exact revision. Conflicts never overwrite external edits; incomplete writes block compilation until recovery.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "revision",
+          "changes"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "changes": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 100,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "content"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_runtime_configure",
+      "description": "Propose instance configuration, input values and resource/grant bindings. Exact instance revision required. Native user review is mandatory; protected resources remain host-validated. Only instance values persist. Use profile/overrides/input on preview/run for a single immutable development snapshot.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "revision"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "configuration": {
+            "type": "object"
+          },
+          "resources": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "browserId": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "model": {
+                  "type": "string"
+                },
+                "skill": {
+                  "type": "object"
+                },
+                "source": {
+                  "type": "object"
+                },
+                "result": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "grants": {
+            "type": "object",
+            "additionalProperties": {
+              "enum": [
+                "deny",
+                "confirm",
+                "auto"
+              ]
+            }
+          },
+          "inputs": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_runtime_history",
+      "description": "List the latest 100 run identities belonging to this paired project, without executing or replaying anything.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_runtime_prepare",
+      "description": "Build the fixed revision and create or reuse a desktop debugging instance; never starts a run.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "revision"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string"
+          },
+          "isolate": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_runtime_instance",
+      "description": "Read this paired project debugging instance only.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_runtime_preview",
+      "description": "Read the exact normal runtime review. Does not execute.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "entryId"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "entryId": {
+            "type": "string"
+          },
+          "debug": {
+            "type": "boolean"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "overrides": {
+            "type": "object"
+          },
+          "input": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_runtime_run",
+      "description": "Request execution through the normal host. The user must approve the desktop review dialog; tool calls cannot self-approve.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "entryId",
+          "requestId"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "entryId": {
+            "type": "string"
+          },
+          "debug": {
+            "type": "boolean"
+          },
+          "profile": {
+            "type": "string"
+          },
+          "overrides": {
+            "type": "object"
+          },
+          "input": {
+            "type": "object"
+          },
+          "requestId": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9-]{36}$"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_runtime_status",
+      "description": "Read an existing run owned by this project.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "runId"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "runId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_runtime_control",
+      "description": "Pause, resume, step or cancel an owned run. Never creates a replacement run.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "runId",
+          "action"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "runId": {
+            "type": "string"
+          },
+          "action": {
+            "enum": [
+              "pause",
+              "resume",
+              "step",
+              "cancel"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

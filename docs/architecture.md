@@ -712,3 +712,10 @@ Python、OCR 后续扩展，P1 有限桌面操作通过能力适配器增加；�
 - [JSON Schema 2020-12](https://json-schema.org/draft/2020-12)、[OpenAPI 3.1.1](https://spec.openapis.org/oas/v3.1.1.html)。
 
 2026-09-18 内置面板实现补充：主窗口拥有网站 WebContentsView，后台截图在 macOS 新建最小化页面缺少绘制表面时，将同一个视图短暂移入始终隐藏且无 preload 的绘制宿主。完成或取消后销毁绘制宿主，不新开网站、刷新页面、抢焦点或改变宿主租约。正常交互始终位于主窗口右侧。截图为当前网页视口；进程丢失使正在等待人工的 Run 停止并建立待办。
+
+
+### 2026-11-05 本地工程与作者通道
+
+本地源工程以Mermaid稳定区块ID、JS/TS、公开常量/默认配置及Schema为制作来源。区块UI、安装包CLI/本机stdio MCP和内置AI共用工程修订、静态编译与标准ZIP打包器；运行仍进入既有宿主、正常核对、资源权限、效果预留与回执，不增加独立开发执行引擎。普通安装包不依赖开发源码或外部Node安装。当前本机连接仅macOS验证，不扩张远程设备或第三方MCP自动发现。
+
+本机开发profile/env/显式覆盖只固定到本次Run，私人实例/绑定/凭据/历史与公开工程分离；Worker使用必要环境变量集合。源码为可信代码，不称安全沙箱。MCP不能批准核对或调用任意内部IPC；作者工具返回安装版本的规范、SDK、资源、提示词和诊断。详细契约与准确通过范围见[本地工程开发](client/local-project-development.md)及[未发布工程v1](../contracts/drafts/local-project/README.md)。
