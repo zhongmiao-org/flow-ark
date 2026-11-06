@@ -1,3 +1,5 @@
+2026-11-06 AI工程补充：执行[AI流程开发章程](client/ai-development-charter.md)，Skill提供方法、MCP提供工具、编译器与宿主强制校验；源码/静态/安装/AI与业务证据分别登记。
+
 2026-11-06 当前实施补充：按本人批准的[macOS通用桌面计划](client/macos-desktop-automation.md)，扩展TextEdit示例为明确窗口的辅助功能/视觉观察和鼠标键盘动作，AI、工程、CLI/MCP复用正式宿主。Chrome表格、飞书、微信分别实站验收；下文“不承诺任意App”仍有效，不将三例扩展为全应用保证。当前未通过业务验收。
 
 # FlowArk 总体架构
