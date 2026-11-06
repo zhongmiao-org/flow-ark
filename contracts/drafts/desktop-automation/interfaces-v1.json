@@ -117,6 +117,25 @@
         "properties": {
           "operation": {
             "type": "string",
+            "const": "readSelection"
+          },
+          "observationId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "operation",
+          "observationId"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
             "const": "decide"
           },
           "observationId": {
@@ -183,6 +202,10 @@
           "operation": {
             "type": "string",
             "const": "act"
+          },
+          "effectId": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
           },
           "observationId": {
             "type": "string",
@@ -272,7 +295,10 @@
                 "properties": {
                   "kind": {
                     "type": "string",
-                    "const": "input"
+                    "enum": [
+                      "input",
+                      "paste"
+                    ]
                   },
                   "text": {
                     "type": "string",
@@ -444,6 +470,7 @@
         },
         "required": [
           "operation",
+          "effectId",
           "observationId",
           "effectKey",
           "command"
@@ -531,7 +558,10 @@
         "properties": {
           "kind": {
             "type": "string",
-            "const": "input"
+            "enum": [
+              "input",
+              "paste"
+            ]
           },
           "text": {
             "type": "string",
@@ -699,5 +729,257 @@
         "additionalProperties": false
       }
     ]
+  },
+  "discovery": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "number",
+        "const": 1
+      },
+      "accessibility": {
+        "type": "string",
+        "enum": [
+          "granted",
+          "not-granted"
+        ]
+      },
+      "screenRecording": {
+        "type": "boolean"
+      },
+      "applicationPermissions": {
+        "type": "object",
+        "properties": {
+          "accessibility": {
+            "type": "boolean"
+          },
+          "screenRecording": {
+            "type": "string",
+            "maxLength": 30
+          }
+        },
+        "required": [
+          "accessibility",
+          "screenRecording"
+        ],
+        "additionalProperties": false
+      },
+      "windows": {
+        "maxItems": 100,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            },
+            "application": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "bundleId": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 4000
+            },
+            "minimized": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "application",
+            "bundleId",
+            "title",
+            "minimized"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "version",
+      "accessibility",
+      "screenRecording",
+      "windows"
+    ],
+    "additionalProperties": false
+  },
+  "observation": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "version": {
+        "type": "number",
+        "const": 1
+      },
+      "observationId": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+      },
+      "title": {
+        "type": "string",
+        "maxLength": 4000
+      },
+      "application": {
+        "type": "string",
+        "maxLength": 1024
+      },
+      "bounds": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 20000
+          },
+          "height": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 20000
+          }
+        },
+        "required": [
+          "x",
+          "y",
+          "width",
+          "height"
+        ],
+        "additionalProperties": false
+      },
+      "elements": {
+        "maxItems": 800,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^\\d{1,4}$"
+            },
+            "role": {
+              "type": "string",
+              "maxLength": 4000
+            },
+            "subrole": {
+              "type": "string",
+              "maxLength": 4000
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 4000
+            },
+            "description": {
+              "type": "string",
+              "maxLength": 4000
+            },
+            "value": {
+              "type": "string",
+              "maxLength": 4000
+            },
+            "depth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 20
+            },
+            "bounds": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "width": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 20000
+                },
+                "height": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 20000
+                }
+              },
+              "required": [
+                "x",
+                "y",
+                "width",
+                "height"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "id",
+            "role",
+            "subrole",
+            "title",
+            "description",
+            "value",
+            "depth"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "truncated": {
+        "type": "boolean"
+      },
+      "image": {
+        "type": "object",
+        "properties": {
+          "mimeType": {
+            "type": "string",
+            "const": "image/png"
+          },
+          "data": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8388608
+          },
+          "width": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 4096
+          },
+          "height": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 4096
+          }
+        },
+        "required": [
+          "mimeType",
+          "data",
+          "width",
+          "height"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "version",
+      "observationId",
+      "title",
+      "application",
+      "bounds",
+      "elements",
+      "truncated"
+    ],
+    "additionalProperties": false
   }
 }

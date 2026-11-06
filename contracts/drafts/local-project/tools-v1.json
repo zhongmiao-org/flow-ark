@@ -3,6 +3,406 @@
   "status": "draft-unreleased",
   "tools": [
     {
+      "name": "flowark_authoring_plan",
+      "description": "Validate and save a private workflow plan before coding. Node steps use installed project node schemas; script steps declare purpose/language/input but no code. Resources/actions are typed and deny by default. Returns draftId/draftRevision. No public files or actions are executed.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "revision",
+          "plan"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "previousDraftId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "plan": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "constants": {
+                "default": {},
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "defaults": {
+                "default": {},
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "configurationSchema": {
+                "default": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": false
+                },
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "stateSchema": {
+                "default": {
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": false
+                },
+                "type": "object",
+                "propertyNames": {
+                  "type": "string"
+                },
+                "additionalProperties": {}
+              },
+              "resources": {
+                "default": [],
+                "maxItems": 50,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "file",
+                        "directory",
+                        "browser",
+                        "ai",
+                        "skill",
+                        "conversation-source",
+                        "run-result"
+                      ]
+                    },
+                    "access": {
+                      "type": "string",
+                      "enum": [
+                        "read",
+                        "write",
+                        "readwrite",
+                        "use"
+                      ]
+                    },
+                    "required": {
+                      "default": true,
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "kind",
+                    "access",
+                    "required"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "actions": {
+                "default": [],
+                "maxItems": 50,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "description"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "entries": {
+                "minItems": 1,
+                "maxItems": 20,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    },
+                    "parameters": {
+                      "default": {},
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {}
+                    },
+                    "inputSchema": {
+                      "default": {
+                        "type": "object",
+                        "properties": {},
+                        "additionalProperties": false
+                      },
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {}
+                    },
+                    "resultSchema": {
+                      "default": {
+                        "type": "object"
+                      },
+                      "type": "object",
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "additionalProperties": {}
+                    },
+                    "capabilities": {
+                      "maxItems": 100,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "maxLength": 100
+                      }
+                    },
+                    "resourceIds": {
+                      "default": [],
+                      "maxItems": 50,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                      }
+                    },
+                    "actionIds": {
+                      "default": [],
+                      "maxItems": 50,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                      }
+                    },
+                    "steps": {
+                      "minItems": 1,
+                      "maxItems": 200,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string"
+                        },
+                        "additionalProperties": {}
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "parameters",
+                    "inputSchema",
+                    "resultSchema",
+                    "capabilities",
+                    "resourceIds",
+                    "actionIds",
+                    "steps"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "summary",
+              "constants",
+              "defaults",
+              "configurationSchema",
+              "stateSchema",
+              "resources",
+              "actions",
+              "entries"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_authoring_get",
+      "description": "Read a saved plan, exact draft revision and code readiness. Supply entryId and nodeId to read one stored script. No model or runtime calls.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "draftId"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "draftId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "entryId": {
+            "type": "string"
+          },
+          "nodeId": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_authoring_code",
+      "description": "Stage one complete default-exported JS/TS module for one planned script node at exact draft revision. Syntax checks only; does not execute. Invalid code returns precise diagnostics and leaves previous source intact. Reuse the returned draftRevision for the next node.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "draftId",
+          "draftRevision",
+          "entryId",
+          "nodeId",
+          "source"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "draftId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "draftRevision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "entryId": {
+            "type": "string"
+          },
+          "nodeId": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 262144
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_authoring_assemble",
+      "description": "Only after all planned scripts are ready: deterministically emit Mermaid, bindings, script paths, schemas and publicFiles, then compile and atomically update the original project revision. Never executes or grants actions. Conflicts preserve both source and private draft.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "draftId",
+          "draftRevision"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "draftId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "draftRevision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_node_schema",
+      "description": "Read source planning node schemas and source-specific recipes. Use this for authoring_plan. Script nodes declare purpose, never inline code. Conditional/loop children are planning nodes; the assembler emits Mermaid. Runtime node schema is a separate advanced tool.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "types"
+        ],
+        "properties": {
+          "types": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10,
+            "items": {
+              "type": "string",
+              "maxLength": 100
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_project_context",
+      "description": "Read public project text files and installed SDK in one bounded request. No model call, no code execution, no private bindings. Use this instead of reading every file separately.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
       "name": "flowark_project_init",
       "description": "Create a new source project with Mermaid, bindings, schemas, constants/defaults and README. Destination must be new; never overwrites.",
       "inputSchema": {
