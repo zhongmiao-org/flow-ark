@@ -1,0 +1,703 @@
+{
+  "version": 1,
+  "status": "draft-unreleased",
+  "ipc": {
+    "desktop.automation.list": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": false
+    },
+    "desktop.automation.state": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "scopeId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "scopeId"
+      ],
+      "additionalProperties": false
+    },
+    "desktop.automation.bind": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "scopeId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "windowId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+        },
+        "screenshotAllowed": {
+          "type": "boolean"
+        },
+        "actionsAllowed": {
+          "type": "boolean"
+        },
+        "maxRequests": {
+          "default": 20,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "durationMs": {
+          "default": 600000,
+          "type": "integer",
+          "minimum": 10000,
+          "maximum": 3600000
+        },
+        "reviewedCost": {
+          "type": "boolean",
+          "const": true
+        },
+        "reviewed": {
+          "type": "boolean",
+          "const": true
+        }
+      },
+      "required": [
+        "scopeId",
+        "windowId",
+        "screenshotAllowed",
+        "actionsAllowed",
+        "maxRequests",
+        "durationMs",
+        "reviewedCost",
+        "reviewed"
+      ],
+      "additionalProperties": false
+    },
+    "desktop.automation.release": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "scopeId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "scopeId"
+      ],
+      "additionalProperties": false
+    },
+    "desktop.automation.settings": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "permission": {
+          "type": "string",
+          "enum": [
+            "accessibility",
+            "screen-recording"
+          ]
+        }
+      },
+      "required": [
+        "permission"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "sdk": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "oneOf": [
+      {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "const": "decide"
+          },
+          "observationId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "instructions": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12000
+          },
+          "input": {
+            "default": {},
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          },
+          "schema": {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          },
+          "useScreenshot": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "operation",
+          "observationId",
+          "instructions",
+          "input",
+          "schema",
+          "useScreenshot"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "const": "observe"
+          },
+          "screenshot": {
+            "default": false,
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "operation",
+          "screenshot"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "const": "act"
+          },
+          "observationId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "effectKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "command": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "activate"
+                  }
+                },
+                "required": [
+                  "kind"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "click",
+                      "doubleClick"
+                    ]
+                  },
+                  "elementId": {
+                    "type": "string",
+                    "pattern": "^\\d{1,4}$"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "elementId"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "click",
+                      "doubleClick"
+                    ]
+                  },
+                  "point": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20000
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "kind",
+                  "point"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "input"
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 20000
+                  }
+                },
+                "required": [
+                  "kind",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "key"
+                  },
+                  "key": {
+                    "type": "string",
+                    "enum": [
+                      "a",
+                      "s",
+                      "c",
+                      "v",
+                      "x",
+                      "z",
+                      "f",
+                      "Return",
+                      "Tab",
+                      "Escape",
+                      "Backspace",
+                      "Space",
+                      "Left",
+                      "Right",
+                      "Down",
+                      "Up",
+                      "Home",
+                      "End"
+                    ]
+                  },
+                  "modifiers": {
+                    "default": [],
+                    "maxItems": 4,
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "command",
+                        "shift",
+                        "option",
+                        "control"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "kind",
+                  "key",
+                  "modifiers"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "scroll"
+                  },
+                  "point": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20000
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "deltaX": {
+                    "type": "integer",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  },
+                  "deltaY": {
+                    "type": "integer",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  }
+                },
+                "required": [
+                  "kind",
+                  "point",
+                  "deltaX",
+                  "deltaY"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "drag"
+                  },
+                  "from": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20000
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "to": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20000
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 20000
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "kind",
+                  "from",
+                  "to"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": [
+          "operation",
+          "observationId",
+          "effectKey",
+          "command"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  },
+  "command": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "anyOf": [
+      {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "activate"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "click",
+              "doubleClick"
+            ]
+          },
+          "elementId": {
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          }
+        },
+        "required": [
+          "kind",
+          "elementId"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "click",
+              "doubleClick"
+            ]
+          },
+          "point": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20000
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20000
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "kind",
+          "point"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "input"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000
+          }
+        },
+        "required": [
+          "kind",
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "key"
+          },
+          "key": {
+            "type": "string",
+            "enum": [
+              "a",
+              "s",
+              "c",
+              "v",
+              "x",
+              "z",
+              "f",
+              "Return",
+              "Tab",
+              "Escape",
+              "Backspace",
+              "Space",
+              "Left",
+              "Right",
+              "Down",
+              "Up",
+              "Home",
+              "End"
+            ]
+          },
+          "modifiers": {
+            "default": [],
+            "maxItems": 4,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "command",
+                "shift",
+                "option",
+                "control"
+              ]
+            }
+          }
+        },
+        "required": [
+          "kind",
+          "key",
+          "modifiers"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "scroll"
+          },
+          "point": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20000
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20000
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ],
+            "additionalProperties": false
+          },
+          "deltaX": {
+            "type": "integer",
+            "minimum": -1000,
+            "maximum": 1000
+          },
+          "deltaY": {
+            "type": "integer",
+            "minimum": -1000,
+            "maximum": 1000
+          }
+        },
+        "required": [
+          "kind",
+          "point",
+          "deltaX",
+          "deltaY"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "drag"
+          },
+          "from": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20000
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20000
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ],
+            "additionalProperties": false
+          },
+          "to": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20000
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 20000
+              }
+            },
+            "required": [
+              "x",
+              "y"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "kind",
+          "from",
+          "to"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  }
+}
