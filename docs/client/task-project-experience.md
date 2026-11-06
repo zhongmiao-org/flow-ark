@@ -52,3 +52,15 @@ Figma先行状态：任务聚合1223:11639/11829、开发调试1223:12019/12209�
 本人要求普通列表只保留正式BOSS和个人蒸馏。独立手工流程也新增可选usage（task/development）及相同分类按钮，默认task；flow.usage接口包含id、预期usage（可空）和目标usage，事务CAS只更新展示元数据。绑定模板的底层入口拒绝此接口，须按所属实例分类；流程保存保留usage，历史版本、运行快照、参数、权限、时间及防重不因分类改变。未知归属仍在需检查视图保留，不自动迁移或删除。
 
 既有Figma任务/开发分类状态沿用，分类按钮适用于实例卡片及手工独立卡片。仅为完成用户明确的副本归类补齐通用能力；本机通过普通UI迁移已确认试验副本，正式BOSS由六项绑定及原完成回执核准，个人蒸馏保持。治理/客户端分别PR，最新macOS候选正常安装，不创建Release。
+
+### 分类整理及日常安装完成
+
+治理#1163压缩合并`c41701f772916745cee024b51cd924551b2c742b`；客户端[#406](https://github.com/zhongmiao-org/flow-ark-client/pull/406)源`3d9d94de0d04923518597381013b8dca578ffdfa`、压缩合并`bcfebd3407da04010e797296f780b02466c7a8af`，[当前提交CI成功](https://github.com/zhongmiao-org/flow-ark-client/actions/runs/42177298184)。独立分类接口只改usage，执行版本计算不包含usage；原Run及快照没有更新。
+
+本人授权的正式工作区整理通过普通UI完成：保留BOSS实例`41c6a696-942e-43c7-90db-505bf0212aa5`（完整六项资源及本轮真实完成回执）和原个人蒸馏，共2项普通任务；旧rc.18/19/20等候选、空白复导、Excel/TS调试及独立编排副本共10项移入开发与调试。原BOSS历史Run`7ffb406b-6f4e-4e67-b26c-294208a41100`从聚合卡片仍可准确打开；没有新增Run、BOSS外发或模型调用。15份业务缓存、2份凭据文件、3份确认Skill文件摘要前后保持，既有待办与历史不删除。正常退出后保留最小加密数据库快照，不复制大型回滚目录。
+
+从本次DMG替换安装日常`/Users/mac/Applications/FlowArk.app`，安装app.asar与镜像SHA256一致`b093518bc911616ff66a80e0e6b046548d2f7df0292da5ef14ee811529e6f152`。最新候选在`~/FlowArk/交付/20261106-classification-install`，含DMG/ZIP、原样BOSS rc.21、README/清单与摘要。
+
+- DMG SHA256 `7ba8c15cca5bc071ab41097481ed9b20edbf4748fda25ed2720232468cd7c124`。
+- 客户端ZIP SHA256 `ddd5f0f9fa5fa3cd9f1fd54fcb6f5dc0ff584437ae6f5f93addb4c94c3aeec97`。
+- 类型、构建、changelog、差异检查及macOS原生分类/安装通过；不新增或运行单元测试，不创建tag或Release。候选仍是0.3.1开发版本，由本人验收后准备新版本手动发布。
