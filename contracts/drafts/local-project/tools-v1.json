@@ -120,8 +120,7 @@
                     "id",
                     "name",
                     "kind",
-                    "access",
-                    "required"
+                    "access"
                   ],
                   "additionalProperties": false
                 }
@@ -244,12 +243,7 @@
                   "required": [
                     "id",
                     "name",
-                    "parameters",
-                    "inputSchema",
-                    "resultSchema",
                     "capabilities",
-                    "resourceIds",
-                    "actionIds",
                     "steps"
                   ],
                   "additionalProperties": false
@@ -258,12 +252,6 @@
             },
             "required": [
               "summary",
-              "constants",
-              "defaults",
-              "configurationSchema",
-              "stateSchema",
-              "resources",
-              "actions",
               "entries"
             ],
             "additionalProperties": false
@@ -300,7 +288,7 @@
     },
     {
       "name": "flowark_authoring_code",
-      "description": "Stage one complete default-exported JS/TS module for one planned script node at exact draft revision. Syntax checks only; does not execute. Invalid code returns precise diagnostics and leaves previous source intact. Reuse the returned draftRevision for the next node.",
+      "description": "Stage one complete default-exported JS/TS module for one planned script node at exact draft revision. Checks syntax, installed SDK types and default export function shape; does not execute. Invalid code returns precise diagnostics and leaves previous source intact. Reuse the returned draftRevision for the next node.",
       "inputSchema": {
         "type": "object",
         "additionalProperties": false,
