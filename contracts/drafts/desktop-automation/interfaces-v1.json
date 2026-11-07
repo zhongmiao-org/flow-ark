@@ -981,5 +981,360 @@
       "truncated"
     ],
     "additionalProperties": false
+  },
+  "responses": {
+    "observation": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "number",
+          "const": 1
+        },
+        "observationId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "application": {
+          "type": "string",
+          "maxLength": 1024
+        },
+        "bounds": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "width": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 20000
+            },
+            "height": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 20000
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        },
+        "elements": {
+          "maxItems": 800,
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^\\d{1,4}$"
+              },
+              "role": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "subrole": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "title": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "description": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "value": {
+                "type": "string",
+                "maxLength": 4000
+              },
+              "depth": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 20
+              },
+              "bounds": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  },
+                  "width": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 20000
+                  },
+                  "height": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 20000
+                  }
+                },
+                "required": [
+                  "x",
+                  "y",
+                  "width",
+                  "height"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "role",
+              "subrole",
+              "title",
+              "description",
+              "value",
+              "depth"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "image": {
+          "type": "object",
+          "properties": {
+            "mimeType": {
+              "type": "string",
+              "const": "image/png"
+            },
+            "data": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 8388608
+            },
+            "width": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 4096
+            },
+            "height": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 4096
+            }
+          },
+          "required": [
+            "mimeType",
+            "data",
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "version",
+        "observationId",
+        "title",
+        "application",
+        "bounds",
+        "elements",
+        "truncated"
+      ],
+      "additionalProperties": false
+    },
+    "actionReceipt": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "performed",
+            "not-executed",
+            "unknown"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "actionId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+        },
+        "previous": {
+          "type": "object",
+          "properties": {
+            "runId": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "performed",
+                "not-executed",
+                "unknown"
+              ]
+            },
+            "actionId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "runId",
+            "status",
+            "actionId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "selection": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "number",
+          "const": 1
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 262144
+        },
+        "source": {
+          "type": "string",
+          "const": "bound-window-selection"
+        }
+      },
+      "required": [
+        "version",
+        "text",
+        "source"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "effectSdk": {
+    "prepareInput": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "review": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {}
+        }
+      },
+      "required": [
+        "action",
+        "key"
+      ],
+      "additionalProperties": false
+    },
+    "prepareResult": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "instanceId": {
+          "type": "string"
+        },
+        "runId": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "submitting",
+            "confirmed",
+            "failed",
+            "unknown"
+          ]
+        },
+        "time": {
+          "type": "string"
+        },
+        "execute": {
+          "type": "boolean"
+        },
+        "evidence": {}
+      },
+      "required": [
+        "id",
+        "instanceId",
+        "runId",
+        "action",
+        "key",
+        "state",
+        "time",
+        "execute"
+      ],
+      "additionalProperties": false
+    },
+    "resolveInput": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "failed",
+            "unknown"
+          ]
+        },
+        "evidence": {}
+      },
+      "required": [
+        "id",
+        "state"
+      ],
+      "additionalProperties": false
+    },
+    "resolveResult": {
+      "type": "boolean"
+    }
   }
 }
