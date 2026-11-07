@@ -21,3 +21,5 @@ Mermaid限定flowchart TD/TB/LR。节点声明ID["名称"]，同层next连线构
 内置 `flowark-project-author` Skill 随客户端发布，通过 MCP resource/prompt 与内置 AI 共用；规划结构见 `authoring-v1.schema.json`。Skill 提供编写方法，不授予资源或外发权限。草稿仅在 `.flowark/authoring`，全部脚本就绪并通过正式编译后才原子写入公开工程。CLI 对应 `plan`、`draft`、`code`、`assemble`、`node-schema`。当前为未发布源码候选，静态通过不代表内置 AI 或实际业务验收通过。
 
 2026-11-07 人工协作：project.ai.review以taskId、reviewStamp、所选区块和操作确认准确草稿。generate仅允许选定节点，assemble调用原本地组装器且不调用模型；普通聊天不构成方案确认。对话中的Mermaid仅展示，不自动写入或执行。现有工具与手工工程接口保持，业务运行与外发另行确认。
+
+2026-11-07：工程AI开始/续接/方案确认不再接受次数、累计时限或费用勾选字段；使用者显式提交即请求本轮讨论或已确认节点生成。真实usage去重累计，失败与缺失用量分别登记。修复先确认，执行另行点击。
