@@ -582,6 +582,10 @@
         "reviewedCost": {
           "type": "boolean",
           "const": true
+        },
+        "reviewedPaidRetry": {
+          "type": "boolean",
+          "default": false
         }
       },
       "required": [
@@ -682,7 +686,8 @@
         "operation": {
           "enum": [
             "generate",
-            "assemble"
+            "assemble",
+            "pause"
           ]
         },
         "nodes": {
