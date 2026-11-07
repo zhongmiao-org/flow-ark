@@ -19,3 +19,5 @@ Mermaid限定flowchart TD/TB/LR。节点声明ID["名称"]，同层next连线构
 工程核对为Main管理的单个短期请求，Renderer仅可获取当前核对及按ID/完整正文摘要响应；配对MCP不得调用核对批准接口。完整正文在有界可滚动窗口呈现，不在超长系统提示框中截断。默认取消、60秒超时、关闭应用或宿主退出均不批准；确认后仍由原RunReview再次复验来源及权限。
 
 内置 `flowark-project-author` Skill 随客户端发布，通过 MCP resource/prompt 与内置 AI 共用；规划结构见 `authoring-v1.schema.json`。Skill 提供编写方法，不授予资源或外发权限。草稿仅在 `.flowark/authoring`，全部脚本就绪并通过正式编译后才原子写入公开工程。CLI 对应 `plan`、`draft`、`code`、`assemble`、`node-schema`。当前为未发布源码候选，静态通过不代表内置 AI 或实际业务验收通过。
+
+2026-11-07 人工协作：project.ai.review以taskId、reviewStamp、所选区块和操作确认准确草稿。generate仅允许选定节点，assemble调用原本地组装器且不调用模型；普通聊天不构成方案确认。对话中的Mermaid仅展示，不自动写入或执行。现有工具与手工工程接口保持，业务运行与外发另行确认。
