@@ -43,21 +43,11 @@
         "actionsAllowed": {
           "type": "boolean"
         },
-        "maxRequests": {
-          "default": 20,
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 100
-        },
         "durationMs": {
-          "default": 600000,
+          "default": 3600000,
           "type": "integer",
           "minimum": 10000,
           "maximum": 3600000
-        },
-        "reviewedCost": {
-          "type": "boolean",
-          "const": true
         },
         "reviewed": {
           "type": "boolean",
@@ -69,9 +59,7 @@
         "windowId",
         "screenshotAllowed",
         "actionsAllowed",
-        "maxRequests",
         "durationMs",
-        "reviewedCost",
         "reviewed"
       ],
       "additionalProperties": false

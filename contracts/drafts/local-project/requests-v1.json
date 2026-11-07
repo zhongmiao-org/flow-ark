@@ -521,30 +521,11 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 12000
-        },
-        "maxRequests": {
-          "default": 20,
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 100
-        },
-        "durationMs": {
-          "default": 600000,
-          "type": "integer",
-          "minimum": 10000,
-          "maximum": 3600000
-        },
-        "reviewedCost": {
-          "type": "boolean",
-          "const": true
         }
       },
       "required": [
         "id",
-        "task",
-        "maxRequests",
-        "durationMs",
-        "reviewedCost"
+        "task"
       ],
       "additionalProperties": false
     },
@@ -566,35 +547,12 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 12000
-        },
-        "maxRequests": {
-          "default": 20,
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 100
-        },
-        "durationMs": {
-          "default": 600000,
-          "type": "integer",
-          "minimum": 10000,
-          "maximum": 3600000
-        },
-        "reviewedCost": {
-          "type": "boolean",
-          "const": true
-        },
-        "reviewedPaidRetry": {
-          "type": "boolean",
-          "default": false
         }
       },
       "required": [
         "id",
         "taskId",
-        "answer",
-        "maxRequests",
-        "durationMs",
-        "reviewedCost"
+        "answer"
       ],
       "additionalProperties": false
     },
@@ -699,52 +657,51 @@
           },
           "maxItems": 100,
           "default": []
-        },
-        "maxRequests": {
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 100,
-          "default": 20
-        },
-        "durationMs": {
-          "type": "integer",
-          "minimum": 10000,
-          "maximum": 3600000,
-          "default": 600000
-        },
-        "reviewedCost": {
-          "type": "boolean"
         }
       },
       "required": [
         "id",
         "taskId",
         "reviewStamp",
-        "operation",
-        "reviewedCost"
+        "operation"
       ],
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "operation": {
-                "const": "generate"
-              }
-            },
-            "required": [
-              "operation"
-            ]
-          },
-          "then": {
-            "properties": {
-              "reviewedCost": {
-                "const": true
-              }
-            }
-          }
+      "additionalProperties": false
+    },
+    "project.ai.chooseWorkbook": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
         }
-      ]
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "project.ai.runEvidence": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "runId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "required": [
+        "id",
+        "runId"
+      ],
+      "additionalProperties": false
     }
   }
 }
