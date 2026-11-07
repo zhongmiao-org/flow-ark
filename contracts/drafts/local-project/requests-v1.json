@@ -708,7 +708,7 @@
           "default": 600000
         },
         "reviewedCost": {
-          "const": true
+          "type": "boolean"
         }
       },
       "required": [
@@ -718,7 +718,28 @@
         "operation",
         "reviewedCost"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "generate"
+              }
+            },
+            "required": [
+              "operation"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reviewedCost": {
+                "const": true
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }
