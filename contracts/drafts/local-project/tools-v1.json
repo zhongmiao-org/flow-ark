@@ -364,6 +364,80 @@
       }
     },
     {
+      "name": "flowark_authoring_code_patch",
+      "description": "Repair an existing approved script with exact text edits. Read authoring_get source/sourceSha256 first. Requires exact draft revision and source hash, unique nonoverlapping oldText matches, replaces less than half the source, and preserves every other byte. Existing syntax/SDK checks run before staging. Never executes.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "draftId",
+          "draftRevision",
+          "entryId",
+          "nodeId",
+          "patch"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "draftId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "draftRevision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "entryId": {
+            "type": "string"
+          },
+          "nodeId": {
+            "type": "string"
+          },
+          "patch": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "baseSourceSha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "edits": {
+                "minItems": 1,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "oldText": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 8192
+                    },
+                    "newText": {
+                      "type": "string",
+                      "maxLength": 8192
+                    }
+                  },
+                  "required": [
+                    "oldText",
+                    "newText"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "baseSourceSha256",
+              "edits"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
       "name": "flowark_authoring_code",
       "description": "Stage one complete default-exported JS/TS module for one planned script node at exact draft revision. Checks syntax, installed SDK types and default export function shape; does not execute. Invalid code returns precise diagnostics and leaves previous source intact. Reuse the returned draftRevision for the next node.",
       "inputSchema": {
