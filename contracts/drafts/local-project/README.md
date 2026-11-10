@@ -27,3 +27,5 @@ Mermaid限定flowchart TD/TB/LR。节点声明ID["名称"]，同层next连线构
 2026-11-09：start/resume可选intent=analyze|plan；省略保持规划模式。analyze由宿主限制为只读工具，即使带自定义问题也不增加写入权限。get可返回本工程最近失败及未读待办的recovery摘要；显式选定的历史证据保持独立。status在内置AI中只返回运行/节点/动作状态与脱敏错误，不返回完整业务输出。已批准节点内的语法、SDK及参数诊断允许AI局部自修，不能扩大规划或操作范围；业务方案变更和执行继续独立核对。没有创建新契约版本或发布标签。
 
 2026-11-10：project_context可返回currentAuthoring，仅从所选工程的私有草稿中选取assembledRevision与当前公开修订完全一致的候选；authoringLookup明确扫描范围（最多2000个草稿目录）及是否完整，此范围不是模型请求或持续对话次数上限。接续已有同公开修订的未组装当前草稿时保留其活动身份，旧草稿仍可作参考但不得回退活动状态。authoring_plan引用previousDraftId时须与当前公开基准或已组装修订相符，否则以authoring-stale-base拒绝，不创建新草稿或覆盖旧源码。公开工程不因上下文读取而更改，私人草稿不进入ZIP。
+
+2026-11-10 局部规划：flowark_authoring_revise以公开revision及原draftId/draftRevision双重核对基准，仅接受summary与1–10个已有脚本的entryId/nodeId/purpose。不接收代码、结构、资源、权限或任意JSON Patch；重复/不存在/非脚本目标和过期基准均拒绝。宿主克隆准确原规划，保持其他字段及未变化脚本源码摘要，创建新私有草稿；经正式方案及节点确认后方可生成，组装与Run仍独立核对。结构变更继续使用完整authoring_plan。该工具用于降低局部修改时重发整份规划的格式负担，不自动修补无效模型正文。
