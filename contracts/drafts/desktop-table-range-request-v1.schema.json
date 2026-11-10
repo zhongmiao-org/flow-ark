@@ -108,6 +108,14 @@
           "maxLength": 20000
         }
       }
+    },
+    "selection": {
+      "type": "string",
+      "enum": [
+        "keyboard",
+        "drag"
+      ],
+      "description": "Default keyboard: click anchor then Shift+Down/Right. Drag only for a target explicitly known to select a rectangle."
     }
   }
 }
