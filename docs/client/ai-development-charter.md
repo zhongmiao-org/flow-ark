@@ -190,3 +190,5 @@ Skill1.2.14实际安装后，Pro再试正式规划两次请求，仍因JSON无�
 1.2.17真实续接首批节点，Pro修正表头/超链接和标题等4份补丁，但verifyTarget仍无readSelection，21次请求后同错止损，无Run。发现模型仍选择complete而不修未解职责；原生请求在node-purpose-gap未清除时不再提供complete函数，继续读/补丁/事实补问，宿主原守卫保留。止损/取消/失败在finally恢复节点检查入口，保留原错误文本和准确草稿修订，不要求重启才能继续选择节点；不触发任何自动模型或Run。
 
 同步现有Excel读取实际类型说明给内置开发及作者工具：零下标二维数组、原始单元格类型及text/hyperlink、富文本/公式缓存对象，尾部空列可能缺省；显示值按要求本地取出，不直接String任意对象、不猜数字缺失格式、不因行较短漏掉映射字段。未修改读取运行语义。恢复节点入口保留cancelled/failed等原终态及错误文本，不将取消改称成功。
+
+通用SDK只读矩形范围helper候选：readTableRange使用调用方本Run预留的effectId及稳定子键，逐步重新观察准确绑定应用/标题及尺寸，激活、拖选或单格点击、readSelection，本地严格TSV解析并核对行列、可选全空或完整预期矩阵。不粘贴、不保存、不调用模型、不创建/resolve父effect、不推导字段类型、不授予权限、不自动重试，不访问被工具禁止的网址；失败停止并保留原生回执。坐标为当前绑定窗口局部逻辑点，超界/重定位/尺寸变化先阻止。原始内容只在运行本地返回，不进入诊断。请求/结果草案为contracts/drafts/desktop-table-range-*-v1.schema.json，复用现有desktop-automation-v1/effect权限及宿主RPC，不新增本机或远程工具。
