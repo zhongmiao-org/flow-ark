@@ -1324,5 +1324,75 @@
     "resolveResult": {
       "type": "boolean"
     }
+  },
+  "runDetailExtension": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "desktopAutomationReceipts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "version",
+            "runId",
+            "actionId",
+            "effectId",
+            "at",
+            "status"
+          ],
+          "properties": {
+            "version": {
+              "const": 1
+            },
+            "runId": {
+              "type": "string"
+            },
+            "actionId": {
+              "type": "string"
+            },
+            "effectId": {
+              "type": "string"
+            },
+            "at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "completedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "status": {
+              "enum": [
+                "performed",
+                "not-executed",
+                "unknown"
+              ]
+            },
+            "receipt": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "enum": [
+                    "performed",
+                    "not-executed",
+                    "unknown"
+                  ]
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "additionalProperties": true
   }
 }

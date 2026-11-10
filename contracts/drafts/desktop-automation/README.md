@@ -20,3 +20,5 @@ SDK原生子动作必须关联本Run已有正式template-effect预留凭据effec
 project.ai.start/resume新增可选intent=analyze|plan（省略保持原规划模式）。analyze由宿主只公布只读规范/源码/工程history/status工具，并跳过组装/业务完成判断；模型无法通过措辞绕过阶段限制。get返回的recovery与显式选择的runEvidence分开，含最近检查范围、待办身份与运行摘要；不清除、批准或重放任何记录。
 
 run.detail可返回宿主从固定快照实例引用唯一推导的developmentProject.id，供现有失败页进入原工程AI对话；不存在唯一所属工程时不返回，不依据UI传入路径猜测归属。该引用不授权修改、运行或确认业务结果。
+
+2026-11-10：run.detail的desktopReceipts仅包含文档替换回执，desktopAutomationReceipts包含原生动作记录（runId/actionId/effectId、at/completedAt、performed|not-executed|unknown及原因）。两种回执不能混用，缺少时间不得显示Invalid Date，performed不等于业务成功。内置AI的runtime_instance/preview限定为配置结构、资源ID/授权/绑定状态和准入诊断摘要，不发送资源值、路径、Key、业务输出或隐式批准运行。
