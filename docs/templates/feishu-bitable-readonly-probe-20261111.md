@@ -37,3 +37,15 @@
 第二次隔离 inspection Run `b1acde52-ad94-4062-bdc8-9a435f2edcb9` 同样 SUCCEEDED。主智能体对比两份本地 SDK 产物：应用、窗口 bounds、未截断状态一致，原始标题仅 Chrome 终端内存数值装饰不同。先前人员搜索 Run 在初始精确标题检查停止，未预留 effect、未输入；不能记为输入失败或搜索成功。隔离探针随后仅对 Google Chrome 的这一已证实终端装饰采用精确归一，保留真正页面标题及其余检查，仍待实际输入回执。
 
 正式 Excel 工程新增人员去重待办分支，保留原始来源与既有实例状态，skip 不混入成功 doneUnits。主智能体源码复核后补齐 skip 前保护范围核验，以及保存前完整有效矩阵回读；正式作者 assemble、validate、build 已通过。当前这只是工程静态层证据，未运行新的业务写入或待办分支。
+
+## 正式客户端SDK Run取证（后续）
+
+在独立受控probe实例完成正常目录打开、实例准备、原Chrome绑定、RunReview与逐步控制，不修改正式Excel实例。两次纯SDK inspection成功：e9cf6f2a-7240-4eab-86fd-c37d62000080与b1acde52-ad94-4062-bdc8-9a435f2edcb9。真实SDK证明窗口局部坐标、person提示无bounds而搜索框/有界group有bounds；两次标题仅Chrome终端内存数值装饰不同。随后仅对people作精确装饰比较修复，不删除其他标题内容或放宽应用。
+
+为避免运行中confirm待办切换窗口造成手工弹层失焦，经主智能体明确批准，先取消未step且0node-start的Run bd43e0a7-526b-4c30-a2ed-6d5f5cd3922c，仅probe的search-probe临时auto，保留全部原账本与正式Excel grants。另纠正effect.prepare.review误用任意metadata的问题，未增加human-review-v1；该规范已补通用Skill，客户端另行收紧类型。失败时尚无动作的Run不当作已输入；有过输入后的unknown不重放。
+
+真正people搜索Run e89ba67b-ecae-4d56-b84b-5906d3900e5c：activate/focus/query/select-query四回执performed。源码只有fresh搜索框值准确且当前popup内有bounds的无匹配文本成立，才进入select-query，因此已证实SDK匿名输入、值回读与有界无匹配判断。clear-query回执not-executed，reason=user-intervention:modifier-held，Run FAILED，父effect依原catch保留unknown。不能称完整链路通过。
+
+失败后仅CU只读核对相同匿名query仍在“搜索成员”且无匹配，按既有授权清空该框并Escape，未重新输入query、未选择成员/创建/通知，不把CU补偿清理当SDK清理成功，不把unknown改confirmed。probe grant通过正式确认恢复confirm；其余入口同类错误review参数在封存时正式删除，最终工程revision bf03b45d0e613b5f921f3465ab7892690f5f6211e52d89feec7b75a832888869，未再次Run。匿名化原生回执及清理记录仅留本地，不携真实成员/客户数据进入公共Skill。
+
+随后正式选择原Excel工程最新b7bffee84e0d0a54d392e37765a26b00144ee92f3075d49c95180280f87d5104并请求同实例prepare，安装客户端明确拒绝“配置或状态Schema变化，不识别为旧默认值纠正”。无新实例/Run，无state/grants修改；桌面释放，由主智能体继续兼容重建修复。完整范围回读、SDK清理、真实写入、业务保存及重开防重仍未通过。
