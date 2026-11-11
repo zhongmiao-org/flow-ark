@@ -25,3 +25,11 @@
 后续0.1.2-draft迭代将CU可设值事实与SDK方法分开：SDK使用fresh搜索框点击、Cmd+A、非空input/paste、fresh准确query回读后匹配；清空用Cmd+A/Backspace，不发明setValue或o.url。平台Skill9752bytes，模板校验上限已与客户端统一48KiB；validate/build、独立严格tsc、源/dist cmp均退出0。宿主quick_validate.py因系统Python缺yaml未完成，不记为通过。
 
 本轮仅通过正式作者plan/精确patch/assemble修正现工程writeBatches：输入前人员通知唯一checkbox关闭并fresh读0，最终同fresh观察同时检查query、通知0与唯一已有项；搜索循环也先核对query，避免异步旧列表。缺失/歧义/mixed/不可读停止，其他节点与实例数据不重置。正式公开revision为4adefe39734f178ae6c66a0c0cb4861142c32c65369e5a817e33316392f051f3，安装CLI validate/build各退出0且valid=true。未Run，人员选择尚未验收；原生checkbox值规范暴露由主智能体另行修复，编译不代表已安装或SDK运行通过。
+
+## 正式客户端 SDK 观察回执
+
+随后由子智能体通过普通工程目录选择、正式 prepare、绑定窗口及逐步执行运行隔离 inspection，Run `e9cf6f2a-7240-4eab-86fd-c37d62000080` 为 SUCCEEDED，主智能体独立读取本地 popup-inspection.json。当前 SDK 观察未截断，明确窗口局部坐标；人员弹层身份静态文本没有 bounds，唯一搜索输入框和通知标签有 bounds，有界弹层 group 可以核定。公开记录不包含个人窗口标题、URL、成员或本地布局坐标。
+
+这是正式 SDK 的纯观察成功，尚未执行匿名搜索、选择、填写或保存。它证实不能强制所有身份静态文本有 bounds，也不能把全局坐标填入 SDK。相应隔离工程通过正式作者工具补齐观察入口、effect 能力、首步激活及最新观察后的退出核验，搜索 Run 后续单独记录。
+
+平台规则根据当前本人“人员对应不上走待办并继续下一输入”的要求更新到 0.1.3-draft；该规则是已确认实现目标，不能将本次纯观察成功当作待办及恢复已通过。
