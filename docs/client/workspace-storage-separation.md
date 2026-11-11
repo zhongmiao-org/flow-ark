@@ -29,3 +29,11 @@
 客户端 `pnpm typecheck` 与 `git diff --check` 通过。共享 dist 由主任务统一构建，本子任务没有并发 build、安装或重启；没有新增或运行单元测试、调用 API、修改正式数据库或系统保护设置。真实迁移界面操作、正式资料保全、普通启动不弹钥匙串和最终 Excel 填写/保存/防重仍未验收。
 
 启动保护补充：启用策略目标除文件存在与非符号链接外，还必须经只读 SQLite 校验 `user_version=2`、准确 documents/events 表集合及固定列名、类型、非空、主键和无隐藏列结构，才返回给 Main/entry；零字节、错结构和缺失目标一律拒绝，不进入 Store 初始化或 Vault 回退。普通副本合法新增内容不比较初始指纹。上述虚构 Store 隔离脚本已追加缺失库、零字节库与同名错结构表拒绝且不创建空库，恢复原候选后新增进度重开仍可读；最终 exit 0。
+
+### 安装界面发现的 IPC 漏接（2026-11-11）
+
+主任务在新安装候选的真实维护界面观察到“方法未授权”，尚未迁移或写入正式业务。原因是 Renderer → Preload → Main 链的独立 Preload allowed 白名单漏掉 workspace.storage.status/preview/enable；同轮平台作者 Skill choose/clear 也缺失。此前类型、构建与后端虚构隔离检查未覆盖这层，不能据此宣称维护入口可用。
+
+本次仅补上述五个已在 Main IPC Schema 声明且由真实 Renderer 调用的方法，不加入宿主专用 workspace.maintenance 方法。构建前增加生产静态检查：扫描 Renderer 的实际 api/request/call 常量 endpoint 调用，仅对已在 IPC Schema 注册的方法逐项核对 Preload allowed；构建产物生成前发现漏接即失败。动态拼接及未声明调用不凭扫描自动扩权，另外报告供审核，静态检查不替代真实安装界面验收。
+
+生产命令 `node scripts/check-renderer-ipc.mjs` 在补白名单前对实际源码 exit 1，准确列出上述五项及其 Renderer 文件；仅补五项后 exit 0，核对 197 个已声明的常量 endpoint，没有缺失授权。构建脚本在清理/生成 dist 前调用同一检查。另报告的 checkpoint.confirm/detail/preview 与 context.adopt 来自 ConversationThreadPanel 的局部前缀封装，不凭短名称自动授权；动态 endpoint 拼接不属于此静态覆盖。类型检查及 `git diff --check` 通过，安装后的维护界面仍需重新验收。
