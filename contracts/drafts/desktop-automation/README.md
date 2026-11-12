@@ -5,11 +5,14 @@
 - discovery：权限状态及有限应用窗口元数据，不读取正文。
 - bind：本人明确选择应用/窗口并批准读取及操作范围，返回私人短期bindingId；公开工程不得携带绑定。
 - observe：固定bindingId，返回observationId、控件树、窗口边界和可选PNG；控件引用仅本次观察有效。
+- 2026-11-12 焦点快照增量：observe可附带`focus`，仅含当前非受保护焦点的`role`、`subrole`、可读的窗口局部逻辑`bounds`，以及在本次控件树中唯一匹配时的`elementId`。非前台应用、安全输入及无法读取焦点时省略。不新增焦点正文、选中文字或选区范围；缺失表示当前无法提供可靠焦点，不代表网格模式或未编辑。引用随本次observation失效。焦点快照只能让平台Skill核对已实证的控件模式，不能单凭AX角色推断编辑、提交或TSV多格粘贴语义。
 - act：bindingId、observationId、唯一actionId、固定动作及参数；缺失/过期观察、身份/焦点/几何改变拒绝。动作执行前占唯一桌面租约，副作用先持久化预留；相同actionId不再执行。
 - receipt：not-executed / performed / unknown；performed仅说明原生动作返回，不代表发送/保存成功，业务需独立观察证据。unknown不得重试。
 - release：取消、退出、睡眠/锁屏时销毁原生会话及窗口引用。重开不复用旧绑定，不重放动作。
 
 通用能力不提供任意Shell/AppleScript、内部IPC或系统环境访问；AI只能使用正式工具。Windows明确unsupported。权限、截图/模型信息范围与费用确认独立；预算耗尽暂停保留记录。
+
+焦点字段为未发布v1的可选输出增量，既有命令、权限、effect键、Run和数据格式不迁移。Native与Main校验器须同包更新；不得把新增字段的Native单独接入旧严格响应Schema。依赖焦点模式的脚本须检查安装SDK支持及本次`focus`存在，缺失时停止该操作，不伪造默认焦点。原生动作继续校验内部同一AX引用及完整焦点/值/选区摘要；公开快照不替代或放宽该守卫。窗口观察不是原子页面事务，树与焦点无法唯一关联时省略`elementId`，不得猜测引用。
 
 SDK原生子动作必须关联本Run已有正式template-effect预留凭据effectId；原模板action/entry/grant校验保持，默认deny不因窗口绑定放开。desktop-effect仅为原生子动作回执，performed不能代替业务confirmed。readSelection仅复制所选前台窗口当前选区并回读到本地，保护并恢复剪贴板，不隐式交给模型；复制未确认或焦点/来源变化时停止。坐标为窗口逻辑点，截图像素必须按图像/窗口尺寸换算；人工移动鼠标或按住修饰键拒绝提交。
 

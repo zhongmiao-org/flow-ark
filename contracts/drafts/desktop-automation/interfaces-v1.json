@@ -957,6 +957,56 @@
           "height"
         ],
         "additionalProperties": false
+      },
+      "focus": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "subrole": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "elementId": {
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "bounds": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "width": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 20000
+              },
+              "height": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 20000
+              }
+            },
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "role",
+          "subrole"
+        ],
+        "additionalProperties": false
       }
     },
     "required": [
@@ -1127,6 +1177,56 @@
             "data",
             "width",
             "height"
+          ],
+          "additionalProperties": false
+        },
+        "focus": {
+          "type": "object",
+          "properties": {
+            "role": {
+              "type": "string",
+              "maxLength": 4000
+            },
+            "subrole": {
+              "type": "string",
+              "maxLength": 4000
+            },
+            "elementId": {
+              "type": "string",
+              "pattern": "^\\d{1,4}$"
+            },
+            "bounds": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "width": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 20000
+                },
+                "height": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 20000
+                }
+              },
+              "required": [
+                "x",
+                "y",
+                "width",
+                "height"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "role",
+            "subrole"
           ],
           "additionalProperties": false
         }
