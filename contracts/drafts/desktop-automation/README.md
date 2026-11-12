@@ -33,3 +33,5 @@ project.ai.start/resume新增可选intent=analyze|plan（省略保持原规划�
 run.detail可返回宿主从固定快照实例引用唯一推导的developmentProject.id，供现有失败页进入原工程AI对话；不存在唯一所属工程时不返回，不依据UI传入路径猜测归属。该引用不授权修改、运行或确认业务结果。
 
 2026-11-10：run.detail的desktopReceipts仅包含文档替换回执，desktopAutomationReceipts包含原生动作记录（runId/actionId/effectId、at/completedAt、performed|not-executed|unknown及原因）。两种回执不能混用，缺少时间不得显示Invalid Date，performed不等于业务成功。内置AI的runtime_instance/preview限定为配置结构、资源ID/授权/绑定状态和准入诊断摘要，不发送资源值、路径、Key、业务输出或隐式批准运行。
+
+2026-11-12 输入守卫诊断补充：保持现有指针、修饰键、窗口、焦点、图像及权限守卫和动作消费边界不变。拒绝前置/截图后/投递前输入检查时，reason可附固定阶段名、相对指针差值或Command/Shift/Option/Control名称集合；不输出绝对鼠标位置、键入字符、剪贴板内容、窗口名或凭据。不因诊断推断人为干预，不自动释放修饰键、不重置或忽略输入状态来强行执行。剪贴板无法完整快照、超过现有容量或快照期间变化属于系统前提未满足，不指导AI修改字段映射或绕过回读；明确替换授权另行取得，应用不自动清空、截断或忽略格式。未知历史保留，单次复制/粘贴尚未开始不能外推整个Run未执行。
