@@ -1,3 +1,5 @@
+2026-11-14 本轮专注[对话式拟人RPA](client/human-rpa-conversation.md)：用户批准清空FlowArk专属数据并保留可恢复备份；其他应用/外部资料不变。托管工程与正式宿主复用，`desktop-human-v1`限制网页业务仅通过窗口观察和鼠标键盘；禁飞书API/DOM/页面脚本。开发及验收由本机子agent响应，禁止用户Key，Codex不直接操作浏览器。下文冲突的业务顺序/本轮数据保留规定由本条替代。
+
 2026-11-13 平台 Skill 归属调整：客户端内置平台操作知识并按需求补问/分发；独立模板保留业务流程与映射，替代下文冲突的站点知识全部归模板规定。见 [内置平台 Skill](client/builtin-platform-skills.md)。
 
 2026-11-06 AI工程补充：执行[AI流程开发章程](client/ai-development-charter.md)，Skill提供方法、MCP提供工具、编译器与宿主强制校验；源码/静态/安装/AI与业务证据分别登记。

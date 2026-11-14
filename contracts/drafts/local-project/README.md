@@ -2,6 +2,8 @@
 
 2026-11-05 用户批准本地代码、Mermaid区块绑定、配置、CLI/MCP与内置AI开发通道。工程清单机器格式见project-v1.schema.json，语义与准确阶段见../../../docs/client/local-project-development.md。此目录未发布，当前客户端实现为工作分支，不宣称已采用正式contracts标签。
 
+2026-11-14 拟人模式：工程及作者规划增加可选 `executionMode: desktop-human-v1`，未声明的历史工程保持原规则；声明后通过窗口观察/鼠标键盘执行网页业务，拒绝浏览器/网络/进程能力及外部依赖，编译只暴露所需文件/状态/桌面SDK。`desktop.decide`为正式宿主监督的只读视觉判断，不自行执行动作；本轮开发强制本机子agent与占位凭据，不读用户Key。静态源码准入面向可信脚本，不称安全沙箱。模式随标准ZIP源码清单保留，旧客户端不支持此候选字段时明确拒绝，不静默降级。`project.createManaged {name}`在应用数据区自动建立唯一拟人工程，无路径参数、模型调用或自动运行。用户提交明确的单个本机xlsx路径时只读该文件的多工作表表头/统计/前100行类型格式，不读取相邻文件；歧义路径继续补问。见[本轮计划及证据](../../../docs/client/human-rpa-conversation.md)。
+
 Mermaid限定flowchart TD/TB/LR。节点声明ID["名称"]，同层next连线构成唯一顺序链。condition显式ID__then和ID__else子图，loop显式ID__body子图；非空结构分支通过带then/else/body标签的边连接至该子图首节点。结构节点完成子块后继续本层next，不允许任意跨块边或图环。节点文件仅存节点本身，不存then/else/body，脚本单独引用公开源码。编译结果必须通过既有FlowDefinition、作者定义及标准完整包校验。
 
 常量公开固定；配置defaults/instance/profile/env/overrides顺序合并，输入独立。真实env仅在显式选择profile后读取根目录声明变量。公开清单禁止.flowark及真实env；包默认权限保持deny。脚本读取编译时固定的只读ctx.constants，节点常量引用用单字段$constant对象；不执行JSON或env表达式。JS/TS仍为可信代码，不是安全沙箱。
