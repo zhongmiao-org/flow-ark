@@ -36,3 +36,13 @@ FlowArk已有独立浏览器DOM/framePath/唯一目标、内置原生输入、ma
 在独立localhost虚构页面，用实际生产EmbeddedPage与真实Electron WebContentsView/CDP运行，15项负向均拒绝且对应点击/文本/变化计数0；覆盖原生/ARIA禁用、disabled按钮后代、inert、开放ShadowRoot、slot组合祖先、原生与显式/隐式ARIA只读、悬停/聚焦后变状态、inert父iframe。正常iframe、首个legend例外、纯文本只读光标导航、普通填充/选择/勾选/点击均通过，0012300前导零保持。该验证是驱动集成回归，不是单元测试，也不是客户端AI生成或飞书实站验收。
 
 初次回归覆盖显式role但独立审阅发现遗漏隐式role，以及无效readonly属性/纯光标导航被过度限制；已修并加入真实控件回归。首轮安装包未安装即被后续修订替代，不以第一轮静态通过掩盖遗漏。原生AX实际控件回执和最终候选安装继续分别记录。
+
+## 安装候选与原生实测回执
+
+运行源码30f2f51e8ad2f7601a697cf7655d9250c95435fc已固定签名打包，并在正常退出、完整备份后安装至原路径。安装ASAR SHA256为6d504d8f5b71205f338bc734aabca08ab45e8ed535b3b3538096ce229ebbcccd，签名核验通过，工作区正常显示，本次启动未出现钥匙串提示。既有类型、构建、契约、静态检查与最新提交CI通过；无新增或运行单元测试。
+
+仅操作自行构造的本机AppKit窗口，以公开工程CLI打开正常UI核对、绑定目标及动作授权，不调用模型。禁用入口Run e95266cc-cb45-492a-8fdc-2865ebdff2f6完成：窗口激活performed，唯一禁用按钮elementId点击返回not-executed/target-disabled，未降级坐标。启用入口Run cfd1d1a0-d846-497a-8e9b-a6bb309a65bc在激活阶段返回unknown/activation-phase:foreground-pid-unconfirmed，尚未提交按钮点击，未重放。后续只读AX核对Enabled click count仍3、Disabled click count仍0。
+
+第一次Run前启用计数已为3（非本次FlowArk Run产生，成因未确认），因此工程在任何Run前采用实际基线N与单次点击后N+1，不重置计数或伪造零基线。禁用回归通过；原生启用点击、窗口激活稳定性仍未通过。不能以负向安全停止或DOM成功宣称原生驱动全部可用。原生工程属于外部作者驱动回归，不冒充客户端模型生成。
+
+本批用户API调用0次，原Excel与真实飞书未写入，既有unknown及安全记录保留。PR继续草稿，不创建标签/Release，不合并仍缺真实业务验收的PR。下一步须先复现并修正准确窗口激活问题，再完成正向原生输入；只读结构检查器、AI证据接入与原Excel真实填写/保存/重开防重仍未完成。
