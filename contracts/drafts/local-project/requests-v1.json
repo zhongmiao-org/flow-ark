@@ -521,6 +521,13 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 12000
+        },
+        "intent": {
+          "type": "string",
+          "enum": [
+            "analyze",
+            "plan"
+          ]
         }
       },
       "required": [
@@ -547,6 +554,13 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 12000
+        },
+        "intent": {
+          "type": "string",
+          "enum": [
+            "analyze",
+            "plan"
+          ]
         }
       },
       "required": [

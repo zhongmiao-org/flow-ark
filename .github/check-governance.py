@@ -20,6 +20,8 @@ for manifest in sorted((root / 'contracts').glob('v*/SHA256SUMS')):
         if file.suffix == '.json':
             json.loads(file.read_text())
 for name in tracked:
+    if name.startswith('contracts/drafts/') and name.endswith('.json'):
+        json.loads((root / name).read_text())
     if not name.endswith('.md'):
         continue
     file = root / name
@@ -34,4 +36,4 @@ for name in tracked:
             continue
         target = unquote(target.split('#')[0])
         assert (link_base / target).exists(), f'{name}: missing {target}'
-print('Governance links, repository boundaries and contract checksums passed.')
+print('Governance links, repository boundaries, draft JSON syntax and contract checksums passed.')

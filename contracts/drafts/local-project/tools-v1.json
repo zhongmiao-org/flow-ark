@@ -3,6 +3,83 @@
   "status": "draft-unreleased",
   "tools": [
     {
+      "name": "flowark_authoring_revise",
+      "description": "For a local repair of existing scripts, prefer this over resending the entire plan. Change only summary and selected script purposes. Host preserves all structure, resource/action/schema fields and unaffected source hashes. Requires exact public and draft revisions; creates a private plan for user review, never codes or runs.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "revision",
+          "draftId",
+          "draftRevision",
+          "changes"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "revision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "draftId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "draftRevision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "changes": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4000
+              },
+              "updates": {
+                "minItems": 1,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entryId": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                    },
+                    "nodeId": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                    },
+                    "purpose": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4000
+                    }
+                  },
+                  "required": [
+                    "entryId",
+                    "nodeId",
+                    "purpose"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "summary",
+              "updates"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
       "name": "flowark_authoring_plan",
       "description": "Validate and save a private workflow plan before coding. Node steps use installed project node schemas; script steps declare purpose/language/input but no code. Resources/actions are typed and deny by default. Returns draftId/draftRevision. No public files or actions are executed.",
       "inputSchema": {
@@ -282,6 +359,80 @@
           },
           "nodeId": {
             "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "name": "flowark_authoring_code_patch",
+      "description": "Repair an existing approved script with exact text edits. Read authoring_get source/sourceSha256 first. Requires exact draft revision and source hash, unique nonoverlapping oldText matches, replaces less than half the source, and preserves every other byte. Existing syntax/SDK checks run before staging. Never executes.",
+      "inputSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "root",
+          "draftId",
+          "draftRevision",
+          "entryId",
+          "nodeId",
+          "patch"
+        ],
+        "properties": {
+          "root": {
+            "type": "string"
+          },
+          "draftId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "draftRevision": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "entryId": {
+            "type": "string"
+          },
+          "nodeId": {
+            "type": "string"
+          },
+          "patch": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "properties": {
+              "baseSourceSha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "edits": {
+                "minItems": 1,
+                "maxItems": 10,
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "oldText": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 8192
+                    },
+                    "newText": {
+                      "type": "string",
+                      "maxLength": 8192
+                    }
+                  },
+                  "required": [
+                    "oldText",
+                    "newText"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "baseSourceSha256",
+              "edits"
+            ],
+            "additionalProperties": false
           }
         }
       }
