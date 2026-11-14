@@ -50,3 +50,5 @@ FlowArk已有独立浏览器DOM/framePath/唯一目标、内置原生输入、ma
 ## 2026-11-14 焦点接续修复
 
 助手长期读取NSWorkspace前台应用，Apple说明NSRunningApplication/NSWorkspace变化属性依赖main RunLoop common mode刷新；当前stdin阻塞循环不保证此条件。后续将前台核验统一改为系统辅助功能AXFocusedApplication的即时查询及PID，保留准确AXFocusedWindow、绑定身份、输入前后守卫和1.5秒激活确认期限，不以延长超时或强制激活代替。查询失败仍关闭输入。此为可证实缓存风险的修正，是否解决本机实测需安装正向点击/输入/回读验证，不预先标记通过。
+
+焦点修复源码638f6c6已完成类型/构建/Swift编译/固定签名打包和安装，ASAR为446f8317ff42cc8b5ab7da94d6b96085447fa6acbcab37ae73055f89e7c6e7ae；原凭据文件摘要保持，工作区无钥匙串提示正常载入，最新客户端CI通过。输入诊断改变动作说明，原实例正确拒绝兼容替换，已普通UI确认隔离实例。新Run 3fb80105-5c21-44e5-b443-c7ce03c3ea9f在activate派发之前返回not-executed/user-intervention:pointer-changed;phase=initial;dx=0;dy=6.125，无按钮点击或文本输入；不能据此声称焦点修复已实际通过。已请求确认当前桌面占用，在答复前不继续共用鼠标键盘跑测。fixture在发现时不在运行，重新打开后新进程初始计数0/0，旧进程3/0和Run回执仍完整保留，不将进程重启混写成数据恢复或防重通过。
